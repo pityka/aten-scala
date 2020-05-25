@@ -7,7 +7,7 @@ lazy val jniOsx = project
   .in(file("jni-osx"))
   .settings(commonSettings)
   .settings(
-    name := "aten-jni-osx",
+    name := "aten-scala-jni-osx",
     crossPaths := false,
     autoScalaLibrary := false
   )
@@ -16,7 +16,7 @@ lazy val core = project
   .in(file("core"))
   .settings(commonSettings)
   .settings(
-    name := "aten-scala",
+    name := "aten-scala-core",
     libraryDependencies ++= Seq(
       "com.github.fommil" % "jniloader" % "1.1"
     )

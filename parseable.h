@@ -454,7 +454,7 @@ static inline std::tuple<Tensor,Tensor,Tensor> _nnpack_spatial_convolution_backw
 static inline Tensor _nnpack_spatial_convolution_backward_input(const Tensor & input, const Tensor & grad_output, const Tensor & weight, IntArrayRef padding);
 static inline Tensor _nnpack_spatial_convolution_backward_weight(const Tensor & input, IntArrayRef weightsize, const Tensor & grad_output, IntArrayRef padding);
 // static inline Tensor ones(IntArrayRef size, c10::optional<DimnameList> names, const TensorOptions & options={});
-// static inline Tensor ones(IntArrayRef size, const TensorOptions & options={});
+static inline Tensor ones(IntArrayRef size, const TensorOptions & options={});
 static inline Tensor & ones_out(Tensor & out, IntArrayRef size);
 static inline Tensor ones_like(const Tensor & self, const TensorOptions & options={}, c10::optional<MemoryFormat> memory_format=c10::nullopt);
 static inline Tensor pairwise_distance(const Tensor & x1, const Tensor & x2, double p=2, double eps=1e-06, bool keepdim=false);
