@@ -20,4 +20,14 @@ public class TensorOptions {
 
   public static native TensorOptions dtypeFloat();
   public static native TensorOptions dtypeDouble();
+
+  public static TensorOptions fromScalarType(byte i) {
+    if (i == 6) {
+      return this.dtypeFloat();
+    } else if (i == 7) {
+      return this.dtypeDouble();
+    } else {
+      throw new RuntimeException("unknown scalar type "+i);
+    }
+  }
 }
