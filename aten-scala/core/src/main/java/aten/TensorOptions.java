@@ -23,9 +23,9 @@ public class TensorOptions {
 
   public static TensorOptions fromScalarType(byte i) {
     if (i == 6) {
-      return this.dtypeFloat();
+      return TensorOptions.dtypeFloat();
     } else if (i == 7) {
-      return this.dtypeDouble();
+      return TensorOptions.dtypeDouble();
     } else {
       throw new RuntimeException("unknown scalar type "+i);
     }

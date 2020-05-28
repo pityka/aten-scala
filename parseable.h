@@ -471,7 +471,7 @@ static inline Tensor poisson_nll_loss(const Tensor & input, const Tensor & targe
 static inline Tensor scalar_tensor(Scalar s, const TensorOptions & options={});
 // static inline Tensor rand(IntArrayRef size, c10::optional<DimnameList> names, const TensorOptions & options={});
 // static inline Tensor rand(IntArrayRef size, Generator * generator, c10::optional<DimnameList> names, const TensorOptions & options={});
-// static inline Tensor rand(IntArrayRef size, const TensorOptions & options={});
+static inline Tensor rand(IntArrayRef size, const TensorOptions & options={});
 // static inline Tensor rand(IntArrayRef size, Generator * generator, const TensorOptions & options={});
 static inline Tensor & rand_out(Tensor & out, IntArrayRef size);
 static inline Tensor & rand_out(Tensor & out, IntArrayRef size, Generator * generator);
