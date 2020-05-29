@@ -7,3 +7,4 @@ hs_err*
 wrapper.cpp
 aten-scala/core/src/main/java/aten/ATen.java
 aten-scala/jni-osx/src/main/resources/libatenscalajni.dylib
+aten-scala/jni-linux/src/main/resources/libatenscalajni.so

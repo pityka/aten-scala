@@ -12,6 +12,15 @@ lazy val jniOsx = project
     autoScalaLibrary := false
   )
 
+  lazy val jniLinux = project
+  .in(file("jni-linux"))
+  .settings(commonSettings)
+  .settings(
+    name := "aten-scala-jni-linux",
+    crossPaths := false,
+    autoScalaLibrary := false
+  )
+
 lazy val core = project
   .in(file("core"))
   .settings(commonSettings)
@@ -22,6 +31,7 @@ lazy val core = project
     )
   )
   .dependsOn(jniOsx)
+  .dependsOn(jniLinux)
 
 lazy val root = project
   .in(file("."))

@@ -36,8 +36,8 @@ object Test extends App {
   val tensor4 = ATen.eye_1(4, 4, TensorOptions.dtypeFloat)
   tensor4.print
 
+  assert(tensor1.useCount == 1)
   tensor1.release()
-  assert(!tensor1.defined)
 
   println(ATen.eig(tensor4, false));
   assert(tensor4.copyFromFloatArray(Array.ofDim[Float](16)))

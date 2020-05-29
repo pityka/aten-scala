@@ -12,7 +12,14 @@ The Makefile will generate Java and C++ sources and create a jni native library.
 `aten-scala/` holds an sbt project with two subprojects. `aten-scala/core` is the Java counterpart of the bnding. It depends on Scala because `std::tuple` is translated into Scala tuples.  `aten-scala/jni-osx` contains no source code but its Maven artifact contains the native library.
 
 # How to use
-See `aten-scala/test/`.
+- libtorch needs to be installed
+- See `aten-scala/test/`.
+
+# Libtorch dependency
+Libtorch is linked dynamically. On OSX you can `brew install libtorch`. 
+
+On linux you have to install torch with pip then add the relevant folders to the ld search path. 
+See the `Dockerfile`s on how to do this on Fedora.
 
 
 
