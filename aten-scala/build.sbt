@@ -38,7 +38,7 @@ lazy val root = project
   .settings(
     publishArtifact := false
   )
-  .aggregate(jniOsx, core)
+  .aggregate(jniOsx, jniLinux, core)
 
 lazy val test = project
   .in(file("test"))
