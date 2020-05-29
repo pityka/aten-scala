@@ -30,3 +30,4 @@ all: test
 clean:
 	rm -rf wrapper.cpp;
 	rm -rf aten-scala/jni-osx/src/main/resources/libatenscalajni.dylib
+	rm -rf aten-scala/jni-linux/src/main/resources/libatenscalajni.so
