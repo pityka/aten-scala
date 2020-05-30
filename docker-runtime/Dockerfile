@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM nvidia/cuda:10.2-cudnn7-runtime
 RUN apt-get update 
 RUN apt-get install -y python3 python3-pip
 RUN pip3 install torch==1.5
