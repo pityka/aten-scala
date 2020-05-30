@@ -1,6 +1,10 @@
 val commonSettings = Seq(
   scalaVersion := "2.12.11",
-  organization := "io.github.pityka"
+  organization := "io.github.pityka",
+  licenses += ("MIT", url("http://opensource.org/licenses/MIT")),
+  githubOwner := "pityka",
+  githubRepository := "aten-scala",
+  githubTokenSource := TokenSource.GitConfig("github.token")
 )
 
 lazy val jniOsx = project
@@ -35,16 +39,24 @@ lazy val core = project
 
 lazy val root = project
   .in(file("."))
+  .settings(commonSettings)
   .settings(
-    publishArtifact := false
+    publishArtifact := false,
+    skip in publish := true
   )
   .aggregate(jniOsx, jniLinux, core)
 
 lazy val test = project
   .in(file("test"))
+  .settings(commonSettings)
   .settings(
     mainClass in Compile := Some("Test"),
     fork := true,
-    publishArtifact := false
+    publishArtifact := false,
+    skip in publish := true
   )
   .dependsOn(core)
+
+publishArtifact := false
+
+skip in publish := true
