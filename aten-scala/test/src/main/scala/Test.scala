@@ -35,6 +35,12 @@ object Test extends App {
   // this would move to cuda
     val t1c = tensor1.cuda()
     println(t1c)
+    val target = Array.ofDim[Float](9)
+    assert(tensor1.copyToFloatArray(target))
+    println(target.deep)
+    assert(target(0) == 1)
+    assert(target(4) == 1)
+    assert(target(8) == 1)
   }
   tensor1.print
   val tensor4 = ATen.eye_1(4, 4, TensorOptions.dtypeFloat)

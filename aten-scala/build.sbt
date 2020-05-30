@@ -4,7 +4,7 @@ val commonSettings = Seq(
   licenses += ("MIT", url("http://opensource.org/licenses/MIT")),
   githubOwner := "pityka",
   githubRepository := "aten-scala",
-  githubTokenSource := TokenSource.GitConfig("github.token")
+  githubTokenSource := TokenSource.GitConfig("github.token") || TokenSource.Environment("GITHUB_TOKEN")
 )
 
 lazy val jniOsx = project

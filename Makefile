@@ -25,7 +25,7 @@ test-linux: aten-scala/jni-linux/src/main/resources/libatenscalajni.so
 		docker run -v `pwd`:/build pityka/base-ubuntu-libtorch:3 /bin/bash -c "cd /build/aten-scala; sbt 'test/run'"
 
 test-cuda: aten-scala/jni-linux/src/main/resources/libatenscalajni.so
-		cd aten-scala && id=$$(docker --context vm1 build -q .) && echo $$id && docker --context vm1 run --gpus all $$id /bin/bash -c "sbt 'test/run --cuda'"
+		cd aten-scala && TOKEN=$$(git config --global --get github.token) && id=$$(docker --context vm1 build -q .) && echo $$id && docker --context vm1 run --env GITHUB_TOKEN=$$TOKEN --gpus all $$id /bin/bash -c "sbt 'test/run --cuda'"
 
 
 publishLocal: aten-scala/jni-osx/src/main/resources/libatenscalajni.dylib aten-scala/jni-linux/src/main/resources/libatenscalajni.so

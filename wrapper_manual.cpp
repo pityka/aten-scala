@@ -296,9 +296,11 @@ extern "C" {
       return false;
     } else {
       float* in = env->GetFloatArrayElements(datain, nullptr);
-      float* data = (float*)tensor.cpu().data_ptr();
-      for (int i = 0;i < len;i++){
-        in[i] = data[i];
+      auto cpuTensor = tensor.cpu().flatten();
+      auto accessor = cpuTensor.accessor<float,1>();
+      int size =  accessor.size(0);
+      for (int i = 0;i < size;i++){
+        in[i] = accessor[i];
       }
       env->ReleaseFloatArrayElements(datain,in,0);
       return true;
@@ -340,9 +342,11 @@ extern "C" {
       return false;
     } else {
       double* in = env->GetDoubleArrayElements(datain, nullptr);
-      double* data = (double*)tensor.cpu().data_ptr();
-      for (int i = 0;i < len;i++){
-        in[i] = data[i];
+      auto cpuTensor = tensor.cpu().flatten();
+      auto accessor = cpuTensor.accessor<double,1>();
+      int size =  accessor.size(0);
+      for (int i = 0;i < size;i++){
+        in[i] = accessor[i];
       }
       env->ReleaseDoubleArrayElements(datain,in,0);
       return true;
