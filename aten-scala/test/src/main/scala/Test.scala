@@ -46,7 +46,7 @@ object Test extends App {
   println(ATen.eig(tensor4, false));
   assert(tensor4.copyFromFloatArray(Array.ofDim[Float](16)))
   assert(!tensor4.copyFromFloatArray(Array.ofDim[Float](15)))
-  val tensor5 = ATen.eye_1(2, 2, TensorOptions.dtypeDouble)
+  val tensor5 = ATen.eye_1(2, 2, TensorOptions.d.cpu)
   val target = Array.ofDim[Double](4)
   assert(tensor5.copyToDoubleArray(target))
   assert(target.deep.toSeq == Seq(1f, 0d, 0d, 1f))

@@ -36,6 +36,30 @@ jobject allocateTensorOptions(JNIEnv *env, TensorOptions* tensorOptions) {
 }
 
 extern "C" {
+  JNIEXPORT jobject JNICALL Java_aten_TensorOptions_cuda_index(JNIEnv *env, jobject thisObj, jint index) {
+    
+    jclass cls = env->GetObjectClass( thisObj);
+    TensorOptions* tensorOptions = reinterpret_cast<TensorOptions*>(env->GetLongField( thisObj, env->GetFieldID( cls, "pointer", "J")));
+    
+    TensorOptions* t2 = new TensorOptions(tensorOptions->device_index(index));
+     return allocateTensorOptions(env,t2);
+  }
+  JNIEXPORT jobject JNICALL Java_aten_TensorOptions_cuda(JNIEnv *env, jobject thisObj) {
+    
+    jclass cls = env->GetObjectClass( thisObj);
+    TensorOptions* tensorOptions = reinterpret_cast<TensorOptions*>(env->GetLongField( thisObj, env->GetFieldID( cls, "pointer", "J")));
+    
+    TensorOptions* t2 = new TensorOptions(tensorOptions->device(at::kCUDA));
+     return allocateTensorOptions(env,t2);
+  }
+  JNIEXPORT jobject JNICALL Java_aten_TensorOptions_cpu(JNIEnv *env, jobject thisObj) {
+    
+    jclass cls = env->GetObjectClass( thisObj);
+    TensorOptions* tensorOptions = reinterpret_cast<TensorOptions*>(env->GetLongField( thisObj, env->GetFieldID( cls, "pointer", "J")));
+    
+    TensorOptions* t2 = new TensorOptions(tensorOptions->device(at::kCPU));
+     return allocateTensorOptions(env,t2);
+  }
   JNIEXPORT jobject JNICALL Java_aten_TensorOptions_dtypeFloat(JNIEnv *env, jobject thisObj) {
     
     TensorOptions* tensorOptions =new TensorOptions((ScalarType)6);

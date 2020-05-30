@@ -21,6 +21,17 @@ public class TensorOptions {
   public static native TensorOptions dtypeFloat();
   public static native TensorOptions dtypeDouble();
 
+  public static TensorOptions d() {
+    return TensorOptions.dtypeDouble();
+  }
+  public static TensorOptions f() {
+    return TensorOptions.dtypeFloat();
+  }
+
+  public native TensorOptions cpu();
+  public native TensorOptions cuda();
+  public native TensorOptions cuda_index(int device);
+
   public static TensorOptions fromScalarType(byte i) {
     if (i == 6) {
       return TensorOptions.dtypeFloat();
