@@ -31,6 +31,9 @@ test-cuda: aten-scala/jni-linux/src/main/resources/libatenscalajni.so
 publishLocal: aten-scala/jni-osx/src/main/resources/libatenscalajni.dylib aten-scala/jni-linux/src/main/resources/libatenscalajni.so
 		cd aten-scala && sbt publishLocal
 
+publish: aten-scala/jni-osx/src/main/resources/libatenscalajni.dylib aten-scala/jni-linux/src/main/resources/libatenscalajni.so
+		cd aten-scala && sbt publish
+
 all: test
 
 clean:
