@@ -296,7 +296,7 @@ extern "C" {
       return false;
     } else {
       float* in = env->GetFloatArrayElements(datain, nullptr);
-      float* data = (float*)tensor.data_ptr();
+      float* data = (float*)tensor.cpu().data_ptr();
       for (int i = 0;i < len;i++){
         in[i] = data[i];
       }
@@ -340,7 +340,7 @@ extern "C" {
       return false;
     } else {
       double* in = env->GetDoubleArrayElements(datain, nullptr);
-      double* data = (double*)tensor.data_ptr();
+      double* data = (double*)tensor.cpu().data_ptr();
       for (int i = 0;i < len;i++){
         in[i] = data[i];
       }
