@@ -50,4 +50,5 @@ object Test extends App {
   val target = Array.ofDim[Double](4)
   assert(tensor5.copyToDoubleArray(target))
   assert(target.deep.toSeq == Seq(1f, 0d, 0d, 1f))
+  println(tensor4.options)
 }

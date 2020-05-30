@@ -143,7 +143,8 @@ object Parser extends App {
       convert: String,
       jniType: String,
       javaType: String,
-      cType: String
+      cType: String,
+      returnOnException: String
   ) {
     def shortJavaType = javaType match {
       case "long"   => "J"
@@ -165,28 +166,32 @@ object Parser extends App {
           convert = s"""""",
           jniType = "void",
           javaType = "void",
-          cType = "void"
+          cType = "void",
+          returnOnException = ""
         )
       case TpeData("int64_t", None, List()) =>
         MappedReturnType(
           convert = s"""int64_t $returnable = $argName;""",
           jniType = "jlong",
           javaType = "long",
-          cType = "int64_t"
+          cType = "int64_t",
+          returnOnException = "-1"
         )
       case TpeData("double", None, List()) =>
         MappedReturnType(
           convert = s"""double $returnable = $argName;""",
           jniType = "jdouble",
           javaType = "double",
-          cType = "double"
+          cType = "double",
+          returnOnException = "-1"
         )
       case TpeData("bool", None, List()) =>
         MappedReturnType(
           convert = s"""bool $returnable = $argName;""",
           jniType = "jboolean",
           javaType = "boolean",
-          cType = "bool"
+          cType = "bool",
+          returnOnException = "false"
         )
 
       case TpeData(
@@ -218,7 +223,8 @@ object Parser extends App {
           jniType = "jobject",
           javaType =
             s"scala.Tuple${members.size}<${mappedMembers.map(_.javaType).mkString(",")}>",
-          cType = s"std::tuple<${mappedMembers.map(_.cType).mkString(",")}>"
+          cType = s"std::tuple<${mappedMembers.map(_.cType).mkString(",")}>",
+          returnOnException = "nullptr"
         )
       case TpeData(
           "std::vector",
@@ -239,7 +245,8 @@ object Parser extends App {
    jobject $returnable = ret_out$returnable;""",
           jniType = "jobject",
           javaType = "Tensor[]",
-          cType = "std::vector<Tensor>"
+          cType = "std::vector<Tensor>",
+          returnOnException = "nullptr"
         )
       case TpeData("Tensor", Some("&"), Nil) if !toplevel =>
         MappedReturnType(
@@ -251,14 +258,16 @@ object Parser extends App {
    jobject $returnable = ret_obj$returnable;""",
           jniType = "jobject",
           javaType = "Tensor",
-          cType = "Tensor"
+          cType = "Tensor",
+          returnOnException = "nullptr"
         )
       case TpeData("Tensor", Some("&"), Nil) =>
         MappedReturnType(
           convert = "",
           jniType = "void",
           javaType = "void",
-          cType = "void"
+          cType = "void",
+          returnOnException = ""
         )
       case TpeData("ScalarType", None, List()) =>
         MappedReturnType(
@@ -266,7 +275,8 @@ object Parser extends App {
    jbyte $returnable = static_cast<int8_t>($argName);""",
           jniType = "jbyte",
           javaType = "byte",
-          cType = "ScalarType"
+          cType = "ScalarType",
+          returnOnException = "0"
         )
       case TpeData("Tensor", None, Nil) =>
         MappedReturnType(
@@ -279,7 +289,8 @@ object Parser extends App {
    jobject $returnable = ret_obj$returnable;""",
           jniType = "jobject",
           javaType = "Tensor",
-          cType = "Tensor"
+          cType = "Tensor",
+          returnOnException = "nullptr"
         )
 
     }
@@ -527,7 +538,7 @@ object Parser extends App {
       .replaceAllLiterally(
         "_",
         "_1"
-      )}(JNIEnv *env, jobject thisObj $javaArgumentList) {
+      )}(JNIEnv *env, jobject thisObj $javaArgumentList) {try{
   ${mappedArgs.map(_.convertFromJni).mkString("\n")}
 
   ${if (mappedRet.cType == "void") "" else s"${mappedRet.cType} result = "} at::${decl.fnName}(${mappedArgs
@@ -538,6 +549,11 @@ object Parser extends App {
    ${mappedRet.convert}
     ${if (mappedRet.cType == "void") "return;"
     else "return returnable_result;"}
+
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return ${mappedRet.returnOnException};
 }"""
   }
   def implementJava(decl: DeclData) = {
@@ -575,6 +591,8 @@ std::string jstring2string(JNIEnv *env, jstring jStr) {
     env->DeleteLocalRef(stringClass);
     return ret;
 }
+
+jint throwRuntimeException( JNIEnv *env, const char *message );
 
 extern "C" {
 

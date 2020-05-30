@@ -32,6 +32,7 @@ public class Tensor {
   public native Tensor cuda();
   public native Tensor cpu();
   public native void print();
+  public native TensorOptions options();
   
   public native void release();
 
