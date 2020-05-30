@@ -1,6 +1,6 @@
 docker-prepare:
 	cd docker-build && docker build -t aten-scala-linux-build .
-	cd docker-runtime && docker build -t aten-scala-linux-runtime .
+	cd docker-runtime && docker build -t pityka/base-ubuntu-libtorch .
 
 prepare:
 	cd parser && sbt bloopInstall;
@@ -19,7 +19,7 @@ test: aten-scala/jni-osx/src/main/resources/libatenscalajni.dylib
 		cd aten-scala; bloop run test 
 
 test-linux: aten-scala/jni-linux/src/main/resources/libatenscalajni.so
-		docker run -v `pwd`:/build aten-scala-linux-runtime /bin/bash -c "cd /build/aten-scala; sbt 'test/run'"
+		docker run -v `pwd`:/build pityka/base-ubuntu-libtorch /bin/bash -c "cd /build/aten-scala; sbt 'test/run'"
 
 
 publishLocal: aten-scala/jni-osx/src/main/resources/libatenscalajni.dylib aten-scala/jni-linux/src/main/resources/libatenscalajni.so
