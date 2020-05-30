@@ -1,2 +1,4 @@
 FROM pityka/base-ubuntu-libtorch:3
-RUN apt-get install -y clang
+
+WORKDIR /build
+COPY . .

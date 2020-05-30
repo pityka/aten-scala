@@ -3,6 +3,7 @@ import com.github.fommil.jni.JniLoader
 import com.github.fommil.jni.JniNamer
 object Test extends App {
 
+  val cuda = if (args.contains("--cuda")) true else false 
   println("boo")
 
   val tensor1 = ATen.eye_0(3L, TensorOptions.dtypeFloat)
@@ -30,8 +31,11 @@ object Test extends App {
   assert(tensor1.sizes.deep.toVector == Seq(3, 3))
   assert(tensor1.strides.deep.toVector == Seq(3, 1))
   tensor1.cpu()
+  if (cuda){
   // this would move to cuda
-  // tensor1.cuda()
+    val t1c = tensor1.cuda()
+    println(t1c)
+  }
   tensor1.print
   val tensor4 = ATen.eye_1(4, 4, TensorOptions.dtypeFloat)
   tensor4.print
