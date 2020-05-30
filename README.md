@@ -19,7 +19,10 @@ The Makefile will generate Java and C++ sources and create a jni native library.
 Libtorch is linked dynamically. On OSX you can `brew install libtorch`. 
 
 On linux you have to install torch with pip then add the relevant folders to the ld search path. 
-See the `Dockerfile`s on how to do this on Fedora.
+See the `Dockerfile`s on how to do this.
+
+# License
+See LICENSE file.
 
 
 

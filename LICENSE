@@ -1,3 +1,5 @@
+Copyright (c) 2020 Istvan Bartha, except the libtorch_mac/ and libtorch_linux/ folders which are subject to PytTorch's copyright.
+
 From PyTorch:
 
 Copyright (c) 2016-     Facebook, Inc            (Adam Paszke)
