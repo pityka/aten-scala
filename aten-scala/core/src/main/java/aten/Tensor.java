@@ -50,4 +50,5 @@ public class Tensor {
   public native boolean copyToDoubleArray( double[] data);
 
   public native void mul_(double d);
+  public native void add_(double other, double alpha);
 }
