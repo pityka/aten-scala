@@ -69,7 +69,10 @@ object Test extends App {
   tensorLong.copyFromLongArray(longA)
   tensorLong.copyToLongArray(longA2)
   assert(longA2.toVector == Vector(1L,12L,0L,1L))
-  
+  val argm = ATen.argmax(tensor5,1,false)
+  assert(argm.sizes.toList == List(2))
+
+
   {
     val tensorDouble = ATen.eye_1(2,2,TensorOptions.dtypeLong.toDouble)
   val tensorFloat = ATen.eye_1(2,2,TensorOptions.dtypeLong.toFloat)

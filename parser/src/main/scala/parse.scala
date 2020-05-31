@@ -384,6 +384,24 @@ object Parser extends App {
         convertFromJni,
         "TensorOptions"
       )
+    case arg @ ArgData(TpeData("c10::optional", None, List(TpeData("int64_t",None,Nil))), argName) =>
+      val jniArgName = "jniparam_" + argName
+      val convertFromJni = s"""
+      
+   c10::optional<int64_t> ${jniArgName}_c;
+   if ($jniArgName == std::numeric_limits<int64_t>::min()) {
+     ${jniArgName}_c = c10::nullopt;
+   } else {
+     ${jniArgName}_c = optional<int64_t>($jniArgName);
+   }
+      """
+      MappedType(
+        jniArgName,
+        arg,
+        "jlong " + jniArgName,
+        convertFromJni,
+        "long"
+      )
     case arg @ ArgData(TpeData("c10::optional", None, _), argName) =>
       val jniArgName = "jniparam_" + argName
       val convertFromJni = ""
