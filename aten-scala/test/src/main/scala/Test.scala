@@ -54,7 +54,8 @@ object Test extends App {
   assert(!tensor4.copyFromFloatArray(Array.ofDim[Float](15)))
   val tensor5 = ATen.eye_1(2, 2, TensorOptions.d.cpu)
   val target = Array.ofDim[Double](4)
+  tensor5.mul_(2d)
   assert(tensor5.copyToDoubleArray(target))
-  assert(target.deep.toSeq == Seq(1f, 0d, 0d, 1f))
+  assert(target.deep.toSeq == Seq(2f, 0d, 0d, 2f))
   println(tensor4.options)
 }

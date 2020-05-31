@@ -252,6 +252,17 @@ extern "C" {
     }
     return ;
   }
+  JNIEXPORT void JNICALL Java_aten_Tensor_mul_1(JNIEnv *env, jobject thisObj, jdouble d) {try{
+    
+    jclass cls = env->GetObjectClass( thisObj);
+    Tensor tensor = *reinterpret_cast<Tensor*>(env->GetLongField( thisObj, env->GetFieldID( cls, "pointer", "J")));
+    tensor.mul_(d);
+    return;
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return ;
+  }
   JNIEXPORT void JNICALL Java_aten_Tensor_release(JNIEnv *env, jobject thisObj) {try{
     
     jclass cls = env->GetObjectClass( thisObj);
