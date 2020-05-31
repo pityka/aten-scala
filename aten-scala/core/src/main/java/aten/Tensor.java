@@ -48,6 +48,9 @@ public class Tensor {
  
   public native boolean copyFromDoubleArray( double[] data);
   public native boolean copyToDoubleArray( double[] data);
+ 
+  public native boolean copyFromLongArray( long[] data);
+  public native boolean copyToLongArray( long[] data);
 
   public native void mul_(double d);
   public native void add_(double other, double alpha);

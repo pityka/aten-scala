@@ -59,4 +59,14 @@ object Test extends App {
   assert(tensor5.copyToDoubleArray(target))
   assert(target.deep.toSeq == Seq(3f, 1f, 1f, 3f))
   println(tensor4.options)
+
+  val tensorLong = ATen.eye_1(2,2,TensorOptions.dtypeLong)
+  val longA  =Array.ofDim[Long](4)
+  val longA2  =Array.ofDim[Long](4)
+  tensorLong.copyToLongArray(longA)
+  assert(longA.toVector == Vector(1L,0L,0L,1L))
+  longA(1) = 12
+  tensorLong.copyFromLongArray(longA)
+  tensorLong.copyToLongArray(longA2)
+  assert(longA2.toVector == Vector(1L,12L,0L,1L))
 }

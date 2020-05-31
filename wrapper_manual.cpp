@@ -94,6 +94,16 @@ extern "C" {
     }
     return nullptr;
   }
+  JNIEXPORT jobject JNICALL Java_aten_TensorOptions_dtypeLong(JNIEnv *env, jobject thisObj) {try{
+    
+    TensorOptions* tensorOptions =new TensorOptions((ScalarType)4);
+    
+     return allocateTensorOptions(env,tensorOptions);
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return nullptr;
+  }
   JNIEXPORT jobject JNICALL Java_aten_TensorOptions_dtypeDouble(JNIEnv *env, jobject thisObj) {
     try{
     TensorOptions* tensorOptions =new TensorOptions((ScalarType)7);
@@ -296,9 +306,11 @@ extern "C" {
       return false;
     } else {
       float* in = env->GetFloatArrayElements(datain, nullptr);
-      float* data = (float*)tensor.data_ptr();
-      for (int i = 0;i < len;i++){
-        data[i] = in[i];
+      auto cpuTensor = tensor.cpu().flatten();
+      auto accessor = cpuTensor.accessor<float,1>();
+      int64_t size = accessor.size(0);
+      for (int64_t i = 0;i < size;i++){
+        accessor[i] = in[i];
       }
       env->ReleaseFloatArrayElements(datain,in,0);
       return true;
@@ -320,8 +332,8 @@ extern "C" {
       float* in = env->GetFloatArrayElements(datain, nullptr);
       auto cpuTensor = tensor.cpu().flatten();
       auto accessor = cpuTensor.accessor<float,1>();
-      int size =  accessor.size(0);
-      for (int i = 0;i < size;i++){
+      int64_t size =  accessor.size(0);
+      for (int64_t i = 0;i < size;i++){
         in[i] = accessor[i];
       }
       env->ReleaseFloatArrayElements(datain,in,0);
@@ -332,6 +344,56 @@ extern "C" {
     }
     return false;
   }
+
+ JNIEXPORT jboolean JNICALL Java_aten_Tensor_copyFromLongArray(JNIEnv *env, jobject thisObj, jlongArray datain) {try{
+    
+    jclass cls = env->GetObjectClass( thisObj);
+    Tensor tensor = *reinterpret_cast<Tensor*>(env->GetLongField( thisObj, env->GetFieldID( cls, "pointer", "J")));
+    
+      long len = env->GetArrayLength(datain);
+    if (static_cast<int8_t>(tensor.scalar_type()) != 4 || !tensor.is_contiguous() || !tensor.is_non_overlapping_and_dense() || tensor.data_ptr() == nullptr || len != tensor.numel()) {
+      return false;
+    } else {
+      jlong* in = env->GetLongArrayElements(datain, nullptr);
+      auto cpuTensor = tensor.cpu().flatten();
+      auto accessor = cpuTensor.accessor<int64_t,1>();
+      int64_t size = accessor.size(0);
+      for (int64_t i = 0;i < size;i++){
+        accessor[i] = in[i];
+      }
+      env->ReleaseLongArrayElements(datain,in,0);
+      return true;
+    }
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return false;
+  }
+  JNIEXPORT jboolean JNICALL Java_aten_Tensor_copyToLongArray(JNIEnv *env, jobject thisObj, jlongArray datain) {try{
+    
+    jclass cls = env->GetObjectClass( thisObj);
+    Tensor tensor = *reinterpret_cast<Tensor*>(env->GetLongField( thisObj, env->GetFieldID( cls, "pointer", "J")));
+    
+      long len = env->GetArrayLength(datain);
+    if (static_cast<int8_t>(tensor.scalar_type()) != 4 || !tensor.is_contiguous() || !tensor.is_non_overlapping_and_dense() || tensor.data_ptr() == nullptr || len != tensor.numel()) {
+      return false;
+    } else {
+      jlong* in = env->GetLongArrayElements(datain, nullptr);
+      auto cpuTensor = tensor.cpu().flatten();
+      auto accessor = cpuTensor.accessor<int64_t,1>();
+      int64_t size = accessor.size(0);
+      for (int64_t i = 0;i < size;i++){
+        in[i] = accessor[i];
+      }
+      env->ReleaseLongArrayElements(datain,in,0);
+      return true;
+    }
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return false;
+  }
+
   JNIEXPORT jboolean JNICALL Java_aten_Tensor_copyFromDoubleArray(JNIEnv *env, jobject thisObj, jdoubleArray datain) {try{
     
     jclass cls = env->GetObjectClass( thisObj);
@@ -342,9 +404,11 @@ extern "C" {
       return false;
     } else {
       double* in = env->GetDoubleArrayElements(datain, nullptr);
-      double* data = (double*)tensor.data_ptr();
-      for (int i = 0;i < len;i++){
-        data[i] = in[i];
+      auto cpuTensor = tensor.cpu().flatten();
+      auto accessor = cpuTensor.accessor<double,1>();
+      int64_t size = accessor.size(0);
+      for (int64_t i = 0;i < size;i++){
+        accessor[i] = in[i];
       }
       env->ReleaseDoubleArrayElements(datain,in,0);
       return true;
@@ -366,8 +430,8 @@ extern "C" {
       double* in = env->GetDoubleArrayElements(datain, nullptr);
       auto cpuTensor = tensor.cpu().flatten();
       auto accessor = cpuTensor.accessor<double,1>();
-      int size =  accessor.size(0);
-      for (int i = 0;i < size;i++){
+      int64_t size =  accessor.size(0);
+      for (int64_t i = 0;i < size;i++){
         in[i] = accessor[i];
       }
       env->ReleaseDoubleArrayElements(datain,in,0);

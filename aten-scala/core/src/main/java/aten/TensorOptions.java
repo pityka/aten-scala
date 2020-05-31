@@ -20,6 +20,7 @@ public class TensorOptions {
 
   public static native TensorOptions dtypeFloat();
   public static native TensorOptions dtypeDouble();
+  public static native TensorOptions dtypeLong();
 
   public static TensorOptions d() {
     return TensorOptions.dtypeDouble();
@@ -37,6 +38,8 @@ public class TensorOptions {
       return TensorOptions.dtypeFloat();
     } else if (i == 7) {
       return TensorOptions.dtypeDouble();
+    } else if (i == 4) {
+      return TensorOptions.dtypeLong();
     } else {
       throw new RuntimeException("unknown scalar type "+i);
     }
