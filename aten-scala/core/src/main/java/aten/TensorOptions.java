@@ -38,6 +38,7 @@ public class TensorOptions {
   public native TensorOptions cpu();
   public native TensorOptions cuda();
   public native TensorOptions cuda_index(int device);
+  public native byte scalarTypeByte();
 
   public static TensorOptions fromScalarType(byte i) {
     if (i == 6) {
@@ -50,4 +51,5 @@ public class TensorOptions {
       throw new RuntimeException("unknown scalar type "+i);
     }
   }
+
 }

@@ -74,6 +74,7 @@ object Test extends App {
   val array1 = Array.ofDim[Long](argm.sizes.apply(0).toInt)
   argm.copyToLongArray(array1)
   assert(array1.toVector == Vector(0L,1L))
+  assert(argm.options.scalarTypeByte == 4L)
 
 
   {
