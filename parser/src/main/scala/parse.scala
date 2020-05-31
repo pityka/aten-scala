@@ -396,7 +396,7 @@ object Parser extends App {
    }
       """
       MappedType(
-        jniArgName,
+        jniArgName+"_c",
         arg,
         "jlong " + jniArgName,
         convertFromJni,

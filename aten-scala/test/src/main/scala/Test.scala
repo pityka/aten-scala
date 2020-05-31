@@ -69,8 +69,11 @@ object Test extends App {
   tensorLong.copyFromLongArray(longA)
   tensorLong.copyToLongArray(longA2)
   assert(longA2.toVector == Vector(1L,12L,0L,1L))
-  val argm = ATen.argmax(tensor5,1,false)
+  val argm = ATen.argmax(tensor5,0,false)
   assert(argm.sizes.toList == List(2))
+  val array1 = Array.ofDim[Long](argm.sizes.apply(0).toInt)
+  argm.copyToLongArray(array1)
+  assert(array1.toVector == Vector(0L,1L))
 
 
   {
