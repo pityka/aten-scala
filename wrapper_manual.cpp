@@ -84,6 +84,42 @@ extern "C" {
     }
     return nullptr;
   }
+  JNIEXPORT jobject JNICALL Java_aten_TensorOptions_toDouble(JNIEnv *env, jobject thisObj) { try{
+    
+    jclass cls = env->GetObjectClass( thisObj);
+    TensorOptions* tensorOptions = reinterpret_cast<TensorOptions*>(env->GetLongField( thisObj, env->GetFieldID( cls, "pointer", "J")));
+    
+    TensorOptions* t2 = new TensorOptions(tensorOptions->dtype(kDouble));
+     return allocateTensorOptions(env,t2);
+     } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return nullptr;
+  }
+  JNIEXPORT jobject JNICALL Java_aten_TensorOptions_toLong(JNIEnv *env, jobject thisObj) { try{
+    
+    jclass cls = env->GetObjectClass( thisObj);
+    TensorOptions* tensorOptions = reinterpret_cast<TensorOptions*>(env->GetLongField( thisObj, env->GetFieldID( cls, "pointer", "J")));
+    
+    TensorOptions* t2 = new TensorOptions(tensorOptions->dtype(kLong));
+     return allocateTensorOptions(env,t2);
+     } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return nullptr;
+  }
+  JNIEXPORT jobject JNICALL Java_aten_TensorOptions_toFloat(JNIEnv *env, jobject thisObj) { try{
+    
+    jclass cls = env->GetObjectClass( thisObj);
+    TensorOptions* tensorOptions = reinterpret_cast<TensorOptions*>(env->GetLongField( thisObj, env->GetFieldID( cls, "pointer", "J")));
+    
+    TensorOptions* t2 = new TensorOptions(tensorOptions->dtype(kFloat));
+     return allocateTensorOptions(env,t2);
+     } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return nullptr;
+  }
   JNIEXPORT jobject JNICALL Java_aten_TensorOptions_dtypeFloat(JNIEnv *env, jobject thisObj) {try{
     
     TensorOptions* tensorOptions =new TensorOptions((ScalarType)6);

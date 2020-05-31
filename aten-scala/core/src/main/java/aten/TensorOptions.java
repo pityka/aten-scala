@@ -28,6 +28,12 @@ public class TensorOptions {
   public static TensorOptions f() {
     return TensorOptions.dtypeFloat();
   }
+  public static TensorOptions l() {
+    return TensorOptions.dtypeLong();
+  }
+  public native TensorOptions toDouble();
+  public native TensorOptions toLong();
+  public native TensorOptions toFloat();
 
   public native TensorOptions cpu();
   public native TensorOptions cuda();
