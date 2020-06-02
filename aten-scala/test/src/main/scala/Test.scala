@@ -60,6 +60,10 @@ object Test extends App {
   assert(target.deep.toSeq == Seq(3f, 1f, 1f, 3f))
   println(tensor4.options)
 
+  if (cuda) {
+    tensor4.options.cuda_index(0)
+  }
+
   val tensorLong = ATen.eye_1(2,2,TensorOptions.dtypeLong)
   val longA  =Array.ofDim[Long](4)
   val longA2  =Array.ofDim[Long](4)

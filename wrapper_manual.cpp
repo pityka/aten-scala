@@ -48,7 +48,7 @@ jint throwRuntimeException( JNIEnv *env, const char *message )
 }
 
 extern "C" {
-  JNIEXPORT jobject JNICALL Java_aten_TensorOptions_cuda_index(JNIEnv *env, jobject thisObj, jint index) {
+  JNIEXPORT jobject JNICALL Java_aten_TensorOptions_cuda_1index(JNIEnv *env, jobject thisObj, jint index) {
     try {
       jclass cls = env->GetObjectClass( thisObj);
       TensorOptions* tensorOptions = reinterpret_cast<TensorOptions*>(env->GetLongField( thisObj, env->GetFieldID( cls, "pointer", "J")));
