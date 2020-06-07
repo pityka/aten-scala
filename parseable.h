@@ -486,7 +486,7 @@ static inline Tensor & randint_out(Tensor & out, int64_t low, int64_t high, IntA
 static inline Tensor & randint_out(Tensor & out, int64_t low, int64_t high, IntArrayRef size, Generator * generator);
 static inline Tensor randint_like(const Tensor & self, int64_t high, const TensorOptions & options={}, c10::optional<MemoryFormat> memory_format=c10::nullopt);
 static inline Tensor randint_like(const Tensor & self, int64_t low, int64_t high, const TensorOptions & options={}, c10::optional<MemoryFormat> memory_format=c10::nullopt);
-// static inline Tensor randn(IntArrayRef size, const TensorOptions & options={});
+static inline Tensor randn(IntArrayRef size, const TensorOptions & options={});
 // static inline Tensor randn(IntArrayRef size, Generator * generator, const TensorOptions & options={});
 // static inline Tensor randn(IntArrayRef size, c10::optional<DimnameList> names, const TensorOptions & options={});
 // static inline Tensor randn(IntArrayRef size, Generator * generator, c10::optional<DimnameList> names, const TensorOptions & options={});
