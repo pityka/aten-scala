@@ -35,6 +35,7 @@ public class Tensor {
   public native TensorOptions options();
   
   public native void release();
+  public static native void releaseAll(Tensor[] tensors);
 
   @Override
   public String toString() {

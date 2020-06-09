@@ -516,4 +516,26 @@ extern "C" {
     }
     return nullptr;
   }
+
+  JNIEXPORT void JNICALL Java_aten_Tensor_releaseAll(JNIEnv *env, jobject thisObj ,jobjectArray jniparam_tensors) {try{
+  
+      jsize jniparam_tensors_length = env->GetArrayLength(jniparam_tensors);
+      for (int i = 0; i < jniparam_tensors_length; i++) {
+         jobject obj = env->GetObjectArrayElement( jniparam_tensors, i);
+          jclass cls = env->GetObjectClass( obj);
+        jfieldID fid = env->GetFieldID( cls, "pointer", "J");
+         jlong address = env->GetLongField( obj, fid);
+         Tensor* pointer = reinterpret_cast<Tensor*>(address);
+          delete pointer;
+      }
+
+
+      
+    return ;
+
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return ;
+}
 }
