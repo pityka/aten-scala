@@ -36,6 +36,10 @@ public class Tensor {
   
   public native void release();
   public static native void releaseAll(Tensor[] tensors);
+  
+  public static native Tensor scalarDouble(double scalar, TensorOptions options);
+  public static native Tensor scalarFloat(float scalar, TensorOptions options);
+  public static native Tensor scalarLong(long scalar, TensorOptions options);
 
   @Override
   public String toString() {
