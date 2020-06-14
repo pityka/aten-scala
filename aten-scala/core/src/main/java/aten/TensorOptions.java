@@ -52,4 +52,14 @@ public class TensorOptions {
     }
   }
 
+  public boolean isFloat() {
+    return scalarTypeByte() == 6;
+  }
+  public boolean isDouble() {
+    return scalarTypeByte() == 7;
+  }
+  public boolean isLong() {
+    return scalarTypeByte() == 4;
+  }
+
 }
