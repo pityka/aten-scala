@@ -84,6 +84,10 @@ object Test extends App {
   {
     val tensorDouble = ATen.eye_1(2,2,TensorOptions.dtypeLong.toDouble)
   val tensorFloat = ATen.eye_1(2,2,TensorOptions.dtypeLong.toFloat)
+  val t3 = tensorFloat.to(TensorOptions.dtypeDouble,true)
+  println(t3.options)
+  val t4 = tensorFloat.to(TensorOptions.dtypeDouble,false)
+  println(t4.options)
   val tensorLong = ATen.eye_1(2,2,TensorOptions.dtypeLong.toFloat.toLong)
   val tensorLong2 = Tensor.scalarLong(1L, TensorOptions.dtypeLong)
   Tensor.releaseAll(Array(tensorDouble,tensorFloat, tensorLong2))

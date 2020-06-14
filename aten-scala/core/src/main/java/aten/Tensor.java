@@ -41,6 +41,8 @@ public class Tensor {
   public static native Tensor scalarFloat(float scalar, TensorOptions options);
   public static native Tensor scalarLong(long scalar, TensorOptions options);
 
+  public native Tensor to(TensorOptions op, boolean copy);
+
   @Override
   public String toString() {
     return "Tensor at "+pointer+"; "+nativeToString();

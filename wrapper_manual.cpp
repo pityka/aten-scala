@@ -539,6 +539,35 @@ extern "C" {
     return ;
 }
 
+JNIEXPORT jobject JNICALL Java_aten_Tensor_to(JNIEnv *env, jobject thisObj ,jobject jniparam_options, jboolean jniparam_copy) {try{
+  
+
+   jclass jniparam_options_class = env->GetObjectClass( jniparam_options);
+   jfieldID jniparam_options_fidNumber = env->GetFieldID( jniparam_options_class, "pointer", "J");
+   jlong jniparam_options_pointer = env->GetLongField( jniparam_options, jniparam_options_fidNumber);
+   TensorOptions jniparam_options_c = *reinterpret_cast<TensorOptions*>(jniparam_options_pointer);
+
+   jclass tensor_cls = env->GetObjectClass( thisObj);
+   Tensor tensor = *reinterpret_cast<Tensor*>(env->GetLongField( thisObj, env->GetFieldID( tensor_cls, "pointer", "J")));
+      
+  Tensor result =  tensor.to(jniparam_options_c,false,jniparam_copy);
+  
+
+   
+  jclass ret_clsreturnable_result = env->FindClass("aten/Tensor");
+  jmethodID ret_midInitreturnable_result = env->GetMethodID( ret_clsreturnable_result, "<init>", "(J)V");
+  Tensor* result_on_heapreturnable_result = new Tensor(result);
+  jlong ret_addressreturnable_result = reinterpret_cast<jlong>(result_on_heapreturnable_result);
+  jobject ret_objreturnable_result = env->NewObject( ret_clsreturnable_result, ret_midInitreturnable_result, ret_addressreturnable_result);
+   jobject returnable_result = ret_objreturnable_result;
+    return returnable_result;
+
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return nullptr;
+}
+
 JNIEXPORT jobject JNICALL Java_aten_Tensor_scalarDouble(JNIEnv *env, jobject thisObj ,jdouble jniparam_s,jobject jniparam_options) {try{
   
 
