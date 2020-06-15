@@ -588,7 +588,7 @@ static inline Tensor prod(const Tensor & self, int64_t dim, bool keepdim=false, 
 static inline Tensor & prod_out(Tensor & out, const Tensor & self, int64_t dim, bool keepdim=false, c10::optional<ScalarType> dtype=c10::nullopt);
 // static inline Tensor prod(const Tensor & self, Dimname dim, bool keepdim=false, c10::optional<ScalarType> dtype=c10::nullopt);
 // static inline Tensor & prod_out(Tensor & out, const Tensor & self, Dimname dim, bool keepdim=false, c10::optional<ScalarType> dtype=c10::nullopt);
-static inline Tensor t(const Tensor & self);
+// static inline Tensor t(const Tensor & self);
 static inline Tensor tan(const Tensor & self);
 static inline Tensor & tan_(Tensor & self);
 static inline Tensor & tan_out(Tensor & out, const Tensor & self);
@@ -600,7 +600,7 @@ static inline Tensor threshold(const Tensor & self, Scalar threshold, Scalar val
 static inline Tensor & threshold_(Tensor & self, Scalar threshold, Scalar value);
 static inline Tensor & threshold_out(Tensor & out, const Tensor & self, Scalar threshold, Scalar value);
 static inline Tensor threshold_backward(const Tensor & grad_output, const Tensor & self, Scalar threshold);
-static inline Tensor transpose(const Tensor & self, int64_t dim0, int64_t dim1);
+// static inline Tensor transpose(const Tensor & self, int64_t dim0, int64_t dim1);
 // static inline Tensor transpose(const Tensor & self, Dimname dim0, Dimname dim1);
 static inline Tensor _mkldnn_transpose(const Tensor & self, int64_t dim0, int64_t dim1);
 static inline Tensor & _mkldnn_transpose_(Tensor & self, int64_t dim0, int64_t dim1);

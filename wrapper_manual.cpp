@@ -539,6 +539,31 @@ extern "C" {
     return ;
 }
 
+JNIEXPORT jobject JNICALL Java_aten_Tensor_transpose(JNIEnv *env, jobject thisObj ,jlong dim0, jlong dim1) {try{
+  
+
+   
+   jclass tensor_cls = env->GetObjectClass( thisObj);
+   Tensor tensor = *reinterpret_cast<Tensor*>(env->GetLongField( thisObj, env->GetFieldID( tensor_cls, "pointer", "J")));
+      
+  Tensor result =  tensor.transpose(dim0,dim1).contiguous();
+  
+
+   
+  jclass ret_clsreturnable_result = env->FindClass("aten/Tensor");
+  jmethodID ret_midInitreturnable_result = env->GetMethodID( ret_clsreturnable_result, "<init>", "(J)V");
+  Tensor* result_on_heapreturnable_result = new Tensor(result);
+  jlong ret_addressreturnable_result = reinterpret_cast<jlong>(result_on_heapreturnable_result);
+  jobject ret_objreturnable_result = env->NewObject( ret_clsreturnable_result, ret_midInitreturnable_result, ret_addressreturnable_result);
+   jobject returnable_result = ret_objreturnable_result;
+    return returnable_result;
+
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return nullptr;
+}
+
 JNIEXPORT jobject JNICALL Java_aten_Tensor_to(JNIEnv *env, jobject thisObj ,jobject jniparam_options, jboolean jniparam_copy) {try{
   
 
