@@ -105,6 +105,9 @@ object Test extends App {
     assert(!t.options.isCuda)
     assert(t.options.deviceIndex == 1)
   }
+
+  println("CUDNN avail: "+Tensor.cudnnAvailable)
+  // println("Has cuda: "+)
   println("done")
 
 }

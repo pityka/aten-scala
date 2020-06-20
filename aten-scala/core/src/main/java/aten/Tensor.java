@@ -33,6 +33,7 @@ public class Tensor {
   public native Tensor cpu();
   public native void print();
   public native TensorOptions options();
+  public static native boolean cudnnAvailable();
   
   public native void release();
   public static native void releaseAll(Tensor[] tensors);
