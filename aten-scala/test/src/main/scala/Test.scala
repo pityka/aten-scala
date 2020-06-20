@@ -105,6 +105,19 @@ object Test extends App {
     assert(!t.options.isCuda)
     assert(t.options.deviceIndex == 1)
   }
+  
+  {
+    val e = ATen.ones(Array(2,3),TensorOptions.dtypeDouble)
+    val t = ATen.t(e)
+    val a  =Array.ofDim[Double](6)
+    t.copyToDoubleArray(a)
+    assert(t.sizes.toList == List(3L,2L))
+    println(a.toVector)
+    assert(a.toVector == Vector(1d,1d,1d,1d,1d,1d))
+    assert(t.options.isCPU)
+    assert(!t.options.isCuda)
+    assert(t.options.deviceIndex == 1)
+  }
 
   println("CUDNN avail: "+Tensor.cudnnAvailable)
   // println("Has cuda: "+)
