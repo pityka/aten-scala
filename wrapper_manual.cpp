@@ -96,6 +96,42 @@ extern "C" {
     }
     return 0;
   }
+  JNIEXPORT jboolean JNICALL Java_aten_TensorOptions_isCPU(JNIEnv *env, jobject thisObj) { try{
+    
+    jclass cls = env->GetObjectClass( thisObj);
+    TensorOptions* tensorOptions = reinterpret_cast<TensorOptions*>(env->GetLongField( thisObj, env->GetFieldID( cls, "pointer", "J")));
+    
+    bool tpe = tensorOptions->device().is_cpu();
+     return tpe;
+     } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return 0;
+  }
+  JNIEXPORT jboolean JNICALL Java_aten_TensorOptions_isCuda(JNIEnv *env, jobject thisObj) { try{
+    
+    jclass cls = env->GetObjectClass( thisObj);
+    TensorOptions* tensorOptions = reinterpret_cast<TensorOptions*>(env->GetLongField( thisObj, env->GetFieldID( cls, "pointer", "J")));
+    
+    bool tpe = tensorOptions->device().is_cuda();
+     return tpe;
+     } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return 0;
+  }
+  JNIEXPORT jshort JNICALL Java_aten_TensorOptions_deviceIndex(JNIEnv *env, jobject thisObj) { try{
+    
+    jclass cls = env->GetObjectClass( thisObj);
+    TensorOptions* tensorOptions = reinterpret_cast<TensorOptions*>(env->GetLongField( thisObj, env->GetFieldID( cls, "pointer", "J")));
+    
+    bool tpe = tensorOptions->device().index();
+     return tpe;
+     } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return 0;
+  }
   JNIEXPORT jobject JNICALL Java_aten_TensorOptions_toDouble(JNIEnv *env, jobject thisObj) { try{
     
     jclass cls = env->GetObjectClass( thisObj);

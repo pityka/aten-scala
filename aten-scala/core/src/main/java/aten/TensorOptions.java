@@ -36,8 +36,11 @@ public class TensorOptions {
   public native TensorOptions toFloat();
 
   public native TensorOptions cpu();
+  public native boolean isCPU();
+  public native boolean isCuda();
   public native TensorOptions cuda();
   public native TensorOptions cuda_index(int device);
+  public native short deviceIndex();
   public native byte scalarTypeByte();
 
   public static TensorOptions fromScalarType(byte i) {

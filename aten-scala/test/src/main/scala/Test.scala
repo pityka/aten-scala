@@ -101,6 +101,9 @@ object Test extends App {
     assert(t.sizes.toList == List(3L,2L))
     println(a.toVector)
     assert(a.toVector == Vector(1d,1d,1d,1d,1d,1d))
+    assert(t.options.isCPU)
+    assert(!t.options.isCuda)
+    assert(t.options.deviceIndex == 1)
   }
   println("done")
 
