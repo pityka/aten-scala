@@ -142,6 +142,23 @@ object Test extends App {
   }
 
   {
+    val e = ATen.ones(Array(2,3),TensorOptions.dtypeDouble)
+    var i = 0 
+    val N = 10000000
+    while (i < N) {
+      e.dim()
+      i+=1 
+    }
+    i = 0
+    val t1 = System.nanoTime()
+    while (i < N) {
+      e.sizes()
+      i+=1 
+    }
+    println("time per call sizes: "+(System.nanoTime - t1)/(1E9*N))
+  }
+
+  {
     val topt = TensorOptions.dtypeDouble
     val d = Array(2L,3L)
     var i = 0 
@@ -156,7 +173,7 @@ object Test extends App {
       val e = ATen.ones(d,topt)
       i+=1 
     }
-    println("time per call allocate: "+(System.nanoTime - t1)/(1E9*N))
+    println("time per call ones: "+(System.nanoTime - t1)/(1E9*N))
   }
 
 

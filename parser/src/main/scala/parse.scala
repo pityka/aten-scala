@@ -136,7 +136,8 @@ object Parser extends App {
       jniArgument: String,
       convertFromJni: String,
       javaType: String,
-      noInputFromJava: Boolean = false
+      noInputFromJava: Boolean = false,
+      release: String = ""
   )
 
   case class MappedReturnType(
@@ -321,12 +322,7 @@ object Parser extends App {
       val jniArgName = "jniparam_" + argName
       val convertFromJni = s"""
       jsize ${jniArgName}_length = env->GetArrayLength($jniArgName);
-      int64_t* ${jniArgName}_ar = new int64_t[${jniArgName}_length];
-      jlong* ${jniArgName}_ar2 = env->GetLongArrayElements($jniArgName,nullptr);
-      for (int i = 0; i < ${jniArgName}_length; i++) {
-          ${jniArgName}_ar[i] = ${jniArgName}_ar2[i];
-      }
-      env->ReleaseLongArrayElements($jniArgName,${jniArgName}_ar2,0);
+      int64_t* ${jniArgName}_ar = (int64_t*)env->GetLongArrayElements($jniArgName,nullptr);
       IntArrayRef ${jniArgName}_c = *(new IntArrayRef(${jniArgName}_ar,${jniArgName}_length));
       """
       MappedType(
@@ -334,7 +330,8 @@ object Parser extends App {
         arg,
         "jlongArray " + jniArgName,
         convertFromJni,
-        "long[]"
+        "long[]",
+        release = s"env->ReleaseLongArrayElements($jniArgName,(jlong*)${jniArgName}_ar,0);"
       )
     case arg @ ArgData(TpeData("TensorList", None, List()), argName) =>
       val jniArgName = "jniparam_" + argName
@@ -563,6 +560,7 @@ object Parser extends App {
       .map(_.argName)
       .mkString(",")});
   
+      ${mappedArgs.map(_.release).mkString("\n")}
 
    ${mappedRet.convert}
     ${if (mappedRet.cType == "void") "return;"
