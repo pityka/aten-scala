@@ -234,8 +234,8 @@ object Parser extends App {
         MappedReturnType(
           convert = s"""
   int ret_len$returnable = $argName.size();
-  jclass ret_cls$returnable = env->FindClass("aten/Tensor");
-  jmethodID ret_midInit$returnable = env->GetMethodID( ret_cls$returnable, "<init>", "(J)V");
+  jclass ret_cls$returnable = tensorClass;
+  jmethodID ret_midInit$returnable = tensorCtor;
   jobjectArray ret_out$returnable = env->NewObjectArray( ret_len$returnable, ret_cls$returnable, nullptr);
   for (int i = 0; i < ret_len$returnable;i++) {
     jlong ret_address = reinterpret_cast<jlong>(new Tensor($argName.at(i).contiguous()));
@@ -251,8 +251,8 @@ object Parser extends App {
       case TpeData("Tensor", Some("&"), Nil) if !toplevel =>
         MappedReturnType(
           convert = s"""
-  jclass ret_cls$returnable = env->FindClass("aten/Tensor");
-  jmethodID ret_midInit$returnable = env->GetMethodID( ret_cls$returnable, "<init>", "(J)V");
+  jclass ret_cls$returnable = tensorClass;
+  jmethodID ret_midInit$returnable = tensorCtor;
   jlong ret_address$returnable = reinterpret_cast<jlong>(&$argName);
   jobject ret_obj$returnable = env->NewObject( ret_cls$returnable, ret_midInit$returnable, ret_address$returnable);
    jobject $returnable = ret_obj$returnable;""",
@@ -281,8 +281,8 @@ object Parser extends App {
       case TpeData("Tensor", None, Nil) =>
         MappedReturnType(
           convert = s"""
-  jclass ret_cls$returnable = env->FindClass("aten/Tensor");
-  jmethodID ret_midInit$returnable = env->GetMethodID( ret_cls$returnable, "<init>", "(J)V");
+  jclass ret_cls$returnable = tensorClass;
+  jmethodID ret_midInit$returnable = tensorCtor;
   Tensor* result_on_heap$returnable = new Tensor($argName.contiguous());
   jlong ret_address$returnable = reinterpret_cast<jlong>(result_on_heap$returnable);
   jobject ret_obj$returnable = env->NewObject( ret_cls$returnable, ret_midInit$returnable, ret_address$returnable);
@@ -343,8 +343,8 @@ object Parser extends App {
       Tensor* ${jniArgName}_ar = new Tensor[${jniArgName}_length];
       for (int i = 0; i < ${jniArgName}_length; i++) {
          jobject obj = env->GetObjectArrayElement( $jniArgName, i);
-          jclass cls = env->GetObjectClass( obj);
-        jfieldID fid = env->GetFieldID( cls, "pointer", "J");
+          jclass cls = tensorClass;
+        jfieldID fid = tensorPointerFid;
          jlong address = env->GetLongField( obj, fid);
          Tensor* pointer = reinterpret_cast<Tensor*>(address);
           ${jniArgName}_ar[i] = *pointer;
@@ -372,8 +372,8 @@ object Parser extends App {
     case arg @ ArgData(TpeData("TensorOptions", Some("&"), List()), argName) =>
       val jniArgName = "jniparam_" + argName
       val convertFromJni = s"""
-   jclass ${jniArgName}_class = env->GetObjectClass( $jniArgName);
-   jfieldID ${jniArgName}_fidNumber = env->GetFieldID( ${jniArgName}_class, "pointer", "J");
+   jclass ${jniArgName}_class = tensorOptionsClass;
+   jfieldID ${jniArgName}_fidNumber = tensorOptionsPointerFid;
    jlong ${jniArgName}_pointer = env->GetLongField( $jniArgName, ${jniArgName}_fidNumber);
    TensorOptions ${jniArgName}_c = *reinterpret_cast<TensorOptions*>(${jniArgName}_pointer);
       """
@@ -426,8 +426,8 @@ object Parser extends App {
     case arg @ ArgData(TpeData("Tensor", Some("&"), List()), argName) =>
       val jniArgName = "jniparam_" + argName
       val convertFromJni = s"""
-   jclass ${jniArgName}_class = env->GetObjectClass( $jniArgName);
-   jfieldID ${jniArgName}_fidNumber = env->GetFieldID( ${jniArgName}_class, "pointer", "J");
+   jclass ${jniArgName}_class = tensorClass;
+   jfieldID ${jniArgName}_fidNumber = tensorPointerFid;
    jlong ${jniArgName}_pointer = env->GetLongField( $jniArgName, ${jniArgName}_fidNumber);
    Tensor ${jniArgName}_c = *reinterpret_cast<Tensor*>(${jniArgName}_pointer);
       """
@@ -591,6 +591,7 @@ object Parser extends App {
 #include <stdlib.h>
 #include <string.h>
 #include <ATen/Functions.h>
+#include "wrapper_manual.h"
 using namespace std;
 using namespace at;
 
