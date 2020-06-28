@@ -108,6 +108,7 @@ object Test extends App {
   
   {
     val e = ATen.ones(Array(2,3),TensorOptions.dtypeDouble)
+    assert(e.scalarTypeByte == 7)
     val t = ATen.t(e)
     val a  =Array.ofDim[Double](6)
     t.copyToDoubleArray(a)
@@ -122,5 +123,42 @@ object Test extends App {
   println("CUDNN avail: "+Tensor.cudnnAvailable)
   // println("Has cuda: "+)
   println("done")
+
+  {
+    val e = ATen.ones(Array(2,3),TensorOptions.dtypeDouble)
+    var i = 0 
+    val N = 10000000
+    while (i < N) {
+      e.dim()
+      i+=1 
+    }
+    i = 0
+    val t1 = System.nanoTime()
+    while (i < N) {
+      e.dim()
+      i+=1 
+    }
+    println("time per call dim: "+(System.nanoTime - t1)/(1E9*N))
+  }
+
+  {
+    val topt = TensorOptions.dtypeDouble
+    val d = Array(2L,3L)
+    var i = 0 
+    val N = 100000
+    while (i < N) {
+      val e = ATen.ones(d,topt)
+      i+=1 
+    }
+    i = 0
+    val t1 = System.nanoTime()
+    while (i < N) {
+      val e = ATen.ones(d,topt)
+      i+=1 
+    }
+    println("time per call allocate: "+(System.nanoTime - t1)/(1E9*N))
+  }
+
+
 
 }

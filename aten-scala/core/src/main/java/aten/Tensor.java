@@ -34,6 +34,7 @@ public class Tensor {
   public native void print();
   public native TensorOptions options();
   public static native boolean cudnnAvailable();
+  public native byte scalarTypeByte();
   
   public native void release();
   public static native void releaseAll(Tensor[] tensors);

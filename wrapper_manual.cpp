@@ -129,10 +129,22 @@ extern "C" {
     }
     return nullptr;
   }
+  JNIEXPORT jbyte JNICALL Java_aten_Tensor_scalarTypeByte(JNIEnv *env, jobject thisObj) { try{
+    
+    jclass cls = tensorClass;
+    Tensor* tensor = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
+    
+    int8_t tpe = (int8_t)c10::typeMetaToScalarType(tensor->options().dtype());
+     return tpe;
+     } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return 0;
+  }
   JNIEXPORT jbyte JNICALL Java_aten_TensorOptions_scalarTypeByte(JNIEnv *env, jobject thisObj) { try{
     
     jclass cls = tensorOptionsClass;
-    TensorOptions* tensorOptions = reinterpret_cast<TensorOptions*>(env->GetLongField( thisObj, env->GetFieldID( cls, "pointer", "J")));
+    TensorOptions* tensorOptions = reinterpret_cast<TensorOptions*>(env->GetLongField( thisObj, tensorOptionsPointerFid));
     
     int8_t tpe = (int8_t)c10::typeMetaToScalarType(tensorOptions->dtype());
      return tpe;
