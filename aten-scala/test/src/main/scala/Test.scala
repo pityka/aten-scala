@@ -176,6 +176,25 @@ object Test extends App {
     println("time per call ones: "+(System.nanoTime - t1)/(1E9*N))
   }
 
+  {
+    val topt = TensorOptions.dtypeDouble
+    val d = Array(2L,3L)
+    val e = ATen.ones(d,topt)
+    var i = 0 
+    val N = 100000
+    while (i < N) {
+      ATen.zero_(e)
+      i+=1 
+    }
+    i = 0
+    val t1 = System.nanoTime()
+    while (i < N) {
+      ATen.zero_(e)
+      i+=1 
+    }
+    println("time per call zero_: "+(System.nanoTime - t1)/(1E9*N))
+  }
+
 
 
 }
