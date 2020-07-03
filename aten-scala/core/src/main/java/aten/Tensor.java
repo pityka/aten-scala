@@ -4,7 +4,7 @@ public class Tensor {
   static {
     Load.load();
   }
-  private transient long pointer;
+  final transient long pointer;
 
   protected Tensor(long cPtr) {
     pointer = cPtr;

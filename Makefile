@@ -8,7 +8,7 @@ prepare:
 	cd aten-scala && sbt bloopInstall;
 
 wrapper.cpp: 
-	cd parser; bloop run parser -- ../parseable.h ../wrapper.cpp ../aten-scala/core/src/main/java/aten/ATen.java
+	cd parser; bloop run parser -- ../parseable.h ../wrapper.cpp ../aten-scala/core/src/main/java/aten/ATen.java ../aten-scala/core/src/main/java/aten/JniImpl.java
 
 aten-scala/jni-osx/src/main/resources/libatenscalajni.dylib: wrapper.cpp wrapper_manual.cpp
 	mkdir -p aten-scala/jni-osx/src/main/resources/;

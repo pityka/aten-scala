@@ -128,14 +128,16 @@ object Parser extends App {
   println("args: ")
   println(argTypes.mkString("\n"))
 
-  val packageAndClassName = "aten_ATen"
+  val packageAndClassName = "aten_JniImpl"
 
   case class MappedType(
       argName: String,
       cType: ArgData,
       jniArgument: String,
       convertFromJni: String,
-      javaType: String,
+      javaTypeHighLevel: String,
+      javaTypeLowLevel: String,
+      convertFromJavaHighToLow: String,
       noInputFromJava: Boolean = false,
       release: String = ""
   )
@@ -145,7 +147,9 @@ object Parser extends App {
       jniType: String,
       javaType: String,
       cType: String,
-      returnOnException: String
+      returnOnException: String,
+      convertFromLowLevelToHigh: String = "",
+      highLevelJavaType: Option[String] = None
   ) {
     def shortJavaType = javaType match {
       case "long"   => "J"
@@ -279,6 +283,22 @@ object Parser extends App {
           cType = "ScalarType",
           returnOnException = "0"
         )
+      case TpeData("Tensor", None, Nil) if toplevel =>
+        MappedReturnType(
+          convert = s"""
+  jclass ret_cls$returnable = tensorClass;
+  jmethodID ret_midInit$returnable = tensorCtor;
+  Tensor* result_on_heap$returnable = new Tensor($argName.contiguous());
+  jlong ret_address$returnable = reinterpret_cast<jlong>(result_on_heap$returnable);
+ 
+   jlong $returnable = ret_address$returnable;""",
+          jniType = "jlong",
+          javaType = "long",
+          cType = "Tensor",
+          returnOnException = "0",
+          convertFromLowLevelToHigh = "new Tensor(lowlevel_result)",
+          highLevelJavaType = Some("Tensor")
+        )
       case TpeData("Tensor", None, Nil) =>
         MappedReturnType(
           convert = s"""
@@ -306,7 +326,9 @@ object Parser extends App {
         arg,
         "jdouble " + jniArgName,
         convertFromJni,
-        "double"
+        "double",
+        "double",
+        arg.name
       )
     case arg @ ArgData(TpeData("double", None, List()), argName) =>
       val jniArgName = "jniparam_" + argName
@@ -316,7 +338,9 @@ object Parser extends App {
         arg,
         "jdouble " + jniArgName,
         convertFromJni,
-        "double"
+        "double",
+        "double",
+        arg.name
       )
     case arg @ ArgData(TpeData("IntArrayRef", None, List()), argName) =>
       val jniArgName = "jniparam_" + argName
@@ -331,18 +355,20 @@ object Parser extends App {
         "jlongArray " + jniArgName,
         convertFromJni,
         "long[]",
-        release = s"env->ReleaseLongArrayElements($jniArgName,(jlong*)${jniArgName}_ar,0);"
+        "long[]",
+        arg.name,
+        release =
+          s"env->ReleaseLongArrayElements($jniArgName,(jlong*)${jniArgName}_ar,0);"
       )
     case arg @ ArgData(TpeData("TensorList", None, List()), argName) =>
       val jniArgName = "jniparam_" + argName
       val convertFromJni = s"""
       jsize ${jniArgName}_length = env->GetArrayLength($jniArgName);
+      int64_t* ${jniArgName}_ar1 = (int64_t*)env->GetLongArrayElements($jniArgName,nullptr);
       Tensor* ${jniArgName}_ar = new Tensor[${jniArgName}_length];
       for (int i = 0; i < ${jniArgName}_length; i++) {
-         jobject obj = env->GetObjectArrayElement( $jniArgName, i);
-          jclass cls = tensorClass;
-        jfieldID fid = tensorPointerFid;
-         jlong address = env->GetLongField( obj, fid);
+         
+         jlong address = ${jniArgName}_ar1[i];
          Tensor* pointer = reinterpret_cast<Tensor*>(address);
           ${jniArgName}_ar[i] = *pointer;
       }
@@ -351,9 +377,13 @@ object Parser extends App {
       MappedType(
         jniArgName + "_c",
         arg,
-        "jobjectArray " + jniArgName,
+        "jlongArray " + jniArgName,
         convertFromJni,
-        "Tensor[]"
+        "Tensor[]",
+        "long[]",
+        s"toTensorPointerArray(${arg.name})",
+        release =
+          s"env->ReleaseLongArrayElements($jniArgName,(jlong*)${jniArgName}_ar1,0);"
       )
     case arg @ ArgData(TpeData("Generator", Some("*"), List()), argName) =>
       val jniArgName = "jniparam_" + argName
@@ -364,24 +394,29 @@ object Parser extends App {
         "",
         convertFromJni,
         "",
+        "",
+        "",
         true
       )
     case arg @ ArgData(TpeData("TensorOptions", Some("&"), List()), argName) =>
       val jniArgName = "jniparam_" + argName
       val convertFromJni = s"""
-   jclass ${jniArgName}_class = tensorOptionsClass;
-   jfieldID ${jniArgName}_fidNumber = tensorOptionsPointerFid;
-   jlong ${jniArgName}_pointer = env->GetLongField( $jniArgName, ${jniArgName}_fidNumber);
-   TensorOptions ${jniArgName}_c = *reinterpret_cast<TensorOptions*>(${jniArgName}_pointer);
+   
+   TensorOptions ${jniArgName}_c = *reinterpret_cast<TensorOptions*>($jniArgName);
       """
       MappedType(
         jniArgName + "_c",
         arg,
-        "jobject " + jniArgName,
+        "jlong " + jniArgName,
         convertFromJni,
-        "TensorOptions"
+        "TensorOptions",
+        "long",
+        s"${arg.name}.pointer"
       )
-    case arg @ ArgData(TpeData("c10::optional", None, List(TpeData("int64_t",None,Nil))), argName) =>
+    case arg @ ArgData(
+          TpeData("c10::optional", None, List(TpeData("int64_t", None, Nil))),
+          argName
+        ) =>
       val jniArgName = "jniparam_" + argName
       val convertFromJni = s"""
       
@@ -393,11 +428,13 @@ object Parser extends App {
    }
       """
       MappedType(
-        jniArgName+"_c",
+        jniArgName + "_c",
         arg,
         "jlong " + jniArgName,
         convertFromJni,
-        "long"
+        "long",
+        "long",
+        arg.name
       )
     case arg @ ArgData(TpeData("c10::optional", None, _), argName) =>
       val jniArgName = "jniparam_" + argName
@@ -407,6 +444,8 @@ object Parser extends App {
         arg,
         "",
         convertFromJni,
+        "",
+        "",
         "",
         true
       )
@@ -418,22 +457,24 @@ object Parser extends App {
         arg,
         "jlong " + jniArgName,
         convertFromJni,
-        "long"
+        "long",
+        "long",
+        arg.name
       )
     case arg @ ArgData(TpeData("Tensor", Some("&"), List()), argName) =>
       val jniArgName = "jniparam_" + argName
       val convertFromJni = s"""
-   jclass ${jniArgName}_class = tensorClass;
-   jfieldID ${jniArgName}_fidNumber = tensorPointerFid;
-   jlong ${jniArgName}_pointer = env->GetLongField( $jniArgName, ${jniArgName}_fidNumber);
-   Tensor ${jniArgName}_c = *reinterpret_cast<Tensor*>(${jniArgName}_pointer);
+   
+   Tensor ${jniArgName}_c = *reinterpret_cast<Tensor*>(${jniArgName});
       """
       MappedType(
         jniArgName + "_c",
         arg,
-        "jobject " + jniArgName,
+        "jlong " + jniArgName,
         convertFromJni,
-        "Tensor"
+        "Tensor",
+        "long",
+        s"${arg.name}.pointer"
       )
     //   case arg @ ArgData(TpeData("Dimname", None, List()), argName) =>
     //     val jniArgName = "jniparam_" + argName
@@ -482,7 +523,9 @@ object Parser extends App {
         arg,
         "jbyte " + jniArgName,
         convertFromJni,
-        "byte"
+        "byte",
+        "byte",
+        arg.name
       )
     case arg @ ArgData(TpeData("std::string", None, List()), argName) =>
       val jniArgName = "jniparam_" + argName
@@ -494,7 +537,9 @@ object Parser extends App {
         arg,
         "jstring " + jniArgName,
         convertFromJni,
-        "String"
+        "String",
+        "String",
+        arg.name
       )
     case arg @ ArgData(TpeData("bool", None, List()), argName) =>
       val jniArgName = "jniparam_" + argName
@@ -504,7 +549,9 @@ object Parser extends App {
         arg,
         "jboolean " + jniArgName,
         convertFromJni,
-        "boolean"
+        "boolean",
+        "boolean",
+        arg.name
       )
     case arg @ ArgData(
           TpeData(
@@ -532,7 +579,9 @@ object Parser extends App {
         arg,
         "jbooleanArray " + jniArgName,
         convertFromJni,
-        "boolean[]"
+        "boolean[]",
+        "boolean[]",
+        arg.name
       )
   }
 
@@ -549,7 +598,7 @@ object Parser extends App {
         l.mkString(",", ",", "")
       else ""
     }
-    s"""JNIEXPORT ${mappedRet.jniType} JNICALL Java_${packageAndClassName}_${decl.generatedFnName
+    s"""JNIEXPORT ${mappedRet.jniType} JNICALL Java_${packageAndClassName}_lowlevel${decl.generatedFnName
       .replaceAllLiterally(
         "_",
         "_1"
@@ -572,15 +621,40 @@ object Parser extends App {
     return ${mappedRet.returnOnException};
 }"""
   }
-  def implementJava(decl: DeclData) = {
+  def implementJavaLowlevel(decl: DeclData) = {
     val mappedArgs = decl.args.map(mapType)
     val mappedRet = mapReturnType(decl.retTpe, "", "", true)
     val javaArgumentList =
       mappedArgs
         .filterNot(_.noInputFromJava)
-        .map(d => d.javaType + " " + d.cType.name)
+        .map(d => d.javaTypeLowLevel + " " + d.cType.name)
         .mkString(",")
-    s"""public static native ${mappedRet.javaType} ${decl.generatedFnName}($javaArgumentList);"""
+    s"""public static native ${mappedRet.javaType} lowlevel${decl.generatedFnName}($javaArgumentList);"""
+  }
+  def implementJavaHighLevel(decl: DeclData) = {
+    val mappedArgs = decl.args.map(mapType)
+    val mappedRet = mapReturnType(decl.retTpe, "", "", true)
+    val javaArgumentList =
+      mappedArgs
+        .filterNot(_.noInputFromJava)
+        .map(d => d.javaTypeHighLevel + " " + d.cType.name)
+        .mkString(",")
+    val javaArgumentList2 =
+      mappedArgs
+        .filterNot(_.noInputFromJava)
+        .map(d => d.convertFromJavaHighToLow)
+        .mkString(",")
+    s"""public static ${mappedRet.highLevelJavaType.getOrElse(
+      mappedRet.javaType
+    )} ${decl.generatedFnName}($javaArgumentList) {
+      ${if (mappedRet.javaType == "void") ""
+    else
+      (mappedRet.javaType + " lowlevel_result = ")} aten.JniImpl.lowlevel${decl.generatedFnName}($javaArgumentList2);
+      ${if (mappedRet.javaType == "void") ""
+    else if (mappedRet.convertFromLowLevelToHigh.nonEmpty)
+      s"return ${mappedRet.convertFromLowLevelToHigh};"
+    else "return lowlevel_result;"}
+    }"""
   }
 
   val cpp = s"""
@@ -616,7 +690,7 @@ extern "C" {
 ${parsed.sortBy(_.fnName).map(implementCpp).mkString("\n\n")}
 }
 """
-  val javaSrc = s"""
+  val javaSrc2 = s"""
 package aten ;
 
 public class ATen {
@@ -625,7 +699,30 @@ public class ATen {
     Load.load();
   }
 
-${parsed.sortBy(_.fnName).map(implementJava).mkString("\n\n")}
+  private static long[] toTensorPointerArray(Tensor[] ts) {
+    long[] ts2 = new long[ts.length];
+    int i = 0;
+    final int n = ts.length;
+    while (i < n) {
+      ts2[i] = ts[i].pointer;
+      i += 1;
+    }
+    return ts2;
+  }
+
+${parsed.sortBy(_.fnName).map(implementJavaHighLevel).mkString("\n\n")}
+}
+"""
+  val javaSrc1 = s"""
+package aten ;
+
+public class JniImpl {
+
+  static {
+    Load.load();
+  }
+
+${parsed.sortBy(_.fnName).map(implementJavaLowlevel).mkString("\n\n")}
 }
 """
 
@@ -642,7 +739,13 @@ ${parsed.sortBy(_.fnName).map(implementJava).mkString("\n\n")}
   if (args.size >= 3) {
     val out = args(2)
     val fw = new java.io.FileWriter(new java.io.File(out))
-    fw.write(javaSrc)
+    fw.write(javaSrc2)
+    fw.close
+  }
+  if (args.size >= 4) {
+    val out = args(3)
+    val fw = new java.io.FileWriter(new java.io.File(out))
+    fw.write(javaSrc1)
     fw.close
   }
 }
