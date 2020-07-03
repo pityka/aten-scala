@@ -372,7 +372,7 @@ object Parser extends App {
          Tensor* pointer = reinterpret_cast<Tensor*>(address);
           ${jniArgName}_ar[i] = *pointer;
       }
-      TensorList ${jniArgName}_c = *(new TensorList(${jniArgName}_ar,${jniArgName}_length));
+      TensorList ${jniArgName}_c = TensorList(${jniArgName}_ar,${jniArgName}_length);
       """
       MappedType(
         jniArgName + "_c",
@@ -383,7 +383,14 @@ object Parser extends App {
         "long[]",
         s"toTensorPointerArray(${arg.name})",
         release =
-          s"env->ReleaseLongArrayElements($jniArgName,(jlong*)${jniArgName}_ar1,0);"
+          s"""
+          env->ReleaseLongArrayElements($jniArgName,(jlong*)${jniArgName}_ar1,0);
+          for (int i = 0; i < ${jniArgName}_length; i++) {
+            Tensor* t2 = &${jniArgName}_ar[i];
+            t2 = nullptr;
+          }
+          delete[] ${jniArgName}_ar;
+          """
       )
     case arg @ ArgData(TpeData("Generator", Some("*"), List()), argName) =>
       val jniArgName = "jniparam_" + argName

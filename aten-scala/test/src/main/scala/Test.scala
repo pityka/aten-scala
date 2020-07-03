@@ -22,7 +22,7 @@ object Test extends App {
   assert(tensor1.defined)
   tensor1.setToTensor(tensor3)
   assert(tensor1.useCount() == 1)
-  assert(tensor1.weakUseCount() == 6)
+  assert(tensor1.weakUseCount() == 4)
   println(tensor1.toString)
   assert(tensor1.numel == 9)
   assert(!tensor1.isCuda)
@@ -193,6 +193,20 @@ object Test extends App {
       i+=1 
     }
     println("time per call zero_: "+(System.nanoTime - t1)/(1E9*N))
+  }
+
+  {
+    val topt = TensorOptions.dtypeDouble
+    val d = Array(3000L,3000L)
+    val t1 = ATen.ones(d,topt)
+    val t2 = ATen.ones(d,topt)
+    val v1 = t1.weakUseCount
+    val c = ATen.cat(Array(t1,t2),0L)
+    assert(v1 == t1.weakUseCount)
+    t1.release 
+    t2.release 
+    c.release
+    
   }
 
 
