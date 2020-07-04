@@ -865,4 +865,95 @@ JNIEXPORT void JNICALL Java_aten_Tensor_addmm_1out_1transposed1(JNIEnv *env, job
     }
     return ;
 }
+
+JNIEXPORT void JNICALL Java_aten_Tensor_baddbmm_1out_1transposed2(JNIEnv *env, jobject thisObj ,jobject jniparam_out,jobject jniparam_self,jobject jniparam_mat1,jobject jniparam_mat2,jdouble jniparam_beta,jdouble jniparam_alpha) {try{
+  
+   jclass jniparam_out_class = tensorClass;
+   jfieldID jniparam_out_fidNumber = tensorPointerFid;
+   jlong jniparam_out_pointer = env->GetLongField( jniparam_out, jniparam_out_fidNumber);
+   Tensor jniparam_out_c = *reinterpret_cast<Tensor*>(jniparam_out_pointer);
+      
+
+   jclass jniparam_self_class = tensorClass;
+   jfieldID jniparam_self_fidNumber = tensorPointerFid;
+   jlong jniparam_self_pointer = env->GetLongField( jniparam_self, jniparam_self_fidNumber);
+   Tensor jniparam_self_c = *reinterpret_cast<Tensor*>(jniparam_self_pointer);
+      
+
+   jclass jniparam_mat1_class = tensorClass;
+   jfieldID jniparam_mat1_fidNumber = tensorPointerFid;
+   jlong jniparam_mat1_pointer = env->GetLongField( jniparam_mat1, jniparam_mat1_fidNumber);
+   Tensor jniparam_mat1_c = *reinterpret_cast<Tensor*>(jniparam_mat1_pointer);
+      
+
+   jclass jniparam_mat2_class = tensorClass;
+   jfieldID jniparam_mat2_fidNumber = tensorPointerFid;
+   jlong jniparam_mat2_pointer = env->GetLongField( jniparam_mat2, jniparam_mat2_fidNumber);
+   Tensor jniparam_mat2_c = *reinterpret_cast<Tensor*>(jniparam_mat2_pointer);
+      
+
+
+
+   at::baddbmm_out(jniparam_out_c,jniparam_self_c,jniparam_mat1_c,jniparam_mat2_c.transpose(1,2),jniparam_beta,jniparam_alpha);
+  
+      
+
+
+
+
+
+
+   
+    return;
+
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return ;
+}
+JNIEXPORT void JNICALL Java_aten_Tensor_baddbmm_1out_1transposed1(JNIEnv *env, jobject thisObj ,jobject jniparam_out,jobject jniparam_self,jobject jniparam_mat1,jobject jniparam_mat2,jdouble jniparam_beta,jdouble jniparam_alpha) {try{
+  
+   jclass jniparam_out_class = tensorClass;
+   jfieldID jniparam_out_fidNumber = tensorPointerFid;
+   jlong jniparam_out_pointer = env->GetLongField( jniparam_out, jniparam_out_fidNumber);
+   Tensor jniparam_out_c = *reinterpret_cast<Tensor*>(jniparam_out_pointer);
+      
+
+   jclass jniparam_self_class = tensorClass;
+   jfieldID jniparam_self_fidNumber = tensorPointerFid;
+   jlong jniparam_self_pointer = env->GetLongField( jniparam_self, jniparam_self_fidNumber);
+   Tensor jniparam_self_c = *reinterpret_cast<Tensor*>(jniparam_self_pointer);
+      
+
+   jclass jniparam_mat1_class = tensorClass;
+   jfieldID jniparam_mat1_fidNumber = tensorPointerFid;
+   jlong jniparam_mat1_pointer = env->GetLongField( jniparam_mat1, jniparam_mat1_fidNumber);
+   Tensor jniparam_mat1_c = *reinterpret_cast<Tensor*>(jniparam_mat1_pointer);
+      
+
+   jclass jniparam_mat2_class = tensorClass;
+   jfieldID jniparam_mat2_fidNumber = tensorPointerFid;
+   jlong jniparam_mat2_pointer = env->GetLongField( jniparam_mat2, jniparam_mat2_fidNumber);
+   Tensor jniparam_mat2_c = *reinterpret_cast<Tensor*>(jniparam_mat2_pointer);
+      
+
+
+
+   at::baddbmm_out(jniparam_out_c,jniparam_self_c,jniparam_mat1_c.transpose(1,2),jniparam_mat2_c,jniparam_beta,jniparam_alpha);
+  
+      
+
+
+
+
+
+
+   
+    return;
+
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return ;
+}
 }

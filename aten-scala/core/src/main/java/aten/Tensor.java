@@ -48,6 +48,9 @@ public class Tensor {
   public static native void addmm_out_transposed1(Tensor out,Tensor self,Tensor mat1,Tensor mat2,double beta,double alpha);
   /* Same as Aten.addmm_out but mat2 will be transposed before addmm */
   public static native void addmm_out_transposed2(Tensor out,Tensor self,Tensor mat1,Tensor mat2,double beta,double alpha);
+ 
+  public static native void baddbmm_out_transposed1(Tensor out,Tensor self,Tensor mat1,Tensor mat2,double beta,double alpha);
+  public static native void baddbmm_out_transposed2(Tensor out,Tensor self,Tensor mat1,Tensor mat2,double beta,double alpha);
 
   @Override
   public String toString() {
