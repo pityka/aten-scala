@@ -473,7 +473,7 @@ extern "C" {
   JNIEXPORT jboolean JNICALL Java_aten_Tensor_copyToFloatArray(JNIEnv *env, jobject thisObj, jfloatArray datain) {try{
     
     jclass cls = tensorClass;
-    Tensor tensor = *reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
+    Tensor tensor = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid))->contiguous();
     
       long len = env->GetArrayLength(datain);
     if (static_cast<int8_t>(tensor.scalar_type()) != 6 || !tensor.is_contiguous() || !tensor.is_non_overlapping_and_dense() || tensor.data_ptr() == nullptr || len != tensor.numel()) {
@@ -522,7 +522,7 @@ extern "C" {
   JNIEXPORT jboolean JNICALL Java_aten_Tensor_copyToLongArray(JNIEnv *env, jobject thisObj, jlongArray datain) {try{
     
     jclass cls = tensorClass;
-    Tensor tensor = *reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
+    Tensor tensor = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid))->contiguous();
     
       long len = env->GetArrayLength(datain);
     if (static_cast<int8_t>(tensor.scalar_type()) != 4 || !tensor.is_contiguous() || !tensor.is_non_overlapping_and_dense() || tensor.data_ptr() == nullptr || len != tensor.numel()) {
@@ -571,7 +571,7 @@ extern "C" {
   JNIEXPORT jboolean JNICALL Java_aten_Tensor_copyToDoubleArray(JNIEnv *env, jobject thisObj, jdoubleArray datain) {try{
     
     jclass cls =tensorClass;
-    Tensor tensor = *reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
+    Tensor tensor = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid))->contiguous();
     
       long len = env->GetArrayLength(datain);
     if (static_cast<int8_t>(tensor.scalar_type()) != 7 || !tensor.is_contiguous() || !tensor.is_non_overlapping_and_dense() || tensor.data_ptr() == nullptr || len != tensor.numel()) {
@@ -641,30 +641,7 @@ extern "C" {
     return ;
 }
 
-JNIEXPORT jobject JNICALL Java_aten_Tensor_transpose(JNIEnv *env, jobject thisObj ,jlong dim0, jlong dim1) {try{
-  
 
-   
-   jclass tensor_cls = tensorClass;
-   Tensor tensor = *reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
-      
-  Tensor result =  tensor.transpose(dim0,dim1).contiguous();
-  
-
-   
-  jclass ret_clsreturnable_result = tensorClass;
-  jmethodID ret_midInitreturnable_result = tensorCtor;
-  Tensor* result_on_heapreturnable_result = new Tensor(result);
-  jlong ret_addressreturnable_result = reinterpret_cast<jlong>(result_on_heapreturnable_result);
-  jobject ret_objreturnable_result = env->NewObject( ret_clsreturnable_result, ret_midInitreturnable_result, ret_addressreturnable_result);
-   jobject returnable_result = ret_objreturnable_result;
-    return returnable_result;
-
-    } catch (exception& e) {
-      throwRuntimeException(env,e.what() );
-    }
-    return nullptr;
-}
 
 JNIEXPORT jobject JNICALL Java_aten_Tensor_to(JNIEnv *env, jobject thisObj ,jobject jniparam_options, jboolean jniparam_copy) {try{
   

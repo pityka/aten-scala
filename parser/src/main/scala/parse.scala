@@ -243,7 +243,7 @@ object Parser extends App {
   jmethodID ret_midInit$returnable = tensorCtor;
   jobjectArray ret_out$returnable = env->NewObjectArray( ret_len$returnable, ret_cls$returnable, nullptr);
   for (int i = 0; i < ret_len$returnable;i++) {
-    jlong ret_address = reinterpret_cast<jlong>(new Tensor($argName.at(i).contiguous()));
+    jlong ret_address = reinterpret_cast<jlong>(new Tensor($argName.at(i)));
     jobject ret_obj = env->NewObject( ret_cls$returnable, ret_midInit$returnable, ret_address);
     env->SetObjectArrayElement(ret_out$returnable, i, ret_obj);
   }
@@ -288,7 +288,7 @@ object Parser extends App {
           convert = s"""
   jclass ret_cls$returnable = tensorClass;
   jmethodID ret_midInit$returnable = tensorCtor;
-  Tensor* result_on_heap$returnable = new Tensor($argName.contiguous());
+  Tensor* result_on_heap$returnable = new Tensor($argName);
   jlong ret_address$returnable = reinterpret_cast<jlong>(result_on_heap$returnable);
  
    jlong $returnable = ret_address$returnable;""",
@@ -304,7 +304,7 @@ object Parser extends App {
           convert = s"""
   jclass ret_cls$returnable = tensorClass;
   jmethodID ret_midInit$returnable = tensorCtor;
-  Tensor* result_on_heap$returnable = new Tensor($argName.contiguous());
+  Tensor* result_on_heap$returnable = new Tensor($argName);
   jlong ret_address$returnable = reinterpret_cast<jlong>(result_on_heap$returnable);
   jobject ret_obj$returnable = env->NewObject( ret_cls$returnable, ret_midInit$returnable, ret_address$returnable);
    jobject $returnable = ret_obj$returnable;""",

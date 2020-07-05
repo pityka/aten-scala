@@ -95,7 +95,7 @@ object Test extends App {
 
   {
     val e = ATen.ones(Array(2,3),TensorOptions.dtypeDouble)
-    val t = e.transpose(0,1)
+    val t = ATen.transpose(e,0,1)
     val a  =Array.ofDim[Double](6)
     t.copyToDoubleArray(a)
     assert(t.sizes.toList == List(3L,2L))

@@ -70,6 +70,5 @@ public class Tensor {
 
   public native void mul_(double d);
   public native void add_(double other, double alpha);
-  public native Tensor transpose(long dim0, long dim1);
 
 }
