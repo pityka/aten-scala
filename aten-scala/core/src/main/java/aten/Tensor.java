@@ -34,6 +34,7 @@ public class Tensor {
   public native void print();
   public native TensorOptions options();
   public static native boolean cudnnAvailable();
+  public static native long getNumGPUs();
   public native byte scalarTypeByte();
   
   public native void release();
@@ -70,5 +71,7 @@ public class Tensor {
 
   public native void mul_(double d);
   public native void add_(double other, double alpha);
+
+  public static native void manual_seed(long seed);
 
 }

@@ -124,6 +124,9 @@ object Test extends App {
   // println("Has cuda: "+)
   println("done")
 
+  Tensor.manual_seed(82L)
+  println("Num gpus: "+Tensor.getNumGPUs)
+
   {
     val e = ATen.ones(Array(2,3),TensorOptions.dtypeDouble)
     var i = 0 

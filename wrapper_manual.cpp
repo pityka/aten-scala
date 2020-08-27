@@ -177,6 +177,15 @@ extern "C" {
     }
     return 0;
   }
+  JNIEXPORT jlong JNICALL Java_aten_Tensor_getNumGPUs(JNIEnv *env, jobject thisObj) { try{
+    
+    jlong ret = at::detail::getCUDAHooks().getNumGPUs();
+    return ret;
+     } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return 0;
+  }
   JNIEXPORT jboolean JNICALL Java_aten_Tensor_cudnnAvailable(JNIEnv *env, jobject thisObj) { try{
     
     bool ret = at::detail::getCUDAHooks().getNumGPUs() > 0 && at::detail::getCUDAHooks().hasCuDNN();
@@ -185,6 +194,13 @@ extern "C" {
       throwRuntimeException(env,e.what() );
     }
     return 0;
+  }
+  JNIEXPORT void JNICALL Java_aten_Tensor_manual_1seed(JNIEnv *env, jobject thisObj, jlong seed) { try{
+    
+    at::manual_seed(seed);
+     } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
   }
   JNIEXPORT jshort JNICALL Java_aten_TensorOptions_deviceIndex(JNIEnv *env, jobject thisObj) { try{
     
