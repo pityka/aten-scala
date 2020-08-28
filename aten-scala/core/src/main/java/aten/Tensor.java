@@ -72,6 +72,7 @@ public class Tensor {
   public native void mul_(double d);
   public native void add_(double other, double alpha);
   public native Tensor expand_as(Tensor other);
+  public native Tensor repeat(long[] repeats);
 
   public static native void manual_seed(long seed);
 

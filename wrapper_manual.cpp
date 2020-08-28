@@ -452,6 +452,22 @@ extern "C" {
     }
     return NULL;
   }
+  JNIEXPORT jobject JNICALL Java_aten_Tensor_repeat(JNIEnv *env, jobject thisObj, jlongArray repeat) {try{
+    
+    jclass cls = tensorClass;
+    Tensor tensor1 = *reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
+    int64_t* longs = (int64_t*)env->GetLongArrayElements(repeat, nullptr);
+    jsize length = env->GetArrayLength(repeat);
+    IntArrayRef intarrayref = *(new IntArrayRef(longs,length));
+    Tensor tensor2 = tensor1.repeat(intarrayref);
+    env->ReleaseLongArrayElements(repeat,(jlong*)longs,0);
+
+    return env->NewObject( tensorClass, tensorCtor, reinterpret_cast<jlong>(new Tensor(tensor2)));
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return NULL;
+  }
   JNIEXPORT void JNICALL Java_aten_Tensor_add_1(JNIEnv *env, jobject thisObj, jdouble other, jdouble alpha) {try{
     
     jclass cls = tensorClass;
