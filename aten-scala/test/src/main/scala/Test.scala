@@ -127,6 +127,10 @@ object Test extends App {
   Tensor.manual_seed(82L)
   println("Num gpus: "+Tensor.getNumGPUs)
 
+  val expandto = ATen.ones(Array(3,3),TensorOptions.d)
+  val expanded = ATen.ones(Array(1,1),TensorOptions.d).expand_as(expandto)
+  assert(expanded.sizes.toList == List(3,3))
+
   {
     val e = ATen.ones(Array(2,3),TensorOptions.dtypeDouble)
     var i = 0 

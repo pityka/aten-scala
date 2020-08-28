@@ -439,6 +439,19 @@ extern "C" {
     }
     return ;
   }
+  JNIEXPORT jobject JNICALL Java_aten_Tensor_expand_1as(JNIEnv *env, jobject thisObj, jobject other) {try{
+    
+    jclass cls = tensorClass;
+    Tensor tensor1 = *reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
+    Tensor tensor2 = *reinterpret_cast<Tensor*>(env->GetLongField( other, tensorPointerFid));
+    Tensor tensor3 = tensor1.expand_as(tensor2);
+
+    return env->NewObject( tensorClass, tensorCtor, reinterpret_cast<jlong>(new Tensor(tensor3)));
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return NULL;
+  }
   JNIEXPORT void JNICALL Java_aten_Tensor_add_1(JNIEnv *env, jobject thisObj, jdouble other, jdouble alpha) {try{
     
     jclass cls = tensorClass;
