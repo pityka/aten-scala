@@ -1,5 +1,5 @@
 val commonSettings = Seq(
-  scalaVersion := "2.12.11",
+  scalaVersion := "2.12.12",
   organization := "io.github.pityka",
   licenses += ("MIT", url("http://opensource.org/licenses/MIT")),
   githubOwner := "pityka",

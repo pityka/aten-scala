@@ -35,6 +35,8 @@ namespace SparseCPUType {
   Tensor add_Tensor(const Tensor & self, const Tensor & other, Scalar alpha);
   Tensor & add__Tensor(Tensor & self, const Tensor & other, Scalar alpha);
   Tensor & add_out_out(Tensor & out, const Tensor & self, const Tensor & other, Scalar alpha);
+  Tensor bmm(const Tensor & self, const Tensor & mat2);
+  Tensor & bmm_out_out(Tensor & out, const Tensor & self, const Tensor & mat2);
   Tensor div_Tensor(const Tensor & self, const Tensor & other);
   Tensor & div__Tensor(Tensor & self, const Tensor & other);
   Tensor & div_out_out(Tensor & out, const Tensor & self, const Tensor & other);
@@ -50,6 +52,7 @@ namespace SparseCPUType {
   Tensor mul_Tensor(const Tensor & self, const Tensor & other);
   Tensor & mul__Tensor(Tensor & self, const Tensor & other);
   Tensor & mul_out_out(Tensor & out, const Tensor & self, const Tensor & other);
+  Tensor mv(const Tensor & self, const Tensor & vec);
   Tensor narrow_copy(const Tensor & self, int64_t dim, int64_t start, int64_t length);
   Tensor & sspaddmm_out_out(Tensor & out, const Tensor & self, const Tensor & mat1, const Tensor & mat2, Scalar beta, Scalar alpha);
   Tensor true_divide_Tensor(const Tensor & self, const Tensor & other);
@@ -57,6 +60,10 @@ namespace SparseCPUType {
   Tensor & true_divide_out_out(Tensor & out, const Tensor & self, const Tensor & other);
   Tensor native_norm(const Tensor & self, Scalar p);
   Tensor _sparse_sum_backward(const Tensor & grad, const Tensor & self, IntArrayRef dim);
+  Tensor _sparse_softmax(const Tensor & self, int64_t dim, bool half_to_float);
+  Tensor _sparse_softmax_backward_data(const Tensor & grad_output, const Tensor & output, int64_t dim, const Tensor & self);
+  Tensor _sparse_log_softmax(const Tensor & self, int64_t dim, bool half_to_float);
+  Tensor _sparse_log_softmax_backward_data(const Tensor & grad_output, const Tensor & output, int64_t dim, const Tensor & self);
   Tensor clone(const Tensor & self, c10::optional<MemoryFormat> memory_format);
   Tensor & pow_out_Tensor_Scalar_out(Tensor & out, const Tensor & self, Scalar exponent);
   Tensor pow_Tensor_Scalar(const Tensor & self, Scalar exponent);

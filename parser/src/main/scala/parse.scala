@@ -396,7 +396,7 @@ object Parser extends App {
       val jniArgName = "jniparam_" + argName
       val convertFromJni = ""
       MappedType(
-        "nullptr",
+        "c10::nullopt",
         arg,
         "",
         convertFromJni,

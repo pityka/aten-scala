@@ -38,6 +38,10 @@ namespace SparseCUDAType {
   Tensor add_Tensor(const Tensor & self, const Tensor & other, Scalar alpha);
   Tensor & add__Tensor(Tensor & self, const Tensor & other, Scalar alpha);
   Tensor & add_out_out(Tensor & out, const Tensor & self, const Tensor & other, Scalar alpha);
+  Tensor bmm(const Tensor & self, const Tensor & mat2);
+  Tensor _bmm(const Tensor & self, const Tensor & mat2, bool deterministic);
+  Tensor & bmm_out_out(Tensor & out, const Tensor & self, const Tensor & mat2);
+  Tensor & _bmm_out_out(Tensor & out, const Tensor & self, const Tensor & mat2, bool deterministic);
   Tensor div_Tensor(const Tensor & self, const Tensor & other);
   Tensor & div__Tensor(Tensor & self, const Tensor & other);
   Tensor & div_out_out(Tensor & out, const Tensor & self, const Tensor & other);
@@ -53,6 +57,7 @@ namespace SparseCUDAType {
   Tensor mul_Tensor(const Tensor & self, const Tensor & other);
   Tensor & mul__Tensor(Tensor & self, const Tensor & other);
   Tensor & mul_out_out(Tensor & out, const Tensor & self, const Tensor & other);
+  Tensor mv(const Tensor & self, const Tensor & vec);
   Tensor narrow_copy(const Tensor & self, int64_t dim, int64_t start, int64_t length);
   Tensor & sspaddmm_out_out(Tensor & out, const Tensor & self, const Tensor & mat1, const Tensor & mat2, Scalar beta, Scalar alpha);
   Tensor true_divide_Tensor(const Tensor & self, const Tensor & other);

@@ -1,4 +1,4 @@
-FROM pityka/base-ubuntu-libtorch:3
+FROM pityka/base-ubuntu-libtorch:torch16
 
 WORKDIR /build
 COPY . .

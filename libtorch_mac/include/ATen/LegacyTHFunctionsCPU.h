@@ -20,17 +20,12 @@ namespace native {
 namespace legacy {
 namespace cpu {
 
-Tensor & _th_set_(Tensor & self, Storage source, int64_t storage_offset, IntArrayRef size, IntArrayRef stride);
 Tensor & _th_masked_scatter_(Tensor & self, const Tensor & mask, const Tensor & source);
 Tensor & _th_masked_scatter_bool_(Tensor & self, const Tensor & mask, const Tensor & source);
 Tensor & _th_masked_select_out(Tensor & result, const Tensor & self, const Tensor & mask);
-Tensor & s__th_masked_select_out(Tensor & result, const Tensor & self, const Tensor & mask);
 Tensor _th_masked_select(const Tensor & self, const Tensor & mask);
-Tensor s__th_masked_select(const Tensor & self, const Tensor & mask);
 Tensor & _th_masked_select_bool_out(Tensor & result, const Tensor & self, const Tensor & mask);
-Tensor & s__th_masked_select_bool_out(Tensor & result, const Tensor & self, const Tensor & mask);
 Tensor _th_masked_select_bool(const Tensor & self, const Tensor & mask);
-Tensor s__th_masked_select_bool(const Tensor & self, const Tensor & mask);
 Tensor & _th_nonzero_out(Tensor & result, const Tensor & self);
 Tensor _th_nonzero(const Tensor & self);
 Tensor & _th_index_copy_(Tensor & self, int64_t dim, const Tensor & index, const Tensor & source);
@@ -39,16 +34,10 @@ Tensor _th_take(const Tensor & self, const Tensor & index);
 Tensor & _th_put_(Tensor & self, const Tensor & index, const Tensor & source, bool accumulate);
 Tensor & _th_index_fill_(Tensor & self, int64_t dim, const Tensor & index, Scalar value);
 bool _th_equal(const Tensor & self, const Tensor & other);
-std::tuple<Tensor &,Tensor &> _th_min_out(Tensor & min, Tensor & min_indices, const Tensor & self, int64_t dim, bool keepdim);
-std::tuple<Tensor,Tensor> _th_min(const Tensor & self, int64_t dim, bool keepdim);
-std::tuple<Tensor &,Tensor &> _th_max_out(Tensor & max, Tensor & max_indices, const Tensor & self, int64_t dim, bool keepdim);
-std::tuple<Tensor,Tensor> _th_max(const Tensor & self, int64_t dim, bool keepdim);
 std::tuple<Tensor &,Tensor &> _th_mode_out(Tensor & values, Tensor & indices, const Tensor & self, int64_t dim, bool keepdim);
 std::tuple<Tensor,Tensor> _th_mode(const Tensor & self, int64_t dim, bool keepdim);
 std::tuple<Tensor &,Tensor &> _th_sort_out(Tensor & values, Tensor & indices, const Tensor & self, int64_t dim, bool descending);
 std::tuple<Tensor,Tensor> _th_sort(const Tensor & self, int64_t dim, bool descending);
-Tensor _th_var(const Tensor & self, bool unbiased);
-Tensor _th_std(const Tensor & self, bool unbiased);
 Tensor & _th_renorm_out(Tensor & result, const Tensor & self, Scalar p, int64_t dim, Scalar maxnorm);
 Tensor _th_renorm(const Tensor & self, Scalar p, int64_t dim, Scalar maxnorm);
 Tensor & _th_renorm_(Tensor & self, Scalar p, int64_t dim, Scalar maxnorm);
@@ -56,27 +45,14 @@ Tensor & _th_histc_out(Tensor & result, const Tensor & self, int64_t bins, Scala
 Tensor _th_histc(const Tensor & self, int64_t bins, Scalar min, Scalar max);
 Tensor _th_trace(const Tensor & self);
 Tensor _th_dot(const Tensor & self, const Tensor & tensor);
-Tensor & _th_diag_out(Tensor & result, const Tensor & self, int64_t diagonal);
-Tensor _th_diag(const Tensor & self, int64_t diagonal);
 Tensor & _th_addmm_out(Tensor & result, const Tensor & self, const Tensor & mat1, const Tensor & mat2, Scalar beta, Scalar alpha);
-Tensor & s__th_addmm_out(Tensor & result, const Tensor & self, const Tensor & mat1, const Tensor & mat2, Scalar beta, Scalar alpha);
 Tensor _th_addmm(const Tensor & self, const Tensor & mat1, const Tensor & mat2, Scalar beta, Scalar alpha);
-Tensor s__th_addmm(const Tensor & self, const Tensor & mat1, const Tensor & mat2, Scalar beta, Scalar alpha);
 Tensor & _th_addmm_(Tensor & self, const Tensor & mat1, const Tensor & mat2, Scalar beta, Scalar alpha);
-Tensor & _th_addmv_out(Tensor & result, const Tensor & self, const Tensor & mat, const Tensor & vec, Scalar beta, Scalar alpha);
-Tensor & s__th_addmv_out(Tensor & result, const Tensor & self, const Tensor & mat, const Tensor & vec, Scalar beta, Scalar alpha);
-Tensor _th_addmv(const Tensor & self, const Tensor & mat, const Tensor & vec, Scalar beta, Scalar alpha);
-Tensor s__th_addmv(const Tensor & self, const Tensor & mat, const Tensor & vec, Scalar beta, Scalar alpha);
-Tensor & _th_addmv_(Tensor & self, const Tensor & mat, const Tensor & vec, Scalar beta, Scalar alpha);
 Tensor & _th_addr_out(Tensor & result, const Tensor & self, const Tensor & vec1, const Tensor & vec2, Scalar beta, Scalar alpha);
-Tensor & s__th_addr_out(Tensor & result, const Tensor & self, const Tensor & vec1, const Tensor & vec2, Scalar beta, Scalar alpha);
 Tensor _th_addr(const Tensor & self, const Tensor & vec1, const Tensor & vec2, Scalar beta, Scalar alpha);
-Tensor s__th_addr(const Tensor & self, const Tensor & vec1, const Tensor & vec2, Scalar beta, Scalar alpha);
 Tensor & _th_addr_(Tensor & self, const Tensor & vec1, const Tensor & vec2, Scalar beta, Scalar alpha);
 Tensor & _th_addbmm_out(Tensor & result, const Tensor & self, const Tensor & batch1, const Tensor & batch2, Scalar beta, Scalar alpha);
-Tensor & s__th_addbmm_out(Tensor & result, const Tensor & self, const Tensor & batch1, const Tensor & batch2, Scalar beta, Scalar alpha);
 Tensor _th_addbmm(const Tensor & self, const Tensor & batch1, const Tensor & batch2, Scalar beta, Scalar alpha);
-Tensor s__th_addbmm(const Tensor & self, const Tensor & batch1, const Tensor & batch2, Scalar beta, Scalar alpha);
 Tensor & _th_addbmm_(Tensor & self, const Tensor & batch1, const Tensor & batch2, Scalar beta, Scalar alpha);
 std::tuple<Tensor &,Tensor &> _th_gels_out(Tensor & res1, Tensor & res2, const Tensor & self, const Tensor & A);
 std::tuple<Tensor,Tensor> _th_gels(const Tensor & self, const Tensor & A);
@@ -92,9 +68,8 @@ Tensor & _th_ormqr_out(Tensor & result, const Tensor & self, const Tensor & inpu
 Tensor _th_ormqr(const Tensor & self, const Tensor & input2, const Tensor & input3, bool left, bool transpose);
 std::tuple<Tensor &,Tensor &> _th_multinomial_alias_setup_out(Tensor & J, Tensor & q, const Tensor & probs);
 std::tuple<Tensor,Tensor> _th_multinomial_alias_setup(const Tensor & probs);
-Tensor & _th_multinomial_alias_draw_out(Tensor & result, const Tensor & q, const Tensor & J, int64_t num_samples, Generator * generator);
-Tensor _th_multinomial_alias_draw(const Tensor & q, const Tensor & J, int64_t num_samples, Generator * generator);
-Tensor & _th_uniform_(Tensor & self, double from, double to, Generator * generator);
+Tensor & _th_multinomial_alias_draw_out(Tensor & result, const Tensor & q, const Tensor & J, int64_t num_samples, c10::optional<Generator> generator);
+Tensor _th_multinomial_alias_draw(const Tensor & q, const Tensor & J, int64_t num_samples, c10::optional<Generator> generator);
 
 } // namespace th
 } // namespace legacy

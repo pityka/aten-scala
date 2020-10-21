@@ -5,20 +5,14 @@
 #include <c10/util/Optional.h>
 #include <ostream>
 
-namespace at
-{
+namespace at {
 
-enum class NameType : uint8_t
-{
-  BASIC,
-  WILDCARD
-};
+enum class NameType: uint8_t { BASIC, WILDCARD };
 
-struct CAFFE2_API Dimname
-{
+struct CAFFE2_API Dimname {
   static Dimname fromSymbol(Symbol name);
   static Dimname wildcard();
-  static bool isValidName(const std::string &name);
+  static bool isValidName(const std::string& name);
 
   NameType type() const { return type_; }
   Symbol symbol() const { return name_; }
@@ -29,11 +23,11 @@ struct CAFFE2_API Dimname
   bool matches(Dimname other) const;
   optional<Dimname> unify(Dimname other) const;
 
-private:
+ private:
   Dimname(Symbol name)
-      : name_(name), type_(NameType::BASIC) {}
+    : name_(name), type_(NameType::BASIC) {}
   Dimname(Symbol name, NameType type)
-      : name_(name), type_(type) {}
+    : name_(name), type_(type) {}
 
   Symbol name_;
   NameType type_;
@@ -41,15 +35,13 @@ private:
 
 using DimnameList = c10::ArrayRef<Dimname>;
 
-CAFFE2_API std::ostream &operator<<(std::ostream &out, const Dimname &dimname);
+CAFFE2_API std::ostream& operator<<(std::ostream& out, const Dimname& dimname);
 
-inline bool operator==(const Dimname &lhs, const Dimname &rhs)
-{
+inline bool operator==(const Dimname& lhs, const Dimname& rhs) {
   return lhs.symbol() == rhs.symbol();
 }
 
-inline bool operator!=(const Dimname &lhs, const Dimname &rhs)
-{
+inline bool operator!=(const Dimname& lhs, const Dimname& rhs) {
   return !(lhs == rhs);
 }
 

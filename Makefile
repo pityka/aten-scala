@@ -1,6 +1,6 @@
 docker-prepare:
   # runtime image is in docker hub
-	# cd docker-runtime && docker build -t pityka/base-ubuntu-libtorch .
+	# cd docker-runtime && docker build -t pityka/base-ubuntu-libtorch:torch16 .
 	cd docker-build && docker build -t aten-scala-linux-build .
 
 prepare:
@@ -22,7 +22,7 @@ test: aten-scala/jni-osx/src/main/resources/libatenscalajni.dylib
 		cd aten-scala; bloop run test 
 
 test-linux: aten-scala/jni-linux/src/main/resources/libatenscalajni.so
-		docker run -v `pwd`:/build pityka/base-ubuntu-libtorch:3 /bin/bash -c "cd /build/aten-scala; sbt 'test/run'"
+		docker run --env GITHUB_TOKEN=$$(git config --global --get github.token) -v `pwd`:/build pityka/base-ubuntu-libtorch:torch16 /bin/bash -c "cd /build/aten-scala; sbt 'test/run'"
 
 test-cuda: aten-scala/jni-linux/src/main/resources/libatenscalajni.so
 		cd aten-scala && TOKEN=$$(git config --global --get github.token) && id=$$(docker --context vm1 build -q .) && echo $$id && docker --context vm1 run --env GITHUB_TOKEN=$$TOKEN --gpus all $$id /bin/bash -c "sbt 'test/run --cuda'"

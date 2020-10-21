@@ -17,6 +17,7 @@
 #include <ATen/core/DeprecatedTypePropertiesRegistry.h>
 #include <ATen/core/DeprecatedTypeProperties.h>
 #include <ATen/core/NamedTensor.h>
+#include <torch/csrc/WindowsTorchApiMacro.h>
 
 namespace caffe2 {
 class Tensor;
@@ -56,7 +57,12 @@ using ConstQuantizerPtr = const c10::intrusive_ptr<Quantizer>&;
 
 namespace impl {
 inline bool variable_excluded_from_dispatch() {
-  return c10::impl::tls_local_dispatch_key_set().excluded_.has(DispatchKey::VariableTensorId);
+#ifdef C10_MOBILE
+  // Please read the comment in `VariableFallbackKernel.cpp` about the background of this change.
+  return true;
+#else
+  return c10::impl::tls_local_dispatch_key_set().excluded_.has(DispatchKey::Autograd);
+#endif
 }
 }
 
@@ -290,7 +296,7 @@ class CAFFE2_API Tensor {
   /// Returns a `Tensor`'s layout. Defined in Type.h
   Layout layout() const noexcept;
 
-  /// Returns a `Tensor`'s dtype (`TypeMeta`). Defined in TensorMethods.h
+  /// Returns a `Tensor`'s dtype (`TypeMeta`). Defined in TensorMethods.cpp
   caffe2::TypeMeta dtype() const noexcept;
 
   /// Returns a `Tensor`'s device.
@@ -311,8 +317,15 @@ class CAFFE2_API Tensor {
   /// Returns if a `Tensor` is mkldnn tensor.
   bool is_mkldnn() const;
 
+  /// Returns if a `Tensor` is vulkan tensor.
+  bool is_vulkan() const;
+
   /// Returns if a `Tensor` has quantized backend.
   bool is_quantized() const;
+
+  /// Returns if a `Tensor` is a meta tensor.  Meta tensors can
+  /// also have other designations.
+  bool is_meta() const;
 
   /// If a tensor is a quantized tensor, returns its quantizer
   /// TODO: it's not in native_functions.yaml yet as it's not exposed to python
@@ -396,6 +409,7 @@ class CAFFE2_API Tensor {
   C10_DEPRECATED_MESSAGE("packed_accessor is deprecated, use packed_accessor32 or packed_accessor64 instead")
   GenericPackedTensorAccessor<T,N,PtrTraits,index_t> packed_accessor() && = delete;
 
+  Tensor operator~() const;
   Tensor operator-() const;
   Tensor& operator+=(const Tensor & other);
   Tensor& operator+=(Scalar other);
@@ -405,6 +419,9 @@ class CAFFE2_API Tensor {
   Tensor& operator*=(Scalar other);
   Tensor& operator/=(const Tensor & other);
   Tensor& operator/=(Scalar other);
+  Tensor& operator&=(const Tensor & other);
+  Tensor& operator|=(const Tensor & other);
+  Tensor& operator^=(const Tensor & other);
   Tensor operator[](Scalar index) const;
   Tensor operator[](Tensor index) const;
   Tensor operator[](int64_t index) const;
@@ -420,6 +437,7 @@ class CAFFE2_API Tensor {
   Tensor cpu() const;
   Tensor cuda() const;
   Tensor hip() const;
+  Tensor vulkan() const;
 
   // ~~~~~ Autograd API ~~~~~
 
@@ -460,7 +478,7 @@ class CAFFE2_API Tensor {
   /// // f requires grad, has no operation creating it
   /// @endcode
 
-  /// \fn void backward(const Tensor & gradient={}, bool keep_graph=false, bool create_graph=false) const;
+  /// \fn void backward(const Tensor & gradient={}, c10::optional<bool> retain_graph=c10::nullopt, bool create_graph=false) const;
   ///
   /// Computes the gradient of current tensor with respect to graph leaves.
   ///
@@ -479,7 +497,7 @@ class CAFFE2_API Tensor {
   ///     None values can be specified for scalar Tensors or ones that
   ///     don't require grad. If a None value would be acceptable then
   ///     this argument is optional.
-  /// \param keep_graph If ``false``, the graph used to compute
+  /// \param retain_graph If ``false``, the graph used to compute
   ///     the grads will be freed. Note that in nearly all cases setting
   ///     this option to True is not needed and often can be worked around
   ///     in a much more efficient way. Defaults to the value of
@@ -529,13 +547,13 @@ class CAFFE2_API Tensor {
 
   //example
   //Tensor * add(Tensor & b);
-  void backward(const Tensor & gradient={}, bool keep_graph=false, bool create_graph=false) const;
+  void backward(const Tensor & gradient={}, c10::optional<bool> retain_graph=c10::nullopt, bool create_graph=false) const;
   void set_data(const Tensor & new_data) const;
   Tensor data() const;
   bool is_leaf() const;
   int64_t output_nr() const;
   int64_t _version() const;
-  Tensor & requires_grad_(bool _requires_grad=true) const;
+  Tensor & requires_grad_(bool requires_grad=true) const;
   void retain_grad() const;
   Tensor & rename_(c10::optional<DimnameList> names) const;
   Tensor rename(c10::optional<DimnameList> names) const;
@@ -547,6 +565,8 @@ class CAFFE2_API Tensor {
   Tensor unflatten(int64_t dim, IntArrayRef sizes, DimnameList names) const;
   Tensor abs() const;
   Tensor & abs_() const;
+  Tensor absolute() const;
+  Tensor & absolute_() const;
   Tensor angle() const;
   Tensor conj() const;
   Tensor acos() const;
@@ -566,6 +586,12 @@ class CAFFE2_API Tensor {
   Tensor any(Dimname dim, bool keepdim=false) const;
   Tensor argmax(c10::optional<int64_t> dim=c10::nullopt, bool keepdim=false) const;
   Tensor argmin(c10::optional<int64_t> dim=c10::nullopt, bool keepdim=false) const;
+  Tensor acosh() const;
+  Tensor & acosh_() const;
+  Tensor asinh() const;
+  Tensor & asinh_() const;
+  Tensor atanh() const;
+  Tensor & atanh_() const;
   Tensor as_strided(IntArrayRef size, IntArrayRef stride, c10::optional<int64_t> storage_offset=c10::nullopt) const;
   Tensor & as_strided_(IntArrayRef size, IntArrayRef stride, c10::optional<int64_t> storage_offset=c10::nullopt) const;
   Tensor asin() const;
@@ -574,10 +600,10 @@ class CAFFE2_API Tensor {
   Tensor & atan_() const;
   Tensor baddbmm(const Tensor & batch1, const Tensor & batch2, Scalar beta=1, Scalar alpha=1) const;
   Tensor & baddbmm_(const Tensor & batch1, const Tensor & batch2, Scalar beta=1, Scalar alpha=1) const;
-  Tensor bernoulli(Generator * generator=nullptr) const;
-  Tensor & bernoulli_(const Tensor & p, Generator * generator=nullptr) const;
-  Tensor & bernoulli_(double p=0.5, Generator * generator=nullptr) const;
-  Tensor bernoulli(double p, Generator * generator=nullptr) const;
+  Tensor bernoulli(c10::optional<Generator> generator=c10::nullopt) const;
+  Tensor & bernoulli_(const Tensor & p, c10::optional<Generator> generator=c10::nullopt) const;
+  Tensor & bernoulli_(double p=0.5, c10::optional<Generator> generator=c10::nullopt) const;
+  Tensor bernoulli(double p, c10::optional<Generator> generator=c10::nullopt) const;
   Tensor bincount(const Tensor & weights={}, int64_t minlength=0) const;
   Tensor bitwise_not() const;
   Tensor & bitwise_not_() const;
@@ -666,6 +692,7 @@ class CAFFE2_API Tensor {
   Tensor index_put(TensorList indices, const Tensor & values, bool accumulate=false) const;
   Tensor inverse() const;
   Tensor isclose(const Tensor & other, double rtol=1e-05, double atol=1e-08, bool equal_nan=false) const;
+  Tensor isnan() const;
   bool is_distributed() const;
   bool is_floating_point() const;
   bool is_complex() const;
@@ -682,9 +709,13 @@ class CAFFE2_API Tensor {
   Tensor & log1p_() const;
   Tensor log2() const;
   Tensor & log2_() const;
+  Tensor logaddexp(const Tensor & other) const;
+  Tensor logaddexp2(const Tensor & other) const;
   Tensor logdet() const;
   Tensor log_softmax(int64_t dim, c10::optional<ScalarType> dtype=c10::nullopt) const;
   Tensor log_softmax(Dimname dim, c10::optional<ScalarType> dtype=c10::nullopt) const;
+  Tensor logcumsumexp(int64_t dim) const;
+  Tensor logcumsumexp(Dimname dim) const;
   Tensor logsumexp(IntArrayRef dim, bool keepdim=false) const;
   Tensor logsumexp(DimnameList dim, bool keepdim=false) const;
   Tensor matmul(const Tensor & other) const;
@@ -720,6 +751,10 @@ class CAFFE2_API Tensor {
   bool is_pinned() const;
   Tensor pin_memory() const;
   Tensor pinverse(double rcond=1e-15) const;
+  Tensor rad2deg() const;
+  Tensor & rad2deg_() const;
+  Tensor deg2rad() const;
+  Tensor & deg2rad_() const;
   Tensor reciprocal() const;
   Tensor & reciprocal_() const;
   Tensor neg() const;
@@ -766,6 +801,7 @@ class CAFFE2_API Tensor {
   Tensor & squeeze_(Dimname dim) const;
   Tensor sspaddmm(const Tensor & mat1, const Tensor & mat2, Scalar beta=1, Scalar alpha=1) const;
   Tensor stft(int64_t n_fft, c10::optional<int64_t> hop_length=c10::nullopt, c10::optional<int64_t> win_length=c10::nullopt, const Tensor & window={}, bool normalized=false, bool onesided=true) const;
+  Tensor istft(int64_t n_fft, c10::optional<int64_t> hop_length=c10::nullopt, c10::optional<int64_t> win_length=c10::nullopt, const Tensor & window={}, bool center=true, bool normalized=false, bool onesided=true, c10::optional<int64_t> length=c10::nullopt) const;
   int64_t stride(int64_t dim) const;
   int64_t stride(Dimname dim) const;
   Tensor sum(c10::optional<ScalarType> dtype=c10::nullopt) const;
@@ -792,6 +828,8 @@ class CAFFE2_API Tensor {
   Tensor transpose(Dimname dim0, Dimname dim1) const;
   Tensor & transpose_(int64_t dim0, int64_t dim1) const;
   Tensor flip(IntArrayRef dims) const;
+  Tensor fliplr() const;
+  Tensor flipud() const;
   Tensor roll(IntArrayRef shifts, IntArrayRef dims={}) const;
   Tensor rot90(int64_t k=1, IntArrayRef dims={0,1}) const;
   Tensor true_divide(const Tensor & other) const;
@@ -954,14 +992,14 @@ class CAFFE2_API Tensor {
   Tensor & addbmm_(const Tensor & batch1, const Tensor & batch2, Scalar beta=1, Scalar alpha=1) const;
   Tensor addbmm(const Tensor & batch1, const Tensor & batch2, Scalar beta=1, Scalar alpha=1) const;
   Tensor & addcdiv_(const Tensor & tensor1, const Tensor & tensor2, Scalar value=1) const;
-  Tensor & random_(int64_t from, c10::optional<int64_t> to, Generator * generator=nullptr) const;
-  Tensor & random_(int64_t to, Generator * generator=nullptr) const;
-  Tensor & random_(Generator * generator=nullptr) const;
-  Tensor & uniform_(double from=0, double to=1, Generator * generator=nullptr) const;
-  Tensor & cauchy_(double median=0, double sigma=1, Generator * generator=nullptr) const;
-  Tensor & log_normal_(double mean=1, double std=2, Generator * generator=nullptr) const;
-  Tensor & exponential_(double lambd=1, Generator * generator=nullptr) const;
-  Tensor & geometric_(double p, Generator * generator=nullptr) const;
+  Tensor & random_(int64_t from, c10::optional<int64_t> to, c10::optional<Generator> generator=c10::nullopt) const;
+  Tensor & random_(int64_t to, c10::optional<Generator> generator=c10::nullopt) const;
+  Tensor & random_(c10::optional<Generator> generator=c10::nullopt) const;
+  Tensor & uniform_(double from=0, double to=1, c10::optional<Generator> generator=c10::nullopt) const;
+  Tensor & cauchy_(double median=0, double sigma=1, c10::optional<Generator> generator=c10::nullopt) const;
+  Tensor & log_normal_(double mean=1, double std=2, c10::optional<Generator> generator=c10::nullopt) const;
+  Tensor & exponential_(double lambd=1, c10::optional<Generator> generator=c10::nullopt) const;
+  Tensor & geometric_(double p, c10::optional<Generator> generator=c10::nullopt) const;
   Tensor diag(int64_t diagonal=0) const;
   Tensor cross(const Tensor & other, c10::optional<int64_t> dim=c10::nullopt) const;
   Tensor triu(int64_t diagonal=0) const;
@@ -1004,7 +1042,7 @@ class CAFFE2_API Tensor {
   Tensor orgqr(const Tensor & input2) const;
   Tensor ormqr(const Tensor & input2, const Tensor & input3, bool left=true, bool transpose=false) const;
   Tensor lu_solve(const Tensor & LU_data, const Tensor & LU_pivots) const;
-  Tensor multinomial(int64_t num_samples, bool replacement=false, Generator * generator=nullptr) const;
+  Tensor multinomial(int64_t num_samples, bool replacement=false, c10::optional<Generator> generator=c10::nullopt) const;
   Tensor lgamma() const;
   Tensor digamma() const;
   Tensor polygamma(int64_t n) const;
@@ -1037,8 +1075,10 @@ class CAFFE2_API Tensor {
   Tensor unfold(int64_t dimension, int64_t size, int64_t step) const;
   bool equal(const Tensor & other) const;
   Tensor pow(const Tensor & exponent) const;
-  Tensor & normal_(double mean=0, double std=1, Generator * generator=nullptr) const;
+  Tensor & normal_(double mean=0, double std=1, c10::optional<Generator> generator=c10::nullopt) const;
   Tensor alias() const;
+  Tensor isfinite() const;
+  Tensor isinf() const;
 
   // We changed .dtype() to return a TypeMeta in #12766. Ideally, we want the
   // at::kDouble and its friends to be TypeMeta's, but that hasn't happened yet.
@@ -1053,7 +1093,7 @@ class CAFFE2_API Tensor {
   }
 
   template <typename F, typename... Args>
-  auto m(F func, Args&&... params) const -> decltype(func(*this, std::forward<Args>(params)...)) {
+  decltype(auto) m(F func, Args&&... params) const {
     return func(*this, std::forward<Args>(params)...);
   }
 
@@ -1164,6 +1204,24 @@ protected:
   void enforce_invariants();
   c10::intrusive_ptr<TensorImpl, UndefinedTensorImpl> impl_;
 };
+
+int64_t get_device(Tensor self);
+
+template <typename T>
+auto Tensor::register_hook(T&& hook) const -> Tensor::hook_return_void_t<T> {
+  // Return the grad argument in case of a hook with void return type to have an
+  // std::function with Tensor return type
+  std::function<void(Tensor)> fn(hook);
+  return _register_hook([fn](const Tensor& grad) {
+    fn(grad);
+    return Tensor();
+  });
+}
+
+template <typename T>
+auto Tensor::register_hook(T&& hook) const -> Tensor::hook_return_var_t<T> {
+  return _register_hook(hook);
+}
 
 namespace detail {
 // Helper creator for Tensor class which doesn't requires the users to pass
