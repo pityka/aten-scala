@@ -103,7 +103,7 @@ object Test extends App {
     assert(a.toVector == Vector(1d,1d,1d,1d,1d,1d))
     assert(t.options.isCPU)
     assert(!t.options.isCuda)
-    assert(t.options.deviceIndex == 1)
+    assert(t.options.deviceIndex == -1)
   }
   
   {
@@ -117,7 +117,7 @@ object Test extends App {
     assert(a.toVector == Vector(1d,1d,1d,1d,1d,1d))
     assert(t.options.isCPU)
     assert(!t.options.isCuda)
-    assert(t.options.deviceIndex == 1)
+    assert(t.options.deviceIndex == -1)
   }
 
   println("CUDNN avail: "+Tensor.cudnnAvailable)

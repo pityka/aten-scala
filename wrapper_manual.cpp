@@ -93,7 +93,7 @@ jint throwRuntimeException( JNIEnv *env, const char *message )
 }
 
 extern "C" {
-  JNIEXPORT jobject JNICALL Java_aten_TensorOptions_cuda_1index(JNIEnv *env, jobject thisObj, jint index) {
+  JNIEXPORT jobject JNICALL Java_aten_TensorOptions_cuda_1index(JNIEnv *env, jobject thisObj, jshort index) {
     try {
       jclass cls = tensorOptionsClass;
       TensorOptions* tensorOptions = reinterpret_cast<TensorOptions*>(env->GetLongField( thisObj, tensorOptionsPointerFid));
@@ -202,12 +202,12 @@ extern "C" {
       throwRuntimeException(env,e.what() );
     }
   }
-  JNIEXPORT jshort JNICALL Java_aten_TensorOptions_deviceIndex(JNIEnv *env, jobject thisObj) { try{
+  JNIEXPORT jint JNICALL Java_aten_TensorOptions_deviceIndex(JNIEnv *env, jobject thisObj) { try{
     
     jclass cls = tensorOptionsClass;
     TensorOptions* tensorOptions = reinterpret_cast<TensorOptions*>(env->GetLongField( thisObj, tensorOptionsPointerFid));
     
-    bool tpe = tensorOptions->device().index();
+    int32_t tpe = tensorOptions->device().index();
      return tpe;
      } catch (exception& e) {
       throwRuntimeException(env,e.what() );
