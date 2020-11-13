@@ -58,7 +58,7 @@ public class Tensor {
     return "Tensor at "+pointer+"; "+nativeToString();
   }
   
-  public native void setToTensor(Tensor other);
+  public native void copyFrom(Tensor other);
 
   public native boolean copyFromFloatArray( float[] data);
   public native boolean copyToFloatArray( float[] data);
