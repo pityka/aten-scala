@@ -119,7 +119,17 @@ object Test extends App {
     assert(a.toVector == Vector(1d,1d,1d,1d,1d,1d))
     assert(t.options.isCPU)
     assert(!t.options.isCuda)
+    assert(!t.options.isSparse)
     assert(t.options.deviceIndex == -1)
+  }
+
+  {
+    val values = ATen.ones(Array(2),TensorOptions.dtypeDouble)
+    val indices = ATen.eye_0(2,TensorOptions.dtypeLong)
+    val sparse = ATen.sparse_coo_tensor(indices,values,Array(4,4), TensorOptions.dtypeDouble).coalesce()
+    assert(sparse.options.isSparse)
+    assert(sparse.sizes.toList == List(4,4))
+    
   }
 
   println("CUDNN avail: "+Tensor.cudnnAvailable)

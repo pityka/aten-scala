@@ -73,6 +73,9 @@ public class Tensor {
   public native void add_(double other, double alpha);
   public native Tensor expand_as(Tensor other);
   public native Tensor to_dense();
+  public native Tensor values();
+  public native Tensor indices();
+  public native Tensor coalesce();
   public native Tensor repeat(long[] repeats);
 
   public static native void manual_seed(long seed);
