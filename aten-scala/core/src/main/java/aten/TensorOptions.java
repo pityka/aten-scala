@@ -38,6 +38,7 @@ public class TensorOptions {
   public native TensorOptions cpu();
   public native boolean isCPU();
   public native boolean isCuda();
+  public native boolean isSparse();
   public native TensorOptions cuda();
   public native TensorOptions cuda_index(short device);
   public native int deviceIndex();

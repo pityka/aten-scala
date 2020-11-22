@@ -177,6 +177,18 @@ extern "C" {
     }
     return 0;
   }
+  JNIEXPORT jboolean JNICALL Java_aten_TensorOptions_isSparse(JNIEnv *env, jobject thisObj) { try{
+    
+    jclass cls = tensorOptionsClass;
+    TensorOptions* tensorOptions = reinterpret_cast<TensorOptions*>(env->GetLongField( thisObj, tensorOptionsPointerFid));
+    
+    bool tpe = tensorOptions->is_sparse();
+     return tpe;
+     } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return 0;
+  }
   JNIEXPORT jlong JNICALL Java_aten_Tensor_getNumGPUs(JNIEnv *env, jobject thisObj) { try{
     
     jlong ret = at::detail::getCUDAHooks().getNumGPUs();

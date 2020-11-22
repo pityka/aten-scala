@@ -347,7 +347,7 @@ struct C10_API TensorOptions {
   /// of options.
   ///
   /// NB: This merging operation does NOT respect device merges.
-  /// For example, if you device({kCUDA, 1}).merge_in(kCUDA)
+  /// For example, if you device({kdevice_index, 1}).merge_in(kCUDA)
   /// you will get kCUDA in the end!  Functions like Tensor.new_empty
   /// ensure the right device is selected anyway by way of a
   /// device guard.
