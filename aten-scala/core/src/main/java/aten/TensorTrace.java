@@ -21,7 +21,6 @@ public class TensorTrace {
     return allocated.entrySet().toArray(new Map.Entry[0]);
   }
 
-  // Only ever call this within the ctor of Tensor
   public static void recordAllocation(Tensor tensor) {
     if (!enabled) {
       return;
