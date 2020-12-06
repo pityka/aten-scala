@@ -48,12 +48,18 @@ public class Tensor {
   public static native long getNumGPUs();
   public native byte scalarTypeByte();
   
-  public native void releaseNative();
+  private native void releaseNative();
   public void release() {
     releaseNative();
     TensorTrace.recordRelease(this);
   }
-  public static native void releaseAll(Tensor[] tensors);
+  public static void releaseAll(Tensor[] tensors) {
+    releaseAllNative(tensors);
+    for (int x = 0; x < tensors.length; x++)  {
+      TensorTrace.recordRelease(tensors[x]);
+    }
+  }
+  private static native void releaseAllNative(Tensor[] tensors);
   
   private static native long lowlevelscalarDouble(double scalar, TensorOptions options);
   private static native long lowlevelscalarFloat(float scalar, TensorOptions options);

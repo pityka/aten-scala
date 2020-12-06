@@ -730,7 +730,7 @@ extern "C" {
     return NULL;
   }
 
-  JNIEXPORT void JNICALL Java_aten_Tensor_releaseAll(JNIEnv *env, jobject thisObj ,jobjectArray jniparam_tensors) {try{
+  JNIEXPORT void JNICALL Java_aten_Tensor_releaseAllNative(JNIEnv *env, jobject thisObj ,jobjectArray jniparam_tensors) {try{
   
       jsize jniparam_tensors_length = env->GetArrayLength(jniparam_tensors);
       for (int i = 0; i < jniparam_tensors_length; i++) {
