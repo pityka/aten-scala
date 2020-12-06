@@ -4,14 +4,16 @@ public class Tensor {
   static {
     Load.load();
   }
-  final transient long pointer;
+  final long pointer;
 
-  protected Tensor(long cPtr) {
+  private Tensor(long cPtr) {
     pointer = cPtr;
   }
 
-  protected Tensor() {
-    pointer = 0;
+  protected static Tensor factory(long cPtr) {
+    Tensor t = new Tensor(cPtr);
+    TensorTrace.recordAllocation(t);
+    return t;
   }
 
   protected static long getCPtr(Tensor obj) {
@@ -29,22 +31,47 @@ public class Tensor {
   public native long elementSize();
   public native byte scalarType();
   public native boolean isCuda();
-  public native Tensor cuda();
-  public native Tensor cpu();
+
+  private native long lowlevelcuda();
+  public Tensor cuda() {
+    return Tensor.factory(lowlevelcuda());
+  }
+
+  private native long lowlevelcpu();
+  public Tensor cpu() {
+    return Tensor.factory(lowlevelcpu());
+  }
+
   public native void print();
   public native TensorOptions options();
   public static native boolean cudnnAvailable();
   public static native long getNumGPUs();
   public native byte scalarTypeByte();
   
-  public native void release();
+  public native void releaseNative();
+  public void release() {
+    releaseNative();
+    TensorTrace.recordRelease(this);
+  }
   public static native void releaseAll(Tensor[] tensors);
   
-  public static native Tensor scalarDouble(double scalar, TensorOptions options);
-  public static native Tensor scalarFloat(float scalar, TensorOptions options);
-  public static native Tensor scalarLong(long scalar, TensorOptions options);
+  private static native long lowlevelscalarDouble(double scalar, TensorOptions options);
+  private static native long lowlevelscalarFloat(float scalar, TensorOptions options);
+  private static native long lowlevelscalarLong(long scalar, TensorOptions options);
+  public static Tensor scalarDouble(double scalar, TensorOptions options) {
+    return Tensor.factory(lowlevelscalarDouble(scalar,options));
+  }
+  public static Tensor scalarFloat(float scalar, TensorOptions options) {
+    return Tensor.factory(lowlevelscalarFloat(scalar,options));
+  }
+  public static  Tensor scalarLong(long scalar, TensorOptions options) {
+    return Tensor.factory(lowlevelscalarLong(scalar,options));
+  }
 
-  public native Tensor to(TensorOptions op, boolean copy);
+  private native long lowlevelto(TensorOptions op, boolean copy);
+  public Tensor to(TensorOptions op, boolean copy) {
+    return Tensor.factory(lowlevelto(op,copy));
+  }
 
   public static native void addmm_out_transposed1(Tensor out,Tensor self,Tensor mat1,Tensor mat2,double beta,double alpha);
   /* Same as Aten.addmm_out but mat2 will be transposed before addmm */
@@ -71,12 +98,34 @@ public class Tensor {
 
   public native void mul_(double d);
   public native void add_(double other, double alpha);
-  public native Tensor expand_as(Tensor other);
-  public native Tensor to_dense();
-  public native Tensor values();
-  public native Tensor indices();
-  public native Tensor coalesce();
-  public native Tensor repeat(long[] repeats);
+
+
+  private native long lowlevelexpand_as(Tensor other);
+  private native long lowlevelto_dense();
+  private native long lowlevelvalues();
+  private native long lowlevelindices();
+  private native long lowlevelcoalesce();
+  private native long lowlevelrepeat(long[] repeats);
+
+ 
+  public Tensor expand_as(Tensor other) {
+    return Tensor.factory(lowlevelexpand_as(other));
+  }
+  public Tensor to_dense() {
+    return Tensor.factory(lowlevelto_dense());
+  }
+  public Tensor values() {
+    return Tensor.factory(lowlevelvalues());
+  }
+  public Tensor indices() {
+    return Tensor.factory(lowlevelindices());
+  }
+  public Tensor coalesce() {
+    return Tensor.factory(lowlevelcoalesce());
+  }
+  public Tensor repeat(long[] repeats) {
+    return Tensor.factory(lowlevelrepeat(repeats));
+  }
 
   public static native void manual_seed(long seed);
 

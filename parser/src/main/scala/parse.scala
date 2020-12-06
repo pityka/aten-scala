@@ -148,7 +148,7 @@ object Parser extends App {
       javaType: String,
       cType: String,
       returnOnException: String,
-      convertFromLowLevelToHigh: String = "",
+      convertFromLowLevelToHigh: String => String = (_:String) => "",
       highLevelJavaType: Option[String] = None
   ) {
     def shortJavaType = javaType match {
@@ -229,7 +229,12 @@ object Parser extends App {
           javaType =
             s"scala.Tuple${members.size}<${mappedMembers.map(_.javaType).mkString(",")}>",
           cType = s"std::tuple<${mappedMembers.map(_.cType).mkString(",")}>",
-          returnOnException = "nullptr"
+          returnOnException = "nullptr",
+          highLevelJavaType = Some(s"scala.Tuple${members.size}<${mappedMembers.map(v => v.highLevelJavaType.getOrElse(v.javaType)).mkString(",")}>"),
+          convertFromLowLevelToHigh = name => s"new scala.Tuple${members.size}(${mappedMembers.zipWithIndex.map{v => 
+            val conversion = v._1.convertFromLowLevelToHigh(name+"._"+(v._2+1)+"()")
+            if (conversion.isEmpty()) name+"._"+(v._2+1)+"()" else conversion
+          }.mkString(",")})"
         )
       case TpeData(
           "std::vector",
@@ -239,32 +244,36 @@ object Parser extends App {
         MappedReturnType(
           convert = s"""
   int ret_len$returnable = $argName.size();
-  jclass ret_cls$returnable = tensorClass;
-  jmethodID ret_midInit$returnable = tensorCtor;
-  jobjectArray ret_out$returnable = env->NewObjectArray( ret_len$returnable, ret_cls$returnable, nullptr);
+  jlongArray ret_out$returnable = env->NewLongArray( ret_len$returnable);
+  jlong* addresses$returnable = new jlong(ret_len$returnable);
   for (int i = 0; i < ret_len$returnable;i++) {
     jlong ret_address = reinterpret_cast<jlong>(new Tensor($argName.at(i)));
-    jobject ret_obj = env->NewObject( ret_cls$returnable, ret_midInit$returnable, ret_address);
-    env->SetObjectArrayElement(ret_out$returnable, i, ret_obj);
+    addresses$returnable[i] =  ret_address;
   }
-   jobject $returnable = ret_out$returnable;""",
-          jniType = "jobject",
-          javaType = "Tensor[]",
+  env->SetLongArrayRegion(ret_out$returnable ,0,ret_len$returnable,addresses$returnable);
+  delete addresses$returnable;
+   jlongArray $returnable = ret_out$returnable;""",
+          jniType = "jlongArray",
+          javaType = "long[]",
           cType = "std::vector<Tensor>",
-          returnOnException = "nullptr"
+          returnOnException = "nullptr",
+          convertFromLowLevelToHigh = name => s"fromTensorPointerArray($name)",
+          highLevelJavaType = Some("Tensor[]")
         )
       case TpeData("Tensor", Some("&"), Nil) if !toplevel =>
         MappedReturnType(
           convert = s"""
-  jclass ret_cls$returnable = tensorClass;
-  jmethodID ret_midInit$returnable = tensorCtor;
+  jclass ret_cls$returnable = longClass;
+  jmethodID ret_midInit$returnable = longCtor;
   jlong ret_address$returnable = reinterpret_cast<jlong>(&$argName);
   jobject ret_obj$returnable = env->NewObject( ret_cls$returnable, ret_midInit$returnable, ret_address$returnable);
    jobject $returnable = ret_obj$returnable;""",
           jniType = "jobject",
-          javaType = "Tensor",
+          javaType = "java.lang.Long",
           cType = "Tensor",
-          returnOnException = "nullptr"
+          returnOnException = "nullptr",
+          convertFromLowLevelToHigh = name => s"Tensor.factory($name)",
+          highLevelJavaType = Some("aten.Tensor")
         )
       case TpeData("Tensor", Some("&"), Nil) =>
         MappedReturnType(
@@ -287,7 +296,6 @@ object Parser extends App {
         MappedReturnType(
           convert = s"""
   jclass ret_cls$returnable = tensorClass;
-  jmethodID ret_midInit$returnable = tensorCtor;
   Tensor* result_on_heap$returnable = new Tensor($argName);
   jlong ret_address$returnable = reinterpret_cast<jlong>(result_on_heap$returnable);
  
@@ -296,22 +304,24 @@ object Parser extends App {
           javaType = "long",
           cType = "Tensor",
           returnOnException = "0",
-          convertFromLowLevelToHigh = "new Tensor(lowlevel_result)",
+          convertFromLowLevelToHigh = name => s"Tensor.factory($name)",
           highLevelJavaType = Some("Tensor")
         )
       case TpeData("Tensor", None, Nil) =>
         MappedReturnType(
           convert = s"""
-  jclass ret_cls$returnable = tensorClass;
-  jmethodID ret_midInit$returnable = tensorCtor;
+  jclass ret_cls$returnable = longClass;
+  jmethodID ret_midInit$returnable = longCtor;
   Tensor* result_on_heap$returnable = new Tensor($argName);
   jlong ret_address$returnable = reinterpret_cast<jlong>(result_on_heap$returnable);
   jobject ret_obj$returnable = env->NewObject( ret_cls$returnable, ret_midInit$returnable, ret_address$returnable);
    jobject $returnable = ret_obj$returnable;""",
           jniType = "jobject",
-          javaType = "Tensor",
+          javaType = "java.lang.Long",
           cType = "Tensor",
-          returnOnException = "nullptr"
+          returnOnException = "nullptr",
+          convertFromLowLevelToHigh = name => s"Tensor.factory($name)",
+          highLevelJavaType = Some("aten.Tensor")
         )
 
     }
@@ -658,8 +668,8 @@ object Parser extends App {
     else
       (mappedRet.javaType + " lowlevel_result = ")} aten.JniImpl.lowlevel${decl.generatedFnName}($javaArgumentList2);
       ${if (mappedRet.javaType == "void") ""
-    else if (mappedRet.convertFromLowLevelToHigh.nonEmpty)
-      s"return ${mappedRet.convertFromLowLevelToHigh};"
+    else if (mappedRet.convertFromLowLevelToHigh("lowlevel_result").nonEmpty)
+      s"return ${mappedRet.convertFromLowLevelToHigh("lowlevel_result")};"
     else "return lowlevel_result;"}
     }"""
   }
@@ -712,6 +722,17 @@ public class ATen {
     final int n = ts.length;
     while (i < n) {
       ts2[i] = ts[i].pointer;
+      i += 1;
+    }
+    return ts2;
+  }
+
+  private static Tensor[] fromTensorPointerArray(long[] ts) {
+    Tensor[] ts2 = new Tensor[ts.length];
+    int i = 0;
+    final int n = ts.length;
+    while (i < n) {
+      ts2[i] = Tensor.factory(ts[i]);
       i += 1;
     }
     return ts2;

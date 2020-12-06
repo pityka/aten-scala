@@ -9,10 +9,21 @@ object Test extends App {
   val tensor1 = ATen.eye_0(3L, TensorOptions.dtypeFloat)
   println(tensor1)
   println("eye success")
+  assert(TensorTrace.list.size == 0)
+  TensorTrace.enable()
   val tensor2 = ATen._cast_Byte(tensor1, false)
   val tensor3 = ATen.eye_0(4L, TensorOptions.dtypeFloat)
+  val currentLive = TensorTrace.list.toList.map(v => (v.getKey,v.getValue))
+  assert(currentLive.map(_._1).contains(tensor2))
+  assert(currentLive.map(_._1).contains(tensor3))
+  assert(currentLive.size == 2)
+  assert(currentLive.map(_._2).head.getShape != null)
+  
+  
   println("cast success")
-  ATen.align_tensors(Array(tensor1, tensor1))
+  val alignedArray = ATen.align_tensors(Array(tensor1, tensor1))
+  assert(alignedArray.size == 2)
+  assert(alignedArray.head.sizes.toList == List(3,3))
   println("align success")
   ATen.dropout_(tensor1, 1.0, false)
   println("dropout success")
@@ -23,6 +34,10 @@ object Test extends App {
   val target1 = ATen.ones_like(tensor3,tensor3.options)
   target1.copyFrom(tensor3)
   assert(ATen.equal(target1,tensor3))
+
+  tensor3.release 
+  assert(!TensorTrace.list.toList.map(v => (v.getKey)).contains(tensor3))
+
   assert(tensor1.useCount() == 1)
   assert(tensor1.weakUseCount() == 4)
   println(tensor1.toString)
@@ -51,7 +66,9 @@ object Test extends App {
   assert(tensor1.useCount == 1)
   tensor1.release()
 
-  println(ATen.eig(tensor4, false));
+  val (eigA,eigB) = ATen.eig(tensor4, false)
+  assert(eigA.sizes.toList == List(4,2))
+  assert(eigB.sizes.toList == List(0))
   assert(tensor4.copyFromFloatArray(Array.ofDim[Float](16)))
   assert(!tensor4.copyFromFloatArray(Array.ofDim[Float](15)))
   val tensor5 = ATen.eye_1(2, 2, TensorOptions.d.cpu)
