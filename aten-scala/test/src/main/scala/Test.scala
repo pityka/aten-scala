@@ -20,6 +20,11 @@ object Test extends App {
   assert(currentLive.map(_._2).head.getShape != null)
   
   
+  val opl = TensorOptions.l
+  assert(opl.isLong)
+  println(opl.release )
+  assert(opl.isFloat)
+
   println("cast success")
   val alignedArray = ATen.align_tensors(Array(tensor1, tensor1))
   assert(alignedArray.size == 2)
@@ -62,6 +67,8 @@ object Test extends App {
   tensor1.print
   val tensor4 = ATen.eye_1(4, 4, TensorOptions.dtypeFloat)
   tensor4.print
+  val op = tensor4.options
+  println(op)
 
   assert(tensor1.useCount == 1)
   tensor1.release()
@@ -79,6 +86,10 @@ object Test extends App {
   assert(tensor5.copyToDoubleArray(target))
   assert(target.deep.toSeq == Seq(3f, 1f, 1f, 3f))
   println(tensor4.options)
+
+  val tensor4like = Tensor.zeros_like(tensor4)
+  assert(ATen.equal(tensor4like,tensor4))
+  val tensor4like1 = Tensor.ones_like(tensor4)
 
   if (cuda) {
     tensor4.options.cuda_index(0)

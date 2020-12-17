@@ -401,6 +401,15 @@ extern "C" {
     }
     return nullptr;
   }
+  JNIEXPORT jstring JNICALL Java_aten_TensorOptions_nativeToString(JNIEnv *env, jobject thisObj) {
+    try{
+    TensorOptions op = *reinterpret_cast<TensorOptions*>(env->GetLongField( thisObj, tensorOptionsPointerFid));
+    return env->NewStringUTF(c10::toString(op).c_str());
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return nullptr;
+  }
   JNIEXPORT jlongArray JNICALL Java_aten_Tensor_sizes(JNIEnv *env, jobject thisObj) {
     try{
     jclass cls = tensorClass;
@@ -540,6 +549,17 @@ extern "C" {
     Tensor tensor = *reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
     tensor.add_(other,alpha);
     return;
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return ;
+  }
+  JNIEXPORT void JNICALL Java_aten_TensorOptions_releaseNative(JNIEnv *env, jobject thisObj) {try{
+    
+    TensorOptions* op = reinterpret_cast<TensorOptions*>(env->GetLongField( thisObj, tensorOptionsPointerFid));
+    delete op;    
+
+    return ;
     } catch (exception& e) {
       throwRuntimeException(env,e.what() );
     }
@@ -1033,4 +1053,62 @@ JNIEXPORT void JNICALL Java_aten_Tensor_baddbmm_1out_1transposed1(JNIEnv *env, j
     }
     return ;
 }
+
+JNIEXPORT jlong JNICALL Java_aten_Tensor_lowlevelones_1like(JNIEnv *env, jobject thisObj ,jlong jniparam_self) {try{
+  
+   
+   Tensor jniparam_self_c = *reinterpret_cast<Tensor*>(jniparam_self);
+      
+
+  
+
+
+  Tensor result =  at::ones_like(jniparam_self_c);
+  
+      
+
+
+
+   
+  jclass ret_clsreturnable_result = tensorClass;
+  Tensor* result_on_heapreturnable_result = new Tensor(result);
+  jlong ret_addressreturnable_result = reinterpret_cast<jlong>(result_on_heapreturnable_result);
+ 
+   jlong returnable_result = ret_addressreturnable_result;
+    return returnable_result;
+
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return 0;
+}
+JNIEXPORT jlong JNICALL Java_aten_Tensor_lowlevelzeros_1like(JNIEnv *env, jobject thisObj ,jlong jniparam_self) {try{
+  
+   
+   Tensor jniparam_self_c = *reinterpret_cast<Tensor*>(jniparam_self);
+      
+
+  
+
+
+  Tensor result =  at::zeros_like(jniparam_self_c);
+  
+      
+
+
+
+   
+  jclass ret_clsreturnable_result = tensorClass;
+  Tensor* result_on_heapreturnable_result = new Tensor(result);
+  jlong ret_addressreturnable_result = reinterpret_cast<jlong>(result_on_heapreturnable_result);
+ 
+   jlong returnable_result = ret_addressreturnable_result;
+    return returnable_result;
+
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return 0;
+}
+
 }

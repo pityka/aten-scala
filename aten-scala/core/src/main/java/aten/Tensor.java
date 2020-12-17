@@ -135,4 +135,13 @@ public class Tensor {
 
   public static native void manual_seed(long seed);
 
+  public static native long lowlevelzeros_like(long tensor);
+  public static Tensor zeros_like(Tensor tensor) {
+      return Tensor.factory(lowlevelzeros_like(tensor.pointer));
+  }
+  public static native long lowlevelones_like(long tensor);
+  public static Tensor ones_like(Tensor tensor) {
+      return Tensor.factory(lowlevelones_like(tensor.pointer));
+  }
+
 }

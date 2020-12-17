@@ -6,12 +6,15 @@ public class TensorOptions {
   }
   final transient long pointer;
 
-  protected TensorOptions(long cPtr) {
+  private TensorOptions(long cPtr) {
     pointer = cPtr;
+    TensorOptionsTrace.recordAllocation(this);
   }
 
-  protected TensorOptions() {
-    pointer = 0;
+  private native void releaseNative();
+  public void release() {
+    releaseNative();
+    TensorOptionsTrace.recordRelease(this);
   }
 
   protected static long getCPtr(TensorOptions obj) {
@@ -43,6 +46,11 @@ public class TensorOptions {
   public native TensorOptions cuda_index(short device);
   public native int deviceIndex();
   public native byte scalarTypeByte();
+  public native String nativeToString();
+
+  public String toString() {
+    return "TensorOptions at "+pointer+"; "+nativeToString();
+  }
 
   public static TensorOptions fromScalarType(byte i) {
     if (i == 6) {
