@@ -14,8 +14,11 @@ object Parser extends App {
       retTpe: TpeData,
       fnName: String,
       args: Seq[ArgData],
-      generatedFnName: String
-  )
+      generatedFnName: String,
+      longScalar: Boolean = false
+  ) {
+    def withLongScalar = if (args.find(_.tpe.tpe == "Scalar").isDefined) Some(copy(longScalar=true,generatedFnName = generatedFnName+"_l")) else None
+  }
 
   def WSChars[_: P] = P(NoTrace(CharsWhileIn("\u0020\u0009")))
 
@@ -116,7 +119,7 @@ object Parser extends App {
               decl.copy(generatedFnName = decl.fnName + "_" + idx.toString)
           }
         else group.map(decl => decl.copy(generatedFnName = decl.fnName))
-    }
+    }.flatMap{ decl => List(decl) ++ decl.withLongScalar.toList}
 
   val returnTypes = parsed.map(d => d.retTpe).distinct
 
@@ -327,8 +330,8 @@ object Parser extends App {
     }
   }
 
-  def mapType(cType: ArgData): MappedType = cType match {
-    case arg @ ArgData(TpeData("Scalar", None, List()), argName) =>
+  def mapType(cType: ArgData, longScalar: Boolean): MappedType = cType match {
+    case arg @ ArgData(TpeData("Scalar", None, List()), argName) if !longScalar=>
       val jniArgName = "jniparam_" + argName
       val convertFromJni = ""
       MappedType(
@@ -338,6 +341,18 @@ object Parser extends App {
         convertFromJni,
         "double",
         "double",
+        arg.name
+      )
+    case arg @ ArgData(TpeData("Scalar", None, List()), argName) if longScalar=>
+      val jniArgName = "jniparam_" + argName
+      val convertFromJni = ""
+      MappedType(
+        jniArgName,
+        arg,
+        "int64_t " + jniArgName,
+        convertFromJni,
+        "long",
+        "long",
         arg.name
       )
     case arg @ ArgData(TpeData("double", None, List()), argName) =>
@@ -603,7 +618,7 @@ object Parser extends App {
   }
 
   def implementCpp(decl: DeclData) = {
-    val mappedArgs = decl.args.map(mapType)
+    val mappedArgs = decl.args.map(d => mapType(d,decl.longScalar))
     val mappedRet =
       mapReturnType(decl.retTpe, "result", "returnable_result", true)
     val javaArgumentList = {
@@ -639,7 +654,7 @@ object Parser extends App {
 }"""
   }
   def implementJavaLowlevel(decl: DeclData) = {
-    val mappedArgs = decl.args.map(mapType)
+    val mappedArgs = decl.args.map(d => mapType(d,decl.longScalar))
     val mappedRet = mapReturnType(decl.retTpe, "", "", true)
     val javaArgumentList =
       mappedArgs
@@ -649,7 +664,7 @@ object Parser extends App {
     s"""public static native ${mappedRet.javaType} lowlevel${decl.generatedFnName}($javaArgumentList);"""
   }
   def implementJavaHighLevel(decl: DeclData) = {
-    val mappedArgs = decl.args.map(mapType)
+    val mappedArgs = decl.args.map(d => mapType(d,decl.longScalar))
     val mappedRet = mapReturnType(decl.retTpe, "", "", true)
     val javaArgumentList =
       mappedArgs

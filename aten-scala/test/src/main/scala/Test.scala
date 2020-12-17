@@ -75,6 +75,7 @@ object Test extends App {
   val target = Array.ofDim[Double](4)
   tensor5.mul_(2d)
   tensor5.add_(1d,1d)
+  ATen.add_1_l(tensor5,1L,1L)
   assert(tensor5.copyToDoubleArray(target))
   assert(target.deep.toSeq == Seq(3f, 1f, 1f, 3f))
   println(tensor4.options)
