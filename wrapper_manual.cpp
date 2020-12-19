@@ -43,7 +43,6 @@ jint JNI_OnLoad(JavaVM* vm, void* reserved) {
     tensorOptionsPointerFid = env->GetFieldID( tensorOptionsClass, "pointer", "J");
 
     tempLocalClassRef = env->FindClass("java/lang/Long");
-    cout << tempLocalClassRef << endl;
     longClass = (jclass) env->NewGlobalRef(tempLocalClassRef);
     env->DeleteLocalRef(tempLocalClassRef);
     longCtor = env->GetMethodID( longClass, "<init>", "(J)V");
@@ -774,7 +773,7 @@ extern "C" {
 
 
 
-JNIEXPORT jlong JNICALL Java_aten_Tensor_lowlevelto(JNIEnv *env, jobject thisObj ,jobject jniparam_options, jboolean jniparam_copy) {try{
+JNIEXPORT jlong JNICALL Java_aten_Tensor_lowlevelto(JNIEnv *env, jobject thisObj ,jobject jniparam_options, jboolean jniparam_non_blocking, jboolean jniparam_copy) {try{
   
 
    jclass jniparam_options_class = tensorOptionsClass;
@@ -785,7 +784,7 @@ JNIEXPORT jlong JNICALL Java_aten_Tensor_lowlevelto(JNIEnv *env, jobject thisObj
    jclass tensor_cls = tensorClass;
    Tensor tensor = *reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
       
-  Tensor result =  tensor.to(jniparam_options_c,false,jniparam_copy);
+  Tensor result =  tensor.to(jniparam_options_c,jniparam_non_blocking,jniparam_copy);
   
 
    
@@ -799,6 +798,36 @@ JNIEXPORT jlong JNICALL Java_aten_Tensor_lowlevelto(JNIEnv *env, jobject thisObj
       throwRuntimeException(env,e.what() );
     }
     return NULL;
+}
+JNIEXPORT jlong JNICALL Java_aten_Tensor_lowlevelpin(JNIEnv *env, jobject thisObj ) {try{
+  
+   Tensor tensor = *reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
+      
+  Tensor result =  tensor.pin_memory();
+  
+  jclass ret_clsreturnable_result = tensorClass;
+  Tensor* result_on_heapreturnable_result = new Tensor(result);
+  jlong ret_addressreturnable_result = reinterpret_cast<jlong>(result_on_heapreturnable_result);
+  
+    return ret_addressreturnable_result;
+
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return NULL;
+}
+JNIEXPORT jboolean JNICALL Java_aten_Tensor_is_1pinned(JNIEnv *env, jobject thisObj ) {try{
+  
+   Tensor tensor = *reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
+      
+  jboolean result =  tensor.is_pinned();
+  
+    return result;
+
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return false;
 }
 
 JNIEXPORT jlong JNICALL Java_aten_Tensor_lowlevelscalarDouble(JNIEnv *env, jobject thisObj ,jdouble jniparam_s,jobject jniparam_options) {try{

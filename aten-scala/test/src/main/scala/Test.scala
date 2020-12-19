@@ -115,9 +115,10 @@ object Test extends App {
   {
     val tensorDouble = ATen.eye_1(2,2,TensorOptions.dtypeLong.toDouble)
   val tensorFloat = ATen.eye_1(2,2,TensorOptions.dtypeLong.toFloat)
-  val t3 = tensorFloat.to(TensorOptions.dtypeDouble,true)
+  val t3 = tensorFloat.to(TensorOptions.dtypeDouble,true,true)
+  assert(!t3.is_pinned)
   println(t3.options)
-  val t4 = tensorFloat.to(TensorOptions.dtypeDouble,false)
+  val t4 = tensorFloat.to(TensorOptions.dtypeDouble,false,false)
   println(t4.options)
   val tensorLong = ATen.eye_1(2,2,TensorOptions.dtypeLong.toFloat.toLong)
   val tensorLong2 = Tensor.scalarLong(1L, TensorOptions.dtypeLong)

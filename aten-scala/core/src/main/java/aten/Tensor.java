@@ -74,9 +74,15 @@ public class Tensor {
     return Tensor.factory(lowlevelscalarLong(scalar,options));
   }
 
-  private native long lowlevelto(TensorOptions op, boolean copy);
-  public Tensor to(TensorOptions op, boolean copy) {
-    return Tensor.factory(lowlevelto(op,copy));
+  private native long lowlevelto(TensorOptions op, boolean non_blocking, boolean copy);
+  public Tensor to(TensorOptions op, boolean non_blocking, boolean copy) {
+    return Tensor.factory(lowlevelto(op,non_blocking, copy));
+  }
+
+  public native boolean is_pinned();
+  private native long lowlevelpin();
+  public Tensor pin_memory() {
+    return Tensor.factory(lowlevelpin());
   }
 
   public static native void addmm_out_transposed1(Tensor out,Tensor self,Tensor mat1,Tensor mat2,double beta,double alpha);
