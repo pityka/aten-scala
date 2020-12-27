@@ -601,7 +601,7 @@ object Parser extends App {
       
       std::array<bool,$numStr> ${jniArgName}_c = {
         ${(1 to num)
-        .map { i => s"(bool)${jniArgName}_ar2[$i]" }
+        .map { i => s"(bool)${jniArgName}_ar2[${i-1}]" }
         .mkString(",")}
         };
         env->ReleaseBooleanArrayElements($jniArgName,${jniArgName}_ar2,0);
