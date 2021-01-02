@@ -1,2 +1,2 @@
-FROM pityka/base-ubuntu-libtorch:torch16
+FROM pityka/base-ubuntu-libtorch:torch171
 RUN apt-get install -y clang

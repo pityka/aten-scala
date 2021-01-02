@@ -199,7 +199,7 @@ extern "C" {
     jlong ret = at::detail::getCUDAHooks().getNumGPUs();
     return ret;
      } catch (exception& e) {
-      throwRuntimeException(env,e.what() );
+      return 0;
     }
     return 0;
   }
@@ -208,7 +208,7 @@ extern "C" {
     bool ret = at::detail::getCUDAHooks().getNumGPUs() > 0 && at::detail::getCUDAHooks().hasCuDNN();
     return ret;
      } catch (exception& e) {
-      throwRuntimeException(env,e.what() );
+      return false;
     }
     return 0;
   }

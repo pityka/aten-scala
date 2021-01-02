@@ -468,6 +468,25 @@ object Parser extends App {
         "long",
         arg.name
       )
+    case arg @ ArgData(
+          TpeData("c10::optional", Some("&"), List(TpeData("Tensor",None,Nil))),
+          argName
+        ) =>
+      val jniArgName = "jniparam_" + argName
+      val convertFromJni = s"""
+      
+   c10::optional<Tensor> ${jniArgName}_c = c10::optional<Tensor>(*reinterpret_cast<Tensor*>($jniArgName));
+   
+      """
+      MappedType(
+        jniArgName + "_c",
+        arg,
+        "jlong " + jniArgName,
+        convertFromJni,
+        "Tensor",
+        "long",
+        s"${arg.name}.pointer"
+      )
     case arg @ ArgData(TpeData("c10::optional", None, _), argName) =>
       val jniArgName = "jniparam_" + argName
       val convertFromJni = ""
