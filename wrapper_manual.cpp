@@ -79,10 +79,8 @@ jlong allocateTensor(JNIEnv *env, Tensor tensor) {
   return addr;
 }
 jobject allocateTensorOptions(JNIEnv *env, TensorOptions* tensorOptions) {
-  jclass cls2 = tensorOptionsClass;
-  jmethodID mid = tensorOptionsCtor;
   jlong addr = reinterpret_cast<jlong>(tensorOptions);
-  jobject ret_obj = env->NewObject( cls2, mid, addr);
+  jobject ret_obj = env->NewObject( tensorOptionsClass, tensorOptionsCtor, addr);
   return ret_obj;
 }
 
@@ -532,10 +530,9 @@ extern "C" {
     Tensor tensor1 = *reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
     int64_t* longs = (int64_t*)env->GetLongArrayElements(repeat, nullptr);
     jsize length = env->GetArrayLength(repeat);
-    IntArrayRef intarrayref = *(new IntArrayRef(longs,length));
+    IntArrayRef intarrayref = IntArrayRef(longs,length);
     Tensor tensor2 = tensor1.repeat(intarrayref);
     env->ReleaseLongArrayElements(repeat,(jlong*)longs,0);
-
     return  reinterpret_cast<jlong>(new Tensor(tensor2));
     } catch (exception& e) {
       throwRuntimeException(env,e.what() );

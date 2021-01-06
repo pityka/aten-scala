@@ -172,8 +172,16 @@ object Test extends App {
   val expandto = ATen.ones(Array(3,3),TensorOptions.d)
   val expanded = ATen.ones(Array(1,1),TensorOptions.d).expand_as(expandto)
   assert(expanded.sizes.toList == List(3,3))
-  val repeated = ATen.ones(Array(1,1),TensorOptions.d).repeat(Array(3,3))
+  val repeatable= ATen.ones(Array(1,1),TensorOptions.d)
+  val repeated = repeatable.repeat(Array(3,3))
   assert(repeated.sizes.toList == List(3,3))
+  
+  val repeated_jvm = Array.ofDim[Double](9)
+  assert(repeated.copyToDoubleArray(repeated_jvm))
+  val repeatable_jvm = Array.ofDim[Double](1)
+  assert(repeatable.copyToDoubleArray(repeatable_jvm))
+  assert(repeated_jvm.deep.size==9)
+  assert(repeatable_jvm.deep.size==1)
 
   {
     val e = ATen.ones(Array(2,3),TensorOptions.dtypeDouble)

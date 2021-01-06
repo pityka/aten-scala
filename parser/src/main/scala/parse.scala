@@ -372,7 +372,7 @@ object Parser extends App {
       val convertFromJni = s"""
       jsize ${jniArgName}_length = env->GetArrayLength($jniArgName);
       int64_t* ${jniArgName}_ar = (int64_t*)env->GetLongArrayElements($jniArgName,nullptr);
-      IntArrayRef ${jniArgName}_c = *(new IntArrayRef(${jniArgName}_ar,${jniArgName}_length));
+      IntArrayRef ${jniArgName}_c = IntArrayRef(${jniArgName}_ar,${jniArgName}_length);
       """
       MappedType(
         jniArgName + "_c",
