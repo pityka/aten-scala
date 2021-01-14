@@ -217,6 +217,28 @@ extern "C" {
       throwRuntimeException(env,e.what() );
     }
   }
+  JNIEXPORT void JNICALL Java_aten_Tensor_manual_1seed_1cuda(JNIEnv *env, jobject thisObj, jlong seed, jint device) { try{
+    
+      auto cuda_gen = globalContext().defaultGenerator(Device(at::kCUDA, device));
+      {
+        std::lock_guard<std::mutex> lock(cuda_gen.mutex());
+        cuda_gen.set_current_seed(seed);
+      }
+     } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+  }
+  JNIEXPORT void JNICALL Java_aten_Tensor_manual_1seed_1cpu(JNIEnv *env, jobject thisObj, jlong seed) { try{
+    
+    auto gen = globalContext().defaultGenerator(DeviceType::CPU);
+    {
+      std::lock_guard<std::mutex> lock(gen.mutex());
+      gen.set_current_seed(seed);
+    }
+     } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+  }
   JNIEXPORT jint JNICALL Java_aten_TensorOptions_deviceIndex(JNIEnv *env, jobject thisObj) { try{
     
     jclass cls = tensorOptionsClass;

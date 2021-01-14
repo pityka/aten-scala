@@ -167,6 +167,7 @@ object Test extends App {
   println("done")
 
   Tensor.manual_seed(82L)
+  Tensor.manual_seed_cpu(83L)
   println("Num gpus: "+Tensor.getNumGPUs)
 
   val expandto = ATen.ones(Array(3,3),TensorOptions.d)

@@ -140,6 +140,8 @@ public class Tensor {
   }
 
   public static native void manual_seed(long seed);
+  public static native void manual_seed_cpu(long seed);
+  public static native void manual_seed_cuda(long seed, int device);
 
   public static native long lowlevelzeros_like(long tensor);
   public static Tensor zeros_like(Tensor tensor) {
