@@ -100,12 +100,15 @@ public class Tensor {
   public native void copyFrom(Tensor other);
 
   public native boolean copyFromFloatArray( float[] data);
+  public native boolean copyFromFloatArrayAtOffset( float[] data, long offset);
   public native boolean copyToFloatArray( float[] data);
  
   public native boolean copyFromDoubleArray( double[] data);
+  public native boolean copyFromDoubleArrayAtOffset( double[] data, long offset);
   public native boolean copyToDoubleArray( double[] data);
  
   public native boolean copyFromLongArray( long[] data);
+  public native boolean copyFromLongArrayAtOffset( long[] data, long offset);
   public native boolean copyToLongArray( long[] data);
 
   public native void mul_(double d);

@@ -95,6 +95,13 @@ object Test extends App {
     tensor4.options.cuda_index(0)
   }
 
+  {
+    val tensorLong = ATen.eye_1(2,2,TensorOptions.dtypeLong)
+    val longA  =Array.ofDim[Long](2)
+    assert(tensorLong.copyFromLongArrayAtOffset(longA,1L))
+    assert(!tensorLong.copyFromLongArrayAtOffset(longA,3L))
+  }
+
   val tensorLong = ATen.eye_1(2,2,TensorOptions.dtypeLong)
   val longA  =Array.ofDim[Long](4)
   val longA2  =Array.ofDim[Long](4)
