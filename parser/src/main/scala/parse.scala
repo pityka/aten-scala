@@ -142,7 +142,8 @@ object Parser extends App {
       javaTypeLowLevel: String,
       convertFromJavaHighToLow: String,
       noInputFromJava: Boolean = false,
-      release: String = ""
+      release: String = "",
+      dereference: Boolean = false
   )
 
   case class MappedReturnType(
@@ -385,6 +386,32 @@ object Parser extends App {
         release =
           s"env->ReleaseLongArrayElements($jniArgName,(jlong*)${jniArgName}_ar,0);"
       )
+    case arg @ ArgData(TpeData("c10::List",Some("&"),List(TpeData("c10::optional",None,List(TpeData("Tensor",None,List()))))),argName) =>
+      val jniArgName = "jniparam_" + argName
+      val convertFromJni = s"""
+      jsize ${jniArgName}_length = env->GetArrayLength($jniArgName);
+      int64_t* ${jniArgName}_ar1 = (int64_t*)env->GetLongArrayElements($jniArgName,nullptr);
+      c10::List<c10::optional<Tensor>> ${jniArgName}_c;
+      for (int i = 0; i < ${jniArgName}_length; i++) {
+         
+         jlong address = ${jniArgName}_ar1[i];
+         Tensor* pointer = reinterpret_cast<Tensor*>(address);
+          ${jniArgName}_c.push_back(*pointer);
+      }
+      """
+      MappedType(
+        jniArgName + "_c",
+        arg,
+        "jlongArray " + jniArgName,
+        convertFromJni,
+        "Tensor[]",
+        "long[]",
+        s"toTensorPointerArray(${arg.name})",
+        release =
+          s"""
+          env->ReleaseLongArrayElements($jniArgName,(jlong*)${jniArgName}_ar1,0);
+          """
+      )
     case arg @ ArgData(TpeData("TensorList", None, List()), argName) =>
       val jniArgName = "jniparam_" + argName
       val convertFromJni = s"""
@@ -410,10 +437,6 @@ object Parser extends App {
         release =
           s"""
           env->ReleaseLongArrayElements($jniArgName,(jlong*)${jniArgName}_ar1,0);
-          for (int i = 0; i < ${jniArgName}_length; i++) {
-            Tensor* t2 = &${jniArgName}_ar[i];
-            t2 = nullptr;
-          }
           delete[] ${jniArgName}_ar;
           """
       )
@@ -434,7 +457,7 @@ object Parser extends App {
       val jniArgName = "jniparam_" + argName
       val convertFromJni = s"""
    
-   TensorOptions ${jniArgName}_c = *reinterpret_cast<TensorOptions*>($jniArgName);
+   TensorOptions* ${jniArgName}_c = reinterpret_cast<TensorOptions*>($jniArgName);
       """
       MappedType(
         jniArgName + "_c",
@@ -443,7 +466,24 @@ object Parser extends App {
         convertFromJni,
         "TensorOptions",
         "long",
-        s"${arg.name}.pointer"
+        s"${arg.name}.pointer",
+        dereference = true
+      )
+    case arg @ ArgData(TpeData("TensorOptions", None, List()), argName) =>
+      val jniArgName = "jniparam_" + argName
+      val convertFromJni = s"""
+   
+   TensorOptions* ${jniArgName}_c = reinterpret_cast<TensorOptions*>($jniArgName);
+      """
+      MappedType(
+        jniArgName + "_c",
+        arg,
+        "jlong " + jniArgName,
+        convertFromJni,
+        "TensorOptions",
+        "long",
+        s"${arg.name}.pointer",
+        dereference = true
       )
     case arg @ ArgData(
           TpeData("c10::optional", None, List(TpeData("int64_t", None, Nil))),
@@ -516,7 +556,7 @@ object Parser extends App {
       val jniArgName = "jniparam_" + argName
       val convertFromJni = s"""
    
-   Tensor ${jniArgName}_c = *reinterpret_cast<Tensor*>(${jniArgName});
+   Tensor* ${jniArgName}_c = reinterpret_cast<Tensor*>(${jniArgName});
       """
       MappedType(
         jniArgName + "_c",
@@ -525,45 +565,10 @@ object Parser extends App {
         convertFromJni,
         "Tensor",
         "long",
-        s"${arg.name}.pointer"
+        s"${arg.name}.pointer",
+        dereference = true
       )
-    //   case arg @ ArgData(TpeData("Dimname", None, List()), argName) =>
-    //     val jniArgName = "jniparam_" + argName
-    //     val convertFromJni = s"""
-    //  jclass ${jniArgName}_class = env->GetObjectClass( $jniArgName);
-    //  jfieldID ${jniArgName}_fidNumber = env->GetFieldID( ${jniArgName}_class, "pointer", "J");
-    //  jlong ${jniArgName}_pointer = env->GetLongField( $jniArgName, ${jniArgName}_fidNumber);
-    //  Dimname ${jniArgName}_c = *reinterpret_cast<Dimname*>(${jniArgName}_pointer);
-    //     """
-    //     MappedType(
-    //       jniArgName + "_c",
-    //       arg,
-    //       "jobject " + jniArgName,
-    //       convertFromJni,
-    //       "Dimname"
-    //     )
-    // case arg @ ArgData(TpeData("DimnameList", None, List()), argName) =>
-    //   val jniArgName = "jniparam_" + argName
-    //   val convertFromJni = s"""
-    //   jsize ${jniArgName}_length = env->GetArrayLength($jniArgName);
-    //   std::vector<Dimname> ${jniArgName}_ar;
-    //   for (int i = 0; i < ${jniArgName}_length; i++) {
-    //      jobject obj = env->GetObjectArrayElement( $jniArgName, i);
-    //       jclass cls = env->GetObjectClass( obj);
-    //     jfieldID fid = env->GetFieldID( cls, "pointer", "J");
-    //      jlong address = env->GetLongField( obj, fid);
-    //      Dimname* pointer = reinterpret_cast<Dimname*>(address);
-    //       ${jniArgName}_ar.push_back(*pointer);
-    //   }
-    //   DimnameList ${jniArgName}_c = *(new DimnameList(${jniArgName}_ar.data(),${jniArgName}_length));
-    //   """
-    //   MappedType(
-    //     jniArgName + "_c",
-    //     arg,
-    //     "jobjectArray " + jniArgName,
-    //     convertFromJni,
-    //     "Dimname[]"
-    //   )
+   
     case arg @ ArgData(TpeData("ScalarType", None, List()), argName) =>
       val jniArgName = "jniparam_" + argName
       val convertFromJni =
@@ -657,7 +662,7 @@ object Parser extends App {
   ${mappedArgs.map(_.convertFromJni).mkString("\n")}
 
   ${if (mappedRet.cType == "void") "" else s"${mappedRet.cType} result = "} at::${decl.fnName}(${mappedArgs
-      .map(_.argName)
+      .map(mapped => if (mapped.dereference) s"*${mapped.argName}" else mapped.argName)
       .mkString(",")});
   
       ${mappedArgs.map(_.release).mkString("\n")}
@@ -714,6 +719,7 @@ object Parser extends App {
 #include <stdlib.h>
 #include <string.h>
 #include <ATen/Functions.h>
+#include <ATen/core/List.h>
 #include "wrapper_manual.h"
 using namespace std;
 using namespace at;

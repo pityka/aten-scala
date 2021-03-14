@@ -8,6 +8,7 @@ object Test extends App {
 
   val tensor1 = ATen.eye_0(3L, TensorOptions.dtypeFloat)
   println(tensor1)
+  assert(tensor1.useCount() == 1)
   println("eye success")
   assert(TensorTrace.list.size == 0)
   TensorTrace.enable()
@@ -18,20 +19,23 @@ object Test extends App {
   assert(currentLive.map(_._1).contains(tensor3))
   assert(currentLive.size == 2)
   assert(currentLive.map(_._2).head.getShape != null)
-  
+  assert(tensor1.useCount() == 1)
   
   val opl = TensorOptions.l
   assert(opl.isLong)
   println(opl.release )
-  assert(opl.isFloat)
+  // assert(opl.isFloat)
 
   println("cast success")
   val alignedArray = ATen.align_tensors(Array(tensor1, tensor1))
+  assert(tensor1.useCount() == 3)
+
   assert(alignedArray.size == 2)
   assert(alignedArray.head.sizes.toList == List(3,3))
   println("align success")
   ATen.dropout_(tensor1, 1.0, false)
   println("dropout success")
+  assert(tensor1.useCount() == 3)
   ATen.bartlett_window_1(1L, false, TensorOptions.dtypeFloat)
   println("bartless window successful")
   assert(tensor1.dim == 2)
@@ -43,16 +47,17 @@ object Test extends App {
   tensor3.release 
   assert(!TensorTrace.list.toList.map(v => (v.getKey)).contains(tensor3))
 
-  assert(tensor1.useCount() == 1)
-  assert(tensor1.weakUseCount() == 4)
-  println(tensor1.toString)
+  assert(tensor1.useCount() == 3)
+  assert(tensor1.weakUseCount() == 1)
   assert(tensor1.numel == 9)
   assert(!tensor1.isCuda)
   assert(tensor1.elementSize == 4)
   assert(tensor1.scalarType == 6) // 32bit float
   assert(tensor1.sizes.deep.toVector == Seq(3, 3))
   assert(tensor1.strides.deep.toVector == Seq(3, 1))
+  assert(tensor1.useCount() == 3)
   tensor1.cpu()
+  assert(tensor1.useCount() == 4)
   if (cuda){
   // this would move to cuda
     val t1c = tensor1.cuda()
@@ -70,8 +75,9 @@ object Test extends App {
   val op = tensor4.options
   println(op)
 
-  assert(tensor1.useCount == 1)
+  assert(tensor1.useCount == 4)
   tensor1.release()
+  assert(tensor1.useCount == 0)
 
   val (eigA,eigB) = ATen.eig(tensor4, false)
   assert(eigA.sizes.toList == List(4,2))

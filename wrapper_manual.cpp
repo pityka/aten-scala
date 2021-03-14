@@ -321,8 +321,8 @@ extern "C" {
   JNIEXPORT jobject JNICALL Java_aten_Tensor_options(JNIEnv *env, jobject thisObj) {
     try{
     jclass cls = tensorClass;
-    Tensor tensor = *reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
-    TensorOptions* opt = new TensorOptions(tensor.options());
+    Tensor* tensor = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
+    TensorOptions* opt = new TensorOptions(tensor->options());
 
     return allocateTensorOptions(env,opt);
     } catch (exception& e) {
@@ -333,8 +333,8 @@ extern "C" {
   JNIEXPORT jint JNICALL Java_aten_Tensor_dim(JNIEnv *env, jobject thisObj) {
     try{
     jclass cls = tensorClass;
-    Tensor tensor = *reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
-    return tensor.dim();
+    Tensor *tensor = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
+    return tensor->dim();
     } catch (exception& e) {
       throwRuntimeException(env,e.what() );
     }
@@ -343,8 +343,8 @@ extern "C" {
   JNIEXPORT jboolean JNICALL Java_aten_Tensor_defined(JNIEnv *env, jobject thisObj) {
     try{
     jclass cls = tensorClass;
-    Tensor tensor = *reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
-    return tensor.defined();
+    Tensor* tensor = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
+    return tensor->defined();
     } catch (exception& e) {
       throwRuntimeException(env,e.what() );
     }
@@ -353,8 +353,8 @@ extern "C" {
   JNIEXPORT jboolean JNICALL Java_aten_Tensor_isCuda(JNIEnv *env, jobject thisObj) {
     try{
     jclass cls = tensorClass;
-    Tensor tensor = *reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
-    return tensor.is_cuda();
+    Tensor* tensor = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
+    return tensor->is_cuda();
     } catch (exception& e) {
       throwRuntimeException(env,e.what() );
     }
@@ -363,8 +363,8 @@ extern "C" {
   JNIEXPORT jlong JNICALL Java_aten_Tensor_useCount(JNIEnv *env, jobject thisObj) {
     try{
     jclass cls = tensorClass;
-    Tensor tensor = *reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
-    return tensor.weak_use_count();
+    Tensor* tensor = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
+    return tensor->use_count();
     } catch (exception& e) {
       throwRuntimeException(env,e.what() );
     }
@@ -373,8 +373,8 @@ extern "C" {
   JNIEXPORT jlong JNICALL Java_aten_Tensor_weakUseCount(JNIEnv *env, jobject thisObj) {
     try{
     jclass cls = tensorClass;
-    Tensor tensor = *reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
-    return tensor.use_count();
+    Tensor* tensor = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
+    return tensor->weak_use_count();
     } catch (exception& e) {
       throwRuntimeException(env,e.what() );
     }
@@ -383,8 +383,8 @@ extern "C" {
   JNIEXPORT jlong JNICALL Java_aten_Tensor_numel(JNIEnv *env, jobject thisObj) {
     try{
     jclass cls = tensorClass;
-    Tensor tensor = *reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
-    return tensor.numel();
+    Tensor* tensor = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
+    return tensor->numel();
     } catch (exception& e) {
       throwRuntimeException(env,e.what() );
     }
@@ -393,8 +393,8 @@ extern "C" {
   JNIEXPORT jlong JNICALL Java_aten_Tensor_elementSize(JNIEnv *env, jobject thisObj) {
     try{
     jclass cls = tensorClass;
-    Tensor tensor = *reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
-    return tensor.element_size();
+    Tensor* tensor = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
+    return tensor->element_size();
     } catch (exception& e) {
       throwRuntimeException(env,e.what() );
     }
@@ -403,8 +403,8 @@ extern "C" {
   JNIEXPORT jbyte JNICALL Java_aten_Tensor_scalarType(JNIEnv *env, jobject thisObj) {
     try{
     jclass cls = tensorClass;
-    Tensor tensor = *reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
-    return static_cast<jbyte>(tensor.scalar_type());
+    Tensor* tensor = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
+    return static_cast<jbyte>(tensor->scalar_type());
     } catch (exception& e) {
       throwRuntimeException(env,e.what() );
     }
@@ -413,8 +413,8 @@ extern "C" {
   JNIEXPORT jstring JNICALL Java_aten_Tensor_nativeToString(JNIEnv *env, jobject thisObj) {
     try{
     jclass cls = tensorClass;
-    Tensor tensor = *reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
-    return env->NewStringUTF(tensor.toString().c_str());
+    Tensor* tensor = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
+    return env->NewStringUTF(tensor->toString().c_str());
     } catch (exception& e) {
       throwRuntimeException(env,e.what() );
     }
@@ -422,8 +422,8 @@ extern "C" {
   }
   JNIEXPORT jstring JNICALL Java_aten_TensorOptions_nativeToString(JNIEnv *env, jobject thisObj) {
     try{
-    TensorOptions op = *reinterpret_cast<TensorOptions*>(env->GetLongField( thisObj, tensorOptionsPointerFid));
-    return env->NewStringUTF(c10::toString(op).c_str());
+    TensorOptions* op = reinterpret_cast<TensorOptions*>(env->GetLongField( thisObj, tensorOptionsPointerFid));
+    return env->NewStringUTF(c10::toString(*op).c_str());
     } catch (exception& e) {
       throwRuntimeException(env,e.what() );
     }
@@ -432,8 +432,8 @@ extern "C" {
   JNIEXPORT jlongArray JNICALL Java_aten_Tensor_sizes(JNIEnv *env, jobject thisObj) {
     try{
     jclass cls = tensorClass;
-    Tensor tensor = *reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
-    std::vector<int64_t> s = tensor.sizes().vec();
+    Tensor* tensor = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
+    std::vector<int64_t> s = tensor->sizes().vec();
     return vecToJni(env,s);
     } catch (exception& e) {
       throwRuntimeException(env,e.what() );
@@ -443,8 +443,8 @@ extern "C" {
   JNIEXPORT jlongArray JNICALL Java_aten_Tensor_strides(JNIEnv *env, jobject thisObj) {
     try{
     jclass cls = tensorClass;
-    Tensor tensor = *reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
-    std::vector<int64_t> s = tensor.strides().vec();
+    Tensor* tensor = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
+    std::vector<int64_t> s = tensor->strides().vec();
     return vecToJni(env,s);
     } catch (exception& e) {
       throwRuntimeException(env,e.what() );
@@ -454,9 +454,9 @@ extern "C" {
   JNIEXPORT void JNICALL Java_aten_Tensor_copyFrom(JNIEnv *env, jobject thisObj, jobject other) {
     try{
     jclass cls = tensorClass;
-    Tensor tensor = *reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
-    Tensor otherTensor = *reinterpret_cast<Tensor*>(env->GetLongField( other, tensorPointerFid));
-    tensor.copy_(otherTensor,false);
+    Tensor* tensor = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
+    Tensor* otherTensor = reinterpret_cast<Tensor*>(env->GetLongField( other, tensorPointerFid));
+    tensor->copy_(*otherTensor,false);
     return;
     } catch (exception& e) {
       throwRuntimeException(env,e.what() );
@@ -466,8 +466,8 @@ extern "C" {
   JNIEXPORT void JNICALL Java_aten_Tensor_print(JNIEnv *env, jobject thisObj) {try{
     
     jclass cls = tensorClass;
-    Tensor tensor = *reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
-    tensor.print();
+    Tensor* tensor = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
+    tensor->print();
     return;
     } catch (exception& e) {
       throwRuntimeException(env,e.what() );
@@ -477,8 +477,8 @@ extern "C" {
   JNIEXPORT void JNICALL Java_aten_Tensor_mul_1(JNIEnv *env, jobject thisObj, jdouble d) {try{
     
     jclass cls = tensorClass;
-    Tensor tensor = *reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
-    tensor.mul_(d);
+    Tensor* tensor = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
+    tensor->mul_(d);
     return;
     } catch (exception& e) {
       throwRuntimeException(env,e.what() );
@@ -488,9 +488,9 @@ extern "C" {
   JNIEXPORT jlong JNICALL Java_aten_Tensor_lowlevelexpand_1as(JNIEnv *env, jobject thisObj, jobject other) {try{
     
     jclass cls = tensorClass;
-    Tensor tensor1 = *reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
-    Tensor tensor2 = *reinterpret_cast<Tensor*>(env->GetLongField( other, tensorPointerFid));
-    Tensor tensor3 = tensor1.expand_as(tensor2);
+    Tensor* tensor1 = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
+    Tensor* tensor2 = reinterpret_cast<Tensor*>(env->GetLongField( other, tensorPointerFid));
+    Tensor tensor3 = tensor1->expand_as(*tensor2);
 
     return  reinterpret_cast<jlong>(new Tensor(tensor3));
     } catch (exception& e) {
@@ -501,8 +501,8 @@ extern "C" {
   JNIEXPORT jlong JNICALL Java_aten_Tensor_lowlevelto_1dense(JNIEnv *env, jobject thisObj) {try{
     
     jclass cls = tensorClass;
-    Tensor tensor1 = *reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
-    Tensor tensor3 = tensor1.to_dense();
+    Tensor* tensor1 = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
+    Tensor tensor3 = tensor1->to_dense();
 
     return reinterpret_cast<jlong>(new Tensor(tensor3));
     } catch (exception& e) {
@@ -513,8 +513,8 @@ extern "C" {
   JNIEXPORT jlong JNICALL Java_aten_Tensor_lowlevelindices(JNIEnv *env, jobject thisObj) {try{
     
     jclass cls = tensorClass;
-    Tensor tensor1 = *reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
-    Tensor tensor3 = tensor1.indices();
+    Tensor* tensor1 = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
+    Tensor tensor3 = tensor1->indices();
 
     return  reinterpret_cast<jlong>(new Tensor(tensor3));
     } catch (exception& e) {
@@ -525,8 +525,8 @@ extern "C" {
   JNIEXPORT jlong JNICALL Java_aten_Tensor_lowlevelvalues(JNIEnv *env, jobject thisObj) {try{
     
     jclass cls = tensorClass;
-    Tensor tensor1 = *reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
-    Tensor tensor3 = tensor1.values();
+    Tensor* tensor1 = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
+    Tensor tensor3 = tensor1->values();
 
     return reinterpret_cast<jlong>(new Tensor(tensor3));
     } catch (exception& e) {
@@ -537,8 +537,8 @@ extern "C" {
   JNIEXPORT jlong JNICALL Java_aten_Tensor_lowlevelcoalesce(JNIEnv *env, jobject thisObj) {try{
     
     jclass cls = tensorClass;
-    Tensor tensor1 = *reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
-    Tensor tensor3 = tensor1.coalesce();
+    Tensor* tensor1 = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
+    Tensor tensor3 = tensor1->coalesce();
 
     return  reinterpret_cast<jlong>(new Tensor(tensor3));
     } catch (exception& e) {
@@ -549,11 +549,11 @@ extern "C" {
   JNIEXPORT jlong JNICALL Java_aten_Tensor_lowlevelrepeat(JNIEnv *env, jobject thisObj, jlongArray repeat) {try{
     
     jclass cls = tensorClass;
-    Tensor tensor1 = *reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
+    Tensor* tensor1 = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
     int64_t* longs = (int64_t*)env->GetLongArrayElements(repeat, nullptr);
     jsize length = env->GetArrayLength(repeat);
     IntArrayRef intarrayref = IntArrayRef(longs,length);
-    Tensor tensor2 = tensor1.repeat(intarrayref);
+    Tensor tensor2 = tensor1->repeat(intarrayref);
     env->ReleaseLongArrayElements(repeat,(jlong*)longs,0);
     return  reinterpret_cast<jlong>(new Tensor(tensor2));
     } catch (exception& e) {
@@ -564,8 +564,8 @@ extern "C" {
   JNIEXPORT void JNICALL Java_aten_Tensor_add_1(JNIEnv *env, jobject thisObj, jdouble other, jdouble alpha) {try{
     
     jclass cls = tensorClass;
-    Tensor tensor = *reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
-    tensor.add_(other,alpha);
+    Tensor* tensor = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
+    tensor->add_(other,alpha);
     return;
     } catch (exception& e) {
       throwRuntimeException(env,e.what() );
@@ -598,18 +598,16 @@ extern "C" {
   JNIEXPORT jboolean JNICALL Java_aten_Tensor_copyFromFloatArray(JNIEnv *env, jobject thisObj, jfloatArray datain) {try{
     
     jclass cls = tensorClass;
-    Tensor tensor = *reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
+    Tensor* tensor = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
     
       long len = env->GetArrayLength(datain);
-    if (static_cast<int8_t>(tensor.scalar_type()) != 6 || !tensor.is_contiguous() || !tensor.is_non_overlapping_and_dense() || tensor.data_ptr() == nullptr || len != tensor.numel() || tensor.is_cuda()) {
+    if (static_cast<int8_t>(tensor->scalar_type()) != 6 || !tensor->is_contiguous() || !tensor->is_non_overlapping_and_dense() || tensor->data_ptr() == nullptr || len != tensor->numel() || tensor->is_cuda() || tensor->is_sparse()) {
       return false;
     } else {
       float* in = env->GetFloatArrayElements(datain, nullptr);
-      auto cpuTensor = tensor.cpu().flatten();
-      auto accessor = cpuTensor.accessor<float,1>();
-      int64_t size = accessor.size(0);
-      for (int64_t i = 0;i < size;i++){
-        accessor[i] = in[i];
+      float* ptr = reinterpret_cast<float*>(tensor->data_ptr());
+      for (int64_t i = 0;i < len;i++){
+        ptr[i] = in[i];
       }
       env->ReleaseFloatArrayElements(datain,in,0);
       return true;
@@ -622,18 +620,16 @@ extern "C" {
   JNIEXPORT jboolean JNICALL Java_aten_Tensor_copyFromFloatArrayAtOffset(JNIEnv *env, jobject thisObj, jfloatArray datain, jlong offset) {try{
     
     jclass cls = tensorClass;
-    Tensor tensor = *reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
+    Tensor* tensor = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
     
       long len = env->GetArrayLength(datain);
-    if (static_cast<int8_t>(tensor.scalar_type()) != 6 || !tensor.is_contiguous() || !tensor.is_non_overlapping_and_dense() || tensor.data_ptr() == nullptr || len+offset > tensor.numel() || tensor.is_cuda()) {
+    if (static_cast<int8_t>(tensor->scalar_type()) != 6 || !tensor->is_contiguous() || !tensor->is_non_overlapping_and_dense() || tensor->data_ptr() == nullptr || len+offset > tensor->numel() || tensor->is_cuda() || tensor->is_sparse()) {
       return false;
     } else {
       float* in = env->GetFloatArrayElements(datain, nullptr);
-      auto cpuTensor = tensor.cpu().flatten();
-      auto accessor = cpuTensor.accessor<float,1>();
-      int64_t size = accessor.size(0);
-      for (int64_t i = 0;i < size;i++){
-        accessor[i+offset] = in[i];
+      float* ptr = reinterpret_cast<float*>(tensor->data_ptr());
+      for (int64_t i = 0;i < len;i++){
+        ptr[i+offset] = in[i];
       }
       env->ReleaseFloatArrayElements(datain,in,0);
       return true;
@@ -649,15 +645,13 @@ extern "C" {
     Tensor tensor = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid))->contiguous();
     
       long len = env->GetArrayLength(datain);
-    if (static_cast<int8_t>(tensor.scalar_type()) != 6 || !tensor.is_contiguous() || !tensor.is_non_overlapping_and_dense() || tensor.data_ptr() == nullptr || len != tensor.numel()) {
+    if (static_cast<int8_t>(tensor.scalar_type()) != 6 || !tensor.is_contiguous() || !tensor.is_non_overlapping_and_dense() || tensor.data_ptr() == nullptr || len != tensor.numel() || tensor.is_cuda() || tensor.is_sparse()) {
       return false;
     } else {
       float* in = env->GetFloatArrayElements(datain, nullptr);
-      auto cpuTensor = tensor.cpu().flatten();
-      auto accessor = cpuTensor.accessor<float,1>();
-      int64_t size =  accessor.size(0);
-      for (int64_t i = 0;i < size;i++){
-        in[i] = accessor[i];
+      float* ptr = reinterpret_cast<float*>(tensor.data_ptr());
+      for (int64_t i = 0;i < len;i++){
+        in[i] =  ptr[i]  ;
       }
       env->ReleaseFloatArrayElements(datain,in,0);
       return true;
@@ -671,18 +665,16 @@ extern "C" {
  JNIEXPORT jboolean JNICALL Java_aten_Tensor_copyFromLongArray(JNIEnv *env, jobject thisObj, jlongArray datain) {try{
     
     jclass cls = tensorClass;
-    Tensor tensor = *reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
+    Tensor* tensor = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
     
       long len = env->GetArrayLength(datain);
-    if (static_cast<int8_t>(tensor.scalar_type()) != 4 || !tensor.is_contiguous() || !tensor.is_non_overlapping_and_dense() || tensor.data_ptr() == nullptr || len != tensor.numel() || tensor.is_cuda()) {
+    if (static_cast<int8_t>(tensor->scalar_type()) != 4 || !tensor->is_contiguous() || !tensor->is_non_overlapping_and_dense() || tensor->data_ptr() == nullptr || len != tensor->numel() || tensor->is_cuda() || tensor->is_sparse()) {
       return false;
     } else {
       jlong* in = env->GetLongArrayElements(datain, nullptr);
-      auto cpuTensor = tensor.cpu().flatten();
-      auto accessor = cpuTensor.accessor<int64_t,1>();
-      int64_t size = accessor.size(0);
-      for (int64_t i = 0;i < size;i++){
-        accessor[i] = in[i];
+      int64_t* ptr = reinterpret_cast<int64_t*>(tensor->data_ptr());
+      for (int64_t i = 0;i < len;i++){
+        ptr[i] = in[i];
       }
       env->ReleaseLongArrayElements(datain,in,0);
       return true;
@@ -695,20 +687,19 @@ extern "C" {
  JNIEXPORT jboolean JNICALL Java_aten_Tensor_copyFromLongArrayAtOffset(JNIEnv *env, jobject thisObj, jlongArray datain, jlong offset ) {try{
     
     jclass cls = tensorClass;
-    Tensor tensor = *reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
-    
+    Tensor* tensor = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
       long len = env->GetArrayLength(datain);
-    if (static_cast<int8_t>(tensor.scalar_type()) != 4 || !tensor.is_contiguous() || !tensor.is_non_overlapping_and_dense() || tensor.data_ptr() == nullptr || len+offset > tensor.numel() || tensor.is_cuda()) {
+    if (static_cast<int8_t>(tensor->scalar_type()) != 4 || !tensor->is_contiguous() || !tensor->is_non_overlapping_and_dense() || tensor->data_ptr() == nullptr || len+offset > tensor->numel() || tensor->is_cuda() || tensor->is_sparse()) {
       return false;
     } else {
+      
       jlong* in = env->GetLongArrayElements(datain, nullptr);
-      auto cpuTensor = tensor.cpu().flatten();
-      auto accessor = cpuTensor.accessor<int64_t,1>();
-      int64_t size = accessor.size(0);
-      for (int64_t i = 0;i < size;i++){
-        accessor[i+offset] = in[i];
+      int64_t* ptr = reinterpret_cast<int64_t*>(tensor->data_ptr());
+      for (int64_t i = 0;i < len;i++){
+        ptr[i+offset] = in[i];
       }
       env->ReleaseLongArrayElements(datain,in,0);
+      
       return true;
     }
     } catch (exception& e) {
@@ -722,15 +713,13 @@ extern "C" {
     Tensor tensor = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid))->contiguous();
     
       long len = env->GetArrayLength(datain);
-    if (static_cast<int8_t>(tensor.scalar_type()) != 4 || !tensor.is_contiguous() || !tensor.is_non_overlapping_and_dense() || tensor.data_ptr() == nullptr || len != tensor.numel()) {
+    if (static_cast<int8_t>(tensor.scalar_type()) != 4 || !tensor.is_contiguous() || !tensor.is_non_overlapping_and_dense() || tensor.data_ptr() == nullptr || len != tensor.numel() || tensor.is_cuda() || tensor.is_sparse()) {
       return false;
     } else {
       jlong* in = env->GetLongArrayElements(datain, nullptr);
-      auto cpuTensor = tensor.cpu().flatten();
-      auto accessor = cpuTensor.accessor<int64_t,1>();
-      int64_t size = accessor.size(0);
-      for (int64_t i = 0;i < size;i++){
-        in[i] = accessor[i];
+      int64_t* ptr = reinterpret_cast<int64_t*>(tensor.data_ptr());
+      for (int64_t i = 0;i < len;i++){
+        in[i] = ptr[i];
       }
       env->ReleaseLongArrayElements(datain,in,0);
       return true;
@@ -744,18 +733,16 @@ extern "C" {
   JNIEXPORT jboolean JNICALL Java_aten_Tensor_copyFromDoubleArray(JNIEnv *env, jobject thisObj, jdoubleArray datain) {try{
     
     jclass cls = tensorClass;
-    Tensor tensor = *reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
+    Tensor* tensor = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
     
       long len = env->GetArrayLength(datain);
-    if (static_cast<int8_t>(tensor.scalar_type()) != 7 || !tensor.is_contiguous() || !tensor.is_non_overlapping_and_dense() || tensor.data_ptr() == nullptr || len != tensor.numel() || tensor.is_cuda()) {
+    if (static_cast<int8_t>(tensor->scalar_type()) != 7 || !tensor->is_contiguous() || !tensor->is_non_overlapping_and_dense() || tensor->data_ptr() == nullptr || len != tensor->numel() || tensor->is_cuda() || tensor->is_sparse()) {
       return false;
     } else {
       double* in = env->GetDoubleArrayElements(datain, nullptr);
-      auto cpuTensor = tensor.cpu().flatten();
-      auto accessor = cpuTensor.accessor<double,1>();
-      int64_t size = accessor.size(0);
-      for (int64_t i = 0;i < size;i++){
-        accessor[i] = in[i];
+      double* ptr = reinterpret_cast<double*>(tensor->data_ptr());
+      for (int64_t i = 0;i < len;i++){
+        ptr[i] = in[i];
       }
       env->ReleaseDoubleArrayElements(datain,in,0);
       return true;
@@ -768,18 +755,16 @@ extern "C" {
   JNIEXPORT jboolean JNICALL Java_aten_Tensor_copyFromDoubleArrayAtOffset(JNIEnv *env, jobject thisObj, jdoubleArray datain, jlong offset) {try{
     
     jclass cls = tensorClass;
-    Tensor tensor = *reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
+    Tensor* tensor = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
     
       long len = env->GetArrayLength(datain);
-    if (static_cast<int8_t>(tensor.scalar_type()) != 7 || !tensor.is_contiguous() || !tensor.is_non_overlapping_and_dense() || tensor.data_ptr() == nullptr || len+offset > tensor.numel() || tensor.is_cuda()) {
+    if (static_cast<int8_t>(tensor->scalar_type()) != 7 || !tensor->is_contiguous() || !tensor->is_non_overlapping_and_dense() || tensor->data_ptr() == nullptr || len+offset > tensor->numel() || tensor->is_cuda() || tensor->is_sparse()) {
       return false;
     } else {
       double* in = env->GetDoubleArrayElements(datain, nullptr);
-      auto cpuTensor = tensor.cpu().flatten();
-      auto accessor = cpuTensor.accessor<double,1>();
-      int64_t size = accessor.size(0);
-      for (int64_t i = 0;i < size;i++){
-        accessor[i+offset] = in[i];
+      double* ptr = reinterpret_cast<double*>(tensor->data_ptr());
+      for (int64_t i = 0;i < len;i++){
+        ptr[i+offset] = in[i];
       }
       env->ReleaseDoubleArrayElements(datain,in,0);
       return true;
@@ -795,15 +780,13 @@ extern "C" {
     Tensor tensor = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid))->contiguous();
     
       long len = env->GetArrayLength(datain);
-    if (static_cast<int8_t>(tensor.scalar_type()) != 7 || !tensor.is_contiguous() || !tensor.is_non_overlapping_and_dense() || tensor.data_ptr() == nullptr || len != tensor.numel()) {
+    if (static_cast<int8_t>(tensor.scalar_type()) != 7 || !tensor.is_contiguous() || !tensor.is_non_overlapping_and_dense() || tensor.data_ptr() == nullptr || len != tensor.numel() || tensor.is_cuda() || tensor.is_sparse()) {
       return false;
     } else {
       double* in = env->GetDoubleArrayElements(datain, nullptr);
-      auto cpuTensor = tensor.cpu().flatten();
-      auto accessor = cpuTensor.accessor<double,1>();
-      int64_t size =  accessor.size(0);
-      for (int64_t i = 0;i < size;i++){
-        in[i] = accessor[i];
+      double* ptr = reinterpret_cast<double*>(tensor.data_ptr());
+      for (int64_t i = 0;i < len;i++){
+        in[i] = ptr[i];
       }
       env->ReleaseDoubleArrayElements(datain,in,0);
       return true;
@@ -816,8 +799,8 @@ extern "C" {
   JNIEXPORT jlong JNICALL Java_aten_Tensor_lowlevelcpu(JNIEnv *env, jobject thisObj) {try{
     
     jclass cls = tensorClass;
-    Tensor tensor = *reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
-    Tensor retTensor = tensor.cpu();
+    Tensor* tensor = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
+    Tensor retTensor = tensor->cpu();
     
       return allocateTensor(env,retTensor);
      } catch (exception& e) {
@@ -830,8 +813,8 @@ extern "C" {
     try{
     
     jclass cls = tensorClass;
-    Tensor tensor = *reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
-    Tensor retTensor = tensor.cuda();
+    Tensor* tensor = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
+    Tensor retTensor = tensor->cuda();
     
     return allocateTensor(env,retTensor);
     } catch (exception& e) {
@@ -870,12 +853,12 @@ JNIEXPORT jlong JNICALL Java_aten_Tensor_lowlevelto(JNIEnv *env, jobject thisObj
    jclass jniparam_options_class = tensorOptionsClass;
    jfieldID jniparam_options_fidNumber = tensorOptionsPointerFid;
    jlong jniparam_options_pointer = env->GetLongField( jniparam_options, jniparam_options_fidNumber);
-   TensorOptions jniparam_options_c = *reinterpret_cast<TensorOptions*>(jniparam_options_pointer);
+   TensorOptions* jniparam_options_c = reinterpret_cast<TensorOptions*>(jniparam_options_pointer);
 
    jclass tensor_cls = tensorClass;
-   Tensor tensor = *reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
+   Tensor* tensor = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
       
-  Tensor result =  tensor.to(jniparam_options_c,jniparam_non_blocking,jniparam_copy);
+  Tensor result =  tensor->to(*jniparam_options_c,jniparam_non_blocking,jniparam_copy);
   
 
    
@@ -892,9 +875,9 @@ JNIEXPORT jlong JNICALL Java_aten_Tensor_lowlevelto(JNIEnv *env, jobject thisObj
 }
 JNIEXPORT jlong JNICALL Java_aten_Tensor_lowlevelpin(JNIEnv *env, jobject thisObj ) {try{
   
-   Tensor tensor = *reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
+   Tensor* tensor = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
       
-  Tensor result =  tensor.pin_memory();
+  Tensor result =  tensor->pin_memory();
   
   jclass ret_clsreturnable_result = tensorClass;
   Tensor* result_on_heapreturnable_result = new Tensor(result);
@@ -909,9 +892,9 @@ JNIEXPORT jlong JNICALL Java_aten_Tensor_lowlevelpin(JNIEnv *env, jobject thisOb
 }
 JNIEXPORT jboolean JNICALL Java_aten_Tensor_is_1pinned(JNIEnv *env, jobject thisObj ) {try{
   
-   Tensor tensor = *reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
+   Tensor* tensor = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
       
-  jboolean result =  tensor.is_pinned();
+  jboolean result =  tensor->is_pinned();
   
     return result;
 
@@ -927,10 +910,10 @@ JNIEXPORT jlong JNICALL Java_aten_Tensor_lowlevelscalarDouble(JNIEnv *env, jobje
    jclass jniparam_options_class = tensorOptionsClass;
    jfieldID jniparam_options_fidNumber = tensorOptionsPointerFid;
    jlong jniparam_options_pointer = env->GetLongField( jniparam_options, jniparam_options_fidNumber);
-   TensorOptions jniparam_options_c = *reinterpret_cast<TensorOptions*>(jniparam_options_pointer);
+   TensorOptions* jniparam_options_c = reinterpret_cast<TensorOptions*>(jniparam_options_pointer);
       
 
-  Tensor result =  at::scalar_tensor(jniparam_s,jniparam_options_c);
+  Tensor result =  at::scalar_tensor(jniparam_s,*jniparam_options_c);
   
 
    
@@ -950,10 +933,10 @@ JNIEXPORT jlong JNICALL Java_aten_Tensor_lowlevelscalarLong(JNIEnv *env, jobject
    jclass jniparam_options_class = tensorOptionsClass;
    jfieldID jniparam_options_fidNumber = tensorOptionsPointerFid;
    jlong jniparam_options_pointer = env->GetLongField( jniparam_options, jniparam_options_fidNumber);
-   TensorOptions jniparam_options_c = *reinterpret_cast<TensorOptions*>(jniparam_options_pointer);
+   TensorOptions* jniparam_options_c = reinterpret_cast<TensorOptions*>(jniparam_options_pointer);
       
   int64_t p = (int64_t)jniparam_s;
-  Tensor result =  at::scalar_tensor(p,jniparam_options_c);
+  Tensor result =  at::scalar_tensor(p,*jniparam_options_c);
   
 
    
@@ -973,10 +956,10 @@ JNIEXPORT jlong JNICALL Java_aten_Tensor_lowlevelscalarFloat(JNIEnv *env, jobjec
    jclass jniparam_options_class = tensorOptionsClass;
    jfieldID jniparam_options_fidNumber = tensorOptionsPointerFid;
    jlong jniparam_options_pointer = env->GetLongField( jniparam_options, jniparam_options_fidNumber);
-   TensorOptions jniparam_options_c = *reinterpret_cast<TensorOptions*>(jniparam_options_pointer);
+   TensorOptions* jniparam_options_c = reinterpret_cast<TensorOptions*>(jniparam_options_pointer);
       
 
-  Tensor result =  at::scalar_tensor(jniparam_s,jniparam_options_c);
+  Tensor result =  at::scalar_tensor(jniparam_s,*jniparam_options_c);
   
 
    
@@ -996,30 +979,30 @@ JNIEXPORT void JNICALL Java_aten_Tensor_addmm_1out_1transposed2(JNIEnv *env, job
    jclass jniparam_out_class = tensorClass;
    jfieldID jniparam_out_fidNumber = tensorPointerFid;
    jlong jniparam_out_pointer = env->GetLongField( jniparam_out, jniparam_out_fidNumber);
-   Tensor jniparam_out_c = *reinterpret_cast<Tensor*>(jniparam_out_pointer);
+   Tensor* jniparam_out_c = reinterpret_cast<Tensor*>(jniparam_out_pointer);
       
 
    jclass jniparam_self_class = tensorClass;
    jfieldID jniparam_self_fidNumber = tensorPointerFid;
    jlong jniparam_self_pointer = env->GetLongField( jniparam_self, jniparam_self_fidNumber);
-   Tensor jniparam_self_c = *reinterpret_cast<Tensor*>(jniparam_self_pointer);
+   Tensor* jniparam_self_c = reinterpret_cast<Tensor*>(jniparam_self_pointer);
       
 
    jclass jniparam_mat1_class = tensorClass;
    jfieldID jniparam_mat1_fidNumber = tensorPointerFid;
    jlong jniparam_mat1_pointer = env->GetLongField( jniparam_mat1, jniparam_mat1_fidNumber);
-   Tensor jniparam_mat1_c = *reinterpret_cast<Tensor*>(jniparam_mat1_pointer);
+   Tensor* jniparam_mat1_c = reinterpret_cast<Tensor*>(jniparam_mat1_pointer);
       
 
    jclass jniparam_mat2_class = tensorClass;
    jfieldID jniparam_mat2_fidNumber = tensorPointerFid;
    jlong jniparam_mat2_pointer = env->GetLongField( jniparam_mat2, jniparam_mat2_fidNumber);
-   Tensor jniparam_mat2_c = *reinterpret_cast<Tensor*>(jniparam_mat2_pointer);
+   Tensor* jniparam_mat2_c = reinterpret_cast<Tensor*>(jniparam_mat2_pointer);
       
 
 
 
-   at::addmm_out(jniparam_out_c,jniparam_self_c,jniparam_mat1_c,jniparam_mat2_c.t(),jniparam_beta,jniparam_alpha);
+   at::addmm_out(*jniparam_out_c,*jniparam_self_c,*jniparam_mat1_c,jniparam_mat2_c->t(),jniparam_beta,jniparam_alpha);
   
       
 
@@ -1042,30 +1025,30 @@ JNIEXPORT void JNICALL Java_aten_Tensor_addmm_1out_1transposed1(JNIEnv *env, job
    jclass jniparam_out_class = tensorClass;
    jfieldID jniparam_out_fidNumber = tensorPointerFid;
    jlong jniparam_out_pointer = env->GetLongField( jniparam_out, jniparam_out_fidNumber);
-   Tensor jniparam_out_c = *reinterpret_cast<Tensor*>(jniparam_out_pointer);
+   Tensor* jniparam_out_c = reinterpret_cast<Tensor*>(jniparam_out_pointer);
       
 
    jclass jniparam_self_class = tensorClass;
    jfieldID jniparam_self_fidNumber = tensorPointerFid;
    jlong jniparam_self_pointer = env->GetLongField( jniparam_self, jniparam_self_fidNumber);
-   Tensor jniparam_self_c = *reinterpret_cast<Tensor*>(jniparam_self_pointer);
+   Tensor* jniparam_self_c = reinterpret_cast<Tensor*>(jniparam_self_pointer);
       
 
    jclass jniparam_mat1_class = tensorClass;
    jfieldID jniparam_mat1_fidNumber = tensorPointerFid;
    jlong jniparam_mat1_pointer = env->GetLongField( jniparam_mat1, jniparam_mat1_fidNumber);
-   Tensor jniparam_mat1_c = *reinterpret_cast<Tensor*>(jniparam_mat1_pointer);
+   Tensor* jniparam_mat1_c = reinterpret_cast<Tensor*>(jniparam_mat1_pointer);
       
 
    jclass jniparam_mat2_class = tensorClass;
    jfieldID jniparam_mat2_fidNumber = tensorPointerFid;
    jlong jniparam_mat2_pointer = env->GetLongField( jniparam_mat2, jniparam_mat2_fidNumber);
-   Tensor jniparam_mat2_c = *reinterpret_cast<Tensor*>(jniparam_mat2_pointer);
+   Tensor* jniparam_mat2_c = reinterpret_cast<Tensor*>(jniparam_mat2_pointer);
       
 
 
 
-   at::addmm_out(jniparam_out_c,jniparam_self_c,jniparam_mat1_c.t(),jniparam_mat2_c,jniparam_beta,jniparam_alpha);
+   at::addmm_out(*jniparam_out_c,*jniparam_self_c,jniparam_mat1_c->t(),*jniparam_mat2_c,jniparam_beta,jniparam_alpha);
   
       
 
@@ -1088,30 +1071,30 @@ JNIEXPORT void JNICALL Java_aten_Tensor_baddbmm_1out_1transposed2(JNIEnv *env, j
    jclass jniparam_out_class = tensorClass;
    jfieldID jniparam_out_fidNumber = tensorPointerFid;
    jlong jniparam_out_pointer = env->GetLongField( jniparam_out, jniparam_out_fidNumber);
-   Tensor jniparam_out_c = *reinterpret_cast<Tensor*>(jniparam_out_pointer);
+   Tensor* jniparam_out_c = reinterpret_cast<Tensor*>(jniparam_out_pointer);
       
 
    jclass jniparam_self_class = tensorClass;
    jfieldID jniparam_self_fidNumber = tensorPointerFid;
    jlong jniparam_self_pointer = env->GetLongField( jniparam_self, jniparam_self_fidNumber);
-   Tensor jniparam_self_c = *reinterpret_cast<Tensor*>(jniparam_self_pointer);
+   Tensor* jniparam_self_c = reinterpret_cast<Tensor*>(jniparam_self_pointer);
       
 
    jclass jniparam_mat1_class = tensorClass;
    jfieldID jniparam_mat1_fidNumber = tensorPointerFid;
    jlong jniparam_mat1_pointer = env->GetLongField( jniparam_mat1, jniparam_mat1_fidNumber);
-   Tensor jniparam_mat1_c = *reinterpret_cast<Tensor*>(jniparam_mat1_pointer);
+   Tensor* jniparam_mat1_c = reinterpret_cast<Tensor*>(jniparam_mat1_pointer);
       
 
    jclass jniparam_mat2_class = tensorClass;
    jfieldID jniparam_mat2_fidNumber = tensorPointerFid;
    jlong jniparam_mat2_pointer = env->GetLongField( jniparam_mat2, jniparam_mat2_fidNumber);
-   Tensor jniparam_mat2_c = *reinterpret_cast<Tensor*>(jniparam_mat2_pointer);
+   Tensor* jniparam_mat2_c = reinterpret_cast<Tensor*>(jniparam_mat2_pointer);
       
 
 
 
-   at::baddbmm_out(jniparam_out_c,jniparam_self_c,jniparam_mat1_c,jniparam_mat2_c.transpose(1,2),jniparam_beta,jniparam_alpha);
+   at::baddbmm_out(*jniparam_out_c,*jniparam_self_c,*jniparam_mat1_c,jniparam_mat2_c->transpose(1,2),jniparam_beta,jniparam_alpha);
   
       
 
@@ -1133,30 +1116,30 @@ JNIEXPORT void JNICALL Java_aten_Tensor_baddbmm_1out_1transposed1(JNIEnv *env, j
    jclass jniparam_out_class = tensorClass;
    jfieldID jniparam_out_fidNumber = tensorPointerFid;
    jlong jniparam_out_pointer = env->GetLongField( jniparam_out, jniparam_out_fidNumber);
-   Tensor jniparam_out_c = *reinterpret_cast<Tensor*>(jniparam_out_pointer);
+   Tensor* jniparam_out_c = reinterpret_cast<Tensor*>(jniparam_out_pointer);
       
 
    jclass jniparam_self_class = tensorClass;
    jfieldID jniparam_self_fidNumber = tensorPointerFid;
    jlong jniparam_self_pointer = env->GetLongField( jniparam_self, jniparam_self_fidNumber);
-   Tensor jniparam_self_c = *reinterpret_cast<Tensor*>(jniparam_self_pointer);
+   Tensor* jniparam_self_c = reinterpret_cast<Tensor*>(jniparam_self_pointer);
       
 
    jclass jniparam_mat1_class = tensorClass;
    jfieldID jniparam_mat1_fidNumber = tensorPointerFid;
    jlong jniparam_mat1_pointer = env->GetLongField( jniparam_mat1, jniparam_mat1_fidNumber);
-   Tensor jniparam_mat1_c = *reinterpret_cast<Tensor*>(jniparam_mat1_pointer);
+   Tensor* jniparam_mat1_c = reinterpret_cast<Tensor*>(jniparam_mat1_pointer);
       
 
    jclass jniparam_mat2_class = tensorClass;
    jfieldID jniparam_mat2_fidNumber = tensorPointerFid;
    jlong jniparam_mat2_pointer = env->GetLongField( jniparam_mat2, jniparam_mat2_fidNumber);
-   Tensor jniparam_mat2_c = *reinterpret_cast<Tensor*>(jniparam_mat2_pointer);
+   Tensor* jniparam_mat2_c = reinterpret_cast<Tensor*>(jniparam_mat2_pointer);
       
 
 
 
-   at::baddbmm_out(jniparam_out_c,jniparam_self_c,jniparam_mat1_c.transpose(1,2),jniparam_mat2_c,jniparam_beta,jniparam_alpha);
+   at::baddbmm_out(*jniparam_out_c,*jniparam_self_c,jniparam_mat1_c->transpose(1,2),*jniparam_mat2_c,jniparam_beta,jniparam_alpha);
   
       
 
@@ -1177,13 +1160,13 @@ JNIEXPORT void JNICALL Java_aten_Tensor_baddbmm_1out_1transposed1(JNIEnv *env, j
 JNIEXPORT jlong JNICALL Java_aten_Tensor_lowlevelones_1like(JNIEnv *env, jobject thisObj ,jlong jniparam_self) {try{
   
    
-   Tensor jniparam_self_c = *reinterpret_cast<Tensor*>(jniparam_self);
+   Tensor* jniparam_self_c = reinterpret_cast<Tensor*>(jniparam_self);
       
 
   
 
 
-  Tensor result =  at::ones_like(jniparam_self_c);
+  Tensor result =  at::ones_like(*jniparam_self_c);
   
       
 
@@ -1205,13 +1188,13 @@ JNIEXPORT jlong JNICALL Java_aten_Tensor_lowlevelones_1like(JNIEnv *env, jobject
 JNIEXPORT jlong JNICALL Java_aten_Tensor_lowlevelzeros_1like(JNIEnv *env, jobject thisObj ,jlong jniparam_self) {try{
   
    
-   Tensor jniparam_self_c = *reinterpret_cast<Tensor*>(jniparam_self);
+   Tensor* jniparam_self_c = reinterpret_cast<Tensor*>(jniparam_self);
       
 
   
 
 
-  Tensor result =  at::zeros_like(jniparam_self_c);
+  Tensor result =  at::zeros_like(*jniparam_self_c);
   
       
 

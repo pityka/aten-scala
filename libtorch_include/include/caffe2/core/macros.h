@@ -9,8 +9,8 @@
 // as a track point for bugs, until we find a proper versioning cycle.
 
 #define CAFFE2_VERSION_MAJOR 1
-#define CAFFE2_VERSION_MINOR 7
-#define CAFFE2_VERSION_PATCH 1
+#define CAFFE2_VERSION_MINOR 8
+#define CAFFE2_VERSION_PATCH 0
 
 static_assert(
     CAFFE2_VERSION_MINOR < 100,
@@ -44,20 +44,22 @@ static_assert(
 /* #undef CAFFE2_USE_NVTX */
 /* #undef CAFFE2_USE_TRT */
 
-#ifndef USE_NUMPY
-#define USE_NUMPY
-#endif
-
 #ifndef EIGEN_MPL2_ONLY
 #define EIGEN_MPL2_ONLY
 #endif
 
 // Useful build settings that are recorded in the compiled binary
 #define CAFFE2_BUILD_STRINGS { \
-  {"CXX_FLAGS", " -Wno-deprecated -fvisibility-inlines-hidden -Wno-deprecated-declarations -DUSE_PTHREADPOOL -DNDEBUG -DUSE_FBGEMM -DUSE_QNNPACK -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DUSE_VULKAN_WRAPPER -O2 -fPIC -Wno-narrowing -Wall -Wextra -Werror=return-type -Wno-missing-field-initializers -Wno-type-limits -Wno-array-bounds -Wno-unknown-pragmas -Wno-sign-compare -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function -Wno-unused-result -Wno-unused-local-typedefs -Wno-strict-overflow -Wno-strict-aliasing -Wno-error=deprecated-declarations -Wno-error=pedantic -Wno-error=redundant-decls -Wno-error=old-style-cast -Wno-invalid-partial-specialization -Wno-typedef-redefinition -Wno-unknown-warning-option -Wno-unused-private-field -Wno-inconsistent-missing-override -Wno-aligned-allocation-unavailable -Wno-c++14-extensions -Wno-constexpr-not-const -Wno-missing-braces -Qunused-arguments -fcolor-diagnostics -fno-math-errno -fno-trapping-math -Werror=format -Wno-unused-private-field -Wno-missing-braces -Wno-c++14-extensions -Wno-constexpr-not-const"}, \
+  {"TORCH_VERSION", "1.8.0"}, \
+  {"CXX_COMPILER", "/Applications/Xcode-12.GM.seed.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++"}, \
+  {"CXX_FLAGS", " -Wno-deprecated -fvisibility-inlines-hidden -Wno-deprecated-declarations -DUSE_PTHREADPOOL -DNDEBUG -DUSE_FBGEMM -DUSE_QNNPACK -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -O2 -fPIC -Wno-narrowing -Wall -Wextra -Werror=return-type -Wno-missing-field-initializers -Wno-type-limits -Wno-array-bounds -Wno-unknown-pragmas -Wno-sign-compare -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function -Wno-unused-result -Wno-unused-local-typedefs -Wno-strict-overflow -Wno-strict-aliasing -Wno-error=deprecated-declarations -Wno-error=pedantic -Wno-error=redundant-decls -Wno-error=old-style-cast -Wno-invalid-partial-specialization -Wno-typedef-redefinition -Wno-unknown-warning-option -Wno-unused-private-field -Wno-inconsistent-missing-override -Wno-aligned-allocation-unavailable -Wno-c++14-extensions -Wno-constexpr-not-const -Wno-missing-braces -Qunused-arguments -fcolor-diagnostics -fno-math-errno -fno-trapping-math -Werror=format -Werror=cast-function-type -Wno-unused-private-field -Wno-missing-braces -Wno-c++14-extensions -Wno-constexpr-not-const"}, \
   {"BUILD_TYPE", "Release"}, \
-  {"BLAS", "MKL"}, \
+  {"BLAS_INFO", "mkl"}, \
+  {"LAPACK_INFO", "mkl"}, \
   {"USE_CUDA", "OFF"}, \
+  {"CUDA_VERSION", ""}, \
+  {"USE_CUDNN", "OFF"}, \
+  {"CUDNN_VERSION", ""}, \
   {"USE_NCCL", "OFF"}, \
   {"USE_MPI", "OFF"}, \
   {"USE_GFLAGS", "OFF"}, \
