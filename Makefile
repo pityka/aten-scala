@@ -1,6 +1,6 @@
 docker-prepare:
   # runtime image is in docker hub
-	cd docker-runtime && docker build -t pityka/base-ubuntu-libtorch:torch171 .
+	cd docker-runtime && docker build -t pityka/base-ubuntu-libtorch:torch180 .
 	cd docker-build && docker build -t aten-scala-linux-build .
 
 prepare:
