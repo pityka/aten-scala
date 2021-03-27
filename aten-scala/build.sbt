@@ -1,5 +1,9 @@
 val RELEASE_TO_SONATYPE = sys.env.getOrElse("RELEASE_SONATYPE", "false").toBoolean 
 
+developers := List(
+  Developer(id="pityka", name="Istvan Bartha", email="bartha.pityu@gmail.com", url=url("http://pityka.github.io"))
+)
+
 val commonSettings = Seq(
   scalaVersion := "2.13.5",
   organization := "io.github.pityka",
