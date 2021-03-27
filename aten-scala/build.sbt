@@ -3,7 +3,6 @@ val RELEASE_TO_SONATYPE = sys.env.getOrElse("RELEASE_SONATYPE", "false").toBoole
 
 
 val commonSettings = Seq(
-  
   scalaVersion := "2.13.5",
   organization := "io.github.pityka",
   licenses += ("MIT", url("http://opensource.org/licenses/MIT")),
@@ -35,6 +34,7 @@ lazy val core = project
   .in(file("core"))
   .settings(commonSettings)
   .settings(
+    crossScalaVersions := Seq("2.13.5","2.12.13"),
     name := "aten-scala-core",
     libraryDependencies ++= Seq(
       "com.github.fommil" % "jniloader" % "1.1"

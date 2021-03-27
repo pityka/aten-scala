@@ -29,14 +29,14 @@ test-cuda: aten-scala/jni-linux/src/main/resources/libatenscalajni.so
 
 
 publishLocal: aten-scala/jni-osx/src/main/resources/libatenscalajni.dylib aten-scala/jni-linux/src/main/resources/libatenscalajni.so
-		cd aten-scala && sbt publishLocal
+		cd aten-scala && sbt +publishLocal
 
 publish: aten-scala/jni-osx/src/main/resources/libatenscalajni.dylib aten-scala/jni-linux/src/main/resources/libatenscalajni.so
-		cd aten-scala && sbt publish
+		cd aten-scala && sbt +publish
 
 # GPG_TTY=$(tty) && export GPG_TTY 
 publishMaven: aten-scala/jni-osx/src/main/resources/libatenscalajni.dylib aten-scala/jni-linux/src/main/resources/libatenscalajni.so
-		cd aten-scala && RELEASE_SONATYPE=true sbt publishSigned && sbt sonatypeRelease
+		cd aten-scala && RELEASE_SONATYPE=true sbt +publishSigned && sbt sonatypeRelease
 
 all: test
 
