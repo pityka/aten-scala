@@ -1,10 +1,9 @@
 val RELEASE_TO_SONATYPE = sys.env.getOrElse("RELEASE_SONATYPE", "false").toBoolean 
 
-developers := List(
-  Developer(id="pityka", name="Istvan Bartha", email="bartha.pityu@gmail.com", url=url("http://pityka.github.io"))
-)
+
 
 val commonSettings = Seq(
+  
   scalaVersion := "2.13.5",
   organization := "io.github.pityka",
   licenses += ("MIT", url("http://opensource.org/licenses/MIT")),
@@ -67,3 +66,13 @@ lazy val test = project
 publishArtifact := false
 
 skip in publish := true
+
+pomExtra in Global := {
+  <developers>
+    <developer>
+      <id>pityka</id>
+      <name>Istvan Bartha</name>
+      <url>https://pityka.github.io/utils-string/</url>
+    </developer>
+  </developers>
+}
