@@ -56,8 +56,10 @@ object Test extends App {
   assert(tensor1.sizes.deep.toVector == Seq(3, 3))
   assert(tensor1.strides.deep.toVector == Seq(3, 1))
   assert(tensor1.useCount() == 3)
-  tensor1.cpu()
+  val t1cpu = tensor1.cpu()
   assert(tensor1.useCount() == 4)
+  t1cpu.release
+  assert(tensor1.useCount() == 3)
   if (cuda){
   // this would move to cuda
     val t1c = tensor1.cuda()
@@ -75,7 +77,7 @@ object Test extends App {
   val op = tensor4.options
   println(op)
 
-  assert(tensor1.useCount == 4)
+  assert(tensor1.useCount == 3)
   tensor1.release()
   assert(tensor1.useCount == 0)
 
