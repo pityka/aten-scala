@@ -63,25 +63,3 @@ lazy val test = project
 publishArtifact := false
 
 skip in publish := true
-
-pomExtra in Global := {
-  <url>https://pityka.github.io/aten-scala</url>
-  <licenses>
-    <license>
-      <name>MIT</name>
-      <url>https://opensource.org/licenses/MIT</url>
-    </license>
-  </licenses>
-  <scm>
-    <connection>scm:git:github.com/pityka/aten-scala</connection>
-    <developerConnection>scm:git:git@github.com:pityka/aten-scala</developerConnection>
-    <url>github.com/pityka/aten-scala</url>
-  </scm>
-  <developers>
-    <developer>
-      <id>pityka</id>
-      <name>Istvan Bartha</name>
-      <url>https://pityka.github.io/aten-scala/</url>
-    </developer>
-  </developers>
-}
