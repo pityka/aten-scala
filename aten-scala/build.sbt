@@ -1,7 +1,5 @@
 val RELEASE_TO_SONATYPE = sys.env.getOrElse("RELEASE_SONATYPE", "false").toBoolean 
 
-ThisBuild / dynverSonatypeSnapshots := true
-
 val commonSettings = Seq(
   scalaVersion := "2.13.5",
   organization := "io.github.pityka",
