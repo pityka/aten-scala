@@ -1,0 +1,1 @@
+GPG_TTY=$(tty) && export GPG_TTY  && make publishMaven
