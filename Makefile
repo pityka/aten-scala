@@ -36,7 +36,7 @@ publish: aten-scala/jni-osx/src/main/resources/libatenscalajni.dylib aten-scala/
 
 # GPG_TTY=$(tty) && export GPG_TTY 
 publishMaven: aten-scala/jni-osx/src/main/resources/libatenscalajni.dylib aten-scala/jni-linux/src/main/resources/libatenscalajni.so
-		cd aten-scala && RELEASE_SONATYPE=true sbt publishSigned
+		cd aten-scala && RELEASE_SONATYPE=true sbt publishSigned && sbt sonatypeRelease
 
 all: test
 
