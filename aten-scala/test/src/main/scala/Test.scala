@@ -53,8 +53,8 @@ object Test extends App {
   assert(!tensor1.isCuda)
   assert(tensor1.elementSize == 4)
   assert(tensor1.scalarType == 6) // 32bit float
-  assert(tensor1.sizes.deep.toVector == Seq(3, 3))
-  assert(tensor1.strides.deep.toVector == Seq(3, 1))
+  assert(tensor1.sizes.toVector == Seq(3, 3))
+  assert(tensor1.strides.toVector == Seq(3, 1))
   assert(tensor1.useCount() == 3)
   val t1cpu = tensor1.cpu()
   assert(tensor1.useCount() == 4)
@@ -66,7 +66,7 @@ object Test extends App {
     println(t1c)
     val target = Array.ofDim[Float](9)
     assert(tensor1.copyToFloatArray(target))
-    println(target.deep)
+    println(target.toVector)
     assert(target(0) == 1)
     assert(target(4) == 1)
     assert(target(8) == 1)
@@ -79,7 +79,9 @@ object Test extends App {
 
   assert(tensor1.useCount == 3)
   tensor1.release()
+  if (!cuda) {
   assert(tensor1.useCount == 0)
+  }
 
   val (eigA,eigB) = ATen.eig(tensor4, false)
   assert(eigA.sizes.toList == List(4,2))
@@ -92,7 +94,7 @@ object Test extends App {
   tensor5.add_(1d,1d)
   ATen.add_1_l(tensor5,1L,1L)
   assert(tensor5.copyToDoubleArray(target))
-  assert(target.deep.toSeq == Seq(3f, 1f, 1f, 3f))
+  assert(target.toVector == Seq(3f, 1f, 1f, 3f))
   println(tensor4.options)
 
   val tensor4like = Tensor.zeros_like(tensor4)
@@ -196,8 +198,8 @@ object Test extends App {
   assert(repeated.copyToDoubleArray(repeated_jvm))
   val repeatable_jvm = Array.ofDim[Double](1)
   assert(repeatable.copyToDoubleArray(repeatable_jvm))
-  assert(repeated_jvm.deep.size==9)
-  assert(repeatable_jvm.deep.size==1)
+  assert(repeated_jvm.toVector.size==9)
+  assert(repeatable_jvm.toVector.size==1)
 
   {
     val e = ATen.ones(Array(2,3),TensorOptions.dtypeDouble)
