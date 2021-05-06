@@ -73,6 +73,9 @@ object Test extends App {
   }
   tensor1.print
   val tensor4 = ATen.eye_1(4, 4, TensorOptions.dtypeFloat)
+
+  ATen.bincount(ATen.zeros(Array(4), TensorOptions.dtypeLong),None,0)
+
   tensor4.print
   val op = tensor4.options
   println(op)

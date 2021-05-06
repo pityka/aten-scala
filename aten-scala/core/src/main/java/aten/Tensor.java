@@ -73,6 +73,7 @@ public class Tensor {
   public static  Tensor scalarLong(long scalar, TensorOptions options) {
     return Tensor.factory(lowlevelscalarLong(scalar,options));
   }
+  
 
   private native long lowlevelto(TensorOptions op, boolean non_blocking, boolean copy);
   public Tensor to(TensorOptions op, boolean non_blocking, boolean copy) {
@@ -112,7 +113,9 @@ public class Tensor {
   public native boolean copyToLongArray( long[] data);
 
   public native void mul_(double d);
+  public native void mul_l_(long d);
   public native void add_(double other, double alpha);
+  public native void add_l_(long other, long alpha);
 
 
   private native long lowlevelexpand_as(Tensor other);

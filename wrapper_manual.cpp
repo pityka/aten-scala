@@ -287,6 +287,18 @@ extern "C" {
     }
     return nullptr;
   }
+  JNIEXPORT jobject JNICALL Java_aten_TensorOptions_toHalf(JNIEnv *env, jobject thisObj) { try{
+    
+    jclass cls = tensorOptionsClass;
+    TensorOptions* tensorOptions = reinterpret_cast<TensorOptions*>(env->GetLongField( thisObj, tensorOptionsPointerFid));
+    
+    TensorOptions* t2 = new TensorOptions(tensorOptions->dtype(kHalf));
+     return allocateTensorOptions(env,t2);
+     } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return nullptr;
+  }
   JNIEXPORT jobject JNICALL Java_aten_TensorOptions_dtypeFloat(JNIEnv *env, jobject thisObj) {try{
     
     TensorOptions* tensorOptions =new TensorOptions((ScalarType)6);
@@ -310,6 +322,16 @@ extern "C" {
   JNIEXPORT jobject JNICALL Java_aten_TensorOptions_dtypeDouble(JNIEnv *env, jobject thisObj) {
     try{
     TensorOptions* tensorOptions =new TensorOptions((ScalarType)7);
+    
+     return allocateTensorOptions(env,tensorOptions);
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return nullptr;
+  }
+  JNIEXPORT jobject JNICALL Java_aten_TensorOptions_dtypeHalf(JNIEnv *env, jobject thisObj) {
+    try{
+    TensorOptions* tensorOptions =new TensorOptions((ScalarType)5);
     
      return allocateTensorOptions(env,tensorOptions);
     } catch (exception& e) {
@@ -485,6 +507,17 @@ extern "C" {
     }
     return ;
   }
+  JNIEXPORT void JNICALL Java_aten_Tensor_mul_1l_1(JNIEnv *env, jobject thisObj, jlong d) {try{
+    
+    jclass cls = tensorClass;
+    Tensor* tensor = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
+    tensor->mul_((int64_t)d);
+    return;
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return ;
+  }
   JNIEXPORT jlong JNICALL Java_aten_Tensor_lowlevelexpand_1as(JNIEnv *env, jobject thisObj, jobject other) {try{
     
     jclass cls = tensorClass;
@@ -566,6 +599,17 @@ extern "C" {
     jclass cls = tensorClass;
     Tensor* tensor = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
     tensor->add_(other,alpha);
+    return;
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return ;
+  }
+  JNIEXPORT void JNICALL Java_aten_Tensor_add_1l_1(JNIEnv *env, jobject thisObj, jlong other, jlong alpha) {try{
+    
+    jclass cls = tensorClass;
+    Tensor* tensor = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
+    tensor->add_((int64_t)other,(int64_t)alpha);
     return;
     } catch (exception& e) {
       throwRuntimeException(env,e.what() );
