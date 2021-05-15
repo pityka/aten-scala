@@ -3,6 +3,25 @@ import com.github.fommil.jni.JniLoader
 import com.github.fommil.jni.JniNamer
 object Test extends App {
 
+  {
+    val tmp = java.io.File.createTempFile("data","dat")
+    val os = new java.io.FileOutputStream(tmp)
+    os.write(Array.apply[Byte](1,1,0,0,0,0,0,0,3,0,0,0,0,0,0,0))
+    os.close 
+    val tensor1 = Tensor.from_file(tmp.getAbsolutePath(), 0, 8, 4)
+    val tensor1clone = ATen.clone(tensor1)
+    tensor1clone.release
+    val target1 = Array.ofDim[Long](1)
+    assert(tensor1.copyToLongArray(target1))
+    assert(target1.toVector == Vector(257L))
+
+    tensor1.release 
+   
+
+    
+  }
+
+
   val cuda = if (args.contains("--cuda")) true else false 
   println("boo")
 

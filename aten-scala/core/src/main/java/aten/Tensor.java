@@ -145,9 +145,16 @@ public class Tensor {
     return Tensor.factory(lowlevelrepeat(repeats));
   }
 
+  /* offset must be multiples of 4096 */
+  public static Tensor from_file(String path, long offset, long len, byte tpe) {
+    return Tensor.factory(lowlevelfrom_file(path,offset,len,tpe));
+  }
+
   public static native void manual_seed(long seed);
   public static native void manual_seed_cpu(long seed);
   public static native void manual_seed_cuda(long seed, int device);
+
+  public static native long lowlevelfrom_file(String path, long offset, long len, byte tpe);
 
   public static native long lowlevelzeros_like(long tensor);
   public static Tensor zeros_like(Tensor tensor) {

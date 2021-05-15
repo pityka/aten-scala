@@ -6,6 +6,11 @@
 #include <string.h>
 #include <ATen/Functions.h>
 #include "wrapper_manual.h"
+#include <sys/mman.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <unistd.h>
+
 using namespace std;
 using namespace at;
 
@@ -94,6 +99,94 @@ jint throwRuntimeException( JNIEnv *env, const char *message )
 
     return env->ThrowNew(  exClass, message );
 }
+
+// Offset mmap
+
+
+class OffsettableMMap {
+ public:
+  OffsettableMMap(const char *filename, size_t size, size_t offset);
+  
+  void close();
+  static at::DataPtr makeDataPtr(const char *filename, size_t size, size_t offset);
+
+  void* pointer() const { return base_ptr_; }
+  ~OffsettableMMap() {
+    close();
+    c10::reportMemoryUsageToProfiler(base_ptr_, -size_, c10::Device(c10::DeviceType::CPU));
+  }
+
+private:
+  bool closed_ = false;
+  ptrdiff_t size_; 
+  void *base_ptr_ = nullptr;
+};
+
+
+OffsettableMMap::OffsettableMMap( const char *filename,  size_t size, size_t offset)
+  : size_(size) // to be filled later
+  , base_ptr_(nullptr)
+{
+
+  if (size == 0) {
+     throw std::runtime_error("trying to mmap non positive size");
+  }
+  int fd;
+  struct stat file_stat;
+
+  if ((fd = open(filename, O_RDONLY)) == -1) {
+    AT_ERROR("unable to open file <", filename, "> in read-only mode");
+  }
+
+  if (fstat(fd, &file_stat) == -1) {
+    ::close(fd);
+    AT_ERROR("unable to stat the file <", filename, ">");
+  }
+
+  if (size  > file_stat.st_size-offset) {
+    ::close(fd);
+    throw std::runtime_error("trying to mmap more than file size");
+  }
+  
+  base_ptr_ = mmap(nullptr, size_, PROT_READ, MAP_PRIVATE, fd, offset);
+   
+  if (base_ptr_ == MAP_FAILED) {
+    ::close(fd);
+    base_ptr_ = nullptr; /* let's be sure it is NULL */
+    AT_ERROR("unable to mmap ", size_, " bytes from file <", filename, ">: ", strerror(errno), " (", errno, ")");
+  }
+
+    
+  if (::close(fd) == -1) {
+    AT_ERROR("Error closing file <", filename, ">");
+  }
+     
+  c10::reportMemoryUsageToProfiler(base_ptr_, size_, c10::Device(c10::DeviceType::CPU));
+}
+
+void OffsettableMMap::close() {
+  if (closed_) {
+    return;
+  }
+  closed_ = true;
+  if (base_ptr_ == nullptr) {
+    return;
+  }
+  if (munmap(base_ptr_, size_)) {
+    AT_ERROR("could not unmap the shared memory file");
+  }
+}
+
+static void deleteOffsettableMMap(void* ptr) {
+  delete static_cast<OffsettableMMap*>(ptr);
+}
+
+at::DataPtr OffsettableMMap::makeDataPtr(const char *filename,  size_t size, size_t offset) {
+  auto* allocatorOnHeap = new OffsettableMMap(filename, size, offset);
+  return {allocatorOnHeap->pointer(), allocatorOnHeap, &deleteOffsettableMMap, at::DeviceType::CPU};
+}
+
+// Offset mmap end
 
 extern "C" {
   JNIEXPORT jobject JNICALL Java_aten_TensorOptions_cuda_1index(JNIEnv *env, jobject thisObj, jshort index) {
@@ -1252,6 +1345,38 @@ JNIEXPORT jlong JNICALL Java_aten_Tensor_lowlevelzeros_1like(JNIEnv *env, jobjec
    jlong returnable_result = ret_addressreturnable_result;
     return returnable_result;
 
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return 0;
+}
+
+JNIEXPORT jlong JNICALL Java_aten_Tensor_lowlevelfrom_1file(JNIEnv *env, jobject thisObj ,jstring path, jlong offset, jlong len, jbyte scalarType) {try{
+  
+  std::string pathAsStdString = jstring2string(env,path);
+
+  auto dtype = TensorOptions((ScalarType)scalarType).dtype();
+
+  int64_t numel = len / dtype.itemsize();
+  if (len % dtype.itemsize() != 0) {
+    throwRuntimeException(env,"Length (in bytes) is not a multiple of itemsize of dtype.");
+  }
+  auto storage_impl = c10::make_intrusive<at::StorageImpl>(
+      c10::StorageImpl::use_byte_size_t(),
+      (int64_t) len,
+      OffsettableMMap::makeDataPtr(pathAsStdString.c_str(), len,offset),
+      /*allocator=*/nullptr,
+      /*resizable=*/false);
+
+  auto tensor = at::detail::make_tensor<at::TensorImpl>(
+      storage_impl, at::DispatchKey::CPU, dtype);
+  tensor.unsafeGetTensorImpl()->set_sizes_contiguous({numel});
+
+   
+  Tensor* result_on_heapreturnable_result = new Tensor(tensor);
+  jlong ret_addressreturnable_result = reinterpret_cast<jlong>(result_on_heapreturnable_result);
+ 
+   return ret_addressreturnable_result;
     } catch (exception& e) {
       throwRuntimeException(env,e.what() );
     }
