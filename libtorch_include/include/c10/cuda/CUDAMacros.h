@@ -1,7 +1,8 @@
 #pragma once
 
 #ifndef C10_USING_CUSTOM_GENERATED_MACROS
-#include <c10/cuda/impl/cuda_cmake_macros.h>
+// Commented out next line because not included in the header distribution
+// #include <c10/cuda/impl/cuda_cmake_macros.h>
 #endif
 
 // See c10/macros/Export.h for a detailed explanation of what the function

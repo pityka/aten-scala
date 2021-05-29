@@ -2,13 +2,19 @@ import aten._
 import com.github.fommil.jni.JniLoader
 import com.github.fommil.jni.JniNamer
 object Test extends App {
+val cuda = if (args.contains("--cuda")) true else false 
+
+if (cuda) {
+  Tensor.setPinnedMemoryAllocator
+}
+
 
   {
     val tmp = java.io.File.createTempFile("data","dat")
     val os = new java.io.FileOutputStream(tmp)
     os.write(Array.apply[Byte](1,1,0,0,0,0,0,0,3,0,0,0,0,0,0,0))
     os.close 
-    val tensor1 = Tensor.from_file(tmp.getAbsolutePath(), 0, 8, 4)
+    val tensor1 = Tensor.from_file(tmp.getAbsolutePath(), 0, 8, 4,true)
     val tensor1clone = ATen.clone(tensor1)
     tensor1clone.release
     val target1 = Array.ofDim[Long](1)
@@ -22,7 +28,8 @@ object Test extends App {
   }
 
 
-  val cuda = if (args.contains("--cuda")) true else false 
+
+  
   println("boo")
 
   val tensor1 = ATen.eye_0(3L, TensorOptions.dtypeFloat)
@@ -101,9 +108,7 @@ object Test extends App {
 
   assert(tensor1.useCount == 3)
   tensor1.release()
-  if (!cuda) {
-  assert(tensor1.useCount == 0)
-  }
+  
 
   val (eigA,eigB) = ATen.eig(tensor4, false)
   assert(eigA.sizes.toList == List(4,2))
@@ -155,7 +160,11 @@ object Test extends App {
     val tensorDouble = ATen.eye_1(2,2,TensorOptions.dtypeLong.toDouble)
   val tensorFloat = ATen.eye_1(2,2,TensorOptions.dtypeLong.toFloat)
   val t3 = tensorFloat.to(TensorOptions.dtypeDouble,true,true)
+  if (!cuda) {
   assert(!t3.is_pinned)
+  } else  {
+    assert(t3.is_pinned)
+  }
   println(t3.options)
   val t4 = tensorFloat.to(TensorOptions.dtypeDouble,false,false)
   println(t4.options)

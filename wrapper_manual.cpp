@@ -5,6 +5,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ATen/Functions.h>
+#include <c10/cuda/CUDACachingAllocator.h>
+#include <ATen/cuda/PinnedMemoryAllocator.h>
+#include <c10/core/CPUAllocator.h>
 #include "wrapper_manual.h"
 #include <sys/mman.h>
 #include <sys/stat.h>
@@ -105,10 +108,10 @@ jint throwRuntimeException( JNIEnv *env, const char *message )
 
 class OffsettableMMap {
  public:
-  OffsettableMMap(const char *filename, size_t size, size_t offset);
+  OffsettableMMap(const char *filename, size_t size, size_t offset, bool pin);
   
   void close();
-  static at::DataPtr makeDataPtr(const char *filename, size_t size, size_t offset);
+  static at::DataPtr makeDataPtr(const char *filename, size_t size, size_t offset, bool pin);
 
   void* pointer() const { return base_ptr_; }
   ~OffsettableMMap() {
@@ -118,12 +121,13 @@ class OffsettableMMap {
 
 private:
   bool closed_ = false;
+  bool pinned_ = false;
   ptrdiff_t size_; 
   void *base_ptr_ = nullptr;
 };
 
 
-OffsettableMMap::OffsettableMMap( const char *filename,  size_t size, size_t offset)
+OffsettableMMap::OffsettableMMap( const char *filename,  size_t size, size_t offset, bool pin)
   : size_(size) // to be filled later
   , base_ptr_(nullptr)
 {
@@ -133,6 +137,7 @@ OffsettableMMap::OffsettableMMap( const char *filename,  size_t size, size_t off
   }
   int fd;
   struct stat file_stat;
+  pinned_ = pin;
 
   if ((fd = open(filename, O_RDONLY)) == -1) {
     AT_ERROR("unable to open file <", filename, "> in read-only mode");
@@ -149,6 +154,12 @@ OffsettableMMap::OffsettableMMap( const char *filename,  size_t size, size_t off
   }
   
   base_ptr_ = mmap(nullptr, size_, PROT_READ, MAP_PRIVATE, fd, offset);
+
+  if (pin) {
+    if(mlock(base_ptr_,size_)) {
+      AT_ERROR("Error locking page");
+    }
+  }
    
   if (base_ptr_ == MAP_FAILED) {
     ::close(fd);
@@ -172,17 +183,21 @@ void OffsettableMMap::close() {
   if (base_ptr_ == nullptr) {
     return;
   }
-  if (munmap(base_ptr_, size_)) {
-    AT_ERROR("could not unmap the shared memory file");
+  if (pinned_ && munlock(base_ptr_, size_)) {
+    AT_ERROR("could not unlock the pages");
   }
+  if (munmap(base_ptr_, size_)) {
+    AT_ERROR("could not unmap the file");
+  }
+  
 }
 
 static void deleteOffsettableMMap(void* ptr) {
   delete static_cast<OffsettableMMap*>(ptr);
 }
 
-at::DataPtr OffsettableMMap::makeDataPtr(const char *filename,  size_t size, size_t offset) {
-  auto* allocatorOnHeap = new OffsettableMMap(filename, size, offset);
+at::DataPtr OffsettableMMap::makeDataPtr(const char *filename,  size_t size, size_t offset, bool pin) {
+  auto* allocatorOnHeap = new OffsettableMMap(filename, size, offset, pin);
   return {allocatorOnHeap->pointer(), allocatorOnHeap, &deleteOffsettableMMap, at::DeviceType::CPU};
 }
 
@@ -1351,7 +1366,7 @@ JNIEXPORT jlong JNICALL Java_aten_Tensor_lowlevelzeros_1like(JNIEnv *env, jobjec
     return 0;
 }
 
-JNIEXPORT jlong JNICALL Java_aten_Tensor_lowlevelfrom_1file(JNIEnv *env, jobject thisObj ,jstring path, jlong offset, jlong len, jbyte scalarType) {try{
+JNIEXPORT jlong JNICALL Java_aten_Tensor_lowlevelfrom_1file(JNIEnv *env, jobject thisObj ,jstring path, jlong offset, jlong len, jbyte scalarType, jboolean pin) {try{
   
   std::string pathAsStdString = jstring2string(env,path);
 
@@ -1364,7 +1379,7 @@ JNIEXPORT jlong JNICALL Java_aten_Tensor_lowlevelfrom_1file(JNIEnv *env, jobject
   auto storage_impl = c10::make_intrusive<at::StorageImpl>(
       c10::StorageImpl::use_byte_size_t(),
       (int64_t) len,
-      OffsettableMMap::makeDataPtr(pathAsStdString.c_str(), len,offset),
+      OffsettableMMap::makeDataPtr(pathAsStdString.c_str(), len,offset,pin),
       /*allocator=*/nullptr,
       /*resizable=*/false);
 
@@ -1381,6 +1396,31 @@ JNIEXPORT jlong JNICALL Java_aten_Tensor_lowlevelfrom_1file(JNIEnv *env, jobject
       throwRuntimeException(env,e.what() );
     }
     return 0;
+}
+
+JNIEXPORT void JNICALL Java_aten_Tensor_cudaCachingAllocatorSetMemoryFraction(JNIEnv *env, jobject thisObj ,jdouble fraction, jint device) {try{
+  
+      c10::cuda::CUDACachingAllocator::setMemoryFraction(fraction,device);
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    
+}
+JNIEXPORT void JNICALL Java_aten_Tensor_setPinnedMemoryAllocator(JNIEnv *env, jobject thisObj ) {try{
+  
+      c10::SetCPUAllocator(at::cuda::getPinnedMemoryAllocator());
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    
+}
+JNIEXPORT void JNICALL Java_aten_Tensor_setDefaultAllocator(JNIEnv *env, jobject thisObj ) {try{
+  
+      c10::SetCPUAllocator(c10::GetDefaultCPUAllocator());
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    
 }
 
 }

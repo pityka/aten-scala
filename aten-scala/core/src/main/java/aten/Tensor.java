@@ -146,15 +146,15 @@ public class Tensor {
   }
 
   /* offset must be multiples of 4096 */
-  public static Tensor from_file(String path, long offset, long len, byte tpe) {
-    return Tensor.factory(lowlevelfrom_file(path,offset,len,tpe));
+  public static Tensor from_file(String path, long offset, long len, byte tpe, boolean pin) {
+    return Tensor.factory(lowlevelfrom_file(path,offset,len,tpe,pin));
   }
 
   public static native void manual_seed(long seed);
   public static native void manual_seed_cpu(long seed);
   public static native void manual_seed_cuda(long seed, int device);
 
-  public static native long lowlevelfrom_file(String path, long offset, long len, byte tpe);
+  public static native long lowlevelfrom_file(String path, long offset, long len, byte tpe, boolean pin);
 
   public static native long lowlevelzeros_like(long tensor);
   public static Tensor zeros_like(Tensor tensor) {
@@ -164,5 +164,15 @@ public class Tensor {
   public static Tensor ones_like(Tensor tensor) {
       return Tensor.factory(lowlevelones_like(tensor.pointer));
   }
+
+  public static native void cudaCachingAllocatorSetMemoryFraction(double fraction, int device);
+
+  /** Sets the global cpu allocator to the pinned memory allocator
+    * This is needs the CUDA libraries
+    */
+  public static native void setPinnedMemoryAllocator();
+   /** Sets the global cpu allocator to the default allocator
+    */
+  public static native void setDefaultAllocator();
 
 }
