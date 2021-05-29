@@ -157,7 +157,7 @@ OffsettableMMap::OffsettableMMap( const char *filename,  size_t size, size_t off
 
   if (pin) {
     if(mlock(base_ptr_,size_)) {
-      AT_ERROR("Error locking page");
+      AT_ERROR("Error locking page: ", strerror(errno), " (", errno, ")");
     }
   }
    
