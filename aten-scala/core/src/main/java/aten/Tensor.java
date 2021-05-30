@@ -98,7 +98,7 @@ public class Tensor {
     return "Tensor at "+pointer+"; "+nativeToString();
   }
   
-  public native void copyFrom(Tensor other);
+  public native void copyFrom(Tensor other, boolean nonBlocking);
 
   public native boolean copyFromFloatArray( float[] data);
   public native boolean copyFromFloatArrayAtOffset( float[] data, long offset);

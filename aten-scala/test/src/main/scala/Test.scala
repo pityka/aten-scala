@@ -67,7 +67,7 @@ if (cuda) {
   assert(tensor1.dim == 2)
   assert(tensor1.defined)
   val target1 = ATen.ones_like(tensor3,tensor3.options)
-  target1.copyFrom(tensor3)
+  target1.copyFrom(tensor3,true)
   assert(ATen.equal(target1,tensor3))
 
   tensor3.release 

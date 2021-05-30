@@ -581,12 +581,12 @@ extern "C" {
     }
     return nullptr;
   }
-  JNIEXPORT void JNICALL Java_aten_Tensor_copyFrom(JNIEnv *env, jobject thisObj, jobject other) {
+  JNIEXPORT void JNICALL Java_aten_Tensor_copyFrom(JNIEnv *env, jobject thisObj, jobject other, jboolean nonblocking) {
     try{
     jclass cls = tensorClass;
     Tensor* tensor = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
     Tensor* otherTensor = reinterpret_cast<Tensor*>(env->GetLongField( other, tensorPointerFid));
-    tensor->copy_(*otherTensor,false);
+    tensor->copy_(*otherTensor,nonblocking);
     return;
     } catch (exception& e) {
       throwRuntimeException(env,e.what() );
