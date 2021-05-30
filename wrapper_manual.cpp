@@ -1423,4 +1423,41 @@ JNIEXPORT void JNICALL Java_aten_Tensor_setDefaultAllocator(JNIEnv *env, jobject
     
 }
 
+  // private static native void lowsetCurrentCUDAStream(long cudaStream);
+JNIEXPORT void JNICALL Java_aten_CudaStream_lowlevelsynchronize(JNIEnv *env, jobject thisObj, jlong packed ) {try{
+      
+    c10::cuda::CUDAStream stream = c10::cuda::CUDAStream::unpack(packed);
+    stream.synchronize();
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    
+}
+JNIEXPORT jlong JNICALL Java_aten_CudaStream_lowlevelgetStreamFromPool(JNIEnv *env, jobject thisObj, jboolean isHighPriority, jint device ) {try{
+      
+    c10::cuda::CUDAStream stream = c10::cuda::getStreamFromPool(isHighPriority,device);
+    return stream.pack();
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return 0;
+}
+JNIEXPORT jlong JNICALL Java_aten_CudaStream_lowlevelgetDefaultCUDAStream(JNIEnv *env, jobject thisObj,  jint device ) {try{
+      
+    c10::cuda::CUDAStream stream = c10::cuda::getDefaultCUDAStream(device);
+    return stream.pack();
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return 0;
+}
+JNIEXPORT void JNICALL Java_aten_CudaStream_lowlevelsetCurrentCUDAStream(JNIEnv *env, jobject thisObj,  jlong packed ) {try{
+      
+    c10::cuda::CUDAStream stream = c10::cuda::CUDAStream::unpack(packed);
+    c10::cuda::setCurrentCUDAStream(stream);
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+}
+
 }
