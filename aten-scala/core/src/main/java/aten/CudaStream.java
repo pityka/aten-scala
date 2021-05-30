@@ -1,6 +1,6 @@
 package aten;
 
-class CudaStream {
+public class CudaStream {
   static {
     Load.load();
   }
