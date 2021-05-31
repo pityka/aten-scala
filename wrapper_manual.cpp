@@ -29,6 +29,19 @@ jfieldID tensorOptionsPointerFid;
 jclass longClass;
 jmethodID longCtor;
 
+int64_t reinterpret_unsigned_to_signed(uint64_t x) {
+  int64_t tmp;
+  std::memcpy(&tmp, &x, sizeof(tmp));
+  const int64_t y = tmp;
+  return y;
+}
+uint64_t reinterpret_signed_to_unsigned(int64_t x) {
+  uint64_t tmp;
+  std::memcpy(&tmp, &x, sizeof(tmp));
+  const uint64_t y = tmp;
+  return y;
+}
+
 jint JNI_OnLoad(JavaVM* vm, void* reserved) {
 
     JNIEnv* env;
@@ -1433,19 +1446,19 @@ JNIEXPORT void JNICALL Java_aten_CudaStream_lowlevelsynchronize(JNIEnv *env, job
     }
     
 }
-JNIEXPORT jlong JNICALL Java_aten_CudaStream_lowlevelgetStreamFromPool(JNIEnv *env, jobject thisObj, jboolean isHighPriority, jint device ) {try{
+JNIEXPORT jlong JNICALL Java_aten_CudaStream_lowlevelgetStreamFromPool(JNIEnv *env, jobject thisObj, jboolean isHighPriority, jbyte device ) {try{
       
     c10::cuda::CUDAStream stream = c10::cuda::getStreamFromPool(isHighPriority,device);
-    return stream.pack();
+    reinterpret_unsigned_to_signed(stream.pack());
     } catch (exception& e) {
       throwRuntimeException(env,e.what() );
     }
     return 0;
 }
-JNIEXPORT jlong JNICALL Java_aten_CudaStream_lowlevelgetDefaultCUDAStream(JNIEnv *env, jobject thisObj,  jint device ) {try{
+JNIEXPORT jlong JNICALL Java_aten_CudaStream_lowlevelgetDefaultCUDAStream(JNIEnv *env, jobject thisObj,  jbyte device ) {try{
       
     c10::cuda::CUDAStream stream = c10::cuda::getDefaultCUDAStream(device);
-    return stream.pack();
+    reinterpret_unsigned_to_signed(stream.pack());
     } catch (exception& e) {
       throwRuntimeException(env,e.what() );
     }
@@ -1453,11 +1466,24 @@ JNIEXPORT jlong JNICALL Java_aten_CudaStream_lowlevelgetDefaultCUDAStream(JNIEnv
 }
 JNIEXPORT void JNICALL Java_aten_CudaStream_lowlevelsetCurrentCUDAStream(JNIEnv *env, jobject thisObj,  jlong packed ) {try{
       
-    c10::cuda::CUDAStream stream = c10::cuda::CUDAStream::unpack(packed);
+    c10::cuda::CUDAStream stream = c10::cuda::CUDAStream::unpack(reinterpret_signed_to_unsigned(packed));
     c10::cuda::setCurrentCUDAStream(stream);
     } catch (exception& e) {
       throwRuntimeException(env,e.what() );
     }
 }
+ JNIEXPORT jstring JNICALL Java_aten_CudaStream_nativeToString(JNIEnv *env, jobject thisObj, jlong packed) {
+    try{
+        c10::cuda::CUDAStream stream = c10::cuda::CUDAStream::unpack(reinterpret_signed_to_unsigned(packed));
+        std::stringstream ss;
+
+        ss<< stream;
+
+    return env->NewStringUTF(ss.str().c_str());
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return nullptr;
+  }
 
 }
