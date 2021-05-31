@@ -6,6 +6,14 @@ val cuda = if (args.contains("--cuda")) true else false
 
 if (cuda) {
   Tensor.setPinnedMemoryAllocator
+
+  val stream = CudaStream.getStreamFromPool(false,0)
+  println(stream)
+  val default = CudaStream.getDefaultCUDAStream(0)
+  CudaStream.setCurrentCUDAStream(stream)
+  stream.synchronize()
+  CudaStream.setCurrentCUDAStream(default)
+
 }
 
 

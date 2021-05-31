@@ -1439,7 +1439,7 @@ JNIEXPORT void JNICALL Java_aten_Tensor_setDefaultAllocator(JNIEnv *env, jobject
   // private static native void lowsetCurrentCUDAStream(long cudaStream);
 JNIEXPORT void JNICALL Java_aten_CudaStream_lowlevelsynchronize(JNIEnv *env, jobject thisObj, jlong packed ) {try{
       
-    c10::cuda::CUDAStream stream = c10::cuda::CUDAStream::unpack(packed);
+    c10::cuda::CUDAStream stream = c10::cuda::CUDAStream::unpack(reinterpret_signed_to_unsigned(packed));
     stream.synchronize();
     } catch (exception& e) {
       throwRuntimeException(env,e.what() );
@@ -1449,7 +1449,7 @@ JNIEXPORT void JNICALL Java_aten_CudaStream_lowlevelsynchronize(JNIEnv *env, job
 JNIEXPORT jlong JNICALL Java_aten_CudaStream_lowlevelgetStreamFromPool(JNIEnv *env, jobject thisObj, jboolean isHighPriority, jbyte device ) {try{
       
     c10::cuda::CUDAStream stream = c10::cuda::getStreamFromPool(isHighPriority,device);
-    reinterpret_unsigned_to_signed(stream.pack());
+    return reinterpret_unsigned_to_signed(stream.pack());
     } catch (exception& e) {
       throwRuntimeException(env,e.what() );
     }
@@ -1458,7 +1458,7 @@ JNIEXPORT jlong JNICALL Java_aten_CudaStream_lowlevelgetStreamFromPool(JNIEnv *e
 JNIEXPORT jlong JNICALL Java_aten_CudaStream_lowlevelgetDefaultCUDAStream(JNIEnv *env, jobject thisObj,  jbyte device ) {try{
       
     c10::cuda::CUDAStream stream = c10::cuda::getDefaultCUDAStream(device);
-    reinterpret_unsigned_to_signed(stream.pack());
+    return reinterpret_unsigned_to_signed(stream.pack());
     } catch (exception& e) {
       throwRuntimeException(env,e.what() );
     }
