@@ -34,6 +34,34 @@ if (cuda) {
 
     
   }
+  {
+    val tmp = java.io.File.createTempFile("data","dat")
+    val os = new java.io.FileOutputStream(tmp)
+    os.write(Array.apply[Byte](1,1,0,0,
+    0,0,0,0,
+    1,0,0,0,
+    0,0,0,0,
+    1,1,1,1))
+    os.close 
+    
+    scala.util.Try(Tensor.tensors_from_file(tmp.getAbsolutePath(), 0, 16, true,Array(4,4),Array(0,4),Array(8,8))).failed.get
+    val tensors = Tensor.tensors_from_file(tmp.getAbsolutePath(), 0, 16, true,Array(4,4),Array(0,8),Array(8,8))
+    val tensor1 = tensors(0)
+    val tensor2 = tensors(1)
+    assert(tensor1.numel == 1)
+    assert(tensor2.numel == 1)
+    assert(tensor1.sizes.toList == List(1))
+    assert(tensor2.sizes.toList == List(1))
+    val target1 = Array.ofDim[Long](1)
+    assert(tensor1.copyToLongArray(target1))
+    assert(target1.toVector == Vector(257))
+    tensor1.release
+    val target2 = Array.ofDim[Long](1)
+    assert(tensor2.copyToLongArray(target2))
+    assert(target2.toVector == Vector(1L))
+    tensor2.release 
+    
+  }
 
 
 

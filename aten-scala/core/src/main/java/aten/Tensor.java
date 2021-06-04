@@ -149,12 +149,26 @@ public class Tensor {
   public static Tensor from_file(String path, long offset, long len, byte tpe, boolean pin) {
     return Tensor.factory(lowlevelfrom_file(path,offset,len,tpe,pin));
   }
+  public static Tensor[] tensors_from_file(String path, long offset, long len, boolean pin,byte[] scalarTypes, long[] tensorOffsets, long[] tensorLengths) {
+    if (scalarTypes.length != tensorOffsets.length || tensorOffsets.length != tensorLengths.length) {
+      throw new RuntimeException("Arrays don't match");
+    }
+    long[] pointers = lowleveltensorsfrom_file(path,offset,len,pin,scalarTypes,tensorOffsets,tensorLengths, tensorLengths.length);
+    Tensor[] tensors = new Tensor[tensorLengths.length];
+    for(int i=0; i<tensorLengths.length; i++){
+            tensors[i] = Tensor.factory(pointers[i]);
+    }
+    return tensors;
+  }
 
   public static native void manual_seed(long seed);
   public static native void manual_seed_cpu(long seed);
   public static native void manual_seed_cuda(long seed, int device);
 
   public static native long lowlevelfrom_file(String path, long offset, long len, byte tpe, boolean pin);
+  public static native long[] lowleveltensorsfrom_file(String path, long offset, long len, boolean pin, byte[] scalarTypes, long[] tensorOffsets, long[] tensorLengths, int numTensors);
+
+  
 
   public static native long lowlevelzeros_like(long tensor);
   public static Tensor zeros_like(Tensor tensor) {

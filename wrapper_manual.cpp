@@ -1486,4 +1486,72 @@ JNIEXPORT void JNICALL Java_aten_CudaStream_lowlevelsetCurrentCUDAStream(JNIEnv 
     return nullptr;
   }
 
+JNIEXPORT jlongArray JNICALL Java_aten_Tensor_lowleveltensorsfrom_1file(JNIEnv *env, jobject thisObj ,jstring path, jlong offset, jlong len, jboolean pin, jbyteArray scalarTypes,jlongArray tensorOffsets, jlongArray tensorLengths, jint numTensors) {try{
+  
+  std::string pathAsStdString = jstring2string(env,path);
+
+  // auto dtype = TensorOptions((ScalarType)scalarType).dtype();
+
+  
+  auto storage_impl = c10::make_intrusive<at::StorageImpl>(
+      c10::StorageImpl::use_byte_size_t(),
+      (int64_t) len,
+      OffsettableMMap::makeDataPtr(pathAsStdString.c_str(), len,offset,pin),
+      /*allocator=*/nullptr,
+      /*resizable=*/false);
+
+    jbyte *scalarTypesCopy = (env)->GetByteArrayElements(scalarTypes, 0);
+    jlong *tensorOffsetsCopy = (env)->GetLongArrayElements( tensorOffsets, 0);
+    jlong *tensorLengthsCopy = (env)->GetLongArrayElements( tensorLengths, 0);
+
+    jlong pointers[numTensors];
+
+    for (int i = 0; i < numTensors; ++i) {
+      auto dtype = TensorOptions((ScalarType)scalarTypesCopy[i]).dtype();
+      auto tensorOffset = tensorOffsetsCopy[i];
+      auto tensorLength = tensorLengthsCopy[i];
+
+      int64_t numel = tensorLength / dtype.itemsize();
+      if (tensorLength % dtype.itemsize() != 0) {
+        throwRuntimeException(env,"Length (in bytes) is not a multiple of itemsize of dtype.");
+      }
+      if (tensorOffset >= len) {
+        throwRuntimeException(env,"Out of bounds.");
+      }
+      if (tensorOffset % dtype.itemsize() != 0) {
+        throwRuntimeException(env,"Offset is not a multiple of itemsize of dtype.");
+      }
+      
+
+      auto tensor = at::detail::make_tensor<at::TensorImpl>(
+      storage_impl, at::DispatchKey::CPU, dtype);
+      tensor.unsafeGetTensorImpl()->set_sizes_contiguous({numel});
+      tensor.unsafeGetTensorImpl()->set_storage_offset(tensorOffset/dtype.itemsize());
+      
+
+      Tensor* result_on_heapreturnable_result = new Tensor(tensor);
+      jlong ret_addressreturnable_result = reinterpret_cast<jlong>(result_on_heapreturnable_result);
+      pointers[i] = ret_addressreturnable_result;
+    }
+
+
+    (env)->ReleaseByteArrayElements( scalarTypes, scalarTypesCopy, 0);
+    (env)->ReleaseLongArrayElements( tensorOffsets, tensorOffsetsCopy, 0);
+    (env)->ReleaseLongArrayElements( tensorLengths, tensorLengthsCopy, 0);
+
+    jlongArray result;
+    result = (env)->NewLongArray( numTensors);
+    if (result == NULL) {
+        return NULL; /* out of memory error thrown */
+    }
+
+    (env)->SetLongArrayRegion( result, 0, numTensors, pointers);
+ 
+   return result;
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return NULL;
+}
+
 }
