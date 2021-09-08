@@ -106,7 +106,11 @@ if (cuda) {
   target1.copyFrom(tensor3,true)
   assert(ATen.equal(target1,tensor3))
 
-  tensor3.release 
+  tensor3.release
+  assert(!tensor3.defined )
+  Thread.sleep(100)
+  assert(!tensor3.defined )
+  assert(!tensor3.defined )
   assert(!TensorTrace.list.toList.map(v => (v.getKey)).contains(tensor3))
 
   assert(tensor1.useCount() == 3)
