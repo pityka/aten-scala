@@ -17,7 +17,7 @@ object Parser extends App {
       generatedFnName: String,
       longScalar: Boolean = false
   ) {
-    def withLongScalar = if (args.find(_.tpe.tpe == "Scalar").isDefined) Some(copy(longScalar=true,generatedFnName = generatedFnName+"_l")) else None
+    def withLongScalar = if (args.find(_.tpe.tpe == "at::Scalar").isDefined) Some(copy(longScalar=true,generatedFnName = generatedFnName+"_l")) else None
   }
 
   def WSChars[_: P] = P(NoTrace(CharsWhileIn("\u0020\u0009")))
@@ -36,7 +36,7 @@ object Parser extends App {
     P(
       CharPred((c: Char) =>
         CharPredicates.isLetter(c) | CharPredicates
-          .isDigit(c) | c == '$' | c == '_'
+          .isDigit(c) | c == '$' | c == '_' | c == '-'
       )
     )
 
@@ -75,14 +75,15 @@ object Parser extends App {
   def ArrayLiteral[_: P] =
     P("{" ~ (WS ~ Alphanumeric.rep(1) ~ WS).rep(sep = ",") ~ "}")
 
+  def StringLiteral[_: P] =
+    P("\"" ~ (Alphanumeric.rep(1)).rep(0) ~ "\"")
+
   def Arg[_: P] =
     P(
       WSNL ~ Keywords ~ WSNL ~ TypeName
         ~ WSNL ~ Alphanumeric
         .rep(1)
-        .! ~ ("=" ~ (":" | "-" | "." | ArrayLiteral | Alphanumeric | CharIn(
-        "{}"
-      )).rep(1).!).?
+        .! ~ ("=" ~ (":" | "-" | "." | ArrayLiteral | Alphanumeric | CharIn("{}") | StringLiteral).rep(1).!).?
     ).map { case (tpe, name, default) => ArgData(tpe, name,default) }
 
   def Decl[_: P] =
@@ -178,7 +179,16 @@ object Parser extends App {
           cType = "void",
           returnOnException = ""
         )
-      case TpeData("int64_t", None, List()) =>
+    
+      case TpeData("int64_t", None, List()) if !toplevel =>
+        MappedReturnType(
+          convert = s"""int64_t $returnable = $argName;""",
+          jniType = "jlong",
+          javaType = "java.lang.Long",
+          cType = "int64_t",
+          returnOnException = "-1"
+        )
+      case TpeData("int64_t", None, List()) if toplevel =>
         MappedReturnType(
           convert = s"""int64_t $returnable = $argName;""",
           jniType = "jlong",
@@ -186,11 +196,19 @@ object Parser extends App {
           cType = "int64_t",
           returnOnException = "-1"
         )
-      case TpeData("double", None, List()) =>
+      case TpeData("double", None, List()) if toplevel =>
         MappedReturnType(
           convert = s"""double $returnable = $argName;""",
           jniType = "jdouble",
           javaType = "double",
+          cType = "double",
+          returnOnException = "-1"
+        )
+      case TpeData("double", None, List()) if !toplevel =>
+        MappedReturnType(
+          convert = s"""double $returnable = $argName;""",
+          jniType = "jdouble",
+          javaType = "java.lang.Double",
           cType = "double",
           returnOnException = "-1"
         )
@@ -243,7 +261,7 @@ object Parser extends App {
       case TpeData(
           "std::vector",
           None,
-          List(TpeData("Tensor", None, List()))
+          List(TpeData("at::Tensor", None, List()))
           ) =>
         MappedReturnType(
           convert = s"""
@@ -264,7 +282,7 @@ object Parser extends App {
           convertFromLowLevelToHigh = name => s"fromTensorPointerArray($name)",
           highLevelJavaType = Some("Tensor[]")
         )
-      case TpeData("Tensor", Some("&"), Nil) if !toplevel =>
+      case TpeData("at::Tensor", Some("&"), Nil) if !toplevel =>
         MappedReturnType(
           convert = s"""
   jclass ret_cls$returnable = longClass;
@@ -279,7 +297,7 @@ object Parser extends App {
           convertFromLowLevelToHigh = name => s"Tensor.factory($name)",
           highLevelJavaType = Some("aten.Tensor")
         )
-      case TpeData("Tensor", Some("&"), Nil) =>
+      case TpeData("at::Tensor", Some("&"), Nil) =>
         MappedReturnType(
           convert = "",
           jniType = "void",
@@ -287,7 +305,7 @@ object Parser extends App {
           cType = "void",
           returnOnException = ""
         )
-      case TpeData("ScalarType", None, List()) =>
+      case TpeData("at::ScalarType", None, List()) =>
         MappedReturnType(
           convert = s"""
    jbyte $returnable = static_cast<int8_t>($argName);""",
@@ -296,7 +314,16 @@ object Parser extends App {
           cType = "ScalarType",
           returnOnException = "0"
         )
-      case TpeData("Tensor", None, Nil) if toplevel =>
+      case TpeData("at::Scalar", None, List()) =>
+        MappedReturnType(
+          convert = s"""
+   jlong $returnable = $argName.to<double>();""",
+          jniType = "jdouble",
+          javaType = "double",
+          cType = "Scalar",
+          returnOnException = "0"
+        )
+      case TpeData("at::Tensor", None, Nil) if toplevel =>
         MappedReturnType(
           convert = s"""
   jclass ret_cls$returnable = tensorClass;
@@ -311,7 +338,7 @@ object Parser extends App {
           convertFromLowLevelToHigh = name => s"Tensor.factory($name)",
           highLevelJavaType = Some("Tensor")
         )
-      case TpeData("Tensor", None, Nil) =>
+      case TpeData("at::Tensor", None, Nil) =>
         MappedReturnType(
           convert = s"""
   jclass ret_cls$returnable = longClass;
@@ -332,7 +359,7 @@ object Parser extends App {
   }
 
   def mapType(cType: ArgData, longScalar: Boolean): MappedType = cType match {
-    case arg @ ArgData(TpeData("Scalar", None, List()), argName,_) if !longScalar=>
+    case arg @ ArgData(TpeData("c10::optional",_,List(TpeData("at::Scalar", _, List()))), argName,_) =>
       val jniArgName = "jniparam_" + argName
       val convertFromJni = ""
       MappedType(
@@ -344,7 +371,19 @@ object Parser extends App {
         "double",
         arg.name
       )
-    case arg @ ArgData(TpeData("Scalar", None, List()), argName,_) if longScalar=>
+    case arg @ ArgData(TpeData("at::Scalar", _, List()), argName,_) if !longScalar=>
+      val jniArgName = "jniparam_" + argName
+      val convertFromJni = ""
+      MappedType(
+        jniArgName,
+        arg,
+        "jdouble " + jniArgName,
+        convertFromJni,
+        "double",
+        "double",
+        arg.name
+      )
+    case arg @ ArgData(TpeData("at::Scalar", _, List()), argName,_) if longScalar=>
       val jniArgName = "jniparam_" + argName
       val convertFromJni = ""
       MappedType(
@@ -368,7 +407,7 @@ object Parser extends App {
         "double",
         arg.name
       )
-    case arg @ ArgData(TpeData("IntArrayRef", None, List()), argName,_) =>
+    case arg @ ArgData(TpeData("at::IntArrayRef", None, List()), argName,_) =>
       val jniArgName = "jniparam_" + argName
       val convertFromJni = s"""
       jsize ${jniArgName}_length = env->GetArrayLength($jniArgName);
@@ -386,7 +425,7 @@ object Parser extends App {
         release =
           s"env->ReleaseLongArrayElements($jniArgName,(jlong*)${jniArgName}_ar,0);"
       )
-    case arg @ ArgData(TpeData("c10::List",Some("&"),List(TpeData("c10::optional",None,List(TpeData("Tensor",None,List()))))),argName,_) =>
+    case arg @ ArgData(TpeData("c10::List",Some("&"),List(TpeData("c10::optional",None,List(TpeData("at::Tensor",None,List()))))),argName,_) =>
       val jniArgName = "jniparam_" + argName
       val convertFromJni = s"""
       jsize ${jniArgName}_length = env->GetArrayLength($jniArgName);
@@ -412,7 +451,7 @@ object Parser extends App {
           env->ReleaseLongArrayElements($jniArgName,(jlong*)${jniArgName}_ar1,0);
           """
       )
-    case arg @ ArgData(TpeData("TensorList", None, List()), argName,_) =>
+    case arg @ ArgData(TpeData("at::TensorList", None, List()), argName,_) =>
       val jniArgName = "jniparam_" + argName
       val convertFromJni = s"""
       jsize ${jniArgName}_length = env->GetArrayLength($jniArgName);
@@ -453,7 +492,7 @@ object Parser extends App {
         "",
         true
       )
-    case arg @ ArgData(TpeData("TensorOptions", Some("&"), List()), argName,_) =>
+    case arg @ ArgData(TpeData("at::TensorOptions", Some("&"), List()), argName,_) =>
       val jniArgName = "jniparam_" + argName
       val convertFromJni = s"""
    
@@ -469,7 +508,7 @@ object Parser extends App {
         s"${arg.name}.pointer",
         dereference = true
       )
-    case arg @ ArgData(TpeData("TensorOptions", None, List()), argName,_) =>
+    case arg @ ArgData(TpeData("at::TensorOptions", None, List()), argName,_) =>
       val jniArgName = "jniparam_" + argName
       val convertFromJni = s"""
    
@@ -509,23 +548,27 @@ object Parser extends App {
         arg.name
       )
     case arg @ ArgData(
-          TpeData("c10::optional", Some("&"), List(TpeData("Tensor",None,Nil))),
+          TpeData("c10::optional", Some("&"), List(TpeData("at::Tensor",None,Nil))),
           argName,_
         ) =>
       val jniArgName = "jniparam_" + argName
-      val convertFromJni = s"""
       
-   c10::optional<Tensor> ${jniArgName}_c = c10::optional<Tensor>(*reinterpret_cast<Tensor*>($jniArgName));
-   
-      """
-      MappedType(
+      val convertFromJni = s"""
+        c10::optional<Tensor> ${jniArgName}_c;
+         if (${jniArgName} == 0 ) {
+           ${jniArgName}_c = {};
+         } else {
+           ${jniArgName}_c  = c10::optional<Tensor>(*reinterpret_cast<Tensor*>($jniArgName));
+         }"""
+        MappedType(
         jniArgName + "_c",
         arg,
         "jlong " + jniArgName,
         convertFromJni,
-        "Tensor",
+        "scala.Option<Tensor>",
         "long",
-        s"${arg.name}.pointer"
+        s"${arg.name}.isEmpty()  ? 0L : ${arg.name}.get().pointer",
+        dereference = false
       )
     case arg @ ArgData(TpeData("c10::optional", None, _), argName,_) =>
       val jniArgName = "jniparam_" + argName
@@ -552,7 +595,7 @@ object Parser extends App {
         "long",
         arg.name
       )
-    case arg @ ArgData(TpeData("Tensor", Some("&"), List()), argName,Some("{}")) =>
+    case arg @ ArgData(TpeData("at::Tensor", Some("&"), List()), argName,Some("{}")) =>
       val jniArgName = "jniparam_" + argName
       val convertFromJni = s"""
    
@@ -574,7 +617,7 @@ object Parser extends App {
         s"${arg.name}.isEmpty()  ? 0L : ${arg.name}.get().pointer",
         dereference = false
       )
-    case arg @ ArgData(TpeData("Tensor", Some("&"), List()), argName,_) =>
+    case arg @ ArgData(TpeData("at::Tensor", Some("&"), List()), argName,_) =>
       val jniArgName = "jniparam_" + argName
       val convertFromJni = s"""
    
@@ -591,7 +634,7 @@ object Parser extends App {
         dereference = true
       )
    
-    case arg @ ArgData(TpeData("ScalarType", None, List()), argName,_) =>
+    case arg @ ArgData(TpeData("at::ScalarType", None, List()), argName,_) =>
       val jniArgName = "jniparam_" + argName
       val convertFromJni =
         s"""ScalarType ${jniArgName}_c  = static_cast<ScalarType>((int8_t)$jniArgName);

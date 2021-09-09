@@ -1,4 +1,4 @@
-FROM pityka/base-ubuntu-libtorch:torch181
+FROM pityka/base-ubuntu-libtorch:torch190
 RUN apt-get install -y clang
 RUN apt-get install -y wget
 RUN apt-get update --fix-missing && apt-get install -y software-properties-common
