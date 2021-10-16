@@ -9,8 +9,9 @@ The docker image used for building (and possible at runtime) is defined in `dock
 ## Prerequisites
 - needs a mac with clang++ installed
 - needs docker on the mac
-- on the mac needs system wide libtorch. There are multiple methods to install libtorch. One is to copy the *.dylib files from the libtorch distribution of the appropriate pytorch version (e.g. https://download.pytorch.org/libtorch/cpu/libtorch-macos-1.8.1.zip) to /usr/local/lib/ . One other method to install libtorch on mac is via brew.
+- on the mac needs libtorch in /usr/local/lib/. There are multiple methods to install libtorch. One is to copy the *.dylib files from the libtorch distribution of the appropriate pytorch version (e.g. https://download.pytorch.org/libtorch/cpu/libtorch-macos-1.9.0.zip) to /usr/local/lib/ . 
 - needs bloop (https://scalacenter.github.io/bloop/) and sbt (https://www.scala-sbt.org/).
+- Needs CUDA header files. You can download an older (e.g. version 10) mac CUDA Toolkit archive from Nvidia. The installer contains a tarball with the header files, place them to `/usr/local/cuda/include/`.
 
 ## Build
 1. `make prepare` - this creates bloop build definitions from sbt the sbt build definition

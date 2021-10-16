@@ -12,7 +12,7 @@ wrapper.cpp:
 
 aten-scala/jni-osx/src/main/resources/libatenscalajni.dylib: wrapper.cpp wrapper_manual.cpp
 	mkdir -p aten-scala/jni-osx/src/main/resources/;
-	clang++ -std=c++14 -I $(JAVA_HOME)/include/ -I $(JAVA_HOME)/include/darwin/ -I /usr/local/cuda/include -I libtorch_include/include/ -lc10 -ltorch_global_deps -ltorch -ltorch_cpu -shared -undefined dynamic_lookup -o aten-scala/jni-osx/src/main/resources/libatenscalajni.dylib wrapper_manual.cpp wrapper.cpp
+	clang++ -std=c++14 -I $(JAVA_HOME)/include/ -I $(JAVA_HOME)/include/darwin/ -I /usr/local/cuda/include -I libtorch_include/include/ -lc10 -ltorch_global_deps -ltorch -ltorch_cpu -shared -undefined dynamic_lookup -Wl,-rpath,/usr/local/lib/ -o aten-scala/jni-osx/src/main/resources/libatenscalajni.dylib wrapper_manual.cpp wrapper.cpp
 
 aten-scala/jni-linux/src/main/resources/libatenscalajni.so: wrapper.cpp wrapper_manual.cpp
 	mkdir -p aten-scala/jni-linux/src/main/resources/;
