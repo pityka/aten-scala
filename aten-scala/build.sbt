@@ -34,7 +34,7 @@ lazy val core = project
   .in(file("core"))
   .settings(commonSettings)
   .settings(
-    crossScalaVersions := Seq("2.13.5","2.12.13"),
+    crossScalaVersions := Seq("2.13.8","2.12.15","3.1.1"),
     name := "aten-scala-core",
     libraryDependencies ++= Seq(
       "com.github.fommil" % "jniloader" % "1.1"
@@ -48,7 +48,7 @@ lazy val root = project
   .settings(commonSettings)
   .settings(
     publishArtifact := false,
-    skip in publish := true
+    publish / skip := true
   )
   .aggregate(jniOsx, jniLinux, core)
 
@@ -56,16 +56,16 @@ lazy val test = project
   .in(file("test"))
   .settings(commonSettings)
   .settings(
-    mainClass in Compile := Some("Test"),
+     Compile / mainClass := Some("Test"),
     fork := true,
     publishArtifact := false,
-    skip in publish := true
+    publish / skip := true
   )
   .dependsOn(core)
 
 publishArtifact := false
 
-skip in publish := true
+publish / skip := true
 
 pomExtra in Global := {
   <developers>
