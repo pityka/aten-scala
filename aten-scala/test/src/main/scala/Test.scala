@@ -4,6 +4,33 @@ import com.github.fommil.jni.JniNamer
 object Test extends App {
 val cuda = if (args.contains("--cuda")) true else false 
 
+if (args.contains("--nccl")) {
+  if (args.contains("root")) {
+    val op = TensorOptions.f().cuda_index(0)
+    val t = aten.ATen.zeros(Array(10),op)
+    println(op)
+    println(t)
+    CudaStream.cudaSetDevice(0)
+    val id = NcclComm.get_unique_id();
+    println(java.util.Base64.getEncoder.encodeToString(id))
+    val comm = NcclComm.comm_init_rank(2,id,0)
+    println("block on broadcast, 0")
+    NcclComm.broadcast(Array(t),Array(comm))
+    
+  } else {
+    val op = TensorOptions.f().cuda_index(1)
+    val t = aten.ATen.ones(Array(10),op)
+    CudaStream.cudaSetDevice(1)
+    val id = java.util.Base64.getDecoder.decode(args.last)
+    val comm = NcclComm.comm_init_rank(2,id,1)
+    println("block on broadcast, 1")
+    NcclComm.broadcast(Array(t),Array(comm))
+        val target1 = Array.ofDim[Float](1)
+    assert(t.cpu().copyToFloatArray(target1))
+    println(target1.toVector)
+  }
+}
+
 if (cuda) {
   Tensor.setPinnedMemoryAllocator
 
@@ -13,6 +40,10 @@ if (cuda) {
   CudaStream.setCurrentCUDAStream(stream)
   stream.synchronize()
   CudaStream.setCurrentCUDAStream(default)
+
+  println("testing nccl")
+  val id = NcclComm.get_unique_id();
+  println(id.toVector)
 
 }
 

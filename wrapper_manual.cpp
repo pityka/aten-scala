@@ -6,6 +6,7 @@
 #include <string.h>
 #include <ATen/Functions.h>
 #include <c10/cuda/CUDACachingAllocator.h>
+#include <c10/cuda/CUDAException.h>
 #include <ATen/cuda/PinnedMemoryAllocator.h>
 #include <c10/core/CPUAllocator.h>
 #include "wrapper_manual.h"
@@ -13,6 +14,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <torch/csrc/cuda/nccl.h>
 
 using namespace std;
 using namespace at;
@@ -21,6 +23,10 @@ static jint JNI_VERSION = JNI_VERSION_1_1;
 
 jclass tensorClass;
 jfieldID tensorPointerFid;
+
+jclass ncclCommClass;
+jfieldID ncclCommPointerFid;
+jmethodID ncclCommCtor;
 
 jclass tensorOptionsClass;
 jmethodID tensorOptionsCtor;
@@ -63,6 +69,12 @@ jint JNI_OnLoad(JavaVM* vm, void* reserved) {
     tensorOptionsCtor = env->GetMethodID( tensorOptionsClass, "<init>", "(J)V");
     tensorOptionsPointerFid = env->GetFieldID( tensorOptionsClass, "pointer", "J");
 
+    tempLocalClassRef = env->FindClass("aten/NcclComm");
+    ncclCommClass = (jclass) env->NewGlobalRef(tempLocalClassRef);
+    env->DeleteLocalRef(tempLocalClassRef);
+    ncclCommCtor = env->GetMethodID( ncclCommClass, "<init>", "(J)V");
+    ncclCommPointerFid = env->GetFieldID( ncclCommClass, "pointer", "J");
+    
     tempLocalClassRef = env->FindClass("java/lang/Long");
     longClass = (jclass) env->NewGlobalRef(tempLocalClassRef);
     env->DeleteLocalRef(tempLocalClassRef);
@@ -1446,6 +1458,24 @@ JNIEXPORT void JNICALL Java_aten_CudaStream_lowlevelsynchronize(JNIEnv *env, job
     }
     
 }
+JNIEXPORT void JNICALL Java_aten_CudaStream_cudaSetDevice(JNIEnv *env, jobject thisObj, jint device ) {try{
+
+      AT_CUDA_CHECK(cudaSetDevice(device));
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    
+}
+JNIEXPORT jint JNICALL Java_aten_CudaStream_cudaGetDevice(JNIEnv *env, jobject thisObj ) {try{
+      int i;
+      AT_CUDA_CHECK(cudaGetDevice(&i));
+      return i;
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return 0;
+    
+}
 JNIEXPORT jlong JNICALL Java_aten_CudaStream_lowlevelgetStreamFromPool(JNIEnv *env, jobject thisObj, jboolean isHighPriority, jbyte device ) {try{
       
     c10::cuda::CUDAStream stream = c10::cuda::getStreamFromPool(isHighPriority,device);
@@ -1553,5 +1583,141 @@ JNIEXPORT jlongArray JNICALL Java_aten_Tensor_lowleveltensorsfrom_1file(JNIEnv *
     }
     return NULL;
 }
+  JNIEXPORT jlong JNICALL Java_aten_NcclComm_lowlevelcomm_1init_1rank(JNIEnv *env, jobject thisObj, jint nranks, jbyteArray comm_id, jint rank ) {
+        
+      try{
+
+        jbyte *comm_id_copy = (env)->GetByteArrayElements(comm_id, 0);
+        const torch::cuda::nccl::ncclUniqueId* comm_id_cast = reinterpret_cast<torch::cuda::nccl::ncclUniqueId*>(comm_id_copy);
+      torch::cuda::nccl::ncclComm_t comm = torch::cuda::nccl::comm_init_rank( nranks, *comm_id_cast,  rank);
+      
+        (env)->ReleaseByteArrayElements( comm_id, comm_id_copy, 0);
+
+        jlong pointer = reinterpret_cast<jlong>(comm);
+  
+        return pointer;
+
+      } catch (exception& e) {
+        throwRuntimeException(env,e.what() );
+      } 
+      return 0;
+      
+
+
+  }
+
+   JNIEXPORT void JNICALL Java_aten_NcclComm_comm_1destroy(JNIEnv *env, jobject thisObj) {try{
+    
+    torch::cuda::nccl::ncclComm_t op = reinterpret_cast<torch::cuda::nccl::ncclComm_t>(env->GetLongField( thisObj, ncclCommPointerFid));
+    torch::cuda::nccl::comm_destroy(op);
+
+    return ;
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return ;
+  }
+
+  JNIEXPORT jbyteArray JNICALL Java_aten_NcclComm_get_1unique_1id(JNIEnv *env, jobject thisObj ) {try{
+  
+
+    // jbyte id[128];
+    torch::cuda::nccl::ncclUniqueId id ;
+
+    torch::cuda::nccl::get_unique_id(id);
+
+
+    // jbyte* id_as_bytearray = (jbyte*) (&id);
+    
+
+    jbyteArray result;
+    result = (env)->NewByteArray( 128);
+    if (result == NULL) {
+        return NULL; /* out of memory error thrown */
+    }
+
+    (env)->SetByteArrayRegion( result, 0, 128, (jbyte*)  &id);
+ 
+   return result;
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return NULL;
+  }
+
+  JNIEXPORT void JNICALL Java_aten_NcclComm_lowlevelbroadcast(JNIEnv *env, jobject thisObj,jlongArray tensors, jlongArray comms ) {try{
+
+      int64_t* tensor_pointers = (int64_t*)env->GetLongArrayElements(tensors, nullptr);
+      int64_t* comm_pointers = (int64_t*)env->GetLongArrayElements(comms, nullptr);
+      jsize length = env->GetArrayLength(tensors);
+      jsize length2 = env->GetArrayLength(comms);
+
+      if (length != length2) {
+        throwRuntimeException(env,"number of tensors must be the same as number of communicators");
+      }
+
+      Tensor** cast_tensors = reinterpret_cast<Tensor**>(tensor_pointers);
+      torch::cuda::nccl::ncclComm_t* cast_comms = reinterpret_cast<torch::cuda::nccl::ncclComm_t*>(comm_pointers);
+
+      std::vector<Tensor*> tensorpointervec(cast_tensors,cast_tensors+length);
+      std::vector<Tensor> tensorvec;
+      for (std::vector<Tensor*>::iterator it = tensorpointervec.begin(); it != tensorpointervec.end(); it++) {
+        tensorvec.push_back(**it);
+      }
+            
+      TensorList tensorlist = ArrayRef<Tensor>(tensorvec);
+      std::vector<torch::cuda::nccl::ncclComm_t> comm_list(cast_comms,cast_comms+length);
+
+      torch::cuda::nccl::broadcast(tensorlist,{},comm_list);
+
+
+      env->ReleaseLongArrayElements(tensors,(jlong*)tensor_pointers,0);
+      env->ReleaseLongArrayElements(comms,(jlong*)comm_pointers,0);
+  
+ 
+      return ;
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return ;
+  }
+  JNIEXPORT void JNICALL Java_aten_NcclComm_lowlevelreduce(JNIEnv *env, jobject thisObj,jlongArray tensors, jlong output, jint rootRank, jint op, jlongArray comms ) {try{
+
+      int64_t* tensor_pointers = (int64_t*)env->GetLongArrayElements(tensors, nullptr);
+      int64_t* comm_pointers = (int64_t*)env->GetLongArrayElements(comms, nullptr);
+      jsize length = env->GetArrayLength(tensors);
+      jsize length2 = env->GetArrayLength(comms);
+
+      if (length != length2) {
+        throwRuntimeException(env,"number of tensors must be the same as number of communicators");
+      }
+
+      Tensor** cast_tensors = reinterpret_cast<Tensor**>(tensor_pointers);
+      torch::cuda::nccl::ncclComm_t* cast_comms = reinterpret_cast<torch::cuda::nccl::ncclComm_t*>(comm_pointers);
+
+      std::vector<Tensor*> tensorpointervec(cast_tensors,cast_tensors+length);
+         std::vector<Tensor> tensorvec;
+      for (std::vector<Tensor*>::iterator it = tensorpointervec.begin(); it != tensorpointervec.end(); it++) {
+        tensorvec.push_back(**it);
+      }
+
+      std::vector<torch::cuda::nccl::ncclComm_t> comm_list(cast_comms,cast_comms+length);
+
+      Tensor* outputTensor = reinterpret_cast<Tensor*>(output);
+
+      torch::cuda::nccl::reduce(tensorvec,*outputTensor,rootRank,op,{},comm_list);
+
+
+      env->ReleaseLongArrayElements(tensors,(jlong*)tensor_pointers,0);
+      env->ReleaseLongArrayElements(comms,(jlong*)comm_pointers,0);
+  
+ 
+      return ;
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return ;
+  }
+
 
 }

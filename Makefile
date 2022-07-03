@@ -17,16 +17,26 @@ aten-scala/jni-osx/src/main/resources/libatenscalajni.dylib: wrapper.cpp wrapper
 
 aten-scala/jni-linux/src/main/resources/libatenscalajni.so: wrapper.cpp wrapper_manual.cpp
 	mkdir -p aten-scala/jni-linux/src/main/resources/;
-	docker run -v `pwd`:/build aten-scala-linux-build /bin/bash -c "cd /build;  clang++ -std=c++14 -D_GLIBCXX_USE_CXX11_ABI=0 -I /usr/lib/jvm/java-8-openjdk-amd64/include/ -I /usr/lib/jvm/java-8-openjdk-amd64/include/linux/ -I /usr/local/cuda/include -I libtorch_include/include/ -L /usr/local/lib/python3.8/dist-packages/torch/lib/ -lc10 -ltorch_global_deps -ltorch -ltorch_cpu -ltorch_cuda -fPIC -shared -o aten-scala/jni-linux/src/main/resources/libatenscalajni.so wrapper_manual.cpp wrapper.cpp "
+	rsync -av --exclude 'target/*' --exclude 'aten-scalanative/*' --exclude '*class' . vm1:~/.
+	docker --context vm1 run -v /home/ec2-user/:/build aten-scala-linux-build /bin/bash -c "cd /build;  clang++ -std=c++14 -D_GLIBCXX_USE_CXX11_ABI=0 -I /usr/lib/jvm/java-8-openjdk-amd64/include/ -I /usr/lib/jvm/java-8-openjdk-amd64/include/linux/ -I /usr/local/cuda/include -I libtorch_include/include/ -L /usr/local/lib/python3.8/dist-packages/torch/lib/ -lc10 -ltorch_global_deps -ltorch -ltorch_cpu -ltorch_cuda -fPIC -shared -o aten-scala/jni-linux/src/main/resources/libatenscalajni.so wrapper_manual.cpp wrapper.cpp "
+	scp vm1:/home/ec2-user/aten-scala/jni-linux/src/main/resources/libatenscalajni.so aten-scala/jni-linux/src/main/resources/libatenscalajni.so
 
 test: aten-scala/jni-osx/src/main/resources/libatenscalajni.dylib
 		cd aten-scala; bloop run test 
 
 test-linux: aten-scala/jni-linux/src/main/resources/libatenscalajni.so
-		docker run --env GITHUB_TOKEN=$$(git config --global --get github.token) -v `pwd`:/build pityka/base-ubuntu-libtorch:torch190 /bin/bash -c "cd /build/aten-scala; sbt 'test/run'"
+		docker run -v `pwd`:/build pityka/base-ubuntu-libtorch:torch190 /bin/bash -c "cd /build/aten-scala; sbt 'test/run'"
 
-test-cuda: aten-scala/jni-linux/src/main/resources/libatenscalajni.so
-		cd aten-scala && TOKEN=$$(git config --global --get github.token) && id=$$(docker --context vm1 build -q .) && echo $$id && docker --context vm1 run --env GITHUB_TOKEN=$$TOKEN --gpus all $$id /bin/bash -c "sbt 'test/run --cuda'"
+test-remote-linux: aten-scala/jni-linux/src/main/resources/libatenscalajni.so
+		rsync -av --exclude 'target/*' --exclude 'aten-scalanative/*' . vm1:~/.
+		docker --context vm1 run --gpus all -v /home/ec2-user/:/build pityka/base-ubuntu-libtorch:torch190 /bin/bash -c "cd /build/aten-scala; sbt 'test/run --cuda'"
+
+console-linux: aten-scala/jni-linux/src/main/resources/libatenscalajni.so
+		docker run -it -v `pwd`:/build pityka/base-ubuntu-libtorch:torch190 /bin/bash 
+
+console-remote-linux: aten-scala/jni-linux/src/main/resources/libatenscalajni.so
+		rsync -av --exclude 'target/*' --exclude 'aten-scalanative/*' . vm1:~/.
+		docker --context vm1 run --gpus all -it -v /home/ec2-user/:/build aten-scala-linux-build /bin/bash 
 
 
 publishLocal: aten-scala/jni-osx/src/main/resources/libatenscalajni.dylib aten-scala/jni-linux/src/main/resources/libatenscalajni.so

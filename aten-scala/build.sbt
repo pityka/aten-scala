@@ -6,10 +6,7 @@ val commonSettings = Seq(
   scalaVersion := "2.13.5",
   organization := "io.github.pityka",
   licenses += ("MIT", url("http://opensource.org/licenses/MIT")),
-  githubOwner := "pityka",
-  githubRepository := "aten-scala",
-  githubTokenSource := TokenSource.GitConfig("github.token") || TokenSource.Environment("GITHUB_TOKEN"),
-  publishTo := (if (RELEASE_TO_SONATYPE) sonatypePublishTo.value else sbtghpackages.GitHubPackagesKeys.githubPublishTo.value)
+  publishTo := sonatypePublishTo.value
 )
 
 lazy val jniOsx = project
