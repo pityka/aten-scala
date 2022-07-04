@@ -20,6 +20,8 @@ public class CudaStream {
   private static native long lowlevelgetDefaultCUDAStream(byte device_index);
   private static native void lowlevelsetCurrentCUDAStream(long cudaStream);
   private static native String nativeToString(long cudaStream);
+  public static native void cudaSetDevice(int device);
+  public static native int cudaGetDevice();
 
   public void synchronize() {
     lowlevelsynchronize(packed);

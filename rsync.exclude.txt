@@ -1,0 +1,6 @@
+target/*
+.git/*
+.metals/*
+aten-scala/.bloop/* 
+aten-scalanative/*
+*class
