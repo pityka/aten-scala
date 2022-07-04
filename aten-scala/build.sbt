@@ -1,5 +1,22 @@
 val RELEASE_TO_SONATYPE = sys.env.getOrElse("RELEASE_SONATYPE", "false").toBoolean 
 
+inThisBuild(
+  List(
+    organization := "io.github.pityka",
+    homepage := Some(url("https://pityka.github.io/aten-scala/")),
+    licenses := List(("MIT", url("https://opensource.org/licenses/MIT"))),
+    developers := List(
+      Developer(
+        "pityka",
+        "Istvan Bartha",
+        "bartha.pityu@gmail.com",
+        url("https://github.com/pityka/aten-scala")
+      )
+    ),
+    parallelExecution := false
+  )
+)
+
 
 
 val commonSettings = Seq(
