@@ -13,9 +13,16 @@ inThisBuild(
         url("https://github.com/pityka/aten-scala")
       )
     ),
-    parallelExecution := false
+    parallelExecution := false,
+    scmInfo := Some(
+      ScmInfo(
+        url("https://pityka.github.io/aten-scala/"),
+        "scm:git@github.com:pityka/aten-scala.git"
+      )
+    )
   )
 )
+
 
 
 
