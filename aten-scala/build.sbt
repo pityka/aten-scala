@@ -88,12 +88,12 @@ publishArtifact := false
 
 publish / skip := true
 
-pomExtra in Global := {
-  <developers>
-    <developer>
-      <id>pityka</id>
-      <name>Istvan Bartha</name>
-      <url>https://pityka.github.io/utils-string/</url>
-    </developer>
-  </developers>
-}
+// pomExtra in Global := {
+//   <developers>
+//     <developer>
+//       <id>pityka</id>
+//       <name>Istvan Bartha</name>
+//       <url>https://pityka.github.io/utils-string/</url>
+//     </developer>
+//   </developers>
+// }
