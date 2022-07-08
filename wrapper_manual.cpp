@@ -432,6 +432,20 @@ extern "C" {
     }
     return nullptr;
   }
+  JNIEXPORT jobject JNICALL Java_aten_TensorOptions_toByte(JNIEnv *env, jobject thisObj) { try{
+    
+    jclass cls = tensorOptionsClass;
+    TensorOptions* tensorOptions = reinterpret_cast<TensorOptions*>(env->GetLongField( thisObj, tensorOptionsPointerFid));
+    
+    // in libtorch kChar is signed 8 bit integer
+    // in java Byte is signed 8 bit integer
+    TensorOptions* t2 = new TensorOptions(tensorOptions->dtype(kChar));
+     return allocateTensorOptions(env,t2);
+     } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return nullptr;
+  }
   JNIEXPORT jobject JNICALL Java_aten_TensorOptions_dtypeFloat(JNIEnv *env, jobject thisObj) {try{
     
     TensorOptions* tensorOptions =new TensorOptions((ScalarType)6);
@@ -465,6 +479,16 @@ extern "C" {
   JNIEXPORT jobject JNICALL Java_aten_TensorOptions_dtypeHalf(JNIEnv *env, jobject thisObj) {
     try{
     TensorOptions* tensorOptions =new TensorOptions((ScalarType)5);
+    
+     return allocateTensorOptions(env,tensorOptions);
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return nullptr;
+  }
+  JNIEXPORT jobject JNICALL Java_aten_TensorOptions_dtypeByte(JNIEnv *env, jobject thisObj) {
+    try{
+    TensorOptions* tensorOptions =new TensorOptions((ScalarType)1);
     
      return allocateTensorOptions(env,tensorOptions);
     } catch (exception& e) {
@@ -899,6 +923,74 @@ extern "C" {
         in[i] = ptr[i];
       }
       env->ReleaseLongArrayElements(datain,in,0);
+      return true;
+    }
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return false;
+  }
+
+ JNIEXPORT jboolean JNICALL Java_aten_Tensor_copyFromByteArray(JNIEnv *env, jobject thisObj, jbyteArray datain) {try{
+    
+    jclass cls = tensorClass;
+    Tensor* tensor = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
+    
+      long len = env->GetArrayLength(datain);
+    if (static_cast<int8_t>(tensor->scalar_type()) != 1 || !tensor->is_contiguous() || !tensor->is_non_overlapping_and_dense() || tensor->data_ptr() == nullptr || len != tensor->numel() || tensor->is_cuda() || tensor->is_sparse()) {
+      return false;
+    } else {
+      jbyte* in = env->GetByteArrayElements(datain, nullptr);
+      int8_t* ptr = reinterpret_cast<int8_t*>(tensor->data_ptr());
+      for (int64_t i = 0;i < len;i++){
+        ptr[i] = in[i];
+      }
+      env->ReleaseByteArrayElements(datain,in,0);
+      return true;
+    }
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return false;
+  }
+ JNIEXPORT jboolean JNICALL Java_aten_Tensor_copyFromByteArrayAtOffset(JNIEnv *env, jobject thisObj, jbyteArray datain, jlong offset ) {try{
+    
+    jclass cls = tensorClass;
+    Tensor* tensor = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
+      long len = env->GetArrayLength(datain);
+    if (static_cast<int8_t>(tensor->scalar_type()) != 1 || !tensor->is_contiguous() || !tensor->is_non_overlapping_and_dense() || tensor->data_ptr() == nullptr || len+offset > tensor->numel() || tensor->is_cuda() || tensor->is_sparse()) {
+      return false;
+    } else {
+      
+      jbyte* in = env->GetByteArrayElements(datain, nullptr);
+      int8_t* ptr = reinterpret_cast<int8_t*>(tensor->data_ptr());
+      for (int64_t i = 0;i < len;i++){
+        ptr[i+offset] = in[i];
+      }
+      env->ReleaseByteArrayElements(datain,in,0);
+      
+      return true;
+    }
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return false;
+  }
+  JNIEXPORT jboolean JNICALL Java_aten_Tensor_copyToByteArray(JNIEnv *env, jobject thisObj, jbyteArray datain) {try{
+    
+    jclass cls = tensorClass;
+    Tensor tensor = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid))->contiguous();
+    
+      long len = env->GetArrayLength(datain);
+    if (static_cast<int8_t>(tensor.scalar_type()) != 1 || !tensor.is_contiguous() || !tensor.is_non_overlapping_and_dense() || tensor.data_ptr() == nullptr || len != tensor.numel() || tensor.is_cuda() || tensor.is_sparse()) {
+      return false;
+    } else {
+      jbyte* in = env->GetByteArrayElements(datain, nullptr);
+      int8_t* ptr = reinterpret_cast<int8_t*>(tensor.data_ptr());
+      for (int64_t i = 0;i < len;i++){
+        in[i] = ptr[i];
+      }
+      env->ReleaseByteArrayElements(datain,in,0);
       return true;
     }
     } catch (exception& e) {

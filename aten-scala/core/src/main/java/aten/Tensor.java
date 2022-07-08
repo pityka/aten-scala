@@ -111,6 +111,10 @@ public class Tensor {
   public native boolean copyFromLongArray( long[] data);
   public native boolean copyFromLongArrayAtOffset( long[] data, long offset);
   public native boolean copyToLongArray( long[] data);
+ 
+  public native boolean copyFromByteArray( byte[] data);
+  public native boolean copyFromByteArrayAtOffset( byte[] data, long offset);
+  public native boolean copyToByteArray( byte[] data);
 
   public native void mul_(double d);
   public native void mul_l_(long d);

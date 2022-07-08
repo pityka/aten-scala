@@ -24,6 +24,7 @@ public class TensorOptions {
   public static native TensorOptions dtypeFloat();
   public static native TensorOptions dtypeDouble();
   public static native TensorOptions dtypeLong();
+  public static native TensorOptions dtypeByte();
   public static native TensorOptions dtypeHalf();
 
   public static TensorOptions d() {
@@ -38,10 +39,14 @@ public class TensorOptions {
   public static TensorOptions h() {
     return TensorOptions.dtypeHalf();
   }
+  public static TensorOptions b() {
+    return TensorOptions.dtypeByte();
+  }
   public native TensorOptions toDouble();
   public native TensorOptions toLong();
   public native TensorOptions toFloat();
   public native TensorOptions toHalf();
+  public native TensorOptions toByte();
 
   public native TensorOptions cpu();
   public native boolean isCPU();
@@ -66,6 +71,8 @@ public class TensorOptions {
       return TensorOptions.dtypeHalf();
     } else if (i == 4) {
       return TensorOptions.dtypeLong();
+    } else if (i == 1) {
+      return TensorOptions.dtypeByte();
     } else {
       throw new RuntimeException("unknown scalar type "+i);
     }
@@ -82,6 +89,9 @@ public class TensorOptions {
   }
   public boolean isLong() {
     return scalarTypeByte() == 4;
+  }
+  public boolean isByte() {
+    return scalarTypeByte() == 1;
   }
 
 }

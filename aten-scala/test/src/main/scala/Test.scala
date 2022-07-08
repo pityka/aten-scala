@@ -58,6 +58,32 @@ if (cuda) {
   {
     val tmp = java.io.File.createTempFile("data","dat")
     val os = new java.io.FileOutputStream(tmp)
+    os.write(Array.apply[Byte](1,1,-1,0,0,0,0,0,3,0,0,0,0,0,0,0))
+    os.close 
+    val tensor1 = Tensor.from_file(tmp.getAbsolutePath(), 0, 8, 1,true)
+    val tensor1clone = ATen.clone(tensor1)
+    tensor1clone.release
+    val tensor1clone2 = ATen.clone(tensor1)
+    println(tensor1.numel())
+    val target1 = Array.ofDim[Byte](8)
+    val target2 = Array.ofDim[Byte](8)
+    assert(tensor1.copyToByteArray(target1))
+    assert(target1.toVector == Vector(1,1,-1,0,0,0,0,0))
+    target1(4) = -2
+    tensor1clone2.copyFromByteArray(target1)
+    assert(tensor1clone2.copyToByteArray(target2))
+    assert(target1.toVector == Vector(1,1,-1,0,-2,0,0,0))
+    assert(target2.toVector == Vector(1,1,-1,0,-2,0,0,0))
+
+    tensor1.release 
+    tensor1clone2.release
+   
+
+    
+  }
+  {
+    val tmp = java.io.File.createTempFile("data","dat")
+    val os = new java.io.FileOutputStream(tmp)
     os.write(Array.apply[Byte](1,1,0,0,0,0,0,0,3,0,0,0,0,0,0,0))
     os.close 
     val tensor1 = Tensor.from_file(tmp.getAbsolutePath(), 0, 8, 4,true)
