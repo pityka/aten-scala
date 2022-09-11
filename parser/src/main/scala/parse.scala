@@ -105,7 +105,7 @@ object Parser extends App {
       Start ~ (Newline | EmptyLine | Pragma | LineComment).rep ~ Namespace ~ End
     )
 
-  val parsed = parse(source, Doc(_)).get.value
+  val parsed = parse(source, Doc(_)).get.value.filterNot(_.fnName.endsWith("outf"))
     .groupBy(decl =>
       (
         decl.fnName
@@ -547,6 +547,40 @@ object Parser extends App {
         "long",
         arg.name
       )
+    case arg @ ArgData(
+          TpeData("at::OptionalIntArrayRef", None, Nil),
+          argName,_
+        ) =>
+      val jniArgName = "jniparam_" + argName
+     val convertFromJni = s"""
+        at::OptionalIntArrayRef ${jniArgName}_c;
+        int64_t* ${jniArgName}_ar;
+        IntArrayRef ${jniArgName}_cref;
+        auto release = false;
+         if (${jniArgName} == 0 ) {
+           ${jniArgName}_c = at::OptionalIntArrayRef();
+         } else {
+           release=true;
+           jsize ${jniArgName}_length = env->GetArrayLength($jniArgName);
+       ${jniArgName}_ar = (int64_t*)env->GetLongArrayElements($jniArgName,nullptr);
+       ${jniArgName}_cref = IntArrayRef(${jniArgName}_ar,${jniArgName}_length);
+      ${jniArgName}_c = OptionalIntArrayRef(${jniArgName}_cref);
+         }"""
+
+      MappedType(
+        jniArgName + "_c",
+        arg,
+        "jlongArray " + jniArgName,
+        convertFromJni,
+        "scala.Option<long[]>",
+        "long[]",
+        s"${arg.name}.isEmpty()  ? null : ${arg.name}.get()",
+        release =
+          s"if (release) {env->ReleaseLongArrayElements($jniArgName,(jlong*)${jniArgName}_ar,0);}"
+      )
+      
+
+     
     case arg @ ArgData(
           TpeData("c10::optional", Some("&"), List(TpeData("at::Tensor",None,Nil))),
           argName,_

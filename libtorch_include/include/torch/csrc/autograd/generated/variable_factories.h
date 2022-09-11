@@ -2,15 +2,106 @@
 
 // @generated from tools/autograd/templates/variable_factories.h
 
-#include <ATen/ATen.h>
+#include <ATen/core/Tensor.h>
 #include <ATen/TracerMode.h>
 #include <ATen/core/grad_mode.h>
 #include <c10/util/ArrayRef.h>
 #include <c10/core/MemoryFormat.h>
 #include <torch/csrc/api/include/torch/detail/TensorDataContainer.h>
 #include <torch/csrc/autograd/variable.h>
-#include <torch/csrc/jit/frontend/tracer.h>
-#include <torch/csrc/jit/ir/ir.h>
+
+#ifndef AT_PER_OPERATOR_HEADERS
+#include <ATen/Functions.h>
+#else
+#include <ATen/ops/from_blob.h>
+#include <ATen/ops/_cudnn_init_dropout_state.h>
+#include <ATen/ops/arange.h>
+#include <ATen/ops/arange.h>
+#include <ATen/ops/arange.h>
+#include <ATen/ops/bartlett_window.h>
+#include <ATen/ops/bartlett_window.h>
+#include <ATen/ops/blackman_window.h>
+#include <ATen/ops/blackman_window.h>
+#include <ATen/ops/empty.h>
+#include <ATen/ops/empty.h>
+#include <ATen/ops/_empty_affine_quantized.h>
+#include <ATen/ops/_empty_per_channel_affine_quantized.h>
+#include <ATen/ops/empty_quantized.h>
+#include <ATen/ops/empty_like.h>
+#include <ATen/ops/empty_strided.h>
+#include <ATen/ops/eye.h>
+#include <ATen/ops/eye.h>
+#include <ATen/ops/full.h>
+#include <ATen/ops/full.h>
+#include <ATen/ops/full_like.h>
+#include <ATen/ops/from_file.h>
+#include <ATen/ops/hann_window.h>
+#include <ATen/ops/hann_window.h>
+#include <ATen/ops/hamming_window.h>
+#include <ATen/ops/hamming_window.h>
+#include <ATen/ops/hamming_window.h>
+#include <ATen/ops/hamming_window.h>
+#include <ATen/ops/kaiser_window.h>
+#include <ATen/ops/kaiser_window.h>
+#include <ATen/ops/kaiser_window.h>
+#include <ATen/ops/linspace.h>
+#include <ATen/ops/logspace.h>
+#include <ATen/ops/ones.h>
+#include <ATen/ops/ones.h>
+#include <ATen/ops/ones_like.h>
+#include <ATen/ops/scalar_tensor.h>
+#include <ATen/ops/rand.h>
+#include <ATen/ops/rand.h>
+#include <ATen/ops/rand.h>
+#include <ATen/ops/rand.h>
+#include <ATen/ops/rand_like.h>
+#include <ATen/ops/randint.h>
+#include <ATen/ops/randint.h>
+#include <ATen/ops/randint.h>
+#include <ATen/ops/randint.h>
+#include <ATen/ops/randint_like.h>
+#include <ATen/ops/randint_like.h>
+#include <ATen/ops/randn.h>
+#include <ATen/ops/randn.h>
+#include <ATen/ops/randn.h>
+#include <ATen/ops/randn.h>
+#include <ATen/ops/randn_like.h>
+#include <ATen/ops/randperm.h>
+#include <ATen/ops/randperm.h>
+#include <ATen/ops/range.h>
+#include <ATen/ops/range.h>
+#include <ATen/ops/zeros.h>
+#include <ATen/ops/_efficientzerotensor.h>
+#include <ATen/ops/zeros.h>
+#include <ATen/ops/zeros_like.h>
+#include <ATen/ops/sparse_compressed_tensor.h>
+#include <ATen/ops/sparse_csr_tensor.h>
+#include <ATen/ops/sparse_csc_tensor.h>
+#include <ATen/ops/sparse_bsr_tensor.h>
+#include <ATen/ops/sparse_bsc_tensor.h>
+#include <ATen/ops/sparse_compressed_tensor.h>
+#include <ATen/ops/sparse_csr_tensor.h>
+#include <ATen/ops/sparse_csc_tensor.h>
+#include <ATen/ops/sparse_bsr_tensor.h>
+#include <ATen/ops/sparse_bsc_tensor.h>
+#include <ATen/ops/_sparse_compressed_tensor_unsafe.h>
+#include <ATen/ops/_sparse_csr_tensor_unsafe.h>
+#include <ATen/ops/_sparse_csc_tensor_unsafe.h>
+#include <ATen/ops/_sparse_bsr_tensor_unsafe.h>
+#include <ATen/ops/_sparse_bsc_tensor_unsafe.h>
+#include <ATen/ops/sparse_coo_tensor.h>
+#include <ATen/ops/sparse_coo_tensor.h>
+#include <ATen/ops/sparse_coo_tensor.h>
+#include <ATen/ops/_sparse_coo_tensor_unsafe.h>
+#include <ATen/ops/_sparse_coo_tensor_with_dims.h>
+#include <ATen/ops/_sparse_coo_tensor_with_dims_and_tensors.h>
+#include <ATen/ops/_to_copy.h>
+#include <ATen/ops/tril_indices.h>
+#include <ATen/ops/triu_indices.h>
+#include <ATen/ops/normal.h>
+#include <ATen/ops/fft_fftfreq.h>
+#include <ATen/ops/fft_rfftfreq.h>
+#endif
 
 #include <functional>
 #include <initializer_list>
@@ -173,6 +264,10 @@ inline at::Tensor _empty_per_channel_affine_quantized(at::IntArrayRef size, cons
   at::AutoDispatchBelowADInplaceOrView guard;
   return autograd::make_variable(at::_empty_per_channel_affine_quantized(size, scales, zero_points, axis, at::TensorOptions(options).requires_grad(c10::nullopt), memory_format), /*requires_grad=*/options.requires_grad());
 }
+inline at::Tensor empty_quantized(at::IntArrayRef size, const at::Tensor & qtensor, at::TensorOptions options = {}, c10::optional<at::MemoryFormat> memory_format = c10::nullopt) {
+  at::AutoDispatchBelowADInplaceOrView guard;
+  return autograd::make_variable(at::empty_quantized(size, qtensor, at::TensorOptions(options).requires_grad(c10::nullopt), memory_format), /*requires_grad=*/options.requires_grad());
+}
 inline at::Tensor empty_like(const at::Tensor & self, at::TensorOptions options = {}, c10::optional<at::MemoryFormat> memory_format = c10::nullopt) {
   at::AutoDispatchBelowADInplaceOrView guard;
   return autograd::make_variable(at::empty_like(self, at::TensorOptions(options).requires_grad(c10::nullopt), memory_format), /*requires_grad=*/options.requires_grad());
@@ -201,7 +296,7 @@ inline at::Tensor full_like(const at::Tensor & self, const at::Scalar & fill_val
   at::AutoDispatchBelowADInplaceOrView guard;
   return autograd::make_variable(at::full_like(self, fill_value, at::TensorOptions(options).requires_grad(c10::nullopt), memory_format), /*requires_grad=*/options.requires_grad());
 }
-inline at::Tensor from_file(std::string filename, c10::optional<bool> shared = c10::nullopt, c10::optional<int64_t> size = 0, at::TensorOptions options = {}) {
+inline at::Tensor from_file(c10::string_view filename, c10::optional<bool> shared = c10::nullopt, c10::optional<int64_t> size = 0, at::TensorOptions options = {}) {
   at::AutoDispatchBelowADInplaceOrView guard;
   return autograd::make_variable(at::from_file(filename, shared, size, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
 }
@@ -241,11 +336,11 @@ inline at::Tensor kaiser_window(int64_t window_length, bool periodic, double bet
   at::AutoDispatchBelowADInplaceOrView guard;
   return autograd::make_variable(at::kaiser_window(window_length, periodic, beta, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
 }
-inline at::Tensor linspace(const at::Scalar & start, const at::Scalar & end, c10::optional<int64_t> steps = c10::nullopt, at::TensorOptions options = {}) {
+inline at::Tensor linspace(const at::Scalar & start, const at::Scalar & end, int64_t steps, at::TensorOptions options = {}) {
   at::AutoDispatchBelowADInplaceOrView guard;
   return autograd::make_variable(at::linspace(start, end, steps, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
 }
-inline at::Tensor logspace(const at::Scalar & start, const at::Scalar & end, c10::optional<int64_t> steps = c10::nullopt, double base = 10.0, at::TensorOptions options = {}) {
+inline at::Tensor logspace(const at::Scalar & start, const at::Scalar & end, int64_t steps, double base = 10.0, at::TensorOptions options = {}) {
   at::AutoDispatchBelowADInplaceOrView guard;
   return autograd::make_variable(at::logspace(start, end, steps, base, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
 }
@@ -349,6 +444,10 @@ inline at::Tensor zeros(at::IntArrayRef size, c10::optional<at::DimnameList> nam
   at::AutoDispatchBelowADInplaceOrView guard;
   return autograd::make_variable(at::zeros(size, names, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
 }
+inline at::Tensor _efficientzerotensor(at::IntArrayRef size, at::TensorOptions options = {}) {
+  at::AutoDispatchBelowADInplaceOrView guard;
+  return autograd::make_variable(at::_efficientzerotensor(size, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
+}
 inline at::Tensor zeros(at::IntArrayRef size, at::TensorOptions options = {}) {
   at::AutoDispatchBelowADInplaceOrView guard;
   return autograd::make_variable(at::zeros(size, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
@@ -357,13 +456,65 @@ inline at::Tensor zeros_like(const at::Tensor & self, at::TensorOptions options 
   at::AutoDispatchBelowADInplaceOrView guard;
   return autograd::make_variable(at::zeros_like(self, at::TensorOptions(options).requires_grad(c10::nullopt), memory_format), /*requires_grad=*/options.requires_grad());
 }
-inline at::Tensor _sparse_csr_tensor(const at::Tensor & crow_indices, const at::Tensor & col_indices, const at::Tensor & values, at::IntArrayRef size, at::TensorOptions options) {
+inline at::Tensor sparse_compressed_tensor(const at::Tensor & compressed_indices, const at::Tensor & plain_indices, const at::Tensor & values, at::IntArrayRef size, at::TensorOptions options) {
   at::AutoDispatchBelowADInplaceOrView guard;
-  return autograd::make_variable(at::_sparse_csr_tensor(crow_indices, col_indices, values, size, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
+  return autograd::make_variable(at::sparse_compressed_tensor(compressed_indices, plain_indices, values, size, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
 }
-inline at::Tensor _sparse_csr_tensor(const at::Tensor & crow_indices, const at::Tensor & col_indices, const at::Tensor & values, at::TensorOptions options) {
+inline at::Tensor sparse_csr_tensor(const at::Tensor & crow_indices, const at::Tensor & col_indices, const at::Tensor & values, at::IntArrayRef size, at::TensorOptions options) {
   at::AutoDispatchBelowADInplaceOrView guard;
-  return autograd::make_variable(at::_sparse_csr_tensor(crow_indices, col_indices, values, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
+  return autograd::make_variable(at::sparse_csr_tensor(crow_indices, col_indices, values, size, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
+}
+inline at::Tensor sparse_csc_tensor(const at::Tensor & ccol_indices, const at::Tensor & row_indices, const at::Tensor & values, at::IntArrayRef size, at::TensorOptions options) {
+  at::AutoDispatchBelowADInplaceOrView guard;
+  return autograd::make_variable(at::sparse_csc_tensor(ccol_indices, row_indices, values, size, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
+}
+inline at::Tensor sparse_bsr_tensor(const at::Tensor & crow_indices, const at::Tensor & col_indices, const at::Tensor & values, at::IntArrayRef size, at::TensorOptions options) {
+  at::AutoDispatchBelowADInplaceOrView guard;
+  return autograd::make_variable(at::sparse_bsr_tensor(crow_indices, col_indices, values, size, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
+}
+inline at::Tensor sparse_bsc_tensor(const at::Tensor & ccol_indices, const at::Tensor & row_indices, const at::Tensor & values, at::IntArrayRef size, at::TensorOptions options) {
+  at::AutoDispatchBelowADInplaceOrView guard;
+  return autograd::make_variable(at::sparse_bsc_tensor(ccol_indices, row_indices, values, size, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
+}
+inline at::Tensor sparse_compressed_tensor(const at::Tensor & compressed_indices, const at::Tensor & plain_indices, const at::Tensor & values, at::TensorOptions options) {
+  at::AutoDispatchBelowADInplaceOrView guard;
+  return autograd::make_variable(at::sparse_compressed_tensor(compressed_indices, plain_indices, values, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
+}
+inline at::Tensor sparse_csr_tensor(const at::Tensor & crow_indices, const at::Tensor & col_indices, const at::Tensor & values, at::TensorOptions options) {
+  at::AutoDispatchBelowADInplaceOrView guard;
+  return autograd::make_variable(at::sparse_csr_tensor(crow_indices, col_indices, values, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
+}
+inline at::Tensor sparse_csc_tensor(const at::Tensor & ccol_indices, const at::Tensor & row_indices, const at::Tensor & values, at::TensorOptions options) {
+  at::AutoDispatchBelowADInplaceOrView guard;
+  return autograd::make_variable(at::sparse_csc_tensor(ccol_indices, row_indices, values, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
+}
+inline at::Tensor sparse_bsr_tensor(const at::Tensor & crow_indices, const at::Tensor & col_indices, const at::Tensor & values, at::TensorOptions options) {
+  at::AutoDispatchBelowADInplaceOrView guard;
+  return autograd::make_variable(at::sparse_bsr_tensor(crow_indices, col_indices, values, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
+}
+inline at::Tensor sparse_bsc_tensor(const at::Tensor & ccol_indices, const at::Tensor & row_indices, const at::Tensor & values, at::TensorOptions options) {
+  at::AutoDispatchBelowADInplaceOrView guard;
+  return autograd::make_variable(at::sparse_bsc_tensor(ccol_indices, row_indices, values, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
+}
+inline at::Tensor _sparse_compressed_tensor_unsafe(const at::Tensor & compressed_indices, const at::Tensor & plain_indices, const at::Tensor & values, at::IntArrayRef size, at::TensorOptions options = {}) {
+  at::AutoDispatchBelowADInplaceOrView guard;
+  return autograd::make_variable(at::_sparse_compressed_tensor_unsafe(compressed_indices, plain_indices, values, size, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
+}
+inline at::Tensor _sparse_csr_tensor_unsafe(const at::Tensor & crow_indices, const at::Tensor & col_indices, const at::Tensor & values, at::IntArrayRef size, at::TensorOptions options = {}) {
+  at::AutoDispatchBelowADInplaceOrView guard;
+  return autograd::make_variable(at::_sparse_csr_tensor_unsafe(crow_indices, col_indices, values, size, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
+}
+inline at::Tensor _sparse_csc_tensor_unsafe(const at::Tensor & ccol_indices, const at::Tensor & row_indices, const at::Tensor & values, at::IntArrayRef size, at::TensorOptions options = {}) {
+  at::AutoDispatchBelowADInplaceOrView guard;
+  return autograd::make_variable(at::_sparse_csc_tensor_unsafe(ccol_indices, row_indices, values, size, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
+}
+inline at::Tensor _sparse_bsr_tensor_unsafe(const at::Tensor & crow_indices, const at::Tensor & col_indices, const at::Tensor & values, at::IntArrayRef size, at::TensorOptions options = {}) {
+  at::AutoDispatchBelowADInplaceOrView guard;
+  return autograd::make_variable(at::_sparse_bsr_tensor_unsafe(crow_indices, col_indices, values, size, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
+}
+inline at::Tensor _sparse_bsc_tensor_unsafe(const at::Tensor & ccol_indices, const at::Tensor & row_indices, const at::Tensor & values, at::IntArrayRef size, at::TensorOptions options = {}) {
+  at::AutoDispatchBelowADInplaceOrView guard;
+  return autograd::make_variable(at::_sparse_bsc_tensor_unsafe(ccol_indices, row_indices, values, size, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
 }
 inline at::Tensor sparse_coo_tensor(at::IntArrayRef size, at::TensorOptions options) {
   at::AutoDispatchBelowADInplaceOrView guard;
@@ -388,6 +539,10 @@ inline at::Tensor _sparse_coo_tensor_with_dims(int64_t sparse_dim, int64_t dense
 inline at::Tensor _sparse_coo_tensor_with_dims_and_tensors(int64_t sparse_dim, int64_t dense_dim, at::IntArrayRef size, const at::Tensor & indices, const at::Tensor & values, at::TensorOptions options) {
   at::AutoDispatchBelowADInplaceOrView guard;
   return autograd::make_variable(at::_sparse_coo_tensor_with_dims_and_tensors(sparse_dim, dense_dim, size, indices, values, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
+}
+inline at::Tensor _to_copy(const at::Tensor & self, at::TensorOptions options = {}, bool non_blocking = false, c10::optional<at::MemoryFormat> memory_format = c10::nullopt) {
+  at::AutoDispatchBelowADInplaceOrView guard;
+  return autograd::make_variable(at::_to_copy(self, at::TensorOptions(options).requires_grad(c10::nullopt), non_blocking, memory_format), /*requires_grad=*/options.requires_grad());
 }
 inline at::Tensor tril_indices(int64_t row, int64_t col, int64_t offset = 0, at::TensorOptions options = at::kLong) {
   at::AutoDispatchBelowADInplaceOrView guard;

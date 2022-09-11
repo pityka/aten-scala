@@ -141,7 +141,7 @@ class OffsettableMMap {
   void* pointer() const { return base_ptr_; }
   ~OffsettableMMap() {
     close();
-    c10::reportMemoryUsageToProfiler(base_ptr_, -size_, c10::Device(c10::DeviceType::CPU));
+    c10::reportMemoryUsageToProfiler(base_ptr_, -size_,0,0, c10::Device(c10::DeviceType::CPU));
   }
 
 private:
@@ -197,7 +197,7 @@ OffsettableMMap::OffsettableMMap( const char *filename,  size_t size, size_t off
     AT_ERROR("Error closing file <", filename, ">");
   }
      
-  c10::reportMemoryUsageToProfiler(base_ptr_, size_, c10::Device(c10::DeviceType::CPU));
+  c10::reportMemoryUsageToProfiler(base_ptr_, size_, 0, 0, c10::Device(c10::DeviceType::CPU));
 }
 
 void OffsettableMMap::close() {
