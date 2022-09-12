@@ -5,16 +5,19 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ATen/Functions.h>
-#include <c10/cuda/CUDACachingAllocator.h>
-#include <c10/cuda/CUDAException.h>
-#include <ATen/cuda/PinnedMemoryAllocator.h>
 #include <c10/core/CPUAllocator.h>
 #include "wrapper_manual.h"
 #include <sys/mman.h>
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
+#if defined(WITHOUTCUDA)
+#else
+#include <c10/cuda/CUDACachingAllocator.h>
+#include <c10/cuda/CUDAException.h>
+#include <ATen/cuda/PinnedMemoryAllocator.h>
 #include <torch/csrc/cuda/nccl.h>
+#endif
 
 using namespace std;
 using namespace at;
@@ -1516,16 +1519,21 @@ JNIEXPORT jlong JNICALL Java_aten_Tensor_lowlevelfrom_1file(JNIEnv *env, jobject
 }
 
 JNIEXPORT void JNICALL Java_aten_Tensor_cudaCachingAllocatorSetMemoryFraction(JNIEnv *env, jobject thisObj ,jdouble fraction, jint device) {try{
+#if defined(WITHOUTCUDA)
+#else      
   
       c10::cuda::CUDACachingAllocator::setMemoryFraction(fraction,device);
+#endif      
     } catch (exception& e) {
       throwRuntimeException(env,e.what() );
     }
     
 }
 JNIEXPORT void JNICALL Java_aten_Tensor_setPinnedMemoryAllocator(JNIEnv *env, jobject thisObj ) {try{
-  
+#if defined(WITHOUTCUDA)
+#else
       c10::SetCPUAllocator(at::cuda::getPinnedMemoryAllocator());
+#endif
     } catch (exception& e) {
       throwRuntimeException(env,e.what() );
     }
@@ -1542,26 +1550,37 @@ JNIEXPORT void JNICALL Java_aten_Tensor_setDefaultAllocator(JNIEnv *env, jobject
 
   // private static native void lowsetCurrentCUDAStream(long cudaStream);
 JNIEXPORT void JNICALL Java_aten_CudaStream_lowlevelsynchronize(JNIEnv *env, jobject thisObj, jlong packed ) {try{
+#if defined(WITHOUTCUDA)
+#else
       
     c10::cuda::CUDAStream stream = c10::cuda::CUDAStream::unpack(reinterpret_signed_to_unsigned(packed));
     stream.synchronize();
+#endif      
     } catch (exception& e) {
       throwRuntimeException(env,e.what() );
     }
     
 }
 JNIEXPORT void JNICALL Java_aten_CudaStream_cudaSetDevice(JNIEnv *env, jobject thisObj, jint device ) {try{
+#if defined(WITHOUTCUDA)
+#else
 
       AT_CUDA_CHECK(cudaSetDevice(device));
+#endif
     } catch (exception& e) {
       throwRuntimeException(env,e.what() );
     }
     
 }
 JNIEXPORT jint JNICALL Java_aten_CudaStream_cudaGetDevice(JNIEnv *env, jobject thisObj ) {try{
+#if defined(WITHOUTCUDA)
+  throwRuntimeException(env,"compiled without cuda" );
+#else
+  
       int i;
       AT_CUDA_CHECK(cudaGetDevice(&i));
       return i;
+#endif  
     } catch (exception& e) {
       throwRuntimeException(env,e.what() );
     }
@@ -1569,39 +1588,52 @@ JNIEXPORT jint JNICALL Java_aten_CudaStream_cudaGetDevice(JNIEnv *env, jobject t
     
 }
 JNIEXPORT jlong JNICALL Java_aten_CudaStream_lowlevelgetStreamFromPool(JNIEnv *env, jobject thisObj, jboolean isHighPriority, jbyte device ) {try{
+#if defined(WITHOUTCUDA)
+throwRuntimeException(env,"compiled without cuda" );
+#else
       
     c10::cuda::CUDAStream stream = c10::cuda::getStreamFromPool(isHighPriority,device);
     return reinterpret_unsigned_to_signed(stream.pack());
+#endif      
     } catch (exception& e) {
       throwRuntimeException(env,e.what() );
     }
     return 0;
 }
 JNIEXPORT jlong JNICALL Java_aten_CudaStream_lowlevelgetDefaultCUDAStream(JNIEnv *env, jobject thisObj,  jbyte device ) {try{
-      
+#if defined(WITHOUTCUDA)
+throwRuntimeException(env,"compiled without cuda" );
+#else      
     c10::cuda::CUDAStream stream = c10::cuda::getDefaultCUDAStream(device);
     return reinterpret_unsigned_to_signed(stream.pack());
+#endif
     } catch (exception& e) {
       throwRuntimeException(env,e.what() );
     }
     return 0;
 }
 JNIEXPORT void JNICALL Java_aten_CudaStream_lowlevelsetCurrentCUDAStream(JNIEnv *env, jobject thisObj,  jlong packed ) {try{
-      
+#if defined(WITHOUTCUDA)
+#else            
     c10::cuda::CUDAStream stream = c10::cuda::CUDAStream::unpack(reinterpret_signed_to_unsigned(packed));
     c10::cuda::setCurrentCUDAStream(stream);
+#endif
     } catch (exception& e) {
       throwRuntimeException(env,e.what() );
     }
 }
  JNIEXPORT jstring JNICALL Java_aten_CudaStream_nativeToString(JNIEnv *env, jobject thisObj, jlong packed) {
     try{
+      #if defined(WITHOUTCUDA)
+throwRuntimeException(env,"compiled without cuda" );
+#else      
         c10::cuda::CUDAStream stream = c10::cuda::CUDAStream::unpack(reinterpret_signed_to_unsigned(packed));
         std::stringstream ss;
 
         ss<< stream;
 
     return env->NewStringUTF(ss.str().c_str());
+#endif
     } catch (exception& e) {
       throwRuntimeException(env,e.what() );
     }
@@ -1678,7 +1710,9 @@ JNIEXPORT jlongArray JNICALL Java_aten_Tensor_lowleveltensorsfrom_1file(JNIEnv *
   JNIEXPORT jlong JNICALL Java_aten_NcclComm_lowlevelcomm_1init_1rank(JNIEnv *env, jobject thisObj, jint nranks, jbyteArray comm_id, jint rank ) {
         
       try{
-
+#if defined(WITHOUTCUDA)
+throwRuntimeException(env,"compiled without cuda" );
+#else      
         jbyte *comm_id_copy = (env)->GetByteArrayElements(comm_id, 0);
         const torch::cuda::nccl::ncclUniqueId* comm_id_cast = reinterpret_cast<torch::cuda::nccl::ncclUniqueId*>(comm_id_copy);
       torch::cuda::nccl::ncclComm_t comm = torch::cuda::nccl::comm_init_rank( nranks, *comm_id_cast,  rank);
@@ -1688,7 +1722,7 @@ JNIEXPORT jlongArray JNICALL Java_aten_Tensor_lowleveltensorsfrom_1file(JNIEnv *
         jlong pointer = reinterpret_cast<jlong>(comm);
   
         return pointer;
-
+#endif
       } catch (exception& e) {
         throwRuntimeException(env,e.what() );
       } 
@@ -1699,11 +1733,13 @@ JNIEXPORT jlongArray JNICALL Java_aten_Tensor_lowleveltensorsfrom_1file(JNIEnv *
   }
 
    JNIEXPORT void JNICALL Java_aten_NcclComm_comm_1destroy(JNIEnv *env, jobject thisObj) {try{
-    
+#if defined(WITHOUTCUDA)
+#else          
     torch::cuda::nccl::ncclComm_t op = reinterpret_cast<torch::cuda::nccl::ncclComm_t>(env->GetLongField( thisObj, ncclCommPointerFid));
     torch::cuda::nccl::comm_destroy(op);
 
     return ;
+#endif    
     } catch (exception& e) {
       throwRuntimeException(env,e.what() );
     }
@@ -1711,7 +1747,9 @@ JNIEXPORT jlongArray JNICALL Java_aten_Tensor_lowleveltensorsfrom_1file(JNIEnv *
   }
 
   JNIEXPORT jbyteArray JNICALL Java_aten_NcclComm_get_1unique_1id(JNIEnv *env, jobject thisObj ) {try{
-  
+#if defined(WITHOUTCUDA)
+throwRuntimeException(env,"compiled without cuda" );
+#else        
 
     torch::cuda::nccl::ncclUniqueId id ;
 
@@ -1729,6 +1767,7 @@ JNIEXPORT jlongArray JNICALL Java_aten_Tensor_lowleveltensorsfrom_1file(JNIEnv *
     (env)->SetByteArrayRegion( result, 0, 128, (jbyte*)  &id);
  
    return result;
+#endif   
     } catch (exception& e) {
       throwRuntimeException(env,e.what() );
     }
@@ -1736,7 +1775,8 @@ JNIEXPORT jlongArray JNICALL Java_aten_Tensor_lowleveltensorsfrom_1file(JNIEnv *
   }
 
   JNIEXPORT void JNICALL Java_aten_NcclComm_lowlevelbroadcast(JNIEnv *env, jobject thisObj,jlongArray tensors, jlongArray comms ) {try{
-
+#if defined(WITHOUTCUDA)
+#else      
       int64_t* tensor_pointers = (int64_t*)env->GetLongArrayElements(tensors, nullptr);
       int64_t* comm_pointers = (int64_t*)env->GetLongArrayElements(comms, nullptr);
       jsize length = env->GetArrayLength(tensors);
@@ -1766,13 +1806,15 @@ JNIEXPORT jlongArray JNICALL Java_aten_Tensor_lowleveltensorsfrom_1file(JNIEnv *
   
  
       return ;
+#endif      
     } catch (exception& e) {
       throwRuntimeException(env,e.what() );
     }
     return ;
   }
   JNIEXPORT void JNICALL Java_aten_NcclComm_lowlevelreduce(JNIEnv *env, jobject thisObj,jlongArray tensors, jlong output, jint rootRank, jint op, jlongArray comms ) {try{
-
+#if defined(WITHOUTCUDA)
+#else      
       int64_t* tensor_pointers = (int64_t*)env->GetLongArrayElements(tensors, nullptr);
       int64_t* comm_pointers = (int64_t*)env->GetLongArrayElements(comms, nullptr);
       jsize length = env->GetArrayLength(tensors);
@@ -1803,6 +1845,7 @@ JNIEXPORT jlongArray JNICALL Java_aten_Tensor_lowleveltensorsfrom_1file(JNIEnv *
   
  
       return ;
+#endif      
     } catch (exception& e) {
       throwRuntimeException(env,e.what() );
     }

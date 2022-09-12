@@ -11,3 +11,5 @@ aten-scala/jni-osx/src/main/resources/libatenscalajni.dylib
 aten-scala/jni-linux/src/main/resources/libatenscalajni.so
 .vscode/settings.json
 aten-scala/.bsp/sbt.json
+libatenscalajni_aarm64.dylib
+libatenscalajni_x86.dylib

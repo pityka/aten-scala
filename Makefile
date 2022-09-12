@@ -10,9 +10,16 @@ prepare:
 wrapper.cpp: 
 	cd parser; bloop run parser -- ../parseable.h ../wrapper.cpp ../aten-scala/core/src/main/java/aten/ATen.java ../aten-scala/core/src/main/java/aten/JniImpl.java
 
-aten-scala/jni-osx/src/main/resources/libatenscalajni.dylib: wrapper.cpp wrapper_manual.cpp
+aten-scala/jni-osx/src/main/resources/libatenscalajni.dylib: libatenscalajni_x86.dylib libatenscalajni_aarm64.dylib
+	lipo -create libatenscalajni_x86.dylib libatenscalajni_aarm64.dylib -output aten-scala/jni-osx/src/main/resources/libatenscalajni.dylib
+
+libatenscalajni_x86.dylib: wrapper.cpp wrapper_manual.cpp
 	mkdir -p aten-scala/jni-osx/src/main/resources/;
-	clang++ -ferror-limit=1000 -std=c++14 -I $(JAVA_HOME)/include/ -I $(JAVA_HOME)/include/darwin/ -I /usr/local/cuda/include -I libtorch_include/include/ -lc10 -ltorch_global_deps -ltorch -ltorch_cpu -shared -undefined dynamic_lookup -Wl,-rpath,/usr/local/lib/ -o aten-scala/jni-osx/src/main/resources/libatenscalajni.dylib wrapper_manual.cpp wrapper.cpp
+	clang++ -D WITHOUTCUDA=1 -ferror-limit=1000 -std=c++14 -I $(JAVA_HOME)/include/ -I $(JAVA_HOME)/include/darwin/ -I libtorch_include/include/ -lc10 -ltorch_global_deps -ltorch -ltorch_cpu -shared -undefined dynamic_lookup -target x86_64-apple-macos10.12 -Wl,-rpath,/usr/local/lib/ -o libatenscalajni_x86.dylib wrapper_manual.cpp wrapper.cpp
+
+libatenscalajni_aarm64.dylib: wrapper.cpp wrapper_manual.cpp
+	mkdir -p aten-scala/jni-osx/src/main/resources/;
+	clang++ -D WITHOUTCUDA=1 -ferror-limit=1000 -std=c++14 -I $(JAVA_HOME)/include/ -I $(JAVA_HOME)/include/darwin/ -I libtorch_include/include/ -lc10 -ltorch_global_deps -ltorch -ltorch_cpu -shared -undefined dynamic_lookup -target arm64-apple-macos11 -Wl,-rpath,/usr/local/lib/ -o libatenscalajni_aarm64.dylib wrapper_manual.cpp wrapper.cpp
 
 aten-scala/jni-linux/src/main/resources/libatenscalajni.so: wrapper.cpp wrapper_manual.cpp
 	docker run --rm -v `pwd`:/build aten-scala-linux-build /bin/bash -c "cd /build;  clang++ -std=c++14 -D_GLIBCXX_USE_CXX11_ABI=0 -I /usr/lib/jvm/java-17-openjdk-amd64/include/ -I /usr/lib/jvm/java-17-openjdk-amd64/include/linux/ -I /usr/local/cuda/include -I libtorch_include/include/ -L /usr/local/lib/python3.*/dist-packages/torch/lib/ -lc10 -ltorch_global_deps -ltorch -ltorch_cpu -ltorch_cuda -fPIC -shared -o aten-scala/jni-linux/src/main/resources/libatenscalajni.so wrapper_manual.cpp wrapper.cpp "
@@ -54,4 +61,6 @@ all: test
 clean:
 	rm -rf wrapper.cpp;
 	rm -rf aten-scala/jni-osx/src/main/resources/libatenscalajni.dylib
+	rm -rf libatenscalajni_x86.dylib
+	rm -rf libatenscalajni_aarm64.dylib
 	rm -rf aten-scala/jni-linux/src/main/resources/libatenscalajni.so

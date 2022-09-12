@@ -7,17 +7,22 @@ The build runs on a Mac and uses Docker for cross compilation.
 The docker image used for building (and possible at runtime) is defined in `docker-runtime/Dockerfile`. This image is pushed to the Docker Hub (https://hub.docker.com/r/pityka/base-ubuntu-libtorch/tags?page=1&ordering=last_updated), and by default the build will pull it. 
 
 ## Prerequisites
-- needs a mac with clang++ installed
-- needs docker on the mac
-- on the mac needs libtorch in /usr/local/lib/. There are multiple methods to install libtorch. One is to copy the *.dylib files from the libtorch distribution of the appropriate pytorch version (e.g. https://download.pytorch.org/libtorch/cpu/libtorch-macos-1.9.0.zip) to /usr/local/lib/ . 
+- needs two macs with clang++ installed: one with intel, one with M1. Cross compilation did not work.
+- needs docker on the mac 
+- on the both mac needs the libtorch shared libraries in /usr/local/lib/. Read on.
 - needs bloop (https://scalacenter.github.io/bloop/) and sbt (https://www.scala-sbt.org/).
-- Needs CUDA header files. You can download an older (e.g. version 10) mac CUDA Toolkit archive from Nvidia. The installer contains a tarball with the header files, place them to `/usr/local/cuda/include/`.
+
 
 ## Build
 1. `make prepare` - this creates bloop build definitions from sbt the sbt build definition
-2. `make test` - builds the binding for mac, and runs tests. Tests pass if the suite does not crash or throws exception.
+2. `make libatenscalajni_x86.dylib` - on intel
+3. `make libatenscalajni_aarm64.dylib` - on M1
+4. Copy from one to the other 
+5. `make test`
+6. Copy `aten-scala/jni-osx/src/main/resources/libatenscalajni.dylib` to the other mac, `make test` there as well.
 3. `make test-linux` - builds for linux and runs tests in a linux container (needs docker for mac, will pull `pityka/base-ubuntu-libtorch` from docker hub)
 6. `make test-cuda` - runs tests in a cuda enabled remote docker context
+
 
 ## Publishing
 - `make publishLocal` - publishes artifacts locally
@@ -32,8 +37,14 @@ The Makefile will generate Java and C++ sources and create a JNI native library.
 `aten-scala/` holds an sbt project with two subprojects. `aten-scala/core` is the Java counterpart of the binding. It depends on Scala because `std::tuple` is translated into Scala tuples.  `aten-scala/jni-osx` contains no source code but its Maven artifact contains the native library.
 
 # Libtorch runtime dependency
-Libtorch is linked dynamically during runtime. On OSX you can `brew install libtorch`, or by copying the .dylib files from the libtorch distribution archive to /usr/local/lib/. 
-On Linux you can install torch with pip then add the relevant folders to the ld search path. 
+Libtorch is linked dynamically during runtime. 
+## OSX
+On OSX the jni shared library always looks for libtorch in `/usr/local/lib/`.
+You can get the libtorch libraries with `pip3 install torch` then copy the necessary files to /usr/local/lib/. E.g. cp `/usr/local/lib/python3.9/site-packages/torch/lib/* /usr/local/lib/`. 
+However one needs to copy `/usr/local/lib/python3.9/site-packages/torch/.dylibs/libomp.dylib` as well to `/usr/local/.dylibs/` (depends on the libtorch version).
+## Linux
+On Linux there is no @rpath baked in the jni shared library. 
+Use LD_LIBRARY_PATH to make sure the linker finds libtorch.
 See the `docker-runtime/Dockerfile`s on how to do this.
 
 # Docker image for Linux with libtorch and CUDA
