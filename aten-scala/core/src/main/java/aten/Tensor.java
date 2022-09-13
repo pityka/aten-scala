@@ -31,6 +31,7 @@ public class Tensor {
   public native long elementSize();
   public native byte scalarType();
   public native boolean isCuda();
+  public native boolean isMps();
 
   private native long lowlevelcuda();
   public Tensor cuda() {
@@ -42,10 +43,12 @@ public class Tensor {
     return Tensor.factory(lowlevelcpu());
   }
 
+
   public native void print();
   public native TensorOptions options();
-  public static native boolean cudnnAvailable();
+  public static native boolean hasCuda();
   public static native long getNumGPUs();
+  public static native boolean hasMps();
   public native byte scalarTypeByte();
   
   private native void releaseNative();
@@ -166,6 +169,7 @@ public class Tensor {
   }
 
   public static native void manual_seed(long seed);
+  public static native void manual_seed_mps(long seed);
   public static native void manual_seed_cpu(long seed);
   public static native void manual_seed_cuda(long seed, int device);
 

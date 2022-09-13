@@ -50,11 +50,14 @@ public class TensorOptions {
 
   public native TensorOptions cpu();
   public native boolean isCPU();
+  public native boolean isMps();
   public native boolean isCuda();
   public native boolean isSparse();
   public native TensorOptions cuda();
   public native TensorOptions cuda_index(short device);
+  public native TensorOptions device(byte deviceType, byte deviceIndex);
   public native int deviceIndex();
+  public native int deviceType();
   public native byte scalarTypeByte();
   public native String nativeToString();
 

@@ -311,7 +311,8 @@ if (cuda) {
     
   }
 
-  println("CUDNN avail: "+Tensor.cudnnAvailable)
+  println("CUDA avail: "+Tensor.hasCuda)
+  println("MPS avail: "+Tensor.hasMps)
   // println("Has cuda: "+)
   println("done")
 

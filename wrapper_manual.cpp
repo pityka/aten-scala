@@ -256,6 +256,18 @@ extern "C" {
     }
     return nullptr;
   }
+  JNIEXPORT jobject JNICALL Java_aten_TensorOptions_device(JNIEnv *env, jobject thisObj, jbyte deviceType, jbyte deviceIndex) { try{
+    
+    jclass cls = tensorOptionsClass;
+    TensorOptions* tensorOptions = reinterpret_cast<TensorOptions*>(env->GetLongField( thisObj, tensorOptionsPointerFid));
+  
+    TensorOptions* t2 = new TensorOptions(tensorOptions->device(static_cast<c10::DeviceType>(deviceType), deviceIndex));
+     return allocateTensorOptions(env,t2);
+     } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return nullptr;
+  }
   JNIEXPORT jobject JNICALL Java_aten_TensorOptions_cpu(JNIEnv *env, jobject thisObj) { try{
     
     jclass cls = tensorOptionsClass;
@@ -316,6 +328,18 @@ extern "C" {
     }
     return 0;
   }
+  JNIEXPORT jboolean JNICALL Java_aten_TensorOptions_isMps(JNIEnv *env, jobject thisObj) { try{
+    
+    jclass cls = tensorOptionsClass;
+    TensorOptions* tensorOptions = reinterpret_cast<TensorOptions*>(env->GetLongField( thisObj, tensorOptionsPointerFid));
+    
+    bool tpe = tensorOptions->device().is_mps();
+     return tpe;
+     } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return 0;
+  }
   JNIEXPORT jboolean JNICALL Java_aten_TensorOptions_isSparse(JNIEnv *env, jobject thisObj) { try{
     
     jclass cls = tensorOptionsClass;
@@ -337,9 +361,18 @@ extern "C" {
     }
     return 0;
   }
-  JNIEXPORT jboolean JNICALL Java_aten_Tensor_cudnnAvailable(JNIEnv *env, jobject thisObj) { try{
+  JNIEXPORT jboolean JNICALL Java_aten_Tensor_hasCuda(JNIEnv *env, jobject thisObj) { try{
     
-    bool ret = at::detail::getCUDAHooks().getNumGPUs() > 0 && at::detail::getCUDAHooks().hasCuDNN();
+    bool ret = at::Context::hasCUDA();
+    return ret;
+     } catch (exception& e) {
+      return false;
+    }
+    return 0;
+  }
+  JNIEXPORT jboolean JNICALL Java_aten_Tensor_hasMps(JNIEnv *env, jobject thisObj) { try{
+    
+    bool ret = at::Context::hasMPS();
     return ret;
      } catch (exception& e) {
       return false;
@@ -375,12 +408,35 @@ extern "C" {
       throwRuntimeException(env,e.what() );
     }
   }
+  JNIEXPORT void JNICALL Java_aten_Tensor_manual_1seed_1mps(JNIEnv *env, jobject thisObj, jlong seed) { try{
+    
+    auto gen = globalContext().defaultGenerator(DeviceType::MPS);
+    {
+      std::lock_guard<std::mutex> lock(gen.mutex());
+      gen.set_current_seed(seed);
+    }
+     } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+  }
   JNIEXPORT jint JNICALL Java_aten_TensorOptions_deviceIndex(JNIEnv *env, jobject thisObj) { try{
     
     jclass cls = tensorOptionsClass;
     TensorOptions* tensorOptions = reinterpret_cast<TensorOptions*>(env->GetLongField( thisObj, tensorOptionsPointerFid));
     
     int32_t tpe = tensorOptions->device().index();
+     return tpe;
+     } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return 0;
+  }
+  JNIEXPORT jint JNICALL Java_aten_TensorOptions_deviceType(JNIEnv *env, jobject thisObj) { try{
+    
+    jclass cls = tensorOptionsClass;
+    TensorOptions* tensorOptions = reinterpret_cast<TensorOptions*>(env->GetLongField( thisObj, tensorOptionsPointerFid));
+    
+    int32_t tpe = static_cast<int32_t>(tensorOptions->device().type());
      return tpe;
      } catch (exception& e) {
       throwRuntimeException(env,e.what() );
@@ -537,6 +593,16 @@ extern "C" {
     jclass cls = tensorClass;
     Tensor* tensor = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
     return tensor->is_cuda();
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return false;
+  }
+  JNIEXPORT jboolean JNICALL Java_aten_Tensor_isMps(JNIEnv *env, jobject thisObj) {
+    try{
+    jclass cls = tensorClass;
+    Tensor* tensor = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
+    return tensor->is_mps();
     } catch (exception& e) {
       throwRuntimeException(env,e.what() );
     }

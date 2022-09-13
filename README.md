@@ -2,7 +2,7 @@
 
 # Build documentation 
 
-The JNI bindings are built with clang++ for Mac and for Linux. 
+The JNI bindings are built with clang++ for Mac (x86 and arm64) and for Linux (x86). 
 The build runs on a Mac and uses Docker for cross compilation. 
 The docker image used for building (and possible at runtime) is defined in `docker-runtime/Dockerfile`. This image is pushed to the Docker Hub (https://hub.docker.com/r/pityka/base-ubuntu-libtorch/tags?page=1&ordering=last_updated), and by default the build will pull it. 
 
