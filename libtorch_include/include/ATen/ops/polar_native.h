@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor polar(const at::Tensor & abs, const at::Tensor & angle);
 TORCH_API at::Tensor & polar_out(const at::Tensor & abs, const at::Tensor & angle, at::Tensor & out);
-
 } // namespace native
 } // namespace at

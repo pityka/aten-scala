@@ -18,6 +18,7 @@ namespace at {
 namespace cuda {
 
 TORCH_API bool _use_cudnn_ctc_loss(const at::Tensor & log_probs, const at::Tensor & targets, at::IntArrayRef input_lengths, at::IntArrayRef target_lengths, int64_t blank);
+TORCH_API bool _use_cudnn_ctc_loss(const at::Tensor & log_probs, const at::Tensor & targets, const at::Tensor & input_lengths, const at::Tensor & target_lengths, int64_t blank);
 
 } // namespace cuda
 } // namespace at

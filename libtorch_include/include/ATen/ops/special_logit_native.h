@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor special_logit(const at::Tensor & self, c10::optional<double> eps=c10::nullopt);
 TORCH_API at::Tensor & special_logit_out(const at::Tensor & self, c10::optional<double> eps, at::Tensor & out);
-
 } // namespace native
 } // namespace at

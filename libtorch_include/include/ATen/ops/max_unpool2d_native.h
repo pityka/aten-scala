@@ -16,11 +16,9 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor max_unpooling2d_forward_cpu(const at::Tensor & self, const at::Tensor & indices, at::IntArrayRef output_size);
 TORCH_API at::Tensor & max_unpooling2d_forward_out_cpu(const at::Tensor & self, const at::Tensor & indices, at::IntArrayRef output_size, at::Tensor & out);
 TORCH_API at::Tensor max_unpooling2d_forward_cuda(const at::Tensor & self, const at::Tensor & indices, at::IntArrayRef output_size);
 TORCH_API at::Tensor & max_unpooling2d_forward_out_cuda(const at::Tensor & self, const at::Tensor & indices, at::IntArrayRef output_size, at::Tensor & out);
-
 } // namespace native
 } // namespace at

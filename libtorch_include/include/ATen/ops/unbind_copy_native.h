@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
-TORCH_API ::std::vector<at::Tensor> unbind_copy_int(const at::Tensor & self, int64_t dim=0);
 TORCH_API void unbind_copy_int_out(const at::Tensor & self, int64_t dim, at::TensorList out);
-
+TORCH_API ::std::vector<at::Tensor> unbind_copy_int(const at::Tensor & self, int64_t dim=0);
 } // namespace native
 } // namespace at

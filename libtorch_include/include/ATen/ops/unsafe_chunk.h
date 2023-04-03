@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::unsafe_chunk(Tensor self, int chunks, int dim=0) -> Tensor[]
-TORCH_API inline ::std::vector<at::Tensor> unsafe_chunk(const at::Tensor & self, int64_t chunks, int64_t dim=0) {
+inline ::std::vector<at::Tensor> unsafe_chunk(const at::Tensor & self, int64_t chunks, int64_t dim=0) {
     return at::_ops::unsafe_chunk::call(self, chunks, dim);
 }
 

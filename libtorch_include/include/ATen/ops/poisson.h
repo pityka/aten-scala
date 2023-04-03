@@ -23,8 +23,17 @@ namespace at {
 
 
 // aten::poisson(Tensor self, Generator? generator=None) -> Tensor
-TORCH_API inline at::Tensor poisson(const at::Tensor & self, c10::optional<at::Generator> generator=c10::nullopt) {
+inline at::Tensor poisson(const at::Tensor & self, c10::optional<at::Generator> generator=c10::nullopt) {
     return at::_ops::poisson::call(self, generator);
+}
+
+// aten::poisson.out(Tensor self, Generator? generator=None, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & poisson_out(at::Tensor & out, const at::Tensor & self, c10::optional<at::Generator> generator=c10::nullopt) {
+    return at::_ops::poisson_out::call(self, generator, out);
+}
+// aten::poisson.out(Tensor self, Generator? generator=None, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & poisson_outf(const at::Tensor & self, c10::optional<at::Generator> generator, at::Tensor & out) {
+    return at::_ops::poisson_out::call(self, generator, out);
 }
 
 }

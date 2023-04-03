@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor gather_backward(const at::Tensor & grad, const at::Tensor & self, int64_t dim, const at::Tensor & index, bool sparse_grad);
-
 } // namespace native
 } // namespace at

@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor special_exp2(const at::Tensor & self);
 TORCH_API at::Tensor & special_exp2_out(const at::Tensor & self, at::Tensor & out);
-
 } // namespace native
 } // namespace at

@@ -22,29 +22,23 @@
 namespace at {
 
 
-// aten::_foreach_log2(Tensor[] tensors) -> Tensor[]
-TORCH_API inline ::std::vector<at::Tensor> _foreach_log2(at::TensorList tensors) {
-    return at::_ops::_foreach_log2::call(tensors);
+// aten::_foreach_log2(Tensor[] self) -> Tensor[]
+inline ::std::vector<at::Tensor> _foreach_log2(at::TensorList self) {
+    return at::_ops::_foreach_log2::call(self);
 }
 
 // aten::_foreach_log2_(Tensor(a!)[] self) -> ()
-TORCH_API inline void _foreach_log2_(at::TensorList self) {
+inline void _foreach_log2_(at::TensorList self) {
     return at::_ops::_foreach_log2_::call(self);
 }
 
 // aten::_foreach_log2.out(Tensor[] self, *, Tensor(a!)[] out) -> ()
-TORCH_API inline void _foreach_log2_out(at::TensorList out, at::TensorList self) {
+inline void _foreach_log2_out(at::TensorList out, at::TensorList self) {
     return at::_ops::_foreach_log2_out::call(self, out);
 }
-
 // aten::_foreach_log2.out(Tensor[] self, *, Tensor(a!)[] out) -> ()
-TORCH_API inline void _foreach_log2_outf(at::TensorList self, at::TensorList out) {
+inline void _foreach_log2_outf(at::TensorList self, at::TensorList out) {
     return at::_ops::_foreach_log2_out::call(self, out);
-}
-
-// aten::_foreach_log2.functional(Tensor[] self) -> Tensor[] self_out
-TORCH_API inline ::std::vector<at::Tensor> _foreach_log2_functional(at::TensorList self) {
-    return at::_ops::_foreach_log2_functional::call(self);
 }
 
 }

@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor linalg_tensorsolve(const at::Tensor & self, const at::Tensor & other, at::OptionalIntArrayRef dims=c10::nullopt);
 TORCH_API at::Tensor & linalg_tensorsolve_out(const at::Tensor & self, const at::Tensor & other, at::OptionalIntArrayRef dims, at::Tensor & out);
-
 } // namespace native
 } // namespace at

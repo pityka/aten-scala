@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
-TORCH_API at::Tensor unflatten(const at::Tensor & self, int64_t dim, at::IntArrayRef sizes, c10::optional<at::DimnameList> names=c10::nullopt);
+TORCH_API at::Tensor unflatten(const at::Tensor & self, int64_t dim, at::IntArrayRef sizes);
 TORCH_API at::Tensor unflatten(const at::Tensor & self, at::Dimname dim, at::IntArrayRef sizes, at::DimnameList names);
-
 } // namespace native
 } // namespace at

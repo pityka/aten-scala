@@ -16,11 +16,10 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor _sparse_log_softmax(const at::Tensor & self, int64_t dim, c10::optional<at::ScalarType> dtype=c10::nullopt);
 TORCH_API at::Tensor _sparse_log_softmax(const at::Tensor & self, at::Dimname dim, c10::optional<at::ScalarType> dtype=c10::nullopt);
+TORCH_API at::Tensor & _sparse_log_softmax_out(const at::Tensor & self, int64_t dim, bool half_to_float, at::Tensor & out);
 TORCH_API at::Tensor log_softmax_sparse_cpu(const at::Tensor & self, int64_t dim, bool half_to_float);
 TORCH_API at::Tensor log_softmax_sparse_cuda(const at::Tensor & self, int64_t dim, bool half_to_float);
-
 } // namespace native
 } // namespace at

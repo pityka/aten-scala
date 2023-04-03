@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor swapdims(const at::Tensor & self, int64_t dim0, int64_t dim1);
 TORCH_API at::Tensor & swapdims_(at::Tensor & self, int64_t dim0, int64_t dim1);
-
 } // namespace native
 } // namespace at

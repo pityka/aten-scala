@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::fbgemm_linear_int8_weight_fp32_activation(Tensor input, Tensor weight, Tensor packed, Tensor col_offsets, Scalar weight_scale, Scalar weight_zero_point, Tensor bias) -> Tensor
-TORCH_API inline at::Tensor fbgemm_linear_int8_weight_fp32_activation(const at::Tensor & input, const at::Tensor & weight, const at::Tensor & packed, const at::Tensor & col_offsets, const at::Scalar & weight_scale, const at::Scalar & weight_zero_point, const at::Tensor & bias) {
+inline at::Tensor fbgemm_linear_int8_weight_fp32_activation(const at::Tensor & input, const at::Tensor & weight, const at::Tensor & packed, const at::Tensor & col_offsets, const at::Scalar & weight_scale, const at::Scalar & weight_zero_point, const at::Tensor & bias) {
     return at::_ops::fbgemm_linear_int8_weight_fp32_activation::call(input, weight, packed, col_offsets, weight_scale, weight_zero_point, bias);
 }
 

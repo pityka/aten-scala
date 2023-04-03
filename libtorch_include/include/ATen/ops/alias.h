@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::alias(Tensor(a) self) -> Tensor(a)
-TORCH_API inline at::Tensor alias(const at::Tensor & self) {
+inline at::Tensor alias(const at::Tensor & self) {
     return at::_ops::alias::call(self);
 }
 

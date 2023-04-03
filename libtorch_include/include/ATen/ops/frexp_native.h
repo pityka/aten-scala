@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> frexp(const at::Tensor & self);
 TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> frexp_out(const at::Tensor & self, at::Tensor & mantissa, at::Tensor & exponent);
-
 } // namespace native
 } // namespace at

@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor cholesky_solve(const at::Tensor & self, const at::Tensor & input2, bool upper=false);
 TORCH_API at::Tensor & cholesky_solve_out(const at::Tensor & self, const at::Tensor & input2, bool upper, at::Tensor & out);
-
 } // namespace native
 } // namespace at

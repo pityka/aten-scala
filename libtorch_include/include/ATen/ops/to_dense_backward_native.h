@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor to_dense_backward(const at::Tensor & grad, const at::Tensor & input);
-
 } // namespace native
 } // namespace at

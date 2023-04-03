@@ -22,29 +22,23 @@
 namespace at {
 
 
-// aten::_foreach_neg(Tensor[] tensors) -> Tensor[]
-TORCH_API inline ::std::vector<at::Tensor> _foreach_neg(at::TensorList tensors) {
-    return at::_ops::_foreach_neg::call(tensors);
+// aten::_foreach_neg(Tensor[] self) -> Tensor[]
+inline ::std::vector<at::Tensor> _foreach_neg(at::TensorList self) {
+    return at::_ops::_foreach_neg::call(self);
 }
 
 // aten::_foreach_neg_(Tensor(a!)[] self) -> ()
-TORCH_API inline void _foreach_neg_(at::TensorList self) {
+inline void _foreach_neg_(at::TensorList self) {
     return at::_ops::_foreach_neg_::call(self);
 }
 
 // aten::_foreach_neg.out(Tensor[] self, *, Tensor(a!)[] out) -> ()
-TORCH_API inline void _foreach_neg_out(at::TensorList out, at::TensorList self) {
+inline void _foreach_neg_out(at::TensorList out, at::TensorList self) {
     return at::_ops::_foreach_neg_out::call(self, out);
 }
-
 // aten::_foreach_neg.out(Tensor[] self, *, Tensor(a!)[] out) -> ()
-TORCH_API inline void _foreach_neg_outf(at::TensorList self, at::TensorList out) {
+inline void _foreach_neg_outf(at::TensorList self, at::TensorList out) {
     return at::_ops::_foreach_neg_out::call(self, out);
-}
-
-// aten::_foreach_neg.functional(Tensor[] self) -> Tensor[] self_out
-TORCH_API inline ::std::vector<at::Tensor> _foreach_neg_functional(at::TensorList self) {
-    return at::_ops::_foreach_neg_functional::call(self);
 }
 
 }

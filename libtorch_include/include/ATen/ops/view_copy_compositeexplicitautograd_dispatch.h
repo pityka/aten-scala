@@ -17,10 +17,10 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
-TORCH_API at::Tensor view_copy(const at::Tensor & self, at::IntArrayRef size);
 TORCH_API at::Tensor & view_copy_out(at::Tensor & out, const at::Tensor & self, at::IntArrayRef size);
 TORCH_API at::Tensor & view_copy_outf(const at::Tensor & self, at::IntArrayRef size, at::Tensor & out);
-TORCH_API at::Tensor view_copy(const at::Tensor & self, at::ScalarType dtype);
+TORCH_API at::Tensor & view_copy_symint_out(at::Tensor & out, const at::Tensor & self, c10::SymIntArrayRef size);
+TORCH_API at::Tensor & view_copy_symint_outf(const at::Tensor & self, c10::SymIntArrayRef size, at::Tensor & out);
 TORCH_API at::Tensor & view_copy_out(at::Tensor & out, const at::Tensor & self, at::ScalarType dtype);
 TORCH_API at::Tensor & view_copy_outf(const at::Tensor & self, at::ScalarType dtype, at::Tensor & out);
 

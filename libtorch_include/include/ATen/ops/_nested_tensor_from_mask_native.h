@@ -16,8 +16,7 @@
 
 namespace at {
 namespace native {
-
-TORCH_API at::Tensor NestedTensor_nested_tensor_from_mask(const at::Tensor & t, const at::Tensor & mask);
-
+TORCH_API at::Tensor & _nested_tensor_from_mask_out(const at::Tensor & t, const at::Tensor & mask, bool mask_check, at::Tensor & out);
+TORCH_API at::Tensor NestedTensor_nested_tensor_from_mask(const at::Tensor & t, const at::Tensor & mask, bool mask_check=true);
 } // namespace native
 } // namespace at

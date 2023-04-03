@@ -17,6 +17,8 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
+TORCH_API at::Tensor & copy_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & src, bool non_blocking=false);
+TORCH_API at::Tensor & copy_outf(const at::Tensor & self, const at::Tensor & src, bool non_blocking, at::Tensor & out);
 TORCH_API at::Tensor & copy_(at::Tensor & self, const at::Tensor & src, bool non_blocking=false);
 
 } // namespace compositeexplicitautograd

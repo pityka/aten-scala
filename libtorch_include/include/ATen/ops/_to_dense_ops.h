@@ -25,4 +25,15 @@ struct TORCH_API _to_dense {
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, c10::optional<at::ScalarType> dtype);
 };
 
+struct TORCH_API _to_dense_out {
+  using schema = at::Tensor & (const at::Tensor &, c10::optional<at::ScalarType>, at::Tensor &);
+  using ptr_schema = schema*;
+  // See Note [static constexpr char* members for windows NVCC]
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_to_dense")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_to_dense.out(Tensor self, ScalarType? dtype=None, *, Tensor(a!) out) -> Tensor(a!)")
+  static at::Tensor & call(const at::Tensor & self, c10::optional<at::ScalarType> dtype, at::Tensor & out);
+  static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, c10::optional<at::ScalarType> dtype, at::Tensor & out);
+};
+
 }} // namespace at::_ops

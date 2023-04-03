@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::special_i0e(Tensor self) -> Tensor
-TORCH_API inline at::Tensor special_i0e(const at::Tensor & self) {
+inline at::Tensor special_i0e(const at::Tensor & self) {
     return at::_ops::special_i0e::call(self);
 }
 
 // aten::special_i0e.out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & special_i0e_out(at::Tensor & out, const at::Tensor & self) {
+inline at::Tensor & special_i0e_out(at::Tensor & out, const at::Tensor & self) {
     return at::_ops::special_i0e_out::call(self, out);
 }
-
 // aten::special_i0e.out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & special_i0e_outf(const at::Tensor & self, at::Tensor & out) {
+inline at::Tensor & special_i0e_outf(const at::Tensor & self, at::Tensor & out) {
     return at::_ops::special_i0e_out::call(self, out);
 }
 

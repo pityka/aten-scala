@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::promote_types(ScalarType type1, ScalarType type2) -> ScalarType
-TORCH_API inline at::ScalarType promote_types(at::ScalarType type1, at::ScalarType type2) {
+inline at::ScalarType promote_types(at::ScalarType type1, at::ScalarType type2) {
     return at::_ops::promote_types::call(type1, type2);
 }
 

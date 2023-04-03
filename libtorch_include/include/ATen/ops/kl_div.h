@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::kl_div(Tensor self, Tensor target, int reduction=Mean, *, bool log_target=False) -> Tensor
-TORCH_API inline at::Tensor kl_div(const at::Tensor & self, const at::Tensor & target, int64_t reduction=at::Reduction::Mean, bool log_target=false) {
+inline at::Tensor kl_div(const at::Tensor & self, const at::Tensor & target, int64_t reduction=at::Reduction::Mean, bool log_target=false) {
     return at::_ops::kl_div::call(self, target, reduction, log_target);
 }
 

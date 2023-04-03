@@ -23,38 +23,45 @@ namespace at {
 
 
 // aten::prod(Tensor self, *, ScalarType? dtype=None) -> Tensor
-TORCH_API inline at::Tensor prod(const at::Tensor & self, c10::optional<at::ScalarType> dtype=c10::nullopt) {
+inline at::Tensor prod(const at::Tensor & self, c10::optional<at::ScalarType> dtype=c10::nullopt) {
     return at::_ops::prod::call(self, dtype);
 }
 
 // aten::prod.dim_int(Tensor self, int dim, bool keepdim=False, *, ScalarType? dtype=None) -> Tensor
-TORCH_API inline at::Tensor prod(const at::Tensor & self, int64_t dim, bool keepdim=false, c10::optional<at::ScalarType> dtype=c10::nullopt) {
+inline at::Tensor prod(const at::Tensor & self, int64_t dim, bool keepdim=false, c10::optional<at::ScalarType> dtype=c10::nullopt) {
     return at::_ops::prod_dim_int::call(self, dim, keepdim, dtype);
 }
 
 // aten::prod.int_out(Tensor self, int dim, bool keepdim=False, *, ScalarType? dtype=None, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & prod_out(at::Tensor & out, const at::Tensor & self, int64_t dim, bool keepdim=false, c10::optional<at::ScalarType> dtype=c10::nullopt) {
+inline at::Tensor & prod_out(at::Tensor & out, const at::Tensor & self, int64_t dim, bool keepdim=false, c10::optional<at::ScalarType> dtype=c10::nullopt) {
     return at::_ops::prod_int_out::call(self, dim, keepdim, dtype, out);
 }
-
 // aten::prod.int_out(Tensor self, int dim, bool keepdim=False, *, ScalarType? dtype=None, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & prod_outf(const at::Tensor & self, int64_t dim, bool keepdim, c10::optional<at::ScalarType> dtype, at::Tensor & out) {
+inline at::Tensor & prod_outf(const at::Tensor & self, int64_t dim, bool keepdim, c10::optional<at::ScalarType> dtype, at::Tensor & out) {
     return at::_ops::prod_int_out::call(self, dim, keepdim, dtype, out);
 }
 
 // aten::prod.dim_Dimname(Tensor self, Dimname dim, bool keepdim=False, *, ScalarType? dtype=None) -> Tensor
-TORCH_API inline at::Tensor prod(const at::Tensor & self, at::Dimname dim, bool keepdim=false, c10::optional<at::ScalarType> dtype=c10::nullopt) {
+inline at::Tensor prod(const at::Tensor & self, at::Dimname dim, bool keepdim=false, c10::optional<at::ScalarType> dtype=c10::nullopt) {
     return at::_ops::prod_dim_Dimname::call(self, dim, keepdim, dtype);
 }
 
 // aten::prod.Dimname_out(Tensor self, Dimname dim, bool keepdim=False, *, ScalarType? dtype=None, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & prod_out(at::Tensor & out, const at::Tensor & self, at::Dimname dim, bool keepdim=false, c10::optional<at::ScalarType> dtype=c10::nullopt) {
+inline at::Tensor & prod_out(at::Tensor & out, const at::Tensor & self, at::Dimname dim, bool keepdim=false, c10::optional<at::ScalarType> dtype=c10::nullopt) {
+    return at::_ops::prod_Dimname_out::call(self, dim, keepdim, dtype, out);
+}
+// aten::prod.Dimname_out(Tensor self, Dimname dim, bool keepdim=False, *, ScalarType? dtype=None, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & prod_outf(const at::Tensor & self, at::Dimname dim, bool keepdim, c10::optional<at::ScalarType> dtype, at::Tensor & out) {
     return at::_ops::prod_Dimname_out::call(self, dim, keepdim, dtype, out);
 }
 
-// aten::prod.Dimname_out(Tensor self, Dimname dim, bool keepdim=False, *, ScalarType? dtype=None, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & prod_outf(const at::Tensor & self, at::Dimname dim, bool keepdim, c10::optional<at::ScalarType> dtype, at::Tensor & out) {
-    return at::_ops::prod_Dimname_out::call(self, dim, keepdim, dtype, out);
+// aten::prod.out(Tensor self, *, ScalarType? dtype=None, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & prod_out(at::Tensor & out, const at::Tensor & self, c10::optional<at::ScalarType> dtype=c10::nullopt) {
+    return at::_ops::prod_out::call(self, dtype, out);
+}
+// aten::prod.out(Tensor self, *, ScalarType? dtype=None, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & prod_outf(const at::Tensor & self, c10::optional<at::ScalarType> dtype, at::Tensor & out) {
+    return at::_ops::prod_out::call(self, dtype, out);
 }
 
 }

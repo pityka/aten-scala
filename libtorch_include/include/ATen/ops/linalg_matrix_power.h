@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::linalg_matrix_power(Tensor self, int n) -> Tensor
-TORCH_API inline at::Tensor linalg_matrix_power(const at::Tensor & self, int64_t n) {
+inline at::Tensor linalg_matrix_power(const at::Tensor & self, int64_t n) {
     return at::_ops::linalg_matrix_power::call(self, n);
 }
 
 // aten::linalg_matrix_power.out(Tensor self, int n, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & linalg_matrix_power_out(at::Tensor & out, const at::Tensor & self, int64_t n) {
+inline at::Tensor & linalg_matrix_power_out(at::Tensor & out, const at::Tensor & self, int64_t n) {
     return at::_ops::linalg_matrix_power_out::call(self, n, out);
 }
-
 // aten::linalg_matrix_power.out(Tensor self, int n, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & linalg_matrix_power_outf(const at::Tensor & self, int64_t n, at::Tensor & out) {
+inline at::Tensor & linalg_matrix_power_outf(const at::Tensor & self, int64_t n, at::Tensor & out) {
     return at::_ops::linalg_matrix_power_out::call(self, n, out);
 }
 

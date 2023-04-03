@@ -23,12 +23,12 @@ namespace at {
 
 
 // aten::detach(Tensor(a) self) -> Tensor(a)
-TORCH_API inline at::Tensor detach(const at::Tensor & self) {
+inline at::Tensor detach(const at::Tensor & self) {
     return at::_ops::detach::call(self);
 }
 
 // aten::detach_(Tensor(a!) self) -> Tensor(a!)
-TORCH_API inline at::Tensor & detach_(at::Tensor & self) {
+inline at::Tensor & detach_(at::Tensor & self) {
     return at::_ops::detach_::call(self);
 }
 

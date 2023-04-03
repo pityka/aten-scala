@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::is_distributed(Tensor self) -> bool
-TORCH_API inline bool is_distributed(const at::Tensor & self) {
+inline bool is_distributed(const at::Tensor & self) {
     return at::_ops::is_distributed::call(self);
 }
 

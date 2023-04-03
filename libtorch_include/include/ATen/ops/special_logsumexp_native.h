@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor special_logsumexp(const at::Tensor & self, at::IntArrayRef dim, bool keepdim=false);
 TORCH_API at::Tensor & special_logsumexp_out(const at::Tensor & self, at::IntArrayRef dim, bool keepdim, at::Tensor & out);
-
 } // namespace native
 } // namespace at

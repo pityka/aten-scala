@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::fft_rfft2(Tensor self, int[1]? s=None, int[1] dim=[-2,-1], str? norm=None) -> Tensor
-TORCH_API inline at::Tensor fft_rfft2(const at::Tensor & self, at::OptionalIntArrayRef s=c10::nullopt, at::IntArrayRef dim={-2,-1}, c10::optional<c10::string_view> norm=c10::nullopt) {
+inline at::Tensor fft_rfft2(const at::Tensor & self, at::OptionalIntArrayRef s=c10::nullopt, at::IntArrayRef dim={-2,-1}, c10::optional<c10::string_view> norm=c10::nullopt) {
     return at::_ops::fft_rfft2::call(self, s, dim, norm);
 }
 
 // aten::fft_rfft2.out(Tensor self, int[1]? s=None, int[1] dim=[-2,-1], str? norm=None, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & fft_rfft2_out(at::Tensor & out, const at::Tensor & self, at::OptionalIntArrayRef s=c10::nullopt, at::IntArrayRef dim={-2,-1}, c10::optional<c10::string_view> norm=c10::nullopt) {
+inline at::Tensor & fft_rfft2_out(at::Tensor & out, const at::Tensor & self, at::OptionalIntArrayRef s=c10::nullopt, at::IntArrayRef dim={-2,-1}, c10::optional<c10::string_view> norm=c10::nullopt) {
     return at::_ops::fft_rfft2_out::call(self, s, dim, norm, out);
 }
-
 // aten::fft_rfft2.out(Tensor self, int[1]? s=None, int[1] dim=[-2,-1], str? norm=None, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & fft_rfft2_outf(const at::Tensor & self, at::OptionalIntArrayRef s, at::IntArrayRef dim, c10::optional<c10::string_view> norm, at::Tensor & out) {
+inline at::Tensor & fft_rfft2_outf(const at::Tensor & self, at::OptionalIntArrayRef s, at::IntArrayRef dim, c10::optional<c10::string_view> norm, at::Tensor & out) {
     return at::_ops::fft_rfft2_out::call(self, s, dim, norm, out);
 }
 

@@ -25,4 +25,15 @@ struct TORCH_API _cudnn_init_dropout_state {
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, double dropout, bool train, int64_t dropout_seed, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory);
 };
 
+struct TORCH_API _cudnn_init_dropout_state_out {
+  using schema = at::Tensor & (double, bool, int64_t, at::Tensor &);
+  using ptr_schema = schema*;
+  // See Note [static constexpr char* members for windows NVCC]
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_cudnn_init_dropout_state")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_cudnn_init_dropout_state.out(float dropout, bool train, int dropout_seed, *, Tensor(a!) out) -> Tensor(a!)")
+  static at::Tensor & call(double dropout, bool train, int64_t dropout_seed, at::Tensor & out);
+  static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, double dropout, bool train, int64_t dropout_seed, at::Tensor & out);
+};
+
 }} // namespace at::_ops

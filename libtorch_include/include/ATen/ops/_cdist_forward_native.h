@@ -16,8 +16,8 @@
 
 namespace at {
 namespace native {
-
+TORCH_API at::Tensor & _cdist_forward_out(const at::Tensor & x1, const at::Tensor & x2, double p, c10::optional<int64_t> compute_mode, at::Tensor & out);
 TORCH_API at::Tensor _cdist_forward(const at::Tensor & x1, const at::Tensor & x2, double p, c10::optional<int64_t> compute_mode);
-
+TORCH_API at::Tensor _cdist_forward_mps(const at::Tensor & x1, const at::Tensor & x2, double p, c10::optional<int64_t> compute_mode);
 } // namespace native
 } // namespace at

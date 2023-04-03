@@ -22,64 +22,140 @@
 namespace at {
 
 
-// aten::set.source_Storage_out(Tensor self, Storage source, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & set_out(at::Tensor & out, const at::Tensor & self, at::Storage source) {
-    return at::_ops::set_source_Storage_out::call(self, source, out);
+namespace symint {
+  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  at::Tensor & set_(at::Tensor & self, at::Storage source, int64_t storage_offset, at::IntArrayRef size, at::IntArrayRef stride={}) {
+    return at::_ops::set__source_Storage_storage_offset::call(self, source, storage_offset, c10::fromIntArrayRefSlow(size), c10::fromIntArrayRefSlow(stride));
+  }
+}
+
+namespace symint {
+  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  at::Tensor & set_(at::Tensor & self, at::Storage source, c10::SymInt storage_offset, c10::SymIntArrayRef size, c10::SymIntArrayRef stride={}) {
+    return at::_ops::set__source_Storage_storage_offset::call(self, source, storage_offset, size, stride);
+  }
+}
+
+namespace symint {
+  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  at::Tensor & set_(at::Tensor & self, const at::Tensor & source, int64_t storage_offset, at::IntArrayRef size, at::IntArrayRef stride={}) {
+    return at::_ops::set__source_Tensor_storage_offset::call(self, source, storage_offset, c10::fromIntArrayRefSlow(size), c10::fromIntArrayRefSlow(stride));
+  }
+}
+
+namespace symint {
+  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  at::Tensor & set_(at::Tensor & self, const at::Tensor & source, c10::SymInt storage_offset, c10::SymIntArrayRef size, c10::SymIntArrayRef stride={}) {
+    return at::_ops::set__source_Tensor_storage_offset::call(self, source, storage_offset, size, stride);
+  }
 }
 
 // aten::set.source_Storage_out(Tensor self, Storage source, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & set_outf(const at::Tensor & self, at::Storage source, at::Tensor & out) {
+inline at::Tensor & set_out(at::Tensor & out, const at::Tensor & self, at::Storage source) {
+    return at::_ops::set_source_Storage_out::call(self, source, out);
+}
+// aten::set.source_Storage_out(Tensor self, Storage source, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & set_outf(const at::Tensor & self, at::Storage source, at::Tensor & out) {
     return at::_ops::set_source_Storage_out::call(self, source, out);
 }
 
-// aten::set.source_Storage_functional(Tensor self, Storage source) -> Tensor
-TORCH_API inline at::Tensor set_functional(const at::Tensor & self, at::Storage source) {
-    return at::_ops::set_source_Storage_functional::call(self, source);
+// aten::set.source_Storage(Tensor self, Storage source) -> Tensor
+inline at::Tensor set(const at::Tensor & self, at::Storage source) {
+    return at::_ops::set_source_Storage::call(self, source);
 }
 
-// aten::set.source_Storage_storage_offset_out(Tensor self, Storage source, int storage_offset, int[] size, int[] stride=[], *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & set_out(at::Tensor & out, const at::Tensor & self, at::Storage source, int64_t storage_offset, at::IntArrayRef size, at::IntArrayRef stride={}) {
+// aten::set.source_Storage_storage_offset_out(Tensor self, Storage source, SymInt storage_offset, SymInt[] size, SymInt[] stride=[], *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & set_out(at::Tensor & out, const at::Tensor & self, at::Storage source, int64_t storage_offset, at::IntArrayRef size, at::IntArrayRef stride={}) {
+    return at::_ops::set_source_Storage_storage_offset_out::call(self, source, storage_offset, c10::fromIntArrayRefSlow(size), c10::fromIntArrayRefSlow(stride), out);
+}
+namespace symint {
+  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  at::Tensor & set_out(at::Tensor & out, const at::Tensor & self, at::Storage source, int64_t storage_offset, at::IntArrayRef size, at::IntArrayRef stride={}) {
+    return at::_ops::set_source_Storage_storage_offset_out::call(self, source, storage_offset, c10::fromIntArrayRefSlow(size), c10::fromIntArrayRefSlow(stride), out);
+  }
+}
+
+// aten::set.source_Storage_storage_offset_out(Tensor self, Storage source, SymInt storage_offset, SymInt[] size, SymInt[] stride=[], *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & set_outf(const at::Tensor & self, at::Storage source, int64_t storage_offset, at::IntArrayRef size, at::IntArrayRef stride, at::Tensor & out) {
+    return at::_ops::set_source_Storage_storage_offset_out::call(self, source, storage_offset, c10::fromIntArrayRefSlow(size), c10::fromIntArrayRefSlow(stride), out);
+}
+namespace symint {
+  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  at::Tensor & set_outf(const at::Tensor & self, at::Storage source, int64_t storage_offset, at::IntArrayRef size, at::IntArrayRef stride, at::Tensor & out) {
+    return at::_ops::set_source_Storage_storage_offset_out::call(self, source, storage_offset, c10::fromIntArrayRefSlow(size), c10::fromIntArrayRefSlow(stride), out);
+  }
+}
+
+// aten::set.source_Storage_storage_offset_out(Tensor self, Storage source, SymInt storage_offset, SymInt[] size, SymInt[] stride=[], *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & set_symint_out(at::Tensor & out, const at::Tensor & self, at::Storage source, c10::SymInt storage_offset, c10::SymIntArrayRef size, c10::SymIntArrayRef stride={}) {
     return at::_ops::set_source_Storage_storage_offset_out::call(self, source, storage_offset, size, stride, out);
 }
-
-// aten::set.source_Storage_storage_offset_out(Tensor self, Storage source, int storage_offset, int[] size, int[] stride=[], *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & set_outf(const at::Tensor & self, at::Storage source, int64_t storage_offset, at::IntArrayRef size, at::IntArrayRef stride, at::Tensor & out) {
+namespace symint {
+  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  at::Tensor & set_out(at::Tensor & out, const at::Tensor & self, at::Storage source, c10::SymInt storage_offset, c10::SymIntArrayRef size, c10::SymIntArrayRef stride={}) {
     return at::_ops::set_source_Storage_storage_offset_out::call(self, source, storage_offset, size, stride, out);
+  }
 }
 
-// aten::set.source_Storage_storage_offset_functional(Tensor self, Storage source, int storage_offset, int[] size, int[] stride=[]) -> Tensor
-TORCH_API inline at::Tensor set_functional(const at::Tensor & self, at::Storage source, int64_t storage_offset, at::IntArrayRef size, at::IntArrayRef stride={}) {
-    return at::_ops::set_source_Storage_storage_offset_functional::call(self, source, storage_offset, size, stride);
+// aten::set.source_Storage_storage_offset_out(Tensor self, Storage source, SymInt storage_offset, SymInt[] size, SymInt[] stride=[], *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & set_symint_outf(const at::Tensor & self, at::Storage source, c10::SymInt storage_offset, c10::SymIntArrayRef size, c10::SymIntArrayRef stride, at::Tensor & out) {
+    return at::_ops::set_source_Storage_storage_offset_out::call(self, source, storage_offset, size, stride, out);
+}
+namespace symint {
+  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  at::Tensor & set_outf(const at::Tensor & self, at::Storage source, c10::SymInt storage_offset, c10::SymIntArrayRef size, c10::SymIntArrayRef stride, at::Tensor & out) {
+    return at::_ops::set_source_Storage_storage_offset_out::call(self, source, storage_offset, size, stride, out);
+  }
+}
+
+// aten::set.source_Storage_storage_offset(Tensor self, Storage source, SymInt storage_offset, SymInt[] size, SymInt[] stride=[]) -> Tensor
+inline at::Tensor set(const at::Tensor & self, at::Storage source, int64_t storage_offset, at::IntArrayRef size, at::IntArrayRef stride={}) {
+    return at::_ops::set_source_Storage_storage_offset::call(self, source, storage_offset, c10::fromIntArrayRefSlow(size), c10::fromIntArrayRefSlow(stride));
+}
+namespace symint {
+  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  at::Tensor set(const at::Tensor & self, at::Storage source, int64_t storage_offset, at::IntArrayRef size, at::IntArrayRef stride={}) {
+    return at::_ops::set_source_Storage_storage_offset::call(self, source, storage_offset, c10::fromIntArrayRefSlow(size), c10::fromIntArrayRefSlow(stride));
+  }
+}
+
+// aten::set.source_Storage_storage_offset(Tensor self, Storage source, SymInt storage_offset, SymInt[] size, SymInt[] stride=[]) -> Tensor
+inline at::Tensor set_symint(const at::Tensor & self, at::Storage source, c10::SymInt storage_offset, c10::SymIntArrayRef size, c10::SymIntArrayRef stride={}) {
+    return at::_ops::set_source_Storage_storage_offset::call(self, source, storage_offset, size, stride);
+}
+namespace symint {
+  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  at::Tensor set(const at::Tensor & self, at::Storage source, c10::SymInt storage_offset, c10::SymIntArrayRef size, c10::SymIntArrayRef stride={}) {
+    return at::_ops::set_source_Storage_storage_offset::call(self, source, storage_offset, size, stride);
+  }
 }
 
 // aten::set.source_Tensor_out(Tensor self, Tensor source, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & set_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & source) {
+inline at::Tensor & set_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & source) {
     return at::_ops::set_source_Tensor_out::call(self, source, out);
 }
-
 // aten::set.source_Tensor_out(Tensor self, Tensor source, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & set_outf(const at::Tensor & self, const at::Tensor & source, at::Tensor & out) {
+inline at::Tensor & set_outf(const at::Tensor & self, const at::Tensor & source, at::Tensor & out) {
     return at::_ops::set_source_Tensor_out::call(self, source, out);
 }
 
-// aten::set.source_Tensor_functional(Tensor self, Tensor source) -> Tensor
-TORCH_API inline at::Tensor set_functional(const at::Tensor & self, const at::Tensor & source) {
-    return at::_ops::set_source_Tensor_functional::call(self, source);
+// aten::set.source_Tensor(Tensor self, Tensor source) -> Tensor
+inline at::Tensor set(const at::Tensor & self, const at::Tensor & source) {
+    return at::_ops::set_source_Tensor::call(self, source);
 }
 
 // aten::set.out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & set_out(at::Tensor & out, const at::Tensor & self) {
+inline at::Tensor & set_out(at::Tensor & out, const at::Tensor & self) {
     return at::_ops::set_out::call(self, out);
 }
-
 // aten::set.out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & set_outf(const at::Tensor & self, at::Tensor & out) {
+inline at::Tensor & set_outf(const at::Tensor & self, at::Tensor & out) {
     return at::_ops::set_out::call(self, out);
 }
 
-// aten::set.functional(Tensor self) -> Tensor
-TORCH_API inline at::Tensor set_functional(const at::Tensor & self) {
-    return at::_ops::set_functional::call(self);
+// aten::set(Tensor self) -> Tensor
+inline at::Tensor set(const at::Tensor & self) {
+    return at::_ops::set::call(self);
 }
 
 }

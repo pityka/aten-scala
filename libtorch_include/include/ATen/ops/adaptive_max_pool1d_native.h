@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> adaptive_max_pool1d(const at::Tensor & self, at::IntArrayRef output_size);
-
 } // namespace native
 } // namespace at

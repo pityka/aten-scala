@@ -16,13 +16,11 @@
 
 namespace at {
 namespace native {
-
 struct TORCH_API structured_addmm_activation_out_cpu : public at::meta::structured__addmm_activation {
 void impl(const at::Tensor & self, const at::Tensor & mat1, const at::Tensor & mat2, const at::Scalar & beta, const at::Scalar & alpha, bool use_gelu, const at::Tensor & out);
 };
 struct TORCH_API structured_addmm_activation_out_cuda : public at::meta::structured__addmm_activation {
 void impl(const at::Tensor & self, const at::Tensor & mat1, const at::Tensor & mat2, const at::Scalar & beta, const at::Scalar & alpha, bool use_gelu, const at::Tensor & out);
 };
-
 } // namespace native
 } // namespace at

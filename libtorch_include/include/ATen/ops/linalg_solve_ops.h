@@ -15,25 +15,25 @@ namespace _ops {
 
 
 struct TORCH_API linalg_solve {
-  using schema = at::Tensor (const at::Tensor &, const at::Tensor &);
+  using schema = at::Tensor (const at::Tensor &, const at::Tensor &, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::linalg_solve")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "linalg_solve(Tensor input, Tensor other) -> Tensor")
-  static at::Tensor call(const at::Tensor & input, const at::Tensor & other);
-  static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & input, const at::Tensor & other);
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "linalg_solve(Tensor A, Tensor B, *, bool left=True) -> Tensor")
+  static at::Tensor call(const at::Tensor & A, const at::Tensor & B, bool left);
+  static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & A, const at::Tensor & B, bool left);
 };
 
 struct TORCH_API linalg_solve_out {
-  using schema = at::Tensor & (const at::Tensor &, const at::Tensor &, at::Tensor &);
+  using schema = at::Tensor & (const at::Tensor &, const at::Tensor &, bool, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::linalg_solve")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "linalg_solve.out(Tensor input, Tensor other, *, Tensor(a!) out) -> Tensor(a!)")
-  static at::Tensor & call(const at::Tensor & input, const at::Tensor & other, at::Tensor & out);
-  static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & input, const at::Tensor & other, at::Tensor & out);
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "linalg_solve.out(Tensor A, Tensor B, *, bool left=True, Tensor(a!) out) -> Tensor(a!)")
+  static at::Tensor & call(const at::Tensor & A, const at::Tensor & B, bool left, at::Tensor & out);
+  static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & A, const at::Tensor & B, bool left, at::Tensor & out);
 };
 
 }} // namespace at::_ops

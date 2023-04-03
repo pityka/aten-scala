@@ -23,42 +23,38 @@ namespace at {
 
 
 // aten::randperm(int n, *, ScalarType? dtype=long, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor
-TORCH_API inline at::Tensor randperm(int64_t n, at::TensorOptions options=at::kLong) {
+inline at::Tensor randperm(int64_t n, at::TensorOptions options=at::kLong) {
     return at::_ops::randperm::call(n, optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt());
 }
-
 // aten::randperm(int n, *, ScalarType? dtype=long, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor
-TORCH_API inline at::Tensor randperm(int64_t n, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory) {
+inline at::Tensor randperm(int64_t n, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory) {
     return at::_ops::randperm::call(n, dtype, layout, device, pin_memory);
 }
 
 // aten::randperm.generator(int n, *, Generator? generator, ScalarType? dtype=long, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor
-TORCH_API inline at::Tensor randperm(int64_t n, c10::optional<at::Generator> generator, at::TensorOptions options=at::kLong) {
+inline at::Tensor randperm(int64_t n, c10::optional<at::Generator> generator, at::TensorOptions options=at::kLong) {
     return at::_ops::randperm_generator::call(n, generator, optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt());
 }
-
 // aten::randperm.generator(int n, *, Generator? generator, ScalarType? dtype=long, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor
-TORCH_API inline at::Tensor randperm(int64_t n, c10::optional<at::Generator> generator, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory) {
+inline at::Tensor randperm(int64_t n, c10::optional<at::Generator> generator, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory) {
     return at::_ops::randperm_generator::call(n, generator, dtype, layout, device, pin_memory);
 }
 
 // aten::randperm.out(int n, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & randperm_out(at::Tensor & out, int64_t n) {
+inline at::Tensor & randperm_out(at::Tensor & out, int64_t n) {
     return at::_ops::randperm_out::call(n, out);
 }
-
 // aten::randperm.out(int n, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & randperm_outf(int64_t n, at::Tensor & out) {
+inline at::Tensor & randperm_outf(int64_t n, at::Tensor & out) {
     return at::_ops::randperm_out::call(n, out);
 }
 
 // aten::randperm.generator_out(int n, *, Generator? generator, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & randperm_out(at::Tensor & out, int64_t n, c10::optional<at::Generator> generator) {
+inline at::Tensor & randperm_out(at::Tensor & out, int64_t n, c10::optional<at::Generator> generator) {
     return at::_ops::randperm_generator_out::call(n, generator, out);
 }
-
 // aten::randperm.generator_out(int n, *, Generator? generator, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & randperm_outf(int64_t n, c10::optional<at::Generator> generator, at::Tensor & out) {
+inline at::Tensor & randperm_outf(int64_t n, c10::optional<at::Generator> generator, at::Tensor & out) {
     return at::_ops::randperm_generator_out::call(n, generator, out);
 }
 

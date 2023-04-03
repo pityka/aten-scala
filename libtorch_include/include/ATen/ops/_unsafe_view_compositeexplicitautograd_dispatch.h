@@ -18,6 +18,11 @@ namespace at {
 namespace compositeexplicitautograd {
 
 TORCH_API at::Tensor _unsafe_view(const at::Tensor & self, at::IntArrayRef size);
+TORCH_API at::Tensor _unsafe_view_symint(const at::Tensor & self, c10::SymIntArrayRef size);
+TORCH_API at::Tensor & _unsafe_view_out(at::Tensor & out, const at::Tensor & self, at::IntArrayRef size);
+TORCH_API at::Tensor & _unsafe_view_outf(const at::Tensor & self, at::IntArrayRef size, at::Tensor & out);
+TORCH_API at::Tensor & _unsafe_view_symint_out(at::Tensor & out, const at::Tensor & self, c10::SymIntArrayRef size);
+TORCH_API at::Tensor & _unsafe_view_symint_outf(const at::Tensor & self, c10::SymIntArrayRef size, at::Tensor & out);
 
 } // namespace compositeexplicitautograd
 } // namespace at

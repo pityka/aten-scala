@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::lgamma.out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & lgamma_out(at::Tensor & out, const at::Tensor & self) {
+inline at::Tensor & lgamma_out(at::Tensor & out, const at::Tensor & self) {
     return at::_ops::lgamma_out::call(self, out);
 }
-
 // aten::lgamma.out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & lgamma_outf(const at::Tensor & self, at::Tensor & out) {
+inline at::Tensor & lgamma_outf(const at::Tensor & self, at::Tensor & out) {
     return at::_ops::lgamma_out::call(self, out);
 }
 
 // aten::lgamma(Tensor self) -> Tensor
-TORCH_API inline at::Tensor lgamma(const at::Tensor & self) {
+inline at::Tensor lgamma(const at::Tensor & self) {
     return at::_ops::lgamma::call(self);
 }
 

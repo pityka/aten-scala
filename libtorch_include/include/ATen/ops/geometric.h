@@ -23,18 +23,17 @@ namespace at {
 
 
 // aten::geometric.out(Tensor self, float p, *, Generator? generator=None, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & geometric_out(at::Tensor & out, const at::Tensor & self, double p, c10::optional<at::Generator> generator=c10::nullopt) {
+inline at::Tensor & geometric_out(at::Tensor & out, const at::Tensor & self, double p, c10::optional<at::Generator> generator=c10::nullopt) {
     return at::_ops::geometric_out::call(self, p, generator, out);
 }
-
 // aten::geometric.out(Tensor self, float p, *, Generator? generator=None, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & geometric_outf(const at::Tensor & self, double p, c10::optional<at::Generator> generator, at::Tensor & out) {
+inline at::Tensor & geometric_outf(const at::Tensor & self, double p, c10::optional<at::Generator> generator, at::Tensor & out) {
     return at::_ops::geometric_out::call(self, p, generator, out);
 }
 
-// aten::geometric.functional(Tensor self, float p, *, Generator? generator=None) -> Tensor
-TORCH_API inline at::Tensor geometric_functional(const at::Tensor & self, double p, c10::optional<at::Generator> generator=c10::nullopt) {
-    return at::_ops::geometric_functional::call(self, p, generator);
+// aten::geometric(Tensor self, float p, *, Generator? generator=None) -> Tensor
+inline at::Tensor geometric(const at::Tensor & self, double p, c10::optional<at::Generator> generator=c10::nullopt) {
+    return at::_ops::geometric::call(self, p, generator);
 }
 
 }

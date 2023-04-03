@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API ::std::vector<at::Tensor> nonzero_numpy(const at::Tensor & self);
-
 } // namespace native
 } // namespace at

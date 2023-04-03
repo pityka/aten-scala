@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API bool cudnn_is_acceptable(const at::Tensor & self);
-
 } // namespace native
 } // namespace at

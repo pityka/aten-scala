@@ -23,32 +23,30 @@ namespace at {
 
 
 // aten::sub.out(Tensor self, Tensor other, *, Scalar alpha=1, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & sub_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & other, const at::Scalar & alpha=1) {
+inline at::Tensor & sub_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & other, const at::Scalar & alpha=1) {
     return at::_ops::sub_out::call(self, other, alpha, out);
 }
-
 // aten::sub.out(Tensor self, Tensor other, *, Scalar alpha=1, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & sub_outf(const at::Tensor & self, const at::Tensor & other, const at::Scalar & alpha, at::Tensor & out) {
+inline at::Tensor & sub_outf(const at::Tensor & self, const at::Tensor & other, const at::Scalar & alpha, at::Tensor & out) {
     return at::_ops::sub_out::call(self, other, alpha, out);
 }
 
 // aten::sub.Tensor(Tensor self, Tensor other, *, Scalar alpha=1) -> Tensor
-TORCH_API inline at::Tensor sub(const at::Tensor & self, const at::Tensor & other, const at::Scalar & alpha=1) {
+inline at::Tensor sub(const at::Tensor & self, const at::Tensor & other, const at::Scalar & alpha=1) {
     return at::_ops::sub_Tensor::call(self, other, alpha);
 }
 
 // aten::sub.Scalar(Tensor self, Scalar other, Scalar alpha=1) -> Tensor
-TORCH_API inline at::Tensor sub(const at::Tensor & self, const at::Scalar & other, const at::Scalar & alpha=1) {
+inline at::Tensor sub(const at::Tensor & self, const at::Scalar & other, const at::Scalar & alpha=1) {
     return at::_ops::sub_Scalar::call(self, other, alpha);
 }
 
 // aten::sub.Scalar_out(Tensor self, Scalar other, Scalar alpha=1, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & sub_out(at::Tensor & out, const at::Tensor & self, const at::Scalar & other, const at::Scalar & alpha=1) {
+inline at::Tensor & sub_out(at::Tensor & out, const at::Tensor & self, const at::Scalar & other, const at::Scalar & alpha=1) {
     return at::_ops::sub_Scalar_out::call(self, other, alpha, out);
 }
-
 // aten::sub.Scalar_out(Tensor self, Scalar other, Scalar alpha=1, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & sub_outf(const at::Tensor & self, const at::Scalar & other, const at::Scalar & alpha, at::Tensor & out) {
+inline at::Tensor & sub_outf(const at::Tensor & self, const at::Scalar & other, const at::Scalar & alpha, at::Tensor & out) {
     return at::_ops::sub_Scalar_out::call(self, other, alpha, out);
 }
 

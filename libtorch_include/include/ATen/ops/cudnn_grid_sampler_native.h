@@ -16,8 +16,7 @@
 
 namespace at {
 namespace native {
-
+TORCH_API at::Tensor & cudnn_grid_sampler_out(const at::Tensor & self, const at::Tensor & grid, at::Tensor & out);
 TORCH_API at::Tensor cudnn_grid_sampler_forward(const at::Tensor & self, const at::Tensor & grid);
-
 } // namespace native
 } // namespace at

@@ -23,38 +23,45 @@ namespace at {
 
 
 // aten::bitwise_left_shift.Tensor(Tensor self, Tensor other) -> Tensor
-TORCH_API inline at::Tensor bitwise_left_shift(const at::Tensor & self, const at::Tensor & other) {
+inline at::Tensor bitwise_left_shift(const at::Tensor & self, const at::Tensor & other) {
     return at::_ops::bitwise_left_shift_Tensor::call(self, other);
 }
 
 // aten::bitwise_left_shift.Tensor_out(Tensor self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & bitwise_left_shift_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & other) {
+inline at::Tensor & bitwise_left_shift_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & other) {
     return at::_ops::bitwise_left_shift_Tensor_out::call(self, other, out);
 }
-
 // aten::bitwise_left_shift.Tensor_out(Tensor self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & bitwise_left_shift_outf(const at::Tensor & self, const at::Tensor & other, at::Tensor & out) {
+inline at::Tensor & bitwise_left_shift_outf(const at::Tensor & self, const at::Tensor & other, at::Tensor & out) {
     return at::_ops::bitwise_left_shift_Tensor_out::call(self, other, out);
 }
 
 // aten::bitwise_left_shift.Tensor_Scalar(Tensor self, Scalar other) -> Tensor
-TORCH_API inline at::Tensor bitwise_left_shift(const at::Tensor & self, const at::Scalar & other) {
+inline at::Tensor bitwise_left_shift(const at::Tensor & self, const at::Scalar & other) {
     return at::_ops::bitwise_left_shift_Tensor_Scalar::call(self, other);
 }
 
 // aten::bitwise_left_shift.Tensor_Scalar_out(Tensor self, Scalar other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & bitwise_left_shift_out(at::Tensor & out, const at::Tensor & self, const at::Scalar & other) {
+inline at::Tensor & bitwise_left_shift_out(at::Tensor & out, const at::Tensor & self, const at::Scalar & other) {
     return at::_ops::bitwise_left_shift_Tensor_Scalar_out::call(self, other, out);
 }
-
 // aten::bitwise_left_shift.Tensor_Scalar_out(Tensor self, Scalar other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & bitwise_left_shift_outf(const at::Tensor & self, const at::Scalar & other, at::Tensor & out) {
+inline at::Tensor & bitwise_left_shift_outf(const at::Tensor & self, const at::Scalar & other, at::Tensor & out) {
     return at::_ops::bitwise_left_shift_Tensor_Scalar_out::call(self, other, out);
 }
 
 // aten::bitwise_left_shift.Scalar_Tensor(Scalar self, Tensor other) -> Tensor
-TORCH_API inline at::Tensor bitwise_left_shift(const at::Scalar & self, const at::Tensor & other) {
+inline at::Tensor bitwise_left_shift(const at::Scalar & self, const at::Tensor & other) {
     return at::_ops::bitwise_left_shift_Scalar_Tensor::call(self, other);
+}
+
+// aten::bitwise_left_shift.Scalar_Tensor_out(Scalar self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & bitwise_left_shift_out(at::Tensor & out, const at::Scalar & self, const at::Tensor & other) {
+    return at::_ops::bitwise_left_shift_Scalar_Tensor_out::call(self, other, out);
+}
+// aten::bitwise_left_shift.Scalar_Tensor_out(Scalar self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & bitwise_left_shift_outf(const at::Scalar & self, const at::Tensor & other, at::Tensor & out) {
+    return at::_ops::bitwise_left_shift_Scalar_Tensor_out::call(self, other, out);
 }
 
 }

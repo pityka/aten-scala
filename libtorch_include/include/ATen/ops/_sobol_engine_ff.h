@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::_sobol_engine_ff_(Tensor(a!) self, int n, Tensor sobolstate, int dimension, int num_generated) -> Tensor(a!)
-TORCH_API inline at::Tensor & _sobol_engine_ff_(at::Tensor & self, int64_t n, const at::Tensor & sobolstate, int64_t dimension, int64_t num_generated) {
+inline at::Tensor & _sobol_engine_ff_(at::Tensor & self, int64_t n, const at::Tensor & sobolstate, int64_t dimension, int64_t num_generated) {
     return at::_ops::_sobol_engine_ff_::call(self, n, sobolstate, dimension, num_generated);
 }
 

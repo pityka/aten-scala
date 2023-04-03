@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::avg_pool1d(Tensor self, int[1] kernel_size, int[1] stride=[], int[1] padding=0, bool ceil_mode=False, bool count_include_pad=True) -> Tensor
-TORCH_API inline at::Tensor avg_pool1d(const at::Tensor & self, at::IntArrayRef kernel_size, at::IntArrayRef stride={}, at::IntArrayRef padding=0, bool ceil_mode=false, bool count_include_pad=true) {
+inline at::Tensor avg_pool1d(const at::Tensor & self, at::IntArrayRef kernel_size, at::IntArrayRef stride={}, at::IntArrayRef padding=0, bool ceil_mode=false, bool count_include_pad=true) {
     return at::_ops::avg_pool1d::call(self, kernel_size, stride, padding, ceil_mode, count_include_pad);
 }
 

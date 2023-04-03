@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor cosine_similarity(const at::Tensor & x1, const at::Tensor & x2, int64_t dim=1, double eps=1e-08);
-
 } // namespace native
 } // namespace at

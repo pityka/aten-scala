@@ -16,9 +16,8 @@
 
 namespace at {
 namespace native {
-
+TORCH_API at::Tensor & roll_out(const at::Tensor & self, at::IntArrayRef shifts, at::IntArrayRef dims, at::Tensor & out);
 TORCH_API at::Tensor roll_cpu(const at::Tensor & self, at::IntArrayRef shifts, at::IntArrayRef dims={});
 TORCH_API at::Tensor roll_cuda(const at::Tensor & self, at::IntArrayRef shifts, at::IntArrayRef dims={});
-
 } // namespace native
 } // namespace at

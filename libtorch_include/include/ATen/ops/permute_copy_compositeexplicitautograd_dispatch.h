@@ -17,7 +17,6 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
-TORCH_API at::Tensor permute_copy(const at::Tensor & self, at::IntArrayRef dims);
 TORCH_API at::Tensor & permute_copy_out(at::Tensor & out, const at::Tensor & self, at::IntArrayRef dims);
 TORCH_API at::Tensor & permute_copy_outf(const at::Tensor & self, at::IntArrayRef dims, at::Tensor & out);
 

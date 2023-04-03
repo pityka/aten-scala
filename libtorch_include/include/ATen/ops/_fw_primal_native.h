@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor _fw_primal(const at::Tensor & self, int64_t level);
-
 } // namespace native
 } // namespace at

@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::fake_quantize_per_channel_affine(Tensor self, Tensor scale, Tensor zero_point, int axis, int quant_min, int quant_max) -> Tensor
-TORCH_API inline at::Tensor fake_quantize_per_channel_affine(const at::Tensor & self, const at::Tensor & scale, const at::Tensor & zero_point, int64_t axis, int64_t quant_min, int64_t quant_max) {
+inline at::Tensor fake_quantize_per_channel_affine(const at::Tensor & self, const at::Tensor & scale, const at::Tensor & zero_point, int64_t axis, int64_t quant_min, int64_t quant_max) {
     return at::_ops::fake_quantize_per_channel_affine::call(self, scale, zero_point, axis, quant_min, quant_max);
 }
 

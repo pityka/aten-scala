@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API ::std::vector<at::Tensor> broadcast_tensors(at::TensorList tensors);
-
 } // namespace native
 } // namespace at

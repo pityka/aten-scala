@@ -16,9 +16,8 @@
 
 namespace at {
 namespace native {
-
+TORCH_API at::Tensor & int_repr_out(const at::Tensor & self, at::Tensor & out);
 TORCH_API at::Tensor int_repr_quantized_cpu(const at::Tensor & self);
 TORCH_API at::Tensor int_repr_quantized_cuda(const at::Tensor & self);
-
 } // namespace native
 } // namespace at

@@ -18,6 +18,8 @@ namespace at {
 namespace compositeexplicitautograd {
 
 TORCH_API at::Tensor _sparse_sum(const at::Tensor & self, at::IntArrayRef dim);
+TORCH_API at::Tensor & _sparse_sum_out(at::Tensor & out, const at::Tensor & self, at::IntArrayRef dim);
+TORCH_API at::Tensor & _sparse_sum_outf(const at::Tensor & self, at::IntArrayRef dim, at::Tensor & out);
 
 } // namespace compositeexplicitautograd
 } // namespace at

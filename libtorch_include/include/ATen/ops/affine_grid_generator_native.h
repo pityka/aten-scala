@@ -16,8 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor affine_grid_generator(const at::Tensor & theta, at::IntArrayRef size, bool align_corners);
-
+TORCH_API at::Tensor & affine_grid_generator_out(const at::Tensor & theta, at::IntArrayRef size, bool align_corners, at::Tensor & out);
 } // namespace native
 } // namespace at

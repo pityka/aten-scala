@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::is_same_size(Tensor self, Tensor other) -> bool
-TORCH_API inline bool is_same_size(const at::Tensor & self, const at::Tensor & other) {
+inline bool is_same_size(const at::Tensor & self, const at::Tensor & other) {
     return at::_ops::is_same_size::call(self, other);
 }
 

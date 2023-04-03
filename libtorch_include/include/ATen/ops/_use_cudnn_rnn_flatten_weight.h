@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::_use_cudnn_rnn_flatten_weight() -> bool
-TORCH_API inline bool _use_cudnn_rnn_flatten_weight() {
+inline bool _use_cudnn_rnn_flatten_weight() {
     return at::_ops::_use_cudnn_rnn_flatten_weight::call();
 }
 

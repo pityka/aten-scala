@@ -12,13 +12,13 @@
 #include <ATen/core/Tensor.h>
 #include <tuple>
 #include <vector>
-
+#include <ATen/ops/index_meta.h>
 
 namespace at {
 namespace native {
-
-TORCH_API at::Tensor index(const at::Tensor & self, const c10::List<c10::optional<at::Tensor>> & indices);
+struct TORCH_API structured_index_out : public at::meta::structured_index_Tensor {
+void impl(const at::Tensor & self, at::DimVector sizes, at::DimVector strides, const at::Tensor & out);
+};
 TORCH_API at::Tensor quantized_index(const at::Tensor & self, const c10::List<c10::optional<at::Tensor>> & indices);
-
 } // namespace native
 } // namespace at

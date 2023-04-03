@@ -20,7 +20,7 @@ namespace meta {
 struct TORCH_API structured__linalg_svd : public at::impl::MetaBase {
     
     
-    void meta(const at::Tensor & A, bool full_matrices, bool compute_uv);
+    void meta(const at::Tensor & A, bool full_matrices, bool compute_uv, c10::optional<c10::string_view> driver);
 };
 
 } // namespace native

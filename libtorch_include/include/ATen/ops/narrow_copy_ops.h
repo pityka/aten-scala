@@ -15,36 +15,25 @@ namespace _ops {
 
 
 struct TORCH_API narrow_copy {
-  using schema = at::Tensor (const at::Tensor &, int64_t, int64_t, int64_t);
+  using schema = at::Tensor (const at::Tensor &, int64_t, c10::SymInt, c10::SymInt);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::narrow_copy")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "narrow_copy(Tensor self, int dim, int start, int length) -> Tensor")
-  static at::Tensor call(const at::Tensor & self, int64_t dim, int64_t start, int64_t length);
-  static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t dim, int64_t start, int64_t length);
-};
-
-struct TORCH_API narrow_copy_SymInt {
-  using schema = at::Tensor (const at::Tensor &, int64_t, int64_t, c10::SymInt);
-  using ptr_schema = schema*;
-  // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::narrow_copy")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "SymInt")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "narrow_copy.SymInt(Tensor self, int dim, int start, SymInt length) -> Tensor")
-  static at::Tensor call(const at::Tensor & self, int64_t dim, int64_t start, c10::SymInt length);
-  static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t dim, int64_t start, c10::SymInt length);
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "narrow_copy(Tensor self, int dim, SymInt start, SymInt length) -> Tensor")
+  static at::Tensor call(const at::Tensor & self, int64_t dim, c10::SymInt start, c10::SymInt length);
+  static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t dim, c10::SymInt start, c10::SymInt length);
 };
 
 struct TORCH_API narrow_copy_out {
-  using schema = at::Tensor & (const at::Tensor &, int64_t, int64_t, int64_t, at::Tensor &);
+  using schema = at::Tensor & (const at::Tensor &, int64_t, c10::SymInt, c10::SymInt, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::narrow_copy")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "narrow_copy.out(Tensor self, int dim, int start, int length, *, Tensor(a!) out) -> Tensor(a!)")
-  static at::Tensor & call(const at::Tensor & self, int64_t dim, int64_t start, int64_t length, at::Tensor & out);
-  static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t dim, int64_t start, int64_t length, at::Tensor & out);
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "narrow_copy.out(Tensor self, int dim, SymInt start, SymInt length, *, Tensor(a!) out) -> Tensor(a!)")
+  static at::Tensor & call(const at::Tensor & self, int64_t dim, c10::SymInt start, c10::SymInt length, at::Tensor & out);
+  static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t dim, c10::SymInt start, c10::SymInt length, at::Tensor & out);
 };
 
 }} // namespace at::_ops

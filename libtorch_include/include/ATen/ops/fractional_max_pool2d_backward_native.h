@@ -16,13 +16,11 @@
 
 namespace at {
 namespace native {
-
 struct TORCH_API structured_fractional_max_pool2d_backward_cpu : public at::meta::structured_fractional_max_pool2d_backward {
 void impl(const at::Tensor & grad_output, const at::Tensor & self, at::IntArrayRef kernel_size, at::IntArrayRef output_size, const at::Tensor & indices, const at::Tensor & grad_input);
 };
 struct TORCH_API structured_fractional_max_pool2d_backward_cuda : public at::meta::structured_fractional_max_pool2d_backward {
 void impl(const at::Tensor & grad_output, const at::Tensor & self, at::IntArrayRef kernel_size, at::IntArrayRef output_size, const at::Tensor & indices, const at::Tensor & grad_input);
 };
-
 } // namespace native
 } // namespace at

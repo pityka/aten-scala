@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor trapezoid(const at::Tensor & y, const at::Tensor & x, int64_t dim=-1);
 TORCH_API at::Tensor trapezoid(const at::Tensor & y, const at::Scalar & dx=1, int64_t dim=-1);
-
 } // namespace native
 } // namespace at

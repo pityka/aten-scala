@@ -23,8 +23,17 @@ namespace at {
 
 
 // aten::cudnn_affine_grid_generator(Tensor theta, int N, int C, int H, int W) -> Tensor grid
-TORCH_API inline at::Tensor cudnn_affine_grid_generator(const at::Tensor & theta, int64_t N, int64_t C, int64_t H, int64_t W) {
+inline at::Tensor cudnn_affine_grid_generator(const at::Tensor & theta, int64_t N, int64_t C, int64_t H, int64_t W) {
     return at::_ops::cudnn_affine_grid_generator::call(theta, N, C, H, W);
+}
+
+// aten::cudnn_affine_grid_generator.out(Tensor theta, int N, int C, int H, int W, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & cudnn_affine_grid_generator_out(at::Tensor & out, const at::Tensor & theta, int64_t N, int64_t C, int64_t H, int64_t W) {
+    return at::_ops::cudnn_affine_grid_generator_out::call(theta, N, C, H, W, out);
+}
+// aten::cudnn_affine_grid_generator.out(Tensor theta, int N, int C, int H, int W, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & cudnn_affine_grid_generator_outf(const at::Tensor & theta, int64_t N, int64_t C, int64_t H, int64_t W, at::Tensor & out) {
+    return at::_ops::cudnn_affine_grid_generator_out::call(theta, N, C, H, W, out);
 }
 
 }

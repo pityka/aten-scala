@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::scatter_reduce.two(Tensor self, int dim, Tensor index, Tensor src, str reduce, *, bool include_self=True) -> Tensor
-TORCH_API inline at::Tensor scatter_reduce(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & src, c10::string_view reduce, bool include_self=true) {
+inline at::Tensor scatter_reduce(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & src, c10::string_view reduce, bool include_self=true) {
     return at::_ops::scatter_reduce_two::call(self, dim, index, src, reduce, include_self);
 }
 
 // aten::scatter_reduce.two_out(Tensor self, int dim, Tensor index, Tensor src, str reduce, *, bool include_self=True, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & scatter_reduce_out(at::Tensor & out, const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & src, c10::string_view reduce, bool include_self=true) {
+inline at::Tensor & scatter_reduce_out(at::Tensor & out, const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & src, c10::string_view reduce, bool include_self=true) {
     return at::_ops::scatter_reduce_two_out::call(self, dim, index, src, reduce, include_self, out);
 }
-
 // aten::scatter_reduce.two_out(Tensor self, int dim, Tensor index, Tensor src, str reduce, *, bool include_self=True, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & scatter_reduce_outf(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & src, c10::string_view reduce, bool include_self, at::Tensor & out) {
+inline at::Tensor & scatter_reduce_outf(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & src, c10::string_view reduce, bool include_self, at::Tensor & out) {
     return at::_ops::scatter_reduce_two_out::call(self, dim, index, src, reduce, include_self, out);
 }
 

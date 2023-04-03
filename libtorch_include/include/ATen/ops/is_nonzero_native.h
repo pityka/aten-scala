@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API bool is_nonzero(const at::Tensor & self);
-
 } // namespace native
 } // namespace at

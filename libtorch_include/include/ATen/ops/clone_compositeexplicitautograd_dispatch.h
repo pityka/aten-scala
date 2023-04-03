@@ -18,6 +18,8 @@ namespace at {
 namespace compositeexplicitautograd {
 
 TORCH_API at::Tensor clone(const at::Tensor & self, c10::optional<at::MemoryFormat> memory_format=c10::nullopt);
+TORCH_API at::Tensor & clone_out(at::Tensor & out, const at::Tensor & self, c10::optional<at::MemoryFormat> memory_format=c10::nullopt);
+TORCH_API at::Tensor & clone_outf(const at::Tensor & self, c10::optional<at::MemoryFormat> memory_format, at::Tensor & out);
 
 } // namespace compositeexplicitautograd
 } // namespace at

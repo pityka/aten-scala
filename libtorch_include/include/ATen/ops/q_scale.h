@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::q_scale(Tensor self) -> float
-TORCH_API inline double q_scale(const at::Tensor & self) {
+inline double q_scale(const at::Tensor & self) {
     return at::_ops::q_scale::call(self);
 }
 

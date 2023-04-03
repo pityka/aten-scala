@@ -23,23 +23,39 @@ namespace at {
 
 
 // aten::blackman_window(int window_length, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor
-TORCH_API inline at::Tensor blackman_window(int64_t window_length, at::TensorOptions options={}) {
+inline at::Tensor blackman_window(int64_t window_length, at::TensorOptions options={}) {
     return at::_ops::blackman_window::call(window_length, optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt());
 }
-
 // aten::blackman_window(int window_length, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor
-TORCH_API inline at::Tensor blackman_window(int64_t window_length, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory) {
+inline at::Tensor blackman_window(int64_t window_length, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory) {
     return at::_ops::blackman_window::call(window_length, dtype, layout, device, pin_memory);
 }
 
 // aten::blackman_window.periodic(int window_length, bool periodic, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor
-TORCH_API inline at::Tensor blackman_window(int64_t window_length, bool periodic, at::TensorOptions options={}) {
+inline at::Tensor blackman_window(int64_t window_length, bool periodic, at::TensorOptions options={}) {
     return at::_ops::blackman_window_periodic::call(window_length, periodic, optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt());
 }
-
 // aten::blackman_window.periodic(int window_length, bool periodic, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor
-TORCH_API inline at::Tensor blackman_window(int64_t window_length, bool periodic, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory) {
+inline at::Tensor blackman_window(int64_t window_length, bool periodic, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory) {
     return at::_ops::blackman_window_periodic::call(window_length, periodic, dtype, layout, device, pin_memory);
+}
+
+// aten::blackman_window.out(int window_length, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & blackman_window_out(at::Tensor & out, int64_t window_length) {
+    return at::_ops::blackman_window_out::call(window_length, out);
+}
+// aten::blackman_window.out(int window_length, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & blackman_window_outf(int64_t window_length, at::Tensor & out) {
+    return at::_ops::blackman_window_out::call(window_length, out);
+}
+
+// aten::blackman_window.periodic_out(int window_length, bool periodic, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & blackman_window_out(at::Tensor & out, int64_t window_length, bool periodic) {
+    return at::_ops::blackman_window_periodic_out::call(window_length, periodic, out);
+}
+// aten::blackman_window.periodic_out(int window_length, bool periodic, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & blackman_window_outf(int64_t window_length, bool periodic, at::Tensor & out) {
+    return at::_ops::blackman_window_periodic_out::call(window_length, periodic, out);
 }
 
 }

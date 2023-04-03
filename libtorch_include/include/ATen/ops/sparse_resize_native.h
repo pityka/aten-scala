@@ -16,9 +16,8 @@
 
 namespace at {
 namespace native {
-
-TORCH_API at::Tensor sparse_resize_functional(const at::Tensor & self, at::IntArrayRef size, int64_t sparse_dim, int64_t dense_dim);
+TORCH_API at::Tensor sparse_resize(const at::Tensor & self, at::IntArrayRef size, int64_t sparse_dim, int64_t dense_dim);
+TORCH_API const at::Tensor & sparse_resize_out(const at::Tensor & self, at::IntArrayRef size, int64_t sparse_dim, int64_t dense_dim, const at::Tensor & out);
 TORCH_API const at::Tensor & sparse_resize_(const at::Tensor & self, at::IntArrayRef size, int64_t sparse_dim, int64_t dense_dim);
-
 } // namespace native
 } // namespace at

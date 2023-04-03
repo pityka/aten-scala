@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor pinverse(const at::Tensor & self, double rcond=1e-15);
-
 } // namespace native
 } // namespace at

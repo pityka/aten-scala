@@ -22,79 +22,61 @@
 namespace at {
 
 
-// aten::_foreach_sub.Scalar(Tensor[] tensors, Scalar scalar) -> Tensor[]
-TORCH_API inline ::std::vector<at::Tensor> _foreach_sub(at::TensorList tensors, const at::Scalar & scalar) {
-    return at::_ops::_foreach_sub_Scalar::call(tensors, scalar);
+// aten::_foreach_sub.Scalar(Tensor[] self, Scalar scalar) -> Tensor[]
+inline ::std::vector<at::Tensor> _foreach_sub(at::TensorList self, const at::Scalar & scalar) {
+    return at::_ops::_foreach_sub_Scalar::call(self, scalar);
 }
 
 // aten::_foreach_sub_.Scalar(Tensor(a!)[] self, Scalar scalar) -> ()
-TORCH_API inline void _foreach_sub_(at::TensorList self, const at::Scalar & scalar) {
+inline void _foreach_sub_(at::TensorList self, const at::Scalar & scalar) {
     return at::_ops::_foreach_sub__Scalar::call(self, scalar);
 }
 
-// aten::_foreach_sub.List(Tensor[] tensors1, Tensor[] tensors2, *, Scalar alpha=1) -> Tensor[]
-TORCH_API inline ::std::vector<at::Tensor> _foreach_sub(at::TensorList tensors1, at::TensorList tensors2, const at::Scalar & alpha=1) {
-    return at::_ops::_foreach_sub_List::call(tensors1, tensors2, alpha);
+// aten::_foreach_sub.List(Tensor[] self, Tensor[] other, *, Scalar alpha=1) -> Tensor[]
+inline ::std::vector<at::Tensor> _foreach_sub(at::TensorList self, at::TensorList other, const at::Scalar & alpha=1) {
+    return at::_ops::_foreach_sub_List::call(self, other, alpha);
 }
 
 // aten::_foreach_sub_.List(Tensor(a!)[] self, Tensor[] other, *, Scalar alpha=1) -> ()
-TORCH_API inline void _foreach_sub_(at::TensorList self, at::TensorList other, const at::Scalar & alpha=1) {
+inline void _foreach_sub_(at::TensorList self, at::TensorList other, const at::Scalar & alpha=1) {
     return at::_ops::_foreach_sub__List::call(self, other, alpha);
 }
 
-// aten::_foreach_sub.ScalarList(Tensor[] tensors, Scalar[] scalars) -> Tensor[]
-TORCH_API inline ::std::vector<at::Tensor> _foreach_sub(at::TensorList tensors, at::ArrayRef<at::Scalar> scalars) {
-    return at::_ops::_foreach_sub_ScalarList::call(tensors, scalars);
+// aten::_foreach_sub.ScalarList(Tensor[] self, Scalar[] scalars) -> Tensor[]
+inline ::std::vector<at::Tensor> _foreach_sub(at::TensorList self, at::ArrayRef<at::Scalar> scalars) {
+    return at::_ops::_foreach_sub_ScalarList::call(self, scalars);
 }
 
 // aten::_foreach_sub_.ScalarList(Tensor(a!)[] self, Scalar[] scalars) -> ()
-TORCH_API inline void _foreach_sub_(at::TensorList self, at::ArrayRef<at::Scalar> scalars) {
+inline void _foreach_sub_(at::TensorList self, at::ArrayRef<at::Scalar> scalars) {
     return at::_ops::_foreach_sub__ScalarList::call(self, scalars);
 }
 
 // aten::_foreach_sub.Scalar_out(Tensor[] self, Scalar scalar, *, Tensor(a!)[] out) -> ()
-TORCH_API inline void _foreach_sub_out(at::TensorList out, at::TensorList self, const at::Scalar & scalar) {
+inline void _foreach_sub_out(at::TensorList out, at::TensorList self, const at::Scalar & scalar) {
     return at::_ops::_foreach_sub_Scalar_out::call(self, scalar, out);
 }
-
 // aten::_foreach_sub.Scalar_out(Tensor[] self, Scalar scalar, *, Tensor(a!)[] out) -> ()
-TORCH_API inline void _foreach_sub_outf(at::TensorList self, const at::Scalar & scalar, at::TensorList out) {
+inline void _foreach_sub_outf(at::TensorList self, const at::Scalar & scalar, at::TensorList out) {
     return at::_ops::_foreach_sub_Scalar_out::call(self, scalar, out);
 }
 
-// aten::_foreach_sub.Scalar_functional(Tensor[] self, Scalar scalar) -> Tensor[] self_out
-TORCH_API inline ::std::vector<at::Tensor> _foreach_sub_functional(at::TensorList self, const at::Scalar & scalar) {
-    return at::_ops::_foreach_sub_Scalar_functional::call(self, scalar);
-}
-
 // aten::_foreach_sub.List_out(Tensor[] self, Tensor[] other, *, Scalar alpha=1, Tensor(a!)[] out) -> ()
-TORCH_API inline void _foreach_sub_out(at::TensorList out, at::TensorList self, at::TensorList other, const at::Scalar & alpha=1) {
+inline void _foreach_sub_out(at::TensorList out, at::TensorList self, at::TensorList other, const at::Scalar & alpha=1) {
+    return at::_ops::_foreach_sub_List_out::call(self, other, alpha, out);
+}
+// aten::_foreach_sub.List_out(Tensor[] self, Tensor[] other, *, Scalar alpha=1, Tensor(a!)[] out) -> ()
+inline void _foreach_sub_outf(at::TensorList self, at::TensorList other, const at::Scalar & alpha, at::TensorList out) {
     return at::_ops::_foreach_sub_List_out::call(self, other, alpha, out);
 }
 
-// aten::_foreach_sub.List_out(Tensor[] self, Tensor[] other, *, Scalar alpha=1, Tensor(a!)[] out) -> ()
-TORCH_API inline void _foreach_sub_outf(at::TensorList self, at::TensorList other, const at::Scalar & alpha, at::TensorList out) {
-    return at::_ops::_foreach_sub_List_out::call(self, other, alpha, out);
-}
-
-// aten::_foreach_sub.List_functional(Tensor[] self, Tensor[] other, *, Scalar alpha=1) -> Tensor[] self_out
-TORCH_API inline ::std::vector<at::Tensor> _foreach_sub_functional(at::TensorList self, at::TensorList other, const at::Scalar & alpha=1) {
-    return at::_ops::_foreach_sub_List_functional::call(self, other, alpha);
-}
-
 // aten::_foreach_sub.ScalarList_out(Tensor[] self, Scalar[] scalars, *, Tensor(a!)[] out) -> ()
-TORCH_API inline void _foreach_sub_out(at::TensorList out, at::TensorList self, at::ArrayRef<at::Scalar> scalars) {
+inline void _foreach_sub_out(at::TensorList out, at::TensorList self, at::ArrayRef<at::Scalar> scalars) {
     return at::_ops::_foreach_sub_ScalarList_out::call(self, scalars, out);
 }
-
 // aten::_foreach_sub.ScalarList_out(Tensor[] self, Scalar[] scalars, *, Tensor(a!)[] out) -> ()
-TORCH_API inline void _foreach_sub_outf(at::TensorList self, at::ArrayRef<at::Scalar> scalars, at::TensorList out) {
+inline void _foreach_sub_outf(at::TensorList self, at::ArrayRef<at::Scalar> scalars, at::TensorList out) {
     return at::_ops::_foreach_sub_ScalarList_out::call(self, scalars, out);
-}
-
-// aten::_foreach_sub.ScalarList_functional(Tensor[] self, Scalar[] scalars) -> Tensor[] self_out
-TORCH_API inline ::std::vector<at::Tensor> _foreach_sub_functional(at::TensorList self, at::ArrayRef<at::Scalar> scalars) {
-    return at::_ops::_foreach_sub_ScalarList_functional::call(self, scalars);
 }
 
 }

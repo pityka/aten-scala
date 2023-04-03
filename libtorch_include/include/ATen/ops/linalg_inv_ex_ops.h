@@ -20,9 +20,9 @@ struct TORCH_API linalg_inv_ex {
   // See Note [static constexpr char* members for windows NVCC]
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::linalg_inv_ex")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "linalg_inv_ex(Tensor self, *, bool check_errors=False) -> (Tensor inverse, Tensor info)")
-  static ::std::tuple<at::Tensor,at::Tensor> call(const at::Tensor & self, bool check_errors);
-  static ::std::tuple<at::Tensor,at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, bool check_errors);
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "linalg_inv_ex(Tensor A, *, bool check_errors=False) -> (Tensor inverse, Tensor info)")
+  static ::std::tuple<at::Tensor,at::Tensor> call(const at::Tensor & A, bool check_errors);
+  static ::std::tuple<at::Tensor,at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & A, bool check_errors);
 };
 
 struct TORCH_API linalg_inv_ex_inverse {
@@ -31,9 +31,9 @@ struct TORCH_API linalg_inv_ex_inverse {
   // See Note [static constexpr char* members for windows NVCC]
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::linalg_inv_ex")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "inverse")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "linalg_inv_ex.inverse(Tensor self, *, bool check_errors=False, Tensor(a!) inverse, Tensor(b!) info) -> (Tensor(a!) inverse, Tensor(b!) info)")
-  static ::std::tuple<at::Tensor &,at::Tensor &> call(const at::Tensor & self, bool check_errors, at::Tensor & inverse, at::Tensor & info);
-  static ::std::tuple<at::Tensor &,at::Tensor &> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, bool check_errors, at::Tensor & inverse, at::Tensor & info);
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "linalg_inv_ex.inverse(Tensor A, *, bool check_errors=False, Tensor(a!) inverse, Tensor(b!) info) -> (Tensor(a!) inverse, Tensor(b!) info)")
+  static ::std::tuple<at::Tensor &,at::Tensor &> call(const at::Tensor & A, bool check_errors, at::Tensor & inverse, at::Tensor & info);
+  static ::std::tuple<at::Tensor &,at::Tensor &> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & A, bool check_errors, at::Tensor & inverse, at::Tensor & info);
 };
 
 }} // namespace at::_ops

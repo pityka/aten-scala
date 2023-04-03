@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> _rowwise_prune(const at::Tensor & weight, const at::Tensor & mask, at::ScalarType compressed_indices_dtype);
-
 } // namespace native
 } // namespace at

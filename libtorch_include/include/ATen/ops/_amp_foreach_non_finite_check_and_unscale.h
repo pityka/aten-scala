@@ -23,23 +23,22 @@ namespace at {
 
 
 // aten::_amp_foreach_non_finite_check_and_unscale_(Tensor(a!)[] self, Tensor(b!) found_inf, Tensor inv_scale) -> ()
-TORCH_API inline void _amp_foreach_non_finite_check_and_unscale_(at::TensorList self, at::Tensor & found_inf, const at::Tensor & inv_scale) {
+inline void _amp_foreach_non_finite_check_and_unscale_(at::TensorList self, at::Tensor & found_inf, const at::Tensor & inv_scale) {
     return at::_ops::_amp_foreach_non_finite_check_and_unscale_::call(self, found_inf, inv_scale);
 }
 
 // aten::_amp_foreach_non_finite_check_and_unscale.out(Tensor[] self, Tensor(b!) found_inf, Tensor inv_scale, *, Tensor(a!)[] out) -> ()
-TORCH_API inline void _amp_foreach_non_finite_check_and_unscale_out(at::TensorList out, at::TensorList self, at::Tensor & found_inf, const at::Tensor & inv_scale) {
+inline void _amp_foreach_non_finite_check_and_unscale_out(at::TensorList out, at::TensorList self, at::Tensor & found_inf, const at::Tensor & inv_scale) {
     return at::_ops::_amp_foreach_non_finite_check_and_unscale_out::call(self, found_inf, inv_scale, out);
 }
-
 // aten::_amp_foreach_non_finite_check_and_unscale.out(Tensor[] self, Tensor(b!) found_inf, Tensor inv_scale, *, Tensor(a!)[] out) -> ()
-TORCH_API inline void _amp_foreach_non_finite_check_and_unscale_outf(at::TensorList self, at::Tensor & found_inf, const at::Tensor & inv_scale, at::TensorList out) {
+inline void _amp_foreach_non_finite_check_and_unscale_outf(at::TensorList self, at::Tensor & found_inf, const at::Tensor & inv_scale, at::TensorList out) {
     return at::_ops::_amp_foreach_non_finite_check_and_unscale_out::call(self, found_inf, inv_scale, out);
 }
 
-// aten::_amp_foreach_non_finite_check_and_unscale.functional(Tensor[] self, Tensor found_inf, Tensor inv_scale) -> (Tensor[] self_out, Tensor found_inf_out)
-TORCH_API inline ::std::tuple<::std::vector<at::Tensor>,at::Tensor> _amp_foreach_non_finite_check_and_unscale_functional(at::TensorList self, const at::Tensor & found_inf, const at::Tensor & inv_scale) {
-    return at::_ops::_amp_foreach_non_finite_check_and_unscale_functional::call(self, found_inf, inv_scale);
+// aten::_amp_foreach_non_finite_check_and_unscale(Tensor[] self, Tensor found_inf, Tensor inv_scale) -> (Tensor[] self_out, Tensor found_inf_out)
+inline ::std::tuple<::std::vector<at::Tensor>,at::Tensor> _amp_foreach_non_finite_check_and_unscale(at::TensorList self, const at::Tensor & found_inf, const at::Tensor & inv_scale) {
+    return at::_ops::_amp_foreach_non_finite_check_and_unscale::call(self, found_inf, inv_scale);
 }
 
 }

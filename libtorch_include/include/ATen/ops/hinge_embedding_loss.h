@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::hinge_embedding_loss(Tensor self, Tensor target, float margin=1.0, int reduction=Mean) -> Tensor
-TORCH_API inline at::Tensor hinge_embedding_loss(const at::Tensor & self, const at::Tensor & target, double margin=1.0, int64_t reduction=at::Reduction::Mean) {
+inline at::Tensor hinge_embedding_loss(const at::Tensor & self, const at::Tensor & target, double margin=1.0, int64_t reduction=at::Reduction::Mean) {
     return at::_ops::hinge_embedding_loss::call(self, target, margin, reduction);
 }
 

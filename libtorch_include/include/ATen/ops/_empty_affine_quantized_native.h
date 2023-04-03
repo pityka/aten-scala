@@ -16,9 +16,8 @@
 
 namespace at {
 namespace native {
-
+TORCH_API at::Tensor & _empty_affine_quantized_out(at::IntArrayRef size, double scale, int64_t zero_point, c10::optional<at::MemoryFormat> memory_format, at::Tensor & out);
 TORCH_API at::Tensor empty_affine_quantized_other_backends_stub(at::IntArrayRef size, c10::optional<at::ScalarType> dtype={}, c10::optional<at::Layout> layout={}, c10::optional<at::Device> device={}, c10::optional<bool> pin_memory={}, double scale=1, int64_t zero_point=0, c10::optional<at::MemoryFormat> memory_format=MemoryFormat::Contiguous);
 TORCH_API at::Tensor empty_affine_quantized(at::IntArrayRef size, c10::optional<at::ScalarType> dtype={}, c10::optional<at::Layout> layout={}, c10::optional<at::Device> device={}, c10::optional<bool> pin_memory={}, double scale=1, int64_t zero_point=0, c10::optional<at::MemoryFormat> memory_format=MemoryFormat::Contiguous);
-
 } // namespace native
 } // namespace at

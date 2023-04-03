@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API void retain_grad(at::Tensor & self);
-
 } // namespace native
 } // namespace at

@@ -23,32 +23,30 @@ namespace at {
 
 
 // aten::cumsum(Tensor self, int dim, *, ScalarType? dtype=None) -> Tensor
-TORCH_API inline at::Tensor cumsum(const at::Tensor & self, int64_t dim, c10::optional<at::ScalarType> dtype=c10::nullopt) {
+inline at::Tensor cumsum(const at::Tensor & self, int64_t dim, c10::optional<at::ScalarType> dtype=c10::nullopt) {
     return at::_ops::cumsum::call(self, dim, dtype);
 }
 
 // aten::cumsum.out(Tensor self, int dim, *, ScalarType? dtype=None, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & cumsum_out(at::Tensor & out, const at::Tensor & self, int64_t dim, c10::optional<at::ScalarType> dtype=c10::nullopt) {
+inline at::Tensor & cumsum_out(at::Tensor & out, const at::Tensor & self, int64_t dim, c10::optional<at::ScalarType> dtype=c10::nullopt) {
     return at::_ops::cumsum_out::call(self, dim, dtype, out);
 }
-
 // aten::cumsum.out(Tensor self, int dim, *, ScalarType? dtype=None, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & cumsum_outf(const at::Tensor & self, int64_t dim, c10::optional<at::ScalarType> dtype, at::Tensor & out) {
+inline at::Tensor & cumsum_outf(const at::Tensor & self, int64_t dim, c10::optional<at::ScalarType> dtype, at::Tensor & out) {
     return at::_ops::cumsum_out::call(self, dim, dtype, out);
 }
 
 // aten::cumsum.dimname(Tensor self, Dimname dim, *, ScalarType? dtype=None) -> Tensor
-TORCH_API inline at::Tensor cumsum(const at::Tensor & self, at::Dimname dim, c10::optional<at::ScalarType> dtype=c10::nullopt) {
+inline at::Tensor cumsum(const at::Tensor & self, at::Dimname dim, c10::optional<at::ScalarType> dtype=c10::nullopt) {
     return at::_ops::cumsum_dimname::call(self, dim, dtype);
 }
 
 // aten::cumsum.dimname_out(Tensor self, Dimname dim, *, ScalarType? dtype=None, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & cumsum_out(at::Tensor & out, const at::Tensor & self, at::Dimname dim, c10::optional<at::ScalarType> dtype=c10::nullopt) {
+inline at::Tensor & cumsum_out(at::Tensor & out, const at::Tensor & self, at::Dimname dim, c10::optional<at::ScalarType> dtype=c10::nullopt) {
     return at::_ops::cumsum_dimname_out::call(self, dim, dtype, out);
 }
-
 // aten::cumsum.dimname_out(Tensor self, Dimname dim, *, ScalarType? dtype=None, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & cumsum_outf(const at::Tensor & self, at::Dimname dim, c10::optional<at::ScalarType> dtype, at::Tensor & out) {
+inline at::Tensor & cumsum_outf(const at::Tensor & self, at::Dimname dim, c10::optional<at::ScalarType> dtype, at::Tensor & out) {
     return at::_ops::cumsum_dimname_out::call(self, dim, dtype, out);
 }
 

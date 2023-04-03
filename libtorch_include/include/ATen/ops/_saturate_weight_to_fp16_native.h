@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor _saturate_weight_to_fp16(const at::Tensor & weight);
-
 } // namespace native
 } // namespace at

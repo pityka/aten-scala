@@ -23,12 +23,12 @@ namespace at {
 
 
 // aten::ctc_loss.IntList(Tensor log_probs, Tensor targets, int[] input_lengths, int[] target_lengths, int blank=0, int reduction=Mean, bool zero_infinity=False) -> Tensor
-TORCH_API inline at::Tensor ctc_loss(const at::Tensor & log_probs, const at::Tensor & targets, at::IntArrayRef input_lengths, at::IntArrayRef target_lengths, int64_t blank=0, int64_t reduction=at::Reduction::Mean, bool zero_infinity=false) {
+inline at::Tensor ctc_loss(const at::Tensor & log_probs, const at::Tensor & targets, at::IntArrayRef input_lengths, at::IntArrayRef target_lengths, int64_t blank=0, int64_t reduction=at::Reduction::Mean, bool zero_infinity=false) {
     return at::_ops::ctc_loss_IntList::call(log_probs, targets, input_lengths, target_lengths, blank, reduction, zero_infinity);
 }
 
 // aten::ctc_loss.Tensor(Tensor log_probs, Tensor targets, Tensor input_lengths, Tensor target_lengths, int blank=0, int reduction=Mean, bool zero_infinity=False) -> Tensor
-TORCH_API inline at::Tensor ctc_loss(const at::Tensor & log_probs, const at::Tensor & targets, const at::Tensor & input_lengths, const at::Tensor & target_lengths, int64_t blank=0, int64_t reduction=at::Reduction::Mean, bool zero_infinity=false) {
+inline at::Tensor ctc_loss(const at::Tensor & log_probs, const at::Tensor & targets, const at::Tensor & input_lengths, const at::Tensor & target_lengths, int64_t blank=0, int64_t reduction=at::Reduction::Mean, bool zero_infinity=false) {
     return at::_ops::ctc_loss_Tensor::call(log_probs, targets, input_lengths, target_lengths, blank, reduction, zero_infinity);
 }
 

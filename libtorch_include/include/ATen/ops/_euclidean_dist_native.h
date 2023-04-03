@@ -16,8 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor _euclidean_dist(const at::Tensor & x1, const at::Tensor & x2);
-
+TORCH_API at::Tensor & _euclidean_dist_out(const at::Tensor & x1, const at::Tensor & x2, at::Tensor & out);
 } // namespace native
 } // namespace at

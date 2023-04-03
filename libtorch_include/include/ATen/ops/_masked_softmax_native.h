@@ -16,9 +16,8 @@
 
 namespace at {
 namespace native {
-
-TORCH_API at::Tensor masked_softmax_cpu(const at::Tensor & self, const at::Tensor & mask, c10::optional<int64_t> dim=c10::nullopt);
-TORCH_API at::Tensor masked_softmax_cuda(const at::Tensor & self, const at::Tensor & mask, c10::optional<int64_t> dim=c10::nullopt);
-
+TORCH_API at::Tensor & _masked_softmax_out(const at::Tensor & self, const at::Tensor & mask, c10::optional<int64_t> dim, c10::optional<int64_t> mask_type, at::Tensor & out);
+TORCH_API at::Tensor masked_softmax_cpu(const at::Tensor & self, const at::Tensor & mask, c10::optional<int64_t> dim=c10::nullopt, c10::optional<int64_t> mask_type=c10::nullopt);
+TORCH_API at::Tensor masked_softmax_cuda(const at::Tensor & self, const at::Tensor & mask, c10::optional<int64_t> dim=c10::nullopt, c10::optional<int64_t> mask_type=c10::nullopt);
 } // namespace native
 } // namespace at

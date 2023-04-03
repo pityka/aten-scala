@@ -12,13 +12,15 @@
 #include <ATen/core/Tensor.h>
 #include <tuple>
 #include <vector>
-
+#include <ATen/ops/linalg_inv_ex_meta.h>
 
 namespace at {
 namespace native {
-
-TORCH_API ::std::tuple<at::Tensor,at::Tensor> linalg_inv_ex(const at::Tensor & self, bool check_errors=false);
-TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> linalg_inv_ex_out(const at::Tensor & self, bool check_errors, at::Tensor & inverse, at::Tensor & info);
-
+struct TORCH_API structured_linalg_inv_ex_out : public at::meta::structured_linalg_inv_ex {
+void impl(const at::Tensor & A, bool check_errors, const at::Tensor & inverse, const at::Tensor & info);
+};
+struct TORCH_API structured_linalg_inv_ex_out_mps : public at::meta::structured_linalg_inv_ex {
+void impl(const at::Tensor & A, bool check_errors, const at::Tensor & inverse, const at::Tensor & info);
+};
 } // namespace native
 } // namespace at

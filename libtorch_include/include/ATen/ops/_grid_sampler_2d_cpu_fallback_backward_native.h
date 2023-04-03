@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> _grid_sampler_2d_cpu_fallback_backward(const at::Tensor & grad_output, const at::Tensor & input, const at::Tensor & grid, int64_t interpolation_mode, int64_t padding_mode, bool align_corners);
-
 } // namespace native
 } // namespace at

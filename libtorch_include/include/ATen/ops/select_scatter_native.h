@@ -16,8 +16,7 @@
 
 namespace at {
 namespace native {
-
-TORCH_API at::Tensor select_scatter(const at::Tensor & self, const at::Tensor & src, int64_t dim, int64_t index);
-
+TORCH_API at::Tensor select_scatter_symint(const at::Tensor & self, const at::Tensor & src, int64_t dim, c10::SymInt index);
+TORCH_API at::Tensor & select_scatter_out_symint(const at::Tensor & self, const at::Tensor & src, int64_t dim, c10::SymInt index, at::Tensor & out);
 } // namespace native
 } // namespace at

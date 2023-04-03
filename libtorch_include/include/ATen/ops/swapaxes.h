@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::swapaxes(Tensor(a) self, int axis0, int axis1) -> Tensor(a)
-TORCH_API inline at::Tensor swapaxes(const at::Tensor & self, int64_t axis0, int64_t axis1) {
+inline at::Tensor swapaxes(const at::Tensor & self, int64_t axis0, int64_t axis1) {
     return at::_ops::swapaxes::call(self, axis0, axis1);
 }
 

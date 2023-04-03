@@ -16,9 +16,9 @@
 
 namespace at {
 namespace native {
-
+TORCH_API at::Tensor values_default(const at::Tensor & self);
+TORCH_API at::Tensor values_nested(const at::Tensor & self);
 TORCH_API at::Tensor values_sparse(const at::Tensor & self);
 TORCH_API at::Tensor values_sparse_csr(const at::Tensor & self);
-
 } // namespace native
 } // namespace at

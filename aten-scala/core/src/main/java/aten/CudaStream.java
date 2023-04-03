@@ -4,39 +4,41 @@ public class CudaStream {
   static {
     Load.load();
   }
-  final long packed;
+  final long packedStreamId;
+  final byte deviceIndex;
 
-  private CudaStream(long p) {
-    packed = p;
+  private CudaStream(long p, byte deviceIndex_) {
+    packedStreamId = p;
+    deviceIndex = deviceIndex_;
   }
 
   @Override
   public String toString() {
-    return nativeToString(packed);
+    return nativeToString(packedStreamId);
   }
 
-  private native void lowlevelsynchronize(long pckd);
+  private native void lowlevelsynchronize(long pckd, byte deviceIndex);
   private static native long lowlevelgetStreamFromPool(boolean isHighPriority, byte device_index);
   private static native long lowlevelgetDefaultCUDAStream(byte device_index);
-  private static native void lowlevelsetCurrentCUDAStream(long cudaStream);
+  private static native void lowlevelsetCurrentCUDAStream(long cudaStream, byte device_index);
   private static native String nativeToString(long cudaStream);
   public static native void cudaSetDevice(int device);
   public static native int cudaGetDevice();
 
   public void synchronize() {
-    lowlevelsynchronize(packed);
+    lowlevelsynchronize(packedStreamId, deviceIndex);
   }
 
   public static CudaStream getStreamFromPool(boolean isHighPriority, byte device_index) {
-    return new CudaStream(lowlevelgetStreamFromPool(isHighPriority,device_index));
+    return new CudaStream(lowlevelgetStreamFromPool(isHighPriority,device_index), device_index);
   }
 
   public static CudaStream getDefaultCUDAStream(byte device_index) {
-    return new CudaStream(lowlevelgetDefaultCUDAStream(device_index));
+    return new CudaStream(lowlevelgetDefaultCUDAStream(device_index), device_index);
   }
 
   public static void setCurrentCUDAStream(CudaStream stream) {
-    lowlevelsetCurrentCUDAStream(stream.packed);
+    lowlevelsetCurrentCUDAStream(stream.packedStreamId, stream.deviceIndex);
   }
 
 }

@@ -16,9 +16,9 @@
 
 namespace at {
 namespace native {
-
+TORCH_API at::Tensor & native_norm_out(const at::Tensor & self, const at::Scalar & p, at::Tensor & out);
 TORCH_API at::Tensor norm_sparse(const at::Tensor & self, const at::Scalar & p=2);
+TORCH_API at::Tensor & native_norm_ScalarOpt_dim_dtype_out(const at::Tensor & self, const c10::optional<at::Scalar> & p, at::IntArrayRef dim, bool keepdim, c10::optional<at::ScalarType> dtype, at::Tensor & out);
 TORCH_API at::Tensor norm_sparse(const at::Tensor & self, const c10::optional<at::Scalar> & p, at::IntArrayRef dim, bool keepdim, c10::optional<at::ScalarType> dtype);
-
 } // namespace native
 } // namespace at

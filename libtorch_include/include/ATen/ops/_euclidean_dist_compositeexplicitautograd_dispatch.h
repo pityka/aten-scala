@@ -18,6 +18,8 @@ namespace at {
 namespace compositeexplicitautograd {
 
 TORCH_API at::Tensor _euclidean_dist(const at::Tensor & x1, const at::Tensor & x2);
+TORCH_API at::Tensor & _euclidean_dist_out(at::Tensor & out, const at::Tensor & x1, const at::Tensor & x2);
+TORCH_API at::Tensor & _euclidean_dist_outf(const at::Tensor & x1, const at::Tensor & x2, at::Tensor & out);
 
 } // namespace compositeexplicitautograd
 } // namespace at

@@ -16,9 +16,9 @@
 
 namespace at {
 namespace native {
-
+TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> native_dropout_out(const at::Tensor & input, double p, c10::optional<bool> train, at::Tensor & out0, at::Tensor & out1);
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> native_dropout_cpu(const at::Tensor & input, double p, c10::optional<bool> train);
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> native_dropout_cuda(const at::Tensor & input, double p, c10::optional<bool> train);
-
+TORCH_API ::std::tuple<at::Tensor,at::Tensor> native_dropout_nested(const at::Tensor & input, double p, c10::optional<bool> train);
 } // namespace native
 } // namespace at

@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::corrcoef(Tensor self) -> Tensor
-TORCH_API inline at::Tensor corrcoef(const at::Tensor & self) {
+inline at::Tensor corrcoef(const at::Tensor & self) {
     return at::_ops::corrcoef::call(self);
 }
 

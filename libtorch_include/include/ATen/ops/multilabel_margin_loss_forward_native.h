@@ -16,11 +16,9 @@
 
 namespace at {
 namespace native {
-
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> multilabel_margin_loss_forward_cpu(const at::Tensor & self, const at::Tensor & target, int64_t reduction);
 TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> multilabel_margin_loss_forward_out_cpu(const at::Tensor & self, const at::Tensor & target, int64_t reduction, at::Tensor & output, at::Tensor & is_target);
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> multilabel_margin_loss_forward_cuda(const at::Tensor & self, const at::Tensor & target, int64_t reduction);
 TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> multilabel_margin_loss_forward_out_cuda(const at::Tensor & self, const at::Tensor & target, int64_t reduction, at::Tensor & output, at::Tensor & is_target);
-
 } // namespace native
 } // namespace at

@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor norm_except_dim(const at::Tensor & v, int64_t pow=2, int64_t dim=0);
-
 } // namespace native
 } // namespace at

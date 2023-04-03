@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::fake_quantize_per_tensor_affine_cachemask_backward(Tensor grad, Tensor mask) -> Tensor
-TORCH_API inline at::Tensor fake_quantize_per_tensor_affine_cachemask_backward(const at::Tensor & grad, const at::Tensor & mask) {
+inline at::Tensor fake_quantize_per_tensor_affine_cachemask_backward(const at::Tensor & grad, const at::Tensor & mask) {
     return at::_ops::fake_quantize_per_tensor_affine_cachemask_backward::call(grad, mask);
 }
 

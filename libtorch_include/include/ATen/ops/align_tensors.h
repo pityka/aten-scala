@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::align_tensors(Tensor[] tensors) -> Tensor[]
-TORCH_API inline ::std::vector<at::Tensor> align_tensors(at::TensorList tensors) {
+inline ::std::vector<at::Tensor> align_tensors(at::TensorList tensors) {
     return at::_ops::align_tensors::call(tensors);
 }
 

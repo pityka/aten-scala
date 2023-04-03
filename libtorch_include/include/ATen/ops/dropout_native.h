@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor dropout(const at::Tensor & input, double p, bool train);
 TORCH_API at::Tensor & dropout_(at::Tensor & self, double p, bool train);
-
 } // namespace native
 } // namespace at

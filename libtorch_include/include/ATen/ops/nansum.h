@@ -22,18 +22,17 @@
 namespace at {
 
 
-// aten::nansum(Tensor self, int[1] dim=[], bool keepdim=False, *, ScalarType? dtype=None) -> Tensor
-TORCH_API inline at::Tensor nansum(const at::Tensor & self, at::IntArrayRef dim={}, bool keepdim=false, c10::optional<at::ScalarType> dtype=c10::nullopt) {
+// aten::nansum(Tensor self, int[1]? dim=None, bool keepdim=False, *, ScalarType? dtype=None) -> Tensor
+inline at::Tensor nansum(const at::Tensor & self, at::OptionalIntArrayRef dim=c10::nullopt, bool keepdim=false, c10::optional<at::ScalarType> dtype=c10::nullopt) {
     return at::_ops::nansum::call(self, dim, keepdim, dtype);
 }
 
-// aten::nansum.out(Tensor self, int[1] dim=[], bool keepdim=False, *, ScalarType? dtype=None, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & nansum_out(at::Tensor & out, const at::Tensor & self, at::IntArrayRef dim={}, bool keepdim=false, c10::optional<at::ScalarType> dtype=c10::nullopt) {
+// aten::nansum.out(Tensor self, int[1]? dim=None, bool keepdim=False, *, ScalarType? dtype=None, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & nansum_out(at::Tensor & out, const at::Tensor & self, at::OptionalIntArrayRef dim=c10::nullopt, bool keepdim=false, c10::optional<at::ScalarType> dtype=c10::nullopt) {
     return at::_ops::nansum_out::call(self, dim, keepdim, dtype, out);
 }
-
-// aten::nansum.out(Tensor self, int[1] dim=[], bool keepdim=False, *, ScalarType? dtype=None, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & nansum_outf(const at::Tensor & self, at::IntArrayRef dim, bool keepdim, c10::optional<at::ScalarType> dtype, at::Tensor & out) {
+// aten::nansum.out(Tensor self, int[1]? dim=None, bool keepdim=False, *, ScalarType? dtype=None, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & nansum_outf(const at::Tensor & self, at::OptionalIntArrayRef dim, bool keepdim, c10::optional<at::ScalarType> dtype, at::Tensor & out) {
     return at::_ops::nansum_out::call(self, dim, keepdim, dtype, out);
 }
 

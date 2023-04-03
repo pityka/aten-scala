@@ -16,11 +16,9 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor col2im_cpu(const at::Tensor & self, at::IntArrayRef output_size, at::IntArrayRef kernel_size, at::IntArrayRef dilation, at::IntArrayRef padding, at::IntArrayRef stride);
 TORCH_API at::Tensor & col2im_out_cpu(const at::Tensor & self, at::IntArrayRef output_size, at::IntArrayRef kernel_size, at::IntArrayRef dilation, at::IntArrayRef padding, at::IntArrayRef stride, at::Tensor & out);
 TORCH_API at::Tensor col2im_cuda(const at::Tensor & self, at::IntArrayRef output_size, at::IntArrayRef kernel_size, at::IntArrayRef dilation, at::IntArrayRef padding, at::IntArrayRef stride);
 TORCH_API at::Tensor & col2im_out_cuda(const at::Tensor & self, at::IntArrayRef output_size, at::IntArrayRef kernel_size, at::IntArrayRef dilation, at::IntArrayRef padding, at::IntArrayRef stride, at::Tensor & out);
-
 } // namespace native
 } // namespace at

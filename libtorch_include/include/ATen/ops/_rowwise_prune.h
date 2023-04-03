@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::_rowwise_prune(Tensor weight, Tensor mask, ScalarType compressed_indices_dtype) -> (Tensor, Tensor)
-TORCH_API inline ::std::tuple<at::Tensor,at::Tensor> _rowwise_prune(const at::Tensor & weight, const at::Tensor & mask, at::ScalarType compressed_indices_dtype) {
+inline ::std::tuple<at::Tensor,at::Tensor> _rowwise_prune(const at::Tensor & weight, const at::Tensor & mask, at::ScalarType compressed_indices_dtype) {
     return at::_ops::_rowwise_prune::call(weight, mask, compressed_indices_dtype);
 }
 

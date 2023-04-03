@@ -16,8 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor block_diag(at::TensorList tensors);
-
+TORCH_API at::Tensor & block_diag_out(at::TensorList tensors, at::Tensor & out);
 } // namespace native
 } // namespace at

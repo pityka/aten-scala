@@ -23,13 +23,31 @@ namespace at {
 
 
 // aten::count_nonzero.dim_IntList(Tensor self, int[] dim) -> Tensor
-TORCH_API inline at::Tensor count_nonzero(const at::Tensor & self, at::IntArrayRef dim) {
+inline at::Tensor count_nonzero(const at::Tensor & self, at::IntArrayRef dim) {
     return at::_ops::count_nonzero_dim_IntList::call(self, dim);
 }
 
 // aten::count_nonzero(Tensor self, int? dim=None) -> Tensor
-TORCH_API inline at::Tensor count_nonzero(const at::Tensor & self, c10::optional<int64_t> dim=c10::nullopt) {
+inline at::Tensor count_nonzero(const at::Tensor & self, c10::optional<int64_t> dim=c10::nullopt) {
     return at::_ops::count_nonzero::call(self, dim);
+}
+
+// aten::count_nonzero.dim_IntList_out(Tensor self, int[] dim, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & count_nonzero_out(at::Tensor & out, const at::Tensor & self, at::IntArrayRef dim) {
+    return at::_ops::count_nonzero_dim_IntList_out::call(self, dim, out);
+}
+// aten::count_nonzero.dim_IntList_out(Tensor self, int[] dim, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & count_nonzero_outf(const at::Tensor & self, at::IntArrayRef dim, at::Tensor & out) {
+    return at::_ops::count_nonzero_dim_IntList_out::call(self, dim, out);
+}
+
+// aten::count_nonzero.out(Tensor self, int? dim=None, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & count_nonzero_out(at::Tensor & out, const at::Tensor & self, c10::optional<int64_t> dim=c10::nullopt) {
+    return at::_ops::count_nonzero_out::call(self, dim, out);
+}
+// aten::count_nonzero.out(Tensor self, int? dim=None, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & count_nonzero_outf(const at::Tensor & self, c10::optional<int64_t> dim, at::Tensor & out) {
+    return at::_ops::count_nonzero_out::call(self, dim, out);
 }
 
 }

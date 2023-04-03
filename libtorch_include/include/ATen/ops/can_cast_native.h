@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API bool can_cast(at::ScalarType from, at::ScalarType to);
-
 } // namespace native
 } // namespace at

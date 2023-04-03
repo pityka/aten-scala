@@ -16,11 +16,9 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor __and__(const at::Tensor & self, const at::Scalar & other);
 TORCH_API at::Tensor & __iand__(at::Tensor & self, const at::Scalar & other);
 TORCH_API at::Tensor __and__(const at::Tensor & self, const at::Tensor & other);
 TORCH_API at::Tensor & __iand__(at::Tensor & self, const at::Tensor & other);
-
 } // namespace native
 } // namespace at

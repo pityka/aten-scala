@@ -16,8 +16,7 @@
 
 namespace at {
 namespace native {
-
-TORCH_API at::Tensor diagonal_backward(const at::Tensor & grad_output, at::IntArrayRef input_sizes, int64_t offset, int64_t dim1, int64_t dim2);
-
+TORCH_API at::Tensor diagonal_backward_symint(const at::Tensor & grad_output, c10::SymIntArrayRef input_sizes, int64_t offset, int64_t dim1, int64_t dim2);
+TORCH_API at::Tensor & diagonal_backward_out_symint(const at::Tensor & grad_output, c10::SymIntArrayRef input_sizes, int64_t offset, int64_t dim1, int64_t dim2, at::Tensor & out);
 } // namespace native
 } // namespace at

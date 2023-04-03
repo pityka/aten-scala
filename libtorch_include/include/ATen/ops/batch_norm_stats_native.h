@@ -16,8 +16,7 @@
 
 namespace at {
 namespace native {
-
+TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> batch_norm_stats_out(const at::Tensor & input, double eps, at::Tensor & out0, at::Tensor & out1);
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> batch_norm_stats_cuda(const at::Tensor & input, double eps);
-
 } // namespace native
 } // namespace at

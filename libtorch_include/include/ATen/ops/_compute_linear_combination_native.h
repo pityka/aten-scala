@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor _compute_linear_combination(const at::Tensor & input, const at::Tensor & coefficients);
 TORCH_API at::Tensor & _compute_linear_combination_out(const at::Tensor & input, const at::Tensor & coefficients, at::Tensor & out);
-
 } // namespace native
 } // namespace at

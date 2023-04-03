@@ -19,6 +19,12 @@ namespace compositeexplicitautograd {
 
 TORCH_API at::Tensor new_empty(const at::Tensor & self, at::IntArrayRef size, at::TensorOptions options={});
 TORCH_API at::Tensor new_empty(const at::Tensor & self, at::IntArrayRef size, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory);
+TORCH_API at::Tensor new_empty_symint(const at::Tensor & self, c10::SymIntArrayRef size, at::TensorOptions options={});
+TORCH_API at::Tensor new_empty_symint(const at::Tensor & self, c10::SymIntArrayRef size, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory);
+TORCH_API at::Tensor & new_empty_out(at::Tensor & out, const at::Tensor & self, at::IntArrayRef size);
+TORCH_API at::Tensor & new_empty_outf(const at::Tensor & self, at::IntArrayRef size, at::Tensor & out);
+TORCH_API at::Tensor & new_empty_symint_out(at::Tensor & out, const at::Tensor & self, c10::SymIntArrayRef size);
+TORCH_API at::Tensor & new_empty_symint_outf(const at::Tensor & self, c10::SymIntArrayRef size, at::Tensor & out);
 
 } // namespace compositeexplicitautograd
 } // namespace at

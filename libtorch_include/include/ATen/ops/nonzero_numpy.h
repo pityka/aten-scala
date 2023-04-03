@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::nonzero_numpy(Tensor self) -> Tensor[]
-TORCH_API inline ::std::vector<at::Tensor> nonzero_numpy(const at::Tensor & self) {
+inline ::std::vector<at::Tensor> nonzero_numpy(const at::Tensor & self) {
     return at::_ops::nonzero_numpy::call(self);
 }
 

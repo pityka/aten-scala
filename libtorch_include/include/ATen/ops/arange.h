@@ -23,52 +23,47 @@ namespace at {
 
 
 // aten::arange(Scalar end, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor
-TORCH_API inline at::Tensor arange(const at::Scalar & end, at::TensorOptions options={}) {
+inline at::Tensor arange(const at::Scalar & end, at::TensorOptions options={}) {
     return at::_ops::arange::call(end, optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt());
 }
-
 // aten::arange(Scalar end, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor
-TORCH_API inline at::Tensor arange(const at::Scalar & end, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory) {
+inline at::Tensor arange(const at::Scalar & end, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory) {
     return at::_ops::arange::call(end, dtype, layout, device, pin_memory);
 }
 
 // aten::arange.start(Scalar start, Scalar end, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor
-TORCH_API inline at::Tensor arange(const at::Scalar & start, const at::Scalar & end, at::TensorOptions options={}) {
+inline at::Tensor arange(const at::Scalar & start, const at::Scalar & end, at::TensorOptions options={}) {
     return at::_ops::arange_start::call(start, end, optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt());
 }
-
 // aten::arange.start(Scalar start, Scalar end, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor
-TORCH_API inline at::Tensor arange(const at::Scalar & start, const at::Scalar & end, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory) {
+inline at::Tensor arange(const at::Scalar & start, const at::Scalar & end, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory) {
     return at::_ops::arange_start::call(start, end, dtype, layout, device, pin_memory);
 }
 
-// aten::arange.start_step(Scalar start, Scalar end, Scalar step, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor
-TORCH_API inline at::Tensor arange(const at::Scalar & start, const at::Scalar & end, const at::Scalar & step, at::TensorOptions options={}) {
+// aten::arange.start_step(Scalar start, Scalar end, Scalar step=1, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor
+inline at::Tensor arange(const at::Scalar & start, const at::Scalar & end, const at::Scalar & step, at::TensorOptions options={}) {
     return at::_ops::arange_start_step::call(start, end, step, optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt());
 }
-
-// aten::arange.start_step(Scalar start, Scalar end, Scalar step, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor
-TORCH_API inline at::Tensor arange(const at::Scalar & start, const at::Scalar & end, const at::Scalar & step, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory) {
+// aten::arange.start_step(Scalar start, Scalar end, Scalar step=1, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor
+inline at::Tensor arange(const at::Scalar & start, const at::Scalar & end, const at::Scalar & step, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory) {
     return at::_ops::arange_start_step::call(start, end, step, dtype, layout, device, pin_memory);
 }
 
 // aten::arange.out(Scalar end, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & arange_out(at::Tensor & out, const at::Scalar & end) {
+inline at::Tensor & arange_out(at::Tensor & out, const at::Scalar & end) {
     return at::_ops::arange_out::call(end, out);
 }
-
 // aten::arange.out(Scalar end, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & arange_outf(const at::Scalar & end, at::Tensor & out) {
+inline at::Tensor & arange_outf(const at::Scalar & end, at::Tensor & out) {
     return at::_ops::arange_out::call(end, out);
 }
 
 // aten::arange.start_out(Scalar start, Scalar end, Scalar step=1, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & arange_out(at::Tensor & out, const at::Scalar & start, const at::Scalar & end, const at::Scalar & step=1) {
+inline at::Tensor & arange_out(at::Tensor & out, const at::Scalar & start, const at::Scalar & end, const at::Scalar & step) {
     return at::_ops::arange_start_out::call(start, end, step, out);
 }
-
 // aten::arange.start_out(Scalar start, Scalar end, Scalar step=1, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & arange_outf(const at::Scalar & start, const at::Scalar & end, const at::Scalar & step, at::Tensor & out) {
+inline at::Tensor & arange_outf(const at::Scalar & start, const at::Scalar & end, const at::Scalar & step, at::Tensor & out) {
     return at::_ops::arange_start_out::call(start, end, step, out);
 }
 

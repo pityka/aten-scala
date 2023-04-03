@@ -16,8 +16,7 @@
 
 namespace at {
 namespace native {
-
+TORCH_API at::Tensor & q_per_channel_zero_points_out(const at::Tensor & self, at::Tensor & out);
 TORCH_API at::Tensor q_per_channel_zero_points(const at::Tensor & self);
-
 } // namespace native
 } // namespace at

@@ -16,12 +16,8 @@
 
 namespace at {
 namespace native {
-
-TORCH_API at::Tensor mish(const at::Tensor & self);
-TORCH_API at::Tensor & mish_(at::Tensor & self);
 struct TORCH_API structured_mish_out : public at::meta::structured_mish {
 void impl(const at::Tensor & self, const at::Tensor & out);
 };
-
 } // namespace native
 } // namespace at

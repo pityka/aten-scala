@@ -16,11 +16,9 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor hspmm_sparse_cpu(const at::Tensor & mat1, const at::Tensor & mat2);
 TORCH_API at::Tensor & hspmm_out_sparse_cpu(const at::Tensor & mat1, const at::Tensor & mat2, at::Tensor & out);
 TORCH_API at::Tensor hspmm_sparse_cuda(const at::Tensor & mat1, const at::Tensor & mat2);
 TORCH_API at::Tensor & hspmm_out_sparse_cuda(const at::Tensor & mat1, const at::Tensor & mat2, at::Tensor & out);
-
 } // namespace native
 } // namespace at

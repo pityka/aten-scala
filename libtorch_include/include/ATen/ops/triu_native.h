@@ -16,13 +16,14 @@
 
 namespace at {
 namespace native {
-
 struct TORCH_API structured_triu_cpu : public at::meta::structured_triu {
 void impl(const at::Tensor & self, int64_t diagonal, const at::Tensor & out);
 };
 struct TORCH_API structured_triu_cuda : public at::meta::structured_triu {
 void impl(const at::Tensor & self, int64_t diagonal, const at::Tensor & out);
 };
-
+struct TORCH_API structured_triu_mps_out : public at::meta::structured_triu {
+void impl(const at::Tensor & self, int64_t diagonal, const at::Tensor & out);
+};
 } // namespace native
 } // namespace at

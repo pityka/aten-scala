@@ -23,23 +23,22 @@ namespace at {
 
 
 // aten::resize_as_(Tensor(a!) self, Tensor the_template, *, MemoryFormat? memory_format=None) -> Tensor(a!)
-TORCH_API inline const at::Tensor & resize_as_(const at::Tensor & self, const at::Tensor & the_template, c10::optional<at::MemoryFormat> memory_format=c10::nullopt) {
+inline const at::Tensor & resize_as_(const at::Tensor & self, const at::Tensor & the_template, c10::optional<at::MemoryFormat> memory_format=c10::nullopt) {
     return at::_ops::resize_as_::call(self, the_template, memory_format);
 }
 
 // aten::resize_as.out(Tensor self, Tensor the_template, *, MemoryFormat? memory_format=None, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline const at::Tensor & resize_as_out(const at::Tensor & out, const at::Tensor & self, const at::Tensor & the_template, c10::optional<at::MemoryFormat> memory_format=c10::nullopt) {
+inline const at::Tensor & resize_as_out(const at::Tensor & out, const at::Tensor & self, const at::Tensor & the_template, c10::optional<at::MemoryFormat> memory_format=c10::nullopt) {
     return at::_ops::resize_as_out::call(self, the_template, memory_format, out);
 }
-
 // aten::resize_as.out(Tensor self, Tensor the_template, *, MemoryFormat? memory_format=None, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline const at::Tensor & resize_as_outf(const at::Tensor & self, const at::Tensor & the_template, c10::optional<at::MemoryFormat> memory_format, const at::Tensor & out) {
+inline const at::Tensor & resize_as_outf(const at::Tensor & self, const at::Tensor & the_template, c10::optional<at::MemoryFormat> memory_format, const at::Tensor & out) {
     return at::_ops::resize_as_out::call(self, the_template, memory_format, out);
 }
 
-// aten::resize_as.functional(Tensor self, Tensor the_template, *, MemoryFormat? memory_format=None) -> Tensor
-TORCH_API inline at::Tensor resize_as_functional(const at::Tensor & self, const at::Tensor & the_template, c10::optional<at::MemoryFormat> memory_format=c10::nullopt) {
-    return at::_ops::resize_as_functional::call(self, the_template, memory_format);
+// aten::resize_as(Tensor self, Tensor the_template, *, MemoryFormat? memory_format=None) -> Tensor
+inline at::Tensor resize_as(const at::Tensor & self, const at::Tensor & the_template, c10::optional<at::MemoryFormat> memory_format=c10::nullopt) {
+    return at::_ops::resize_as::call(self, the_template, memory_format);
 }
 
 }

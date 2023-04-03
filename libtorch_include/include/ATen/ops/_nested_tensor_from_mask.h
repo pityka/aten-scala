@@ -22,9 +22,18 @@
 namespace at {
 
 
-// aten::_nested_tensor_from_mask(Tensor t, Tensor mask) -> Tensor
-TORCH_API inline at::Tensor _nested_tensor_from_mask(const at::Tensor & t, const at::Tensor & mask) {
-    return at::_ops::_nested_tensor_from_mask::call(t, mask);
+// aten::_nested_tensor_from_mask(Tensor t, Tensor mask, bool mask_check=True) -> Tensor
+inline at::Tensor _nested_tensor_from_mask(const at::Tensor & t, const at::Tensor & mask, bool mask_check=true) {
+    return at::_ops::_nested_tensor_from_mask::call(t, mask, mask_check);
+}
+
+// aten::_nested_tensor_from_mask.out(Tensor t, Tensor mask, bool mask_check=True, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & _nested_tensor_from_mask_out(at::Tensor & out, const at::Tensor & t, const at::Tensor & mask, bool mask_check=true) {
+    return at::_ops::_nested_tensor_from_mask_out::call(t, mask, mask_check, out);
+}
+// aten::_nested_tensor_from_mask.out(Tensor t, Tensor mask, bool mask_check=True, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & _nested_tensor_from_mask_outf(const at::Tensor & t, const at::Tensor & mask, bool mask_check, at::Tensor & out) {
+    return at::_ops::_nested_tensor_from_mask_out::call(t, mask, mask_check, out);
 }
 
 }

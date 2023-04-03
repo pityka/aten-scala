@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor cartesian_prod(at::TensorList tensors);
-
 } // namespace native
 } // namespace at

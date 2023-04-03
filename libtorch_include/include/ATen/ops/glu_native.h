@@ -16,10 +16,11 @@
 
 namespace at {
 namespace native {
-
 struct TORCH_API structured_glu_out : public at::meta::structured_glu {
 void impl(const at::Tensor & self, int64_t dim, const at::Tensor & out);
 };
-
+struct TORCH_API structured_glu_out_mps : public at::meta::structured_glu {
+void impl(const at::Tensor & self, int64_t dim, const at::Tensor & out);
+};
 } // namespace native
 } // namespace at

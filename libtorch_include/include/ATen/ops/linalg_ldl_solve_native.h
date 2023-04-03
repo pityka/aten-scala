@@ -16,10 +16,8 @@
 
 namespace at {
 namespace native {
-
 struct TORCH_API structured_linalg_ldl_solve_out : public at::meta::structured_linalg_ldl_solve {
 void impl(const at::Tensor & LD, const at::Tensor & pivots, const at::Tensor & B, bool hermitian, const at::Tensor & out);
 };
-
 } // namespace native
 } // namespace at

@@ -16,11 +16,11 @@
 
 namespace at {
 namespace native {
-
-TORCH_API at::Tensor logaddexp2(const at::Tensor & self, const at::Tensor & other);
 struct TORCH_API structured_logaddexp2_out : public at::meta::structured_logaddexp2 {
 void impl(const at::Tensor & self, const at::Tensor & other, const at::Tensor & out);
 };
-
+struct TORCH_API structured_logaddexp2_out_mps : public at::meta::structured_logaddexp2 {
+void impl(const at::Tensor & self, const at::Tensor & other, const at::Tensor & out);
+};
 } // namespace native
 } // namespace at

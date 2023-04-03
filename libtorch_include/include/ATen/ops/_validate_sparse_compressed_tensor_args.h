@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::_validate_sparse_compressed_tensor_args(Tensor compressed_indices, Tensor plain_indices, Tensor values, int[] size, Layout layout) -> ()
-TORCH_API inline void _validate_sparse_compressed_tensor_args(const at::Tensor & compressed_indices, const at::Tensor & plain_indices, const at::Tensor & values, at::IntArrayRef size, at::Layout layout) {
+inline void _validate_sparse_compressed_tensor_args(const at::Tensor & compressed_indices, const at::Tensor & plain_indices, const at::Tensor & values, at::IntArrayRef size, at::Layout layout) {
     return at::_ops::_validate_sparse_compressed_tensor_args::call(compressed_indices, plain_indices, values, size, layout);
 }
 

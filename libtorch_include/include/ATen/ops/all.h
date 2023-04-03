@@ -23,47 +23,44 @@ namespace at {
 
 
 // aten::all.dim(Tensor self, int dim, bool keepdim=False) -> Tensor
-TORCH_API inline at::Tensor all(const at::Tensor & self, int64_t dim, bool keepdim=false) {
+inline at::Tensor all(const at::Tensor & self, int64_t dim, bool keepdim=false) {
     return at::_ops::all_dim::call(self, dim, keepdim);
 }
 
 // aten::all.out(Tensor self, int dim, bool keepdim=False, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & all_out(at::Tensor & out, const at::Tensor & self, int64_t dim, bool keepdim=false) {
+inline at::Tensor & all_out(at::Tensor & out, const at::Tensor & self, int64_t dim, bool keepdim=false) {
     return at::_ops::all_out::call(self, dim, keepdim, out);
 }
-
 // aten::all.out(Tensor self, int dim, bool keepdim=False, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & all_outf(const at::Tensor & self, int64_t dim, bool keepdim, at::Tensor & out) {
+inline at::Tensor & all_outf(const at::Tensor & self, int64_t dim, bool keepdim, at::Tensor & out) {
     return at::_ops::all_out::call(self, dim, keepdim, out);
 }
 
 // aten::all.dimname(Tensor self, Dimname dim, bool keepdim=False) -> Tensor
-TORCH_API inline at::Tensor all(const at::Tensor & self, at::Dimname dim, bool keepdim=false) {
+inline at::Tensor all(const at::Tensor & self, at::Dimname dim, bool keepdim=false) {
     return at::_ops::all_dimname::call(self, dim, keepdim);
 }
 
 // aten::all.dimname_out(Tensor self, Dimname dim, bool keepdim=False, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & all_out(at::Tensor & out, const at::Tensor & self, at::Dimname dim, bool keepdim=false) {
+inline at::Tensor & all_out(at::Tensor & out, const at::Tensor & self, at::Dimname dim, bool keepdim=false) {
     return at::_ops::all_dimname_out::call(self, dim, keepdim, out);
 }
-
 // aten::all.dimname_out(Tensor self, Dimname dim, bool keepdim=False, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & all_outf(const at::Tensor & self, at::Dimname dim, bool keepdim, at::Tensor & out) {
+inline at::Tensor & all_outf(const at::Tensor & self, at::Dimname dim, bool keepdim, at::Tensor & out) {
     return at::_ops::all_dimname_out::call(self, dim, keepdim, out);
 }
 
 // aten::all(Tensor self) -> Tensor
-TORCH_API inline at::Tensor all(const at::Tensor & self) {
+inline at::Tensor all(const at::Tensor & self) {
     return at::_ops::all::call(self);
 }
 
 // aten::all.all_out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & all_out(at::Tensor & out, const at::Tensor & self) {
+inline at::Tensor & all_out(at::Tensor & out, const at::Tensor & self) {
     return at::_ops::all_all_out::call(self, out);
 }
-
 // aten::all.all_out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & all_outf(const at::Tensor & self, at::Tensor & out) {
+inline at::Tensor & all_outf(const at::Tensor & self, at::Tensor & out) {
     return at::_ops::all_all_out::call(self, out);
 }
 

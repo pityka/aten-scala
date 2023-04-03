@@ -23,32 +23,30 @@ namespace at {
 
 
 // aten::fmod.Scalar_out(Tensor self, Scalar other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & fmod_out(at::Tensor & out, const at::Tensor & self, const at::Scalar & other) {
+inline at::Tensor & fmod_out(at::Tensor & out, const at::Tensor & self, const at::Scalar & other) {
     return at::_ops::fmod_Scalar_out::call(self, other, out);
 }
-
 // aten::fmod.Scalar_out(Tensor self, Scalar other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & fmod_outf(const at::Tensor & self, const at::Scalar & other, at::Tensor & out) {
+inline at::Tensor & fmod_outf(const at::Tensor & self, const at::Scalar & other, at::Tensor & out) {
     return at::_ops::fmod_Scalar_out::call(self, other, out);
 }
 
 // aten::fmod.Scalar(Tensor self, Scalar other) -> Tensor
-TORCH_API inline at::Tensor fmod(const at::Tensor & self, const at::Scalar & other) {
+inline at::Tensor fmod(const at::Tensor & self, const at::Scalar & other) {
     return at::_ops::fmod_Scalar::call(self, other);
 }
 
 // aten::fmod.Tensor_out(Tensor self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & fmod_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & other) {
+inline at::Tensor & fmod_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & other) {
     return at::_ops::fmod_Tensor_out::call(self, other, out);
 }
-
 // aten::fmod.Tensor_out(Tensor self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & fmod_outf(const at::Tensor & self, const at::Tensor & other, at::Tensor & out) {
+inline at::Tensor & fmod_outf(const at::Tensor & self, const at::Tensor & other, at::Tensor & out) {
     return at::_ops::fmod_Tensor_out::call(self, other, out);
 }
 
 // aten::fmod.Tensor(Tensor self, Tensor other) -> Tensor
-TORCH_API inline at::Tensor fmod(const at::Tensor & self, const at::Tensor & other) {
+inline at::Tensor fmod(const at::Tensor & self, const at::Tensor & other) {
     return at::_ops::fmod_Tensor::call(self, other);
 }
 

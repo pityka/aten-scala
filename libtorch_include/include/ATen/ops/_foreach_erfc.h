@@ -22,29 +22,23 @@
 namespace at {
 
 
-// aten::_foreach_erfc(Tensor[] tensors) -> Tensor[]
-TORCH_API inline ::std::vector<at::Tensor> _foreach_erfc(at::TensorList tensors) {
-    return at::_ops::_foreach_erfc::call(tensors);
+// aten::_foreach_erfc(Tensor[] self) -> Tensor[]
+inline ::std::vector<at::Tensor> _foreach_erfc(at::TensorList self) {
+    return at::_ops::_foreach_erfc::call(self);
 }
 
 // aten::_foreach_erfc_(Tensor(a!)[] self) -> ()
-TORCH_API inline void _foreach_erfc_(at::TensorList self) {
+inline void _foreach_erfc_(at::TensorList self) {
     return at::_ops::_foreach_erfc_::call(self);
 }
 
 // aten::_foreach_erfc.out(Tensor[] self, *, Tensor(a!)[] out) -> ()
-TORCH_API inline void _foreach_erfc_out(at::TensorList out, at::TensorList self) {
+inline void _foreach_erfc_out(at::TensorList out, at::TensorList self) {
     return at::_ops::_foreach_erfc_out::call(self, out);
 }
-
 // aten::_foreach_erfc.out(Tensor[] self, *, Tensor(a!)[] out) -> ()
-TORCH_API inline void _foreach_erfc_outf(at::TensorList self, at::TensorList out) {
+inline void _foreach_erfc_outf(at::TensorList self, at::TensorList out) {
     return at::_ops::_foreach_erfc_out::call(self, out);
-}
-
-// aten::_foreach_erfc.functional(Tensor[] self) -> Tensor[] self_out
-TORCH_API inline ::std::vector<at::Tensor> _foreach_erfc_functional(at::TensorList self) {
-    return at::_ops::_foreach_erfc_functional::call(self);
 }
 
 }

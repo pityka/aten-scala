@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::index_reduce.out(Tensor self, int dim, Tensor index, Tensor source, str reduce, *, bool include_self=True, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & index_reduce_out(at::Tensor & out, const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & source, c10::string_view reduce, bool include_self=true) {
+inline at::Tensor & index_reduce_out(at::Tensor & out, const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & source, c10::string_view reduce, bool include_self=true) {
     return at::_ops::index_reduce_out::call(self, dim, index, source, reduce, include_self, out);
 }
-
 // aten::index_reduce.out(Tensor self, int dim, Tensor index, Tensor source, str reduce, *, bool include_self=True, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & index_reduce_outf(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & source, c10::string_view reduce, bool include_self, at::Tensor & out) {
+inline at::Tensor & index_reduce_outf(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & source, c10::string_view reduce, bool include_self, at::Tensor & out) {
     return at::_ops::index_reduce_out::call(self, dim, index, source, reduce, include_self, out);
 }
 
 // aten::index_reduce(Tensor self, int dim, Tensor index, Tensor source, str reduce, *, bool include_self=True) -> Tensor
-TORCH_API inline at::Tensor index_reduce(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & source, c10::string_view reduce, bool include_self=true) {
+inline at::Tensor index_reduce(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & source, c10::string_view reduce, bool include_self=true) {
     return at::_ops::index_reduce::call(self, dim, index, source, reduce, include_self);
 }
 

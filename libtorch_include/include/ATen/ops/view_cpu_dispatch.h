@@ -18,6 +18,7 @@ namespace at {
 namespace cpu {
 
 TORCH_API at::Tensor view(const at::Tensor & self, at::IntArrayRef size);
+TORCH_API at::Tensor view_symint(const at::Tensor & self, c10::SymIntArrayRef size);
 
 } // namespace cpu
 } // namespace at

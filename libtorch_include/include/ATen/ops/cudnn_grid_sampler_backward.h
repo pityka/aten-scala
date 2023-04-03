@@ -23,8 +23,17 @@ namespace at {
 
 
 // aten::cudnn_grid_sampler_backward(Tensor self, Tensor grid, Tensor grad_output) -> (Tensor grad_self, Tensor grad_grid)
-TORCH_API inline ::std::tuple<at::Tensor,at::Tensor> cudnn_grid_sampler_backward(const at::Tensor & self, const at::Tensor & grid, const at::Tensor & grad_output) {
+inline ::std::tuple<at::Tensor,at::Tensor> cudnn_grid_sampler_backward(const at::Tensor & self, const at::Tensor & grid, const at::Tensor & grad_output) {
     return at::_ops::cudnn_grid_sampler_backward::call(self, grid, grad_output);
+}
+
+// aten::cudnn_grid_sampler_backward.out(Tensor self, Tensor grid, Tensor grad_output, *, Tensor(a!) out0, Tensor(b!) out1) -> (Tensor(a!), Tensor(b!))
+inline ::std::tuple<at::Tensor &,at::Tensor &> cudnn_grid_sampler_backward_out(at::Tensor & out0, at::Tensor & out1, const at::Tensor & self, const at::Tensor & grid, const at::Tensor & grad_output) {
+    return at::_ops::cudnn_grid_sampler_backward_out::call(self, grid, grad_output, out0, out1);
+}
+// aten::cudnn_grid_sampler_backward.out(Tensor self, Tensor grid, Tensor grad_output, *, Tensor(a!) out0, Tensor(b!) out1) -> (Tensor(a!), Tensor(b!))
+inline ::std::tuple<at::Tensor &,at::Tensor &> cudnn_grid_sampler_backward_outf(const at::Tensor & self, const at::Tensor & grid, const at::Tensor & grad_output, at::Tensor & out0, at::Tensor & out1) {
+    return at::_ops::cudnn_grid_sampler_backward_out::call(self, grid, grad_output, out0, out1);
 }
 
 }

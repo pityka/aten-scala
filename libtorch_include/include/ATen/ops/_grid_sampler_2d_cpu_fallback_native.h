@@ -16,8 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor _grid_sampler_2d_cpu_fallback(const at::Tensor & input, const at::Tensor & grid, int64_t interpolation_mode, int64_t padding_mode, bool align_corners);
-
+TORCH_API at::Tensor & _grid_sampler_2d_cpu_fallback_out(const at::Tensor & input, const at::Tensor & grid, int64_t interpolation_mode, int64_t padding_mode, bool align_corners, at::Tensor & out);
 } // namespace native
 } // namespace at

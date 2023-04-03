@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::tile(Tensor self, int[] dims) -> Tensor
-TORCH_API inline at::Tensor tile(const at::Tensor & self, at::IntArrayRef dims) {
+inline at::Tensor tile(const at::Tensor & self, at::IntArrayRef dims) {
     return at::_ops::tile::call(self, dims);
 }
 

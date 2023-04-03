@@ -17,7 +17,7 @@ namespace at {
 
 namespace cuda {
 
-TORCH_API ::std::vector<at::Tensor> _foreach_log2(at::TensorList tensors);
+TORCH_API ::std::vector<at::Tensor> _foreach_log2(at::TensorList self);
 TORCH_API void _foreach_log2_(at::TensorList self);
 
 } // namespace cuda

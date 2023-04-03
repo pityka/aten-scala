@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::gru_cell(Tensor input, Tensor hx, Tensor w_ih, Tensor w_hh, Tensor? b_ih=None, Tensor? b_hh=None) -> Tensor
-TORCH_API inline at::Tensor gru_cell(const at::Tensor & input, const at::Tensor & hx, const at::Tensor & w_ih, const at::Tensor & w_hh, const c10::optional<at::Tensor> & b_ih={}, const c10::optional<at::Tensor> & b_hh={}) {
+inline at::Tensor gru_cell(const at::Tensor & input, const at::Tensor & hx, const at::Tensor & w_ih, const at::Tensor & w_hh, const c10::optional<at::Tensor> & b_ih={}, const c10::optional<at::Tensor> & b_hh={}) {
     return at::_ops::gru_cell::call(input, hx, w_ih, w_hh, b_ih, b_hh);
 }
 

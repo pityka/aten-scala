@@ -17,8 +17,6 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
-TORCH_API at::Tensor xlogy(const at::Tensor & self, const at::Tensor & other);
-TORCH_API at::Tensor & xlogy_(at::Tensor & self, const at::Tensor & other);
 TORCH_API at::Tensor xlogy(const at::Scalar & self, const at::Tensor & other);
 TORCH_API at::Tensor & xlogy_out(at::Tensor & out, const at::Scalar & self, const at::Tensor & other);
 TORCH_API at::Tensor & xlogy_outf(const at::Scalar & self, const at::Tensor & other, at::Tensor & out);

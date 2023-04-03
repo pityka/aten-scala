@@ -23,8 +23,17 @@ namespace at {
 
 
 // aten::_unique(Tensor self, bool sorted=True, bool return_inverse=False) -> (Tensor, Tensor)
-TORCH_API inline ::std::tuple<at::Tensor,at::Tensor> _unique(const at::Tensor & self, bool sorted=true, bool return_inverse=false) {
+inline ::std::tuple<at::Tensor,at::Tensor> _unique(const at::Tensor & self, bool sorted=true, bool return_inverse=false) {
     return at::_ops::_unique::call(self, sorted, return_inverse);
+}
+
+// aten::_unique.out(Tensor self, bool sorted=True, bool return_inverse=False, *, Tensor(a!) out0, Tensor(b!) out1) -> (Tensor(a!), Tensor(b!))
+inline ::std::tuple<at::Tensor &,at::Tensor &> _unique_out(at::Tensor & out0, at::Tensor & out1, const at::Tensor & self, bool sorted=true, bool return_inverse=false) {
+    return at::_ops::_unique_out::call(self, sorted, return_inverse, out0, out1);
+}
+// aten::_unique.out(Tensor self, bool sorted=True, bool return_inverse=False, *, Tensor(a!) out0, Tensor(b!) out1) -> (Tensor(a!), Tensor(b!))
+inline ::std::tuple<at::Tensor &,at::Tensor &> _unique_outf(const at::Tensor & self, bool sorted, bool return_inverse, at::Tensor & out0, at::Tensor & out1) {
+    return at::_ops::_unique_out::call(self, sorted, return_inverse, out0, out1);
 }
 
 }

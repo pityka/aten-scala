@@ -16,9 +16,8 @@
 
 namespace at {
 namespace native {
-
+TORCH_API at::Tensor & _nested_from_padded_out(const at::Tensor & padded, const at::Tensor & cpu_nested_shape_example, bool fuse_transform_0213, at::Tensor & out);
 TORCH_API at::Tensor nested_from_padded_generic(const at::Tensor & padded, const at::Tensor & cpu_nested_shape_example, bool fuse_transform_0213=false);
 TORCH_API at::Tensor nested_from_padded_cuda(const at::Tensor & padded, const at::Tensor & cpu_nested_shape_example, bool fuse_transform_0213=false);
-
 } // namespace native
 } // namespace at

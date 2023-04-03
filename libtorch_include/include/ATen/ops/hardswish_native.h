@@ -16,10 +16,11 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor hardswish(const at::Tensor & self);
 TORCH_API at::Tensor & hardswish_out(const at::Tensor & self, at::Tensor & out);
 TORCH_API at::Tensor & hardswish_(at::Tensor & self);
-
+TORCH_API at::Tensor hardswish_mps(const at::Tensor & self);
+TORCH_API at::Tensor & hardswish_out_mps(const at::Tensor & self, at::Tensor & out);
+TORCH_API at::Tensor & hardswish_mps_(at::Tensor & self);
 } // namespace native
 } // namespace at

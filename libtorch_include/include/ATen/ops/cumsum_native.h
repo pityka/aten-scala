@@ -16,13 +16,14 @@
 
 namespace at {
 namespace native {
-
 struct TORCH_API structured_cumsum_out : public at::meta::structured_cumsum {
+void impl(const at::Tensor & self, int64_t dim, c10::optional<at::ScalarType> dtype, const at::Tensor & out);
+};
+struct TORCH_API structured_cumsum_out_mps : public at::meta::structured_cumsum {
 void impl(const at::Tensor & self, int64_t dim, c10::optional<at::ScalarType> dtype, const at::Tensor & out);
 };
 TORCH_API at::Tensor cumsum(const at::Tensor & self, at::Dimname dim, c10::optional<at::ScalarType> dtype=c10::nullopt);
 TORCH_API at::Tensor & cumsum_out(const at::Tensor & self, at::Dimname dim, c10::optional<at::ScalarType> dtype, at::Tensor & out);
 TORCH_API at::Tensor & cumsum_(at::Tensor & self, at::Dimname dim, c10::optional<at::ScalarType> dtype=c10::nullopt);
-
 } // namespace native
 } // namespace at

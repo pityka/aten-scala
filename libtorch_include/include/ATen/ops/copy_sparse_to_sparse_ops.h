@@ -36,13 +36,13 @@ struct TORCH_API copy_sparse_to_sparse_out {
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & src, bool non_blocking, at::Tensor & out);
 };
 
-struct TORCH_API copy_sparse_to_sparse_functional {
+struct TORCH_API copy_sparse_to_sparse {
   using schema = at::Tensor (const at::Tensor &, const at::Tensor &, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::copy_sparse_to_sparse")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "functional")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "copy_sparse_to_sparse.functional(Tensor self, Tensor src, bool non_blocking=False) -> Tensor")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "copy_sparse_to_sparse(Tensor self, Tensor src, bool non_blocking=False) -> Tensor")
   static at::Tensor call(const at::Tensor & self, const at::Tensor & src, bool non_blocking);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & src, bool non_blocking);
 };

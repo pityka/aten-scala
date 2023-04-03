@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
-TORCH_API ::std::tuple<at::Tensor,at::Tensor> linalg_slogdet(const at::Tensor & self);
-TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> linalg_slogdet_out(const at::Tensor & self, at::Tensor & sign, at::Tensor & logabsdet);
-
+TORCH_API ::std::tuple<at::Tensor,at::Tensor> linalg_slogdet(const at::Tensor & A);
+TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> linalg_slogdet_out(const at::Tensor & A, at::Tensor & sign, at::Tensor & logabsdet);
 } // namespace native
 } // namespace at

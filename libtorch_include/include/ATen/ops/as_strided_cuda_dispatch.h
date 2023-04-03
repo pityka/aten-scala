@@ -18,6 +18,7 @@ namespace at {
 namespace cuda {
 
 TORCH_API at::Tensor as_strided(const at::Tensor & self, at::IntArrayRef size, at::IntArrayRef stride, c10::optional<int64_t> storage_offset=c10::nullopt);
+TORCH_API at::Tensor as_strided_symint(const at::Tensor & self, c10::SymIntArrayRef size, c10::SymIntArrayRef stride, c10::optional<c10::SymInt> storage_offset=c10::nullopt);
 
 } // namespace cuda
 } // namespace at

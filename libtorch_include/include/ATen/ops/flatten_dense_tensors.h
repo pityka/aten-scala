@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::flatten_dense_tensors(Tensor[] tensors) -> Tensor
-TORCH_API inline at::Tensor flatten_dense_tensors(at::TensorList tensors) {
+inline at::Tensor flatten_dense_tensors(at::TensorList tensors) {
     return at::_ops::flatten_dense_tensors::call(tensors);
 }
 

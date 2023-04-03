@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API void _validate_sparse_bsc_tensor_args(const at::Tensor & ccol_indices, const at::Tensor & row_indices, const at::Tensor & values, at::IntArrayRef size);
-
 } // namespace native
 } // namespace at

@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API ::std::vector<at::Tensor> meshgrid(at::TensorList tensors);
 TORCH_API ::std::vector<at::Tensor> meshgrid(at::TensorList tensors, c10::string_view indexing);
-
 } // namespace native
 } // namespace at

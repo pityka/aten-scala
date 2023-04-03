@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::equal(Tensor self, Tensor other) -> bool
-TORCH_API inline bool equal(const at::Tensor & self, const at::Tensor & other) {
+inline bool equal(const at::Tensor & self, const at::Tensor & other) {
     return at::_ops::equal::call(self, other);
 }
 

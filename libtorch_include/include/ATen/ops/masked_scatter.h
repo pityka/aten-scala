@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::masked_scatter(Tensor self, Tensor mask, Tensor source) -> Tensor
-TORCH_API inline at::Tensor masked_scatter(const at::Tensor & self, const at::Tensor & mask, const at::Tensor & source) {
+inline at::Tensor masked_scatter(const at::Tensor & self, const at::Tensor & mask, const at::Tensor & source) {
     return at::_ops::masked_scatter::call(self, mask, source);
 }
 
 // aten::masked_scatter.out(Tensor self, Tensor mask, Tensor source, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & masked_scatter_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & mask, const at::Tensor & source) {
+inline at::Tensor & masked_scatter_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & mask, const at::Tensor & source) {
     return at::_ops::masked_scatter_out::call(self, mask, source, out);
 }
-
 // aten::masked_scatter.out(Tensor self, Tensor mask, Tensor source, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & masked_scatter_outf(const at::Tensor & self, const at::Tensor & mask, const at::Tensor & source, at::Tensor & out) {
+inline at::Tensor & masked_scatter_outf(const at::Tensor & self, const at::Tensor & mask, const at::Tensor & source, at::Tensor & out) {
     return at::_ops::masked_scatter_out::call(self, mask, source, out);
 }
 

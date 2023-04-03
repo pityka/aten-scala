@@ -16,8 +16,7 @@
 
 namespace at {
 namespace native {
-
+TORCH_API at::Tensor & _pdist_forward_out(const at::Tensor & self, double p, at::Tensor & out);
 TORCH_API at::Tensor _pdist_forward(const at::Tensor & self, double p=2);
-
 } // namespace native
 } // namespace at

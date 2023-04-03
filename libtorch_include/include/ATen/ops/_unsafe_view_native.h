@@ -16,8 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor _unsafe_view(const at::Tensor & self, at::IntArrayRef size);
-
+TORCH_API at::Tensor & _unsafe_view_out_symint(const at::Tensor & self, c10::SymIntArrayRef size, at::Tensor & out);
 } // namespace native
 } // namespace at

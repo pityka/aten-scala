@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> linalg_eig(const at::Tensor & self);
 TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> linalg_eig_out(const at::Tensor & self, at::Tensor & eigenvalues, at::Tensor & eigenvectors);
-
 } // namespace native
 } // namespace at

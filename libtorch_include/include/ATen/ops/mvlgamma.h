@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::mvlgamma.out(Tensor self, int p, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & mvlgamma_out(at::Tensor & out, const at::Tensor & self, int64_t p) {
+inline at::Tensor & mvlgamma_out(at::Tensor & out, const at::Tensor & self, int64_t p) {
     return at::_ops::mvlgamma_out::call(self, p, out);
 }
-
 // aten::mvlgamma.out(Tensor self, int p, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & mvlgamma_outf(const at::Tensor & self, int64_t p, at::Tensor & out) {
+inline at::Tensor & mvlgamma_outf(const at::Tensor & self, int64_t p, at::Tensor & out) {
     return at::_ops::mvlgamma_out::call(self, p, out);
 }
 
 // aten::mvlgamma(Tensor self, int p) -> Tensor
-TORCH_API inline at::Tensor mvlgamma(const at::Tensor & self, int64_t p) {
+inline at::Tensor mvlgamma(const at::Tensor & self, int64_t p) {
     return at::_ops::mvlgamma::call(self, p);
 }
 

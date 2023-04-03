@@ -18,8 +18,11 @@ namespace at {
 namespace cpu {
 
 TORCH_API at::Tensor _upsample_nearest_exact2d(const at::Tensor & self, at::IntArrayRef output_size, c10::optional<double> scales_h=c10::nullopt, c10::optional<double> scales_w=c10::nullopt);
+TORCH_API at::Tensor _upsample_nearest_exact2d_symint(const at::Tensor & self, c10::SymIntArrayRef output_size, c10::optional<double> scales_h=c10::nullopt, c10::optional<double> scales_w=c10::nullopt);
 TORCH_API at::Tensor & _upsample_nearest_exact2d_out(at::Tensor & out, const at::Tensor & self, at::IntArrayRef output_size, c10::optional<double> scales_h=c10::nullopt, c10::optional<double> scales_w=c10::nullopt);
 TORCH_API at::Tensor & _upsample_nearest_exact2d_outf(const at::Tensor & self, at::IntArrayRef output_size, c10::optional<double> scales_h, c10::optional<double> scales_w, at::Tensor & out);
+TORCH_API at::Tensor & _upsample_nearest_exact2d_symint_out(at::Tensor & out, const at::Tensor & self, c10::SymIntArrayRef output_size, c10::optional<double> scales_h=c10::nullopt, c10::optional<double> scales_w=c10::nullopt);
+TORCH_API at::Tensor & _upsample_nearest_exact2d_symint_outf(const at::Tensor & self, c10::SymIntArrayRef output_size, c10::optional<double> scales_h, c10::optional<double> scales_w, at::Tensor & out);
 
 } // namespace cpu
 } // namespace at

@@ -16,9 +16,8 @@
 
 namespace at {
 namespace native {
-
-TORCH_API ::std::tuple<::std::vector<at::Tensor>,at::Tensor> _amp_foreach_non_finite_check_and_unscale_functional(at::TensorList self, const at::Tensor & found_inf, const at::Tensor & inv_scale);
+TORCH_API ::std::tuple<::std::vector<at::Tensor>,at::Tensor> _amp_foreach_non_finite_check_and_unscale(at::TensorList self, const at::Tensor & found_inf, const at::Tensor & inv_scale);
+TORCH_API void _amp_foreach_non_finite_check_and_unscale_out(at::TensorList self, at::Tensor & found_inf, const at::Tensor & inv_scale, at::TensorList out);
 TORCH_API void _amp_foreach_non_finite_check_and_unscale_cuda_(at::TensorList self, at::Tensor & found_inf, const at::Tensor & inv_scale);
-
 } // namespace native
 } // namespace at

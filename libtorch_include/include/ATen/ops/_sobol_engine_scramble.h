@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::_sobol_engine_scramble_(Tensor(a!) self, Tensor ltm, int dimension) -> Tensor(a!)
-TORCH_API inline at::Tensor & _sobol_engine_scramble_(at::Tensor & self, const at::Tensor & ltm, int64_t dimension) {
+inline at::Tensor & _sobol_engine_scramble_(at::Tensor & self, const at::Tensor & ltm, int64_t dimension) {
     return at::_ops::_sobol_engine_scramble_::call(self, ltm, dimension);
 }
 

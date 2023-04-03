@@ -15,14 +15,14 @@ namespace _ops {
 
 
 struct TORCH_API unflatten_int {
-  using schema = at::Tensor (const at::Tensor &, int64_t, at::IntArrayRef, c10::optional<at::DimnameList>);
+  using schema = at::Tensor (const at::Tensor &, int64_t, at::IntArrayRef);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::unflatten")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "int")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "unflatten.int(Tensor(a) self, int dim, int[] sizes, Dimname[]? names=None) -> Tensor(a)")
-  static at::Tensor call(const at::Tensor & self, int64_t dim, at::IntArrayRef sizes, c10::optional<at::DimnameList> names);
-  static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t dim, at::IntArrayRef sizes, c10::optional<at::DimnameList> names);
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "unflatten.int(Tensor(a) self, int dim, int[] sizes) -> Tensor(a)")
+  static at::Tensor call(const at::Tensor & self, int64_t dim, at::IntArrayRef sizes);
+  static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t dim, at::IntArrayRef sizes);
 };
 
 struct TORCH_API unflatten_Dimname {

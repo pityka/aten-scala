@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API void _cufft_clear_plan_cache(int64_t device_index);
-
 } // namespace native
 } // namespace at

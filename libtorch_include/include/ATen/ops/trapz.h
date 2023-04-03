@@ -23,12 +23,12 @@ namespace at {
 
 
 // aten::trapz.x(Tensor y, Tensor x, *, int dim=-1) -> Tensor
-TORCH_API inline at::Tensor trapz(const at::Tensor & y, const at::Tensor & x, int64_t dim=-1) {
+inline at::Tensor trapz(const at::Tensor & y, const at::Tensor & x, int64_t dim=-1) {
     return at::_ops::trapz_x::call(y, x, dim);
 }
 
 // aten::trapz.dx(Tensor y, *, float dx=1, int dim=-1) -> Tensor
-TORCH_API inline at::Tensor trapz(const at::Tensor & y, double dx=1, int64_t dim=-1) {
+inline at::Tensor trapz(const at::Tensor & y, double dx=1, int64_t dim=-1) {
     return at::_ops::trapz_dx::call(y, dx, dim);
 }
 

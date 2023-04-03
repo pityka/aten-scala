@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::_convert_indices_from_coo_to_csr(Tensor self, int size, *, bool out_int32=False) -> Tensor
-TORCH_API inline at::Tensor _convert_indices_from_coo_to_csr(const at::Tensor & self, int64_t size, bool out_int32=false) {
+inline at::Tensor _convert_indices_from_coo_to_csr(const at::Tensor & self, int64_t size, bool out_int32=false) {
     return at::_ops::_convert_indices_from_coo_to_csr::call(self, size, out_int32);
 }
 
 // aten::_convert_indices_from_coo_to_csr.out(Tensor self, int size, *, bool out_int32=False, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & _convert_indices_from_coo_to_csr_out(at::Tensor & out, const at::Tensor & self, int64_t size, bool out_int32=false) {
+inline at::Tensor & _convert_indices_from_coo_to_csr_out(at::Tensor & out, const at::Tensor & self, int64_t size, bool out_int32=false) {
     return at::_ops::_convert_indices_from_coo_to_csr_out::call(self, size, out_int32, out);
 }
-
 // aten::_convert_indices_from_coo_to_csr.out(Tensor self, int size, *, bool out_int32=False, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & _convert_indices_from_coo_to_csr_outf(const at::Tensor & self, int64_t size, bool out_int32, at::Tensor & out) {
+inline at::Tensor & _convert_indices_from_coo_to_csr_outf(const at::Tensor & self, int64_t size, bool out_int32, at::Tensor & out) {
     return at::_ops::_convert_indices_from_coo_to_csr_out::call(self, size, out_int32, out);
 }
 

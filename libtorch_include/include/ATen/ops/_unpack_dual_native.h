@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> _unpack_dual(const at::Tensor & dual, int64_t level);
-
 } // namespace native
 } // namespace at

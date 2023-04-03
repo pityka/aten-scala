@@ -23,22 +23,21 @@ namespace at {
 
 
 // aten::nan_to_num(Tensor self, float? nan=None, float? posinf=None, float? neginf=None) -> Tensor
-TORCH_API inline at::Tensor nan_to_num(const at::Tensor & self, c10::optional<double> nan=c10::nullopt, c10::optional<double> posinf=c10::nullopt, c10::optional<double> neginf=c10::nullopt) {
+inline at::Tensor nan_to_num(const at::Tensor & self, c10::optional<double> nan=c10::nullopt, c10::optional<double> posinf=c10::nullopt, c10::optional<double> neginf=c10::nullopt) {
     return at::_ops::nan_to_num::call(self, nan, posinf, neginf);
 }
 
 // aten::nan_to_num_(Tensor(a!) self, float? nan=None, float? posinf=None, float? neginf=None) -> Tensor(a!)
-TORCH_API inline at::Tensor & nan_to_num_(at::Tensor & self, c10::optional<double> nan=c10::nullopt, c10::optional<double> posinf=c10::nullopt, c10::optional<double> neginf=c10::nullopt) {
+inline at::Tensor & nan_to_num_(at::Tensor & self, c10::optional<double> nan=c10::nullopt, c10::optional<double> posinf=c10::nullopt, c10::optional<double> neginf=c10::nullopt) {
     return at::_ops::nan_to_num_::call(self, nan, posinf, neginf);
 }
 
 // aten::nan_to_num.out(Tensor self, float? nan=None, float? posinf=None, float? neginf=None, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & nan_to_num_out(at::Tensor & out, const at::Tensor & self, c10::optional<double> nan=c10::nullopt, c10::optional<double> posinf=c10::nullopt, c10::optional<double> neginf=c10::nullopt) {
+inline at::Tensor & nan_to_num_out(at::Tensor & out, const at::Tensor & self, c10::optional<double> nan=c10::nullopt, c10::optional<double> posinf=c10::nullopt, c10::optional<double> neginf=c10::nullopt) {
     return at::_ops::nan_to_num_out::call(self, nan, posinf, neginf, out);
 }
-
 // aten::nan_to_num.out(Tensor self, float? nan=None, float? posinf=None, float? neginf=None, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & nan_to_num_outf(const at::Tensor & self, c10::optional<double> nan, c10::optional<double> posinf, c10::optional<double> neginf, at::Tensor & out) {
+inline at::Tensor & nan_to_num_outf(const at::Tensor & self, c10::optional<double> nan, c10::optional<double> posinf, c10::optional<double> neginf, at::Tensor & out) {
     return at::_ops::nan_to_num_out::call(self, nan, posinf, neginf, out);
 }
 

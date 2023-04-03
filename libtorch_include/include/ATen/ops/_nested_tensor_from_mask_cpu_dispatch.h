@@ -17,7 +17,7 @@ namespace at {
 
 namespace cpu {
 
-TORCH_API at::Tensor _nested_tensor_from_mask(const at::Tensor & t, const at::Tensor & mask);
+TORCH_API at::Tensor _nested_tensor_from_mask(const at::Tensor & t, const at::Tensor & mask, bool mask_check=true);
 
 } // namespace cpu
 } // namespace at

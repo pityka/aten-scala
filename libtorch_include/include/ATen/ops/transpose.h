@@ -23,12 +23,12 @@ namespace at {
 
 
 // aten::transpose.int(Tensor(a) self, int dim0, int dim1) -> Tensor(a)
-TORCH_API inline at::Tensor transpose(const at::Tensor & self, int64_t dim0, int64_t dim1) {
+inline at::Tensor transpose(const at::Tensor & self, int64_t dim0, int64_t dim1) {
     return at::_ops::transpose_int::call(self, dim0, dim1);
 }
 
 // aten::transpose.Dimname(Tensor(a) self, Dimname dim0, Dimname dim1) -> Tensor(a)
-TORCH_API inline at::Tensor transpose(const at::Tensor & self, at::Dimname dim0, at::Dimname dim1) {
+inline at::Tensor transpose(const at::Tensor & self, at::Dimname dim0, at::Dimname dim1) {
     return at::_ops::transpose_Dimname::call(self, dim0, dim1);
 }
 

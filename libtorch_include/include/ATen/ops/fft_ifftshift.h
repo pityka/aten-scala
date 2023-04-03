@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::fft_ifftshift(Tensor self, int[1]? dim=None) -> Tensor
-TORCH_API inline at::Tensor fft_ifftshift(const at::Tensor & self, at::OptionalIntArrayRef dim=c10::nullopt) {
+inline at::Tensor fft_ifftshift(const at::Tensor & self, at::OptionalIntArrayRef dim=c10::nullopt) {
     return at::_ops::fft_ifftshift::call(self, dim);
 }
 

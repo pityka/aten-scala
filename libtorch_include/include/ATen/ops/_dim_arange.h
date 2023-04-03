@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::_dim_arange(Tensor like, int dim) -> Tensor
-TORCH_API inline at::Tensor _dim_arange(const at::Tensor & like, int64_t dim) {
+inline at::Tensor _dim_arange(const at::Tensor & like, int64_t dim) {
     return at::_ops::_dim_arange::call(like, dim);
 }
 

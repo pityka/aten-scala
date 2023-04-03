@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::_assert_async(Tensor self) -> ()
-TORCH_API inline void _assert_async(const at::Tensor & self) {
+inline void _assert_async(const at::Tensor & self) {
     return at::_ops::_assert_async::call(self);
 }
 

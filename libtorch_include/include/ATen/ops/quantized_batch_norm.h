@@ -23,8 +23,17 @@ namespace at {
 
 
 // aten::quantized_batch_norm(Tensor input, Tensor? weight, Tensor? bias, Tensor mean, Tensor var, float eps, float output_scale, int output_zero_point) -> Tensor
-TORCH_API inline at::Tensor quantized_batch_norm(const at::Tensor & input, const c10::optional<at::Tensor> & weight, const c10::optional<at::Tensor> & bias, const at::Tensor & mean, const at::Tensor & var, double eps, double output_scale, int64_t output_zero_point) {
+inline at::Tensor quantized_batch_norm(const at::Tensor & input, const c10::optional<at::Tensor> & weight, const c10::optional<at::Tensor> & bias, const at::Tensor & mean, const at::Tensor & var, double eps, double output_scale, int64_t output_zero_point) {
     return at::_ops::quantized_batch_norm::call(input, weight, bias, mean, var, eps, output_scale, output_zero_point);
+}
+
+// aten::quantized_batch_norm.out(Tensor input, Tensor? weight, Tensor? bias, Tensor mean, Tensor var, float eps, float output_scale, int output_zero_point, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & quantized_batch_norm_out(at::Tensor & out, const at::Tensor & input, const c10::optional<at::Tensor> & weight, const c10::optional<at::Tensor> & bias, const at::Tensor & mean, const at::Tensor & var, double eps, double output_scale, int64_t output_zero_point) {
+    return at::_ops::quantized_batch_norm_out::call(input, weight, bias, mean, var, eps, output_scale, output_zero_point, out);
+}
+// aten::quantized_batch_norm.out(Tensor input, Tensor? weight, Tensor? bias, Tensor mean, Tensor var, float eps, float output_scale, int output_zero_point, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & quantized_batch_norm_outf(const at::Tensor & input, const c10::optional<at::Tensor> & weight, const c10::optional<at::Tensor> & bias, const at::Tensor & mean, const at::Tensor & var, double eps, double output_scale, int64_t output_zero_point, at::Tensor & out) {
+    return at::_ops::quantized_batch_norm_out::call(input, weight, bias, mean, var, eps, output_scale, output_zero_point, out);
 }
 
 }

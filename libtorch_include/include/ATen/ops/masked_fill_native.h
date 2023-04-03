@@ -16,13 +16,19 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor masked_fill(const at::Tensor & self, const at::Tensor & mask, const at::Scalar & value);
+TORCH_API at::Tensor & masked_fill_Scalar_out(const at::Tensor & self, const at::Tensor & mask, const at::Scalar & value, at::Tensor & out);
 TORCH_API at::Tensor & masked_fill__cpu(at::Tensor & self, const at::Tensor & mask, const at::Scalar & value);
 TORCH_API at::Tensor & masked_fill__cuda(at::Tensor & self, const at::Tensor & mask, const at::Scalar & value);
+TORCH_API at::Tensor & masked_fill__mps(at::Tensor & self, const at::Tensor & mask, const at::Scalar & value);
+TORCH_API at::Tensor & masked_fill__quantized_cpu(at::Tensor & self, const at::Tensor & mask, const at::Scalar & value);
+TORCH_API at::Tensor & masked_fill__quantized_cuda(at::Tensor & self, const at::Tensor & mask, const at::Scalar & value);
 TORCH_API at::Tensor masked_fill(const at::Tensor & self, const at::Tensor & mask, const at::Tensor & value);
+TORCH_API at::Tensor & masked_fill_Tensor_out(const at::Tensor & self, const at::Tensor & mask, const at::Tensor & value, at::Tensor & out);
 TORCH_API at::Tensor & masked_fill__cpu(at::Tensor & self, const at::Tensor & mask, const at::Tensor & value);
 TORCH_API at::Tensor & masked_fill__cuda(at::Tensor & self, const at::Tensor & mask, const at::Tensor & value);
-
+TORCH_API at::Tensor & masked_fill__mps(at::Tensor & self, const at::Tensor & mask, const at::Tensor & value);
+TORCH_API at::Tensor & masked_fill__quantized_cpu(at::Tensor & self, const at::Tensor & mask, const at::Tensor & value);
+TORCH_API at::Tensor & masked_fill__quantized_cuda(at::Tensor & self, const at::Tensor & mask, const at::Tensor & value);
 } // namespace native
 } // namespace at

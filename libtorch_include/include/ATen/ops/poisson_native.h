@@ -16,9 +16,8 @@
 
 namespace at {
 namespace native {
-
+TORCH_API at::Tensor & poisson_out(const at::Tensor & self, c10::optional<at::Generator> generator, at::Tensor & out);
 TORCH_API at::Tensor _s_poisson_cpu(const at::Tensor & self, c10::optional<at::Generator> generator=c10::nullopt);
 TORCH_API at::Tensor _s_poisson_cuda(const at::Tensor & self, c10::optional<at::Generator> generator=c10::nullopt);
-
 } // namespace native
 } // namespace at

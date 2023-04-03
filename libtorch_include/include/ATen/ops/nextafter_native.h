@@ -16,11 +16,8 @@
 
 namespace at {
 namespace native {
-
-TORCH_API at::Tensor & nextafter_(at::Tensor & self, const at::Tensor & other);
 struct TORCH_API structured_nextafter_out : public at::meta::structured_nextafter {
 void impl(const at::Tensor & self, const at::Tensor & other, const at::Tensor & out);
 };
-
 } // namespace native
 } // namespace at

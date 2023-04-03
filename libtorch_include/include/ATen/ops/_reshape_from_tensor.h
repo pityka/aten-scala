@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::_reshape_from_tensor(Tensor self, Tensor shape) -> Tensor
-TORCH_API inline at::Tensor _reshape_from_tensor(const at::Tensor & self, const at::Tensor & shape) {
+inline at::Tensor _reshape_from_tensor(const at::Tensor & self, const at::Tensor & shape) {
     return at::_ops::_reshape_from_tensor::call(self, shape);
 }
 

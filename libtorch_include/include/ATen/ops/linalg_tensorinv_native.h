@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor linalg_tensorinv(const at::Tensor & self, int64_t ind=2);
 TORCH_API at::Tensor & linalg_tensorinv_out(const at::Tensor & self, int64_t ind, at::Tensor & out);
-
 } // namespace native
 } // namespace at

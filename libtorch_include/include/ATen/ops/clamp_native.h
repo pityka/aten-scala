@@ -16,15 +16,18 @@
 
 namespace at {
 namespace native {
-
-TORCH_API at::Tensor & clamp_(at::Tensor & self, const c10::optional<at::Scalar> & min=c10::nullopt, const c10::optional<at::Scalar> & max=c10::nullopt);
 struct TORCH_API structured_clamp_out : public at::meta::structured_clamp {
+void impl(const at::Tensor & self, at::OptionalScalarRef min, at::OptionalScalarRef max, const at::Tensor & out);
+};
+struct TORCH_API structured_clamp_out_mps : public at::meta::structured_clamp {
 void impl(const at::Tensor & self, at::OptionalScalarRef min, at::OptionalScalarRef max, const at::Tensor & out);
 };
 TORCH_API at::Tensor clamp_quantized_cpu(const at::Tensor & self, const c10::optional<at::Scalar> & min=c10::nullopt, const c10::optional<at::Scalar> & max=c10::nullopt);
 struct TORCH_API structured_clamp_Tensor_out : public at::meta::structured_clamp_Tensor {
 void impl(const at::Tensor & self, at::OptionalTensorRef min, at::OptionalTensorRef max, const at::Tensor & out);
 };
-
+struct TORCH_API structured_clamp_Tensor_out_mps : public at::meta::structured_clamp_Tensor {
+void impl(const at::Tensor & self, at::OptionalTensorRef min, at::OptionalTensorRef max, const at::Tensor & out);
+};
 } // namespace native
 } // namespace at

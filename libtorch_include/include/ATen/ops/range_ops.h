@@ -36,6 +36,17 @@ struct TORCH_API range {
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Scalar & start, const at::Scalar & end, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory);
 };
 
+struct TORCH_API range_out_ {
+  using schema = at::Tensor & (const at::Scalar &, const at::Scalar &, at::Tensor &);
+  using ptr_schema = schema*;
+  // See Note [static constexpr char* members for windows NVCC]
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::range")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out_")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "range.out_(Scalar start, Scalar end, *, Tensor(a!) out) -> Tensor(a!)")
+  static at::Tensor & call(const at::Scalar & start, const at::Scalar & end, at::Tensor & out);
+  static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Scalar & start, const at::Scalar & end, at::Tensor & out);
+};
+
 struct TORCH_API range_out {
   using schema = at::Tensor & (const at::Scalar &, const at::Scalar &, const at::Scalar &, at::Tensor &);
   using ptr_schema = schema*;

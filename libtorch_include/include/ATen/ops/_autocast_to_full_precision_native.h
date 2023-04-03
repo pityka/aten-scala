@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor _autocast_to_full_precision(const at::Tensor & self, bool cuda_enabled, bool cpu_enabled);
-
 } // namespace native
 } // namespace at

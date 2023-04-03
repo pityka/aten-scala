@@ -23,22 +23,21 @@ namespace at {
 
 
 // aten::reciprocal(Tensor self) -> Tensor
-TORCH_API inline at::Tensor reciprocal(const at::Tensor & self) {
+inline at::Tensor reciprocal(const at::Tensor & self) {
     return at::_ops::reciprocal::call(self);
 }
 
 // aten::reciprocal_(Tensor(a!) self) -> Tensor(a!)
-TORCH_API inline at::Tensor & reciprocal_(at::Tensor & self) {
+inline at::Tensor & reciprocal_(at::Tensor & self) {
     return at::_ops::reciprocal_::call(self);
 }
 
 // aten::reciprocal.out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & reciprocal_out(at::Tensor & out, const at::Tensor & self) {
+inline at::Tensor & reciprocal_out(at::Tensor & out, const at::Tensor & self) {
     return at::_ops::reciprocal_out::call(self, out);
 }
-
 // aten::reciprocal.out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & reciprocal_outf(const at::Tensor & self, at::Tensor & out) {
+inline at::Tensor & reciprocal_outf(const at::Tensor & self, at::Tensor & out) {
     return at::_ops::reciprocal_out::call(self, out);
 }
 

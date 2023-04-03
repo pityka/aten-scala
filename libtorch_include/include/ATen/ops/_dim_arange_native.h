@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor _dim_arange(const at::Tensor & like, int64_t dim);
-
 } // namespace native
 } // namespace at

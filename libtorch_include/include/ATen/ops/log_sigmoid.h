@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::log_sigmoid.out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & log_sigmoid_out(at::Tensor & out, const at::Tensor & self) {
+inline at::Tensor & log_sigmoid_out(at::Tensor & out, const at::Tensor & self) {
     return at::_ops::log_sigmoid_out::call(self, out);
 }
-
 // aten::log_sigmoid.out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & log_sigmoid_outf(const at::Tensor & self, at::Tensor & out) {
+inline at::Tensor & log_sigmoid_outf(const at::Tensor & self, at::Tensor & out) {
     return at::_ops::log_sigmoid_out::call(self, out);
 }
 
 // aten::log_sigmoid(Tensor self) -> Tensor
-TORCH_API inline at::Tensor log_sigmoid(const at::Tensor & self) {
+inline at::Tensor log_sigmoid(const at::Tensor & self) {
     return at::_ops::log_sigmoid::call(self);
 }
 

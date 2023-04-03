@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::nextafter.out(Tensor self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & nextafter_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & other) {
+inline at::Tensor & nextafter_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & other) {
     return at::_ops::nextafter_out::call(self, other, out);
 }
-
 // aten::nextafter.out(Tensor self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & nextafter_outf(const at::Tensor & self, const at::Tensor & other, at::Tensor & out) {
+inline at::Tensor & nextafter_outf(const at::Tensor & self, const at::Tensor & other, at::Tensor & out) {
     return at::_ops::nextafter_out::call(self, other, out);
 }
 
 // aten::nextafter(Tensor self, Tensor other) -> Tensor
-TORCH_API inline at::Tensor nextafter(const at::Tensor & self, const at::Tensor & other) {
+inline at::Tensor nextafter(const at::Tensor & self, const at::Tensor & other) {
     return at::_ops::nextafter::call(self, other);
 }
 

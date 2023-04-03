@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor special_sinc(const at::Tensor & self);
 TORCH_API at::Tensor & special_sinc_out(const at::Tensor & self, at::Tensor & out);
-
 } // namespace native
 } // namespace at

@@ -25,4 +25,15 @@ struct TORCH_API block_diag {
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList tensors);
 };
 
+struct TORCH_API block_diag_out {
+  using schema = at::Tensor & (at::TensorList, at::Tensor &);
+  using ptr_schema = schema*;
+  // See Note [static constexpr char* members for windows NVCC]
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::block_diag")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "block_diag.out(Tensor[] tensors, *, Tensor(a!) out) -> Tensor(a!)")
+  static at::Tensor & call(at::TensorList tensors, at::Tensor & out);
+  static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList tensors, at::Tensor & out);
+};
+
 }} // namespace at::_ops

@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::hardsigmoid_backward.grad_input(Tensor grad_output, Tensor self, *, Tensor(a!) grad_input) -> Tensor(a!)
-TORCH_API inline at::Tensor & hardsigmoid_backward_out(at::Tensor & grad_input, const at::Tensor & grad_output, const at::Tensor & self) {
+inline at::Tensor & hardsigmoid_backward_out(at::Tensor & grad_input, const at::Tensor & grad_output, const at::Tensor & self) {
     return at::_ops::hardsigmoid_backward_grad_input::call(grad_output, self, grad_input);
 }
-
 // aten::hardsigmoid_backward.grad_input(Tensor grad_output, Tensor self, *, Tensor(a!) grad_input) -> Tensor(a!)
-TORCH_API inline at::Tensor & hardsigmoid_backward_outf(const at::Tensor & grad_output, const at::Tensor & self, at::Tensor & grad_input) {
+inline at::Tensor & hardsigmoid_backward_outf(const at::Tensor & grad_output, const at::Tensor & self, at::Tensor & grad_input) {
     return at::_ops::hardsigmoid_backward_grad_input::call(grad_output, self, grad_input);
 }
 
 // aten::hardsigmoid_backward(Tensor grad_output, Tensor self) -> Tensor
-TORCH_API inline at::Tensor hardsigmoid_backward(const at::Tensor & grad_output, const at::Tensor & self) {
+inline at::Tensor hardsigmoid_backward(const at::Tensor & grad_output, const at::Tensor & self) {
     return at::_ops::hardsigmoid_backward::call(grad_output, self);
 }
 

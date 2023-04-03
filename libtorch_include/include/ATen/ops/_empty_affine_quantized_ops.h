@@ -25,4 +25,15 @@ struct TORCH_API _empty_affine_quantized {
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, at::IntArrayRef size, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory, double scale, int64_t zero_point, c10::optional<at::MemoryFormat> memory_format);
 };
 
+struct TORCH_API _empty_affine_quantized_out {
+  using schema = at::Tensor & (at::IntArrayRef, double, int64_t, c10::optional<at::MemoryFormat>, at::Tensor &);
+  using ptr_schema = schema*;
+  // See Note [static constexpr char* members for windows NVCC]
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_empty_affine_quantized")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_empty_affine_quantized.out(int[] size, *, float scale=1, int zero_point=0, MemoryFormat? memory_format=contiguous_format, Tensor(a!) out) -> Tensor(a!)")
+  static at::Tensor & call(at::IntArrayRef size, double scale, int64_t zero_point, c10::optional<at::MemoryFormat> memory_format, at::Tensor & out);
+  static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::IntArrayRef size, double scale, int64_t zero_point, c10::optional<at::MemoryFormat> memory_format, at::Tensor & out);
+};
+
 }} // namespace at::_ops

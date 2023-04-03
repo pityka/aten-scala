@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API void _assert_async_cpu(const at::Tensor & self);
 TORCH_API void _assert_async_cuda(const at::Tensor & self);
-
 } // namespace native
 } // namespace at

@@ -17,9 +17,12 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
-TORCH_API ::std::vector<at::Tensor> _foreach_mul_functional(at::TensorList self, const at::Scalar & scalar);
-TORCH_API ::std::vector<at::Tensor> _foreach_mul_functional(at::TensorList self, at::TensorList other);
-TORCH_API ::std::vector<at::Tensor> _foreach_mul_functional(at::TensorList self, at::ArrayRef<at::Scalar> scalars);
+TORCH_API void _foreach_mul_out(at::TensorList out, at::TensorList self, const at::Scalar & scalar);
+TORCH_API void _foreach_mul_outf(at::TensorList self, const at::Scalar & scalar, at::TensorList out);
+TORCH_API void _foreach_mul_out(at::TensorList out, at::TensorList self, at::TensorList other);
+TORCH_API void _foreach_mul_outf(at::TensorList self, at::TensorList other, at::TensorList out);
+TORCH_API void _foreach_mul_out(at::TensorList out, at::TensorList self, at::ArrayRef<at::Scalar> scalars);
+TORCH_API void _foreach_mul_outf(at::TensorList self, at::ArrayRef<at::Scalar> scalars, at::TensorList out);
 
 } // namespace compositeexplicitautograd
 } // namespace at

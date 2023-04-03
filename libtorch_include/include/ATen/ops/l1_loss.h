@@ -22,18 +22,8 @@
 namespace at {
 
 
-// aten::l1_loss.out(Tensor self, Tensor target, int reduction=Mean, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & l1_loss_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & target, int64_t reduction=at::Reduction::Mean) {
-    return at::_ops::l1_loss_out::call(self, target, reduction, out);
-}
-
-// aten::l1_loss.out(Tensor self, Tensor target, int reduction=Mean, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & l1_loss_outf(const at::Tensor & self, const at::Tensor & target, int64_t reduction, at::Tensor & out) {
-    return at::_ops::l1_loss_out::call(self, target, reduction, out);
-}
-
 // aten::l1_loss(Tensor self, Tensor target, int reduction=Mean) -> Tensor
-TORCH_API inline at::Tensor l1_loss(const at::Tensor & self, const at::Tensor & target, int64_t reduction=at::Reduction::Mean) {
+inline at::Tensor l1_loss(const at::Tensor & self, const at::Tensor & target, int64_t reduction=at::Reduction::Mean) {
     return at::_ops::l1_loss::call(self, target, reduction);
 }
 

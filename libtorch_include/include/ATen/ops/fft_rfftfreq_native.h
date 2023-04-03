@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor fft_rfftfreq(int64_t n, double d=1.0, c10::optional<at::ScalarType> dtype={}, c10::optional<at::Layout> layout={}, c10::optional<at::Device> device={}, c10::optional<bool> pin_memory={});
 TORCH_API at::Tensor & fft_rfftfreq_out(int64_t n, double d, at::Tensor & out);
-
 } // namespace native
 } // namespace at

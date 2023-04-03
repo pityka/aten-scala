@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::max_pool1d_with_indices(Tensor self, int[1] kernel_size, int[1] stride=[], int[1] padding=0, int[1] dilation=1, bool ceil_mode=False) -> (Tensor, Tensor)
-TORCH_API inline ::std::tuple<at::Tensor,at::Tensor> max_pool1d_with_indices(const at::Tensor & self, at::IntArrayRef kernel_size, at::IntArrayRef stride={}, at::IntArrayRef padding=0, at::IntArrayRef dilation=1, bool ceil_mode=false) {
+inline ::std::tuple<at::Tensor,at::Tensor> max_pool1d_with_indices(const at::Tensor & self, at::IntArrayRef kernel_size, at::IntArrayRef stride={}, at::IntArrayRef padding=0, at::IntArrayRef dilation=1, bool ceil_mode=false) {
     return at::_ops::max_pool1d_with_indices::call(self, kernel_size, stride, padding, dilation, ceil_mode);
 }
 

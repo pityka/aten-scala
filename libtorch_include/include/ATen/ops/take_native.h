@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor take(const at::Tensor & self, const at::Tensor & index);
 TORCH_API at::Tensor & take_out(const at::Tensor & self, const at::Tensor & index, at::Tensor & out);
-
 } // namespace native
 } // namespace at

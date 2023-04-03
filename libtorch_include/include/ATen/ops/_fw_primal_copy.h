@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::_fw_primal_copy(Tensor self, int level) -> Tensor
-TORCH_API inline at::Tensor _fw_primal_copy(const at::Tensor & self, int64_t level) {
+inline at::Tensor _fw_primal_copy(const at::Tensor & self, int64_t level) {
     return at::_ops::_fw_primal_copy::call(self, level);
 }
 
 // aten::_fw_primal_copy.out(Tensor self, int level, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & _fw_primal_copy_out(at::Tensor & out, const at::Tensor & self, int64_t level) {
+inline at::Tensor & _fw_primal_copy_out(at::Tensor & out, const at::Tensor & self, int64_t level) {
     return at::_ops::_fw_primal_copy_out::call(self, level, out);
 }
-
 // aten::_fw_primal_copy.out(Tensor self, int level, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & _fw_primal_copy_outf(const at::Tensor & self, int64_t level, at::Tensor & out) {
+inline at::Tensor & _fw_primal_copy_outf(const at::Tensor & self, int64_t level, at::Tensor & out) {
     return at::_ops::_fw_primal_copy_out::call(self, level, out);
 }
 

@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor linalg_eigvalsh(const at::Tensor & self, c10::string_view UPLO="L");
 TORCH_API at::Tensor & linalg_eigvalsh_out(const at::Tensor & self, c10::string_view UPLO, at::Tensor & out);
-
 } // namespace native
 } // namespace at

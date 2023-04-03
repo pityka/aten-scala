@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::kron(Tensor self, Tensor other) -> Tensor
-TORCH_API inline at::Tensor kron(const at::Tensor & self, const at::Tensor & other) {
+inline at::Tensor kron(const at::Tensor & self, const at::Tensor & other) {
     return at::_ops::kron::call(self, other);
 }
 
 // aten::kron.out(Tensor self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & kron_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & other) {
+inline at::Tensor & kron_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & other) {
     return at::_ops::kron_out::call(self, other, out);
 }
-
 // aten::kron.out(Tensor self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & kron_outf(const at::Tensor & self, const at::Tensor & other, at::Tensor & out) {
+inline at::Tensor & kron_outf(const at::Tensor & self, const at::Tensor & other, at::Tensor & out) {
     return at::_ops::kron_out::call(self, other, out);
 }
 

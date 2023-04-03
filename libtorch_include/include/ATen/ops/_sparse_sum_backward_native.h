@@ -16,9 +16,8 @@
 
 namespace at {
 namespace native {
-
+TORCH_API at::Tensor & _sparse_sum_backward_out(const at::Tensor & grad, const at::Tensor & self, at::IntArrayRef dim, at::Tensor & out);
 TORCH_API at::Tensor _sparse_sum_backward_cpu(const at::Tensor & grad, const at::Tensor & self, at::IntArrayRef dim);
 TORCH_API at::Tensor _sparse_sum_backward_cuda(const at::Tensor & grad, const at::Tensor & self, at::IntArrayRef dim);
-
 } // namespace native
 } // namespace at

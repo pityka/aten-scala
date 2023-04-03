@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor sparse_broadcast_to(const at::Tensor & self, at::IntArrayRef size);
-
 } // namespace native
 } // namespace at

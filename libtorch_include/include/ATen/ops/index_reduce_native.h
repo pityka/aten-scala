@@ -16,13 +16,11 @@
 
 namespace at {
 namespace native {
-
 struct TORCH_API structured_index_reduce_cpu_out : public at::meta::structured_index_reduce {
 void impl(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & source, c10::string_view reduce, bool include_self, const at::Tensor & out);
 };
 struct TORCH_API structured_index_reduce_cuda_out : public at::meta::structured_index_reduce {
 void impl(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & source, c10::string_view reduce, bool include_self, const at::Tensor & out);
 };
-
 } // namespace native
 } // namespace at

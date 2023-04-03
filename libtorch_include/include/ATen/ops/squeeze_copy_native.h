@@ -16,11 +16,11 @@
 
 namespace at {
 namespace native {
-
-TORCH_API at::Tensor squeeze_copy(const at::Tensor & self);
 TORCH_API at::Tensor & squeeze_copy_out(const at::Tensor & self, at::Tensor & out);
-TORCH_API at::Tensor squeeze_copy_dim(const at::Tensor & self, int64_t dim);
+TORCH_API at::Tensor squeeze_copy(const at::Tensor & self);
 TORCH_API at::Tensor & squeeze_copy_dim_out(const at::Tensor & self, int64_t dim, at::Tensor & out);
-
+TORCH_API at::Tensor squeeze_copy_dim(const at::Tensor & self, int64_t dim);
+TORCH_API at::Tensor & squeeze_copy_dims_out(const at::Tensor & self, at::IntArrayRef dim, at::Tensor & out);
+TORCH_API at::Tensor squeeze_copy_dims(const at::Tensor & self, at::IntArrayRef dim);
 } // namespace native
 } // namespace at

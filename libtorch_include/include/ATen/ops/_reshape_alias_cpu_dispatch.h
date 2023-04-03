@@ -18,6 +18,7 @@ namespace at {
 namespace cpu {
 
 TORCH_API at::Tensor _reshape_alias(const at::Tensor & self, at::IntArrayRef size, at::IntArrayRef stride);
+TORCH_API at::Tensor _reshape_alias_symint(const at::Tensor & self, c10::SymIntArrayRef size, c10::SymIntArrayRef stride);
 
 } // namespace cpu
 } // namespace at

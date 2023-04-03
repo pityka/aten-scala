@@ -16,10 +16,8 @@
 
 namespace at {
 namespace native {
-
 struct TORCH_API structured_lu_unpack_out : public at::meta::structured_lu_unpack {
 void impl(const at::Tensor & LU_data, const at::Tensor & LU_pivots, bool unpack_data, bool unpack_pivots, const at::Tensor & P, const at::Tensor & L, const at::Tensor & U);
 };
-
 } // namespace native
 } // namespace at

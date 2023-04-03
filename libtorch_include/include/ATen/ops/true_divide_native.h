@@ -16,12 +16,10 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor true_divide(const at::Tensor & self, const at::Tensor & other);
 TORCH_API at::Tensor & true_divide_out(const at::Tensor & self, const at::Tensor & other, at::Tensor & out);
 TORCH_API at::Tensor & true_divide_(at::Tensor & self, const at::Tensor & other);
 TORCH_API at::Tensor true_divide(const at::Tensor & self, const at::Scalar & other);
 TORCH_API at::Tensor & true_divide_(at::Tensor & self, const at::Scalar & other);
-
 } // namespace native
 } // namespace at

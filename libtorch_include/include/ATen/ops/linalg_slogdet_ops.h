@@ -20,9 +20,9 @@ struct TORCH_API linalg_slogdet {
   // See Note [static constexpr char* members for windows NVCC]
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::linalg_slogdet")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "linalg_slogdet(Tensor self) -> (Tensor sign, Tensor logabsdet)")
-  static ::std::tuple<at::Tensor,at::Tensor> call(const at::Tensor & self);
-  static ::std::tuple<at::Tensor,at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self);
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "linalg_slogdet(Tensor A) -> (Tensor sign, Tensor logabsdet)")
+  static ::std::tuple<at::Tensor,at::Tensor> call(const at::Tensor & A);
+  static ::std::tuple<at::Tensor,at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & A);
 };
 
 struct TORCH_API linalg_slogdet_out {
@@ -31,9 +31,9 @@ struct TORCH_API linalg_slogdet_out {
   // See Note [static constexpr char* members for windows NVCC]
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::linalg_slogdet")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "linalg_slogdet.out(Tensor self, *, Tensor(a!) sign, Tensor(b!) logabsdet) -> (Tensor(a!) sign, Tensor(b!) logabsdet)")
-  static ::std::tuple<at::Tensor &,at::Tensor &> call(const at::Tensor & self, at::Tensor & sign, at::Tensor & logabsdet);
-  static ::std::tuple<at::Tensor &,at::Tensor &> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::Tensor & sign, at::Tensor & logabsdet);
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "linalg_slogdet.out(Tensor A, *, Tensor(a!) sign, Tensor(b!) logabsdet) -> (Tensor(a!) sign, Tensor(b!) logabsdet)")
+  static ::std::tuple<at::Tensor &,at::Tensor &> call(const at::Tensor & A, at::Tensor & sign, at::Tensor & logabsdet);
+  static ::std::tuple<at::Tensor &,at::Tensor &> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & A, at::Tensor & sign, at::Tensor & logabsdet);
 };
 
 }} // namespace at::_ops

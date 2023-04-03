@@ -36,13 +36,13 @@ struct TORCH_API _amp_foreach_non_finite_check_and_unscale_out {
   static void redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList self, at::Tensor & found_inf, const at::Tensor & inv_scale, at::TensorList out);
 };
 
-struct TORCH_API _amp_foreach_non_finite_check_and_unscale_functional {
+struct TORCH_API _amp_foreach_non_finite_check_and_unscale {
   using schema = ::std::tuple<::std::vector<at::Tensor>,at::Tensor> (at::TensorList, const at::Tensor &, const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_amp_foreach_non_finite_check_and_unscale")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "functional")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_amp_foreach_non_finite_check_and_unscale.functional(Tensor[] self, Tensor found_inf, Tensor inv_scale) -> (Tensor[] self_out, Tensor found_inf_out)")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_amp_foreach_non_finite_check_and_unscale(Tensor[] self, Tensor found_inf, Tensor inv_scale) -> (Tensor[] self_out, Tensor found_inf_out)")
   static ::std::tuple<::std::vector<at::Tensor>,at::Tensor> call(at::TensorList self, const at::Tensor & found_inf, const at::Tensor & inv_scale);
   static ::std::tuple<::std::vector<at::Tensor>,at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList self, const at::Tensor & found_inf, const at::Tensor & inv_scale);
 };

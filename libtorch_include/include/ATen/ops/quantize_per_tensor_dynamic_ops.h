@@ -25,4 +25,15 @@ struct TORCH_API quantize_per_tensor_dynamic {
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::ScalarType dtype, bool reduce_range);
 };
 
+struct TORCH_API quantize_per_tensor_dynamic_out {
+  using schema = at::Tensor & (const at::Tensor &, at::ScalarType, bool, at::Tensor &);
+  using ptr_schema = schema*;
+  // See Note [static constexpr char* members for windows NVCC]
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::quantize_per_tensor_dynamic")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "quantize_per_tensor_dynamic.out(Tensor self, ScalarType dtype, bool reduce_range, *, Tensor(a!) out) -> Tensor(a!)")
+  static at::Tensor & call(const at::Tensor & self, at::ScalarType dtype, bool reduce_range, at::Tensor & out);
+  static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::ScalarType dtype, bool reduce_range, at::Tensor & out);
+};
+
 }} // namespace at::_ops

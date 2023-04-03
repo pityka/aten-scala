@@ -12,13 +12,12 @@
 #include <ATen/core/Tensor.h>
 #include <tuple>
 #include <vector>
-
+#include <ATen/ops/linalg_qr_meta.h>
 
 namespace at {
 namespace native {
-
-TORCH_API ::std::tuple<at::Tensor,at::Tensor> linalg_qr(const at::Tensor & A, c10::string_view mode="reduced");
-TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> linalg_qr_out(const at::Tensor & A, c10::string_view mode, at::Tensor & Q, at::Tensor & R);
-
+struct TORCH_API structured_linalg_qr_out : public at::meta::structured_linalg_qr {
+void impl(const at::Tensor & A, c10::string_view mode, const at::Tensor & Q, const at::Tensor & R);
+};
 } // namespace native
 } // namespace at

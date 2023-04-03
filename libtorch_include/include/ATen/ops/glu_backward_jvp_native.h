@@ -16,8 +16,7 @@
 
 namespace at {
 namespace native {
-
+TORCH_API at::Tensor & glu_backward_jvp_out(const at::Tensor & grad_x, const at::Tensor & grad_glu, const at::Tensor & x, const at::Tensor & dgrad_glu, const at::Tensor & dx, int64_t dim, at::Tensor & out);
 TORCH_API at::Tensor glu_backward_jvp(const at::Tensor & grad_x, const at::Tensor & grad_glu, const at::Tensor & x, const at::Tensor & dgrad_glu, const at::Tensor & dx, int64_t dim);
-
 } // namespace native
 } // namespace at

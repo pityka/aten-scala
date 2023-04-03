@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor pairwise_distance(const at::Tensor & x1, const at::Tensor & x2, double p=2, double eps=1e-06, bool keepdim=false);
-
 } // namespace native
 } // namespace at

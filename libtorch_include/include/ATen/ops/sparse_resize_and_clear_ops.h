@@ -36,13 +36,13 @@ struct TORCH_API sparse_resize_and_clear_out {
   static const at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::IntArrayRef size, int64_t sparse_dim, int64_t dense_dim, const at::Tensor & out);
 };
 
-struct TORCH_API sparse_resize_and_clear_functional {
+struct TORCH_API sparse_resize_and_clear {
   using schema = at::Tensor (const at::Tensor &, at::IntArrayRef, int64_t, int64_t);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::sparse_resize_and_clear")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "functional")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "sparse_resize_and_clear.functional(Tensor self, int[] size, int sparse_dim, int dense_dim) -> Tensor")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "sparse_resize_and_clear(Tensor self, int[] size, int sparse_dim, int dense_dim) -> Tensor")
   static at::Tensor call(const at::Tensor & self, at::IntArrayRef size, int64_t sparse_dim, int64_t dense_dim);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::IntArrayRef size, int64_t sparse_dim, int64_t dense_dim);
 };

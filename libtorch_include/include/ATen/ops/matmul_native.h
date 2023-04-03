@@ -16,9 +16,9 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor matmul(const at::Tensor & self, const at::Tensor & other);
 TORCH_API at::Tensor & matmul_out(const at::Tensor & self, const at::Tensor & other, at::Tensor & out);
-
+TORCH_API at::Tensor matmul_nested(const at::Tensor & self, const at::Tensor & other);
+TORCH_API at::Tensor & matmul_out_nested(const at::Tensor & self, const at::Tensor & other, at::Tensor & out);
 } // namespace native
 } // namespace at

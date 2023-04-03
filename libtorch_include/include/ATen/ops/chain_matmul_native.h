@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor chain_matmul(at::TensorList matrices);
 TORCH_API at::Tensor & chain_matmul_out(at::TensorList matrices, at::Tensor & out);
-
 } // namespace native
 } // namespace at

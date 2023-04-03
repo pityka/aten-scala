@@ -16,12 +16,10 @@
 
 namespace at {
 namespace native {
-
-TORCH_API ::std::vector<at::Tensor> foreach_tensor_log1p_slow(at::TensorList tensors);
-TORCH_API ::std::vector<at::Tensor> foreach_tensor_log1p_cuda(at::TensorList tensors);
-TORCH_API ::std::vector<at::Tensor> _foreach_log1p_functional(at::TensorList self);
+TORCH_API void _foreach_log1p_out(at::TensorList self, at::TensorList out);
+TORCH_API ::std::vector<at::Tensor> foreach_tensor_log1p_slow(at::TensorList self);
 TORCH_API void foreach_tensor_log1p_slow_(at::TensorList self);
+TORCH_API ::std::vector<at::Tensor> foreach_tensor_log1p_cuda(at::TensorList self);
 TORCH_API void foreach_tensor_log1p_cuda_(at::TensorList self);
-
 } // namespace native
 } // namespace at

@@ -17,7 +17,9 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
-TORCH_API at::Tensor copy_sparse_to_sparse_functional(const at::Tensor & self, const at::Tensor & src, bool non_blocking=false);
+TORCH_API at::Tensor copy_sparse_to_sparse(const at::Tensor & self, const at::Tensor & src, bool non_blocking=false);
+TORCH_API at::Tensor & copy_sparse_to_sparse_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & src, bool non_blocking=false);
+TORCH_API at::Tensor & copy_sparse_to_sparse_outf(const at::Tensor & self, const at::Tensor & src, bool non_blocking, at::Tensor & out);
 
 } // namespace compositeexplicitautograd
 } // namespace at

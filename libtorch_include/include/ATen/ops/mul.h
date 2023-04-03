@@ -23,32 +23,30 @@ namespace at {
 
 
 // aten::mul.Tensor(Tensor self, Tensor other) -> Tensor
-TORCH_API inline at::Tensor mul(const at::Tensor & self, const at::Tensor & other) {
+inline at::Tensor mul(const at::Tensor & self, const at::Tensor & other) {
     return at::_ops::mul_Tensor::call(self, other);
 }
 
 // aten::mul.out(Tensor self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & mul_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & other) {
+inline at::Tensor & mul_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & other) {
     return at::_ops::mul_out::call(self, other, out);
 }
-
 // aten::mul.out(Tensor self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & mul_outf(const at::Tensor & self, const at::Tensor & other, at::Tensor & out) {
+inline at::Tensor & mul_outf(const at::Tensor & self, const at::Tensor & other, at::Tensor & out) {
     return at::_ops::mul_out::call(self, other, out);
 }
 
 // aten::mul.Scalar(Tensor self, Scalar other) -> Tensor
-TORCH_API inline at::Tensor mul(const at::Tensor & self, const at::Scalar & other) {
+inline at::Tensor mul(const at::Tensor & self, const at::Scalar & other) {
     return at::_ops::mul_Scalar::call(self, other);
 }
 
 // aten::mul.Scalar_out(Tensor self, Scalar other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & mul_out(at::Tensor & out, const at::Tensor & self, const at::Scalar & other) {
+inline at::Tensor & mul_out(at::Tensor & out, const at::Tensor & self, const at::Scalar & other) {
     return at::_ops::mul_Scalar_out::call(self, other, out);
 }
-
 // aten::mul.Scalar_out(Tensor self, Scalar other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & mul_outf(const at::Tensor & self, const at::Scalar & other, at::Tensor & out) {
+inline at::Tensor & mul_outf(const at::Tensor & self, const at::Scalar & other, at::Tensor & out) {
     return at::_ops::mul_Scalar_out::call(self, other, out);
 }
 

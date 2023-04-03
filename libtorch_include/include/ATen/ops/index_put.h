@@ -23,22 +23,21 @@ namespace at {
 
 
 // aten::index_put_(Tensor(a!) self, Tensor?[] indices, Tensor values, bool accumulate=False) -> Tensor(a!)
-TORCH_API inline at::Tensor & index_put_(at::Tensor & self, const c10::List<c10::optional<at::Tensor>> & indices, const at::Tensor & values, bool accumulate=false) {
+inline at::Tensor & index_put_(at::Tensor & self, const c10::List<c10::optional<at::Tensor>> & indices, const at::Tensor & values, bool accumulate=false) {
     return at::_ops::index_put_::call(self, indices, values, accumulate);
 }
 
 // aten::index_put(Tensor self, Tensor?[] indices, Tensor values, bool accumulate=False) -> Tensor
-TORCH_API inline at::Tensor index_put(const at::Tensor & self, const c10::List<c10::optional<at::Tensor>> & indices, const at::Tensor & values, bool accumulate=false) {
+inline at::Tensor index_put(const at::Tensor & self, const c10::List<c10::optional<at::Tensor>> & indices, const at::Tensor & values, bool accumulate=false) {
     return at::_ops::index_put::call(self, indices, values, accumulate);
 }
 
 // aten::index_put.out(Tensor self, Tensor?[] indices, Tensor values, bool accumulate=False, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & index_put_out(at::Tensor & out, const at::Tensor & self, const c10::List<c10::optional<at::Tensor>> & indices, const at::Tensor & values, bool accumulate=false) {
+inline at::Tensor & index_put_out(at::Tensor & out, const at::Tensor & self, const c10::List<c10::optional<at::Tensor>> & indices, const at::Tensor & values, bool accumulate=false) {
     return at::_ops::index_put_out::call(self, indices, values, accumulate, out);
 }
-
 // aten::index_put.out(Tensor self, Tensor?[] indices, Tensor values, bool accumulate=False, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & index_put_outf(const at::Tensor & self, const c10::List<c10::optional<at::Tensor>> & indices, const at::Tensor & values, bool accumulate, at::Tensor & out) {
+inline at::Tensor & index_put_outf(const at::Tensor & self, const c10::List<c10::optional<at::Tensor>> & indices, const at::Tensor & values, bool accumulate, at::Tensor & out) {
     return at::_ops::index_put_out::call(self, indices, values, accumulate, out);
 }
 

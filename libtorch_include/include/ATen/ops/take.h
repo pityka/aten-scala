@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::take.out(Tensor self, Tensor index, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & take_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & index) {
+inline at::Tensor & take_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & index) {
     return at::_ops::take_out::call(self, index, out);
 }
-
 // aten::take.out(Tensor self, Tensor index, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & take_outf(const at::Tensor & self, const at::Tensor & index, at::Tensor & out) {
+inline at::Tensor & take_outf(const at::Tensor & self, const at::Tensor & index, at::Tensor & out) {
     return at::_ops::take_out::call(self, index, out);
 }
 
 // aten::take(Tensor self, Tensor index) -> Tensor
-TORCH_API inline at::Tensor take(const at::Tensor & self, const at::Tensor & index) {
+inline at::Tensor take(const at::Tensor & self, const at::Tensor & index) {
     return at::_ops::take::call(self, index);
 }
 

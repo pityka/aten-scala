@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor contiguous(const at::Tensor & self, at::MemoryFormat memory_format=MemoryFormat::Contiguous);
-
 } // namespace native
 } // namespace at

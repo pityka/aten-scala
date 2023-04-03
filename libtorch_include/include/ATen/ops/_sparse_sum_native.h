@@ -16,11 +16,10 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor _sparse_sum(const at::Tensor & self);
 TORCH_API at::Tensor _sparse_sum(const at::Tensor & self, at::ScalarType dtype);
 TORCH_API at::Tensor _sparse_sum(const at::Tensor & self, at::IntArrayRef dim);
+TORCH_API at::Tensor & _sparse_sum_dim_out(const at::Tensor & self, at::IntArrayRef dim, at::Tensor & out);
 TORCH_API at::Tensor _sparse_sum(const at::Tensor & self, at::IntArrayRef dim, at::ScalarType dtype);
-
 } // namespace native
 } // namespace at

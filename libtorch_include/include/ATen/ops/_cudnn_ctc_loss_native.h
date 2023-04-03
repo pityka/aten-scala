@@ -16,8 +16,8 @@
 
 namespace at {
 namespace native {
-
+TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> _cudnn_ctc_loss_out(const at::Tensor & log_probs, const at::Tensor & targets, at::IntArrayRef input_lengths, at::IntArrayRef target_lengths, int64_t blank, bool deterministic, bool zero_infinity, at::Tensor & out0, at::Tensor & out1);
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> _cudnn_ctc_loss(const at::Tensor & log_probs, const at::Tensor & targets, at::IntArrayRef input_lengths, at::IntArrayRef target_lengths, int64_t blank, bool deterministic, bool zero_infinity);
-
+TORCH_API ::std::tuple<at::Tensor,at::Tensor> _cudnn_ctc_loss_tensor(const at::Tensor & log_probs, const at::Tensor & targets, const at::Tensor & input_lengths, const at::Tensor & target_lengths, int64_t blank, bool deterministic, bool zero_infinity);
 } // namespace native
 } // namespace at

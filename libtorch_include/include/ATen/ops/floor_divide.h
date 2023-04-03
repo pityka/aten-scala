@@ -23,22 +23,21 @@ namespace at {
 
 
 // aten::floor_divide(Tensor self, Tensor other) -> Tensor
-TORCH_API inline at::Tensor floor_divide(const at::Tensor & self, const at::Tensor & other) {
+inline at::Tensor floor_divide(const at::Tensor & self, const at::Tensor & other) {
     return at::_ops::floor_divide::call(self, other);
 }
 
 // aten::floor_divide.out(Tensor self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & floor_divide_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & other) {
+inline at::Tensor & floor_divide_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & other) {
     return at::_ops::floor_divide_out::call(self, other, out);
 }
-
 // aten::floor_divide.out(Tensor self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & floor_divide_outf(const at::Tensor & self, const at::Tensor & other, at::Tensor & out) {
+inline at::Tensor & floor_divide_outf(const at::Tensor & self, const at::Tensor & other, at::Tensor & out) {
     return at::_ops::floor_divide_out::call(self, other, out);
 }
 
 // aten::floor_divide.Scalar(Tensor self, Scalar other) -> Tensor
-TORCH_API inline at::Tensor floor_divide(const at::Tensor & self, const at::Scalar & other) {
+inline at::Tensor floor_divide(const at::Tensor & self, const at::Scalar & other) {
     return at::_ops::floor_divide_Scalar::call(self, other);
 }
 

@@ -16,9 +16,8 @@
 
 namespace at {
 namespace native {
-
+TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> grid_sampler_3d_backward_out(const at::Tensor & grad_output, const at::Tensor & input, const at::Tensor & grid, int64_t interpolation_mode, int64_t padding_mode, bool align_corners, ::std::array<bool,2> output_mask, at::Tensor & out0, at::Tensor & out1);
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> grid_sampler_3d_backward_cpu(const at::Tensor & grad_output, const at::Tensor & input, const at::Tensor & grid, int64_t interpolation_mode, int64_t padding_mode, bool align_corners, ::std::array<bool,2> output_mask);
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> grid_sampler_3d_backward_cuda(const at::Tensor & grad_output, const at::Tensor & input, const at::Tensor & grid, int64_t interpolation_mode, int64_t padding_mode, bool align_corners, ::std::array<bool,2> output_mask);
-
 } // namespace native
 } // namespace at

@@ -16,8 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor dist(const at::Tensor & self, const at::Tensor & other, const at::Scalar & p=2);
-
+TORCH_API at::Tensor & dist_out(const at::Tensor & self, const at::Tensor & other, const at::Scalar & p, at::Tensor & out);
 } // namespace native
 } // namespace at

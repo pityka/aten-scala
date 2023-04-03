@@ -16,10 +16,8 @@
 
 namespace at {
 namespace native {
-
 struct TORCH_API structured_bitwise_not_out : public at::meta::structured_bitwise_not {
 void impl(const at::Tensor & self, const at::Tensor & out);
 };
-
 } // namespace native
 } // namespace at

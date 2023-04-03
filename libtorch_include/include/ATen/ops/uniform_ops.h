@@ -36,13 +36,13 @@ struct TORCH_API uniform_out {
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, double from, double to, c10::optional<at::Generator> generator, at::Tensor & out);
 };
 
-struct TORCH_API uniform_functional {
+struct TORCH_API uniform {
   using schema = at::Tensor (const at::Tensor &, double, double, c10::optional<at::Generator>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::uniform")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "functional")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "uniform.functional(Tensor self, float from=0, float to=1, *, Generator? generator=None) -> Tensor")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "uniform(Tensor self, float from=0, float to=1, *, Generator? generator=None) -> Tensor")
   static at::Tensor call(const at::Tensor & self, double from, double to, c10::optional<at::Generator> generator);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, double from, double to, c10::optional<at::Generator> generator);
 };

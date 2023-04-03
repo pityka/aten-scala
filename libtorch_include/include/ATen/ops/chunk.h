@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::chunk(Tensor(a -> *) self, int chunks, int dim=0) -> Tensor(a)[]
-TORCH_API inline ::std::vector<at::Tensor> chunk(const at::Tensor & self, int64_t chunks, int64_t dim=0) {
+inline ::std::vector<at::Tensor> chunk(const at::Tensor & self, int64_t chunks, int64_t dim=0) {
     return at::_ops::chunk::call(self, chunks, dim);
 }
 

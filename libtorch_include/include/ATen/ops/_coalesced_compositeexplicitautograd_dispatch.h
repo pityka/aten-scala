@@ -17,7 +17,9 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
-TORCH_API at::Tensor _coalesced_functional(const at::Tensor & self, bool coalesced);
+TORCH_API at::Tensor _coalesced(const at::Tensor & self, bool coalesced);
+TORCH_API at::Tensor & _coalesced_out(at::Tensor & out, const at::Tensor & self, bool coalesced);
+TORCH_API at::Tensor & _coalesced_outf(const at::Tensor & self, bool coalesced, at::Tensor & out);
 
 } // namespace compositeexplicitautograd
 } // namespace at

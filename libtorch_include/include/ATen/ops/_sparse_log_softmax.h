@@ -23,18 +23,27 @@ namespace at {
 
 
 // aten::_sparse_log_softmax.int(Tensor self, int dim, ScalarType? dtype=None) -> Tensor
-TORCH_API inline at::Tensor _sparse_log_softmax(const at::Tensor & self, int64_t dim, c10::optional<at::ScalarType> dtype=c10::nullopt) {
+inline at::Tensor _sparse_log_softmax(const at::Tensor & self, int64_t dim, c10::optional<at::ScalarType> dtype=c10::nullopt) {
     return at::_ops::_sparse_log_softmax_int::call(self, dim, dtype);
 }
 
 // aten::_sparse_log_softmax.Dimname(Tensor self, Dimname dim, *, ScalarType? dtype=None) -> Tensor
-TORCH_API inline at::Tensor _sparse_log_softmax(const at::Tensor & self, at::Dimname dim, c10::optional<at::ScalarType> dtype=c10::nullopt) {
+inline at::Tensor _sparse_log_softmax(const at::Tensor & self, at::Dimname dim, c10::optional<at::ScalarType> dtype=c10::nullopt) {
     return at::_ops::_sparse_log_softmax_Dimname::call(self, dim, dtype);
 }
 
 // aten::_sparse_log_softmax(Tensor self, int dim, bool half_to_float) -> Tensor
-TORCH_API inline at::Tensor _sparse_log_softmax(const at::Tensor & self, int64_t dim, bool half_to_float) {
+inline at::Tensor _sparse_log_softmax(const at::Tensor & self, int64_t dim, bool half_to_float) {
     return at::_ops::_sparse_log_softmax::call(self, dim, half_to_float);
+}
+
+// aten::_sparse_log_softmax.out(Tensor self, int dim, bool half_to_float, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & _sparse_log_softmax_out(at::Tensor & out, const at::Tensor & self, int64_t dim, bool half_to_float) {
+    return at::_ops::_sparse_log_softmax_out::call(self, dim, half_to_float, out);
+}
+// aten::_sparse_log_softmax.out(Tensor self, int dim, bool half_to_float, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & _sparse_log_softmax_outf(const at::Tensor & self, int64_t dim, bool half_to_float, at::Tensor & out) {
+    return at::_ops::_sparse_log_softmax_out::call(self, dim, half_to_float, out);
 }
 
 }

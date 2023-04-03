@@ -17,7 +17,7 @@ namespace at {
 
 namespace cuda {
 
-TORCH_API at::Tensor _masked_softmax(const at::Tensor & self, const at::Tensor & mask, c10::optional<int64_t> dim=c10::nullopt);
+TORCH_API at::Tensor _masked_softmax(const at::Tensor & self, const at::Tensor & mask, c10::optional<int64_t> dim=c10::nullopt, c10::optional<int64_t> mask_type=c10::nullopt);
 
 } // namespace cuda
 } // namespace at

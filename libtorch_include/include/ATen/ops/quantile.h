@@ -23,32 +23,30 @@ namespace at {
 
 
 // aten::quantile(Tensor self, Tensor q, int? dim=None, bool keepdim=False, *, str interpolation='linear') -> Tensor
-TORCH_API inline at::Tensor quantile(const at::Tensor & self, const at::Tensor & q, c10::optional<int64_t> dim=c10::nullopt, bool keepdim=false, c10::string_view interpolation="linear") {
+inline at::Tensor quantile(const at::Tensor & self, const at::Tensor & q, c10::optional<int64_t> dim=c10::nullopt, bool keepdim=false, c10::string_view interpolation="linear") {
     return at::_ops::quantile::call(self, q, dim, keepdim, interpolation);
 }
 
 // aten::quantile.out(Tensor self, Tensor q, int? dim=None, bool keepdim=False, *, str interpolation='linear', Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & quantile_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & q, c10::optional<int64_t> dim=c10::nullopt, bool keepdim=false, c10::string_view interpolation="linear") {
+inline at::Tensor & quantile_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & q, c10::optional<int64_t> dim=c10::nullopt, bool keepdim=false, c10::string_view interpolation="linear") {
     return at::_ops::quantile_out::call(self, q, dim, keepdim, interpolation, out);
 }
-
 // aten::quantile.out(Tensor self, Tensor q, int? dim=None, bool keepdim=False, *, str interpolation='linear', Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & quantile_outf(const at::Tensor & self, const at::Tensor & q, c10::optional<int64_t> dim, bool keepdim, c10::string_view interpolation, at::Tensor & out) {
+inline at::Tensor & quantile_outf(const at::Tensor & self, const at::Tensor & q, c10::optional<int64_t> dim, bool keepdim, c10::string_view interpolation, at::Tensor & out) {
     return at::_ops::quantile_out::call(self, q, dim, keepdim, interpolation, out);
 }
 
 // aten::quantile.scalar(Tensor self, float q, int? dim=None, bool keepdim=False, *, str interpolation='linear') -> Tensor
-TORCH_API inline at::Tensor quantile(const at::Tensor & self, double q, c10::optional<int64_t> dim=c10::nullopt, bool keepdim=false, c10::string_view interpolation="linear") {
+inline at::Tensor quantile(const at::Tensor & self, double q, c10::optional<int64_t> dim=c10::nullopt, bool keepdim=false, c10::string_view interpolation="linear") {
     return at::_ops::quantile_scalar::call(self, q, dim, keepdim, interpolation);
 }
 
 // aten::quantile.scalar_out(Tensor self, float q, int? dim=None, bool keepdim=False, *, str interpolation='linear', Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & quantile_out(at::Tensor & out, const at::Tensor & self, double q, c10::optional<int64_t> dim=c10::nullopt, bool keepdim=false, c10::string_view interpolation="linear") {
+inline at::Tensor & quantile_out(at::Tensor & out, const at::Tensor & self, double q, c10::optional<int64_t> dim=c10::nullopt, bool keepdim=false, c10::string_view interpolation="linear") {
     return at::_ops::quantile_scalar_out::call(self, q, dim, keepdim, interpolation, out);
 }
-
 // aten::quantile.scalar_out(Tensor self, float q, int? dim=None, bool keepdim=False, *, str interpolation='linear', Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & quantile_outf(const at::Tensor & self, double q, c10::optional<int64_t> dim, bool keepdim, c10::string_view interpolation, at::Tensor & out) {
+inline at::Tensor & quantile_outf(const at::Tensor & self, double q, c10::optional<int64_t> dim, bool keepdim, c10::string_view interpolation, at::Tensor & out) {
     return at::_ops::quantile_scalar_out::call(self, q, dim, keepdim, interpolation, out);
 }
 

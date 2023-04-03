@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor _indices_sparse(const at::Tensor & self);
-
 } // namespace native
 } // namespace at

@@ -16,13 +16,14 @@
 
 namespace at {
 namespace native {
-
 struct TORCH_API structured_ufunc_add_CPU : public at::meta::structured_add_Tensor {
 void impl(const at::Tensor & self, const at::Tensor & other, const at::Scalar & alpha, const at::Tensor & out);
 };
 struct TORCH_API structured_ufunc_add_CUDA : public at::meta::structured_add_Tensor {
 void impl(const at::Tensor & self, const at::Tensor & other, const at::Scalar & alpha, const at::Tensor & out);
 };
+TORCH_API at::Tensor NestedTensor_add_Tensor(const at::Tensor & self, const at::Tensor & other, const at::Scalar & alpha=1);
+TORCH_API at::Tensor & NestedTensor_add__Tensor(at::Tensor & self, const at::Tensor & other, const at::Scalar & alpha=1);
 TORCH_API at::Tensor add_sparse(const at::Tensor & self, const at::Tensor & other, const at::Scalar & alpha=1);
 TORCH_API at::Tensor & add_out_sparse_cpu(const at::Tensor & self, const at::Tensor & other, const at::Scalar & alpha, at::Tensor & out);
 TORCH_API at::Tensor & add_sparse_(at::Tensor & self, const at::Tensor & other, const at::Scalar & alpha=1);
@@ -31,14 +32,15 @@ TORCH_API at::Tensor add_sparse_csr(const at::Tensor & self, const at::Tensor & 
 TORCH_API at::Tensor & add_out_sparse_csr_cpu(const at::Tensor & self, const at::Tensor & other, const at::Scalar & alpha, at::Tensor & out);
 TORCH_API at::Tensor & add_sparse_csr_(at::Tensor & self, const at::Tensor & other, const at::Scalar & alpha=1);
 TORCH_API at::Tensor & add_out_sparse_csr_cuda(const at::Tensor & self, const at::Tensor & other, const at::Scalar & alpha, at::Tensor & out);
+struct TORCH_API structured_add_out_mps : public at::meta::structured_add_Tensor {
+void impl(const at::Tensor & self, const at::Tensor & other, const at::Scalar & alpha, const at::Tensor & out);
+};
 TORCH_API at::Tensor mkldnn_add(const at::Tensor & self, const at::Tensor & other, const at::Scalar & alpha=1);
 TORCH_API at::Tensor & mkldnn_add_out(const at::Tensor & self, const at::Tensor & other, const at::Scalar & alpha, at::Tensor & out);
 TORCH_API at::Tensor & mkldnn_add_(at::Tensor & self, const at::Tensor & other, const at::Scalar & alpha=1);
 TORCH_API at::Tensor add_zerotensor(const at::Tensor & self, const at::Tensor & other, const at::Scalar & alpha=1);
-TORCH_API at::Tensor NestedTensor_add_Tensor(const at::Tensor & self, const at::Tensor & other, const at::Scalar & alpha=1);
-TORCH_API at::Tensor & NestedTensor_add__Tensor(at::Tensor & self, const at::Tensor & other, const at::Scalar & alpha=1);
 TORCH_API at::Tensor add(const at::Tensor & self, const at::Scalar & other, const at::Scalar & alpha=1);
+TORCH_API at::Tensor & add_Scalar_out(const at::Tensor & self, const at::Scalar & other, const at::Scalar & alpha, at::Tensor & out);
 TORCH_API at::Tensor & add_(at::Tensor & self, const at::Scalar & other, const at::Scalar & alpha=1);
-
 } // namespace native
 } // namespace at

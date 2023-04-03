@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::special_round(Tensor self, *, int decimals=0) -> Tensor
-TORCH_API inline at::Tensor special_round(const at::Tensor & self, int64_t decimals=0) {
+inline at::Tensor special_round(const at::Tensor & self, int64_t decimals=0) {
     return at::_ops::special_round::call(self, decimals);
 }
 
 // aten::special_round.out(Tensor self, *, int decimals=0, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & special_round_out(at::Tensor & out, const at::Tensor & self, int64_t decimals=0) {
+inline at::Tensor & special_round_out(at::Tensor & out, const at::Tensor & self, int64_t decimals=0) {
     return at::_ops::special_round_out::call(self, decimals, out);
 }
-
 // aten::special_round.out(Tensor self, *, int decimals=0, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & special_round_outf(const at::Tensor & self, int64_t decimals, at::Tensor & out) {
+inline at::Tensor & special_round_outf(const at::Tensor & self, int64_t decimals, at::Tensor & out) {
     return at::_ops::special_round_out::call(self, decimals, out);
 }
 

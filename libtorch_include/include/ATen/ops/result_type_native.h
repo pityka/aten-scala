@@ -16,11 +16,9 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::ScalarType result_type(const at::Tensor & tensor, const at::Tensor & other);
 TORCH_API at::ScalarType result_type(const at::Tensor & tensor, const at::Scalar & other);
 TORCH_API at::ScalarType result_type(const at::Scalar & scalar, const at::Tensor & tensor);
 TORCH_API at::ScalarType result_type(const at::Scalar & scalar1, const at::Scalar & scalar2);
-
 } // namespace native
 } // namespace at

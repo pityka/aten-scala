@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
-TORCH_API at::Tensor _make_dual_copy(const at::Tensor & primal, const at::Tensor & tangent, int64_t level);
 TORCH_API at::Tensor & _make_dual_copy_out(const at::Tensor & primal, const at::Tensor & tangent, int64_t level, at::Tensor & out);
-
+TORCH_API at::Tensor _make_dual_copy(const at::Tensor & primal, const at::Tensor & tangent, int64_t level);
 } // namespace native
 } // namespace at

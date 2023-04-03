@@ -23,23 +23,22 @@ namespace at {
 
 
 // aten::embedding_renorm_(Tensor(a!) self, Tensor indices, float max_norm, float norm_type) -> Tensor(a!)
-TORCH_API inline at::Tensor & embedding_renorm_(at::Tensor & self, const at::Tensor & indices, double max_norm, double norm_type) {
+inline at::Tensor & embedding_renorm_(at::Tensor & self, const at::Tensor & indices, double max_norm, double norm_type) {
     return at::_ops::embedding_renorm_::call(self, indices, max_norm, norm_type);
 }
 
 // aten::embedding_renorm.out(Tensor self, Tensor indices, float max_norm, float norm_type, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & embedding_renorm_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & indices, double max_norm, double norm_type) {
+inline at::Tensor & embedding_renorm_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & indices, double max_norm, double norm_type) {
     return at::_ops::embedding_renorm_out::call(self, indices, max_norm, norm_type, out);
 }
-
 // aten::embedding_renorm.out(Tensor self, Tensor indices, float max_norm, float norm_type, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & embedding_renorm_outf(const at::Tensor & self, const at::Tensor & indices, double max_norm, double norm_type, at::Tensor & out) {
+inline at::Tensor & embedding_renorm_outf(const at::Tensor & self, const at::Tensor & indices, double max_norm, double norm_type, at::Tensor & out) {
     return at::_ops::embedding_renorm_out::call(self, indices, max_norm, norm_type, out);
 }
 
-// aten::embedding_renorm.functional(Tensor self, Tensor indices, float max_norm, float norm_type) -> Tensor
-TORCH_API inline at::Tensor embedding_renorm_functional(const at::Tensor & self, const at::Tensor & indices, double max_norm, double norm_type) {
-    return at::_ops::embedding_renorm_functional::call(self, indices, max_norm, norm_type);
+// aten::embedding_renorm(Tensor self, Tensor indices, float max_norm, float norm_type) -> Tensor
+inline at::Tensor embedding_renorm(const at::Tensor & self, const at::Tensor & indices, double max_norm, double norm_type) {
+    return at::_ops::embedding_renorm::call(self, indices, max_norm, norm_type);
 }
 
 }

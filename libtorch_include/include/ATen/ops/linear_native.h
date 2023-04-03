@@ -16,9 +16,9 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor linear(const at::Tensor & input, const at::Tensor & weight, const c10::optional<at::Tensor> & bias={});
 TORCH_API at::Tensor & linear_out(const at::Tensor & input, const at::Tensor & weight, const c10::optional<at::Tensor> & bias, at::Tensor & out);
-
+TORCH_API at::Tensor nested_linear(const at::Tensor & input, const at::Tensor & weight, const c10::optional<at::Tensor> & bias={});
+TORCH_API at::Tensor _mps_linear(const at::Tensor & input, const at::Tensor & weight, const c10::optional<at::Tensor> & bias={});
 } // namespace native
 } // namespace at

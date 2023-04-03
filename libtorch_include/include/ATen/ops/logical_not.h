@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::logical_not(Tensor self) -> Tensor
-TORCH_API inline at::Tensor logical_not(const at::Tensor & self) {
+inline at::Tensor logical_not(const at::Tensor & self) {
     return at::_ops::logical_not::call(self);
 }
 
 // aten::logical_not.out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & logical_not_out(at::Tensor & out, const at::Tensor & self) {
+inline at::Tensor & logical_not_out(at::Tensor & out, const at::Tensor & self) {
     return at::_ops::logical_not_out::call(self, out);
 }
-
 // aten::logical_not.out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & logical_not_outf(const at::Tensor & self, at::Tensor & out) {
+inline at::Tensor & logical_not_outf(const at::Tensor & self, at::Tensor & out) {
     return at::_ops::logical_not_out::call(self, out);
 }
 

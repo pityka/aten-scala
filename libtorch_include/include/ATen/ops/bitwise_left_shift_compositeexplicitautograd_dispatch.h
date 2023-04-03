@@ -17,13 +17,13 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
-TORCH_API at::Tensor bitwise_left_shift(const at::Tensor & self, const at::Tensor & other);
-TORCH_API at::Tensor & bitwise_left_shift_(at::Tensor & self, const at::Tensor & other);
 TORCH_API at::Tensor bitwise_left_shift(const at::Tensor & self, const at::Scalar & other);
 TORCH_API at::Tensor & bitwise_left_shift_out(at::Tensor & out, const at::Tensor & self, const at::Scalar & other);
 TORCH_API at::Tensor & bitwise_left_shift_outf(const at::Tensor & self, const at::Scalar & other, at::Tensor & out);
 TORCH_API at::Tensor & bitwise_left_shift_(at::Tensor & self, const at::Scalar & other);
 TORCH_API at::Tensor bitwise_left_shift(const at::Scalar & self, const at::Tensor & other);
+TORCH_API at::Tensor & bitwise_left_shift_out(at::Tensor & out, const at::Scalar & self, const at::Tensor & other);
+TORCH_API at::Tensor & bitwise_left_shift_outf(const at::Scalar & self, const at::Tensor & other, at::Tensor & out);
 
 } // namespace compositeexplicitautograd
 } // namespace at

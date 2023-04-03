@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::_stack(Tensor[] tensors, int dim=0) -> Tensor
-TORCH_API inline at::Tensor _stack(at::TensorList tensors, int64_t dim=0) {
+inline at::Tensor _stack(at::TensorList tensors, int64_t dim=0) {
     return at::_ops::_stack::call(tensors, dim);
 }
 
 // aten::_stack.out(Tensor[] tensors, int dim=0, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & _stack_out(at::Tensor & out, at::TensorList tensors, int64_t dim=0) {
+inline at::Tensor & _stack_out(at::Tensor & out, at::TensorList tensors, int64_t dim=0) {
     return at::_ops::_stack_out::call(tensors, dim, out);
 }
-
 // aten::_stack.out(Tensor[] tensors, int dim=0, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & _stack_outf(at::TensorList tensors, int64_t dim, at::Tensor & out) {
+inline at::Tensor & _stack_outf(at::TensorList tensors, int64_t dim, at::Tensor & out) {
     return at::_ops::_stack_out::call(tensors, dim, out);
 }
 

@@ -23,23 +23,22 @@ namespace at {
 
 
 // aten::copy_sparse_to_sparse_(Tensor(a!) self, Tensor src, bool non_blocking=False) -> Tensor(a!)
-TORCH_API inline at::Tensor & copy_sparse_to_sparse_(at::Tensor & self, const at::Tensor & src, bool non_blocking=false) {
+inline at::Tensor & copy_sparse_to_sparse_(at::Tensor & self, const at::Tensor & src, bool non_blocking=false) {
     return at::_ops::copy_sparse_to_sparse_::call(self, src, non_blocking);
 }
 
 // aten::copy_sparse_to_sparse.out(Tensor self, Tensor src, bool non_blocking=False, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & copy_sparse_to_sparse_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & src, bool non_blocking=false) {
+inline at::Tensor & copy_sparse_to_sparse_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & src, bool non_blocking=false) {
     return at::_ops::copy_sparse_to_sparse_out::call(self, src, non_blocking, out);
 }
-
 // aten::copy_sparse_to_sparse.out(Tensor self, Tensor src, bool non_blocking=False, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & copy_sparse_to_sparse_outf(const at::Tensor & self, const at::Tensor & src, bool non_blocking, at::Tensor & out) {
+inline at::Tensor & copy_sparse_to_sparse_outf(const at::Tensor & self, const at::Tensor & src, bool non_blocking, at::Tensor & out) {
     return at::_ops::copy_sparse_to_sparse_out::call(self, src, non_blocking, out);
 }
 
-// aten::copy_sparse_to_sparse.functional(Tensor self, Tensor src, bool non_blocking=False) -> Tensor
-TORCH_API inline at::Tensor copy_sparse_to_sparse_functional(const at::Tensor & self, const at::Tensor & src, bool non_blocking=false) {
-    return at::_ops::copy_sparse_to_sparse_functional::call(self, src, non_blocking);
+// aten::copy_sparse_to_sparse(Tensor self, Tensor src, bool non_blocking=False) -> Tensor
+inline at::Tensor copy_sparse_to_sparse(const at::Tensor & self, const at::Tensor & src, bool non_blocking=false) {
+    return at::_ops::copy_sparse_to_sparse::call(self, src, non_blocking);
 }
 
 }

@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API bool _has_same_storage_numel(const at::Tensor & self, const at::Tensor & other);
-
 } // namespace native
 } // namespace at

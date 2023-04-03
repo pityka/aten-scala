@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::native_channel_shuffle(Tensor self, int groups) -> Tensor
-TORCH_API inline at::Tensor native_channel_shuffle(const at::Tensor & self, int64_t groups) {
+inline at::Tensor native_channel_shuffle(const at::Tensor & self, int64_t groups) {
     return at::_ops::native_channel_shuffle::call(self, groups);
 }
 

@@ -36,4 +36,26 @@ struct TORCH_API bartlett_window_periodic {
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, int64_t window_length, bool periodic, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory);
 };
 
+struct TORCH_API bartlett_window_out {
+  using schema = at::Tensor & (int64_t, at::Tensor &);
+  using ptr_schema = schema*;
+  // See Note [static constexpr char* members for windows NVCC]
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::bartlett_window")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "bartlett_window.out(int window_length, *, Tensor(a!) out) -> Tensor(a!)")
+  static at::Tensor & call(int64_t window_length, at::Tensor & out);
+  static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, int64_t window_length, at::Tensor & out);
+};
+
+struct TORCH_API bartlett_window_periodic_out {
+  using schema = at::Tensor & (int64_t, bool, at::Tensor &);
+  using ptr_schema = schema*;
+  // See Note [static constexpr char* members for windows NVCC]
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::bartlett_window")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "periodic_out")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "bartlett_window.periodic_out(int window_length, bool periodic, *, Tensor(a!) out) -> Tensor(a!)")
+  static at::Tensor & call(int64_t window_length, bool periodic, at::Tensor & out);
+  static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, int64_t window_length, bool periodic, at::Tensor & out);
+};
+
 }} // namespace at::_ops

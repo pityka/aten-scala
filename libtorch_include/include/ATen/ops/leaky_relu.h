@@ -23,22 +23,21 @@ namespace at {
 
 
 // aten::leaky_relu.out(Tensor self, Scalar negative_slope=0.01, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & leaky_relu_out(at::Tensor & out, const at::Tensor & self, const at::Scalar & negative_slope=0.01) {
+inline at::Tensor & leaky_relu_out(at::Tensor & out, const at::Tensor & self, const at::Scalar & negative_slope=0.01) {
     return at::_ops::leaky_relu_out::call(self, negative_slope, out);
 }
-
 // aten::leaky_relu.out(Tensor self, Scalar negative_slope=0.01, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & leaky_relu_outf(const at::Tensor & self, const at::Scalar & negative_slope, at::Tensor & out) {
+inline at::Tensor & leaky_relu_outf(const at::Tensor & self, const at::Scalar & negative_slope, at::Tensor & out) {
     return at::_ops::leaky_relu_out::call(self, negative_slope, out);
 }
 
 // aten::leaky_relu(Tensor self, Scalar negative_slope=0.01) -> Tensor
-TORCH_API inline at::Tensor leaky_relu(const at::Tensor & self, const at::Scalar & negative_slope=0.01) {
+inline at::Tensor leaky_relu(const at::Tensor & self, const at::Scalar & negative_slope=0.01) {
     return at::_ops::leaky_relu::call(self, negative_slope);
 }
 
 // aten::leaky_relu_(Tensor(a!) self, Scalar negative_slope=0.01) -> Tensor(a!)
-TORCH_API inline at::Tensor & leaky_relu_(at::Tensor & self, const at::Scalar & negative_slope=0.01) {
+inline at::Tensor & leaky_relu_(at::Tensor & self, const at::Scalar & negative_slope=0.01) {
     return at::_ops::leaky_relu_::call(self, negative_slope);
 }
 

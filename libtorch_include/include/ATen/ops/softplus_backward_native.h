@@ -16,10 +16,11 @@
 
 namespace at {
 namespace native {
-
 struct TORCH_API structured_softplus_backward_out : public at::meta::structured_softplus_backward {
 void impl(const at::Tensor & grad_output, const at::Tensor & self, const at::Scalar & beta, const at::Scalar & threshold, const at::Tensor & grad_input);
 };
-
+struct TORCH_API structured_softplus_backward_out_mps : public at::meta::structured_softplus_backward {
+void impl(const at::Tensor & grad_output, const at::Tensor & self, const at::Scalar & beta, const at::Scalar & threshold, const at::Tensor & grad_input);
+};
 } // namespace native
 } // namespace at

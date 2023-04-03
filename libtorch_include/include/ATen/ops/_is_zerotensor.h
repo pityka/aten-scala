@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::_is_zerotensor(Tensor self) -> bool
-TORCH_API inline bool __dispatch__is_zerotensor(const at::Tensor & self) {
+inline bool __dispatch__is_zerotensor(const at::Tensor & self) {
     return at::_ops::_is_zerotensor::call(self);
 }
 

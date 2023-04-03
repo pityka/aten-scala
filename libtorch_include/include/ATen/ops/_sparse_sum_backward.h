@@ -23,8 +23,17 @@ namespace at {
 
 
 // aten::_sparse_sum_backward(Tensor grad, Tensor self, int[] dim) -> Tensor
-TORCH_API inline at::Tensor _sparse_sum_backward(const at::Tensor & grad, const at::Tensor & self, at::IntArrayRef dim) {
+inline at::Tensor _sparse_sum_backward(const at::Tensor & grad, const at::Tensor & self, at::IntArrayRef dim) {
     return at::_ops::_sparse_sum_backward::call(grad, self, dim);
+}
+
+// aten::_sparse_sum_backward.out(Tensor grad, Tensor self, int[] dim, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & _sparse_sum_backward_out(at::Tensor & out, const at::Tensor & grad, const at::Tensor & self, at::IntArrayRef dim) {
+    return at::_ops::_sparse_sum_backward_out::call(grad, self, dim, out);
+}
+// aten::_sparse_sum_backward.out(Tensor grad, Tensor self, int[] dim, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & _sparse_sum_backward_outf(const at::Tensor & grad, const at::Tensor & self, at::IntArrayRef dim, at::Tensor & out) {
+    return at::_ops::_sparse_sum_backward_out::call(grad, self, dim, out);
 }
 
 }

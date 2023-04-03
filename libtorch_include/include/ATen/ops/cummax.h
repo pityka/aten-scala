@@ -23,32 +23,30 @@ namespace at {
 
 
 // aten::cummax(Tensor self, int dim) -> (Tensor values, Tensor indices)
-TORCH_API inline ::std::tuple<at::Tensor,at::Tensor> cummax(const at::Tensor & self, int64_t dim) {
+inline ::std::tuple<at::Tensor,at::Tensor> cummax(const at::Tensor & self, int64_t dim) {
     return at::_ops::cummax::call(self, dim);
 }
 
 // aten::cummax.out(Tensor self, int dim, *, Tensor(a!) values, Tensor(b!) indices) -> (Tensor(a!) values, Tensor(b!) indices)
-TORCH_API inline ::std::tuple<at::Tensor &,at::Tensor &> cummax_out(at::Tensor & values, at::Tensor & indices, const at::Tensor & self, int64_t dim) {
+inline ::std::tuple<at::Tensor &,at::Tensor &> cummax_out(at::Tensor & values, at::Tensor & indices, const at::Tensor & self, int64_t dim) {
     return at::_ops::cummax_out::call(self, dim, values, indices);
 }
-
 // aten::cummax.out(Tensor self, int dim, *, Tensor(a!) values, Tensor(b!) indices) -> (Tensor(a!) values, Tensor(b!) indices)
-TORCH_API inline ::std::tuple<at::Tensor &,at::Tensor &> cummax_outf(const at::Tensor & self, int64_t dim, at::Tensor & values, at::Tensor & indices) {
+inline ::std::tuple<at::Tensor &,at::Tensor &> cummax_outf(const at::Tensor & self, int64_t dim, at::Tensor & values, at::Tensor & indices) {
     return at::_ops::cummax_out::call(self, dim, values, indices);
 }
 
 // aten::cummax.dimname(Tensor self, Dimname dim) -> (Tensor values, Tensor indices)
-TORCH_API inline ::std::tuple<at::Tensor,at::Tensor> cummax(const at::Tensor & self, at::Dimname dim) {
+inline ::std::tuple<at::Tensor,at::Tensor> cummax(const at::Tensor & self, at::Dimname dim) {
     return at::_ops::cummax_dimname::call(self, dim);
 }
 
 // aten::cummax.dimname_out(Tensor self, Dimname dim, *, Tensor(a!) values, Tensor(b!) indices) -> (Tensor(a!) values, Tensor(b!) indices)
-TORCH_API inline ::std::tuple<at::Tensor &,at::Tensor &> cummax_out(at::Tensor & values, at::Tensor & indices, const at::Tensor & self, at::Dimname dim) {
+inline ::std::tuple<at::Tensor &,at::Tensor &> cummax_out(at::Tensor & values, at::Tensor & indices, const at::Tensor & self, at::Dimname dim) {
     return at::_ops::cummax_dimname_out::call(self, dim, values, indices);
 }
-
 // aten::cummax.dimname_out(Tensor self, Dimname dim, *, Tensor(a!) values, Tensor(b!) indices) -> (Tensor(a!) values, Tensor(b!) indices)
-TORCH_API inline ::std::tuple<at::Tensor &,at::Tensor &> cummax_outf(const at::Tensor & self, at::Dimname dim, at::Tensor & values, at::Tensor & indices) {
+inline ::std::tuple<at::Tensor &,at::Tensor &> cummax_outf(const at::Tensor & self, at::Dimname dim, at::Tensor & values, at::Tensor & indices) {
     return at::_ops::cummax_dimname_out::call(self, dim, values, indices);
 }
 

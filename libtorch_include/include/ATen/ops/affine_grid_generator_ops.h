@@ -25,4 +25,15 @@ struct TORCH_API affine_grid_generator {
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & theta, at::IntArrayRef size, bool align_corners);
 };
 
+struct TORCH_API affine_grid_generator_out {
+  using schema = at::Tensor & (const at::Tensor &, at::IntArrayRef, bool, at::Tensor &);
+  using ptr_schema = schema*;
+  // See Note [static constexpr char* members for windows NVCC]
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::affine_grid_generator")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "affine_grid_generator.out(Tensor theta, int[] size, bool align_corners, *, Tensor(a!) out) -> Tensor(a!)")
+  static at::Tensor & call(const at::Tensor & theta, at::IntArrayRef size, bool align_corners, at::Tensor & out);
+  static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & theta, at::IntArrayRef size, bool align_corners, at::Tensor & out);
+};
+
 }} // namespace at::_ops

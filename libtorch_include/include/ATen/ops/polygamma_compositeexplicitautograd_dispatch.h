@@ -17,7 +17,6 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
-TORCH_API at::Tensor polygamma(int64_t n, const at::Tensor & self);
 TORCH_API at::Tensor & polygamma_(at::Tensor & self, int64_t n);
 
 } // namespace compositeexplicitautograd

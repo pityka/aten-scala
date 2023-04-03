@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API int64_t size(const at::Tensor & self, int64_t dim);
 TORCH_API int64_t size(const at::Tensor & self, at::Dimname dim);
-
 } // namespace native
 } // namespace at

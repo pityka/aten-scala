@@ -16,8 +16,7 @@
 
 namespace at {
 namespace native {
-
+TORCH_API at::Tensor & mkldnn_linear_out(const at::Tensor & self, const at::Tensor & weight, const c10::optional<at::Tensor> & bias, at::Tensor & out);
 TORCH_API at::Tensor mkldnn_linear(const at::Tensor & self, const at::Tensor & weight, const c10::optional<at::Tensor> & bias={});
-
 } // namespace native
 } // namespace at

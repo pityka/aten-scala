@@ -16,10 +16,10 @@
 
 namespace at {
 namespace native {
-
-TORCH_API at::Tensor uniform_functional(const at::Tensor & self, double from=0, double to=1, c10::optional<at::Generator> generator=c10::nullopt);
+TORCH_API at::Tensor uniform(const at::Tensor & self, double from=0, double to=1, c10::optional<at::Generator> generator=c10::nullopt);
+TORCH_API at::Tensor & uniform_out(const at::Tensor & self, double from, double to, c10::optional<at::Generator> generator, at::Tensor & out);
 TORCH_API at::Tensor & uniform_(at::Tensor & self, double from=0, double to=1, c10::optional<at::Generator> generator=c10::nullopt);
+TORCH_API at::Tensor & uniform_mps_(at::Tensor & self, double from=0, double to=1, c10::optional<at::Generator> generator=c10::nullopt);
 TORCH_API at::Tensor & uniform_meta_(at::Tensor & self, double from=0, double to=1, c10::optional<at::Generator> generator=c10::nullopt);
-
 } // namespace native
 } // namespace at

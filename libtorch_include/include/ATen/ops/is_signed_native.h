@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API bool is_signed(const at::Tensor & self);
-
 } // namespace native
 } // namespace at

@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::linalg_qr(Tensor A, str mode='reduced') -> (Tensor Q, Tensor R)
-TORCH_API inline ::std::tuple<at::Tensor,at::Tensor> linalg_qr(const at::Tensor & A, c10::string_view mode="reduced") {
+inline ::std::tuple<at::Tensor,at::Tensor> linalg_qr(const at::Tensor & A, c10::string_view mode="reduced") {
     return at::_ops::linalg_qr::call(A, mode);
 }
 
 // aten::linalg_qr.out(Tensor A, str mode='reduced', *, Tensor(a!) Q, Tensor(b!) R) -> (Tensor(a!) Q, Tensor(b!) R)
-TORCH_API inline ::std::tuple<at::Tensor &,at::Tensor &> linalg_qr_out(at::Tensor & Q, at::Tensor & R, const at::Tensor & A, c10::string_view mode="reduced") {
+inline ::std::tuple<at::Tensor &,at::Tensor &> linalg_qr_out(at::Tensor & Q, at::Tensor & R, const at::Tensor & A, c10::string_view mode="reduced") {
     return at::_ops::linalg_qr_out::call(A, mode, Q, R);
 }
-
 // aten::linalg_qr.out(Tensor A, str mode='reduced', *, Tensor(a!) Q, Tensor(b!) R) -> (Tensor(a!) Q, Tensor(b!) R)
-TORCH_API inline ::std::tuple<at::Tensor &,at::Tensor &> linalg_qr_outf(const at::Tensor & A, c10::string_view mode, at::Tensor & Q, at::Tensor & R) {
+inline ::std::tuple<at::Tensor &,at::Tensor &> linalg_qr_outf(const at::Tensor & A, c10::string_view mode, at::Tensor & Q, at::Tensor & R) {
     return at::_ops::linalg_qr_out::call(A, mode, Q, R);
 }
 

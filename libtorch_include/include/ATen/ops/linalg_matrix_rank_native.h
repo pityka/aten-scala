@@ -16,7 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor linalg_matrix_rank(const at::Tensor & input, const c10::optional<at::Tensor> & atol={}, const c10::optional<at::Tensor> & rtol={}, bool hermitian=false);
 TORCH_API at::Tensor & linalg_matrix_rank_out(const at::Tensor & input, const c10::optional<at::Tensor> & atol, const c10::optional<at::Tensor> & rtol, bool hermitian, at::Tensor & out);
 TORCH_API at::Tensor linalg_matrix_rank(const at::Tensor & self, c10::optional<double> atol=c10::nullopt, c10::optional<double> rtol=c10::nullopt, bool hermitian=false);
@@ -25,6 +24,5 @@ TORCH_API at::Tensor linalg_matrix_rank(const at::Tensor & self, double tol, boo
 TORCH_API at::Tensor & linalg_matrix_rank_out(const at::Tensor & self, double tol, bool hermitian, at::Tensor & out);
 TORCH_API at::Tensor linalg_matrix_rank(const at::Tensor & input, const at::Tensor & tol, bool hermitian=false);
 TORCH_API at::Tensor & linalg_matrix_rank_out(const at::Tensor & input, const at::Tensor & tol, bool hermitian, at::Tensor & out);
-
 } // namespace native
 } // namespace at

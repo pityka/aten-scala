@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::_cast_Byte(Tensor self, bool non_blocking=False) -> Tensor
-TORCH_API inline at::Tensor _cast_Byte(const at::Tensor & self, bool non_blocking=false) {
+inline at::Tensor _cast_Byte(const at::Tensor & self, bool non_blocking=false) {
     return at::_ops::_cast_Byte::call(self, non_blocking);
 }
 

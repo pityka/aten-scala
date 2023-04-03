@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API int64_t _nnz_sparse(const at::Tensor & self);
 TORCH_API int64_t _nnz_sparse_csr(const at::Tensor & self);
-
 } // namespace native
 } // namespace at

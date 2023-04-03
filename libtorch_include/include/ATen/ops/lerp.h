@@ -23,32 +23,30 @@ namespace at {
 
 
 // aten::lerp.Scalar_out(Tensor self, Tensor end, Scalar weight, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & lerp_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & end, const at::Scalar & weight) {
+inline at::Tensor & lerp_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & end, const at::Scalar & weight) {
     return at::_ops::lerp_Scalar_out::call(self, end, weight, out);
 }
-
 // aten::lerp.Scalar_out(Tensor self, Tensor end, Scalar weight, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & lerp_outf(const at::Tensor & self, const at::Tensor & end, const at::Scalar & weight, at::Tensor & out) {
+inline at::Tensor & lerp_outf(const at::Tensor & self, const at::Tensor & end, const at::Scalar & weight, at::Tensor & out) {
     return at::_ops::lerp_Scalar_out::call(self, end, weight, out);
 }
 
 // aten::lerp.Tensor_out(Tensor self, Tensor end, Tensor weight, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & lerp_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & end, const at::Tensor & weight) {
+inline at::Tensor & lerp_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & end, const at::Tensor & weight) {
     return at::_ops::lerp_Tensor_out::call(self, end, weight, out);
 }
-
 // aten::lerp.Tensor_out(Tensor self, Tensor end, Tensor weight, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & lerp_outf(const at::Tensor & self, const at::Tensor & end, const at::Tensor & weight, at::Tensor & out) {
+inline at::Tensor & lerp_outf(const at::Tensor & self, const at::Tensor & end, const at::Tensor & weight, at::Tensor & out) {
     return at::_ops::lerp_Tensor_out::call(self, end, weight, out);
 }
 
 // aten::lerp.Scalar(Tensor self, Tensor end, Scalar weight) -> Tensor
-TORCH_API inline at::Tensor lerp(const at::Tensor & self, const at::Tensor & end, const at::Scalar & weight) {
+inline at::Tensor lerp(const at::Tensor & self, const at::Tensor & end, const at::Scalar & weight) {
     return at::_ops::lerp_Scalar::call(self, end, weight);
 }
 
 // aten::lerp.Tensor(Tensor self, Tensor end, Tensor weight) -> Tensor
-TORCH_API inline at::Tensor lerp(const at::Tensor & self, const at::Tensor & end, const at::Tensor & weight) {
+inline at::Tensor lerp(const at::Tensor & self, const at::Tensor & end, const at::Tensor & weight) {
     return at::_ops::lerp_Tensor::call(self, end, weight);
 }
 

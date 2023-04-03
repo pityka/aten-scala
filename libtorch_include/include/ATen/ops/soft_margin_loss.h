@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::soft_margin_loss.out(Tensor self, Tensor target, int reduction=Mean, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & soft_margin_loss_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & target, int64_t reduction=at::Reduction::Mean) {
+inline at::Tensor & soft_margin_loss_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & target, int64_t reduction=at::Reduction::Mean) {
     return at::_ops::soft_margin_loss_out::call(self, target, reduction, out);
 }
-
 // aten::soft_margin_loss.out(Tensor self, Tensor target, int reduction=Mean, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & soft_margin_loss_outf(const at::Tensor & self, const at::Tensor & target, int64_t reduction, at::Tensor & out) {
+inline at::Tensor & soft_margin_loss_outf(const at::Tensor & self, const at::Tensor & target, int64_t reduction, at::Tensor & out) {
     return at::_ops::soft_margin_loss_out::call(self, target, reduction, out);
 }
 
 // aten::soft_margin_loss(Tensor self, Tensor target, int reduction=Mean) -> Tensor
-TORCH_API inline at::Tensor soft_margin_loss(const at::Tensor & self, const at::Tensor & target, int64_t reduction=at::Reduction::Mean) {
+inline at::Tensor soft_margin_loss(const at::Tensor & self, const at::Tensor & target, int64_t reduction=at::Reduction::Mean) {
     return at::_ops::soft_margin_loss::call(self, target, reduction);
 }
 

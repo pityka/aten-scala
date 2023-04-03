@@ -16,10 +16,8 @@
 
 namespace at {
 namespace native {
-
 struct TORCH_API structured_scatter_reduce_two : public at::meta::structured_scatter_reduce_two {
 void impl(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & src, c10::string_view reduce, bool include_self, const at::Tensor & out);
 };
-
 } // namespace native
 } // namespace at

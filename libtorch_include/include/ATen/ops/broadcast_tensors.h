@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::broadcast_tensors(Tensor[] tensors) -> Tensor[]
-TORCH_API inline ::std::vector<at::Tensor> broadcast_tensors(at::TensorList tensors) {
+inline ::std::vector<at::Tensor> broadcast_tensors(at::TensorList tensors) {
     return at::_ops::broadcast_tensors::call(tensors);
 }
 

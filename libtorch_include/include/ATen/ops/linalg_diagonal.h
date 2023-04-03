@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::linalg_diagonal(Tensor(a) A, *, int offset=0, int dim1=-2, int dim2=-1) -> Tensor(a)
-TORCH_API inline at::Tensor linalg_diagonal(const at::Tensor & A, int64_t offset=0, int64_t dim1=-2, int64_t dim2=-1) {
+inline at::Tensor linalg_diagonal(const at::Tensor & A, int64_t offset=0, int64_t dim1=-2, int64_t dim2=-1) {
     return at::_ops::linalg_diagonal::call(A, offset, dim1, dim2);
 }
 

@@ -25,4 +25,15 @@ struct TORCH_API cudnn_affine_grid_generator {
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & theta, int64_t N, int64_t C, int64_t H, int64_t W);
 };
 
+struct TORCH_API cudnn_affine_grid_generator_out {
+  using schema = at::Tensor & (const at::Tensor &, int64_t, int64_t, int64_t, int64_t, at::Tensor &);
+  using ptr_schema = schema*;
+  // See Note [static constexpr char* members for windows NVCC]
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::cudnn_affine_grid_generator")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "cudnn_affine_grid_generator.out(Tensor theta, int N, int C, int H, int W, *, Tensor(a!) out) -> Tensor(a!)")
+  static at::Tensor & call(const at::Tensor & theta, int64_t N, int64_t C, int64_t H, int64_t W, at::Tensor & out);
+  static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & theta, int64_t N, int64_t C, int64_t H, int64_t W, at::Tensor & out);
+};
+
 }} // namespace at::_ops

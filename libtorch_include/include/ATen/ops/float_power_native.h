@@ -16,7 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor float_power(const at::Tensor & self, const at::Tensor & exponent);
 TORCH_API at::Tensor & float_power_out(const at::Tensor & self, const at::Tensor & exponent, at::Tensor & out);
 TORCH_API at::Tensor & float_power_(at::Tensor & self, const at::Tensor & exponent);
@@ -25,6 +24,5 @@ TORCH_API at::Tensor & float_power_out(const at::Scalar & self, const at::Tensor
 TORCH_API at::Tensor float_power(const at::Tensor & self, const at::Scalar & exponent);
 TORCH_API at::Tensor & float_power_out(const at::Tensor & self, const at::Scalar & exponent, at::Tensor & out);
 TORCH_API at::Tensor & float_power_(at::Tensor & self, const at::Scalar & exponent);
-
 } // namespace native
 } // namespace at

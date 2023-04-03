@@ -17,8 +17,10 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
-TORCH_API at::Tensor new_empty_strided(const at::Tensor & self, at::IntArrayRef size, at::IntArrayRef stride, at::TensorOptions options={});
-TORCH_API at::Tensor new_empty_strided(const at::Tensor & self, at::IntArrayRef size, at::IntArrayRef stride, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory);
+TORCH_API at::Tensor & new_empty_strided_out(at::Tensor & out, const at::Tensor & self, at::IntArrayRef size, at::IntArrayRef stride);
+TORCH_API at::Tensor & new_empty_strided_outf(const at::Tensor & self, at::IntArrayRef size, at::IntArrayRef stride, at::Tensor & out);
+TORCH_API at::Tensor & new_empty_strided_symint_out(at::Tensor & out, const at::Tensor & self, c10::SymIntArrayRef size, c10::SymIntArrayRef stride);
+TORCH_API at::Tensor & new_empty_strided_symint_outf(const at::Tensor & self, c10::SymIntArrayRef size, c10::SymIntArrayRef stride, at::Tensor & out);
 
 } // namespace compositeexplicitautograd
 } // namespace at

@@ -25,4 +25,15 @@ struct TORCH_API scalar_tensor {
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Scalar & s, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory);
 };
 
+struct TORCH_API scalar_tensor_out {
+  using schema = at::Tensor & (const at::Scalar &, at::Tensor &);
+  using ptr_schema = schema*;
+  // See Note [static constexpr char* members for windows NVCC]
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::scalar_tensor")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "scalar_tensor.out(Scalar s, *, Tensor(a!) out) -> Tensor(a!)")
+  static at::Tensor & call(const at::Scalar & s, at::Tensor & out);
+  static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Scalar & s, at::Tensor & out);
+};
+
 }} // namespace at::_ops

@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor & fill_diagonal_(at::Tensor & self, const at::Scalar & fill_value, bool wrap=false);
-
 } // namespace native
 } // namespace at

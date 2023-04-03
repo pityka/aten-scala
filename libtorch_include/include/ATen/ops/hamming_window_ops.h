@@ -58,4 +58,48 @@ struct TORCH_API hamming_window_periodic_alpha_beta {
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, int64_t window_length, bool periodic, double alpha, double beta, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory);
 };
 
+struct TORCH_API hamming_window_out {
+  using schema = at::Tensor & (int64_t, at::Tensor &);
+  using ptr_schema = schema*;
+  // See Note [static constexpr char* members for windows NVCC]
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::hamming_window")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "hamming_window.out(int window_length, *, Tensor(a!) out) -> Tensor(a!)")
+  static at::Tensor & call(int64_t window_length, at::Tensor & out);
+  static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, int64_t window_length, at::Tensor & out);
+};
+
+struct TORCH_API hamming_window_periodic_out {
+  using schema = at::Tensor & (int64_t, bool, at::Tensor &);
+  using ptr_schema = schema*;
+  // See Note [static constexpr char* members for windows NVCC]
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::hamming_window")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "periodic_out")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "hamming_window.periodic_out(int window_length, bool periodic, *, Tensor(a!) out) -> Tensor(a!)")
+  static at::Tensor & call(int64_t window_length, bool periodic, at::Tensor & out);
+  static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, int64_t window_length, bool periodic, at::Tensor & out);
+};
+
+struct TORCH_API hamming_window_periodic_alpha_out {
+  using schema = at::Tensor & (int64_t, bool, double, at::Tensor &);
+  using ptr_schema = schema*;
+  // See Note [static constexpr char* members for windows NVCC]
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::hamming_window")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "periodic_alpha_out")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "hamming_window.periodic_alpha_out(int window_length, bool periodic, float alpha, *, Tensor(a!) out) -> Tensor(a!)")
+  static at::Tensor & call(int64_t window_length, bool periodic, double alpha, at::Tensor & out);
+  static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, int64_t window_length, bool periodic, double alpha, at::Tensor & out);
+};
+
+struct TORCH_API hamming_window_periodic_alpha_beta_out {
+  using schema = at::Tensor & (int64_t, bool, double, double, at::Tensor &);
+  using ptr_schema = schema*;
+  // See Note [static constexpr char* members for windows NVCC]
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::hamming_window")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "periodic_alpha_beta_out")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "hamming_window.periodic_alpha_beta_out(int window_length, bool periodic, float alpha, float beta, *, Tensor(a!) out) -> Tensor(a!)")
+  static at::Tensor & call(int64_t window_length, bool periodic, double alpha, double beta, at::Tensor & out);
+  static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, int64_t window_length, bool periodic, double alpha, double beta, at::Tensor & out);
+};
+
 }} // namespace at::_ops

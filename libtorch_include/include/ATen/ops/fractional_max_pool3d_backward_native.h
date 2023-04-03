@@ -16,11 +16,9 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor fractional_max_pool3d_backward_cpu(const at::Tensor & grad_output, const at::Tensor & self, at::IntArrayRef kernel_size, at::IntArrayRef output_size, const at::Tensor & indices);
 TORCH_API at::Tensor & fractional_max_pool3d_backward_out_cpu(const at::Tensor & grad_output, const at::Tensor & self, at::IntArrayRef kernel_size, at::IntArrayRef output_size, const at::Tensor & indices, at::Tensor & grad_input);
 TORCH_API at::Tensor fractional_max_pool3d_backward_cuda(const at::Tensor & grad_output, const at::Tensor & self, at::IntArrayRef kernel_size, at::IntArrayRef output_size, const at::Tensor & indices);
 TORCH_API at::Tensor & fractional_max_pool3d_backward_out_cuda(const at::Tensor & grad_output, const at::Tensor & self, at::IntArrayRef kernel_size, at::IntArrayRef output_size, const at::Tensor & indices, at::Tensor & grad_input);
-
 } // namespace native
 } // namespace at

@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::pinverse(Tensor self, float rcond=1e-15) -> Tensor
-TORCH_API inline at::Tensor pinverse(const at::Tensor & self, double rcond=1e-15) {
+inline at::Tensor pinverse(const at::Tensor & self, double rcond=1e-15) {
     return at::_ops::pinverse::call(self, rcond);
 }
 

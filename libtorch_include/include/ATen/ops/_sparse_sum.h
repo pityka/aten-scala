@@ -23,23 +23,32 @@ namespace at {
 
 
 // aten::_sparse_sum(Tensor self) -> Tensor
-TORCH_API inline at::Tensor _sparse_sum(const at::Tensor & self) {
+inline at::Tensor _sparse_sum(const at::Tensor & self) {
     return at::_ops::_sparse_sum::call(self);
 }
 
 // aten::_sparse_sum.dtype(Tensor self, *, ScalarType dtype) -> Tensor
-TORCH_API inline at::Tensor _sparse_sum(const at::Tensor & self, at::ScalarType dtype) {
+inline at::Tensor _sparse_sum(const at::Tensor & self, at::ScalarType dtype) {
     return at::_ops::_sparse_sum_dtype::call(self, dtype);
 }
 
 // aten::_sparse_sum.dim(Tensor self, int[1] dim) -> Tensor
-TORCH_API inline at::Tensor _sparse_sum(const at::Tensor & self, at::IntArrayRef dim) {
+inline at::Tensor _sparse_sum(const at::Tensor & self, at::IntArrayRef dim) {
     return at::_ops::_sparse_sum_dim::call(self, dim);
 }
 
 // aten::_sparse_sum.dim_dtype(Tensor self, int[1] dim, *, ScalarType dtype) -> Tensor
-TORCH_API inline at::Tensor _sparse_sum(const at::Tensor & self, at::IntArrayRef dim, at::ScalarType dtype) {
+inline at::Tensor _sparse_sum(const at::Tensor & self, at::IntArrayRef dim, at::ScalarType dtype) {
     return at::_ops::_sparse_sum_dim_dtype::call(self, dim, dtype);
+}
+
+// aten::_sparse_sum.dim_out(Tensor self, int[1] dim, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & _sparse_sum_out(at::Tensor & out, const at::Tensor & self, at::IntArrayRef dim) {
+    return at::_ops::_sparse_sum_dim_out::call(self, dim, out);
+}
+// aten::_sparse_sum.dim_out(Tensor self, int[1] dim, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & _sparse_sum_outf(const at::Tensor & self, at::IntArrayRef dim, at::Tensor & out) {
+    return at::_ops::_sparse_sum_dim_out::call(self, dim, out);
 }
 
 }

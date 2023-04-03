@@ -17,7 +17,9 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
-TORCH_API ::std::tuple<at::Tensor,at::Tensor> _amp_update_scale_functional(const at::Tensor & self, const at::Tensor & growth_tracker, const at::Tensor & found_inf, double scale_growth_factor, double scale_backoff_factor, int64_t growth_interval);
+TORCH_API ::std::tuple<at::Tensor,at::Tensor> _amp_update_scale(const at::Tensor & self, const at::Tensor & growth_tracker, const at::Tensor & found_inf, double scale_growth_factor, double scale_backoff_factor, int64_t growth_interval);
+TORCH_API at::Tensor & _amp_update_scale_out(at::Tensor & out, const at::Tensor & self, at::Tensor & growth_tracker, const at::Tensor & found_inf, double scale_growth_factor, double scale_backoff_factor, int64_t growth_interval);
+TORCH_API at::Tensor & _amp_update_scale_outf(const at::Tensor & self, at::Tensor & growth_tracker, const at::Tensor & found_inf, double scale_growth_factor, double scale_backoff_factor, int64_t growth_interval, at::Tensor & out);
 
 } // namespace compositeexplicitautograd
 } // namespace at

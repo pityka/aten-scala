@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::permute(Tensor(a) self, int[] dims) -> Tensor(a)
-TORCH_API inline at::Tensor permute(const at::Tensor & self, at::IntArrayRef dims) {
+inline at::Tensor permute(const at::Tensor & self, at::IntArrayRef dims) {
     return at::_ops::permute::call(self, dims);
 }
 

@@ -23,62 +23,58 @@ namespace at {
 
 
 // aten::sort.values(Tensor self, int dim=-1, bool descending=False, *, Tensor(a!) values, Tensor(b!) indices) -> (Tensor(a!) values, Tensor(b!) indices)
-TORCH_API inline ::std::tuple<at::Tensor &,at::Tensor &> sort_out(at::Tensor & values, at::Tensor & indices, const at::Tensor & self, int64_t dim=-1, bool descending=false) {
+inline ::std::tuple<at::Tensor &,at::Tensor &> sort_out(at::Tensor & values, at::Tensor & indices, const at::Tensor & self, int64_t dim=-1, bool descending=false) {
     return at::_ops::sort_values::call(self, dim, descending, values, indices);
 }
-
 // aten::sort.values(Tensor self, int dim=-1, bool descending=False, *, Tensor(a!) values, Tensor(b!) indices) -> (Tensor(a!) values, Tensor(b!) indices)
-TORCH_API inline ::std::tuple<at::Tensor &,at::Tensor &> sort_outf(const at::Tensor & self, int64_t dim, bool descending, at::Tensor & values, at::Tensor & indices) {
+inline ::std::tuple<at::Tensor &,at::Tensor &> sort_outf(const at::Tensor & self, int64_t dim, bool descending, at::Tensor & values, at::Tensor & indices) {
     return at::_ops::sort_values::call(self, dim, descending, values, indices);
 }
 
 // aten::sort.values_stable(Tensor self, *, bool? stable, int dim=-1, bool descending=False, Tensor(a!) values, Tensor(b!) indices) -> (Tensor(a!) values, Tensor(b!) indices)
-TORCH_API inline ::std::tuple<at::Tensor &,at::Tensor &> sort_out(at::Tensor & values, at::Tensor & indices, const at::Tensor & self, c10::optional<bool> stable, int64_t dim=-1, bool descending=false) {
+inline ::std::tuple<at::Tensor &,at::Tensor &> sort_out(at::Tensor & values, at::Tensor & indices, const at::Tensor & self, c10::optional<bool> stable, int64_t dim=-1, bool descending=false) {
     return at::_ops::sort_values_stable::call(self, stable, dim, descending, values, indices);
 }
-
 // aten::sort.values_stable(Tensor self, *, bool? stable, int dim=-1, bool descending=False, Tensor(a!) values, Tensor(b!) indices) -> (Tensor(a!) values, Tensor(b!) indices)
-TORCH_API inline ::std::tuple<at::Tensor &,at::Tensor &> sort_outf(const at::Tensor & self, c10::optional<bool> stable, int64_t dim, bool descending, at::Tensor & values, at::Tensor & indices) {
+inline ::std::tuple<at::Tensor &,at::Tensor &> sort_outf(const at::Tensor & self, c10::optional<bool> stable, int64_t dim, bool descending, at::Tensor & values, at::Tensor & indices) {
     return at::_ops::sort_values_stable::call(self, stable, dim, descending, values, indices);
 }
 
 // aten::sort(Tensor self, int dim=-1, bool descending=False) -> (Tensor values, Tensor indices)
-TORCH_API inline ::std::tuple<at::Tensor,at::Tensor> sort(const at::Tensor & self, int64_t dim=-1, bool descending=false) {
+inline ::std::tuple<at::Tensor,at::Tensor> sort(const at::Tensor & self, int64_t dim=-1, bool descending=false) {
     return at::_ops::sort::call(self, dim, descending);
 }
 
 // aten::sort.stable(Tensor self, *, bool? stable, int dim=-1, bool descending=False) -> (Tensor values, Tensor indices)
-TORCH_API inline ::std::tuple<at::Tensor,at::Tensor> sort(const at::Tensor & self, c10::optional<bool> stable, int64_t dim=-1, bool descending=false) {
+inline ::std::tuple<at::Tensor,at::Tensor> sort(const at::Tensor & self, c10::optional<bool> stable, int64_t dim=-1, bool descending=false) {
     return at::_ops::sort_stable::call(self, stable, dim, descending);
 }
 
 // aten::sort.dimname_values(Tensor self, Dimname dim, bool descending=False, *, Tensor(a!) values, Tensor(b!) indices) -> (Tensor(a!) values, Tensor(b!) indices)
-TORCH_API inline ::std::tuple<at::Tensor &,at::Tensor &> sort_out(at::Tensor & values, at::Tensor & indices, const at::Tensor & self, at::Dimname dim, bool descending=false) {
+inline ::std::tuple<at::Tensor &,at::Tensor &> sort_out(at::Tensor & values, at::Tensor & indices, const at::Tensor & self, at::Dimname dim, bool descending=false) {
     return at::_ops::sort_dimname_values::call(self, dim, descending, values, indices);
 }
-
 // aten::sort.dimname_values(Tensor self, Dimname dim, bool descending=False, *, Tensor(a!) values, Tensor(b!) indices) -> (Tensor(a!) values, Tensor(b!) indices)
-TORCH_API inline ::std::tuple<at::Tensor &,at::Tensor &> sort_outf(const at::Tensor & self, at::Dimname dim, bool descending, at::Tensor & values, at::Tensor & indices) {
+inline ::std::tuple<at::Tensor &,at::Tensor &> sort_outf(const at::Tensor & self, at::Dimname dim, bool descending, at::Tensor & values, at::Tensor & indices) {
     return at::_ops::sort_dimname_values::call(self, dim, descending, values, indices);
 }
 
 // aten::sort.dimname_values_stable(Tensor self, *, bool? stable, Dimname dim, bool descending=False, Tensor(a!) values, Tensor(b!) indices) -> (Tensor(a!) values, Tensor(b!) indices)
-TORCH_API inline ::std::tuple<at::Tensor &,at::Tensor &> sort_out(at::Tensor & values, at::Tensor & indices, const at::Tensor & self, c10::optional<bool> stable, at::Dimname dim, bool descending=false) {
+inline ::std::tuple<at::Tensor &,at::Tensor &> sort_out(at::Tensor & values, at::Tensor & indices, const at::Tensor & self, c10::optional<bool> stable, at::Dimname dim, bool descending=false) {
     return at::_ops::sort_dimname_values_stable::call(self, stable, dim, descending, values, indices);
 }
-
 // aten::sort.dimname_values_stable(Tensor self, *, bool? stable, Dimname dim, bool descending=False, Tensor(a!) values, Tensor(b!) indices) -> (Tensor(a!) values, Tensor(b!) indices)
-TORCH_API inline ::std::tuple<at::Tensor &,at::Tensor &> sort_outf(const at::Tensor & self, c10::optional<bool> stable, at::Dimname dim, bool descending, at::Tensor & values, at::Tensor & indices) {
+inline ::std::tuple<at::Tensor &,at::Tensor &> sort_outf(const at::Tensor & self, c10::optional<bool> stable, at::Dimname dim, bool descending, at::Tensor & values, at::Tensor & indices) {
     return at::_ops::sort_dimname_values_stable::call(self, stable, dim, descending, values, indices);
 }
 
 // aten::sort.dimname(Tensor self, Dimname dim, bool descending=False) -> (Tensor values, Tensor indices)
-TORCH_API inline ::std::tuple<at::Tensor,at::Tensor> sort(const at::Tensor & self, at::Dimname dim, bool descending=false) {
+inline ::std::tuple<at::Tensor,at::Tensor> sort(const at::Tensor & self, at::Dimname dim, bool descending=false) {
     return at::_ops::sort_dimname::call(self, dim, descending);
 }
 
 // aten::sort.dimname_stable(Tensor self, *, bool? stable, Dimname dim, bool descending=False) -> (Tensor values, Tensor indices)
-TORCH_API inline ::std::tuple<at::Tensor,at::Tensor> sort(const at::Tensor & self, c10::optional<bool> stable, at::Dimname dim, bool descending=false) {
+inline ::std::tuple<at::Tensor,at::Tensor> sort(const at::Tensor & self, c10::optional<bool> stable, at::Dimname dim, bool descending=false) {
     return at::_ops::sort_dimname_stable::call(self, stable, dim, descending);
 }
 

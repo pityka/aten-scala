@@ -16,13 +16,11 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor special_xlogy(const at::Tensor & self, const at::Tensor & other);
 TORCH_API at::Tensor & special_xlogy_out(const at::Tensor & self, const at::Tensor & other, at::Tensor & out);
 TORCH_API at::Tensor special_xlogy(const at::Scalar & self, const at::Tensor & other);
 TORCH_API at::Tensor & special_xlogy_out(const at::Scalar & self, const at::Tensor & other, at::Tensor & out);
 TORCH_API at::Tensor special_xlogy(const at::Tensor & self, const at::Scalar & other);
 TORCH_API at::Tensor & special_xlogy_out(const at::Tensor & self, const at::Scalar & other, at::Tensor & out);
-
 } // namespace native
 } // namespace at

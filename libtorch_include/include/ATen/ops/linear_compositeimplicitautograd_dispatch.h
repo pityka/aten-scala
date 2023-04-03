@@ -18,8 +18,6 @@ namespace at {
 namespace compositeimplicitautograd {
 
 TORCH_API at::Tensor linear(const at::Tensor & input, const at::Tensor & weight, const c10::optional<at::Tensor> & bias={});
-TORCH_API at::Tensor & linear_out(at::Tensor & out, const at::Tensor & input, const at::Tensor & weight, const c10::optional<at::Tensor> & bias={});
-TORCH_API at::Tensor & linear_outf(const at::Tensor & input, const at::Tensor & weight, const c10::optional<at::Tensor> & bias, at::Tensor & out);
 
 } // namespace compositeimplicitautograd
 } // namespace at

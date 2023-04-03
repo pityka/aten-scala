@@ -20,7 +20,7 @@ namespace meta {
 struct TORCH_API structured_upsample_linear1d : public at::impl::MetaBase {
     
     
-    void meta(const at::Tensor & self, at::IntArrayRef output_size, bool align_corners, c10::optional<double> scales);
+    void meta(const at::Tensor & self, at::ArrayRef<int64_t> output_size, bool align_corners, c10::optional<double> scales);
 };
 
 } // namespace native

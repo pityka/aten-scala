@@ -16,10 +16,11 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor kaiser_window(int64_t window_length, c10::optional<at::ScalarType> dtype={}, c10::optional<at::Layout> layout={}, c10::optional<at::Device> device={}, c10::optional<bool> pin_memory={});
+TORCH_API at::Tensor & kaiser_window_out(int64_t window_length, at::Tensor & out);
 TORCH_API at::Tensor kaiser_window(int64_t window_length, bool periodic, c10::optional<at::ScalarType> dtype={}, c10::optional<at::Layout> layout={}, c10::optional<at::Device> device={}, c10::optional<bool> pin_memory={});
+TORCH_API at::Tensor & kaiser_window_periodic_out(int64_t window_length, bool periodic, at::Tensor & out);
 TORCH_API at::Tensor kaiser_window(int64_t window_length, bool periodic, double beta, c10::optional<at::ScalarType> dtype={}, c10::optional<at::Layout> layout={}, c10::optional<at::Device> device={}, c10::optional<bool> pin_memory={});
-
+TORCH_API at::Tensor & kaiser_window_beta_out(int64_t window_length, bool periodic, double beta, at::Tensor & out);
 } // namespace native
 } // namespace at

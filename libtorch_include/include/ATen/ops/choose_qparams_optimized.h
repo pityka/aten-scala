@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::choose_qparams_optimized(Tensor input, int numel, int n_bins, float ratio, int bit_width) -> (Tensor, Tensor)
-TORCH_API inline ::std::tuple<at::Tensor,at::Tensor> choose_qparams_optimized(const at::Tensor & input, int64_t numel, int64_t n_bins, double ratio, int64_t bit_width) {
+inline ::std::tuple<at::Tensor,at::Tensor> choose_qparams_optimized(const at::Tensor & input, int64_t numel, int64_t n_bins, double ratio, int64_t bit_width) {
     return at::_ops::choose_qparams_optimized::call(input, numel, n_bins, ratio, bit_width);
 }
 

@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor align_to(const at::Tensor & self, at::DimnameList names);
 TORCH_API at::Tensor align_to(const at::Tensor & self, at::DimnameList order, int64_t ellipsis_idx);
-
 } // namespace native
 } // namespace at

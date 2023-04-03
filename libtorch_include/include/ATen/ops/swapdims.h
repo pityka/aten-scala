@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::swapdims(Tensor(a) self, int dim0, int dim1) -> Tensor(a)
-TORCH_API inline at::Tensor swapdims(const at::Tensor & self, int64_t dim0, int64_t dim1) {
+inline at::Tensor swapdims(const at::Tensor & self, int64_t dim0, int64_t dim1) {
     return at::_ops::swapdims::call(self, dim0, dim1);
 }
 

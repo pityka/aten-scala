@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API void record_stream_cuda(at::Tensor & self, at::Stream s);
-
 } // namespace native
 } // namespace at

@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::is_inference(Tensor self) -> bool
-TORCH_API inline bool __dispatch_is_inference(const at::Tensor & self) {
+inline bool __dispatch_is_inference(const at::Tensor & self) {
     return at::_ops::is_inference::call(self);
 }
 

@@ -23,22 +23,21 @@ namespace at {
 
 
 // aten::multiply.Tensor(Tensor self, Tensor other) -> Tensor
-TORCH_API inline at::Tensor multiply(const at::Tensor & self, const at::Tensor & other) {
+inline at::Tensor multiply(const at::Tensor & self, const at::Tensor & other) {
     return at::_ops::multiply_Tensor::call(self, other);
 }
 
 // aten::multiply.out(Tensor self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & multiply_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & other) {
+inline at::Tensor & multiply_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & other) {
     return at::_ops::multiply_out::call(self, other, out);
 }
-
 // aten::multiply.out(Tensor self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & multiply_outf(const at::Tensor & self, const at::Tensor & other, at::Tensor & out) {
+inline at::Tensor & multiply_outf(const at::Tensor & self, const at::Tensor & other, at::Tensor & out) {
     return at::_ops::multiply_out::call(self, other, out);
 }
 
 // aten::multiply.Scalar(Tensor self, Scalar other) -> Tensor
-TORCH_API inline at::Tensor multiply(const at::Tensor & self, const at::Scalar & other) {
+inline at::Tensor multiply(const at::Tensor & self, const at::Scalar & other) {
     return at::_ops::multiply_Scalar::call(self, other);
 }
 

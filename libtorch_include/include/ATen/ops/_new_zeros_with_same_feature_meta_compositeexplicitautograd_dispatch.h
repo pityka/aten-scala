@@ -18,6 +18,8 @@ namespace at {
 namespace compositeexplicitautograd {
 
 TORCH_API at::Tensor _new_zeros_with_same_feature_meta(const at::Tensor & self, const at::Tensor & other, int64_t self_num_batch_dims=0);
+TORCH_API at::Tensor & _new_zeros_with_same_feature_meta_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & other, int64_t self_num_batch_dims=0);
+TORCH_API at::Tensor & _new_zeros_with_same_feature_meta_outf(const at::Tensor & self, const at::Tensor & other, int64_t self_num_batch_dims, at::Tensor & out);
 
 } // namespace compositeexplicitautograd
 } // namespace at

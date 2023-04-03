@@ -25,4 +25,15 @@ struct TORCH_API _fused_dropout {
   static ::std::tuple<at::Tensor,at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, double p, c10::optional<at::Generator> generator);
 };
 
+struct TORCH_API _fused_dropout_out {
+  using schema = ::std::tuple<at::Tensor &,at::Tensor &> (const at::Tensor &, double, c10::optional<at::Generator>, at::Tensor &, at::Tensor &);
+  using ptr_schema = schema*;
+  // See Note [static constexpr char* members for windows NVCC]
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_fused_dropout")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_fused_dropout.out(Tensor self, float p, Generator? generator=None, *, Tensor(a!) out0, Tensor(b!) out1) -> (Tensor(a!), Tensor(b!))")
+  static ::std::tuple<at::Tensor &,at::Tensor &> call(const at::Tensor & self, double p, c10::optional<at::Generator> generator, at::Tensor & out0, at::Tensor & out1);
+  static ::std::tuple<at::Tensor &,at::Tensor &> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, double p, c10::optional<at::Generator> generator, at::Tensor & out0, at::Tensor & out1);
+};
+
 }} // namespace at::_ops

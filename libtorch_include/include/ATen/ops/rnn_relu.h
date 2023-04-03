@@ -23,12 +23,12 @@ namespace at {
 
 
 // aten::rnn_relu.input(Tensor input, Tensor hx, Tensor[] params, bool has_biases, int num_layers, float dropout, bool train, bool bidirectional, bool batch_first) -> (Tensor, Tensor)
-TORCH_API inline ::std::tuple<at::Tensor,at::Tensor> rnn_relu(const at::Tensor & input, const at::Tensor & hx, at::TensorList params, bool has_biases, int64_t num_layers, double dropout, bool train, bool bidirectional, bool batch_first) {
+inline ::std::tuple<at::Tensor,at::Tensor> rnn_relu(const at::Tensor & input, const at::Tensor & hx, at::TensorList params, bool has_biases, int64_t num_layers, double dropout, bool train, bool bidirectional, bool batch_first) {
     return at::_ops::rnn_relu_input::call(input, hx, params, has_biases, num_layers, dropout, train, bidirectional, batch_first);
 }
 
 // aten::rnn_relu.data(Tensor data, Tensor batch_sizes, Tensor hx, Tensor[] params, bool has_biases, int num_layers, float dropout, bool train, bool bidirectional) -> (Tensor, Tensor)
-TORCH_API inline ::std::tuple<at::Tensor,at::Tensor> rnn_relu(const at::Tensor & data, const at::Tensor & batch_sizes, const at::Tensor & hx, at::TensorList params, bool has_biases, int64_t num_layers, double dropout, bool train, bool bidirectional) {
+inline ::std::tuple<at::Tensor,at::Tensor> rnn_relu(const at::Tensor & data, const at::Tensor & batch_sizes, const at::Tensor & hx, at::TensorList params, bool has_biases, int64_t num_layers, double dropout, bool train, bool bidirectional) {
     return at::_ops::rnn_relu_data::call(data, batch_sizes, hx, params, has_biases, num_layers, dropout, train, bidirectional);
 }
 

@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor fbgemm_pack_gemm_matrix_fp16(const at::Tensor & input);
-
 } // namespace native
 } // namespace at

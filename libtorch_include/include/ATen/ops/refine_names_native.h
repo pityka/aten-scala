@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor refine_names(const at::Tensor & self, at::DimnameList names);
-
 } // namespace native
 } // namespace at

@@ -22,29 +22,23 @@
 namespace at {
 
 
-// aten::_foreach_trunc(Tensor[] tensors) -> Tensor[]
-TORCH_API inline ::std::vector<at::Tensor> _foreach_trunc(at::TensorList tensors) {
-    return at::_ops::_foreach_trunc::call(tensors);
+// aten::_foreach_trunc(Tensor[] self) -> Tensor[]
+inline ::std::vector<at::Tensor> _foreach_trunc(at::TensorList self) {
+    return at::_ops::_foreach_trunc::call(self);
 }
 
 // aten::_foreach_trunc_(Tensor(a!)[] self) -> ()
-TORCH_API inline void _foreach_trunc_(at::TensorList self) {
+inline void _foreach_trunc_(at::TensorList self) {
     return at::_ops::_foreach_trunc_::call(self);
 }
 
 // aten::_foreach_trunc.out(Tensor[] self, *, Tensor(a!)[] out) -> ()
-TORCH_API inline void _foreach_trunc_out(at::TensorList out, at::TensorList self) {
+inline void _foreach_trunc_out(at::TensorList out, at::TensorList self) {
     return at::_ops::_foreach_trunc_out::call(self, out);
 }
-
 // aten::_foreach_trunc.out(Tensor[] self, *, Tensor(a!)[] out) -> ()
-TORCH_API inline void _foreach_trunc_outf(at::TensorList self, at::TensorList out) {
+inline void _foreach_trunc_outf(at::TensorList self, at::TensorList out) {
     return at::_ops::_foreach_trunc_out::call(self, out);
-}
-
-// aten::_foreach_trunc.functional(Tensor[] self) -> Tensor[] self_out
-TORCH_API inline ::std::vector<at::Tensor> _foreach_trunc_functional(at::TensorList self) {
-    return at::_ops::_foreach_trunc_functional::call(self);
 }
 
 }

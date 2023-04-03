@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::hardshrink.out(Tensor self, Scalar lambd=0.5, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & hardshrink_out(at::Tensor & out, const at::Tensor & self, const at::Scalar & lambd=0.5) {
+inline at::Tensor & hardshrink_out(at::Tensor & out, const at::Tensor & self, const at::Scalar & lambd=0.5) {
     return at::_ops::hardshrink_out::call(self, lambd, out);
 }
-
 // aten::hardshrink.out(Tensor self, Scalar lambd=0.5, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & hardshrink_outf(const at::Tensor & self, const at::Scalar & lambd, at::Tensor & out) {
+inline at::Tensor & hardshrink_outf(const at::Tensor & self, const at::Scalar & lambd, at::Tensor & out) {
     return at::_ops::hardshrink_out::call(self, lambd, out);
 }
 
 // aten::hardshrink(Tensor self, Scalar lambd=0.5) -> Tensor
-TORCH_API inline at::Tensor hardshrink(const at::Tensor & self, const at::Scalar & lambd=0.5) {
+inline at::Tensor hardshrink(const at::Tensor & self, const at::Scalar & lambd=0.5) {
     return at::_ops::hardshrink::call(self, lambd);
 }
 

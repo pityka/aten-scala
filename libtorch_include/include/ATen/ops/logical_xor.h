@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::logical_xor(Tensor self, Tensor other) -> Tensor
-TORCH_API inline at::Tensor logical_xor(const at::Tensor & self, const at::Tensor & other) {
+inline at::Tensor logical_xor(const at::Tensor & self, const at::Tensor & other) {
     return at::_ops::logical_xor::call(self, other);
 }
 
 // aten::logical_xor.out(Tensor self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & logical_xor_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & other) {
+inline at::Tensor & logical_xor_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & other) {
     return at::_ops::logical_xor_out::call(self, other, out);
 }
-
 // aten::logical_xor.out(Tensor self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & logical_xor_outf(const at::Tensor & self, const at::Tensor & other, at::Tensor & out) {
+inline at::Tensor & logical_xor_outf(const at::Tensor & self, const at::Tensor & other, at::Tensor & out) {
     return at::_ops::logical_xor_out::call(self, other, out);
 }
 

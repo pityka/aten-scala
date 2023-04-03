@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor special_multigammaln(const at::Tensor & self, int64_t p);
 TORCH_API at::Tensor & special_multigammaln_out(const at::Tensor & self, int64_t p, at::Tensor & out);
-
 } // namespace native
 } // namespace at

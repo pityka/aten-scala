@@ -23,42 +23,40 @@ namespace at {
 
 
 // aten::round(Tensor self) -> Tensor
-TORCH_API inline at::Tensor round(const at::Tensor & self) {
+inline at::Tensor round(const at::Tensor & self) {
     return at::_ops::round::call(self);
 }
 
 // aten::round_(Tensor(a!) self) -> Tensor(a!)
-TORCH_API inline at::Tensor & round_(at::Tensor & self) {
+inline at::Tensor & round_(at::Tensor & self) {
     return at::_ops::round_::call(self);
 }
 
 // aten::round.out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & round_out(at::Tensor & out, const at::Tensor & self) {
+inline at::Tensor & round_out(at::Tensor & out, const at::Tensor & self) {
     return at::_ops::round_out::call(self, out);
 }
-
 // aten::round.out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & round_outf(const at::Tensor & self, at::Tensor & out) {
+inline at::Tensor & round_outf(const at::Tensor & self, at::Tensor & out) {
     return at::_ops::round_out::call(self, out);
 }
 
 // aten::round.decimals(Tensor self, *, int decimals) -> Tensor
-TORCH_API inline at::Tensor round(const at::Tensor & self, int64_t decimals) {
+inline at::Tensor round(const at::Tensor & self, int64_t decimals) {
     return at::_ops::round_decimals::call(self, decimals);
 }
 
 // aten::round_.decimals(Tensor(a!) self, *, int decimals) -> Tensor(a!)
-TORCH_API inline at::Tensor & round_(at::Tensor & self, int64_t decimals) {
+inline at::Tensor & round_(at::Tensor & self, int64_t decimals) {
     return at::_ops::round__decimals::call(self, decimals);
 }
 
 // aten::round.decimals_out(Tensor self, *, int decimals, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & round_out(at::Tensor & out, const at::Tensor & self, int64_t decimals) {
+inline at::Tensor & round_out(at::Tensor & out, const at::Tensor & self, int64_t decimals) {
     return at::_ops::round_decimals_out::call(self, decimals, out);
 }
-
 // aten::round.decimals_out(Tensor self, *, int decimals, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & round_outf(const at::Tensor & self, int64_t decimals, at::Tensor & out) {
+inline at::Tensor & round_outf(const at::Tensor & self, int64_t decimals, at::Tensor & out) {
     return at::_ops::round_decimals_out::call(self, decimals, out);
 }
 

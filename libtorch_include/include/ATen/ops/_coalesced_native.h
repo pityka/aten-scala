@@ -16,9 +16,8 @@
 
 namespace at {
 namespace native {
-
-TORCH_API at::Tensor _coalesced_functional(const at::Tensor & self, bool coalesced);
+TORCH_API at::Tensor _coalesced(const at::Tensor & self, bool coalesced);
+TORCH_API at::Tensor & _coalesced_out(const at::Tensor & self, bool coalesced, at::Tensor & out);
 TORCH_API at::Tensor & _coalesced_sparse_(at::Tensor & self, bool coalesced);
-
 } // namespace native
 } // namespace at

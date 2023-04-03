@@ -22,29 +22,23 @@
 namespace at {
 
 
-// aten::_foreach_sigmoid(Tensor[] tensors) -> Tensor[]
-TORCH_API inline ::std::vector<at::Tensor> _foreach_sigmoid(at::TensorList tensors) {
-    return at::_ops::_foreach_sigmoid::call(tensors);
+// aten::_foreach_sigmoid(Tensor[] self) -> Tensor[]
+inline ::std::vector<at::Tensor> _foreach_sigmoid(at::TensorList self) {
+    return at::_ops::_foreach_sigmoid::call(self);
 }
 
 // aten::_foreach_sigmoid_(Tensor(a!)[] self) -> ()
-TORCH_API inline void _foreach_sigmoid_(at::TensorList self) {
+inline void _foreach_sigmoid_(at::TensorList self) {
     return at::_ops::_foreach_sigmoid_::call(self);
 }
 
 // aten::_foreach_sigmoid.out(Tensor[] self, *, Tensor(a!)[] out) -> ()
-TORCH_API inline void _foreach_sigmoid_out(at::TensorList out, at::TensorList self) {
+inline void _foreach_sigmoid_out(at::TensorList out, at::TensorList self) {
     return at::_ops::_foreach_sigmoid_out::call(self, out);
 }
-
 // aten::_foreach_sigmoid.out(Tensor[] self, *, Tensor(a!)[] out) -> ()
-TORCH_API inline void _foreach_sigmoid_outf(at::TensorList self, at::TensorList out) {
+inline void _foreach_sigmoid_outf(at::TensorList self, at::TensorList out) {
     return at::_ops::_foreach_sigmoid_out::call(self, out);
-}
-
-// aten::_foreach_sigmoid.functional(Tensor[] self) -> Tensor[] self_out
-TORCH_API inline ::std::vector<at::Tensor> _foreach_sigmoid_functional(at::TensorList self) {
-    return at::_ops::_foreach_sigmoid_functional::call(self);
 }
 
 }

@@ -17,11 +17,11 @@ namespace at {
 
 namespace cpu {
 
-TORCH_API ::std::vector<at::Tensor> _foreach_add(at::TensorList tensors, const at::Scalar & scalar);
+TORCH_API ::std::vector<at::Tensor> _foreach_add(at::TensorList self, const at::Scalar & scalar);
 TORCH_API void _foreach_add_(at::TensorList self, const at::Scalar & scalar);
-TORCH_API ::std::vector<at::Tensor> _foreach_add(at::TensorList tensors1, at::TensorList tensors2, const at::Scalar & alpha=1);
+TORCH_API ::std::vector<at::Tensor> _foreach_add(at::TensorList self, at::TensorList other, const at::Scalar & alpha=1);
 TORCH_API void _foreach_add_(at::TensorList self, at::TensorList other, const at::Scalar & alpha=1);
-TORCH_API ::std::vector<at::Tensor> _foreach_add(at::TensorList tensors, at::ArrayRef<at::Scalar> scalars);
+TORCH_API ::std::vector<at::Tensor> _foreach_add(at::TensorList self, at::ArrayRef<at::Scalar> scalars);
 TORCH_API void _foreach_add_(at::TensorList self, at::ArrayRef<at::Scalar> scalars);
 
 } // namespace cpu

@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor unfold(const at::Tensor & self, int64_t dimension, int64_t size, int64_t step);
-
 } // namespace native
 } // namespace at

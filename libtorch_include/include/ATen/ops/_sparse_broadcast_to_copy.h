@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::_sparse_broadcast_to_copy(Tensor self, int[] size) -> Tensor
-TORCH_API inline at::Tensor _sparse_broadcast_to_copy(const at::Tensor & self, at::IntArrayRef size) {
+inline at::Tensor _sparse_broadcast_to_copy(const at::Tensor & self, at::IntArrayRef size) {
     return at::_ops::_sparse_broadcast_to_copy::call(self, size);
 }
 
 // aten::_sparse_broadcast_to_copy.out(Tensor self, int[] size, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & _sparse_broadcast_to_copy_out(at::Tensor & out, const at::Tensor & self, at::IntArrayRef size) {
+inline at::Tensor & _sparse_broadcast_to_copy_out(at::Tensor & out, const at::Tensor & self, at::IntArrayRef size) {
     return at::_ops::_sparse_broadcast_to_copy_out::call(self, size, out);
 }
-
 // aten::_sparse_broadcast_to_copy.out(Tensor self, int[] size, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & _sparse_broadcast_to_copy_outf(const at::Tensor & self, at::IntArrayRef size, at::Tensor & out) {
+inline at::Tensor & _sparse_broadcast_to_copy_outf(const at::Tensor & self, at::IntArrayRef size, at::Tensor & out) {
     return at::_ops::_sparse_broadcast_to_copy_out::call(self, size, out);
 }
 

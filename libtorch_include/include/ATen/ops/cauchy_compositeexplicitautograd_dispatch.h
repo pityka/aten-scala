@@ -17,7 +17,9 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
-TORCH_API at::Tensor cauchy_functional(const at::Tensor & self, double median=0, double sigma=1, c10::optional<at::Generator> generator=c10::nullopt);
+TORCH_API at::Tensor cauchy(const at::Tensor & self, double median=0, double sigma=1, c10::optional<at::Generator> generator=c10::nullopt);
+TORCH_API at::Tensor & cauchy_out(at::Tensor & out, const at::Tensor & self, double median=0, double sigma=1, c10::optional<at::Generator> generator=c10::nullopt);
+TORCH_API at::Tensor & cauchy_outf(const at::Tensor & self, double median, double sigma, c10::optional<at::Generator> generator, at::Tensor & out);
 
 } // namespace compositeexplicitautograd
 } // namespace at

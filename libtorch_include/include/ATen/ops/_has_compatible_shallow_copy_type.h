@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::_has_compatible_shallow_copy_type(Tensor self, Tensor from) -> bool
-TORCH_API inline bool _has_compatible_shallow_copy_type(const at::Tensor & self, const at::Tensor & from) {
+inline bool _has_compatible_shallow_copy_type(const at::Tensor & self, const at::Tensor & from) {
     return at::_ops::_has_compatible_shallow_copy_type::call(self, from);
 }
 

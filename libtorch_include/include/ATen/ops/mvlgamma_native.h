@@ -16,10 +16,8 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor mvlgamma(const at::Tensor & self, int64_t p);
 TORCH_API at::Tensor & mvlgamma_(at::Tensor & self, int64_t p);
 TORCH_API at::Tensor & mvlgamma_out(const at::Tensor & self, int64_t p, at::Tensor & out);
-
 } // namespace native
 } // namespace at

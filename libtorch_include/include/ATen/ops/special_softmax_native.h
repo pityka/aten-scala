@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor special_softmax(const at::Tensor & self, int64_t dim, c10::optional<at::ScalarType> dtype=c10::nullopt);
-
 } // namespace native
 } // namespace at

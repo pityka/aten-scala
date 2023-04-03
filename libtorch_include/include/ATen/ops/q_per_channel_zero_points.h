@@ -23,8 +23,17 @@ namespace at {
 
 
 // aten::q_per_channel_zero_points(Tensor self) -> Tensor
-TORCH_API inline at::Tensor q_per_channel_zero_points(const at::Tensor & self) {
+inline at::Tensor q_per_channel_zero_points(const at::Tensor & self) {
     return at::_ops::q_per_channel_zero_points::call(self);
+}
+
+// aten::q_per_channel_zero_points.out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & q_per_channel_zero_points_out(at::Tensor & out, const at::Tensor & self) {
+    return at::_ops::q_per_channel_zero_points_out::call(self, out);
+}
+// aten::q_per_channel_zero_points.out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & q_per_channel_zero_points_outf(const at::Tensor & self, at::Tensor & out) {
+    return at::_ops::q_per_channel_zero_points_out::call(self, out);
 }
 
 }

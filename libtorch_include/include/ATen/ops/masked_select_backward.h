@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::masked_select_backward(Tensor grad, Tensor input, Tensor mask) -> Tensor
-TORCH_API inline at::Tensor masked_select_backward(const at::Tensor & grad, const at::Tensor & input, const at::Tensor & mask) {
+inline at::Tensor masked_select_backward(const at::Tensor & grad, const at::Tensor & input, const at::Tensor & mask) {
     return at::_ops::masked_select_backward::call(grad, input, mask);
 }
 

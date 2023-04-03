@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::norm_except_dim(Tensor v, int pow=2, int dim=0) -> Tensor
-TORCH_API inline at::Tensor norm_except_dim(const at::Tensor & v, int64_t pow=2, int64_t dim=0) {
+inline at::Tensor norm_except_dim(const at::Tensor & v, int64_t pow=2, int64_t dim=0) {
     return at::_ops::norm_except_dim::call(v, pow, dim);
 }
 

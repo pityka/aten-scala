@@ -23,22 +23,21 @@ namespace at {
 
 
 // aten::threshold(Tensor self, Scalar threshold, Scalar value) -> Tensor
-TORCH_API inline at::Tensor threshold(const at::Tensor & self, const at::Scalar & threshold, const at::Scalar & value) {
+inline at::Tensor threshold(const at::Tensor & self, const at::Scalar & threshold, const at::Scalar & value) {
     return at::_ops::threshold::call(self, threshold, value);
 }
 
 // aten::threshold_(Tensor(a!) self, Scalar threshold, Scalar value) -> Tensor(a!)
-TORCH_API inline at::Tensor & threshold_(at::Tensor & self, const at::Scalar & threshold, const at::Scalar & value) {
+inline at::Tensor & threshold_(at::Tensor & self, const at::Scalar & threshold, const at::Scalar & value) {
     return at::_ops::threshold_::call(self, threshold, value);
 }
 
 // aten::threshold.out(Tensor self, Scalar threshold, Scalar value, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & threshold_out(at::Tensor & out, const at::Tensor & self, const at::Scalar & threshold, const at::Scalar & value) {
+inline at::Tensor & threshold_out(at::Tensor & out, const at::Tensor & self, const at::Scalar & threshold, const at::Scalar & value) {
     return at::_ops::threshold_out::call(self, threshold, value, out);
 }
-
 // aten::threshold.out(Tensor self, Scalar threshold, Scalar value, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & threshold_outf(const at::Tensor & self, const at::Scalar & threshold, const at::Scalar & value, at::Tensor & out) {
+inline at::Tensor & threshold_outf(const at::Tensor & self, const at::Scalar & threshold, const at::Scalar & value, at::Tensor & out) {
     return at::_ops::threshold_out::call(self, threshold, value, out);
 }
 

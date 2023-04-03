@@ -16,8 +16,7 @@
 
 namespace at {
 namespace native {
-
+TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> cudnn_grid_sampler_backward_out(const at::Tensor & self, const at::Tensor & grid, const at::Tensor & grad_output, at::Tensor & out0, at::Tensor & out1);
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> cudnn_grid_sampler_backward(const at::Tensor & self, const at::Tensor & grid, const at::Tensor & grad_output);
-
 } // namespace native
 } // namespace at

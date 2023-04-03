@@ -23,8 +23,17 @@ namespace at {
 
 
 // aten::mkldnn_max_pool3d(Tensor self, int[3] kernel_size, int[3] stride=[], int[3] padding=0, int[3] dilation=1, bool ceil_mode=False) -> Tensor
-TORCH_API inline at::Tensor mkldnn_max_pool3d(const at::Tensor & self, at::IntArrayRef kernel_size, at::IntArrayRef stride={}, at::IntArrayRef padding=0, at::IntArrayRef dilation=1, bool ceil_mode=false) {
+inline at::Tensor mkldnn_max_pool3d(const at::Tensor & self, at::IntArrayRef kernel_size, at::IntArrayRef stride={}, at::IntArrayRef padding=0, at::IntArrayRef dilation=1, bool ceil_mode=false) {
     return at::_ops::mkldnn_max_pool3d::call(self, kernel_size, stride, padding, dilation, ceil_mode);
+}
+
+// aten::mkldnn_max_pool3d.out(Tensor self, int[3] kernel_size, int[3] stride=[], int[3] padding=0, int[3] dilation=1, bool ceil_mode=False, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & mkldnn_max_pool3d_out(at::Tensor & out, const at::Tensor & self, at::IntArrayRef kernel_size, at::IntArrayRef stride={}, at::IntArrayRef padding=0, at::IntArrayRef dilation=1, bool ceil_mode=false) {
+    return at::_ops::mkldnn_max_pool3d_out::call(self, kernel_size, stride, padding, dilation, ceil_mode, out);
+}
+// aten::mkldnn_max_pool3d.out(Tensor self, int[3] kernel_size, int[3] stride=[], int[3] padding=0, int[3] dilation=1, bool ceil_mode=False, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & mkldnn_max_pool3d_outf(const at::Tensor & self, at::IntArrayRef kernel_size, at::IntArrayRef stride, at::IntArrayRef padding, at::IntArrayRef dilation, bool ceil_mode, at::Tensor & out) {
+    return at::_ops::mkldnn_max_pool3d_out::call(self, kernel_size, stride, padding, dilation, ceil_mode, out);
 }
 
 }

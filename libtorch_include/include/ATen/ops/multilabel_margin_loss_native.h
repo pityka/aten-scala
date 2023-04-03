@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor multilabel_margin_loss(const at::Tensor & self, const at::Tensor & target, int64_t reduction=at::Reduction::Mean);
 TORCH_API at::Tensor & multilabel_margin_loss_out(const at::Tensor & self, const at::Tensor & target, int64_t reduction, at::Tensor & out);
-
 } // namespace native
 } // namespace at

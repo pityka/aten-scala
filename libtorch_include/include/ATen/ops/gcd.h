@@ -23,22 +23,21 @@ namespace at {
 
 
 // aten::gcd.out(Tensor self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & gcd_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & other) {
+inline at::Tensor & gcd_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & other) {
     return at::_ops::gcd_out::call(self, other, out);
 }
-
 // aten::gcd.out(Tensor self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & gcd_outf(const at::Tensor & self, const at::Tensor & other, at::Tensor & out) {
+inline at::Tensor & gcd_outf(const at::Tensor & self, const at::Tensor & other, at::Tensor & out) {
     return at::_ops::gcd_out::call(self, other, out);
 }
 
 // aten::gcd(Tensor self, Tensor other) -> Tensor
-TORCH_API inline at::Tensor gcd(const at::Tensor & self, const at::Tensor & other) {
+inline at::Tensor gcd(const at::Tensor & self, const at::Tensor & other) {
     return at::_ops::gcd::call(self, other);
 }
 
 // aten::gcd_(Tensor(a!) self, Tensor other) -> Tensor(a!)
-TORCH_API inline at::Tensor & gcd_(at::Tensor & self, const at::Tensor & other) {
+inline at::Tensor & gcd_(at::Tensor & self, const at::Tensor & other) {
     return at::_ops::gcd_::call(self, other);
 }
 

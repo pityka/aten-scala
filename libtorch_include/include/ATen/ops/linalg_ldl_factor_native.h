@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> linalg_ldl_factor(const at::Tensor & self, bool hermitian=false);
 TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> linalg_ldl_factor_out(const at::Tensor & self, bool hermitian, at::Tensor & LD, at::Tensor & pivots);
-
 } // namespace native
 } // namespace at

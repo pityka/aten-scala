@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::unbind_copy.int(Tensor self, int dim=0) -> Tensor[]
-TORCH_API inline ::std::vector<at::Tensor> unbind_copy(const at::Tensor & self, int64_t dim=0) {
+inline ::std::vector<at::Tensor> unbind_copy(const at::Tensor & self, int64_t dim=0) {
     return at::_ops::unbind_copy_int::call(self, dim);
 }
 
 // aten::unbind_copy.int_out(Tensor self, int dim=0, *, Tensor(a!)[] out) -> ()
-TORCH_API inline void unbind_copy_out(at::TensorList out, const at::Tensor & self, int64_t dim=0) {
+inline void unbind_copy_out(at::TensorList out, const at::Tensor & self, int64_t dim=0) {
     return at::_ops::unbind_copy_int_out::call(self, dim, out);
 }
-
 // aten::unbind_copy.int_out(Tensor self, int dim=0, *, Tensor(a!)[] out) -> ()
-TORCH_API inline void unbind_copy_outf(const at::Tensor & self, int64_t dim, at::TensorList out) {
+inline void unbind_copy_outf(const at::Tensor & self, int64_t dim, at::TensorList out) {
     return at::_ops::unbind_copy_int_out::call(self, dim, out);
 }
 

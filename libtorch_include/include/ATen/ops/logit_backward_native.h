@@ -16,10 +16,8 @@
 
 namespace at {
 namespace native {
-
 struct TORCH_API structured_logit_backward_out : public at::meta::structured_logit_backward {
 void impl(const at::Tensor & grad_output, const at::Tensor & self, c10::optional<double> eps, const at::Tensor & grad_input);
 };
-
 } // namespace native
 } // namespace at

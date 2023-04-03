@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::to_dense_backward(Tensor grad, Tensor input) -> Tensor
-TORCH_API inline at::Tensor to_dense_backward(const at::Tensor & grad, const at::Tensor & input) {
+inline at::Tensor to_dense_backward(const at::Tensor & grad, const at::Tensor & input) {
     return at::_ops::to_dense_backward::call(grad, input);
 }
 

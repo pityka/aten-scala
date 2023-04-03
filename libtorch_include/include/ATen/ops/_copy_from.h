@@ -23,8 +23,17 @@ namespace at {
 
 
 // aten::_copy_from(Tensor self, Tensor dst, bool non_blocking=False) -> Tensor
-TORCH_API inline at::Tensor _copy_from(const at::Tensor & self, const at::Tensor & dst, bool non_blocking=false) {
+inline at::Tensor _copy_from(const at::Tensor & self, const at::Tensor & dst, bool non_blocking=false) {
     return at::_ops::_copy_from::call(self, dst, non_blocking);
+}
+
+// aten::_copy_from.out(Tensor self, Tensor dst, bool non_blocking=False, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & _copy_from_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & dst, bool non_blocking=false) {
+    return at::_ops::_copy_from_out::call(self, dst, non_blocking, out);
+}
+// aten::_copy_from.out(Tensor self, Tensor dst, bool non_blocking=False, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & _copy_from_outf(const at::Tensor & self, const at::Tensor & dst, bool non_blocking, at::Tensor & out) {
+    return at::_ops::_copy_from_out::call(self, dst, non_blocking, out);
 }
 
 }

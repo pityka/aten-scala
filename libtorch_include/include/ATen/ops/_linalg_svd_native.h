@@ -16,10 +16,8 @@
 
 namespace at {
 namespace native {
-
 struct TORCH_API structured__linalg_svd_out : public at::meta::structured__linalg_svd {
-void impl(const at::Tensor & A, bool full_matrices, bool compute_uv, const at::Tensor & U, const at::Tensor & S, const at::Tensor & Vh);
+void impl(const at::Tensor & A, bool full_matrices, bool compute_uv, c10::optional<c10::string_view> driver, const at::Tensor & U, const at::Tensor & S, const at::Tensor & Vh);
 };
-
 } // namespace native
 } // namespace at

@@ -16,7 +16,6 @@
 
 namespace at {
 namespace native {
-
 struct TORCH_API structured_isneginf_out : public at::meta::structured_isneginf {
 void impl(const at::Tensor & self, const at::Tensor & out);
 };
@@ -24,6 +23,5 @@ TORCH_API at::Tensor isneginf_sparse(const at::Tensor & self);
 TORCH_API at::Tensor & isneginf_sparse_out(const at::Tensor & self, at::Tensor & out);
 TORCH_API at::Tensor isneginf_sparse_csr(const at::Tensor & self);
 TORCH_API at::Tensor & isneginf_sparse_csr_out(const at::Tensor & self, at::Tensor & out);
-
 } // namespace native
 } // namespace at

@@ -16,8 +16,7 @@
 
 namespace at {
 namespace native {
-
+TORCH_API at::Tensor & from_file_out(c10::string_view filename, c10::optional<bool> shared, c10::optional<int64_t> size, at::Tensor & out);
 TORCH_API at::Tensor from_file(c10::string_view filename, c10::optional<bool> shared=c10::nullopt, c10::optional<int64_t> size=0, c10::optional<at::ScalarType> dtype={}, c10::optional<at::Layout> layout={}, c10::optional<at::Device> device={}, c10::optional<bool> pin_memory={});
-
 } // namespace native
 } // namespace at

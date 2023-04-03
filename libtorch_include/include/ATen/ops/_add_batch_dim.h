@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::_add_batch_dim(Tensor self, int batch_dim, int level) -> Tensor
-TORCH_API inline at::Tensor _add_batch_dim(const at::Tensor & self, int64_t batch_dim, int64_t level) {
+inline at::Tensor _add_batch_dim(const at::Tensor & self, int64_t batch_dim, int64_t level) {
     return at::_ops::_add_batch_dim::call(self, batch_dim, level);
 }
 

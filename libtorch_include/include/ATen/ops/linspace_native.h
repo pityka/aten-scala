@@ -16,10 +16,9 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor linspace(const at::Scalar & start, const at::Scalar & end, int64_t steps, c10::optional<at::ScalarType> dtype={}, c10::optional<at::Layout> layout={}, c10::optional<at::Device> device={}, c10::optional<bool> pin_memory={});
 TORCH_API at::Tensor & linspace_out(const at::Scalar & start, const at::Scalar & end, int64_t steps, at::Tensor & out);
 TORCH_API at::Tensor & linspace_cuda_out(const at::Scalar & start, const at::Scalar & end, int64_t steps, at::Tensor & out);
-
+TORCH_API at::Tensor & linspace_out_mps(const at::Scalar & start, const at::Scalar & end, int64_t steps, at::Tensor & out);
 } // namespace native
 } // namespace at

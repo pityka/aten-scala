@@ -23,8 +23,17 @@ namespace at {
 
 
 // aten::_histogramdd_bin_edges(Tensor self, int[] bins, *, float[]? range=None, Tensor? weight=None, bool density=False) -> Tensor[]
-TORCH_API inline ::std::vector<at::Tensor> _histogramdd_bin_edges(const at::Tensor & self, at::IntArrayRef bins, c10::optional<at::ArrayRef<double>> range=c10::nullopt, const c10::optional<at::Tensor> & weight={}, bool density=false) {
+inline ::std::vector<at::Tensor> _histogramdd_bin_edges(const at::Tensor & self, at::IntArrayRef bins, c10::optional<at::ArrayRef<double>> range=c10::nullopt, const c10::optional<at::Tensor> & weight={}, bool density=false) {
     return at::_ops::_histogramdd_bin_edges::call(self, bins, range, weight, density);
+}
+
+// aten::_histogramdd_bin_edges.out(Tensor self, int[] bins, *, float[]? range=None, Tensor? weight=None, bool density=False, Tensor(a!)[] out) -> ()
+inline void _histogramdd_bin_edges_out(at::TensorList out, const at::Tensor & self, at::IntArrayRef bins, c10::optional<at::ArrayRef<double>> range=c10::nullopt, const c10::optional<at::Tensor> & weight={}, bool density=false) {
+    return at::_ops::_histogramdd_bin_edges_out::call(self, bins, range, weight, density, out);
+}
+// aten::_histogramdd_bin_edges.out(Tensor self, int[] bins, *, float[]? range=None, Tensor? weight=None, bool density=False, Tensor(a!)[] out) -> ()
+inline void _histogramdd_bin_edges_outf(const at::Tensor & self, at::IntArrayRef bins, c10::optional<at::ArrayRef<double>> range, const c10::optional<at::Tensor> & weight, bool density, at::TensorList out) {
+    return at::_ops::_histogramdd_bin_edges_out::call(self, bins, range, weight, density, out);
 }
 
 }

@@ -18,6 +18,7 @@ namespace at {
 namespace compositeimplicitautograd {
 
 TORCH_API at::Tensor reshape(const at::Tensor & self, at::IntArrayRef shape);
+TORCH_API at::Tensor reshape_symint(const at::Tensor & self, c10::SymIntArrayRef shape);
 
 } // namespace compositeimplicitautograd
 } // namespace at

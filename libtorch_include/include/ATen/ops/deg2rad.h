@@ -23,22 +23,21 @@ namespace at {
 
 
 // aten::deg2rad(Tensor self) -> Tensor
-TORCH_API inline at::Tensor deg2rad(const at::Tensor & self) {
+inline at::Tensor deg2rad(const at::Tensor & self) {
     return at::_ops::deg2rad::call(self);
 }
 
 // aten::deg2rad_(Tensor(a!) self) -> Tensor(a!)
-TORCH_API inline at::Tensor & deg2rad_(at::Tensor & self) {
+inline at::Tensor & deg2rad_(at::Tensor & self) {
     return at::_ops::deg2rad_::call(self);
 }
 
 // aten::deg2rad.out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & deg2rad_out(at::Tensor & out, const at::Tensor & self) {
+inline at::Tensor & deg2rad_out(at::Tensor & out, const at::Tensor & self) {
     return at::_ops::deg2rad_out::call(self, out);
 }
-
 // aten::deg2rad.out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & deg2rad_outf(const at::Tensor & self, at::Tensor & out) {
+inline at::Tensor & deg2rad_outf(const at::Tensor & self, at::Tensor & out) {
     return at::_ops::deg2rad_out::call(self, out);
 }
 

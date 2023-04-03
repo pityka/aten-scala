@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::_saturate_weight_to_fp16(Tensor weight) -> Tensor
-TORCH_API inline at::Tensor _saturate_weight_to_fp16(const at::Tensor & weight) {
+inline at::Tensor _saturate_weight_to_fp16(const at::Tensor & weight) {
     return at::_ops::_saturate_weight_to_fp16::call(weight);
 }
 

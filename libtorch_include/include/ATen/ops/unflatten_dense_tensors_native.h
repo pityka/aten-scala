@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API ::std::vector<at::Tensor> unflatten_dense_tensors(const at::Tensor & flat, at::TensorList tensors);
-
 } // namespace native
 } // namespace at

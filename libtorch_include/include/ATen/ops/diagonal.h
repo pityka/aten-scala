@@ -23,12 +23,12 @@ namespace at {
 
 
 // aten::diagonal(Tensor(a) self, int offset=0, int dim1=0, int dim2=1) -> Tensor(a)
-TORCH_API inline at::Tensor diagonal(const at::Tensor & self, int64_t offset=0, int64_t dim1=0, int64_t dim2=1) {
+inline at::Tensor diagonal(const at::Tensor & self, int64_t offset=0, int64_t dim1=0, int64_t dim2=1) {
     return at::_ops::diagonal::call(self, offset, dim1, dim2);
 }
 
 // aten::diagonal.Dimname(Tensor(a) self, *, Dimname outdim, Dimname dim1, Dimname dim2, int offset=0) -> Tensor(a)
-TORCH_API inline at::Tensor diagonal(const at::Tensor & self, at::Dimname outdim, at::Dimname dim1, at::Dimname dim2, int64_t offset=0) {
+inline at::Tensor diagonal(const at::Tensor & self, at::Dimname outdim, at::Dimname dim1, at::Dimname dim2, int64_t offset=0) {
     return at::_ops::diagonal_Dimname::call(self, outdim, dim1, dim2, offset);
 }
 

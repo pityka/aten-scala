@@ -16,7 +16,6 @@
 
 namespace at {
 namespace native {
-
 struct TORCH_API structured_avg_pool3d_backward_out_cpu : public at::meta::structured_avg_pool3d_backward {
 void impl(const at::Tensor & grad_output, const at::Tensor & self, at::IntArrayRef kernel_size, at::IntArrayRef stride, at::IntArrayRef padding, bool ceil_mode, bool count_include_pad, c10::optional<int64_t> divisor_override, const at::Tensor & grad_input);
 };
@@ -25,6 +24,5 @@ void impl(const at::Tensor & grad_output, const at::Tensor & self, at::IntArrayR
 };
 TORCH_API at::Tensor mkldnn_avg_pool3d_backward(const at::Tensor & grad_output, const at::Tensor & self, at::IntArrayRef kernel_size, at::IntArrayRef stride, at::IntArrayRef padding, bool ceil_mode, bool count_include_pad, c10::optional<int64_t> divisor_override);
 TORCH_API at::Tensor & mkldnn_avg_pool3d_backward_out(const at::Tensor & grad_output, const at::Tensor & self, at::IntArrayRef kernel_size, at::IntArrayRef stride, at::IntArrayRef padding, bool ceil_mode, bool count_include_pad, c10::optional<int64_t> divisor_override, at::Tensor & grad_input);
-
 } // namespace native
 } // namespace at

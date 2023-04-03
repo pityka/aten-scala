@@ -16,9 +16,8 @@
 
 namespace at {
 namespace native {
-
+TORCH_API at::Tensor & _standard_gamma_grad_out(const at::Tensor & self, const at::Tensor & output, at::Tensor & out);
 TORCH_API at::Tensor _standard_gamma_grad_cpu(const at::Tensor & self, const at::Tensor & output);
 TORCH_API at::Tensor _standard_gamma_grad_cuda(const at::Tensor & self, const at::Tensor & output);
-
 } // namespace native
 } // namespace at

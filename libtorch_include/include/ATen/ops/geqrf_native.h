@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> geqrf(const at::Tensor & self);
 TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> geqrf_out(const at::Tensor & self, at::Tensor & a, at::Tensor & tau);
-
 } // namespace native
 } // namespace at

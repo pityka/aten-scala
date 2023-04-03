@@ -23,12 +23,12 @@ namespace at {
 
 
 // aten::relu6(Tensor self) -> Tensor
-TORCH_API inline at::Tensor relu6(const at::Tensor & self) {
+inline at::Tensor relu6(const at::Tensor & self) {
     return at::_ops::relu6::call(self);
 }
 
 // aten::relu6_(Tensor(a!) self) -> Tensor(a!)
-TORCH_API inline at::Tensor & relu6_(at::Tensor & self) {
+inline at::Tensor & relu6_(at::Tensor & self) {
     return at::_ops::relu6_::call(self);
 }
 

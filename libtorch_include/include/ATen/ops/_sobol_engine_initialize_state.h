@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::_sobol_engine_initialize_state_(Tensor(a!) self, int dimension) -> Tensor(a!)
-TORCH_API inline at::Tensor & _sobol_engine_initialize_state_(at::Tensor & self, int64_t dimension) {
+inline at::Tensor & _sobol_engine_initialize_state_(at::Tensor & self, int64_t dimension) {
     return at::_ops::_sobol_engine_initialize_state_::call(self, dimension);
 }
 

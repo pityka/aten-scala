@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::resolve_neg(Tensor(a) self) -> Tensor(a)
-TORCH_API inline at::Tensor resolve_neg(const at::Tensor & self) {
+inline at::Tensor resolve_neg(const at::Tensor & self) {
     return at::_ops::resolve_neg::call(self);
 }
 

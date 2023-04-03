@@ -23,13 +23,21 @@ namespace at {
 
 
 // aten::scalar_tensor(Scalar s, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor
-TORCH_API inline at::Tensor scalar_tensor(const at::Scalar & s, at::TensorOptions options={}) {
+inline at::Tensor scalar_tensor(const at::Scalar & s, at::TensorOptions options={}) {
     return at::_ops::scalar_tensor::call(s, optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt());
 }
-
 // aten::scalar_tensor(Scalar s, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor
-TORCH_API inline at::Tensor scalar_tensor(const at::Scalar & s, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory) {
+inline at::Tensor scalar_tensor(const at::Scalar & s, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory) {
     return at::_ops::scalar_tensor::call(s, dtype, layout, device, pin_memory);
+}
+
+// aten::scalar_tensor.out(Scalar s, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & scalar_tensor_out(at::Tensor & out, const at::Scalar & s) {
+    return at::_ops::scalar_tensor_out::call(s, out);
+}
+// aten::scalar_tensor.out(Scalar s, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & scalar_tensor_outf(const at::Scalar & s, at::Tensor & out) {
+    return at::_ops::scalar_tensor_out::call(s, out);
 }
 
 }

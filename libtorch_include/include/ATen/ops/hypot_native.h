@@ -16,11 +16,8 @@
 
 namespace at {
 namespace native {
-
-TORCH_API at::Tensor & hypot_(at::Tensor & self, const at::Tensor & other);
 struct TORCH_API structured_hypot_out : public at::meta::structured_hypot {
 void impl(const at::Tensor & self, const at::Tensor & other, const at::Tensor & out);
 };
-
 } // namespace native
 } // namespace at

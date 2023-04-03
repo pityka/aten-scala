@@ -17,9 +17,9 @@ namespace at {
 
 namespace cuda {
 
-TORCH_API at::Tensor cat(at::TensorList tensors, int64_t dim=0);
-TORCH_API at::Tensor & cat_out(at::Tensor & out, at::TensorList tensors, int64_t dim=0);
-TORCH_API at::Tensor & cat_outf(at::TensorList tensors, int64_t dim, at::Tensor & out);
+TORCH_API at::Tensor cat(const at::ITensorListRef & tensors, int64_t dim=0);
+TORCH_API at::Tensor & cat_out(at::Tensor & out, const at::ITensorListRef & tensors, int64_t dim=0);
+TORCH_API at::Tensor & cat_outf(const at::ITensorListRef & tensors, int64_t dim, at::Tensor & out);
 
 } // namespace cuda
 } // namespace at

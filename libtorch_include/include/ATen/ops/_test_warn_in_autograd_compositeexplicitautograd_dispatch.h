@@ -18,6 +18,8 @@ namespace at {
 namespace compositeexplicitautograd {
 
 TORCH_API at::Tensor _test_warn_in_autograd(const at::Tensor & self);
+TORCH_API at::Tensor & _test_warn_in_autograd_out(at::Tensor & out, const at::Tensor & self);
+TORCH_API at::Tensor & _test_warn_in_autograd_outf(const at::Tensor & self, at::Tensor & out);
 
 } // namespace compositeexplicitautograd
 } // namespace at

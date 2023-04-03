@@ -22,18 +22,17 @@
 namespace at {
 
 
-// aten::nanmean(Tensor self, int[1] dim=[], bool keepdim=False, *, ScalarType? dtype=None) -> Tensor
-TORCH_API inline at::Tensor nanmean(const at::Tensor & self, at::IntArrayRef dim={}, bool keepdim=false, c10::optional<at::ScalarType> dtype=c10::nullopt) {
+// aten::nanmean(Tensor self, int[1]? dim=None, bool keepdim=False, *, ScalarType? dtype=None) -> Tensor
+inline at::Tensor nanmean(const at::Tensor & self, at::OptionalIntArrayRef dim=c10::nullopt, bool keepdim=false, c10::optional<at::ScalarType> dtype=c10::nullopt) {
     return at::_ops::nanmean::call(self, dim, keepdim, dtype);
 }
 
-// aten::nanmean.out(Tensor self, int[1] dim=[], bool keepdim=False, *, ScalarType? dtype=None, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & nanmean_out(at::Tensor & out, const at::Tensor & self, at::IntArrayRef dim={}, bool keepdim=false, c10::optional<at::ScalarType> dtype=c10::nullopt) {
+// aten::nanmean.out(Tensor self, int[1]? dim=None, bool keepdim=False, *, ScalarType? dtype=None, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & nanmean_out(at::Tensor & out, const at::Tensor & self, at::OptionalIntArrayRef dim=c10::nullopt, bool keepdim=false, c10::optional<at::ScalarType> dtype=c10::nullopt) {
     return at::_ops::nanmean_out::call(self, dim, keepdim, dtype, out);
 }
-
-// aten::nanmean.out(Tensor self, int[1] dim=[], bool keepdim=False, *, ScalarType? dtype=None, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & nanmean_outf(const at::Tensor & self, at::IntArrayRef dim, bool keepdim, c10::optional<at::ScalarType> dtype, at::Tensor & out) {
+// aten::nanmean.out(Tensor self, int[1]? dim=None, bool keepdim=False, *, ScalarType? dtype=None, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & nanmean_outf(const at::Tensor & self, at::OptionalIntArrayRef dim, bool keepdim, c10::optional<at::ScalarType> dtype, at::Tensor & out) {
     return at::_ops::nanmean_out::call(self, dim, keepdim, dtype, out);
 }
 

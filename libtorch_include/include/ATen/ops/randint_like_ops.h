@@ -36,4 +36,26 @@ struct TORCH_API randint_like_low_dtype {
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t low, int64_t high, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory, c10::optional<at::MemoryFormat> memory_format);
 };
 
+struct TORCH_API randint_like_out {
+  using schema = at::Tensor & (const at::Tensor &, int64_t, c10::optional<at::MemoryFormat>, at::Tensor &);
+  using ptr_schema = schema*;
+  // See Note [static constexpr char* members for windows NVCC]
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::randint_like")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "randint_like.out(Tensor self, int high, *, MemoryFormat? memory_format=None, Tensor(a!) out) -> Tensor(a!)")
+  static at::Tensor & call(const at::Tensor & self, int64_t high, c10::optional<at::MemoryFormat> memory_format, at::Tensor & out);
+  static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t high, c10::optional<at::MemoryFormat> memory_format, at::Tensor & out);
+};
+
+struct TORCH_API randint_like_low_dtype_out {
+  using schema = at::Tensor & (const at::Tensor &, int64_t, int64_t, c10::optional<at::MemoryFormat>, at::Tensor &);
+  using ptr_schema = schema*;
+  // See Note [static constexpr char* members for windows NVCC]
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::randint_like")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "low_dtype_out")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "randint_like.low_dtype_out(Tensor self, int low, int high, *, MemoryFormat? memory_format=None, Tensor(a!) out) -> Tensor(a!)")
+  static at::Tensor & call(const at::Tensor & self, int64_t low, int64_t high, c10::optional<at::MemoryFormat> memory_format, at::Tensor & out);
+  static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t low, int64_t high, c10::optional<at::MemoryFormat> memory_format, at::Tensor & out);
+};
+
 }} // namespace at::_ops

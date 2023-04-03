@@ -23,47 +23,44 @@ namespace at {
 
 
 // aten::bernoulli(Tensor self, *, Generator? generator=None) -> Tensor
-TORCH_API inline at::Tensor bernoulli(const at::Tensor & self, c10::optional<at::Generator> generator=c10::nullopt) {
+inline at::Tensor bernoulli(const at::Tensor & self, c10::optional<at::Generator> generator=c10::nullopt) {
     return at::_ops::bernoulli::call(self, generator);
 }
 
 // aten::bernoulli.out(Tensor self, *, Generator? generator=None, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & bernoulli_out(at::Tensor & out, const at::Tensor & self, c10::optional<at::Generator> generator=c10::nullopt) {
+inline at::Tensor & bernoulli_out(at::Tensor & out, const at::Tensor & self, c10::optional<at::Generator> generator=c10::nullopt) {
     return at::_ops::bernoulli_out::call(self, generator, out);
 }
-
 // aten::bernoulli.out(Tensor self, *, Generator? generator=None, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & bernoulli_outf(const at::Tensor & self, c10::optional<at::Generator> generator, at::Tensor & out) {
+inline at::Tensor & bernoulli_outf(const at::Tensor & self, c10::optional<at::Generator> generator, at::Tensor & out) {
     return at::_ops::bernoulli_out::call(self, generator, out);
 }
 
 // aten::bernoulli.p(Tensor self, float p, *, Generator? generator=None) -> Tensor
-TORCH_API inline at::Tensor bernoulli(const at::Tensor & self, double p, c10::optional<at::Generator> generator=c10::nullopt) {
+inline at::Tensor bernoulli(const at::Tensor & self, double p, c10::optional<at::Generator> generator=c10::nullopt) {
     return at::_ops::bernoulli_p::call(self, p, generator);
 }
 
 // aten::bernoulli.Tensor_out(Tensor self, Tensor p, *, Generator? generator=None, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & bernoulli_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & p, c10::optional<at::Generator> generator=c10::nullopt) {
+inline at::Tensor & bernoulli_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & p, c10::optional<at::Generator> generator=c10::nullopt) {
     return at::_ops::bernoulli_Tensor_out::call(self, p, generator, out);
 }
-
 // aten::bernoulli.Tensor_out(Tensor self, Tensor p, *, Generator? generator=None, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & bernoulli_outf(const at::Tensor & self, const at::Tensor & p, c10::optional<at::Generator> generator, at::Tensor & out) {
+inline at::Tensor & bernoulli_outf(const at::Tensor & self, const at::Tensor & p, c10::optional<at::Generator> generator, at::Tensor & out) {
     return at::_ops::bernoulli_Tensor_out::call(self, p, generator, out);
 }
 
-// aten::bernoulli.Tensor_functional(Tensor self, Tensor p, *, Generator? generator=None) -> Tensor
-TORCH_API inline at::Tensor bernoulli_functional(const at::Tensor & self, const at::Tensor & p, c10::optional<at::Generator> generator=c10::nullopt) {
-    return at::_ops::bernoulli_Tensor_functional::call(self, p, generator);
+// aten::bernoulli.Tensor(Tensor self, Tensor p, *, Generator? generator=None) -> Tensor
+inline at::Tensor bernoulli(const at::Tensor & self, const at::Tensor & p, c10::optional<at::Generator> generator=c10::nullopt) {
+    return at::_ops::bernoulli_Tensor::call(self, p, generator);
 }
 
 // aten::bernoulli.float_out(Tensor self, float p=0.5, *, Generator? generator=None, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & bernoulli_out(at::Tensor & out, const at::Tensor & self, double p=0.5, c10::optional<at::Generator> generator=c10::nullopt) {
+inline at::Tensor & bernoulli_out(at::Tensor & out, const at::Tensor & self, double p=0.5, c10::optional<at::Generator> generator=c10::nullopt) {
     return at::_ops::bernoulli_float_out::call(self, p, generator, out);
 }
-
 // aten::bernoulli.float_out(Tensor self, float p=0.5, *, Generator? generator=None, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & bernoulli_outf(const at::Tensor & self, double p, c10::optional<at::Generator> generator, at::Tensor & out) {
+inline at::Tensor & bernoulli_outf(const at::Tensor & self, double p, c10::optional<at::Generator> generator, at::Tensor & out) {
     return at::_ops::bernoulli_float_out::call(self, p, generator, out);
 }
 

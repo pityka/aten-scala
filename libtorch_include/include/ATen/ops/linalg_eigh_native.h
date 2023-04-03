@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> linalg_eigh(const at::Tensor & self, c10::string_view UPLO="L");
 TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> linalg_eigh_out(const at::Tensor & self, c10::string_view UPLO, at::Tensor & eigvals, at::Tensor & eigvecs);
-
 } // namespace native
 } // namespace at

@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::masked_select.out(Tensor self, Tensor mask, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & masked_select_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & mask) {
+inline at::Tensor & masked_select_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & mask) {
     return at::_ops::masked_select_out::call(self, mask, out);
 }
-
 // aten::masked_select.out(Tensor self, Tensor mask, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & masked_select_outf(const at::Tensor & self, const at::Tensor & mask, at::Tensor & out) {
+inline at::Tensor & masked_select_outf(const at::Tensor & self, const at::Tensor & mask, at::Tensor & out) {
     return at::_ops::masked_select_out::call(self, mask, out);
 }
 
 // aten::masked_select(Tensor self, Tensor mask) -> Tensor
-TORCH_API inline at::Tensor masked_select(const at::Tensor & self, const at::Tensor & mask) {
+inline at::Tensor masked_select(const at::Tensor & self, const at::Tensor & mask) {
     return at::_ops::masked_select::call(self, mask);
 }
 

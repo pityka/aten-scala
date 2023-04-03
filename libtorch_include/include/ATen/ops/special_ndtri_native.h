@@ -16,10 +16,8 @@
 
 namespace at {
 namespace native {
-
 struct TORCH_API structured_special_ndtri_out : public at::meta::structured_special_ndtri {
 void impl(const at::Tensor & self, const at::Tensor & out);
 };
-
 } // namespace native
 } // namespace at

@@ -16,8 +16,7 @@
 
 namespace at {
 namespace native {
-
+TORCH_API at::Tensor & to_mkldnn_out(const at::Tensor & self, c10::optional<at::ScalarType> dtype, at::Tensor & out);
 TORCH_API at::Tensor dense_to_mkldnn(const at::Tensor & self, c10::optional<at::ScalarType> dtype=c10::nullopt);
-
 } // namespace native
 } // namespace at

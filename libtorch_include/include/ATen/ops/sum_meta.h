@@ -20,7 +20,7 @@ namespace meta {
 struct TORCH_API structured_sum_dim_IntList : public at::impl::MetaBase {
     
     
-    void meta(const at::Tensor & self, at::IntArrayRef dim, bool keepdim, c10::optional<at::ScalarType> dtype);
+    void meta(const at::Tensor & self, at::OptionalIntArrayRef dim, bool keepdim, c10::optional<at::ScalarType> dtype);
 };
 
 } // namespace native

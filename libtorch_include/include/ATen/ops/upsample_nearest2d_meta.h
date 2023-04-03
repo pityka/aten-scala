@@ -20,7 +20,7 @@ namespace meta {
 struct TORCH_API structured_upsample_nearest2d : public at::impl::MetaBase {
     
     
-    void meta(const at::Tensor & self, at::IntArrayRef output_size, c10::optional<double> scales_h, c10::optional<double> scales_w);
+    void meta(const at::Tensor & self, at::ArrayRef<int64_t> output_size, c10::optional<double> scales_h, c10::optional<double> scales_w);
 };
 
 } // namespace native

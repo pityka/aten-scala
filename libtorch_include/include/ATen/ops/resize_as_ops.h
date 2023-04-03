@@ -36,13 +36,13 @@ struct TORCH_API resize_as_out {
   static const at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & the_template, c10::optional<at::MemoryFormat> memory_format, const at::Tensor & out);
 };
 
-struct TORCH_API resize_as_functional {
+struct TORCH_API resize_as {
   using schema = at::Tensor (const at::Tensor &, const at::Tensor &, c10::optional<at::MemoryFormat>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::resize_as")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "functional")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "resize_as.functional(Tensor self, Tensor the_template, *, MemoryFormat? memory_format=None) -> Tensor")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "resize_as(Tensor self, Tensor the_template, *, MemoryFormat? memory_format=None) -> Tensor")
   static at::Tensor call(const at::Tensor & self, const at::Tensor & the_template, c10::optional<at::MemoryFormat> memory_format);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & the_template, c10::optional<at::MemoryFormat> memory_format);
 };

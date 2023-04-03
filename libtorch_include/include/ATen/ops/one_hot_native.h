@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor one_hot(const at::Tensor & self, int64_t num_classes=-1);
-
 } // namespace native
 } // namespace at

@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::column_stack(Tensor[] tensors) -> Tensor
-TORCH_API inline at::Tensor column_stack(at::TensorList tensors) {
+inline at::Tensor column_stack(at::TensorList tensors) {
     return at::_ops::column_stack::call(tensors);
 }
 
 // aten::column_stack.out(Tensor[] tensors, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & column_stack_out(at::Tensor & out, at::TensorList tensors) {
+inline at::Tensor & column_stack_out(at::Tensor & out, at::TensorList tensors) {
     return at::_ops::column_stack_out::call(tensors, out);
 }
-
 // aten::column_stack.out(Tensor[] tensors, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & column_stack_outf(at::TensorList tensors, at::Tensor & out) {
+inline at::Tensor & column_stack_outf(at::TensorList tensors, at::Tensor & out) {
     return at::_ops::column_stack_out::call(tensors, out);
 }
 

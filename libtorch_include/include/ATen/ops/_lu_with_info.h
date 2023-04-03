@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::_lu_with_info(Tensor self, bool pivot=True, bool check_errors=True) -> (Tensor LU, Tensor pivots, Tensor info)
-TORCH_API inline ::std::tuple<at::Tensor,at::Tensor,at::Tensor> _lu_with_info(const at::Tensor & self, bool pivot=true, bool check_errors=true) {
+inline ::std::tuple<at::Tensor,at::Tensor,at::Tensor> _lu_with_info(const at::Tensor & self, bool pivot=true, bool check_errors=true) {
     return at::_ops::_lu_with_info::call(self, pivot, check_errors);
 }
 

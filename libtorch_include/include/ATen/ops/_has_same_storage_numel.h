@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::_has_same_storage_numel(Tensor self, Tensor other) -> bool
-TORCH_API inline bool _has_same_storage_numel(const at::Tensor & self, const at::Tensor & other) {
+inline bool _has_same_storage_numel(const at::Tensor & self, const at::Tensor & other) {
     return at::_ops::_has_same_storage_numel::call(self, other);
 }
 

@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API bool is_vulkan_available();
-
 } // namespace native
 } // namespace at

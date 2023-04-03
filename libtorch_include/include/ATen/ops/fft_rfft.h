@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::fft_rfft(Tensor self, int? n=None, int dim=-1, str? norm=None) -> Tensor
-TORCH_API inline at::Tensor fft_rfft(const at::Tensor & self, c10::optional<int64_t> n=c10::nullopt, int64_t dim=-1, c10::optional<c10::string_view> norm=c10::nullopt) {
+inline at::Tensor fft_rfft(const at::Tensor & self, c10::optional<int64_t> n=c10::nullopt, int64_t dim=-1, c10::optional<c10::string_view> norm=c10::nullopt) {
     return at::_ops::fft_rfft::call(self, n, dim, norm);
 }
 
 // aten::fft_rfft.out(Tensor self, int? n=None, int dim=-1, str? norm=None, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & fft_rfft_out(at::Tensor & out, const at::Tensor & self, c10::optional<int64_t> n=c10::nullopt, int64_t dim=-1, c10::optional<c10::string_view> norm=c10::nullopt) {
+inline at::Tensor & fft_rfft_out(at::Tensor & out, const at::Tensor & self, c10::optional<int64_t> n=c10::nullopt, int64_t dim=-1, c10::optional<c10::string_view> norm=c10::nullopt) {
     return at::_ops::fft_rfft_out::call(self, n, dim, norm, out);
 }
-
 // aten::fft_rfft.out(Tensor self, int? n=None, int dim=-1, str? norm=None, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & fft_rfft_outf(const at::Tensor & self, c10::optional<int64_t> n, int64_t dim, c10::optional<c10::string_view> norm, at::Tensor & out) {
+inline at::Tensor & fft_rfft_outf(const at::Tensor & self, c10::optional<int64_t> n, int64_t dim, c10::optional<c10::string_view> norm, at::Tensor & out) {
     return at::_ops::fft_rfft_out::call(self, n, dim, norm, out);
 }
 

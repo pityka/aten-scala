@@ -16,15 +16,22 @@
 
 namespace at {
 namespace native {
-
+TORCH_API at::Tensor & relu_out(const at::Tensor & self, at::Tensor & out);
 TORCH_API at::Tensor relu(const at::Tensor & self);
 TORCH_API at::Tensor & relu_(at::Tensor & self);
-TORCH_API at::Tensor mkldnn_relu(const at::Tensor & self);
-TORCH_API at::Tensor & mkldnn_relu_(at::Tensor & self);
 TORCH_API at::Tensor NestedTensor_relu(const at::Tensor & self);
 TORCH_API at::Tensor & NestedTensor_relu_(at::Tensor & self);
+TORCH_API at::Tensor relu_sparse(const at::Tensor & self);
+TORCH_API at::Tensor & relu_sparse_(at::Tensor & self);
+TORCH_API at::Tensor relu_sparse_csr(const at::Tensor & self);
+TORCH_API at::Tensor & relu_sparse_csr_(at::Tensor & self);
+TORCH_API at::Tensor relu_mps(const at::Tensor & self);
+TORCH_API at::Tensor & relu_mps_(at::Tensor & self);
+TORCH_API at::Tensor mkldnn_relu(const at::Tensor & self);
+TORCH_API at::Tensor & mkldnn_relu_(at::Tensor & self);
 TORCH_API at::Tensor relu_quantized_cpu(const at::Tensor & self);
 TORCH_API at::Tensor & relu_quantized_cpu_(at::Tensor & self);
-
+TORCH_API at::Tensor relu_quantized_cuda(const at::Tensor & self);
+TORCH_API at::Tensor & relu_quantized_cuda_(at::Tensor & self);
 } // namespace native
 } // namespace at

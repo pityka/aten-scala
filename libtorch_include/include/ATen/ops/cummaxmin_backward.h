@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::cummaxmin_backward(Tensor grad, Tensor input, Tensor indices, int dim) -> Tensor
-TORCH_API inline at::Tensor cummaxmin_backward(const at::Tensor & grad, const at::Tensor & input, const at::Tensor & indices, int64_t dim) {
+inline at::Tensor cummaxmin_backward(const at::Tensor & grad, const at::Tensor & input, const at::Tensor & indices, int64_t dim) {
     return at::_ops::cummaxmin_backward::call(grad, input, indices, dim);
 }
 

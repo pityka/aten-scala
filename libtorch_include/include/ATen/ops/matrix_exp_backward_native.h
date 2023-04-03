@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor matrix_exp_backward(const at::Tensor & self, const at::Tensor & grad);
-
 } // namespace native
 } // namespace at

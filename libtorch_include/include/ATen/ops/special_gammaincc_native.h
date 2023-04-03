@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor special_gammaincc(const at::Tensor & self, const at::Tensor & other);
 TORCH_API at::Tensor & special_gammaincc_out(const at::Tensor & self, const at::Tensor & other, at::Tensor & out);
-
 } // namespace native
 } // namespace at

@@ -17,7 +17,6 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
-TORCH_API at::Tensor transpose_copy(const at::Tensor & self, int64_t dim0, int64_t dim1);
 TORCH_API at::Tensor & transpose_copy_out(at::Tensor & out, const at::Tensor & self, int64_t dim0, int64_t dim1);
 TORCH_API at::Tensor & transpose_copy_outf(const at::Tensor & self, int64_t dim0, int64_t dim1, at::Tensor & out);
 

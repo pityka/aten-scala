@@ -17,7 +17,9 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
-TORCH_API ::std::tuple<::std::vector<at::Tensor>,at::Tensor> _amp_foreach_non_finite_check_and_unscale_functional(at::TensorList self, const at::Tensor & found_inf, const at::Tensor & inv_scale);
+TORCH_API ::std::tuple<::std::vector<at::Tensor>,at::Tensor> _amp_foreach_non_finite_check_and_unscale(at::TensorList self, const at::Tensor & found_inf, const at::Tensor & inv_scale);
+TORCH_API void _amp_foreach_non_finite_check_and_unscale_out(at::TensorList out, at::TensorList self, at::Tensor & found_inf, const at::Tensor & inv_scale);
+TORCH_API void _amp_foreach_non_finite_check_and_unscale_outf(at::TensorList self, at::Tensor & found_inf, const at::Tensor & inv_scale, at::TensorList out);
 
 } // namespace compositeexplicitautograd
 } // namespace at

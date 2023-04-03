@@ -16,13 +16,12 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor nan_to_num(const at::Tensor & self, c10::optional<double> nan=c10::nullopt, c10::optional<double> posinf=c10::nullopt, c10::optional<double> neginf=c10::nullopt);
 TORCH_API at::Tensor & nan_to_num_(at::Tensor & self, c10::optional<double> nan=c10::nullopt, c10::optional<double> posinf=c10::nullopt, c10::optional<double> neginf=c10::nullopt);
 TORCH_API at::Tensor & nan_to_num_out(const at::Tensor & self, c10::optional<double> nan, c10::optional<double> posinf, c10::optional<double> neginf, at::Tensor & out);
 TORCH_API at::Tensor nan_to_num_sparse(const at::Tensor & self, c10::optional<double> nan=c10::nullopt, c10::optional<double> posinf=c10::nullopt, c10::optional<double> neginf=c10::nullopt);
 TORCH_API at::Tensor & nan_to_num_sparse_out(const at::Tensor & self, c10::optional<double> nan, c10::optional<double> posinf, c10::optional<double> neginf, at::Tensor & out);
 TORCH_API at::Tensor & nan_to_num_sparse_(at::Tensor & self, c10::optional<double> nan=c10::nullopt, c10::optional<double> posinf=c10::nullopt, c10::optional<double> neginf=c10::nullopt);
-
+TORCH_API at::Tensor & nan_to_num_out_mps(const at::Tensor & self, c10::optional<double> nan, c10::optional<double> posinf, c10::optional<double> neginf, at::Tensor & out);
 } // namespace native
 } // namespace at

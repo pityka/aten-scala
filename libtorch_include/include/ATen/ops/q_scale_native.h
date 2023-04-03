@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API double q_scale_quant(const at::Tensor & self);
-
 } // namespace native
 } // namespace at

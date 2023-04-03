@@ -23,12 +23,12 @@ namespace at {
 
 
 // aten::atleast_2d(Tensor self) -> Tensor
-TORCH_API inline at::Tensor atleast_2d(const at::Tensor & self) {
+inline at::Tensor atleast_2d(const at::Tensor & self) {
     return at::_ops::atleast_2d::call(self);
 }
 
 // aten::atleast_2d.Sequence(Tensor[] tensors) -> Tensor[]
-TORCH_API inline ::std::vector<at::Tensor> atleast_2d(at::TensorList tensors) {
+inline ::std::vector<at::Tensor> atleast_2d(at::TensorList tensors) {
     return at::_ops::atleast_2d_Sequence::call(tensors);
 }
 

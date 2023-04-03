@@ -23,12 +23,12 @@ namespace at {
 
 
 // aten::rrelu(Tensor self, Scalar lower=0.125, Scalar upper=0.3333333333333333, bool training=False, Generator? generator=None) -> Tensor
-TORCH_API inline at::Tensor rrelu(const at::Tensor & self, const at::Scalar & lower=0.125, const at::Scalar & upper=0.3333333333333333, bool training=false, c10::optional<at::Generator> generator=c10::nullopt) {
+inline at::Tensor rrelu(const at::Tensor & self, const at::Scalar & lower=0.125, const at::Scalar & upper=0.3333333333333333, bool training=false, c10::optional<at::Generator> generator=c10::nullopt) {
     return at::_ops::rrelu::call(self, lower, upper, training, generator);
 }
 
 // aten::rrelu_(Tensor(a!) self, Scalar lower=0.125, Scalar upper=0.3333333333333333, bool training=False, Generator? generator=None) -> Tensor(a!)
-TORCH_API inline at::Tensor & rrelu_(at::Tensor & self, const at::Scalar & lower=0.125, const at::Scalar & upper=0.3333333333333333, bool training=false, c10::optional<at::Generator> generator=c10::nullopt) {
+inline at::Tensor & rrelu_(at::Tensor & self, const at::Scalar & lower=0.125, const at::Scalar & upper=0.3333333333333333, bool training=false, c10::optional<at::Generator> generator=c10::nullopt) {
     return at::_ops::rrelu_::call(self, lower, upper, training, generator);
 }
 

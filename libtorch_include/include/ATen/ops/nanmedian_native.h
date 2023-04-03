@@ -16,7 +16,7 @@
 
 namespace at {
 namespace native {
-
+TORCH_API at::Tensor & nanmedian_out(const at::Tensor & self, at::Tensor & out);
 TORCH_API at::Tensor nanmedian_cpu(const at::Tensor & self);
 TORCH_API at::Tensor nanmedian_cuda(const at::Tensor & self);
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> nanmedian(const at::Tensor & self, int64_t dim, bool keepdim=false);
@@ -24,6 +24,5 @@ TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> nanmedian_out_cpu(const at::Te
 TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> nanmedian_out_cuda(const at::Tensor & self, int64_t dim, bool keepdim, at::Tensor & values, at::Tensor & indices);
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> nanmedian(const at::Tensor & self, at::Dimname dim, bool keepdim=false);
 TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> nanmedian_out(const at::Tensor & self, at::Dimname dim, bool keepdim, at::Tensor & values, at::Tensor & indices);
-
 } // namespace native
 } // namespace at

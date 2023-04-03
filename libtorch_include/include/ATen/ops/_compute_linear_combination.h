@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::_compute_linear_combination(Tensor input, Tensor coefficients) -> Tensor
-TORCH_API inline at::Tensor _compute_linear_combination(const at::Tensor & input, const at::Tensor & coefficients) {
+inline at::Tensor _compute_linear_combination(const at::Tensor & input, const at::Tensor & coefficients) {
     return at::_ops::_compute_linear_combination::call(input, coefficients);
 }
 
 // aten::_compute_linear_combination.out(Tensor input, Tensor coefficients, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & _compute_linear_combination_out(at::Tensor & out, const at::Tensor & input, const at::Tensor & coefficients) {
+inline at::Tensor & _compute_linear_combination_out(at::Tensor & out, const at::Tensor & input, const at::Tensor & coefficients) {
     return at::_ops::_compute_linear_combination_out::call(input, coefficients, out);
 }
-
 // aten::_compute_linear_combination.out(Tensor input, Tensor coefficients, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & _compute_linear_combination_outf(const at::Tensor & input, const at::Tensor & coefficients, at::Tensor & out) {
+inline at::Tensor & _compute_linear_combination_outf(const at::Tensor & input, const at::Tensor & coefficients, at::Tensor & out) {
     return at::_ops::_compute_linear_combination_out::call(input, coefficients, out);
 }
 

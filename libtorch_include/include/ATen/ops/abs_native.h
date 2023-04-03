@@ -16,7 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor abs(const at::Tensor & self);
 TORCH_API at::Tensor & abs_(at::Tensor & self);
 TORCH_API at::Tensor & abs_out(const at::Tensor & self, at::Tensor & out);
@@ -26,6 +25,6 @@ TORCH_API at::Tensor & abs_sparse_(at::Tensor & self);
 TORCH_API at::Tensor abs_sparse_csr(const at::Tensor & self);
 TORCH_API at::Tensor & abs_sparse_csr_out(const at::Tensor & self, at::Tensor & out);
 TORCH_API at::Tensor & abs_sparse_csr_(at::Tensor & self);
-
+TORCH_API at::Tensor & abs_out_mps(const at::Tensor & self, at::Tensor & out);
 } // namespace native
 } // namespace at

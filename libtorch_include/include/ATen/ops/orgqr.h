@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::orgqr(Tensor self, Tensor input2) -> Tensor
-TORCH_API inline at::Tensor orgqr(const at::Tensor & self, const at::Tensor & input2) {
+inline at::Tensor orgqr(const at::Tensor & self, const at::Tensor & input2) {
     return at::_ops::orgqr::call(self, input2);
 }
 
 // aten::orgqr.out(Tensor self, Tensor input2, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & orgqr_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & input2) {
+inline at::Tensor & orgqr_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & input2) {
     return at::_ops::orgqr_out::call(self, input2, out);
 }
-
 // aten::orgqr.out(Tensor self, Tensor input2, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & orgqr_outf(const at::Tensor & self, const at::Tensor & input2, at::Tensor & out) {
+inline at::Tensor & orgqr_outf(const at::Tensor & self, const at::Tensor & input2, at::Tensor & out) {
     return at::_ops::orgqr_out::call(self, input2, out);
 }
 

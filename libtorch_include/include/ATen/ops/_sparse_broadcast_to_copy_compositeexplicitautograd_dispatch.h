@@ -17,7 +17,6 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
-TORCH_API at::Tensor _sparse_broadcast_to_copy(const at::Tensor & self, at::IntArrayRef size);
 TORCH_API at::Tensor & _sparse_broadcast_to_copy_out(at::Tensor & out, const at::Tensor & self, at::IntArrayRef size);
 TORCH_API at::Tensor & _sparse_broadcast_to_copy_outf(const at::Tensor & self, at::IntArrayRef size, at::Tensor & out);
 

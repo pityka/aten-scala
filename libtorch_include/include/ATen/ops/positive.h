@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::positive(Tensor(a) self) -> Tensor(a)
-TORCH_API inline at::Tensor positive(const at::Tensor & self) {
+inline at::Tensor positive(const at::Tensor & self) {
     return at::_ops::positive::call(self);
 }
 

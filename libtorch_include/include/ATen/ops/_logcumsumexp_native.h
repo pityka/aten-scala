@@ -16,11 +16,9 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor _logcumsumexp_cpu(const at::Tensor & self, int64_t dim);
 TORCH_API at::Tensor & _logcumsumexp_out_cpu(const at::Tensor & self, int64_t dim, at::Tensor & out);
 TORCH_API at::Tensor _logcumsumexp_cuda(const at::Tensor & self, int64_t dim);
 TORCH_API at::Tensor & _logcumsumexp_out_cuda(const at::Tensor & self, int64_t dim, at::Tensor & out);
-
 } // namespace native
 } // namespace at

@@ -25,4 +25,15 @@ struct TORCH_API tril_indices {
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, int64_t row, int64_t col, int64_t offset, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory);
 };
 
+struct TORCH_API tril_indices_out {
+  using schema = at::Tensor & (int64_t, int64_t, int64_t, at::Tensor &);
+  using ptr_schema = schema*;
+  // See Note [static constexpr char* members for windows NVCC]
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::tril_indices")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "tril_indices.out(int row, int col, int offset=0, *, Tensor(a!) out) -> Tensor(a!)")
+  static at::Tensor & call(int64_t row, int64_t col, int64_t offset, at::Tensor & out);
+  static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, int64_t row, int64_t col, int64_t offset, at::Tensor & out);
+};
+
 }} // namespace at::_ops

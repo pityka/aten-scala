@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
-TORCH_API at::Tensor einsum(c10::string_view equation, at::TensorList tensors);
-
+TORCH_API at::Tensor einsum(c10::string_view equation, at::TensorList tensors, at::OptionalIntArrayRef path=c10::nullopt);
 } // namespace native
 } // namespace at

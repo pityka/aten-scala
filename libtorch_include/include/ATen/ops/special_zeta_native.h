@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
-TORCH_API at::Tensor special_zeta(const at::Tensor & self, const at::Tensor & other);
 struct TORCH_API structured_special_zeta_out : public at::meta::structured_special_zeta {
 void impl(const at::Tensor & self, const at::Tensor & other, const at::Tensor & out);
 };
@@ -25,6 +23,5 @@ TORCH_API at::Tensor special_zeta(const at::Scalar & self, const at::Tensor & ot
 TORCH_API at::Tensor & special_zeta_out(const at::Scalar & self, const at::Tensor & other, at::Tensor & out);
 TORCH_API at::Tensor special_zeta(const at::Tensor & self, const at::Scalar & other);
 TORCH_API at::Tensor & special_zeta_out(const at::Tensor & self, const at::Scalar & other, at::Tensor & out);
-
 } // namespace native
 } // namespace at

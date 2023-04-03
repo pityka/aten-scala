@@ -17,6 +17,8 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
+TORCH_API at::Tensor & nanmedian_out(at::Tensor & out, const at::Tensor & self);
+TORCH_API at::Tensor & nanmedian_outf(const at::Tensor & self, at::Tensor & out);
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> nanmedian(const at::Tensor & self, int64_t dim, bool keepdim=false);
 
 } // namespace compositeexplicitautograd

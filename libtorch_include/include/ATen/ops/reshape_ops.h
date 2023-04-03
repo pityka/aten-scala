@@ -15,14 +15,14 @@ namespace _ops {
 
 
 struct TORCH_API reshape {
-  using schema = at::Tensor (const at::Tensor &, at::IntArrayRef);
+  using schema = at::Tensor (const at::Tensor &, c10::SymIntArrayRef);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::reshape")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "reshape(Tensor(a) self, int[] shape) -> Tensor(a)")
-  static at::Tensor call(const at::Tensor & self, at::IntArrayRef shape);
-  static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::IntArrayRef shape);
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "reshape(Tensor(a) self, SymInt[] shape) -> Tensor(a)")
+  static at::Tensor call(const at::Tensor & self, c10::SymIntArrayRef shape);
+  static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, c10::SymIntArrayRef shape);
 };
 
 }} // namespace at::_ops

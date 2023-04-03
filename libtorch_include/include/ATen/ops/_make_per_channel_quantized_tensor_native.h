@@ -16,9 +16,8 @@
 
 namespace at {
 namespace native {
-
+TORCH_API at::Tensor & _make_per_channel_quantized_tensor_out(const at::Tensor & self, const at::Tensor & scale, const at::Tensor & zero_point, int64_t axis, at::Tensor & out);
 TORCH_API at::Tensor make_per_channel_quantized_tensor_cpu(const at::Tensor & self, const at::Tensor & scale, const at::Tensor & zero_point, int64_t axis);
 TORCH_API at::Tensor make_per_channel_quantized_tensor_cuda(const at::Tensor & self, const at::Tensor & scale, const at::Tensor & zero_point, int64_t axis);
-
 } // namespace native
 } // namespace at

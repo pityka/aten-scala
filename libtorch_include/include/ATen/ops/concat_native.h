@@ -16,11 +16,9 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor concat(at::TensorList tensors, int64_t dim=0);
 TORCH_API at::Tensor & concat_out(at::TensorList tensors, int64_t dim, at::Tensor & out);
 TORCH_API at::Tensor concat(at::TensorList tensors, at::Dimname dim);
 TORCH_API at::Tensor & concat_out(at::TensorList tensors, at::Dimname dim, at::Tensor & out);
-
 } // namespace native
 } // namespace at

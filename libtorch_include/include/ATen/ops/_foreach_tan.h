@@ -22,29 +22,23 @@
 namespace at {
 
 
-// aten::_foreach_tan(Tensor[] tensors) -> Tensor[]
-TORCH_API inline ::std::vector<at::Tensor> _foreach_tan(at::TensorList tensors) {
-    return at::_ops::_foreach_tan::call(tensors);
+// aten::_foreach_tan(Tensor[] self) -> Tensor[]
+inline ::std::vector<at::Tensor> _foreach_tan(at::TensorList self) {
+    return at::_ops::_foreach_tan::call(self);
 }
 
 // aten::_foreach_tan_(Tensor(a!)[] self) -> ()
-TORCH_API inline void _foreach_tan_(at::TensorList self) {
+inline void _foreach_tan_(at::TensorList self) {
     return at::_ops::_foreach_tan_::call(self);
 }
 
 // aten::_foreach_tan.out(Tensor[] self, *, Tensor(a!)[] out) -> ()
-TORCH_API inline void _foreach_tan_out(at::TensorList out, at::TensorList self) {
+inline void _foreach_tan_out(at::TensorList out, at::TensorList self) {
     return at::_ops::_foreach_tan_out::call(self, out);
 }
-
 // aten::_foreach_tan.out(Tensor[] self, *, Tensor(a!)[] out) -> ()
-TORCH_API inline void _foreach_tan_outf(at::TensorList self, at::TensorList out) {
+inline void _foreach_tan_outf(at::TensorList self, at::TensorList out) {
     return at::_ops::_foreach_tan_out::call(self, out);
-}
-
-// aten::_foreach_tan.functional(Tensor[] self) -> Tensor[] self_out
-TORCH_API inline ::std::vector<at::Tensor> _foreach_tan_functional(at::TensorList self) {
-    return at::_ops::_foreach_tan_functional::call(self);
 }
 
 }

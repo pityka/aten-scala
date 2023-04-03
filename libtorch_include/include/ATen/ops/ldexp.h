@@ -23,22 +23,21 @@ namespace at {
 
 
 // aten::ldexp.Tensor(Tensor self, Tensor other) -> Tensor
-TORCH_API inline at::Tensor ldexp(const at::Tensor & self, const at::Tensor & other) {
+inline at::Tensor ldexp(const at::Tensor & self, const at::Tensor & other) {
     return at::_ops::ldexp_Tensor::call(self, other);
 }
 
 // aten::ldexp_(Tensor(a!) self, Tensor other) -> Tensor(a!)
-TORCH_API inline at::Tensor & ldexp_(at::Tensor & self, const at::Tensor & other) {
+inline at::Tensor & ldexp_(at::Tensor & self, const at::Tensor & other) {
     return at::_ops::ldexp_::call(self, other);
 }
 
 // aten::ldexp.out(Tensor self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & ldexp_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & other) {
+inline at::Tensor & ldexp_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & other) {
     return at::_ops::ldexp_out::call(self, other, out);
 }
-
 // aten::ldexp.out(Tensor self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & ldexp_outf(const at::Tensor & self, const at::Tensor & other, at::Tensor & out) {
+inline at::Tensor & ldexp_outf(const at::Tensor & self, const at::Tensor & other, at::Tensor & out) {
     return at::_ops::ldexp_out::call(self, other, out);
 }
 

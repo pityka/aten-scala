@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API void set_data(at::Tensor & self, const at::Tensor & new_data);
-
 } // namespace native
 } // namespace at

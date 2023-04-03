@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::_debug_has_internal_overlap(Tensor self) -> int
-TORCH_API inline int64_t _debug_has_internal_overlap(const at::Tensor & self) {
+inline int64_t _debug_has_internal_overlap(const at::Tensor & self) {
     return at::_ops::_debug_has_internal_overlap::call(self);
 }
 

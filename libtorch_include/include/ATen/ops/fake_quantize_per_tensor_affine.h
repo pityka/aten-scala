@@ -23,12 +23,12 @@ namespace at {
 
 
 // aten::fake_quantize_per_tensor_affine(Tensor self, float scale, int zero_point, int quant_min, int quant_max) -> Tensor
-TORCH_API inline at::Tensor fake_quantize_per_tensor_affine(const at::Tensor & self, double scale, int64_t zero_point, int64_t quant_min, int64_t quant_max) {
+inline at::Tensor fake_quantize_per_tensor_affine(const at::Tensor & self, double scale, int64_t zero_point, int64_t quant_min, int64_t quant_max) {
     return at::_ops::fake_quantize_per_tensor_affine::call(self, scale, zero_point, quant_min, quant_max);
 }
 
 // aten::fake_quantize_per_tensor_affine.tensor_qparams(Tensor self, Tensor scale, Tensor zero_point, int quant_min, int quant_max) -> Tensor
-TORCH_API inline at::Tensor fake_quantize_per_tensor_affine(const at::Tensor & self, const at::Tensor & scale, const at::Tensor & zero_point, int64_t quant_min, int64_t quant_max) {
+inline at::Tensor fake_quantize_per_tensor_affine(const at::Tensor & self, const at::Tensor & scale, const at::Tensor & zero_point, int64_t quant_min, int64_t quant_max) {
     return at::_ops::fake_quantize_per_tensor_affine_tensor_qparams::call(self, scale, zero_point, quant_min, quant_max);
 }
 

@@ -16,8 +16,7 @@
 
 namespace at {
 namespace native {
-
+TORCH_API at::Tensor & _mkldnn_reshape_out(const at::Tensor & self, at::IntArrayRef shape, at::Tensor & out);
 TORCH_API at::Tensor mkldnn_reshape(const at::Tensor & self, at::IntArrayRef shape);
-
 } // namespace native
 } // namespace at

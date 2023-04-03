@@ -16,8 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor mkldnn_adaptive_avg_pool2d(const at::Tensor & self, at::IntArrayRef output_size);
-
+TORCH_API at::Tensor & mkldnn_adaptive_avg_pool2d_out(const at::Tensor & self, at::IntArrayRef output_size, at::Tensor & out);
 } // namespace native
 } // namespace at

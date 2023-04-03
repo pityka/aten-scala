@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::infinitely_differentiable_gelu_backward(Tensor grad, Tensor self) -> Tensor
-TORCH_API inline at::Tensor infinitely_differentiable_gelu_backward(const at::Tensor & grad, const at::Tensor & self) {
+inline at::Tensor infinitely_differentiable_gelu_backward(const at::Tensor & grad, const at::Tensor & self) {
     return at::_ops::infinitely_differentiable_gelu_backward::call(grad, self);
 }
 

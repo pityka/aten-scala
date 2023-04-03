@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::heaviside.out(Tensor self, Tensor values, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & heaviside_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & values) {
+inline at::Tensor & heaviside_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & values) {
     return at::_ops::heaviside_out::call(self, values, out);
 }
-
 // aten::heaviside.out(Tensor self, Tensor values, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & heaviside_outf(const at::Tensor & self, const at::Tensor & values, at::Tensor & out) {
+inline at::Tensor & heaviside_outf(const at::Tensor & self, const at::Tensor & values, at::Tensor & out) {
     return at::_ops::heaviside_out::call(self, values, out);
 }
 
 // aten::heaviside(Tensor self, Tensor values) -> Tensor
-TORCH_API inline at::Tensor heaviside(const at::Tensor & self, const at::Tensor & values) {
+inline at::Tensor heaviside(const at::Tensor & self, const at::Tensor & values) {
     return at::_ops::heaviside::call(self, values);
 }
 

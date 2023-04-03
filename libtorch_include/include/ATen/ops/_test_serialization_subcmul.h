@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::_test_serialization_subcmul(Tensor self, Tensor other, Scalar alpha=1) -> Tensor
-TORCH_API inline at::Tensor _test_serialization_subcmul(const at::Tensor & self, const at::Tensor & other, const at::Scalar & alpha=1) {
+inline at::Tensor _test_serialization_subcmul(const at::Tensor & self, const at::Tensor & other, const at::Scalar & alpha=1) {
     return at::_ops::_test_serialization_subcmul::call(self, other, alpha);
 }
 

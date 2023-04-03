@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::fmin(Tensor self, Tensor other) -> Tensor
-TORCH_API inline at::Tensor fmin(const at::Tensor & self, const at::Tensor & other) {
+inline at::Tensor fmin(const at::Tensor & self, const at::Tensor & other) {
     return at::_ops::fmin::call(self, other);
 }
 
 // aten::fmin.out(Tensor self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & fmin_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & other) {
+inline at::Tensor & fmin_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & other) {
     return at::_ops::fmin_out::call(self, other, out);
 }
-
 // aten::fmin.out(Tensor self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & fmin_outf(const at::Tensor & self, const at::Tensor & other, at::Tensor & out) {
+inline at::Tensor & fmin_outf(const at::Tensor & self, const at::Tensor & other, at::Tensor & out) {
     return at::_ops::fmin_out::call(self, other, out);
 }
 

@@ -23,12 +23,12 @@ namespace at {
 
 
 // aten::alpha_dropout(Tensor input, float p, bool train) -> Tensor
-TORCH_API inline at::Tensor alpha_dropout(const at::Tensor & input, double p, bool train) {
+inline at::Tensor alpha_dropout(const at::Tensor & input, double p, bool train) {
     return at::_ops::alpha_dropout::call(input, p, train);
 }
 
 // aten::alpha_dropout_(Tensor(a!) self, float p, bool train) -> Tensor(a!)
-TORCH_API inline at::Tensor & alpha_dropout_(at::Tensor & self, double p, bool train) {
+inline at::Tensor & alpha_dropout_(at::Tensor & self, double p, bool train) {
     return at::_ops::alpha_dropout_::call(self, p, train);
 }
 

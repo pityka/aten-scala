@@ -16,8 +16,7 @@
 
 namespace at {
 namespace native {
-
+TORCH_API at::Tensor & _nested_from_padded_and_nested_example_out(const at::Tensor & padded, const at::Tensor & nt_example, at::Tensor & out);
 TORCH_API at::Tensor NestedTensor_from_padded_and_nested_example(const at::Tensor & padded, const at::Tensor & nt_example);
-
 } // namespace native
 } // namespace at

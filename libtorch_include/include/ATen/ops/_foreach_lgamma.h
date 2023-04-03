@@ -22,29 +22,23 @@
 namespace at {
 
 
-// aten::_foreach_lgamma(Tensor[] tensors) -> Tensor[]
-TORCH_API inline ::std::vector<at::Tensor> _foreach_lgamma(at::TensorList tensors) {
-    return at::_ops::_foreach_lgamma::call(tensors);
+// aten::_foreach_lgamma(Tensor[] self) -> Tensor[]
+inline ::std::vector<at::Tensor> _foreach_lgamma(at::TensorList self) {
+    return at::_ops::_foreach_lgamma::call(self);
 }
 
 // aten::_foreach_lgamma_(Tensor(a!)[] self) -> ()
-TORCH_API inline void _foreach_lgamma_(at::TensorList self) {
+inline void _foreach_lgamma_(at::TensorList self) {
     return at::_ops::_foreach_lgamma_::call(self);
 }
 
 // aten::_foreach_lgamma.out(Tensor[] self, *, Tensor(a!)[] out) -> ()
-TORCH_API inline void _foreach_lgamma_out(at::TensorList out, at::TensorList self) {
+inline void _foreach_lgamma_out(at::TensorList out, at::TensorList self) {
     return at::_ops::_foreach_lgamma_out::call(self, out);
 }
-
 // aten::_foreach_lgamma.out(Tensor[] self, *, Tensor(a!)[] out) -> ()
-TORCH_API inline void _foreach_lgamma_outf(at::TensorList self, at::TensorList out) {
+inline void _foreach_lgamma_outf(at::TensorList self, at::TensorList out) {
     return at::_ops::_foreach_lgamma_out::call(self, out);
-}
-
-// aten::_foreach_lgamma.functional(Tensor[] self) -> Tensor[] self_out
-TORCH_API inline ::std::vector<at::Tensor> _foreach_lgamma_functional(at::TensorList self) {
-    return at::_ops::_foreach_lgamma_functional::call(self);
 }
 
 }

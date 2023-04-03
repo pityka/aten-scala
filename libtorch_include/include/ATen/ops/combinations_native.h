@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor combinations(const at::Tensor & self, int64_t r=2, bool with_replacement=false);
-
 } // namespace native
 } // namespace at

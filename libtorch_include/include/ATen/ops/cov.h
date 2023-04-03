@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::cov(Tensor self, *, int correction=1, Tensor? fweights=None, Tensor? aweights=None) -> Tensor
-TORCH_API inline at::Tensor cov(const at::Tensor & self, int64_t correction=1, const c10::optional<at::Tensor> & fweights={}, const c10::optional<at::Tensor> & aweights={}) {
+inline at::Tensor cov(const at::Tensor & self, int64_t correction=1, const c10::optional<at::Tensor> & fweights={}, const c10::optional<at::Tensor> & aweights={}) {
     return at::_ops::cov::call(self, correction, fweights, aweights);
 }
 

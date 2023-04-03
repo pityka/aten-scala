@@ -23,12 +23,12 @@ namespace at {
 
 
 // aten::meshgrid(Tensor[] tensors) -> Tensor[]
-TORCH_API inline ::std::vector<at::Tensor> meshgrid(at::TensorList tensors) {
+inline ::std::vector<at::Tensor> meshgrid(at::TensorList tensors) {
     return at::_ops::meshgrid::call(tensors);
 }
 
 // aten::meshgrid.indexing(Tensor[] tensors, *, str indexing) -> Tensor[]
-TORCH_API inline ::std::vector<at::Tensor> meshgrid(at::TensorList tensors, c10::string_view indexing) {
+inline ::std::vector<at::Tensor> meshgrid(at::TensorList tensors, c10::string_view indexing) {
     return at::_ops::meshgrid_indexing::call(tensors, indexing);
 }
 

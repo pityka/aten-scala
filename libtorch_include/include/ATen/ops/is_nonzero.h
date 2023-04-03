@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::is_nonzero(Tensor self) -> bool
-TORCH_API inline bool is_nonzero(const at::Tensor & self) {
+inline bool is_nonzero(const at::Tensor & self) {
     return at::_ops::is_nonzero::call(self);
 }
 

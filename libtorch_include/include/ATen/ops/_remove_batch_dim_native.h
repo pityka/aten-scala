@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor _remove_batch_dim(const at::Tensor & self, int64_t level, int64_t batch_size, int64_t out_dim);
-
 } // namespace native
 } // namespace at

@@ -16,10 +16,8 @@
 
 namespace at {
 namespace native {
-
 struct TORCH_API structured_renorm_out : public at::meta::structured_renorm {
 void impl(const at::Tensor & self, const at::Scalar & p, int64_t dim, const at::Scalar & maxnorm, const at::Tensor & out);
 };
-
 } // namespace native
 } // namespace at

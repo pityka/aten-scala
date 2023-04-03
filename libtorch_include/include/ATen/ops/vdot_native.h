@@ -16,10 +16,8 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor & vdot_out(const at::Tensor & self, const at::Tensor & other, at::Tensor & out);
 TORCH_API at::Tensor vdot(const at::Tensor & self, const at::Tensor & other);
 TORCH_API at::Tensor vdot_cuda(const at::Tensor & self, const at::Tensor & other);
-
 } // namespace native
 } // namespace at

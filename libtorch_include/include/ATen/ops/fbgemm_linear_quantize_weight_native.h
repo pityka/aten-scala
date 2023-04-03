@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API ::std::tuple<at::Tensor,at::Tensor,double,int64_t> fbgemm_linear_quantize_weight(const at::Tensor & input);
-
 } // namespace native
 } // namespace at

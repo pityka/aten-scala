@@ -16,12 +16,11 @@
 
 namespace at {
 namespace native {
-
-TORCH_API at::Tensor silu(const at::Tensor & self);
-TORCH_API at::Tensor & silu_(at::Tensor & self);
 struct TORCH_API structured_silu_out : public at::meta::structured_silu {
 void impl(const at::Tensor & self, const at::Tensor & out);
 };
-
+struct TORCH_API structured_silu_out_mps : public at::meta::structured_silu {
+void impl(const at::Tensor & self, const at::Tensor & out);
+};
 } // namespace native
 } // namespace at

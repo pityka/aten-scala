@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor sum_to_size(const at::Tensor & self, at::IntArrayRef size);
-
 } // namespace native
 } // namespace at

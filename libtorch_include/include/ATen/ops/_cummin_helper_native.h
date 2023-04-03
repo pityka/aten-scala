@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API void cummin_helper_cpu(const at::Tensor & self, at::Tensor & values, at::Tensor & indices, int64_t dim);
 TORCH_API void cummin_helper_cuda(const at::Tensor & self, at::Tensor & values, at::Tensor & indices, int64_t dim);
-
 } // namespace native
 } // namespace at

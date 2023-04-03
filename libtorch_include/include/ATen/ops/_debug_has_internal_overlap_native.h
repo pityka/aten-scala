@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API int64_t _debug_has_internal_overlap(const at::Tensor & self);
-
 } // namespace native
 } // namespace at

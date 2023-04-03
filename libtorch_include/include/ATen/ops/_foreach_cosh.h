@@ -22,29 +22,23 @@
 namespace at {
 
 
-// aten::_foreach_cosh(Tensor[] tensors) -> Tensor[]
-TORCH_API inline ::std::vector<at::Tensor> _foreach_cosh(at::TensorList tensors) {
-    return at::_ops::_foreach_cosh::call(tensors);
+// aten::_foreach_cosh(Tensor[] self) -> Tensor[]
+inline ::std::vector<at::Tensor> _foreach_cosh(at::TensorList self) {
+    return at::_ops::_foreach_cosh::call(self);
 }
 
 // aten::_foreach_cosh_(Tensor(a!)[] self) -> ()
-TORCH_API inline void _foreach_cosh_(at::TensorList self) {
+inline void _foreach_cosh_(at::TensorList self) {
     return at::_ops::_foreach_cosh_::call(self);
 }
 
 // aten::_foreach_cosh.out(Tensor[] self, *, Tensor(a!)[] out) -> ()
-TORCH_API inline void _foreach_cosh_out(at::TensorList out, at::TensorList self) {
+inline void _foreach_cosh_out(at::TensorList out, at::TensorList self) {
     return at::_ops::_foreach_cosh_out::call(self, out);
 }
-
 // aten::_foreach_cosh.out(Tensor[] self, *, Tensor(a!)[] out) -> ()
-TORCH_API inline void _foreach_cosh_outf(at::TensorList self, at::TensorList out) {
+inline void _foreach_cosh_outf(at::TensorList self, at::TensorList out) {
     return at::_ops::_foreach_cosh_out::call(self, out);
-}
-
-// aten::_foreach_cosh.functional(Tensor[] self) -> Tensor[] self_out
-TORCH_API inline ::std::vector<at::Tensor> _foreach_cosh_functional(at::TensorList self) {
-    return at::_ops::_foreach_cosh_functional::call(self);
 }
 
 }

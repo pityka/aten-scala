@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor linalg_cholesky(const at::Tensor & self, bool upper=false);
 TORCH_API at::Tensor & linalg_cholesky_out(const at::Tensor & self, bool upper, at::Tensor & out);
-
 } // namespace native
 } // namespace at

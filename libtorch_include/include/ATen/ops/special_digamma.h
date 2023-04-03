@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::special_digamma(Tensor self) -> Tensor
-TORCH_API inline at::Tensor special_digamma(const at::Tensor & self) {
+inline at::Tensor special_digamma(const at::Tensor & self) {
     return at::_ops::special_digamma::call(self);
 }
 
 // aten::special_digamma.out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & special_digamma_out(at::Tensor & out, const at::Tensor & self) {
+inline at::Tensor & special_digamma_out(at::Tensor & out, const at::Tensor & self) {
     return at::_ops::special_digamma_out::call(self, out);
 }
-
 // aten::special_digamma.out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & special_digamma_outf(const at::Tensor & self, at::Tensor & out) {
+inline at::Tensor & special_digamma_outf(const at::Tensor & self, at::Tensor & out) {
     return at::_ops::special_digamma_out::call(self, out);
 }
 

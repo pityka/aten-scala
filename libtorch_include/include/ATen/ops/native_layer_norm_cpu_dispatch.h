@@ -18,6 +18,7 @@ namespace at {
 namespace cpu {
 
 TORCH_API ::std::tuple<at::Tensor,at::Tensor,at::Tensor> native_layer_norm(const at::Tensor & input, at::IntArrayRef normalized_shape, const c10::optional<at::Tensor> & weight, const c10::optional<at::Tensor> & bias, double eps);
+TORCH_API ::std::tuple<at::Tensor,at::Tensor,at::Tensor> native_layer_norm_symint(const at::Tensor & input, c10::SymIntArrayRef normalized_shape, const c10::optional<at::Tensor> & weight, const c10::optional<at::Tensor> & bias, double eps);
 
 } // namespace cpu
 } // namespace at

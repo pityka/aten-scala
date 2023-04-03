@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::msort.out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & msort_out(at::Tensor & out, const at::Tensor & self) {
+inline at::Tensor & msort_out(at::Tensor & out, const at::Tensor & self) {
     return at::_ops::msort_out::call(self, out);
 }
-
 // aten::msort.out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & msort_outf(const at::Tensor & self, at::Tensor & out) {
+inline at::Tensor & msort_outf(const at::Tensor & self, at::Tensor & out) {
     return at::_ops::msort_out::call(self, out);
 }
 
 // aten::msort(Tensor self) -> Tensor
-TORCH_API inline at::Tensor msort(const at::Tensor & self) {
+inline at::Tensor msort(const at::Tensor & self) {
     return at::_ops::msort::call(self);
 }
 

@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::polar(Tensor abs, Tensor angle) -> Tensor
-TORCH_API inline at::Tensor polar(const at::Tensor & abs, const at::Tensor & angle) {
+inline at::Tensor polar(const at::Tensor & abs, const at::Tensor & angle) {
     return at::_ops::polar::call(abs, angle);
 }
 
 // aten::polar.out(Tensor abs, Tensor angle, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & polar_out(at::Tensor & out, const at::Tensor & abs, const at::Tensor & angle) {
+inline at::Tensor & polar_out(at::Tensor & out, const at::Tensor & abs, const at::Tensor & angle) {
     return at::_ops::polar_out::call(abs, angle, out);
 }
-
 // aten::polar.out(Tensor abs, Tensor angle, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & polar_outf(const at::Tensor & abs, const at::Tensor & angle, at::Tensor & out) {
+inline at::Tensor & polar_outf(const at::Tensor & abs, const at::Tensor & angle, at::Tensor & out) {
     return at::_ops::polar_out::call(abs, angle, out);
 }
 

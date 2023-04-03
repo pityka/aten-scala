@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::adaptive_avg_pool1d(Tensor self, int[1] output_size) -> Tensor
-TORCH_API inline at::Tensor adaptive_avg_pool1d(const at::Tensor & self, at::IntArrayRef output_size) {
+inline at::Tensor adaptive_avg_pool1d(const at::Tensor & self, at::IntArrayRef output_size) {
     return at::_ops::adaptive_avg_pool1d::call(self, output_size);
 }
 

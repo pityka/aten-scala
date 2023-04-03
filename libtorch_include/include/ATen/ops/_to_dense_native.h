@@ -16,10 +16,9 @@
 
 namespace at {
 namespace native {
-
+TORCH_API at::Tensor & _to_dense_out(const at::Tensor & self, c10::optional<at::ScalarType> dtype, at::Tensor & out);
 TORCH_API at::Tensor sparse_to_dense(const at::Tensor & self, c10::optional<at::ScalarType> dtype=c10::nullopt);
 TORCH_API at::Tensor sparse_compressed_to_dense(const at::Tensor & self, c10::optional<at::ScalarType> dtype=c10::nullopt);
 TORCH_API at::Tensor mkldnn_to_dense(const at::Tensor & self, c10::optional<at::ScalarType> dtype=c10::nullopt);
-
 } // namespace native
 } // namespace at

@@ -16,10 +16,9 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor masked_scatter(const at::Tensor & self, const at::Tensor & mask, const at::Tensor & source);
+TORCH_API at::Tensor & masked_scatter_out(const at::Tensor & self, const at::Tensor & mask, const at::Tensor & source, at::Tensor & out);
 TORCH_API at::Tensor & masked_scatter__cpu(at::Tensor & self, const at::Tensor & mask, const at::Tensor & source);
 TORCH_API at::Tensor & masked_scatter__cuda(at::Tensor & self, const at::Tensor & mask, const at::Tensor & source);
-
 } // namespace native
 } // namespace at

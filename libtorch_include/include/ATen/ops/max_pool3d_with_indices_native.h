@@ -16,11 +16,9 @@
 
 namespace at {
 namespace native {
-
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> max_pool3d_with_indices_cpu(const at::Tensor & self, at::IntArrayRef kernel_size, at::IntArrayRef stride={}, at::IntArrayRef padding=0, at::IntArrayRef dilation=1, bool ceil_mode=false);
 TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> max_pool3d_with_indices_out_cpu(const at::Tensor & self, at::IntArrayRef kernel_size, at::IntArrayRef stride, at::IntArrayRef padding, at::IntArrayRef dilation, bool ceil_mode, at::Tensor & out, at::Tensor & indices);
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> max_pool3d_with_indices_cuda(const at::Tensor & self, at::IntArrayRef kernel_size, at::IntArrayRef stride={}, at::IntArrayRef padding=0, at::IntArrayRef dilation=1, bool ceil_mode=false);
 TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> max_pool3d_with_indices_out_cuda(const at::Tensor & self, at::IntArrayRef kernel_size, at::IntArrayRef stride, at::IntArrayRef padding, at::IntArrayRef dilation, bool ceil_mode, at::Tensor & out, at::Tensor & indices);
-
 } // namespace native
 } // namespace at

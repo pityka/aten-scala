@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor special_round(const at::Tensor & self, int64_t decimals=0);
 TORCH_API at::Tensor & special_round_out(const at::Tensor & self, int64_t decimals, at::Tensor & out);
-
 } // namespace native
 } // namespace at

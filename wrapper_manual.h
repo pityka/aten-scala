@@ -1,3 +1,4 @@
+#pragma once
 #include <jni.h>   
 
 extern jclass tensorClass;
@@ -14,3 +15,5 @@ extern jmethodID ncclCommCtor;
 
 
 std::string jstring2string(JNIEnv *env, jstring jStr);
+
+

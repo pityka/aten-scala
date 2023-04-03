@@ -25,4 +25,15 @@ struct TORCH_API batch_norm_stats {
   static ::std::tuple<at::Tensor,at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & input, double eps);
 };
 
+struct TORCH_API batch_norm_stats_out {
+  using schema = ::std::tuple<at::Tensor &,at::Tensor &> (const at::Tensor &, double, at::Tensor &, at::Tensor &);
+  using ptr_schema = schema*;
+  // See Note [static constexpr char* members for windows NVCC]
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::batch_norm_stats")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "batch_norm_stats.out(Tensor input, float eps, *, Tensor(a!) out0, Tensor(b!) out1) -> (Tensor(a!), Tensor(b!))")
+  static ::std::tuple<at::Tensor &,at::Tensor &> call(const at::Tensor & input, double eps, at::Tensor & out0, at::Tensor & out1);
+  static ::std::tuple<at::Tensor &,at::Tensor &> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & input, double eps, at::Tensor & out0, at::Tensor & out1);
+};
+
 }} // namespace at::_ops

@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::combinations(Tensor self, int r=2, bool with_replacement=False) -> Tensor
-TORCH_API inline at::Tensor combinations(const at::Tensor & self, int64_t r=2, bool with_replacement=false) {
+inline at::Tensor combinations(const at::Tensor & self, int64_t r=2, bool with_replacement=false) {
     return at::_ops::combinations::call(self, r, with_replacement);
 }
 

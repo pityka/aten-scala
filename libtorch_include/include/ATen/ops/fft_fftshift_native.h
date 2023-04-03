@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor fft_fftshift(const at::Tensor & self, at::OptionalIntArrayRef dim=c10::nullopt);
-
 } // namespace native
 } // namespace at

@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::is_vulkan_available() -> bool
-TORCH_API inline bool is_vulkan_available() {
+inline bool is_vulkan_available() {
     return at::_ops::is_vulkan_available::call();
 }
 

@@ -16,16 +16,16 @@
 
 namespace at {
 namespace native {
-
-TORCH_API at::Tensor empty(at::IntArrayRef size, c10::optional<at::DimnameList> names, c10::optional<at::ScalarType> dtype={}, c10::optional<at::Layout> layout={}, c10::optional<at::Device> device={}, c10::optional<bool> pin_memory={}, c10::optional<at::MemoryFormat> memory_format=c10::nullopt);
+TORCH_API at::Tensor empty_names(at::IntArrayRef size, c10::optional<at::DimnameList> names, c10::optional<at::ScalarType> dtype={}, c10::optional<at::Layout> layout={}, c10::optional<at::Device> device={}, c10::optional<bool> pin_memory={}, c10::optional<at::MemoryFormat> memory_format=c10::nullopt);
+TORCH_API at::Tensor & empty_names_out(at::IntArrayRef size, c10::optional<at::DimnameList> names, c10::optional<at::MemoryFormat> memory_format, at::Tensor & out);
 TORCH_API at::Tensor & empty_out(at::IntArrayRef size, c10::optional<at::MemoryFormat> memory_format, at::Tensor & out);
 TORCH_API at::Tensor empty_cpu(at::IntArrayRef size, c10::optional<at::ScalarType> dtype={}, c10::optional<at::Layout> layout={}, c10::optional<at::Device> device={}, c10::optional<bool> pin_memory={}, c10::optional<at::MemoryFormat> memory_format=c10::nullopt);
 TORCH_API at::Tensor empty_cuda(at::IntArrayRef size, c10::optional<at::ScalarType> dtype={}, c10::optional<at::Layout> layout={}, c10::optional<at::Device> device={}, c10::optional<bool> pin_memory={}, c10::optional<at::MemoryFormat> memory_format=c10::nullopt);
 TORCH_API at::Tensor empty_sparse(at::IntArrayRef size, c10::optional<at::ScalarType> dtype={}, c10::optional<at::Layout> layout={}, c10::optional<at::Device> device={}, c10::optional<bool> pin_memory={}, c10::optional<at::MemoryFormat> memory_format=c10::nullopt);
 TORCH_API at::Tensor empty_sparse_compressed(at::IntArrayRef size, c10::optional<at::ScalarType> dtype={}, c10::optional<at::Layout> layout={}, c10::optional<at::Device> device={}, c10::optional<bool> pin_memory={}, c10::optional<at::MemoryFormat> memory_format=c10::nullopt);
-TORCH_API at::Tensor empty_meta(at::IntArrayRef size, c10::optional<at::ScalarType> dtype={}, c10::optional<at::Layout> layout={}, c10::optional<at::Device> device={}, c10::optional<bool> pin_memory={}, c10::optional<at::MemoryFormat> memory_format=c10::nullopt);
+TORCH_API at::Tensor empty_mps(at::IntArrayRef size, c10::optional<at::ScalarType> dtype={}, c10::optional<at::Layout> layout={}, c10::optional<at::Device> device={}, c10::optional<bool> pin_memory={}, c10::optional<at::MemoryFormat> memory_format=c10::nullopt);
+TORCH_API at::Tensor empty_meta_symint(c10::SymIntArrayRef size, c10::optional<at::ScalarType> dtype={}, c10::optional<at::Layout> layout={}, c10::optional<at::Device> device={}, c10::optional<bool> pin_memory={}, c10::optional<at::MemoryFormat> memory_format=c10::nullopt);
 TORCH_API at::Tensor empty_mkldnn(at::IntArrayRef size, c10::optional<at::ScalarType> dtype={}, c10::optional<at::Layout> layout={}, c10::optional<at::Device> device={}, c10::optional<bool> pin_memory={}, c10::optional<at::MemoryFormat> memory_format=c10::nullopt);
 TORCH_API at::Tensor empty_unknown_quantized(at::IntArrayRef size, c10::optional<at::ScalarType> dtype={}, c10::optional<at::Layout> layout={}, c10::optional<at::Device> device={}, c10::optional<bool> pin_memory={}, c10::optional<at::MemoryFormat> memory_format=c10::nullopt);
-
 } // namespace native
 } // namespace at

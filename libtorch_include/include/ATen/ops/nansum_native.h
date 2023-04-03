@@ -16,9 +16,9 @@
 
 namespace at {
 namespace native {
-
-TORCH_API at::Tensor nansum(const at::Tensor & self, at::IntArrayRef dim={}, bool keepdim=false, c10::optional<at::ScalarType> dtype=c10::nullopt);
-TORCH_API at::Tensor & nansum_out(const at::Tensor & self, at::IntArrayRef dim, bool keepdim, c10::optional<at::ScalarType> dtype, at::Tensor & out);
-
+TORCH_API at::Tensor nansum(const at::Tensor & self, at::OptionalIntArrayRef dim=c10::nullopt, bool keepdim=false, c10::optional<at::ScalarType> dtype=c10::nullopt);
+TORCH_API at::Tensor & nansum_out(const at::Tensor & self, at::OptionalIntArrayRef dim, bool keepdim, c10::optional<at::ScalarType> dtype, at::Tensor & out);
+TORCH_API at::Tensor nansum_mps(const at::Tensor & self, at::OptionalIntArrayRef dim=c10::nullopt, bool keepdim=false, c10::optional<at::ScalarType> dtype=c10::nullopt);
+TORCH_API at::Tensor & nansum_out_mps(const at::Tensor & self, at::OptionalIntArrayRef dim, bool keepdim, c10::optional<at::ScalarType> dtype, at::Tensor & out);
 } // namespace native
 } // namespace at

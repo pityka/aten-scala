@@ -36,13 +36,13 @@ struct TORCH_API embedding_renorm_out {
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & indices, double max_norm, double norm_type, at::Tensor & out);
 };
 
-struct TORCH_API embedding_renorm_functional {
+struct TORCH_API embedding_renorm {
   using schema = at::Tensor (const at::Tensor &, const at::Tensor &, double, double);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::embedding_renorm")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "functional")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "embedding_renorm.functional(Tensor self, Tensor indices, float max_norm, float norm_type) -> Tensor")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "embedding_renorm(Tensor self, Tensor indices, float max_norm, float norm_type) -> Tensor")
   static at::Tensor call(const at::Tensor & self, const at::Tensor & indices, double max_norm, double norm_type);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & indices, double max_norm, double norm_type);
 };

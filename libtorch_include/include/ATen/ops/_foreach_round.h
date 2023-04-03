@@ -22,29 +22,23 @@
 namespace at {
 
 
-// aten::_foreach_round(Tensor[] tensors) -> Tensor[]
-TORCH_API inline ::std::vector<at::Tensor> _foreach_round(at::TensorList tensors) {
-    return at::_ops::_foreach_round::call(tensors);
+// aten::_foreach_round(Tensor[] self) -> Tensor[]
+inline ::std::vector<at::Tensor> _foreach_round(at::TensorList self) {
+    return at::_ops::_foreach_round::call(self);
 }
 
 // aten::_foreach_round_(Tensor(a!)[] self) -> ()
-TORCH_API inline void _foreach_round_(at::TensorList self) {
+inline void _foreach_round_(at::TensorList self) {
     return at::_ops::_foreach_round_::call(self);
 }
 
 // aten::_foreach_round.out(Tensor[] self, *, Tensor(a!)[] out) -> ()
-TORCH_API inline void _foreach_round_out(at::TensorList out, at::TensorList self) {
+inline void _foreach_round_out(at::TensorList out, at::TensorList self) {
     return at::_ops::_foreach_round_out::call(self, out);
 }
-
 // aten::_foreach_round.out(Tensor[] self, *, Tensor(a!)[] out) -> ()
-TORCH_API inline void _foreach_round_outf(at::TensorList self, at::TensorList out) {
+inline void _foreach_round_outf(at::TensorList self, at::TensorList out) {
     return at::_ops::_foreach_round_out::call(self, out);
-}
-
-// aten::_foreach_round.functional(Tensor[] self) -> Tensor[] self_out
-TORCH_API inline ::std::vector<at::Tensor> _foreach_round_functional(at::TensorList self) {
-    return at::_ops::_foreach_round_functional::call(self);
 }
 
 }

@@ -16,11 +16,9 @@
 
 namespace at {
 namespace native {
-
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> cummin(const at::Tensor & self, int64_t dim);
 TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> cummin_out(const at::Tensor & self, int64_t dim, at::Tensor & values, at::Tensor & indices);
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> cummin(const at::Tensor & self, at::Dimname dim);
 TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> cummin_out(const at::Tensor & self, at::Dimname dim, at::Tensor & values, at::Tensor & indices);
-
 } // namespace native
 } // namespace at

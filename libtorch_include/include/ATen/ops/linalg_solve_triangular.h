@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::linalg_solve_triangular.out(Tensor self, Tensor B, *, bool upper, bool left=True, bool unitriangular=False, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & linalg_solve_triangular_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & B, bool upper, bool left=true, bool unitriangular=false) {
+inline at::Tensor & linalg_solve_triangular_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & B, bool upper, bool left=true, bool unitriangular=false) {
     return at::_ops::linalg_solve_triangular_out::call(self, B, upper, left, unitriangular, out);
 }
-
 // aten::linalg_solve_triangular.out(Tensor self, Tensor B, *, bool upper, bool left=True, bool unitriangular=False, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & linalg_solve_triangular_outf(const at::Tensor & self, const at::Tensor & B, bool upper, bool left, bool unitriangular, at::Tensor & out) {
+inline at::Tensor & linalg_solve_triangular_outf(const at::Tensor & self, const at::Tensor & B, bool upper, bool left, bool unitriangular, at::Tensor & out) {
     return at::_ops::linalg_solve_triangular_out::call(self, B, upper, left, unitriangular, out);
 }
 
 // aten::linalg_solve_triangular(Tensor self, Tensor B, *, bool upper, bool left=True, bool unitriangular=False) -> Tensor
-TORCH_API inline at::Tensor linalg_solve_triangular(const at::Tensor & self, const at::Tensor & B, bool upper, bool left=true, bool unitriangular=false) {
+inline at::Tensor linalg_solve_triangular(const at::Tensor & self, const at::Tensor & B, bool upper, bool left=true, bool unitriangular=false) {
     return at::_ops::linalg_solve_triangular::call(self, B, upper, left, unitriangular);
 }
 

@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::resolve_conj(Tensor(a) self) -> Tensor(a)
-TORCH_API inline at::Tensor resolve_conj(const at::Tensor & self) {
+inline at::Tensor resolve_conj(const at::Tensor & self) {
     return at::_ops::resolve_conj::call(self);
 }
 

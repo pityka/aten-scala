@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor cosine_embedding_loss(const at::Tensor & input1, const at::Tensor & input2, const at::Tensor & target, double margin=0.0, int64_t reduction=at::Reduction::Mean);
-
 } // namespace native
 } // namespace at

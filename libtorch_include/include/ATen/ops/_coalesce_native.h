@@ -16,9 +16,8 @@
 
 namespace at {
 namespace native {
-
+TORCH_API at::Tensor & _coalesce_out(const at::Tensor & self, at::Tensor & out);
 TORCH_API at::Tensor _coalesce_sparse_cpu(const at::Tensor & self);
 TORCH_API at::Tensor _coalesce_sparse_cuda(const at::Tensor & self);
-
 } // namespace native
 } // namespace at

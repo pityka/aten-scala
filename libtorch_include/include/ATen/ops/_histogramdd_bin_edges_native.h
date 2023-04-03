@@ -16,8 +16,7 @@
 
 namespace at {
 namespace native {
-
+TORCH_API void _histogramdd_bin_edges_out(const at::Tensor & self, at::IntArrayRef bins, c10::optional<at::ArrayRef<double>> range, const c10::optional<at::Tensor> & weight, bool density, at::TensorList out);
 TORCH_API ::std::vector<at::Tensor> histogramdd_bin_edges_cpu(const at::Tensor & self, at::IntArrayRef bins, c10::optional<at::ArrayRef<double>> range=c10::nullopt, const c10::optional<at::Tensor> & weight={}, bool density=false);
-
 } // namespace native
 } // namespace at

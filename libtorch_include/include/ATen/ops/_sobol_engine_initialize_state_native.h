@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor & _sobol_engine_initialize_state_(at::Tensor & self, int64_t dimension);
-
 } // namespace native
 } // namespace at

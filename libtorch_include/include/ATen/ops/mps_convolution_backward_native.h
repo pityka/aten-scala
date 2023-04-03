@@ -16,8 +16,7 @@
 
 namespace at {
 namespace native {
-
-
-
+TORCH_API ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> mps_convolution_backward_out(const at::Tensor & self, const at::Tensor & grad_output, const at::Tensor & weight, at::IntArrayRef padding, at::IntArrayRef stride, at::IntArrayRef dilation, int64_t groups, ::std::array<bool,3> output_mask, at::Tensor & out0, at::Tensor & out1, at::Tensor & out2);
+TORCH_API ::std::tuple<at::Tensor,at::Tensor,at::Tensor> mps_convolution_backward(const at::Tensor & self, const at::Tensor & grad_output, const at::Tensor & weight, at::IntArrayRef padding, at::IntArrayRef stride, at::IntArrayRef dilation, int64_t groups, ::std::array<bool,3> output_mask);
 } // namespace native
 } // namespace at

@@ -16,10 +16,10 @@
 
 namespace at {
 namespace native {
-
+TORCH_API at::Tensor & dequantize_self_out(const at::Tensor & self, at::Tensor & out);
 TORCH_API at::Tensor dequantize_cpu_or_cuda(const at::Tensor & self);
 TORCH_API at::Tensor dequantize_quantized(const at::Tensor & self);
+TORCH_API void dequantize_tensors_out(at::TensorList tensors, at::TensorList out);
 TORCH_API ::std::vector<at::Tensor> dequantize_tensors_quantized_cpu(at::TensorList tensors);
-
 } // namespace native
 } // namespace at

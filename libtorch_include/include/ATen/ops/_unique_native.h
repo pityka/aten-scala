@@ -16,9 +16,8 @@
 
 namespace at {
 namespace native {
-
+TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> _unique_out(const at::Tensor & self, bool sorted, bool return_inverse, at::Tensor & out0, at::Tensor & out1);
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> _unique_cpu(const at::Tensor & self, bool sorted=true, bool return_inverse=false);
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> _unique_cuda(const at::Tensor & self, bool sorted=true, bool return_inverse=false);
-
 } // namespace native
 } // namespace at

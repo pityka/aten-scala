@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor & _sobol_engine_scramble_(at::Tensor & self, const at::Tensor & ltm, int64_t dimension);
-
 } // namespace native
 } // namespace at

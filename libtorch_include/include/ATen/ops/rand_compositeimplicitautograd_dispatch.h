@@ -17,18 +17,10 @@ namespace at {
 
 namespace compositeimplicitautograd {
 
-TORCH_API at::Tensor rand(at::IntArrayRef size, c10::optional<at::DimnameList> names, at::TensorOptions options={});
-TORCH_API at::Tensor rand(at::IntArrayRef size, c10::optional<at::DimnameList> names, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory);
-TORCH_API at::Tensor rand(at::IntArrayRef size, c10::optional<at::Generator> generator, c10::optional<at::DimnameList> names, at::TensorOptions options={});
-TORCH_API at::Tensor rand(at::IntArrayRef size, c10::optional<at::Generator> generator, c10::optional<at::DimnameList> names, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory);
-TORCH_API at::Tensor rand(at::IntArrayRef size, at::TensorOptions options={});
-TORCH_API at::Tensor rand(at::IntArrayRef size, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory);
-TORCH_API at::Tensor & rand_out(at::Tensor & out, at::IntArrayRef size);
-TORCH_API at::Tensor & rand_outf(at::IntArrayRef size, at::Tensor & out);
-TORCH_API at::Tensor rand(at::IntArrayRef size, c10::optional<at::Generator> generator, at::TensorOptions options={});
-TORCH_API at::Tensor rand(at::IntArrayRef size, c10::optional<at::Generator> generator, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory);
 TORCH_API at::Tensor & rand_out(at::Tensor & out, at::IntArrayRef size, c10::optional<at::Generator> generator);
 TORCH_API at::Tensor & rand_outf(at::IntArrayRef size, c10::optional<at::Generator> generator, at::Tensor & out);
+TORCH_API at::Tensor & rand_symint_out(at::Tensor & out, c10::SymIntArrayRef size, c10::optional<at::Generator> generator);
+TORCH_API at::Tensor & rand_symint_outf(c10::SymIntArrayRef size, c10::optional<at::Generator> generator, at::Tensor & out);
 
 } // namespace compositeimplicitautograd
 } // namespace at

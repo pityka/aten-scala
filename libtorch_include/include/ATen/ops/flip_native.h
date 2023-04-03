@@ -16,8 +16,8 @@
 
 namespace at {
 namespace native {
-
+TORCH_API at::Tensor & flip_out(const at::Tensor & self, at::IntArrayRef dims, at::Tensor & out);
 TORCH_API at::Tensor flip(const at::Tensor & self, at::IntArrayRef dims);
-
+TORCH_API at::Tensor flip_mps(const at::Tensor & self, at::IntArrayRef dims);
 } // namespace native
 } // namespace at

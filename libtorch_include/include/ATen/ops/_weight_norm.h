@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::_weight_norm(Tensor v, Tensor g, int dim=0) -> Tensor
-TORCH_API inline at::Tensor _weight_norm(const at::Tensor & v, const at::Tensor & g, int64_t dim=0) {
+inline at::Tensor _weight_norm(const at::Tensor & v, const at::Tensor & g, int64_t dim=0) {
     return at::_ops::_weight_norm::call(v, g, dim);
 }
 

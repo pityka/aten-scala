@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::special_logit(Tensor self, float? eps=None) -> Tensor
-TORCH_API inline at::Tensor special_logit(const at::Tensor & self, c10::optional<double> eps=c10::nullopt) {
+inline at::Tensor special_logit(const at::Tensor & self, c10::optional<double> eps=c10::nullopt) {
     return at::_ops::special_logit::call(self, eps);
 }
 
 // aten::special_logit.out(Tensor self, float? eps=None, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & special_logit_out(at::Tensor & out, const at::Tensor & self, c10::optional<double> eps=c10::nullopt) {
+inline at::Tensor & special_logit_out(at::Tensor & out, const at::Tensor & self, c10::optional<double> eps=c10::nullopt) {
     return at::_ops::special_logit_out::call(self, eps, out);
 }
-
 // aten::special_logit.out(Tensor self, float? eps=None, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & special_logit_outf(const at::Tensor & self, c10::optional<double> eps, at::Tensor & out) {
+inline at::Tensor & special_logit_outf(const at::Tensor & self, c10::optional<double> eps, at::Tensor & out) {
     return at::_ops::special_logit_out::call(self, eps, out);
 }
 

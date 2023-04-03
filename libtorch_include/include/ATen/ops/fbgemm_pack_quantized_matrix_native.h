@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor fbgemm_pack_quantized_matrix(const at::Tensor & input);
 TORCH_API at::Tensor fbgemm_pack_quantized_matrix(const at::Tensor & input, int64_t K, int64_t N);
-
 } // namespace native
 } // namespace at

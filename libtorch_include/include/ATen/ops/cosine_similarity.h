@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::cosine_similarity(Tensor x1, Tensor x2, int dim=1, float eps=1e-08) -> Tensor
-TORCH_API inline at::Tensor cosine_similarity(const at::Tensor & x1, const at::Tensor & x2, int64_t dim=1, double eps=1e-08) {
+inline at::Tensor cosine_similarity(const at::Tensor & x1, const at::Tensor & x2, int64_t dim=1, double eps=1e-08) {
     return at::_ops::cosine_similarity::call(x1, x2, dim, eps);
 }
 

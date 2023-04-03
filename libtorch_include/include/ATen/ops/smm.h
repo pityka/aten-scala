@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::smm(Tensor self, Tensor mat2) -> Tensor
-TORCH_API inline at::Tensor smm(const at::Tensor & self, const at::Tensor & mat2) {
+inline at::Tensor smm(const at::Tensor & self, const at::Tensor & mat2) {
     return at::_ops::smm::call(self, mat2);
 }
 

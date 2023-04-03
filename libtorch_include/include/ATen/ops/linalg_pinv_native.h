@@ -16,15 +16,13 @@
 
 namespace at {
 namespace native {
-
-TORCH_API at::Tensor linalg_pinv(const at::Tensor & self, const c10::optional<at::Tensor> & atol={}, const c10::optional<at::Tensor> & rtol={}, bool hermitian=false);
 TORCH_API at::Tensor & linalg_pinv_out(const at::Tensor & self, const c10::optional<at::Tensor> & atol, const c10::optional<at::Tensor> & rtol, bool hermitian, at::Tensor & out);
+TORCH_API at::Tensor linalg_pinv(const at::Tensor & self, const c10::optional<at::Tensor> & atol={}, const c10::optional<at::Tensor> & rtol={}, bool hermitian=false);
 TORCH_API at::Tensor linalg_pinv(const at::Tensor & self, c10::optional<double> atol=c10::nullopt, c10::optional<double> rtol=c10::nullopt, bool hermitian=false);
 TORCH_API at::Tensor & linalg_pinv_out(const at::Tensor & self, c10::optional<double> atol, c10::optional<double> rtol, bool hermitian, at::Tensor & out);
 TORCH_API at::Tensor linalg_pinv(const at::Tensor & self, double rcond, bool hermitian=false);
 TORCH_API at::Tensor & linalg_pinv_out(const at::Tensor & self, double rcond, bool hermitian, at::Tensor & out);
 TORCH_API at::Tensor linalg_pinv(const at::Tensor & self, const at::Tensor & rcond, bool hermitian=false);
 TORCH_API at::Tensor & linalg_pinv_out(const at::Tensor & self, const at::Tensor & rcond, bool hermitian, at::Tensor & out);
-
 } // namespace native
 } // namespace at

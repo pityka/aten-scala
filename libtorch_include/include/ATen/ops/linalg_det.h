@@ -22,19 +22,18 @@
 namespace at {
 
 
-// aten::linalg_det(Tensor self) -> Tensor
-TORCH_API inline at::Tensor linalg_det(const at::Tensor & self) {
-    return at::_ops::linalg_det::call(self);
+// aten::linalg_det(Tensor A) -> Tensor
+inline at::Tensor linalg_det(const at::Tensor & A) {
+    return at::_ops::linalg_det::call(A);
 }
 
-// aten::linalg_det.out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & linalg_det_out(at::Tensor & out, const at::Tensor & self) {
-    return at::_ops::linalg_det_out::call(self, out);
+// aten::linalg_det.out(Tensor A, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & linalg_det_out(at::Tensor & out, const at::Tensor & A) {
+    return at::_ops::linalg_det_out::call(A, out);
 }
-
-// aten::linalg_det.out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & linalg_det_outf(const at::Tensor & self, at::Tensor & out) {
-    return at::_ops::linalg_det_out::call(self, out);
+// aten::linalg_det.out(Tensor A, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & linalg_det_outf(const at::Tensor & A, at::Tensor & out) {
+    return at::_ops::linalg_det_out::call(A, out);
 }
 
 }

@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::to_mkldnn_backward(Tensor grad, Tensor input) -> Tensor
-TORCH_API inline at::Tensor to_mkldnn_backward(const at::Tensor & grad, const at::Tensor & input) {
+inline at::Tensor to_mkldnn_backward(const at::Tensor & grad, const at::Tensor & input) {
     return at::_ops::to_mkldnn_backward::call(grad, input);
 }
 

@@ -16,10 +16,9 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor sparse_coo_tensor(at::IntArrayRef size, c10::optional<at::ScalarType> dtype={}, c10::optional<at::Layout> layout={}, c10::optional<at::Device> device={}, c10::optional<bool> pin_memory={});
+TORCH_API at::Tensor & sparse_coo_tensor_size_out(at::IntArrayRef size, at::Tensor & out);
 TORCH_API at::Tensor sparse_coo_tensor(const at::Tensor & indices, const at::Tensor & values, c10::optional<at::ScalarType> dtype={}, c10::optional<at::Layout> layout={}, c10::optional<at::Device> device={}, c10::optional<bool> pin_memory={});
 TORCH_API at::Tensor sparse_coo_tensor(const at::Tensor & indices, const at::Tensor & values, at::IntArrayRef size, c10::optional<at::ScalarType> dtype={}, c10::optional<at::Layout> layout={}, c10::optional<at::Device> device={}, c10::optional<bool> pin_memory={});
-
 } // namespace native
 } // namespace at

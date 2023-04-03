@@ -23,12 +23,12 @@ namespace at {
 
 
 // aten::__or__.Scalar(Tensor self, Scalar other) -> Tensor
-TORCH_API inline at::Tensor __or__(const at::Tensor & self, const at::Scalar & other) {
+inline at::Tensor __or__(const at::Tensor & self, const at::Scalar & other) {
     return at::_ops::__or___Scalar::call(self, other);
 }
 
 // aten::__or__.Tensor(Tensor self, Tensor other) -> Tensor
-TORCH_API inline at::Tensor __or__(const at::Tensor & self, const at::Tensor & other) {
+inline at::Tensor __or__(const at::Tensor & self, const at::Tensor & other) {
     return at::_ops::__or___Tensor::call(self, other);
 }
 

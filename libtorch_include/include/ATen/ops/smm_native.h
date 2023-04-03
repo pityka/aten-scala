@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor smm(const at::Tensor & self, const at::Tensor & mat2);
-
 } // namespace native
 } // namespace at

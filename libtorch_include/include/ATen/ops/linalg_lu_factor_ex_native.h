@@ -16,10 +16,8 @@
 
 namespace at {
 namespace native {
-
 struct TORCH_API structured_linalg_lu_factor_ex_out : public at::meta::structured_linalg_lu_factor_ex {
 void impl(const at::Tensor & A, bool pivot, bool check_errors, const at::Tensor & LU, const at::Tensor & pivots, const at::Tensor & info);
 };
-
 } // namespace native
 } // namespace at

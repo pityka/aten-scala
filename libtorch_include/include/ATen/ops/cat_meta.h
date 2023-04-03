@@ -107,7 +107,7 @@ bool all_same_sizes_and_stride;
 at::MemoryFormat memory_format;
             };
     using meta_return_ty = precompute_out <true, true, true, true, true, true>;
-    meta_return_ty meta(at::ITensorListRef tensors, int64_t dim);
+    meta_return_ty meta(const at::ITensorListRef & tensors, int64_t dim);
 };
 
 } // namespace native

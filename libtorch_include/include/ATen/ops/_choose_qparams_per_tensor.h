@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::_choose_qparams_per_tensor(Tensor self, bool reduce_range=False) -> (float, int)
-TORCH_API inline ::std::tuple<double,int64_t> _choose_qparams_per_tensor(const at::Tensor & self, bool reduce_range=false) {
+inline ::std::tuple<double,int64_t> _choose_qparams_per_tensor(const at::Tensor & self, bool reduce_range=false) {
     return at::_ops::_choose_qparams_per_tensor::call(self, reduce_range);
 }
 

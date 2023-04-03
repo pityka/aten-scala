@@ -16,11 +16,9 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor _fft_c2c_mkl(const at::Tensor & self, at::IntArrayRef dim, int64_t normalization, bool forward);
 TORCH_API at::Tensor & _fft_c2c_mkl_out(const at::Tensor & self, at::IntArrayRef dim, int64_t normalization, bool forward, at::Tensor & out);
 TORCH_API at::Tensor _fft_c2c_cufft(const at::Tensor & self, at::IntArrayRef dim, int64_t normalization, bool forward);
 TORCH_API at::Tensor & _fft_c2c_cufft_out(const at::Tensor & self, at::IntArrayRef dim, int64_t normalization, bool forward, at::Tensor & out);
-
 } // namespace native
 } // namespace at

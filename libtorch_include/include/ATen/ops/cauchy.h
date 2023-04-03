@@ -23,18 +23,17 @@ namespace at {
 
 
 // aten::cauchy.out(Tensor self, float median=0, float sigma=1, *, Generator? generator=None, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & cauchy_out(at::Tensor & out, const at::Tensor & self, double median=0, double sigma=1, c10::optional<at::Generator> generator=c10::nullopt) {
+inline at::Tensor & cauchy_out(at::Tensor & out, const at::Tensor & self, double median=0, double sigma=1, c10::optional<at::Generator> generator=c10::nullopt) {
     return at::_ops::cauchy_out::call(self, median, sigma, generator, out);
 }
-
 // aten::cauchy.out(Tensor self, float median=0, float sigma=1, *, Generator? generator=None, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & cauchy_outf(const at::Tensor & self, double median, double sigma, c10::optional<at::Generator> generator, at::Tensor & out) {
+inline at::Tensor & cauchy_outf(const at::Tensor & self, double median, double sigma, c10::optional<at::Generator> generator, at::Tensor & out) {
     return at::_ops::cauchy_out::call(self, median, sigma, generator, out);
 }
 
-// aten::cauchy.functional(Tensor self, float median=0, float sigma=1, *, Generator? generator=None) -> Tensor
-TORCH_API inline at::Tensor cauchy_functional(const at::Tensor & self, double median=0, double sigma=1, c10::optional<at::Generator> generator=c10::nullopt) {
-    return at::_ops::cauchy_functional::call(self, median, sigma, generator);
+// aten::cauchy(Tensor self, float median=0, float sigma=1, *, Generator? generator=None) -> Tensor
+inline at::Tensor cauchy(const at::Tensor & self, double median=0, double sigma=1, c10::optional<at::Generator> generator=c10::nullopt) {
+    return at::_ops::cauchy::call(self, median, sigma, generator);
 }
 
 }

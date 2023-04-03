@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::fbgemm_pack_gemm_matrix_fp16(Tensor input) -> Tensor
-TORCH_API inline at::Tensor fbgemm_pack_gemm_matrix_fp16(const at::Tensor & input) {
+inline at::Tensor fbgemm_pack_gemm_matrix_fp16(const at::Tensor & input) {
     return at::_ops::fbgemm_pack_gemm_matrix_fp16::call(input);
 }
 

@@ -15,25 +15,25 @@ namespace _ops {
 
 
 struct TORCH_API linalg_svdvals {
-  using schema = at::Tensor (const at::Tensor &);
+  using schema = at::Tensor (const at::Tensor &, c10::optional<c10::string_view>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::linalg_svdvals")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "linalg_svdvals(Tensor A) -> Tensor")
-  static at::Tensor call(const at::Tensor & A);
-  static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & A);
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "linalg_svdvals(Tensor A, *, str? driver=None) -> Tensor")
+  static at::Tensor call(const at::Tensor & A, c10::optional<c10::string_view> driver);
+  static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & A, c10::optional<c10::string_view> driver);
 };
 
 struct TORCH_API linalg_svdvals_out {
-  using schema = at::Tensor & (const at::Tensor &, at::Tensor &);
+  using schema = at::Tensor & (const at::Tensor &, c10::optional<c10::string_view>, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::linalg_svdvals")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "linalg_svdvals.out(Tensor A, *, Tensor(a!) out) -> Tensor(a!)")
-  static at::Tensor & call(const at::Tensor & A, at::Tensor & out);
-  static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & A, at::Tensor & out);
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "linalg_svdvals.out(Tensor A, *, str? driver=None, Tensor(a!) out) -> Tensor(a!)")
+  static at::Tensor & call(const at::Tensor & A, c10::optional<c10::string_view> driver, at::Tensor & out);
+  static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & A, c10::optional<c10::string_view> driver, at::Tensor & out);
 };
 
 }} // namespace at::_ops

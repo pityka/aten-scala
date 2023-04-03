@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor ger(const at::Tensor & self, const at::Tensor & vec2);
 TORCH_API at::Tensor & ger_out(const at::Tensor & self, const at::Tensor & vec2, at::Tensor & out);
-
 } // namespace native
 } // namespace at

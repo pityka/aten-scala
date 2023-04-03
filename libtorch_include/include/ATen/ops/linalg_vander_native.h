@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor linalg_vander(const at::Tensor & x, c10::optional<int64_t> N=c10::nullopt);
-
 } // namespace native
 } // namespace at

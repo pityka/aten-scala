@@ -16,13 +16,14 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor rad2deg(const at::Tensor & self);
 TORCH_API at::Tensor & rad2deg_out(const at::Tensor & self, at::Tensor & out);
 TORCH_API at::Tensor & rad2deg_(at::Tensor & self);
+TORCH_API at::Tensor rad2deg_sparse(const at::Tensor & self);
+TORCH_API at::Tensor & rad2deg_sparse_out(const at::Tensor & self, at::Tensor & out);
+TORCH_API at::Tensor & rad2deg_sparse_(at::Tensor & self);
 TORCH_API at::Tensor rad2deg_sparse_csr(const at::Tensor & self);
 TORCH_API at::Tensor & rad2deg_sparse_csr_out(const at::Tensor & self, at::Tensor & out);
 TORCH_API at::Tensor & rad2deg_sparse_csr_(at::Tensor & self);
-
 } // namespace native
 } // namespace at

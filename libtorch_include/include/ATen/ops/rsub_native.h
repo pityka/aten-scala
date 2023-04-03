@@ -16,9 +16,9 @@
 
 namespace at {
 namespace native {
-
+TORCH_API at::Tensor & rsub_Tensor_out(const at::Tensor & self, const at::Tensor & other, const at::Scalar & alpha, at::Tensor & out);
 TORCH_API at::Tensor rsub(const at::Tensor & self, const at::Tensor & other, const at::Scalar & alpha=1);
 TORCH_API at::Tensor rsub(const at::Tensor & self, const at::Scalar & other, const at::Scalar & alpha=1);
-
+TORCH_API at::Tensor & rsub_Scalar_out(const at::Tensor & self, const at::Scalar & other, const at::Scalar & alpha, at::Tensor & out);
 } // namespace native
 } // namespace at

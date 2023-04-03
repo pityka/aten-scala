@@ -16,10 +16,8 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor arctan2(const at::Tensor & self, const at::Tensor & other);
 TORCH_API at::Tensor & arctan2_out(const at::Tensor & self, const at::Tensor & other, at::Tensor & out);
 TORCH_API at::Tensor & arctan2_(at::Tensor & self, const at::Tensor & other);
-
 } // namespace native
 } // namespace at

@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::bilinear(Tensor input1, Tensor input2, Tensor weight, Tensor? bias=None) -> Tensor
-TORCH_API inline at::Tensor bilinear(const at::Tensor & input1, const at::Tensor & input2, const at::Tensor & weight, const c10::optional<at::Tensor> & bias={}) {
+inline at::Tensor bilinear(const at::Tensor & input1, const at::Tensor & input2, const at::Tensor & weight, const c10::optional<at::Tensor> & bias={}) {
     return at::_ops::bilinear::call(input1, input2, weight, bias);
 }
 

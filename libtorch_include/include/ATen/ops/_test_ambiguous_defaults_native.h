@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor _test_ambiguous_defaults(const at::Tensor & dummy, int64_t a=1, int64_t b=1);
 TORCH_API at::Tensor _test_ambiguous_defaults(const at::Tensor & dummy, int64_t a=2, c10::string_view b="2");
-
 } // namespace native
 } // namespace at

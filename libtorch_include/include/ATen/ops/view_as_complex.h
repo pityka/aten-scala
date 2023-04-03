@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::view_as_complex(Tensor(a) self) -> Tensor(a)
-TORCH_API inline at::Tensor view_as_complex(const at::Tensor & self) {
+inline at::Tensor view_as_complex(const at::Tensor & self) {
     return at::_ops::view_as_complex::call(self);
 }
 

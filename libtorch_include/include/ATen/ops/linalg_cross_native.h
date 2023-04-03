@@ -16,11 +16,9 @@
 
 namespace at {
 namespace native {
-
 struct TORCH_API structured_linalg_cross_out : public at::meta::structured_linalg_cross {
 void impl(const at::Tensor & self, const at::Tensor & other, int64_t dim, const at::Tensor & out);
 };
 TORCH_API at::Tensor linalg_cross_zerotensor(const at::Tensor & self, const at::Tensor & other, int64_t dim=-1);
-
 } // namespace native
 } // namespace at

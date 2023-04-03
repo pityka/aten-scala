@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::complex(Tensor real, Tensor imag) -> Tensor
-TORCH_API inline at::Tensor complex(const at::Tensor & real, const at::Tensor & imag) {
+inline at::Tensor complex(const at::Tensor & real, const at::Tensor & imag) {
     return at::_ops::complex::call(real, imag);
 }
 
 // aten::complex.out(Tensor real, Tensor imag, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & complex_out(at::Tensor & out, const at::Tensor & real, const at::Tensor & imag) {
+inline at::Tensor & complex_out(at::Tensor & out, const at::Tensor & real, const at::Tensor & imag) {
     return at::_ops::complex_out::call(real, imag, out);
 }
-
 // aten::complex.out(Tensor real, Tensor imag, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & complex_outf(const at::Tensor & real, const at::Tensor & imag, at::Tensor & out) {
+inline at::Tensor & complex_outf(const at::Tensor & real, const at::Tensor & imag, at::Tensor & out) {
     return at::_ops::complex_out::call(real, imag, out);
 }
 

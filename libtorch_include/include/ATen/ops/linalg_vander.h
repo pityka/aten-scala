@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::linalg_vander(Tensor x, *, int? N=None) -> Tensor
-TORCH_API inline at::Tensor linalg_vander(const at::Tensor & x, c10::optional<int64_t> N=c10::nullopt) {
+inline at::Tensor linalg_vander(const at::Tensor & x, c10::optional<int64_t> N=c10::nullopt) {
     return at::_ops::linalg_vander::call(x, N);
 }
 

@@ -16,10 +16,8 @@
 
 namespace at {
 namespace native {
-
 struct TORCH_API structured_hardshrink_backward_out : public at::meta::structured_hardshrink_backward {
 void impl(const at::Tensor & grad_out, const at::Tensor & self, const at::Scalar & lambd, const at::Tensor & grad_input);
 };
-
 } // namespace native
 } // namespace at

@@ -16,13 +16,14 @@
 
 namespace at {
 namespace native {
-
 struct TORCH_API structured_max_pool2d_with_indices_backward_out_cpu : public at::meta::structured_max_pool2d_with_indices_backward {
 void impl(const at::Tensor & grad_output, const at::Tensor & self, at::IntArrayRef kernel_size, at::IntArrayRef stride, at::IntArrayRef padding, at::IntArrayRef dilation, bool ceil_mode, const at::Tensor & indices, const at::Tensor & grad_input);
 };
 struct TORCH_API structured_max_pool2d_with_indices_backward_out_cuda : public at::meta::structured_max_pool2d_with_indices_backward {
 void impl(const at::Tensor & grad_output, const at::Tensor & self, at::IntArrayRef kernel_size, at::IntArrayRef stride, at::IntArrayRef padding, at::IntArrayRef dilation, bool ceil_mode, const at::Tensor & indices, const at::Tensor & grad_input);
 };
-
+struct TORCH_API structured_max_pool2d_with_indices_backward_out_mps : public at::meta::structured_max_pool2d_with_indices_backward {
+void impl(const at::Tensor & grad_output, const at::Tensor & self, at::IntArrayRef kernel_size, at::IntArrayRef stride, at::IntArrayRef padding, at::IntArrayRef dilation, bool ceil_mode, const at::Tensor & indices, const at::Tensor & grad_input);
+};
 } // namespace native
 } // namespace at

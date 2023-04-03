@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor _add_batch_dim(const at::Tensor & self, int64_t batch_dim, int64_t level);
-
 } // namespace native
 } // namespace at

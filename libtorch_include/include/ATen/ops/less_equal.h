@@ -23,32 +23,30 @@ namespace at {
 
 
 // aten::less_equal.Scalar_out(Tensor self, Scalar other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & less_equal_out(at::Tensor & out, const at::Tensor & self, const at::Scalar & other) {
+inline at::Tensor & less_equal_out(at::Tensor & out, const at::Tensor & self, const at::Scalar & other) {
     return at::_ops::less_equal_Scalar_out::call(self, other, out);
 }
-
 // aten::less_equal.Scalar_out(Tensor self, Scalar other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & less_equal_outf(const at::Tensor & self, const at::Scalar & other, at::Tensor & out) {
+inline at::Tensor & less_equal_outf(const at::Tensor & self, const at::Scalar & other, at::Tensor & out) {
     return at::_ops::less_equal_Scalar_out::call(self, other, out);
 }
 
 // aten::less_equal.Scalar(Tensor self, Scalar other) -> Tensor
-TORCH_API inline at::Tensor less_equal(const at::Tensor & self, const at::Scalar & other) {
+inline at::Tensor less_equal(const at::Tensor & self, const at::Scalar & other) {
     return at::_ops::less_equal_Scalar::call(self, other);
 }
 
 // aten::less_equal.Tensor_out(Tensor self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & less_equal_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & other) {
+inline at::Tensor & less_equal_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & other) {
     return at::_ops::less_equal_Tensor_out::call(self, other, out);
 }
-
 // aten::less_equal.Tensor_out(Tensor self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & less_equal_outf(const at::Tensor & self, const at::Tensor & other, at::Tensor & out) {
+inline at::Tensor & less_equal_outf(const at::Tensor & self, const at::Tensor & other, at::Tensor & out) {
     return at::_ops::less_equal_Tensor_out::call(self, other, out);
 }
 
 // aten::less_equal.Tensor(Tensor self, Tensor other) -> Tensor
-TORCH_API inline at::Tensor less_equal(const at::Tensor & self, const at::Tensor & other) {
+inline at::Tensor less_equal(const at::Tensor & self, const at::Tensor & other) {
     return at::_ops::less_equal_Tensor::call(self, other);
 }
 

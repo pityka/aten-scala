@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::renorm.out(Tensor self, Scalar p, int dim, Scalar maxnorm, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & renorm_out(at::Tensor & out, const at::Tensor & self, const at::Scalar & p, int64_t dim, const at::Scalar & maxnorm) {
+inline at::Tensor & renorm_out(at::Tensor & out, const at::Tensor & self, const at::Scalar & p, int64_t dim, const at::Scalar & maxnorm) {
     return at::_ops::renorm_out::call(self, p, dim, maxnorm, out);
 }
-
 // aten::renorm.out(Tensor self, Scalar p, int dim, Scalar maxnorm, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & renorm_outf(const at::Tensor & self, const at::Scalar & p, int64_t dim, const at::Scalar & maxnorm, at::Tensor & out) {
+inline at::Tensor & renorm_outf(const at::Tensor & self, const at::Scalar & p, int64_t dim, const at::Scalar & maxnorm, at::Tensor & out) {
     return at::_ops::renorm_out::call(self, p, dim, maxnorm, out);
 }
 
 // aten::renorm(Tensor self, Scalar p, int dim, Scalar maxnorm) -> Tensor
-TORCH_API inline at::Tensor renorm(const at::Tensor & self, const at::Scalar & p, int64_t dim, const at::Scalar & maxnorm) {
+inline at::Tensor renorm(const at::Tensor & self, const at::Scalar & p, int64_t dim, const at::Scalar & maxnorm) {
     return at::_ops::renorm::call(self, p, dim, maxnorm);
 }
 

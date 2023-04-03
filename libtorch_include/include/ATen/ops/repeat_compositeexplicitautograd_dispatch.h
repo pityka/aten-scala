@@ -18,6 +18,11 @@ namespace at {
 namespace compositeexplicitautograd {
 
 TORCH_API at::Tensor repeat(const at::Tensor & self, at::IntArrayRef repeats);
+TORCH_API at::Tensor repeat_symint(const at::Tensor & self, c10::SymIntArrayRef repeats);
+TORCH_API at::Tensor & repeat_out(at::Tensor & out, const at::Tensor & self, at::IntArrayRef repeats);
+TORCH_API at::Tensor & repeat_outf(const at::Tensor & self, at::IntArrayRef repeats, at::Tensor & out);
+TORCH_API at::Tensor & repeat_symint_out(at::Tensor & out, const at::Tensor & self, c10::SymIntArrayRef repeats);
+TORCH_API at::Tensor & repeat_symint_outf(const at::Tensor & self, c10::SymIntArrayRef repeats, at::Tensor & out);
 
 } // namespace compositeexplicitautograd
 } // namespace at

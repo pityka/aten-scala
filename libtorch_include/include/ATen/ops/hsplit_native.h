@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API ::std::vector<at::Tensor> hsplit(const at::Tensor & self, int64_t sections);
 TORCH_API ::std::vector<at::Tensor> hsplit(const at::Tensor & self, at::IntArrayRef indices);
-
 } // namespace native
 } // namespace at

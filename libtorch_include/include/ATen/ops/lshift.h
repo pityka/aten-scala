@@ -23,32 +23,30 @@ namespace at {
 
 
 // aten::__lshift__.Scalar(Tensor self, Scalar other) -> Tensor
-TORCH_API inline at::Tensor __lshift__(const at::Tensor & self, const at::Scalar & other) {
+inline at::Tensor __lshift__(const at::Tensor & self, const at::Scalar & other) {
     return at::_ops::__lshift___Scalar::call(self, other);
 }
 
 // aten::__lshift__.Tensor(Tensor self, Tensor other) -> Tensor
-TORCH_API inline at::Tensor __lshift__(const at::Tensor & self, const at::Tensor & other) {
+inline at::Tensor __lshift__(const at::Tensor & self, const at::Tensor & other) {
     return at::_ops::__lshift___Tensor::call(self, other);
 }
 
 // aten::__lshift__.Scalar_out(Tensor self, Scalar other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & __lshift___out(at::Tensor & out, const at::Tensor & self, const at::Scalar & other) {
+inline at::Tensor & __lshift___out(at::Tensor & out, const at::Tensor & self, const at::Scalar & other) {
     return at::_ops::__lshift___Scalar_out::call(self, other, out);
 }
-
 // aten::__lshift__.Scalar_out(Tensor self, Scalar other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & __lshift___outf(const at::Tensor & self, const at::Scalar & other, at::Tensor & out) {
+inline at::Tensor & __lshift___outf(const at::Tensor & self, const at::Scalar & other, at::Tensor & out) {
     return at::_ops::__lshift___Scalar_out::call(self, other, out);
 }
 
 // aten::__lshift__.Tensor_out(Tensor self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & __lshift___out(at::Tensor & out, const at::Tensor & self, const at::Tensor & other) {
+inline at::Tensor & __lshift___out(at::Tensor & out, const at::Tensor & self, const at::Tensor & other) {
     return at::_ops::__lshift___Tensor_out::call(self, other, out);
 }
-
 // aten::__lshift__.Tensor_out(Tensor self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & __lshift___outf(const at::Tensor & self, const at::Tensor & other, at::Tensor & out) {
+inline at::Tensor & __lshift___outf(const at::Tensor & self, const at::Tensor & other, at::Tensor & out) {
     return at::_ops::__lshift___Tensor_out::call(self, other, out);
 }
 

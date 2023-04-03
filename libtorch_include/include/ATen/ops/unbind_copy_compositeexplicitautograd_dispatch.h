@@ -17,7 +17,6 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
-TORCH_API ::std::vector<at::Tensor> unbind_copy(const at::Tensor & self, int64_t dim=0);
 TORCH_API void unbind_copy_out(at::TensorList out, const at::Tensor & self, int64_t dim=0);
 TORCH_API void unbind_copy_outf(const at::Tensor & self, int64_t dim, at::TensorList out);
 

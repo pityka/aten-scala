@@ -16,8 +16,7 @@
 
 namespace at {
 namespace native {
-
-
-
+TORCH_API at::Tensor & _mps_convolution_out(const at::Tensor & self, const at::Tensor & weight, const c10::optional<at::Tensor> & bias, at::IntArrayRef padding, at::IntArrayRef stride, at::IntArrayRef dilation, int64_t groups, at::Tensor & out);
+TORCH_API at::Tensor _mps_convolution(const at::Tensor & self, const at::Tensor & weight, const c10::optional<at::Tensor> & bias, at::IntArrayRef padding, at::IntArrayRef stride, at::IntArrayRef dilation, int64_t groups);
 } // namespace native
 } // namespace at

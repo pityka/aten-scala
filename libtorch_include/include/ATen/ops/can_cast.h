@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::can_cast(ScalarType from, ScalarType to) -> bool
-TORCH_API inline bool can_cast(at::ScalarType from, at::ScalarType to) {
+inline bool can_cast(at::ScalarType from, at::ScalarType to) {
     return at::_ops::can_cast::call(from, to);
 }
 

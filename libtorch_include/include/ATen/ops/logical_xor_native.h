@@ -16,10 +16,9 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor logical_xor(const at::Tensor & self, const at::Tensor & other);
 TORCH_API at::Tensor & logical_xor_(at::Tensor & self, const at::Tensor & other);
 TORCH_API at::Tensor & logical_xor_out(const at::Tensor & self, const at::Tensor & other, at::Tensor & out);
-
+TORCH_API at::Tensor & logical_xor_out_mps(const at::Tensor & self, const at::Tensor & other, at::Tensor & out);
 } // namespace native
 } // namespace at

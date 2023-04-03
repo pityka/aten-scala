@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::q_zero_point(Tensor self) -> int
-TORCH_API inline int64_t q_zero_point(const at::Tensor & self) {
+inline int64_t q_zero_point(const at::Tensor & self) {
     return at::_ops::q_zero_point::call(self);
 }
 

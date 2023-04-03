@@ -18,6 +18,8 @@ namespace at {
 namespace compositeexplicitautograd {
 
 TORCH_API at::Tensor rot90(const at::Tensor & self, int64_t k=1, at::IntArrayRef dims={0,1});
+TORCH_API at::Tensor & rot90_out(at::Tensor & out, const at::Tensor & self, int64_t k=1, at::IntArrayRef dims={0,1});
+TORCH_API at::Tensor & rot90_outf(const at::Tensor & self, int64_t k, at::IntArrayRef dims, at::Tensor & out);
 
 } // namespace compositeexplicitautograd
 } // namespace at

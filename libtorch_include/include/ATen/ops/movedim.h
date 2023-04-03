@@ -23,12 +23,12 @@ namespace at {
 
 
 // aten::movedim.intlist(Tensor(a) self, int[] source, int[] destination) -> Tensor(a)
-TORCH_API inline at::Tensor movedim(const at::Tensor & self, at::IntArrayRef source, at::IntArrayRef destination) {
+inline at::Tensor movedim(const at::Tensor & self, at::IntArrayRef source, at::IntArrayRef destination) {
     return at::_ops::movedim_intlist::call(self, source, destination);
 }
 
 // aten::movedim.int(Tensor(a) self, int source, int destination) -> Tensor(a)
-TORCH_API inline at::Tensor movedim(const at::Tensor & self, int64_t source, int64_t destination) {
+inline at::Tensor movedim(const at::Tensor & self, int64_t source, int64_t destination) {
     return at::_ops::movedim_int::call(self, source, destination);
 }
 

@@ -14,26 +14,15 @@ namespace at {
 namespace _ops {
 
 
-struct TORCH_API expand_SymInt {
+struct TORCH_API expand {
   using schema = at::Tensor (const at::Tensor &, c10::SymIntArrayRef, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::expand")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "SymInt")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "expand.SymInt(Tensor(a) self, SymInt[] size, *, bool implicit=False) -> Tensor(a)")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "expand(Tensor(a) self, SymInt[] size, *, bool implicit=False) -> Tensor(a)")
   static at::Tensor call(const at::Tensor & self, c10::SymIntArrayRef size, bool implicit);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, c10::SymIntArrayRef size, bool implicit);
-};
-
-struct TORCH_API expand {
-  using schema = at::Tensor (const at::Tensor &, at::IntArrayRef, bool);
-  using ptr_schema = schema*;
-  // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::expand")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "expand(Tensor(a) self, int[] size, *, bool implicit=False) -> Tensor(a)")
-  static at::Tensor call(const at::Tensor & self, at::IntArrayRef size, bool implicit);
-  static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::IntArrayRef size, bool implicit);
 };
 
 }} // namespace at::_ops

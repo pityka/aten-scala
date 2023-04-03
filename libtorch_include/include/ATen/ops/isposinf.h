@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::isposinf(Tensor self) -> Tensor
-TORCH_API inline at::Tensor isposinf(const at::Tensor & self) {
+inline at::Tensor isposinf(const at::Tensor & self) {
     return at::_ops::isposinf::call(self);
 }
 
 // aten::isposinf.out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & isposinf_out(at::Tensor & out, const at::Tensor & self) {
+inline at::Tensor & isposinf_out(at::Tensor & out, const at::Tensor & self) {
     return at::_ops::isposinf_out::call(self, out);
 }
-
 // aten::isposinf.out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & isposinf_outf(const at::Tensor & self, at::Tensor & out) {
+inline at::Tensor & isposinf_outf(const at::Tensor & self, at::Tensor & out) {
     return at::_ops::isposinf_out::call(self, out);
 }
 

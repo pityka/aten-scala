@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::mish_backward(Tensor grad_output, Tensor self) -> Tensor
-TORCH_API inline at::Tensor mish_backward(const at::Tensor & grad_output, const at::Tensor & self) {
+inline at::Tensor mish_backward(const at::Tensor & grad_output, const at::Tensor & self) {
     return at::_ops::mish_backward::call(grad_output, self);
 }
 

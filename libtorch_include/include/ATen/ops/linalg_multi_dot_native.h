@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor linalg_multi_dot(at::TensorList tensors);
 TORCH_API at::Tensor & linalg_multi_dot_out(at::TensorList tensors, at::Tensor & out);
-
 } // namespace native
 } // namespace at

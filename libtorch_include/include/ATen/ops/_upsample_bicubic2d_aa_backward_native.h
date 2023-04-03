@@ -16,14 +16,11 @@
 
 namespace at {
 namespace native {
-
-TORCH_API at::Tensor _upsample_bicubic2d_aa_backward(const at::Tensor & grad_output, at::OptionalIntArrayRef output_size, at::IntArrayRef input_size, bool align_corners, c10::optional<at::ArrayRef<double>> scale_factors);
 struct TORCH_API structured__upsample_bicubic2d_aa_backward_out_cpu : public at::meta::structured__upsample_bicubic2d_aa_backward {
-void impl(const at::Tensor & grad_output, at::IntArrayRef output_size, at::IntArrayRef input_size, bool align_corners, c10::optional<double> scales_h, c10::optional<double> scales_w, const at::Tensor & grad_input);
+void impl(const at::Tensor & grad_output, at::ArrayRef<int64_t> output_size, at::ArrayRef<int64_t> input_size, bool align_corners, c10::optional<double> scales_h, c10::optional<double> scales_w, const at::Tensor & grad_input);
 };
 struct TORCH_API structured__upsample_bicubic2d_aa_backward_out_cuda : public at::meta::structured__upsample_bicubic2d_aa_backward {
-void impl(const at::Tensor & grad_output, at::IntArrayRef output_size, at::IntArrayRef input_size, bool align_corners, c10::optional<double> scales_h, c10::optional<double> scales_w, const at::Tensor & grad_input);
+void impl(const at::Tensor & grad_output, at::ArrayRef<int64_t> output_size, at::ArrayRef<int64_t> input_size, bool align_corners, c10::optional<double> scales_h, c10::optional<double> scales_w, const at::Tensor & grad_input);
 };
-
 } // namespace native
 } // namespace at

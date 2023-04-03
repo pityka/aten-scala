@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::fliplr(Tensor self) -> Tensor
-TORCH_API inline at::Tensor fliplr(const at::Tensor & self) {
+inline at::Tensor fliplr(const at::Tensor & self) {
     return at::_ops::fliplr::call(self);
 }
 

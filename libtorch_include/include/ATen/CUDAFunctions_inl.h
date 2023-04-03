@@ -28,6 +28,7 @@
 #include <ATen/ops/_cdist_backward_cuda_dispatch.h>
 #include <ATen/ops/_cdist_forward_cuda_dispatch.h>
 #include <ATen/ops/_cholesky_solve_helper_cuda_dispatch.h>
+#include <ATen/ops/_chunk_grad_outputs_efficient_attention_cuda_dispatch.h>
 #include <ATen/ops/_compute_linear_combination_cuda_dispatch.h>
 #include <ATen/ops/_conv_depthwise2d_cuda_dispatch.h>
 #include <ATen/ops/_convert_indices_from_coo_to_csr_cuda_dispatch.h>
@@ -41,20 +42,24 @@
 #include <ATen/ops/_cudnn_rnn_flatten_weight_cuda_dispatch.h>
 #include <ATen/ops/_cummax_helper_cuda_dispatch.h>
 #include <ATen/ops/_cummin_helper_cuda_dispatch.h>
-#include <ATen/ops/_det_lu_based_helper_cuda_dispatch.h>
-#include <ATen/ops/_det_lu_based_helper_backward_helper_cuda_dispatch.h>
 #include <ATen/ops/_dirichlet_grad_cuda_dispatch.h>
+#include <ATen/ops/_efficient_attention_backward_cuda_dispatch.h>
+#include <ATen/ops/_efficient_attention_forward_cuda_dispatch.h>
 #include <ATen/ops/_efficientzerotensor_cuda_dispatch.h>
 #include <ATen/ops/_embedding_bag_cuda_dispatch.h>
 #include <ATen/ops/_embedding_bag_dense_backward_cuda_dispatch.h>
 #include <ATen/ops/_embedding_bag_forward_only_cuda_dispatch.h>
 #include <ATen/ops/_embedding_bag_per_sample_weights_backward_cuda_dispatch.h>
 #include <ATen/ops/_fake_quantize_learnable_per_channel_affine_cuda_dispatch.h>
+#include <ATen/ops/_fake_quantize_learnable_per_channel_affine_backward_cuda_dispatch.h>
 #include <ATen/ops/_fake_quantize_learnable_per_tensor_affine_cuda_dispatch.h>
+#include <ATen/ops/_fake_quantize_learnable_per_tensor_affine_backward_cuda_dispatch.h>
 #include <ATen/ops/_fake_quantize_per_tensor_affine_cachemask_tensor_qparams_cuda_dispatch.h>
 #include <ATen/ops/_fft_c2c_cuda_dispatch.h>
 #include <ATen/ops/_fft_c2r_cuda_dispatch.h>
 #include <ATen/ops/_fft_r2c_cuda_dispatch.h>
+#include <ATen/ops/_flash_attention_backward_cuda_dispatch.h>
+#include <ATen/ops/_flash_attention_forward_cuda_dispatch.h>
 #include <ATen/ops/_foreach_abs_cuda_dispatch.h>
 #include <ATen/ops/_foreach_acos_cuda_dispatch.h>
 #include <ATen/ops/_foreach_add_cuda_dispatch.h>
@@ -63,6 +68,8 @@
 #include <ATen/ops/_foreach_asin_cuda_dispatch.h>
 #include <ATen/ops/_foreach_atan_cuda_dispatch.h>
 #include <ATen/ops/_foreach_ceil_cuda_dispatch.h>
+#include <ATen/ops/_foreach_clamp_max_cuda_dispatch.h>
+#include <ATen/ops/_foreach_clamp_min_cuda_dispatch.h>
 #include <ATen/ops/_foreach_cos_cuda_dispatch.h>
 #include <ATen/ops/_foreach_cosh_cuda_dispatch.h>
 #include <ATen/ops/_foreach_div_cuda_dispatch.h>
@@ -72,6 +79,7 @@
 #include <ATen/ops/_foreach_expm1_cuda_dispatch.h>
 #include <ATen/ops/_foreach_floor_cuda_dispatch.h>
 #include <ATen/ops/_foreach_frac_cuda_dispatch.h>
+#include <ATen/ops/_foreach_lerp_cuda_dispatch.h>
 #include <ATen/ops/_foreach_lgamma_cuda_dispatch.h>
 #include <ATen/ops/_foreach_log_cuda_dispatch.h>
 #include <ATen/ops/_foreach_log10_cuda_dispatch.h>
@@ -93,11 +101,16 @@
 #include <ATen/ops/_foreach_tanh_cuda_dispatch.h>
 #include <ATen/ops/_foreach_trunc_cuda_dispatch.h>
 #include <ATen/ops/_foreach_zero_cuda_dispatch.h>
+#include <ATen/ops/_fused_adam_cuda_dispatch.h>
+#include <ATen/ops/_fused_adamw_cuda_dispatch.h>
 #include <ATen/ops/_fused_dropout_cuda_dispatch.h>
 #include <ATen/ops/_fused_moving_avg_obs_fq_helper_cuda_dispatch.h>
+#include <ATen/ops/_fused_sdp_choice_cuda_dispatch.h>
 #include <ATen/ops/_index_put_impl_cuda_dispatch.h>
-#include <ATen/ops/_linalg_inv_out_helper_cuda_dispatch.h>
-#include <ATen/ops/_linalg_qr_helper_cuda_dispatch.h>
+#include <ATen/ops/_linalg_det_cuda_dispatch.h>
+#include <ATen/ops/_linalg_eigh_cuda_dispatch.h>
+#include <ATen/ops/_linalg_slogdet_cuda_dispatch.h>
+#include <ATen/ops/_linalg_solve_ex_cuda_dispatch.h>
 #include <ATen/ops/_linalg_svd_cuda_dispatch.h>
 #include <ATen/ops/_local_scalar_dense_cuda_dispatch.h>
 #include <ATen/ops/_log_softmax_cuda_dispatch.h>
@@ -108,14 +121,24 @@
 #include <ATen/ops/_masked_scale_cuda_dispatch.h>
 #include <ATen/ops/_masked_softmax_cuda_dispatch.h>
 #include <ATen/ops/_masked_softmax_backward_cuda_dispatch.h>
+#include <ATen/ops/_native_batch_norm_legit_cuda_dispatch.h>
+#include <ATen/ops/_native_decoder_only_multi_head_attention_cuda_dispatch.h>
 #include <ATen/ops/_native_multi_head_attention_cuda_dispatch.h>
 #include <ATen/ops/_nested_from_padded_cuda_dispatch.h>
 #include <ATen/ops/_nested_tensor_from_mask_cuda_dispatch.h>
+#include <ATen/ops/_nested_tensor_from_mask_left_aligned_cuda_dispatch.h>
+#include <ATen/ops/_nested_view_from_buffer_cuda_dispatch.h>
 #include <ATen/ops/_pdist_backward_cuda_dispatch.h>
 #include <ATen/ops/_pdist_forward_cuda_dispatch.h>
 #include <ATen/ops/_pin_memory_cuda_dispatch.h>
+#include <ATen/ops/_prelu_kernel_cuda_dispatch.h>
+#include <ATen/ops/_prelu_kernel_backward_cuda_dispatch.h>
 #include <ATen/ops/_reshape_alias_cuda_dispatch.h>
 #include <ATen/ops/_sample_dirichlet_cuda_dispatch.h>
+#include <ATen/ops/_scaled_dot_product_efficient_attention_cuda_dispatch.h>
+#include <ATen/ops/_scaled_dot_product_efficient_attention_backward_cuda_dispatch.h>
+#include <ATen/ops/_scaled_dot_product_flash_attention_cuda_dispatch.h>
+#include <ATen/ops/_scaled_dot_product_flash_attention_backward_cuda_dispatch.h>
 #include <ATen/ops/_segment_reduce_backward_cuda_dispatch.h>
 #include <ATen/ops/_slow_conv2d_backward_cuda_dispatch.h>
 #include <ATen/ops/_slow_conv2d_forward_cuda_dispatch.h>
@@ -123,14 +146,15 @@
 #include <ATen/ops/_softmax_backward_data_cuda_dispatch.h>
 #include <ATen/ops/_standard_gamma_cuda_dispatch.h>
 #include <ATen/ops/_standard_gamma_grad_cuda_dispatch.h>
-#include <ATen/ops/_symeig_helper_cuda_dispatch.h>
 #include <ATen/ops/_thnn_fused_gru_cell_cuda_dispatch.h>
 #include <ATen/ops/_thnn_fused_gru_cell_backward_cuda_dispatch.h>
 #include <ATen/ops/_thnn_fused_lstm_cell_cuda_dispatch.h>
 #include <ATen/ops/_thnn_fused_lstm_cell_backward_impl_cuda_dispatch.h>
-#include <ATen/ops/_torch_cuda_cu_linker_symbol_op_cuda_dispatch.h>
 #include <ATen/ops/_transform_bias_rescale_qkv_cuda_dispatch.h>
+#include <ATen/ops/_transformer_decoder_only_layer_fwd_cuda_dispatch.h>
 #include <ATen/ops/_transformer_encoder_layer_fwd_cuda_dispatch.h>
+#include <ATen/ops/_triton_multi_head_attention_cuda_dispatch.h>
+#include <ATen/ops/_triton_scaled_dot_attention_cuda_dispatch.h>
 #include <ATen/ops/_unique_cuda_dispatch.h>
 #include <ATen/ops/_unique2_cuda_dispatch.h>
 #include <ATen/ops/_upsample_bicubic2d_aa_cuda_dispatch.h>
@@ -144,6 +168,7 @@
 #include <ATen/ops/_upsample_nearest_exact3d_cuda_dispatch.h>
 #include <ATen/ops/_upsample_nearest_exact3d_backward_cuda_dispatch.h>
 #include <ATen/ops/_use_cudnn_ctc_loss_cuda_dispatch.h>
+#include <ATen/ops/_validate_compressed_sparse_indices_cuda_dispatch.h>
 #include <ATen/ops/_weight_norm_interface_cuda_dispatch.h>
 #include <ATen/ops/_weight_norm_interface_backward_cuda_dispatch.h>
 #include <ATen/ops/abs_cuda_dispatch.h>
@@ -172,6 +197,7 @@
 #include <ATen/ops/arange_cuda_dispatch.h>
 #include <ATen/ops/argmax_cuda_dispatch.h>
 #include <ATen/ops/argmin_cuda_dispatch.h>
+#include <ATen/ops/argsort_cuda_dispatch.h>
 #include <ATen/ops/as_strided_cuda_dispatch.h>
 #include <ATen/ops/asin_cuda_dispatch.h>
 #include <ATen/ops/asinh_cuda_dispatch.h>
@@ -212,7 +238,6 @@
 #include <ATen/ops/clamp_max_cuda_dispatch.h>
 #include <ATen/ops/clamp_min_cuda_dispatch.h>
 #include <ATen/ops/col2im_cuda_dispatch.h>
-#include <ATen/ops/col2im_backward_cuda_dispatch.h>
 #include <ATen/ops/complex_cuda_dispatch.h>
 #include <ATen/ops/conj_physical_cuda_dispatch.h>
 #include <ATen/ops/conv_depthwise3d_cuda_dispatch.h>
@@ -233,8 +258,8 @@
 #include <ATen/ops/cudnn_grid_sampler_backward_cuda_dispatch.h>
 #include <ATen/ops/cumprod_cuda_dispatch.h>
 #include <ATen/ops/cumsum_cuda_dispatch.h>
+#include <ATen/ops/dense_dim_cuda_dispatch.h>
 #include <ATen/ops/dequantize_cuda_dispatch.h>
-#include <ATen/ops/diag_cuda_dispatch.h>
 #include <ATen/ops/digamma_cuda_dispatch.h>
 #include <ATen/ops/div_cuda_dispatch.h>
 #include <ATen/ops/dot_cuda_dispatch.h>
@@ -302,7 +327,6 @@
 #include <ATen/ops/igamma_cuda_dispatch.h>
 #include <ATen/ops/igammac_cuda_dispatch.h>
 #include <ATen/ops/im2col_cuda_dispatch.h>
-#include <ATen/ops/im2col_backward_cuda_dispatch.h>
 #include <ATen/ops/index_cuda_dispatch.h>
 #include <ATen/ops/index_add_cuda_dispatch.h>
 #include <ATen/ops/index_copy_cuda_dispatch.h>
@@ -315,9 +339,7 @@
 #include <ATen/ops/isnan_cuda_dispatch.h>
 #include <ATen/ops/isneginf_cuda_dispatch.h>
 #include <ATen/ops/isposinf_cuda_dispatch.h>
-#include <ATen/ops/kl_div_backward_cuda_dispatch.h>
 #include <ATen/ops/kthvalue_cuda_dispatch.h>
-#include <ATen/ops/l1_loss_backward_cuda_dispatch.h>
 #include <ATen/ops/lcm_cuda_dispatch.h>
 #include <ATen/ops/le_cuda_dispatch.h>
 #include <ATen/ops/leaky_relu_cuda_dispatch.h>
@@ -327,17 +349,16 @@
 #include <ATen/ops/linalg_cholesky_ex_cuda_dispatch.h>
 #include <ATen/ops/linalg_cross_cuda_dispatch.h>
 #include <ATen/ops/linalg_eig_cuda_dispatch.h>
-#include <ATen/ops/linalg_eigh_cuda_dispatch.h>
-#include <ATen/ops/linalg_eigvalsh_cuda_dispatch.h>
 #include <ATen/ops/linalg_householder_product_cuda_dispatch.h>
+#include <ATen/ops/linalg_inv_ex_cuda_dispatch.h>
 #include <ATen/ops/linalg_ldl_factor_ex_cuda_dispatch.h>
 #include <ATen/ops/linalg_ldl_solve_cuda_dispatch.h>
 #include <ATen/ops/linalg_lstsq_cuda_dispatch.h>
 #include <ATen/ops/linalg_lu_cuda_dispatch.h>
 #include <ATen/ops/linalg_lu_factor_ex_cuda_dispatch.h>
+#include <ATen/ops/linalg_lu_solve_cuda_dispatch.h>
 #include <ATen/ops/linalg_matrix_exp_cuda_dispatch.h>
-#include <ATen/ops/linalg_slogdet_cuda_dispatch.h>
-#include <ATen/ops/linalg_solve_cuda_dispatch.h>
+#include <ATen/ops/linalg_qr_cuda_dispatch.h>
 #include <ATen/ops/linalg_solve_triangular_cuda_dispatch.h>
 #include <ATen/ops/linalg_vector_norm_cuda_dispatch.h>
 #include <ATen/ops/linspace_cuda_dispatch.h>
@@ -358,9 +379,7 @@
 #include <ATen/ops/logit_backward_cuda_dispatch.h>
 #include <ATen/ops/logspace_cuda_dispatch.h>
 #include <ATen/ops/lshift_cuda_dispatch.h>
-#include <ATen/ops/lstsq_cuda_dispatch.h>
 #include <ATen/ops/lt_cuda_dispatch.h>
-#include <ATen/ops/lu_solve_cuda_dispatch.h>
 #include <ATen/ops/lu_unpack_cuda_dispatch.h>
 #include <ATen/ops/masked_fill_cuda_dispatch.h>
 #include <ATen/ops/masked_scatter_cuda_dispatch.h>
@@ -380,6 +399,8 @@
 #include <ATen/ops/miopen_batch_norm_cuda_dispatch.h>
 #include <ATen/ops/miopen_batch_norm_backward_cuda_dispatch.h>
 #include <ATen/ops/miopen_convolution_cuda_dispatch.h>
+#include <ATen/ops/miopen_convolution_add_relu_cuda_dispatch.h>
+#include <ATen/ops/miopen_convolution_relu_cuda_dispatch.h>
 #include <ATen/ops/miopen_convolution_transpose_cuda_dispatch.h>
 #include <ATen/ops/miopen_depthwise_convolution_cuda_dispatch.h>
 #include <ATen/ops/miopen_rnn_cuda_dispatch.h>
@@ -423,8 +444,6 @@
 #include <ATen/ops/polar_cuda_dispatch.h>
 #include <ATen/ops/polygamma_cuda_dispatch.h>
 #include <ATen/ops/pow_cuda_dispatch.h>
-#include <ATen/ops/prelu_cuda_dispatch.h>
-#include <ATen/ops/prelu_backward_cuda_dispatch.h>
 #include <ATen/ops/prod_cuda_dispatch.h>
 #include <ATen/ops/put_cuda_dispatch.h>
 #include <ATen/ops/quantize_per_channel_cuda_dispatch.h>
@@ -485,13 +504,38 @@
 #include <ATen/ops/softshrink_cuda_dispatch.h>
 #include <ATen/ops/softshrink_backward_cuda_dispatch.h>
 #include <ATen/ops/sort_cuda_dispatch.h>
+#include <ATen/ops/sparse_dim_cuda_dispatch.h>
+#include <ATen/ops/special_airy_ai_cuda_dispatch.h>
+#include <ATen/ops/special_bessel_j0_cuda_dispatch.h>
+#include <ATen/ops/special_bessel_j1_cuda_dispatch.h>
+#include <ATen/ops/special_bessel_y0_cuda_dispatch.h>
+#include <ATen/ops/special_bessel_y1_cuda_dispatch.h>
+#include <ATen/ops/special_chebyshev_polynomial_t_cuda_dispatch.h>
+#include <ATen/ops/special_chebyshev_polynomial_u_cuda_dispatch.h>
+#include <ATen/ops/special_chebyshev_polynomial_v_cuda_dispatch.h>
+#include <ATen/ops/special_chebyshev_polynomial_w_cuda_dispatch.h>
 #include <ATen/ops/special_entr_cuda_dispatch.h>
 #include <ATen/ops/special_erfcx_cuda_dispatch.h>
+#include <ATen/ops/special_hermite_polynomial_h_cuda_dispatch.h>
+#include <ATen/ops/special_hermite_polynomial_he_cuda_dispatch.h>
 #include <ATen/ops/special_i0e_cuda_dispatch.h>
 #include <ATen/ops/special_i1_cuda_dispatch.h>
 #include <ATen/ops/special_i1e_cuda_dispatch.h>
+#include <ATen/ops/special_laguerre_polynomial_l_cuda_dispatch.h>
+#include <ATen/ops/special_legendre_polynomial_p_cuda_dispatch.h>
 #include <ATen/ops/special_log_ndtr_cuda_dispatch.h>
+#include <ATen/ops/special_modified_bessel_i0_cuda_dispatch.h>
+#include <ATen/ops/special_modified_bessel_i1_cuda_dispatch.h>
+#include <ATen/ops/special_modified_bessel_k0_cuda_dispatch.h>
+#include <ATen/ops/special_modified_bessel_k1_cuda_dispatch.h>
 #include <ATen/ops/special_ndtri_cuda_dispatch.h>
+#include <ATen/ops/special_scaled_modified_bessel_k0_cuda_dispatch.h>
+#include <ATen/ops/special_scaled_modified_bessel_k1_cuda_dispatch.h>
+#include <ATen/ops/special_shifted_chebyshev_polynomial_t_cuda_dispatch.h>
+#include <ATen/ops/special_shifted_chebyshev_polynomial_u_cuda_dispatch.h>
+#include <ATen/ops/special_shifted_chebyshev_polynomial_v_cuda_dispatch.h>
+#include <ATen/ops/special_shifted_chebyshev_polynomial_w_cuda_dispatch.h>
+#include <ATen/ops/special_spherical_bessel_j0_cuda_dispatch.h>
 #include <ATen/ops/special_xlog1py_cuda_dispatch.h>
 #include <ATen/ops/special_zeta_cuda_dispatch.h>
 #include <ATen/ops/sqrt_cuda_dispatch.h>
@@ -550,10 +594,5 @@
 #include <ATen/ops/xlogy_cuda_dispatch.h>
 #include <ATen/ops/zero_cuda_dispatch.h>
 
-namespace at {
-namespace cuda {
 
 
-
-} // namespace cuda
-} // namespace at

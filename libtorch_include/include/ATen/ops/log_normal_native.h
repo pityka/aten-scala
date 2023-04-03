@@ -16,9 +16,8 @@
 
 namespace at {
 namespace native {
-
-TORCH_API at::Tensor log_normal_functional(const at::Tensor & self, double mean=1, double std=2, c10::optional<at::Generator> generator=c10::nullopt);
+TORCH_API at::Tensor log_normal(const at::Tensor & self, double mean=1, double std=2, c10::optional<at::Generator> generator=c10::nullopt);
+TORCH_API at::Tensor & log_normal_out(const at::Tensor & self, double mean, double std, c10::optional<at::Generator> generator, at::Tensor & out);
 TORCH_API at::Tensor & log_normal_(at::Tensor & self, double mean=1, double std=2, c10::optional<at::Generator> generator=c10::nullopt);
-
 } // namespace native
 } // namespace at

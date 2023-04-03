@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor vander(const at::Tensor & x, c10::optional<int64_t> N=c10::nullopt, bool increasing=false);
-
 } // namespace native
 } // namespace at

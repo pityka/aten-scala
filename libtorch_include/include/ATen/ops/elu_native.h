@@ -16,11 +16,11 @@
 
 namespace at {
 namespace native {
-
-TORCH_API at::Tensor & elu_(at::Tensor & self, const at::Scalar & alpha=1, const at::Scalar & scale=1, const at::Scalar & input_scale=1);
 struct TORCH_API structured_elu_out : public at::meta::structured_elu {
 void impl(const at::Tensor & self, const at::Scalar & alpha, const at::Scalar & scale, const at::Scalar & input_scale, const at::Tensor & out);
 };
-
+struct TORCH_API structured_elu_out_mps : public at::meta::structured_elu {
+void impl(const at::Tensor & self, const at::Scalar & alpha, const at::Scalar & scale, const at::Scalar & input_scale, const at::Tensor & out);
+};
 } // namespace native
 } // namespace at

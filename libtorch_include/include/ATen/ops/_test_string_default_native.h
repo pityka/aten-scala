@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor _test_string_default(const at::Tensor & dummy, c10::string_view a="\"'\\", c10::string_view b="\"'\\");
-
 } // namespace native
 } // namespace at

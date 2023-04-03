@@ -16,9 +16,8 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor put(const at::Tensor & self, const at::Tensor & index, const at::Tensor & source, bool accumulate=false);
+TORCH_API at::Tensor & put_out(const at::Tensor & self, const at::Tensor & index, const at::Tensor & source, bool accumulate, at::Tensor & out);
 TORCH_API at::Tensor & put_(at::Tensor & self, const at::Tensor & index, const at::Tensor & source, bool accumulate=false);
-
 } // namespace native
 } // namespace at

@@ -16,11 +16,9 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor nuclear_norm(const at::Tensor & self, bool keepdim=false);
 TORCH_API at::Tensor & nuclear_norm_out(const at::Tensor & self, bool keepdim, at::Tensor & out);
 TORCH_API at::Tensor nuclear_norm(const at::Tensor & self, at::IntArrayRef dim, bool keepdim=false);
 TORCH_API at::Tensor & nuclear_norm_out(const at::Tensor & self, at::IntArrayRef dim, bool keepdim, at::Tensor & out);
-
 } // namespace native
 } // namespace at

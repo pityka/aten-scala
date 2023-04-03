@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor movedim(const at::Tensor & self, at::IntArrayRef source, at::IntArrayRef destination);
 TORCH_API at::Tensor movedim(const at::Tensor & self, int64_t source, int64_t destination);
-
 } // namespace native
 } // namespace at

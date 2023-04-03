@@ -16,11 +16,9 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor _stack(at::TensorList tensors, int64_t dim=0);
 TORCH_API at::Tensor & _stack_out(at::TensorList tensors, int64_t dim, at::Tensor & out);
 TORCH_API at::Tensor _stack_cpu(at::TensorList tensors, int64_t dim=0);
 TORCH_API at::Tensor & _stack_out_cpu(at::TensorList tensors, int64_t dim, at::Tensor & out);
-
 } // namespace native
 } // namespace at

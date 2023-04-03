@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::_shape_as_tensor(Tensor self) -> Tensor
-TORCH_API inline at::Tensor _shape_as_tensor(const at::Tensor & self) {
+inline at::Tensor _shape_as_tensor(const at::Tensor & self) {
     return at::_ops::_shape_as_tensor::call(self);
 }
 

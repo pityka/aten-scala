@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::diagflat(Tensor self, int offset=0) -> Tensor
-TORCH_API inline at::Tensor diagflat(const at::Tensor & self, int64_t offset=0) {
+inline at::Tensor diagflat(const at::Tensor & self, int64_t offset=0) {
     return at::_ops::diagflat::call(self, offset);
 }
 

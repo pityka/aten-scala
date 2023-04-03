@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::_linalg_check_errors(Tensor info, str api_name, *, bool is_matrix) -> ()
-TORCH_API inline void _linalg_check_errors(const at::Tensor & info, c10::string_view api_name, bool is_matrix) {
+inline void _linalg_check_errors(const at::Tensor & info, c10::string_view api_name, bool is_matrix) {
     return at::_ops::_linalg_check_errors::call(info, api_name, is_matrix);
 }
 

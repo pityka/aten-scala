@@ -23,8 +23,17 @@ namespace at {
 
 
 // aten::hardswish_backward(Tensor grad_output, Tensor self) -> Tensor
-TORCH_API inline at::Tensor hardswish_backward(const at::Tensor & grad_output, const at::Tensor & self) {
+inline at::Tensor hardswish_backward(const at::Tensor & grad_output, const at::Tensor & self) {
     return at::_ops::hardswish_backward::call(grad_output, self);
+}
+
+// aten::hardswish_backward.out(Tensor grad_output, Tensor self, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & hardswish_backward_out(at::Tensor & out, const at::Tensor & grad_output, const at::Tensor & self) {
+    return at::_ops::hardswish_backward_out::call(grad_output, self, out);
+}
+// aten::hardswish_backward.out(Tensor grad_output, Tensor self, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & hardswish_backward_outf(const at::Tensor & grad_output, const at::Tensor & self, at::Tensor & out) {
+    return at::_ops::hardswish_backward_out::call(grad_output, self, out);
 }
 
 }

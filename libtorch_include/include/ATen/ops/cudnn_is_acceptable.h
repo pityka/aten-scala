@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::cudnn_is_acceptable(Tensor self) -> bool
-TORCH_API inline bool cudnn_is_acceptable(const at::Tensor & self) {
+inline bool cudnn_is_acceptable(const at::Tensor & self) {
     return at::_ops::cudnn_is_acceptable::call(self);
 }
 

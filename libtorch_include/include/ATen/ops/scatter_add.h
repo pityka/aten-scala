@@ -23,22 +23,21 @@ namespace at {
 
 
 // aten::scatter_add(Tensor self, int dim, Tensor index, Tensor src) -> Tensor
-TORCH_API inline at::Tensor scatter_add(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & src) {
+inline at::Tensor scatter_add(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & src) {
     return at::_ops::scatter_add::call(self, dim, index, src);
 }
 
 // aten::scatter_add.out(Tensor self, int dim, Tensor index, Tensor src, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & scatter_add_out(at::Tensor & out, const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & src) {
+inline at::Tensor & scatter_add_out(at::Tensor & out, const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & src) {
     return at::_ops::scatter_add_out::call(self, dim, index, src, out);
 }
-
 // aten::scatter_add.out(Tensor self, int dim, Tensor index, Tensor src, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & scatter_add_outf(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & src, at::Tensor & out) {
+inline at::Tensor & scatter_add_outf(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & src, at::Tensor & out) {
     return at::_ops::scatter_add_out::call(self, dim, index, src, out);
 }
 
 // aten::scatter_add.dimname(Tensor self, Dimname dim, Tensor index, Tensor src) -> Tensor
-TORCH_API inline at::Tensor scatter_add(const at::Tensor & self, at::Dimname dim, const at::Tensor & index, const at::Tensor & src) {
+inline at::Tensor scatter_add(const at::Tensor & self, at::Dimname dim, const at::Tensor & index, const at::Tensor & src) {
     return at::_ops::scatter_add_dimname::call(self, dim, index, src);
 }
 

@@ -22,19 +22,18 @@
 namespace at {
 
 
-// aten::linalg_svd(Tensor A, bool full_matrices=True) -> (Tensor U, Tensor S, Tensor Vh)
-TORCH_API inline ::std::tuple<at::Tensor,at::Tensor,at::Tensor> linalg_svd(const at::Tensor & A, bool full_matrices=true) {
-    return at::_ops::linalg_svd::call(A, full_matrices);
+// aten::linalg_svd(Tensor A, bool full_matrices=True, *, str? driver=None) -> (Tensor U, Tensor S, Tensor Vh)
+inline ::std::tuple<at::Tensor,at::Tensor,at::Tensor> linalg_svd(const at::Tensor & A, bool full_matrices=true, c10::optional<c10::string_view> driver=c10::nullopt) {
+    return at::_ops::linalg_svd::call(A, full_matrices, driver);
 }
 
-// aten::linalg_svd.U(Tensor A, bool full_matrices=True, *, Tensor(a!) U, Tensor(b!) S, Tensor(c!) Vh) -> (Tensor(a!) U, Tensor(b!) S, Tensor(c!) Vh)
-TORCH_API inline ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> linalg_svd_out(at::Tensor & U, at::Tensor & S, at::Tensor & Vh, const at::Tensor & A, bool full_matrices=true) {
-    return at::_ops::linalg_svd_U::call(A, full_matrices, U, S, Vh);
+// aten::linalg_svd.U(Tensor A, bool full_matrices=True, *, str? driver=None, Tensor(a!) U, Tensor(b!) S, Tensor(c!) Vh) -> (Tensor(a!) U, Tensor(b!) S, Tensor(c!) Vh)
+inline ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> linalg_svd_out(at::Tensor & U, at::Tensor & S, at::Tensor & Vh, const at::Tensor & A, bool full_matrices=true, c10::optional<c10::string_view> driver=c10::nullopt) {
+    return at::_ops::linalg_svd_U::call(A, full_matrices, driver, U, S, Vh);
 }
-
-// aten::linalg_svd.U(Tensor A, bool full_matrices=True, *, Tensor(a!) U, Tensor(b!) S, Tensor(c!) Vh) -> (Tensor(a!) U, Tensor(b!) S, Tensor(c!) Vh)
-TORCH_API inline ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> linalg_svd_outf(const at::Tensor & A, bool full_matrices, at::Tensor & U, at::Tensor & S, at::Tensor & Vh) {
-    return at::_ops::linalg_svd_U::call(A, full_matrices, U, S, Vh);
+// aten::linalg_svd.U(Tensor A, bool full_matrices=True, *, str? driver=None, Tensor(a!) U, Tensor(b!) S, Tensor(c!) Vh) -> (Tensor(a!) U, Tensor(b!) S, Tensor(c!) Vh)
+inline ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> linalg_svd_outf(const at::Tensor & A, bool full_matrices, c10::optional<c10::string_view> driver, at::Tensor & U, at::Tensor & S, at::Tensor & Vh) {
+    return at::_ops::linalg_svd_U::call(A, full_matrices, driver, U, S, Vh);
 }
 
 }

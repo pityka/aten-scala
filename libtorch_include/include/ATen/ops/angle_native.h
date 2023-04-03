@@ -16,11 +16,9 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor angle(const at::Tensor & self);
 TORCH_API at::Tensor & angle_out(const at::Tensor & self, at::Tensor & out);
 TORCH_API at::Tensor angle_sparse_csr(const at::Tensor & self);
 TORCH_API at::Tensor & angle_sparse_csr_out(const at::Tensor & self, at::Tensor & out);
-
 } // namespace native
 } // namespace at

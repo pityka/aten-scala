@@ -23,18 +23,17 @@ namespace at {
 
 
 // aten::sparse_resize.out(Tensor self, int[] size, int sparse_dim, int dense_dim, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline const at::Tensor & sparse_resize_out(const at::Tensor & out, const at::Tensor & self, at::IntArrayRef size, int64_t sparse_dim, int64_t dense_dim) {
+inline const at::Tensor & sparse_resize_out(const at::Tensor & out, const at::Tensor & self, at::IntArrayRef size, int64_t sparse_dim, int64_t dense_dim) {
     return at::_ops::sparse_resize_out::call(self, size, sparse_dim, dense_dim, out);
 }
-
 // aten::sparse_resize.out(Tensor self, int[] size, int sparse_dim, int dense_dim, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline const at::Tensor & sparse_resize_outf(const at::Tensor & self, at::IntArrayRef size, int64_t sparse_dim, int64_t dense_dim, const at::Tensor & out) {
+inline const at::Tensor & sparse_resize_outf(const at::Tensor & self, at::IntArrayRef size, int64_t sparse_dim, int64_t dense_dim, const at::Tensor & out) {
     return at::_ops::sparse_resize_out::call(self, size, sparse_dim, dense_dim, out);
 }
 
-// aten::sparse_resize.functional(Tensor self, int[] size, int sparse_dim, int dense_dim) -> Tensor
-TORCH_API inline at::Tensor sparse_resize_functional(const at::Tensor & self, at::IntArrayRef size, int64_t sparse_dim, int64_t dense_dim) {
-    return at::_ops::sparse_resize_functional::call(self, size, sparse_dim, dense_dim);
+// aten::sparse_resize(Tensor self, int[] size, int sparse_dim, int dense_dim) -> Tensor
+inline at::Tensor sparse_resize(const at::Tensor & self, at::IntArrayRef size, int64_t sparse_dim, int64_t dense_dim) {
+    return at::_ops::sparse_resize::call(self, size, sparse_dim, dense_dim);
 }
 
 }

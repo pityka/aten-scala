@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::_nnpack_available() -> bool
-TORCH_API inline bool _nnpack_available() {
+inline bool _nnpack_available() {
     return at::_ops::_nnpack_available::call();
 }
 

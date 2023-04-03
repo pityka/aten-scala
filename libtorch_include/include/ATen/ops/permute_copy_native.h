@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
-TORCH_API at::Tensor permute_copy(const at::Tensor & self, at::IntArrayRef dims);
 TORCH_API at::Tensor & permute_copy_out(const at::Tensor & self, at::IntArrayRef dims, at::Tensor & out);
-
+TORCH_API at::Tensor permute_copy(const at::Tensor & self, at::IntArrayRef dims);
 } // namespace native
 } // namespace at

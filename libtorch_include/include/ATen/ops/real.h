@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::real(Tensor(a) self) -> Tensor(a)
-TORCH_API inline at::Tensor real(const at::Tensor & self) {
+inline at::Tensor real(const at::Tensor & self) {
     return at::_ops::real::call(self);
 }
 

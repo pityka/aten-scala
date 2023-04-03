@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::det(Tensor self) -> Tensor
-TORCH_API inline at::Tensor det(const at::Tensor & self) {
+inline at::Tensor det(const at::Tensor & self) {
     return at::_ops::det::call(self);
 }
 

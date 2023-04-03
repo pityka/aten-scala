@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::tensordot(Tensor self, Tensor other, int[] dims_self, int[] dims_other) -> Tensor
-TORCH_API inline at::Tensor tensordot(const at::Tensor & self, const at::Tensor & other, at::IntArrayRef dims_self, at::IntArrayRef dims_other) {
+inline at::Tensor tensordot(const at::Tensor & self, const at::Tensor & other, at::IntArrayRef dims_self, at::IntArrayRef dims_other) {
     return at::_ops::tensordot::call(self, other, dims_self, dims_other);
 }
 
 // aten::tensordot.out(Tensor self, Tensor other, int[] dims_self, int[] dims_other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & tensordot_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & other, at::IntArrayRef dims_self, at::IntArrayRef dims_other) {
+inline at::Tensor & tensordot_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & other, at::IntArrayRef dims_self, at::IntArrayRef dims_other) {
     return at::_ops::tensordot_out::call(self, other, dims_self, dims_other, out);
 }
-
 // aten::tensordot.out(Tensor self, Tensor other, int[] dims_self, int[] dims_other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & tensordot_outf(const at::Tensor & self, const at::Tensor & other, at::IntArrayRef dims_self, at::IntArrayRef dims_other, at::Tensor & out) {
+inline at::Tensor & tensordot_outf(const at::Tensor & self, const at::Tensor & other, at::IntArrayRef dims_self, at::IntArrayRef dims_other, at::Tensor & out) {
     return at::_ops::tensordot_out::call(self, other, dims_self, dims_other, out);
 }
 

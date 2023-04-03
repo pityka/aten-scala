@@ -17,9 +17,9 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
-TORCH_API at::Tensor add(const at::Tensor & self, const at::Tensor & other, const at::Scalar & alpha=1);
-TORCH_API at::Tensor & add_(at::Tensor & self, const at::Tensor & other, const at::Scalar & alpha=1);
 TORCH_API at::Tensor add(const at::Tensor & self, const at::Scalar & other, const at::Scalar & alpha=1);
+TORCH_API at::Tensor & add_out(at::Tensor & out, const at::Tensor & self, const at::Scalar & other, const at::Scalar & alpha=1);
+TORCH_API at::Tensor & add_outf(const at::Tensor & self, const at::Scalar & other, const at::Scalar & alpha, at::Tensor & out);
 TORCH_API at::Tensor & add_(at::Tensor & self, const at::Scalar & other, const at::Scalar & alpha=1);
 
 } // namespace compositeexplicitautograd

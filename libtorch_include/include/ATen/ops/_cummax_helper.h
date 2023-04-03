@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::_cummax_helper(Tensor self, Tensor(a!) values, Tensor(b!) indices, int dim) -> ()
-TORCH_API inline void _cummax_helper(const at::Tensor & self, at::Tensor & values, at::Tensor & indices, int64_t dim) {
+inline void _cummax_helper(const at::Tensor & self, at::Tensor & values, at::Tensor & indices, int64_t dim) {
     return at::_ops::_cummax_helper::call(self, values, indices, dim);
 }
 

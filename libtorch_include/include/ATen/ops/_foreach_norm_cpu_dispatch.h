@@ -17,7 +17,7 @@ namespace at {
 
 namespace cpu {
 
-TORCH_API ::std::vector<at::Tensor> _foreach_norm(at::TensorList tensors, const at::Scalar & ord=2);
+TORCH_API ::std::vector<at::Tensor> _foreach_norm(at::TensorList self, const at::Scalar & ord=2);
 
 } // namespace cpu
 } // namespace at

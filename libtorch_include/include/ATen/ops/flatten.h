@@ -23,22 +23,22 @@ namespace at {
 
 
 // aten::flatten.using_ints(Tensor(a) self, int start_dim=0, int end_dim=-1) -> Tensor(a)
-TORCH_API inline at::Tensor flatten(const at::Tensor & self, int64_t start_dim=0, int64_t end_dim=-1) {
+inline at::Tensor flatten(const at::Tensor & self, int64_t start_dim=0, int64_t end_dim=-1) {
     return at::_ops::flatten_using_ints::call(self, start_dim, end_dim);
 }
 
 // aten::flatten.named_out_dim(Tensor(a) self, int start_dim, int end_dim, Dimname out_dim) -> Tensor(a)
-TORCH_API inline at::Tensor flatten(const at::Tensor & self, int64_t start_dim, int64_t end_dim, at::Dimname out_dim) {
+inline at::Tensor flatten(const at::Tensor & self, int64_t start_dim, int64_t end_dim, at::Dimname out_dim) {
     return at::_ops::flatten_named_out_dim::call(self, start_dim, end_dim, out_dim);
 }
 
 // aten::flatten.using_names(Tensor(a) self, Dimname start_dim, Dimname end_dim, Dimname out_dim) -> Tensor(a)
-TORCH_API inline at::Tensor flatten(const at::Tensor & self, at::Dimname start_dim, at::Dimname end_dim, at::Dimname out_dim) {
+inline at::Tensor flatten(const at::Tensor & self, at::Dimname start_dim, at::Dimname end_dim, at::Dimname out_dim) {
     return at::_ops::flatten_using_names::call(self, start_dim, end_dim, out_dim);
 }
 
 // aten::flatten.DimnameList(Tensor(a) self, Dimname[] dims, Dimname out_dim) -> Tensor(a)
-TORCH_API inline at::Tensor flatten(const at::Tensor & self, at::DimnameList dims, at::Dimname out_dim) {
+inline at::Tensor flatten(const at::Tensor & self, at::DimnameList dims, at::Dimname out_dim) {
     return at::_ops::flatten_DimnameList::call(self, dims, out_dim);
 }
 

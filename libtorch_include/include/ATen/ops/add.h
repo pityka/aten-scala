@@ -23,32 +23,30 @@ namespace at {
 
 
 // aten::add.Tensor(Tensor self, Tensor other, *, Scalar alpha=1) -> Tensor
-TORCH_API inline at::Tensor add(const at::Tensor & self, const at::Tensor & other, const at::Scalar & alpha=1) {
+inline at::Tensor add(const at::Tensor & self, const at::Tensor & other, const at::Scalar & alpha=1) {
     return at::_ops::add_Tensor::call(self, other, alpha);
 }
 
 // aten::add.out(Tensor self, Tensor other, *, Scalar alpha=1, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & add_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & other, const at::Scalar & alpha=1) {
+inline at::Tensor & add_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & other, const at::Scalar & alpha=1) {
     return at::_ops::add_out::call(self, other, alpha, out);
 }
-
 // aten::add.out(Tensor self, Tensor other, *, Scalar alpha=1, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & add_outf(const at::Tensor & self, const at::Tensor & other, const at::Scalar & alpha, at::Tensor & out) {
+inline at::Tensor & add_outf(const at::Tensor & self, const at::Tensor & other, const at::Scalar & alpha, at::Tensor & out) {
     return at::_ops::add_out::call(self, other, alpha, out);
 }
 
 // aten::add.Scalar(Tensor self, Scalar other, Scalar alpha=1) -> Tensor
-TORCH_API inline at::Tensor add(const at::Tensor & self, const at::Scalar & other, const at::Scalar & alpha=1) {
+inline at::Tensor add(const at::Tensor & self, const at::Scalar & other, const at::Scalar & alpha=1) {
     return at::_ops::add_Scalar::call(self, other, alpha);
 }
 
 // aten::add.Scalar_out(Tensor self, Scalar other, Scalar alpha=1, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & add_out(at::Tensor & out, const at::Tensor & self, const at::Scalar & other, const at::Scalar & alpha=1) {
+inline at::Tensor & add_out(at::Tensor & out, const at::Tensor & self, const at::Scalar & other, const at::Scalar & alpha=1) {
     return at::_ops::add_Scalar_out::call(self, other, alpha, out);
 }
-
 // aten::add.Scalar_out(Tensor self, Scalar other, Scalar alpha=1, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & add_outf(const at::Tensor & self, const at::Scalar & other, const at::Scalar & alpha, at::Tensor & out) {
+inline at::Tensor & add_outf(const at::Tensor & self, const at::Scalar & other, const at::Scalar & alpha, at::Tensor & out) {
     return at::_ops::add_Scalar_out::call(self, other, alpha, out);
 }
 

@@ -23,8 +23,17 @@ namespace at {
 
 
 // aten::quantize_per_tensor_dynamic(Tensor self, ScalarType dtype, bool reduce_range) -> Tensor
-TORCH_API inline at::Tensor quantize_per_tensor_dynamic(const at::Tensor & self, at::ScalarType dtype, bool reduce_range) {
+inline at::Tensor quantize_per_tensor_dynamic(const at::Tensor & self, at::ScalarType dtype, bool reduce_range) {
     return at::_ops::quantize_per_tensor_dynamic::call(self, dtype, reduce_range);
+}
+
+// aten::quantize_per_tensor_dynamic.out(Tensor self, ScalarType dtype, bool reduce_range, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & quantize_per_tensor_dynamic_out(at::Tensor & out, const at::Tensor & self, at::ScalarType dtype, bool reduce_range) {
+    return at::_ops::quantize_per_tensor_dynamic_out::call(self, dtype, reduce_range, out);
+}
+// aten::quantize_per_tensor_dynamic.out(Tensor self, ScalarType dtype, bool reduce_range, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & quantize_per_tensor_dynamic_outf(const at::Tensor & self, at::ScalarType dtype, bool reduce_range, at::Tensor & out) {
+    return at::_ops::quantize_per_tensor_dynamic_out::call(self, dtype, reduce_range, out);
 }
 
 }

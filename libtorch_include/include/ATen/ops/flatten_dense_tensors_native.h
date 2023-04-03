@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor flatten_dense_tensors(at::TensorList tensors);
-
 } // namespace native
 } // namespace at

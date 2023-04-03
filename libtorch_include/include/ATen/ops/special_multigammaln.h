@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::special_multigammaln(Tensor self, int p) -> Tensor
-TORCH_API inline at::Tensor special_multigammaln(const at::Tensor & self, int64_t p) {
+inline at::Tensor special_multigammaln(const at::Tensor & self, int64_t p) {
     return at::_ops::special_multigammaln::call(self, p);
 }
 
 // aten::special_multigammaln.out(Tensor self, int p, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & special_multigammaln_out(at::Tensor & out, const at::Tensor & self, int64_t p) {
+inline at::Tensor & special_multigammaln_out(at::Tensor & out, const at::Tensor & self, int64_t p) {
     return at::_ops::special_multigammaln_out::call(self, p, out);
 }
-
 // aten::special_multigammaln.out(Tensor self, int p, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & special_multigammaln_outf(const at::Tensor & self, int64_t p, at::Tensor & out) {
+inline at::Tensor & special_multigammaln_outf(const at::Tensor & self, int64_t p, at::Tensor & out) {
     return at::_ops::special_multigammaln_out::call(self, p, out);
 }
 

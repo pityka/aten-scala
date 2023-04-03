@@ -16,11 +16,7 @@
 
 namespace at {
 namespace native {
-
-TORCH_API at::Tensor expand_copy(const at::Tensor & self, at::IntArrayRef size, bool implicit=false);
-TORCH_API at::Tensor & expand_copy_out(const at::Tensor & self, at::IntArrayRef size, bool implicit, at::Tensor & out);
-TORCH_API at::Tensor expand_copy_SymInt(const at::Tensor & self, c10::SymIntArrayRef size, bool implicit=false);
-TORCH_API at::Tensor & expand_copy_SymInt_out(const at::Tensor & self, c10::SymIntArrayRef size, bool implicit, at::Tensor & out);
-
+TORCH_API at::Tensor & expand_copy_out_symint(const at::Tensor & self, c10::SymIntArrayRef size, bool implicit, at::Tensor & out);
+TORCH_API at::Tensor expand_copy_symint(const at::Tensor & self, c10::SymIntArrayRef size, bool implicit=false);
 } // namespace native
 } // namespace at

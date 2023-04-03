@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::diag.out(Tensor self, int diagonal=0, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & diag_out(at::Tensor & out, const at::Tensor & self, int64_t diagonal=0) {
+inline at::Tensor & diag_out(at::Tensor & out, const at::Tensor & self, int64_t diagonal=0) {
     return at::_ops::diag_out::call(self, diagonal, out);
 }
-
 // aten::diag.out(Tensor self, int diagonal=0, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & diag_outf(const at::Tensor & self, int64_t diagonal, at::Tensor & out) {
+inline at::Tensor & diag_outf(const at::Tensor & self, int64_t diagonal, at::Tensor & out) {
     return at::_ops::diag_out::call(self, diagonal, out);
 }
 
 // aten::diag(Tensor self, int diagonal=0) -> Tensor
-TORCH_API inline at::Tensor diag(const at::Tensor & self, int64_t diagonal=0) {
+inline at::Tensor diag(const at::Tensor & self, int64_t diagonal=0) {
     return at::_ops::diag::call(self, diagonal);
 }
 

@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::cosine_embedding_loss(Tensor input1, Tensor input2, Tensor target, float margin=0.0, int reduction=Mean) -> Tensor
-TORCH_API inline at::Tensor cosine_embedding_loss(const at::Tensor & input1, const at::Tensor & input2, const at::Tensor & target, double margin=0.0, int64_t reduction=at::Reduction::Mean) {
+inline at::Tensor cosine_embedding_loss(const at::Tensor & input1, const at::Tensor & input2, const at::Tensor & target, double margin=0.0, int64_t reduction=at::Reduction::Mean) {
     return at::_ops::cosine_embedding_loss::call(input1, input2, target, margin, reduction);
 }
 

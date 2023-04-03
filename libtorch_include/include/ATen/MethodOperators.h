@@ -26,9 +26,13 @@
 #include <ATen/ops/_dimV_ops.h>
 #include <ATen/ops/_fw_primal_ops.h>
 #include <ATen/ops/_indices_ops.h>
+#include <ATen/ops/_is_all_true_ops.h>
+#include <ATen/ops/_is_any_true_ops.h>
 #include <ATen/ops/_is_zerotensor_ops.h>
 #include <ATen/ops/_neg_view_ops.h>
-#include <ATen/ops/_nested_tensor_layer_norm_ops.h>
+#include <ATen/ops/_nested_tensor_offsets_ops.h>
+#include <ATen/ops/_nested_tensor_size_ops.h>
+#include <ATen/ops/_nested_tensor_strides_ops.h>
 #include <ATen/ops/_nnz_ops.h>
 #include <ATen/ops/_reshape_alias_ops.h>
 #include <ATen/ops/_to_dense_ops.h>
@@ -69,6 +73,7 @@
 #include <ATen/ops/argsort_ops.h>
 #include <ATen/ops/argwhere_ops.h>
 #include <ATen/ops/as_strided_ops.h>
+#include <ATen/ops/as_strided_scatter_ops.h>
 #include <ATen/ops/asin_ops.h>
 #include <ATen/ops/asinh_ops.h>
 #include <ATen/ops/atan2_ops.h>
@@ -134,7 +139,6 @@
 #include <ATen/ops/divide_ops.h>
 #include <ATen/ops/dot_ops.h>
 #include <ATen/ops/dsplit_ops.h>
-#include <ATen/ops/eig_ops.h>
 #include <ATen/ops/eq_ops.h>
 #include <ATen/ops/equal_ops.h>
 #include <ATen/ops/erf_ops.h>
@@ -222,7 +226,6 @@
 #include <ATen/ops/less_equal_ops.h>
 #include <ATen/ops/less_ops.h>
 #include <ATen/ops/lgamma_ops.h>
-#include <ATen/ops/lift_ops.h>
 #include <ATen/ops/log10_ops.h>
 #include <ATen/ops/log1p_ops.h>
 #include <ATen/ops/log2_ops.h>
@@ -240,7 +243,6 @@
 #include <ATen/ops/logit_ops.h>
 #include <ATen/ops/logsumexp_ops.h>
 #include <ATen/ops/lshift_ops.h>
-#include <ATen/ops/lstsq_ops.h>
 #include <ATen/ops/lt_ops.h>
 #include <ATen/ops/lu_solve_ops.h>
 #include <ATen/ops/mH_ops.h>
@@ -301,7 +303,6 @@
 #include <ATen/ops/polygamma_ops.h>
 #include <ATen/ops/positive_ops.h>
 #include <ATen/ops/pow_ops.h>
-#include <ATen/ops/prelu_backward_ops.h>
 #include <ATen/ops/prelu_ops.h>
 #include <ATen/ops/prod_ops.h>
 #include <ATen/ops/put_ops.h>
@@ -382,7 +383,6 @@
 #include <ATen/ops/svd_ops.h>
 #include <ATen/ops/swapaxes_ops.h>
 #include <ATen/ops/swapdims_ops.h>
-#include <ATen/ops/symeig_ops.h>
 #include <ATen/ops/t_ops.h>
 #include <ATen/ops/take_along_dim_ops.h>
 #include <ATen/ops/take_ops.h>

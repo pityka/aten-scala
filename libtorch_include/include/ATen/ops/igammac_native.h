@@ -16,10 +16,8 @@
 
 namespace at {
 namespace native {
-
 struct TORCH_API structured_igammac_out : public at::meta::structured_igammac {
 void impl(const at::Tensor & self, const at::Tensor & other, const at::Tensor & out);
 };
-
 } // namespace native
 } // namespace at

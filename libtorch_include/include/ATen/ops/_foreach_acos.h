@@ -22,29 +22,23 @@
 namespace at {
 
 
-// aten::_foreach_acos(Tensor[] tensors) -> Tensor[]
-TORCH_API inline ::std::vector<at::Tensor> _foreach_acos(at::TensorList tensors) {
-    return at::_ops::_foreach_acos::call(tensors);
+// aten::_foreach_acos(Tensor[] self) -> Tensor[]
+inline ::std::vector<at::Tensor> _foreach_acos(at::TensorList self) {
+    return at::_ops::_foreach_acos::call(self);
 }
 
 // aten::_foreach_acos_(Tensor(a!)[] self) -> ()
-TORCH_API inline void _foreach_acos_(at::TensorList self) {
+inline void _foreach_acos_(at::TensorList self) {
     return at::_ops::_foreach_acos_::call(self);
 }
 
 // aten::_foreach_acos.out(Tensor[] self, *, Tensor(a!)[] out) -> ()
-TORCH_API inline void _foreach_acos_out(at::TensorList out, at::TensorList self) {
+inline void _foreach_acos_out(at::TensorList out, at::TensorList self) {
     return at::_ops::_foreach_acos_out::call(self, out);
 }
-
 // aten::_foreach_acos.out(Tensor[] self, *, Tensor(a!)[] out) -> ()
-TORCH_API inline void _foreach_acos_outf(at::TensorList self, at::TensorList out) {
+inline void _foreach_acos_outf(at::TensorList self, at::TensorList out) {
     return at::_ops::_foreach_acos_out::call(self, out);
-}
-
-// aten::_foreach_acos.functional(Tensor[] self) -> Tensor[] self_out
-TORCH_API inline ::std::vector<at::Tensor> _foreach_acos_functional(at::TensorList self) {
-    return at::_ops::_foreach_acos_functional::call(self);
 }
 
 }

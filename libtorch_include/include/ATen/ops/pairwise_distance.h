@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::pairwise_distance(Tensor x1, Tensor x2, float p=2, float eps=1e-06, bool keepdim=False) -> Tensor
-TORCH_API inline at::Tensor pairwise_distance(const at::Tensor & x1, const at::Tensor & x2, double p=2, double eps=1e-06, bool keepdim=false) {
+inline at::Tensor pairwise_distance(const at::Tensor & x1, const at::Tensor & x2, double p=2, double eps=1e-06, bool keepdim=false) {
     return at::_ops::pairwise_distance::call(x1, x2, p, eps, keepdim);
 }
 

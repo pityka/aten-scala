@@ -16,9 +16,8 @@
 
 namespace at {
 namespace native {
-
+TORCH_API at::Tensor & _dirichlet_grad_out(const at::Tensor & x, const at::Tensor & alpha, const at::Tensor & total, at::Tensor & out);
 TORCH_API at::Tensor _dirichlet_grad_cpu(const at::Tensor & x, const at::Tensor & alpha, const at::Tensor & total);
 TORCH_API at::Tensor _dirichlet_grad_cuda(const at::Tensor & x, const at::Tensor & alpha, const at::Tensor & total);
-
 } // namespace native
 } // namespace at

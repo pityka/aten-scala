@@ -17,7 +17,6 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
-TORCH_API at::Tensor linalg_pinv(const at::Tensor & self, const c10::optional<at::Tensor> & atol={}, const c10::optional<at::Tensor> & rtol={}, bool hermitian=false);
 TORCH_API at::Tensor & linalg_pinv_out(at::Tensor & out, const at::Tensor & self, const c10::optional<at::Tensor> & atol={}, const c10::optional<at::Tensor> & rtol={}, bool hermitian=false);
 TORCH_API at::Tensor & linalg_pinv_outf(const at::Tensor & self, const c10::optional<at::Tensor> & atol, const c10::optional<at::Tensor> & rtol, bool hermitian, at::Tensor & out);
 

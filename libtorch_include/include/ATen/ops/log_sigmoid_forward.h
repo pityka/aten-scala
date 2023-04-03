@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::log_sigmoid_forward.output(Tensor self, *, Tensor(a!) output, Tensor(b!) buffer) -> (Tensor(a!), Tensor(b!))
-TORCH_API inline ::std::tuple<at::Tensor &,at::Tensor &> log_sigmoid_forward_out(at::Tensor & output, at::Tensor & buffer, const at::Tensor & self) {
+inline ::std::tuple<at::Tensor &,at::Tensor &> log_sigmoid_forward_out(at::Tensor & output, at::Tensor & buffer, const at::Tensor & self) {
     return at::_ops::log_sigmoid_forward_output::call(self, output, buffer);
 }
-
 // aten::log_sigmoid_forward.output(Tensor self, *, Tensor(a!) output, Tensor(b!) buffer) -> (Tensor(a!), Tensor(b!))
-TORCH_API inline ::std::tuple<at::Tensor &,at::Tensor &> log_sigmoid_forward_outf(const at::Tensor & self, at::Tensor & output, at::Tensor & buffer) {
+inline ::std::tuple<at::Tensor &,at::Tensor &> log_sigmoid_forward_outf(const at::Tensor & self, at::Tensor & output, at::Tensor & buffer) {
     return at::_ops::log_sigmoid_forward_output::call(self, output, buffer);
 }
 
 // aten::log_sigmoid_forward(Tensor self) -> (Tensor output, Tensor buffer)
-TORCH_API inline ::std::tuple<at::Tensor,at::Tensor> log_sigmoid_forward(const at::Tensor & self) {
+inline ::std::tuple<at::Tensor,at::Tensor> log_sigmoid_forward(const at::Tensor & self) {
     return at::_ops::log_sigmoid_forward::call(self);
 }
 

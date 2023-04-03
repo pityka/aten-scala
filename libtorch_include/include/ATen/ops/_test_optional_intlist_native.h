@@ -16,8 +16,7 @@
 
 namespace at {
 namespace native {
-
+TORCH_API at::Tensor & _test_optional_intlist_out(const at::Tensor & values, at::OptionalIntArrayRef addends, at::Tensor & out);
 TORCH_API at::Tensor _test_optional_intlist(const at::Tensor & values, at::OptionalIntArrayRef addends);
-
 } // namespace native
 } // namespace at

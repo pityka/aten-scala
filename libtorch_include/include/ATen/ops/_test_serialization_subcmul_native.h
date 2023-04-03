@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor _test_serialization_subcmul(const at::Tensor & self, const at::Tensor & other, const at::Scalar & alpha=1);
-
 } // namespace native
 } // namespace at

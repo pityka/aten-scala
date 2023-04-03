@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor & adaptive_avg_pool3d_backward_out_cpu(const at::Tensor & grad_output, const at::Tensor & self, at::Tensor & grad_input);
 TORCH_API at::Tensor & adaptive_avg_pool3d_backward_out_cuda(const at::Tensor & grad_output, const at::Tensor & self, at::Tensor & grad_input);
-
 } // namespace native
 } // namespace at

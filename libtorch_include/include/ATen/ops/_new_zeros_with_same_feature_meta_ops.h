@@ -25,4 +25,15 @@ struct TORCH_API _new_zeros_with_same_feature_meta {
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & other, int64_t self_num_batch_dims);
 };
 
+struct TORCH_API _new_zeros_with_same_feature_meta_out {
+  using schema = at::Tensor & (const at::Tensor &, const at::Tensor &, int64_t, at::Tensor &);
+  using ptr_schema = schema*;
+  // See Note [static constexpr char* members for windows NVCC]
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_new_zeros_with_same_feature_meta")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_new_zeros_with_same_feature_meta.out(Tensor self, Tensor other, *, int self_num_batch_dims=0, Tensor(a!) out) -> Tensor(a!)")
+  static at::Tensor & call(const at::Tensor & self, const at::Tensor & other, int64_t self_num_batch_dims, at::Tensor & out);
+  static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & other, int64_t self_num_batch_dims, at::Tensor & out);
+};
+
 }} // namespace at::_ops

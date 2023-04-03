@@ -16,7 +16,6 @@
 
 namespace at {
 namespace native {
-
 struct TORCH_API structured_avg_pool3d_out_cpu : public at::meta::structured_avg_pool3d {
 void impl(const at::Tensor & self, at::IntArrayRef kernel_size, at::IntArrayRef stride, at::IntArrayRef padding, bool ceil_mode, bool count_include_pad, c10::optional<int64_t> divisor_override, const at::Tensor & out);
 };
@@ -26,6 +25,5 @@ void impl(const at::Tensor & self, at::IntArrayRef kernel_size, at::IntArrayRef 
 TORCH_API at::Tensor mkldnn_avg_pool3d(const at::Tensor & self, at::IntArrayRef kernel_size, at::IntArrayRef stride={}, at::IntArrayRef padding=0, bool ceil_mode=false, bool count_include_pad=true, c10::optional<int64_t> divisor_override=c10::nullopt);
 TORCH_API at::Tensor & mkldnn_avg_pool3d_out(const at::Tensor & self, at::IntArrayRef kernel_size, at::IntArrayRef stride, at::IntArrayRef padding, bool ceil_mode, bool count_include_pad, c10::optional<int64_t> divisor_override, at::Tensor & out);
 TORCH_API at::Tensor avg_pool3d_quantized_cpu(const at::Tensor & self, at::IntArrayRef kernel_size, at::IntArrayRef stride={}, at::IntArrayRef padding=0, bool ceil_mode=false, bool count_include_pad=true, c10::optional<int64_t> divisor_override=c10::nullopt);
-
 } // namespace native
 } // namespace at

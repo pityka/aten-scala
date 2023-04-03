@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor hinge_embedding_loss(const at::Tensor & self, const at::Tensor & target, double margin=1.0, int64_t reduction=at::Reduction::Mean);
-
 } // namespace native
 } // namespace at

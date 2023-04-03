@@ -17,7 +17,9 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
-TORCH_API at::Tensor uniform_functional(const at::Tensor & self, double from=0, double to=1, c10::optional<at::Generator> generator=c10::nullopt);
+TORCH_API at::Tensor uniform(const at::Tensor & self, double from=0, double to=1, c10::optional<at::Generator> generator=c10::nullopt);
+TORCH_API at::Tensor & uniform_out(at::Tensor & out, const at::Tensor & self, double from=0, double to=1, c10::optional<at::Generator> generator=c10::nullopt);
+TORCH_API at::Tensor & uniform_outf(const at::Tensor & self, double from, double to, c10::optional<at::Generator> generator, at::Tensor & out);
 
 } // namespace compositeexplicitautograd
 } // namespace at

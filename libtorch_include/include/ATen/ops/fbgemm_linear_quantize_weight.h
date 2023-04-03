@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::fbgemm_linear_quantize_weight(Tensor input) -> (Tensor, Tensor, float, int)
-TORCH_API inline ::std::tuple<at::Tensor,at::Tensor,double,int64_t> fbgemm_linear_quantize_weight(const at::Tensor & input) {
+inline ::std::tuple<at::Tensor,at::Tensor,double,int64_t> fbgemm_linear_quantize_weight(const at::Tensor & input) {
     return at::_ops::fbgemm_linear_quantize_weight::call(input);
 }
 

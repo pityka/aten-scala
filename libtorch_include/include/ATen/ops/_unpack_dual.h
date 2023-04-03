@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::_unpack_dual(Tensor(a) dual, int level) -> (Tensor(a) primal, Tensor tangent)
-TORCH_API inline ::std::tuple<at::Tensor,at::Tensor> _unpack_dual(const at::Tensor & dual, int64_t level) {
+inline ::std::tuple<at::Tensor,at::Tensor> _unpack_dual(const at::Tensor & dual, int64_t level) {
     return at::_ops::_unpack_dual::call(dual, level);
 }
 

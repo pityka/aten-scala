@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::pdist(Tensor self, float p=2) -> Tensor
-TORCH_API inline at::Tensor pdist(const at::Tensor & self, double p=2) {
+inline at::Tensor pdist(const at::Tensor & self, double p=2) {
     return at::_ops::pdist::call(self, p);
 }
 

@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::huber_loss_backward.out(Tensor grad_output, Tensor self, Tensor target, int reduction, float delta, *, Tensor(a!) grad_input) -> Tensor(a!)
-TORCH_API inline at::Tensor & huber_loss_backward_out(at::Tensor & grad_input, const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & target, int64_t reduction, double delta) {
+inline at::Tensor & huber_loss_backward_out(at::Tensor & grad_input, const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & target, int64_t reduction, double delta) {
     return at::_ops::huber_loss_backward_out::call(grad_output, self, target, reduction, delta, grad_input);
 }
-
 // aten::huber_loss_backward.out(Tensor grad_output, Tensor self, Tensor target, int reduction, float delta, *, Tensor(a!) grad_input) -> Tensor(a!)
-TORCH_API inline at::Tensor & huber_loss_backward_outf(const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & target, int64_t reduction, double delta, at::Tensor & grad_input) {
+inline at::Tensor & huber_loss_backward_outf(const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & target, int64_t reduction, double delta, at::Tensor & grad_input) {
     return at::_ops::huber_loss_backward_out::call(grad_output, self, target, reduction, delta, grad_input);
 }
 
 // aten::huber_loss_backward(Tensor grad_output, Tensor self, Tensor target, int reduction, float delta) -> Tensor
-TORCH_API inline at::Tensor huber_loss_backward(const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & target, int64_t reduction, double delta) {
+inline at::Tensor huber_loss_backward(const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & target, int64_t reduction, double delta) {
     return at::_ops::huber_loss_backward::call(grad_output, self, target, reduction, delta);
 }
 

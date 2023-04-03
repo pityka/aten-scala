@@ -16,8 +16,7 @@
 
 namespace at {
 namespace native {
-
+TORCH_API at::Tensor & quantize_per_tensor_dynamic_out(const at::Tensor & self, at::ScalarType dtype, bool reduce_range, at::Tensor & out);
 TORCH_API at::Tensor quantize_per_tensor_dynamic(const at::Tensor & self, at::ScalarType dtype, bool reduce_range);
-
 } // namespace native
 } // namespace at

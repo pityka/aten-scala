@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::affine_grid_generator_backward(Tensor grad, int[] size, bool align_corners) -> Tensor
-TORCH_API inline at::Tensor affine_grid_generator_backward(const at::Tensor & grad, at::IntArrayRef size, bool align_corners) {
+inline at::Tensor affine_grid_generator_backward(const at::Tensor & grad, at::IntArrayRef size, bool align_corners) {
     return at::_ops::affine_grid_generator_backward::call(grad, size, align_corners);
 }
 

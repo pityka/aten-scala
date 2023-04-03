@@ -18,7 +18,6 @@ namespace at {
 namespace compositeexplicitautograd {
 
 TORCH_API at::Tensor mean(const at::Tensor & self, c10::optional<at::ScalarType> dtype=c10::nullopt);
-TORCH_API at::Tensor mean(const at::Tensor & self, at::IntArrayRef dim, bool keepdim=false, c10::optional<at::ScalarType> dtype=c10::nullopt);
 
 } // namespace compositeexplicitautograd
 } // namespace at

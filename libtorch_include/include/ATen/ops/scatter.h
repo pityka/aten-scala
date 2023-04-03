@@ -23,72 +23,68 @@ namespace at {
 
 
 // aten::scatter.src(Tensor self, int dim, Tensor index, Tensor src) -> Tensor
-TORCH_API inline at::Tensor scatter(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & src) {
+inline at::Tensor scatter(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & src) {
     return at::_ops::scatter_src::call(self, dim, index, src);
 }
 
 // aten::scatter.src_out(Tensor self, int dim, Tensor index, Tensor src, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & scatter_out(at::Tensor & out, const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & src) {
+inline at::Tensor & scatter_out(at::Tensor & out, const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & src) {
     return at::_ops::scatter_src_out::call(self, dim, index, src, out);
 }
-
 // aten::scatter.src_out(Tensor self, int dim, Tensor index, Tensor src, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & scatter_outf(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & src, at::Tensor & out) {
+inline at::Tensor & scatter_outf(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & src, at::Tensor & out) {
     return at::_ops::scatter_src_out::call(self, dim, index, src, out);
 }
 
 // aten::scatter.value(Tensor self, int dim, Tensor index, Scalar value) -> Tensor
-TORCH_API inline at::Tensor scatter(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Scalar & value) {
+inline at::Tensor scatter(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Scalar & value) {
     return at::_ops::scatter_value::call(self, dim, index, value);
 }
 
 // aten::scatter.value_out(Tensor self, int dim, Tensor index, Scalar value, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & scatter_out(at::Tensor & out, const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Scalar & value) {
+inline at::Tensor & scatter_out(at::Tensor & out, const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Scalar & value) {
     return at::_ops::scatter_value_out::call(self, dim, index, value, out);
 }
-
 // aten::scatter.value_out(Tensor self, int dim, Tensor index, Scalar value, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & scatter_outf(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Scalar & value, at::Tensor & out) {
+inline at::Tensor & scatter_outf(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Scalar & value, at::Tensor & out) {
     return at::_ops::scatter_value_out::call(self, dim, index, value, out);
 }
 
 // aten::scatter.reduce(Tensor self, int dim, Tensor index, Tensor src, *, str reduce) -> Tensor
-TORCH_API inline at::Tensor scatter(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & src, c10::string_view reduce) {
+inline at::Tensor scatter(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & src, c10::string_view reduce) {
     return at::_ops::scatter_reduce::call(self, dim, index, src, reduce);
 }
 
 // aten::scatter.reduce_out(Tensor self, int dim, Tensor index, Tensor src, *, str reduce, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & scatter_out(at::Tensor & out, const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & src, c10::string_view reduce) {
+inline at::Tensor & scatter_out(at::Tensor & out, const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & src, c10::string_view reduce) {
     return at::_ops::scatter_reduce_out::call(self, dim, index, src, reduce, out);
 }
-
 // aten::scatter.reduce_out(Tensor self, int dim, Tensor index, Tensor src, *, str reduce, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & scatter_outf(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & src, c10::string_view reduce, at::Tensor & out) {
+inline at::Tensor & scatter_outf(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & src, c10::string_view reduce, at::Tensor & out) {
     return at::_ops::scatter_reduce_out::call(self, dim, index, src, reduce, out);
 }
 
 // aten::scatter.value_reduce(Tensor self, int dim, Tensor index, Scalar value, *, str reduce) -> Tensor
-TORCH_API inline at::Tensor scatter(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Scalar & value, c10::string_view reduce) {
+inline at::Tensor scatter(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Scalar & value, c10::string_view reduce) {
     return at::_ops::scatter_value_reduce::call(self, dim, index, value, reduce);
 }
 
 // aten::scatter.value_reduce_out(Tensor self, int dim, Tensor index, Scalar value, *, str reduce, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & scatter_out(at::Tensor & out, const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Scalar & value, c10::string_view reduce) {
+inline at::Tensor & scatter_out(at::Tensor & out, const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Scalar & value, c10::string_view reduce) {
     return at::_ops::scatter_value_reduce_out::call(self, dim, index, value, reduce, out);
 }
-
 // aten::scatter.value_reduce_out(Tensor self, int dim, Tensor index, Scalar value, *, str reduce, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & scatter_outf(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Scalar & value, c10::string_view reduce, at::Tensor & out) {
+inline at::Tensor & scatter_outf(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Scalar & value, c10::string_view reduce, at::Tensor & out) {
     return at::_ops::scatter_value_reduce_out::call(self, dim, index, value, reduce, out);
 }
 
 // aten::scatter.dimname_src(Tensor self, Dimname dim, Tensor index, Tensor src) -> Tensor
-TORCH_API inline at::Tensor scatter(const at::Tensor & self, at::Dimname dim, const at::Tensor & index, const at::Tensor & src) {
+inline at::Tensor scatter(const at::Tensor & self, at::Dimname dim, const at::Tensor & index, const at::Tensor & src) {
     return at::_ops::scatter_dimname_src::call(self, dim, index, src);
 }
 
 // aten::scatter.dimname_value(Tensor self, Dimname dim, Tensor index, Scalar value) -> Tensor
-TORCH_API inline at::Tensor scatter(const at::Tensor & self, at::Dimname dim, const at::Tensor & index, const at::Scalar & value) {
+inline at::Tensor scatter(const at::Tensor & self, at::Dimname dim, const at::Tensor & index, const at::Scalar & value) {
     return at::_ops::scatter_dimname_value::call(self, dim, index, value);
 }
 

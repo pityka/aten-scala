@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::_sparse_broadcast_to(Tensor(a) self, int[] size) -> Tensor(a)
-TORCH_API inline at::Tensor _sparse_broadcast_to(const at::Tensor & self, at::IntArrayRef size) {
+inline at::Tensor _sparse_broadcast_to(const at::Tensor & self, at::IntArrayRef size) {
     return at::_ops::_sparse_broadcast_to::call(self, size);
 }
 

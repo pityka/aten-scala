@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> qr(const at::Tensor & self, bool some=true);
 TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> qr_out(const at::Tensor & self, bool some, at::Tensor & Q, at::Tensor & R);
-
 } // namespace native
 } // namespace at

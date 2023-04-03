@@ -23,8 +23,17 @@ namespace at {
 
 
 // aten::_masked_scale(Tensor self, Tensor mask, float scale) -> Tensor
-TORCH_API inline at::Tensor _masked_scale(const at::Tensor & self, const at::Tensor & mask, double scale) {
+inline at::Tensor _masked_scale(const at::Tensor & self, const at::Tensor & mask, double scale) {
     return at::_ops::_masked_scale::call(self, mask, scale);
+}
+
+// aten::_masked_scale.out(Tensor self, Tensor mask, float scale, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & _masked_scale_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & mask, double scale) {
+    return at::_ops::_masked_scale_out::call(self, mask, scale, out);
+}
+// aten::_masked_scale.out(Tensor self, Tensor mask, float scale, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & _masked_scale_outf(const at::Tensor & self, const at::Tensor & mask, double scale, at::Tensor & out) {
+    return at::_ops::_masked_scale_out::call(self, mask, scale, out);
 }
 
 }

@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::_local_scalar_dense(Tensor self) -> Scalar
-TORCH_API inline at::Scalar _local_scalar_dense(const at::Tensor & self) {
+inline at::Scalar _local_scalar_dense(const at::Tensor & self) {
     return at::_ops::_local_scalar_dense::call(self);
 }
 

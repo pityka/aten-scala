@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::matrix_exp(Tensor self) -> Tensor
-TORCH_API inline at::Tensor matrix_exp(const at::Tensor & self) {
+inline at::Tensor matrix_exp(const at::Tensor & self) {
     return at::_ops::matrix_exp::call(self);
 }
 

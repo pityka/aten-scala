@@ -22,29 +22,23 @@
 namespace at {
 
 
-// aten::_foreach_sin(Tensor[] tensors) -> Tensor[]
-TORCH_API inline ::std::vector<at::Tensor> _foreach_sin(at::TensorList tensors) {
-    return at::_ops::_foreach_sin::call(tensors);
+// aten::_foreach_sin(Tensor[] self) -> Tensor[]
+inline ::std::vector<at::Tensor> _foreach_sin(at::TensorList self) {
+    return at::_ops::_foreach_sin::call(self);
 }
 
 // aten::_foreach_sin_(Tensor(a!)[] self) -> ()
-TORCH_API inline void _foreach_sin_(at::TensorList self) {
+inline void _foreach_sin_(at::TensorList self) {
     return at::_ops::_foreach_sin_::call(self);
 }
 
 // aten::_foreach_sin.out(Tensor[] self, *, Tensor(a!)[] out) -> ()
-TORCH_API inline void _foreach_sin_out(at::TensorList out, at::TensorList self) {
+inline void _foreach_sin_out(at::TensorList out, at::TensorList self) {
     return at::_ops::_foreach_sin_out::call(self, out);
 }
-
 // aten::_foreach_sin.out(Tensor[] self, *, Tensor(a!)[] out) -> ()
-TORCH_API inline void _foreach_sin_outf(at::TensorList self, at::TensorList out) {
+inline void _foreach_sin_outf(at::TensorList self, at::TensorList out) {
     return at::_ops::_foreach_sin_out::call(self, out);
-}
-
-// aten::_foreach_sin.functional(Tensor[] self) -> Tensor[] self_out
-TORCH_API inline ::std::vector<at::Tensor> _foreach_sin_functional(at::TensorList self) {
-    return at::_ops::_foreach_sin_functional::call(self);
 }
 
 }

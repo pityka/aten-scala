@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::multinomial.out(Tensor self, int num_samples, bool replacement=False, *, Generator? generator=None, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & multinomial_out(at::Tensor & out, const at::Tensor & self, int64_t num_samples, bool replacement=false, c10::optional<at::Generator> generator=c10::nullopt) {
+inline at::Tensor & multinomial_out(at::Tensor & out, const at::Tensor & self, int64_t num_samples, bool replacement=false, c10::optional<at::Generator> generator=c10::nullopt) {
     return at::_ops::multinomial_out::call(self, num_samples, replacement, generator, out);
 }
-
 // aten::multinomial.out(Tensor self, int num_samples, bool replacement=False, *, Generator? generator=None, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & multinomial_outf(const at::Tensor & self, int64_t num_samples, bool replacement, c10::optional<at::Generator> generator, at::Tensor & out) {
+inline at::Tensor & multinomial_outf(const at::Tensor & self, int64_t num_samples, bool replacement, c10::optional<at::Generator> generator, at::Tensor & out) {
     return at::_ops::multinomial_out::call(self, num_samples, replacement, generator, out);
 }
 
 // aten::multinomial(Tensor self, int num_samples, bool replacement=False, *, Generator? generator=None) -> Tensor
-TORCH_API inline at::Tensor multinomial(const at::Tensor & self, int64_t num_samples, bool replacement=false, c10::optional<at::Generator> generator=c10::nullopt) {
+inline at::Tensor multinomial(const at::Tensor & self, int64_t num_samples, bool replacement=false, c10::optional<at::Generator> generator=c10::nullopt) {
     return at::_ops::multinomial::call(self, num_samples, replacement, generator);
 }
 

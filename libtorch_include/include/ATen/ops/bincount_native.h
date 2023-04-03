@@ -16,9 +16,9 @@
 
 namespace at {
 namespace native {
-
+TORCH_API at::Tensor & bincount_out(const at::Tensor & self, const c10::optional<at::Tensor> & weights, int64_t minlength, at::Tensor & out);
 TORCH_API at::Tensor _bincount_cpu(const at::Tensor & self, const c10::optional<at::Tensor> & weights={}, int64_t minlength=0);
 TORCH_API at::Tensor _bincount_cuda(const at::Tensor & self, const c10::optional<at::Tensor> & weights={}, int64_t minlength=0);
-
+TORCH_API at::Tensor _bincount_mps(const at::Tensor & self, const c10::optional<at::Tensor> & weights={}, int64_t minlength=0);
 } // namespace native
 } // namespace at

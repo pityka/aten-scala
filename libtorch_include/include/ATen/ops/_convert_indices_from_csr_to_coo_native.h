@@ -16,13 +16,11 @@
 
 namespace at {
 namespace native {
-
 struct TORCH_API structured__convert_indices_from_csr_to_coo_structured_cpu : public at::meta::structured__convert_indices_from_csr_to_coo {
 void impl(const at::Tensor & crow_indices, const at::Tensor & col_indices, bool out_int32, bool transpose, const at::Tensor & out);
 };
 struct TORCH_API structured__convert_indices_from_csr_to_coo_structured_cuda : public at::meta::structured__convert_indices_from_csr_to_coo {
 void impl(const at::Tensor & crow_indices, const at::Tensor & col_indices, bool out_int32, bool transpose, const at::Tensor & out);
 };
-
 } // namespace native
 } // namespace at

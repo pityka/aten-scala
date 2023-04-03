@@ -17,7 +17,7 @@ namespace at {
 
 namespace cpu {
 
-TORCH_API ::std::vector<at::Tensor> _foreach_log(at::TensorList tensors);
+TORCH_API ::std::vector<at::Tensor> _foreach_log(at::TensorList self);
 TORCH_API void _foreach_log_(at::TensorList self);
 
 } // namespace cpu

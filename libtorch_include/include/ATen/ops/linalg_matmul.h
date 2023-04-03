@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::linalg_matmul(Tensor self, Tensor other) -> Tensor
-TORCH_API inline at::Tensor linalg_matmul(const at::Tensor & self, const at::Tensor & other) {
+inline at::Tensor linalg_matmul(const at::Tensor & self, const at::Tensor & other) {
     return at::_ops::linalg_matmul::call(self, other);
 }
 
 // aten::linalg_matmul.out(Tensor self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & linalg_matmul_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & other) {
+inline at::Tensor & linalg_matmul_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & other) {
     return at::_ops::linalg_matmul_out::call(self, other, out);
 }
-
 // aten::linalg_matmul.out(Tensor self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & linalg_matmul_outf(const at::Tensor & self, const at::Tensor & other, at::Tensor & out) {
+inline at::Tensor & linalg_matmul_outf(const at::Tensor & self, const at::Tensor & other, at::Tensor & out) {
     return at::_ops::linalg_matmul_out::call(self, other, out);
 }
 

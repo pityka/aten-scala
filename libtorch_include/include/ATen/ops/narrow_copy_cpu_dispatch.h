@@ -18,8 +18,11 @@ namespace at {
 namespace cpu {
 
 TORCH_API at::Tensor narrow_copy(const at::Tensor & self, int64_t dim, int64_t start, int64_t length);
+TORCH_API at::Tensor narrow_copy_symint(const at::Tensor & self, int64_t dim, c10::SymInt start, c10::SymInt length);
 TORCH_API at::Tensor & narrow_copy_out(at::Tensor & out, const at::Tensor & self, int64_t dim, int64_t start, int64_t length);
 TORCH_API at::Tensor & narrow_copy_outf(const at::Tensor & self, int64_t dim, int64_t start, int64_t length, at::Tensor & out);
+TORCH_API at::Tensor & narrow_copy_symint_out(at::Tensor & out, const at::Tensor & self, int64_t dim, c10::SymInt start, c10::SymInt length);
+TORCH_API at::Tensor & narrow_copy_symint_outf(const at::Tensor & self, int64_t dim, c10::SymInt start, c10::SymInt length, at::Tensor & out);
 
 } // namespace cpu
 } // namespace at

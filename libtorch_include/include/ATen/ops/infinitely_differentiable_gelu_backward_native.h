@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor infinitely_differentiable_gelu_backward(const at::Tensor & grad, const at::Tensor & self);
-
 } // namespace native
 } // namespace at

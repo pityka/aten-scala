@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::polygamma.out(int n, Tensor self, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & polygamma_out(at::Tensor & out, int64_t n, const at::Tensor & self) {
+inline at::Tensor & polygamma_out(at::Tensor & out, int64_t n, const at::Tensor & self) {
     return at::_ops::polygamma_out::call(n, self, out);
 }
-
 // aten::polygamma.out(int n, Tensor self, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & polygamma_outf(int64_t n, const at::Tensor & self, at::Tensor & out) {
+inline at::Tensor & polygamma_outf(int64_t n, const at::Tensor & self, at::Tensor & out) {
     return at::_ops::polygamma_out::call(n, self, out);
 }
 
 // aten::polygamma(int n, Tensor self) -> Tensor
-TORCH_API inline at::Tensor polygamma(int64_t n, const at::Tensor & self) {
+inline at::Tensor polygamma(int64_t n, const at::Tensor & self) {
     return at::_ops::polygamma::call(n, self);
 }
 

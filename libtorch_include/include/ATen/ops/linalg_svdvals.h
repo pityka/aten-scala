@@ -22,19 +22,18 @@
 namespace at {
 
 
-// aten::linalg_svdvals(Tensor A) -> Tensor
-TORCH_API inline at::Tensor linalg_svdvals(const at::Tensor & A) {
-    return at::_ops::linalg_svdvals::call(A);
+// aten::linalg_svdvals(Tensor A, *, str? driver=None) -> Tensor
+inline at::Tensor linalg_svdvals(const at::Tensor & A, c10::optional<c10::string_view> driver=c10::nullopt) {
+    return at::_ops::linalg_svdvals::call(A, driver);
 }
 
-// aten::linalg_svdvals.out(Tensor A, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & linalg_svdvals_out(at::Tensor & out, const at::Tensor & A) {
-    return at::_ops::linalg_svdvals_out::call(A, out);
+// aten::linalg_svdvals.out(Tensor A, *, str? driver=None, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & linalg_svdvals_out(at::Tensor & out, const at::Tensor & A, c10::optional<c10::string_view> driver=c10::nullopt) {
+    return at::_ops::linalg_svdvals_out::call(A, driver, out);
 }
-
-// aten::linalg_svdvals.out(Tensor A, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & linalg_svdvals_outf(const at::Tensor & A, at::Tensor & out) {
-    return at::_ops::linalg_svdvals_out::call(A, out);
+// aten::linalg_svdvals.out(Tensor A, *, str? driver=None, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & linalg_svdvals_outf(const at::Tensor & A, c10::optional<c10::string_view> driver, at::Tensor & out) {
+    return at::_ops::linalg_svdvals_out::call(A, driver, out);
 }
 
 }

@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor diagflat(const at::Tensor & self, int64_t offset=0);
-
 } // namespace native
 } // namespace at

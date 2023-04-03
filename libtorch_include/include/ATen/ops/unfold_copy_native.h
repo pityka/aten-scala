@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
-TORCH_API at::Tensor unfold_copy(const at::Tensor & self, int64_t dimension, int64_t size, int64_t step);
 TORCH_API at::Tensor & unfold_copy_out(const at::Tensor & self, int64_t dimension, int64_t size, int64_t step, at::Tensor & out);
-
+TORCH_API at::Tensor unfold_copy(const at::Tensor & self, int64_t dimension, int64_t size, int64_t step);
 } // namespace native
 } // namespace at

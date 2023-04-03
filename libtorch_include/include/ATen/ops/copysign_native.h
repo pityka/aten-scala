@@ -16,13 +16,11 @@
 
 namespace at {
 namespace native {
-
 struct TORCH_API structured_copysign_out : public at::meta::structured_copysign_Tensor {
 void impl(const at::Tensor & self, const at::Tensor & other, const at::Tensor & out);
 };
 TORCH_API at::Tensor copysign(const at::Tensor & self, const at::Scalar & other);
 TORCH_API at::Tensor & copysign_out(const at::Tensor & self, const at::Scalar & other, at::Tensor & out);
 TORCH_API at::Tensor & copysign_(at::Tensor & self, const at::Scalar & other);
-
 } // namespace native
 } // namespace at

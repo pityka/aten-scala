@@ -16,11 +16,9 @@
 
 namespace at {
 namespace native {
-
 TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> mode_out(const at::Tensor & self, int64_t dim, bool keepdim, at::Tensor & values, at::Tensor & indices);
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> mode(const at::Tensor & self, int64_t dim=-1, bool keepdim=false);
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> mode(const at::Tensor & self, at::Dimname dim, bool keepdim=false);
 TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> mode_out(const at::Tensor & self, at::Dimname dim, bool keepdim, at::Tensor & values, at::Tensor & indices);
-
 } // namespace native
 } // namespace at

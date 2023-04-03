@@ -17,9 +17,10 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
-TORCH_API at::Tensor _reshape_alias_copy(const at::Tensor & self, at::IntArrayRef size, at::IntArrayRef stride);
 TORCH_API at::Tensor & _reshape_alias_copy_out(at::Tensor & out, const at::Tensor & self, at::IntArrayRef size, at::IntArrayRef stride);
 TORCH_API at::Tensor & _reshape_alias_copy_outf(const at::Tensor & self, at::IntArrayRef size, at::IntArrayRef stride, at::Tensor & out);
+TORCH_API at::Tensor & _reshape_alias_copy_symint_out(at::Tensor & out, const at::Tensor & self, c10::SymIntArrayRef size, c10::SymIntArrayRef stride);
+TORCH_API at::Tensor & _reshape_alias_copy_symint_outf(const at::Tensor & self, c10::SymIntArrayRef size, c10::SymIntArrayRef stride, at::Tensor & out);
 
 } // namespace compositeexplicitautograd
 } // namespace at

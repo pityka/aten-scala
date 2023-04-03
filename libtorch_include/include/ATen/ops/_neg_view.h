@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::_neg_view(Tensor(a) self) -> Tensor(a)
-TORCH_API inline at::Tensor _neg_view(const at::Tensor & self) {
+inline at::Tensor _neg_view(const at::Tensor & self) {
     return at::_ops::_neg_view::call(self);
 }
 

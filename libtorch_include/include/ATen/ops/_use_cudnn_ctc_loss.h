@@ -23,8 +23,13 @@ namespace at {
 
 
 // aten::_use_cudnn_ctc_loss(Tensor log_probs, Tensor targets, int[] input_lengths, int[] target_lengths, int blank) -> bool
-TORCH_API inline bool _use_cudnn_ctc_loss(const at::Tensor & log_probs, const at::Tensor & targets, at::IntArrayRef input_lengths, at::IntArrayRef target_lengths, int64_t blank) {
+inline bool _use_cudnn_ctc_loss(const at::Tensor & log_probs, const at::Tensor & targets, at::IntArrayRef input_lengths, at::IntArrayRef target_lengths, int64_t blank) {
     return at::_ops::_use_cudnn_ctc_loss::call(log_probs, targets, input_lengths, target_lengths, blank);
+}
+
+// aten::_use_cudnn_ctc_loss.Tensor(Tensor log_probs, Tensor targets, Tensor input_lengths, Tensor target_lengths, int blank) -> bool
+inline bool _use_cudnn_ctc_loss(const at::Tensor & log_probs, const at::Tensor & targets, const at::Tensor & input_lengths, const at::Tensor & target_lengths, int64_t blank) {
+    return at::_ops::_use_cudnn_ctc_loss_Tensor::call(log_probs, targets, input_lengths, target_lengths, blank);
 }
 
 }

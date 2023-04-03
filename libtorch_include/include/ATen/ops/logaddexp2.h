@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::logaddexp2.out(Tensor self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & logaddexp2_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & other) {
+inline at::Tensor & logaddexp2_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & other) {
     return at::_ops::logaddexp2_out::call(self, other, out);
 }
-
 // aten::logaddexp2.out(Tensor self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & logaddexp2_outf(const at::Tensor & self, const at::Tensor & other, at::Tensor & out) {
+inline at::Tensor & logaddexp2_outf(const at::Tensor & self, const at::Tensor & other, at::Tensor & out) {
     return at::_ops::logaddexp2_out::call(self, other, out);
 }
 
 // aten::logaddexp2(Tensor self, Tensor other) -> Tensor
-TORCH_API inline at::Tensor logaddexp2(const at::Tensor & self, const at::Tensor & other) {
+inline at::Tensor logaddexp2(const at::Tensor & self, const at::Tensor & other) {
     return at::_ops::logaddexp2::call(self, other);
 }
 

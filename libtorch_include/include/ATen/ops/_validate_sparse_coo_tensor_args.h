@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::_validate_sparse_coo_tensor_args(Tensor indices, Tensor values, int[] size) -> ()
-TORCH_API inline void _validate_sparse_coo_tensor_args(const at::Tensor & indices, const at::Tensor & values, at::IntArrayRef size) {
+inline void _validate_sparse_coo_tensor_args(const at::Tensor & indices, const at::Tensor & values, at::IntArrayRef size) {
     return at::_ops::_validate_sparse_coo_tensor_args::call(indices, values, size);
 }
 

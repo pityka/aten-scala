@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::adaptive_max_pool1d(Tensor self, int[1] output_size) -> (Tensor, Tensor)
-TORCH_API inline ::std::tuple<at::Tensor,at::Tensor> adaptive_max_pool1d(const at::Tensor & self, at::IntArrayRef output_size) {
+inline ::std::tuple<at::Tensor,at::Tensor> adaptive_max_pool1d(const at::Tensor & self, at::IntArrayRef output_size) {
     return at::_ops::adaptive_max_pool1d::call(self, output_size);
 }
 

@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::isfinite(Tensor self) -> Tensor
-TORCH_API inline at::Tensor isfinite(const at::Tensor & self) {
+inline at::Tensor isfinite(const at::Tensor & self) {
     return at::_ops::isfinite::call(self);
 }
 

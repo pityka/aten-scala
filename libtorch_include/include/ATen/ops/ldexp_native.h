@@ -16,10 +16,8 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor ldexp(const at::Tensor & self, const at::Tensor & other);
 TORCH_API at::Tensor & ldexp_out(const at::Tensor & self, const at::Tensor & other, at::Tensor & out);
 TORCH_API at::Tensor & ldexp_(at::Tensor & self, const at::Tensor & other);
-
 } // namespace native
 } // namespace at

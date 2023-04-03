@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::_cast_Int(Tensor self, bool non_blocking=False) -> Tensor
-TORCH_API inline at::Tensor _cast_Int(const at::Tensor & self, bool non_blocking=false) {
+inline at::Tensor _cast_Int(const at::Tensor & self, bool non_blocking=false) {
     return at::_ops::_cast_Int::call(self, non_blocking);
 }
 

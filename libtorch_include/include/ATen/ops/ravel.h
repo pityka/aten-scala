@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::ravel(Tensor(a) self) -> Tensor(a)
-TORCH_API inline at::Tensor ravel(const at::Tensor & self) {
+inline at::Tensor ravel(const at::Tensor & self) {
     return at::_ops::ravel::call(self);
 }
 

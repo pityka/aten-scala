@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::max_pool3d(Tensor self, int[3] kernel_size, int[3] stride=[], int[3] padding=0, int[3] dilation=1, bool ceil_mode=False) -> Tensor
-TORCH_API inline at::Tensor max_pool3d(const at::Tensor & self, at::IntArrayRef kernel_size, at::IntArrayRef stride={}, at::IntArrayRef padding=0, at::IntArrayRef dilation=1, bool ceil_mode=false) {
+inline at::Tensor max_pool3d(const at::Tensor & self, at::IntArrayRef kernel_size, at::IntArrayRef stride={}, at::IntArrayRef padding=0, at::IntArrayRef dilation=1, bool ceil_mode=false) {
     return at::_ops::max_pool3d::call(self, kernel_size, stride, padding, dilation, ceil_mode);
 }
 

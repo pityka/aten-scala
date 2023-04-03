@@ -23,8 +23,17 @@ namespace at {
 
 
 // aten::_sparse_sparse_matmul(Tensor self, Tensor other) -> Tensor
-TORCH_API inline at::Tensor _sparse_sparse_matmul(const at::Tensor & self, const at::Tensor & other) {
+inline at::Tensor _sparse_sparse_matmul(const at::Tensor & self, const at::Tensor & other) {
     return at::_ops::_sparse_sparse_matmul::call(self, other);
+}
+
+// aten::_sparse_sparse_matmul.out(Tensor self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & _sparse_sparse_matmul_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & other) {
+    return at::_ops::_sparse_sparse_matmul_out::call(self, other, out);
+}
+// aten::_sparse_sparse_matmul.out(Tensor self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & _sparse_sparse_matmul_outf(const at::Tensor & self, const at::Tensor & other, at::Tensor & out) {
+    return at::_ops::_sparse_sparse_matmul_out::call(self, other, out);
 }
 
 }

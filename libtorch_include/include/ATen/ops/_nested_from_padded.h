@@ -23,8 +23,17 @@ namespace at {
 
 
 // aten::_nested_from_padded(Tensor padded, Tensor cpu_nested_shape_example, bool fuse_transform_0213=False) -> Tensor
-TORCH_API inline at::Tensor _nested_from_padded(const at::Tensor & padded, const at::Tensor & cpu_nested_shape_example, bool fuse_transform_0213=false) {
+inline at::Tensor _nested_from_padded(const at::Tensor & padded, const at::Tensor & cpu_nested_shape_example, bool fuse_transform_0213=false) {
     return at::_ops::_nested_from_padded::call(padded, cpu_nested_shape_example, fuse_transform_0213);
+}
+
+// aten::_nested_from_padded.out(Tensor padded, Tensor cpu_nested_shape_example, bool fuse_transform_0213=False, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & _nested_from_padded_out(at::Tensor & out, const at::Tensor & padded, const at::Tensor & cpu_nested_shape_example, bool fuse_transform_0213=false) {
+    return at::_ops::_nested_from_padded_out::call(padded, cpu_nested_shape_example, fuse_transform_0213, out);
+}
+// aten::_nested_from_padded.out(Tensor padded, Tensor cpu_nested_shape_example, bool fuse_transform_0213=False, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & _nested_from_padded_outf(const at::Tensor & padded, const at::Tensor & cpu_nested_shape_example, bool fuse_transform_0213, at::Tensor & out) {
+    return at::_ops::_nested_from_padded_out::call(padded, cpu_nested_shape_example, fuse_transform_0213, out);
 }
 
 }

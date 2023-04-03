@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API ::std::tuple<double,int64_t> _choose_qparams_per_tensor(const at::Tensor & self, bool reduce_range=false);
-
 } // namespace native
 } // namespace at

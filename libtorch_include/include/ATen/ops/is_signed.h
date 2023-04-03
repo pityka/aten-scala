@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::is_signed(Tensor self) -> bool
-TORCH_API inline bool __dispatch_is_signed(const at::Tensor & self) {
+inline bool __dispatch_is_signed(const at::Tensor & self) {
     return at::_ops::is_signed::call(self);
 }
 

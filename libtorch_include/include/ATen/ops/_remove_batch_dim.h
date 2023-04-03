@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::_remove_batch_dim(Tensor self, int level, int batch_size, int out_dim) -> Tensor
-TORCH_API inline at::Tensor _remove_batch_dim(const at::Tensor & self, int64_t level, int64_t batch_size, int64_t out_dim) {
+inline at::Tensor _remove_batch_dim(const at::Tensor & self, int64_t level, int64_t batch_size, int64_t out_dim) {
     return at::_ops::_remove_batch_dim::call(self, level, batch_size, out_dim);
 }
 

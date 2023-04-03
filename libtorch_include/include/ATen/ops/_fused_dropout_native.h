@@ -16,8 +16,7 @@
 
 namespace at {
 namespace native {
-
+TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> _fused_dropout_out(const at::Tensor & self, double p, c10::optional<at::Generator> generator, at::Tensor & out0, at::Tensor & out1);
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> fused_dropout_cuda(const at::Tensor & self, double p, c10::optional<at::Generator> generator=c10::nullopt);
-
 } // namespace native
 } // namespace at

@@ -23,12 +23,12 @@ namespace at {
 
 
 // aten::selu(Tensor self) -> Tensor
-TORCH_API inline at::Tensor selu(const at::Tensor & self) {
+inline at::Tensor selu(const at::Tensor & self) {
     return at::_ops::selu::call(self);
 }
 
 // aten::selu_(Tensor(a!) self) -> Tensor(a!)
-TORCH_API inline at::Tensor & selu_(at::Tensor & self) {
+inline at::Tensor & selu_(at::Tensor & self) {
     return at::_ops::selu_::call(self);
 }
 

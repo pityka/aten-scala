@@ -16,9 +16,9 @@
 
 namespace at {
 namespace native {
-
+TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> _aminmax_out(const at::Tensor & self, at::Tensor & out0, at::Tensor & out1);
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> _aminmax_all(const at::Tensor & self);
+TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> _aminmax_dim_out(const at::Tensor & self, int64_t dim, bool keepdim, at::Tensor & out0, at::Tensor & out1);
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> _aminmax(const at::Tensor & self, int64_t dim, bool keepdim=false);
-
 } // namespace native
 } // namespace at

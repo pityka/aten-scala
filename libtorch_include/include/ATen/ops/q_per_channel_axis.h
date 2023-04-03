@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::q_per_channel_axis(Tensor self) -> int
-TORCH_API inline int64_t q_per_channel_axis(const at::Tensor & self) {
+inline int64_t q_per_channel_axis(const at::Tensor & self) {
     return at::_ops::q_per_channel_axis::call(self);
 }
 

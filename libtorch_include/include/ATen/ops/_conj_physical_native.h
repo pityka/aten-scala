@@ -16,9 +16,8 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor _conj_physical(const at::Tensor & self);
+TORCH_API at::Tensor & _conj_physical_out(const at::Tensor & self, at::Tensor & out);
 TORCH_API at::Tensor conj_physical_sparse_csr(const at::Tensor & self);
-
 } // namespace native
 } // namespace at

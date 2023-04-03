@@ -23,22 +23,21 @@ namespace at {
 
 
 // aten::hardswish.out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & hardswish_out(at::Tensor & out, const at::Tensor & self) {
+inline at::Tensor & hardswish_out(at::Tensor & out, const at::Tensor & self) {
     return at::_ops::hardswish_out::call(self, out);
 }
-
 // aten::hardswish.out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & hardswish_outf(const at::Tensor & self, at::Tensor & out) {
+inline at::Tensor & hardswish_outf(const at::Tensor & self, at::Tensor & out) {
     return at::_ops::hardswish_out::call(self, out);
 }
 
 // aten::hardswish(Tensor self) -> Tensor
-TORCH_API inline at::Tensor hardswish(const at::Tensor & self) {
+inline at::Tensor hardswish(const at::Tensor & self) {
     return at::_ops::hardswish::call(self);
 }
 
 // aten::hardswish_(Tensor(a!) self) -> Tensor(a!)
-TORCH_API inline at::Tensor & hardswish_(at::Tensor & self) {
+inline at::Tensor & hardswish_(at::Tensor & self) {
     return at::_ops::hardswish_::call(self);
 }
 

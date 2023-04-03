@@ -16,10 +16,11 @@
 
 namespace at {
 namespace native {
-
 struct TORCH_API structured_cos_out : public at::meta::structured_cos {
 void impl(const at::Tensor & self, const at::Tensor & out);
 };
-
+struct TORCH_API structured_cos_out_mps : public at::meta::structured_cos {
+void impl(const at::Tensor & self, const at::Tensor & out);
+};
 } // namespace native
 } // namespace at

@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::gelu_backward.grad_input(Tensor grad_output, Tensor self, *, str approximate='none', Tensor(a!) grad_input) -> Tensor(a!)
-TORCH_API inline at::Tensor & gelu_backward_out(at::Tensor & grad_input, const at::Tensor & grad_output, const at::Tensor & self, c10::string_view approximate="none") {
+inline at::Tensor & gelu_backward_out(at::Tensor & grad_input, const at::Tensor & grad_output, const at::Tensor & self, c10::string_view approximate="none") {
     return at::_ops::gelu_backward_grad_input::call(grad_output, self, approximate, grad_input);
 }
-
 // aten::gelu_backward.grad_input(Tensor grad_output, Tensor self, *, str approximate='none', Tensor(a!) grad_input) -> Tensor(a!)
-TORCH_API inline at::Tensor & gelu_backward_outf(const at::Tensor & grad_output, const at::Tensor & self, c10::string_view approximate, at::Tensor & grad_input) {
+inline at::Tensor & gelu_backward_outf(const at::Tensor & grad_output, const at::Tensor & self, c10::string_view approximate, at::Tensor & grad_input) {
     return at::_ops::gelu_backward_grad_input::call(grad_output, self, approximate, grad_input);
 }
 
 // aten::gelu_backward(Tensor grad_output, Tensor self, *, str approximate='none') -> Tensor
-TORCH_API inline at::Tensor gelu_backward(const at::Tensor & grad_output, const at::Tensor & self, c10::string_view approximate="none") {
+inline at::Tensor gelu_backward(const at::Tensor & grad_output, const at::Tensor & self, c10::string_view approximate="none") {
     return at::_ops::gelu_backward::call(grad_output, self, approximate);
 }
 

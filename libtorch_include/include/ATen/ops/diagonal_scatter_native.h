@@ -16,8 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor diagonal_scatter(const at::Tensor & self, const at::Tensor & src, int64_t offset=0, int64_t dim1=0, int64_t dim2=1);
-
+TORCH_API at::Tensor & diagonal_scatter_out(const at::Tensor & self, const at::Tensor & src, int64_t offset, int64_t dim1, int64_t dim2, at::Tensor & out);
 } // namespace native
 } // namespace at

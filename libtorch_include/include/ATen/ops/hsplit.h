@@ -23,12 +23,12 @@ namespace at {
 
 
 // aten::hsplit.int(Tensor(a -> *) self, int sections) -> Tensor(a)[]
-TORCH_API inline ::std::vector<at::Tensor> hsplit(const at::Tensor & self, int64_t sections) {
+inline ::std::vector<at::Tensor> hsplit(const at::Tensor & self, int64_t sections) {
     return at::_ops::hsplit_int::call(self, sections);
 }
 
 // aten::hsplit.array(Tensor(a -> *) self, int[] indices) -> Tensor(a)[]
-TORCH_API inline ::std::vector<at::Tensor> hsplit(const at::Tensor & self, at::IntArrayRef indices) {
+inline ::std::vector<at::Tensor> hsplit(const at::Tensor & self, at::IntArrayRef indices) {
     return at::_ops::hsplit_array::call(self, indices);
 }
 

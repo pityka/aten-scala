@@ -23,18 +23,23 @@ namespace at {
 
 
 // aten::squeeze(Tensor(a) self) -> Tensor(a)
-TORCH_API inline at::Tensor squeeze(const at::Tensor & self) {
+inline at::Tensor squeeze(const at::Tensor & self) {
     return at::_ops::squeeze::call(self);
 }
 
 // aten::squeeze.dim(Tensor(a) self, int dim) -> Tensor(a)
-TORCH_API inline at::Tensor squeeze(const at::Tensor & self, int64_t dim) {
+inline at::Tensor squeeze(const at::Tensor & self, int64_t dim) {
     return at::_ops::squeeze_dim::call(self, dim);
 }
 
 // aten::squeeze.dimname(Tensor(a) self, Dimname dim) -> Tensor(a)
-TORCH_API inline at::Tensor squeeze(const at::Tensor & self, at::Dimname dim) {
+inline at::Tensor squeeze(const at::Tensor & self, at::Dimname dim) {
     return at::_ops::squeeze_dimname::call(self, dim);
+}
+
+// aten::squeeze.dims(Tensor(a) self, int[] dim) -> Tensor(a)
+inline at::Tensor squeeze(const at::Tensor & self, at::IntArrayRef dim) {
+    return at::_ops::squeeze_dims::call(self, dim);
 }
 
 }

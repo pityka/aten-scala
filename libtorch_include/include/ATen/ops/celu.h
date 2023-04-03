@@ -23,22 +23,21 @@ namespace at {
 
 
 // aten::celu(Tensor self, Scalar alpha=1.0) -> Tensor
-TORCH_API inline at::Tensor celu(const at::Tensor & self, const at::Scalar & alpha=1.0) {
+inline at::Tensor celu(const at::Tensor & self, const at::Scalar & alpha=1.0) {
     return at::_ops::celu::call(self, alpha);
 }
 
 // aten::celu_(Tensor(a!) self, Scalar alpha=1.0) -> Tensor(a!)
-TORCH_API inline at::Tensor & celu_(at::Tensor & self, const at::Scalar & alpha=1.0) {
+inline at::Tensor & celu_(at::Tensor & self, const at::Scalar & alpha=1.0) {
     return at::_ops::celu_::call(self, alpha);
 }
 
 // aten::celu.out(Tensor self, Scalar alpha=1.0, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & celu_out(at::Tensor & out, const at::Tensor & self, const at::Scalar & alpha=1.0) {
+inline at::Tensor & celu_out(at::Tensor & out, const at::Tensor & self, const at::Scalar & alpha=1.0) {
     return at::_ops::celu_out::call(self, alpha, out);
 }
-
 // aten::celu.out(Tensor self, Scalar alpha=1.0, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & celu_outf(const at::Tensor & self, const at::Scalar & alpha, at::Tensor & out) {
+inline at::Tensor & celu_outf(const at::Tensor & self, const at::Scalar & alpha, at::Tensor & out) {
     return at::_ops::celu_out::call(self, alpha, out);
 }
 

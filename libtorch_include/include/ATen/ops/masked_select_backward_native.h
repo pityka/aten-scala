@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor masked_select_backward(const at::Tensor & grad, const at::Tensor & input, const at::Tensor & mask);
-
 } // namespace native
 } // namespace at

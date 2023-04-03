@@ -16,9 +16,8 @@
 
 namespace at {
 namespace native {
-
 TORCH_API bool is_pinned_default(const at::Tensor & self, c10::optional<at::Device> device=c10::nullopt);
 TORCH_API bool is_pinned_cuda(const at::Tensor & self, c10::optional<at::Device> device=c10::nullopt);
-
+TORCH_API bool is_pinned_mps(const at::Tensor & self, c10::optional<at::Device> device=c10::nullopt);
 } // namespace native
 } // namespace at

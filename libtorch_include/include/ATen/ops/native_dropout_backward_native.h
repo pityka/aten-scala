@@ -16,9 +16,8 @@
 
 namespace at {
 namespace native {
-
-TORCH_API at::Tensor native_dropout_backward_cpu(const at::Tensor & grad_output, const at::Tensor & mask, double scale);
+TORCH_API at::Tensor & native_dropout_backward_out(const at::Tensor & grad_output, const at::Tensor & mask, double scale, at::Tensor & out);
+TORCH_API at::Tensor native_dropout_backward(const at::Tensor & grad_output, const at::Tensor & mask, double scale);
 TORCH_API at::Tensor native_dropout_backward_cuda(const at::Tensor & grad_output, const at::Tensor & mask, double scale);
-
 } // namespace native
 } // namespace at

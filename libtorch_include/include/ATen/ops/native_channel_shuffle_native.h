@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor math_channel_shuffle(const at::Tensor & self, int64_t groups);
 TORCH_API at::Tensor channel_shuffle_cpu(const at::Tensor & self, int64_t groups);
-
 } // namespace native
 } // namespace at

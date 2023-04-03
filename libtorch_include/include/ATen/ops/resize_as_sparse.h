@@ -23,23 +23,22 @@ namespace at {
 
 
 // aten::resize_as_sparse_(Tensor(a!) self, Tensor the_template) -> Tensor(a!)
-TORCH_API inline const at::Tensor & resize_as_sparse_(const at::Tensor & self, const at::Tensor & the_template) {
+inline const at::Tensor & resize_as_sparse_(const at::Tensor & self, const at::Tensor & the_template) {
     return at::_ops::resize_as_sparse_::call(self, the_template);
 }
 
 // aten::resize_as_sparse.out(Tensor self, Tensor the_template, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline const at::Tensor & resize_as_sparse_out(const at::Tensor & out, const at::Tensor & self, const at::Tensor & the_template) {
+inline const at::Tensor & resize_as_sparse_out(const at::Tensor & out, const at::Tensor & self, const at::Tensor & the_template) {
     return at::_ops::resize_as_sparse_out::call(self, the_template, out);
 }
-
 // aten::resize_as_sparse.out(Tensor self, Tensor the_template, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline const at::Tensor & resize_as_sparse_outf(const at::Tensor & self, const at::Tensor & the_template, const at::Tensor & out) {
+inline const at::Tensor & resize_as_sparse_outf(const at::Tensor & self, const at::Tensor & the_template, const at::Tensor & out) {
     return at::_ops::resize_as_sparse_out::call(self, the_template, out);
 }
 
-// aten::resize_as_sparse.functional(Tensor self, Tensor the_template) -> Tensor
-TORCH_API inline at::Tensor resize_as_sparse_functional(const at::Tensor & self, const at::Tensor & the_template) {
-    return at::_ops::resize_as_sparse_functional::call(self, the_template);
+// aten::resize_as_sparse(Tensor self, Tensor the_template) -> Tensor
+inline at::Tensor resize_as_sparse(const at::Tensor & self, const at::Tensor & the_template) {
+    return at::_ops::resize_as_sparse::call(self, the_template);
 }
 
 }

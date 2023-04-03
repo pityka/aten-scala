@@ -16,9 +16,9 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor randint_like(const at::Tensor & self, int64_t high, c10::optional<at::ScalarType> dtype={}, c10::optional<at::Layout> layout={}, c10::optional<at::Device> device={}, c10::optional<bool> pin_memory={}, c10::optional<at::MemoryFormat> memory_format=c10::nullopt);
+TORCH_API at::Tensor & randint_like_out(const at::Tensor & self, int64_t high, c10::optional<at::MemoryFormat> memory_format, at::Tensor & out);
 TORCH_API at::Tensor randint_like(const at::Tensor & self, int64_t low, int64_t high, c10::optional<at::ScalarType> dtype={}, c10::optional<at::Layout> layout={}, c10::optional<at::Device> device={}, c10::optional<bool> pin_memory={}, c10::optional<at::MemoryFormat> memory_format=c10::nullopt);
-
+TORCH_API at::Tensor & randint_like_low_dtype_out(const at::Tensor & self, int64_t low, int64_t high, c10::optional<at::MemoryFormat> memory_format, at::Tensor & out);
 } // namespace native
 } // namespace at

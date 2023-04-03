@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::cartesian_prod(Tensor[] tensors) -> Tensor
-TORCH_API inline at::Tensor cartesian_prod(at::TensorList tensors) {
+inline at::Tensor cartesian_prod(at::TensorList tensors) {
     return at::_ops::cartesian_prod::call(tensors);
 }
 

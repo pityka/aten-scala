@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor linalg_householder_product(const at::Tensor & input, const at::Tensor & tau);
 TORCH_API at::Tensor & linalg_householder_product_out(const at::Tensor & input, const at::Tensor & tau, at::Tensor & out);
-
 } // namespace native
 } // namespace at

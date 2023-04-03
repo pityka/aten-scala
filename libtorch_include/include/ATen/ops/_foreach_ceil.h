@@ -22,29 +22,23 @@
 namespace at {
 
 
-// aten::_foreach_ceil(Tensor[] tensors) -> Tensor[]
-TORCH_API inline ::std::vector<at::Tensor> _foreach_ceil(at::TensorList tensors) {
-    return at::_ops::_foreach_ceil::call(tensors);
+// aten::_foreach_ceil(Tensor[] self) -> Tensor[]
+inline ::std::vector<at::Tensor> _foreach_ceil(at::TensorList self) {
+    return at::_ops::_foreach_ceil::call(self);
 }
 
 // aten::_foreach_ceil_(Tensor(a!)[] self) -> ()
-TORCH_API inline void _foreach_ceil_(at::TensorList self) {
+inline void _foreach_ceil_(at::TensorList self) {
     return at::_ops::_foreach_ceil_::call(self);
 }
 
 // aten::_foreach_ceil.out(Tensor[] self, *, Tensor(a!)[] out) -> ()
-TORCH_API inline void _foreach_ceil_out(at::TensorList out, at::TensorList self) {
+inline void _foreach_ceil_out(at::TensorList out, at::TensorList self) {
     return at::_ops::_foreach_ceil_out::call(self, out);
 }
-
 // aten::_foreach_ceil.out(Tensor[] self, *, Tensor(a!)[] out) -> ()
-TORCH_API inline void _foreach_ceil_outf(at::TensorList self, at::TensorList out) {
+inline void _foreach_ceil_outf(at::TensorList self, at::TensorList out) {
     return at::_ops::_foreach_ceil_out::call(self, out);
-}
-
-// aten::_foreach_ceil.functional(Tensor[] self) -> Tensor[] self_out
-TORCH_API inline ::std::vector<at::Tensor> _foreach_ceil_functional(at::TensorList self) {
-    return at::_ops::_foreach_ceil_functional::call(self);
 }
 
 }

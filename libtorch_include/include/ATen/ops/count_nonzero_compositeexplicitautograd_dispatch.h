@@ -17,7 +17,11 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
+TORCH_API at::Tensor & count_nonzero_out(at::Tensor & out, const at::Tensor & self, at::IntArrayRef dim);
+TORCH_API at::Tensor & count_nonzero_outf(const at::Tensor & self, at::IntArrayRef dim, at::Tensor & out);
 TORCH_API at::Tensor count_nonzero(const at::Tensor & self, c10::optional<int64_t> dim=c10::nullopt);
+TORCH_API at::Tensor & count_nonzero_out(at::Tensor & out, const at::Tensor & self, c10::optional<int64_t> dim=c10::nullopt);
+TORCH_API at::Tensor & count_nonzero_outf(const at::Tensor & self, c10::optional<int64_t> dim, at::Tensor & out);
 
 } // namespace compositeexplicitautograd
 } // namespace at

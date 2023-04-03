@@ -16,8 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API bool is_same_size(const at::Tensor & self, const at::Tensor & other);
-
+TORCH_API bool nested_is_same_size(const at::Tensor & self, const at::Tensor & other);
 } // namespace native
 } // namespace at

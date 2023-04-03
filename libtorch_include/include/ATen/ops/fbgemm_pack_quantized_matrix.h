@@ -23,12 +23,12 @@ namespace at {
 
 
 // aten::fbgemm_pack_quantized_matrix(Tensor input) -> Tensor
-TORCH_API inline at::Tensor fbgemm_pack_quantized_matrix(const at::Tensor & input) {
+inline at::Tensor fbgemm_pack_quantized_matrix(const at::Tensor & input) {
     return at::_ops::fbgemm_pack_quantized_matrix::call(input);
 }
 
 // aten::fbgemm_pack_quantized_matrix.KN(Tensor input, int K, int N) -> Tensor
-TORCH_API inline at::Tensor fbgemm_pack_quantized_matrix(const at::Tensor & input, int64_t K, int64_t N) {
+inline at::Tensor fbgemm_pack_quantized_matrix(const at::Tensor & input, int64_t K, int64_t N) {
     return at::_ops::fbgemm_pack_quantized_matrix_KN::call(input, K, N);
 }
 

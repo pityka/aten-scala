@@ -17,10 +17,10 @@ namespace at {
 
 namespace compositeimplicitautograd {
 
-TORCH_API at::Tensor empty(at::IntArrayRef size, c10::optional<at::DimnameList> names, at::TensorOptions options={}, c10::optional<at::MemoryFormat> memory_format=c10::nullopt);
-TORCH_API at::Tensor empty(at::IntArrayRef size, c10::optional<at::DimnameList> names, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory, c10::optional<at::MemoryFormat> memory_format);
 TORCH_API at::Tensor & empty_out(at::Tensor & out, at::IntArrayRef size, c10::optional<at::MemoryFormat> memory_format=c10::nullopt);
 TORCH_API at::Tensor & empty_outf(at::IntArrayRef size, c10::optional<at::MemoryFormat> memory_format, at::Tensor & out);
+TORCH_API at::Tensor & empty_symint_out(at::Tensor & out, c10::SymIntArrayRef size, c10::optional<at::MemoryFormat> memory_format=c10::nullopt);
+TORCH_API at::Tensor & empty_symint_outf(c10::SymIntArrayRef size, c10::optional<at::MemoryFormat> memory_format, at::Tensor & out);
 
 } // namespace compositeimplicitautograd
 } // namespace at

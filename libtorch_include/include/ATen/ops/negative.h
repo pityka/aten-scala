@@ -23,22 +23,21 @@ namespace at {
 
 
 // aten::negative(Tensor self) -> Tensor
-TORCH_API inline at::Tensor negative(const at::Tensor & self) {
+inline at::Tensor negative(const at::Tensor & self) {
     return at::_ops::negative::call(self);
 }
 
 // aten::negative_(Tensor(a!) self) -> Tensor(a!)
-TORCH_API inline at::Tensor & negative_(at::Tensor & self) {
+inline at::Tensor & negative_(at::Tensor & self) {
     return at::_ops::negative_::call(self);
 }
 
 // aten::negative.out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & negative_out(at::Tensor & out, const at::Tensor & self) {
+inline at::Tensor & negative_out(at::Tensor & out, const at::Tensor & self) {
     return at::_ops::negative_out::call(self, out);
 }
-
 // aten::negative.out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & negative_outf(const at::Tensor & self, at::Tensor & out) {
+inline at::Tensor & negative_outf(const at::Tensor & self, at::Tensor & out) {
     return at::_ops::negative_out::call(self, out);
 }
 

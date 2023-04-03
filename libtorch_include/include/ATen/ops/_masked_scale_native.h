@@ -16,8 +16,7 @@
 
 namespace at {
 namespace native {
-
+TORCH_API at::Tensor & _masked_scale_out(const at::Tensor & self, const at::Tensor & mask, double scale, at::Tensor & out);
 TORCH_API at::Tensor masked_scale_cuda(const at::Tensor & self, const at::Tensor & mask, double scale);
-
 } // namespace native
 } // namespace at

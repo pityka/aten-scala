@@ -16,11 +16,11 @@
 
 namespace at {
 namespace native {
-
+TORCH_API at::Tensor & __lshift___Scalar_out(const at::Tensor & self, const at::Scalar & other, at::Tensor & out);
 TORCH_API at::Tensor __lshift__(const at::Tensor & self, const at::Scalar & other);
 TORCH_API at::Tensor & __ilshift__(at::Tensor & self, const at::Scalar & other);
+TORCH_API at::Tensor & __lshift___Tensor_out(const at::Tensor & self, const at::Tensor & other, at::Tensor & out);
 TORCH_API at::Tensor __lshift__(const at::Tensor & self, const at::Tensor & other);
 TORCH_API at::Tensor & __ilshift__(at::Tensor & self, const at::Tensor & other);
-
 } // namespace native
 } // namespace at

@@ -18,8 +18,6 @@ namespace at {
 namespace compositeexplicitautograd {
 
 TORCH_API at::Tensor logsumexp(const at::Tensor & self, at::IntArrayRef dim, bool keepdim=false);
-TORCH_API at::Tensor & logsumexp_out(at::Tensor & out, const at::Tensor & self, at::IntArrayRef dim, bool keepdim=false);
-TORCH_API at::Tensor & logsumexp_outf(const at::Tensor & self, at::IntArrayRef dim, bool keepdim, at::Tensor & out);
 
 } // namespace compositeexplicitautograd
 } // namespace at

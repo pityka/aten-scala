@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::is_neg(Tensor self) -> bool
-TORCH_API inline bool __dispatch_is_neg(const at::Tensor & self) {
+inline bool __dispatch_is_neg(const at::Tensor & self) {
     return at::_ops::is_neg::call(self);
 }
 

@@ -16,9 +16,8 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor index_put(const at::Tensor & self, const c10::List<c10::optional<at::Tensor>> & indices, const at::Tensor & values, bool accumulate=false);
+TORCH_API at::Tensor & index_put_out(const at::Tensor & self, const c10::List<c10::optional<at::Tensor>> & indices, const at::Tensor & values, bool accumulate, at::Tensor & out);
 TORCH_API at::Tensor & index_put_(at::Tensor & self, const c10::List<c10::optional<at::Tensor>> & indices, const at::Tensor & values, bool accumulate=false);
-
 } // namespace native
 } // namespace at

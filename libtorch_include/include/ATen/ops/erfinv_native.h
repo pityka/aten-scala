@@ -16,7 +16,6 @@
 
 namespace at {
 namespace native {
-
 struct TORCH_API structured_erfinv_out : public at::meta::structured_erfinv {
 void impl(const at::Tensor & self, const at::Tensor & out);
 };
@@ -26,6 +25,5 @@ TORCH_API at::Tensor & erfinv_sparse_(at::Tensor & self);
 TORCH_API at::Tensor erfinv_sparse_csr(const at::Tensor & self);
 TORCH_API at::Tensor & erfinv_sparse_csr_out(const at::Tensor & self, at::Tensor & out);
 TORCH_API at::Tensor & erfinv_sparse_csr_(at::Tensor & self);
-
 } // namespace native
 } // namespace at

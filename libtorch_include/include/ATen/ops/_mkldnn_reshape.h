@@ -23,8 +23,17 @@ namespace at {
 
 
 // aten::_mkldnn_reshape(Tensor self, int[] shape) -> Tensor
-TORCH_API inline at::Tensor _mkldnn_reshape(const at::Tensor & self, at::IntArrayRef shape) {
+inline at::Tensor _mkldnn_reshape(const at::Tensor & self, at::IntArrayRef shape) {
     return at::_ops::_mkldnn_reshape::call(self, shape);
+}
+
+// aten::_mkldnn_reshape.out(Tensor self, int[] shape, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & _mkldnn_reshape_out(at::Tensor & out, const at::Tensor & self, at::IntArrayRef shape) {
+    return at::_ops::_mkldnn_reshape_out::call(self, shape, out);
+}
+// aten::_mkldnn_reshape.out(Tensor self, int[] shape, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & _mkldnn_reshape_outf(const at::Tensor & self, at::IntArrayRef shape, at::Tensor & out) {
+    return at::_ops::_mkldnn_reshape_out::call(self, shape, out);
 }
 
 }

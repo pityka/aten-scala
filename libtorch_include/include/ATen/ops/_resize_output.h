@@ -23,23 +23,22 @@ namespace at {
 
 
 // aten::_resize_output_(Tensor(a!) self, int[] size, Device device) -> Tensor(a!)
-TORCH_API inline const at::Tensor & _resize_output_(const at::Tensor & self, at::IntArrayRef size, at::Device device) {
+inline const at::Tensor & _resize_output_(const at::Tensor & self, at::IntArrayRef size, at::Device device) {
     return at::_ops::_resize_output_::call(self, size, device);
 }
 
 // aten::_resize_output.out(Tensor self, int[] size, Device device, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline const at::Tensor & _resize_output_out(const at::Tensor & out, const at::Tensor & self, at::IntArrayRef size, at::Device device) {
+inline const at::Tensor & _resize_output_out(const at::Tensor & out, const at::Tensor & self, at::IntArrayRef size, at::Device device) {
     return at::_ops::_resize_output_out::call(self, size, device, out);
 }
-
 // aten::_resize_output.out(Tensor self, int[] size, Device device, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline const at::Tensor & _resize_output_outf(const at::Tensor & self, at::IntArrayRef size, at::Device device, const at::Tensor & out) {
+inline const at::Tensor & _resize_output_outf(const at::Tensor & self, at::IntArrayRef size, at::Device device, const at::Tensor & out) {
     return at::_ops::_resize_output_out::call(self, size, device, out);
 }
 
-// aten::_resize_output.functional(Tensor self, int[] size, Device device) -> Tensor
-TORCH_API inline at::Tensor _resize_output_functional(const at::Tensor & self, at::IntArrayRef size, at::Device device) {
-    return at::_ops::_resize_output_functional::call(self, size, device);
+// aten::_resize_output(Tensor self, int[] size, Device device) -> Tensor
+inline at::Tensor _resize_output(const at::Tensor & self, at::IntArrayRef size, at::Device device) {
+    return at::_ops::_resize_output::call(self, size, device);
 }
 
 }

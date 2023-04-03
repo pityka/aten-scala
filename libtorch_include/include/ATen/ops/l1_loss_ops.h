@@ -14,17 +14,6 @@ namespace at {
 namespace _ops {
 
 
-struct TORCH_API l1_loss_out {
-  using schema = at::Tensor & (const at::Tensor &, const at::Tensor &, int64_t, at::Tensor &);
-  using ptr_schema = schema*;
-  // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::l1_loss")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "l1_loss.out(Tensor self, Tensor target, int reduction=Mean, *, Tensor(a!) out) -> Tensor(a!)")
-  static at::Tensor & call(const at::Tensor & self, const at::Tensor & target, int64_t reduction, at::Tensor & out);
-  static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & target, int64_t reduction, at::Tensor & out);
-};
-
 struct TORCH_API l1_loss {
   using schema = at::Tensor (const at::Tensor &, const at::Tensor &, int64_t);
   using ptr_schema = schema*;

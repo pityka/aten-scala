@@ -16,11 +16,9 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor log_sigmoid_backward_cpu(const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & buffer);
 TORCH_API at::Tensor & log_sigmoid_backward_cpu_out(const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & buffer, at::Tensor & grad_input);
 TORCH_API at::Tensor log_sigmoid_backward_cuda(const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & buffer);
 TORCH_API at::Tensor & log_sigmoid_backward_cuda_out(const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & buffer, at::Tensor & grad_input);
-
 } // namespace native
 } // namespace at

@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
-TORCH_API at::Tensor _sparse_broadcast_to_copy(const at::Tensor & self, at::IntArrayRef size);
 TORCH_API at::Tensor & _sparse_broadcast_to_copy_out(const at::Tensor & self, at::IntArrayRef size, at::Tensor & out);
-
+TORCH_API at::Tensor _sparse_broadcast_to_copy(const at::Tensor & self, at::IntArrayRef size);
 } // namespace native
 } // namespace at

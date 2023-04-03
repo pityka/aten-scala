@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::_cufft_set_plan_cache_max_size(int device_index, int max_size) -> ()
-TORCH_API inline void _cufft_set_plan_cache_max_size(int64_t device_index, int64_t max_size) {
+inline void _cufft_set_plan_cache_max_size(int64_t device_index, int64_t max_size) {
     return at::_ops::_cufft_set_plan_cache_max_size::call(device_index, max_size);
 }
 

@@ -16,11 +16,10 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor unsqueeze(const at::Tensor & self, int64_t dim);
+TORCH_API at::Tensor unsqueeze_nested(const at::Tensor & self, int64_t dim);
 TORCH_API at::Tensor unsqueeze_sparse(const at::Tensor & self, int64_t dim);
 TORCH_API at::Tensor unsqueeze_quantized(const at::Tensor & self, int64_t dim);
 TORCH_API at::Tensor & unsqueeze_(at::Tensor & self, int64_t dim);
-
 } // namespace native
 } // namespace at

@@ -23,22 +23,21 @@ namespace at {
 
 
 // aten::true_divide.Tensor(Tensor self, Tensor other) -> Tensor
-TORCH_API inline at::Tensor true_divide(const at::Tensor & self, const at::Tensor & other) {
+inline at::Tensor true_divide(const at::Tensor & self, const at::Tensor & other) {
     return at::_ops::true_divide_Tensor::call(self, other);
 }
 
 // aten::true_divide.out(Tensor self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & true_divide_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & other) {
+inline at::Tensor & true_divide_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & other) {
     return at::_ops::true_divide_out::call(self, other, out);
 }
-
 // aten::true_divide.out(Tensor self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & true_divide_outf(const at::Tensor & self, const at::Tensor & other, at::Tensor & out) {
+inline at::Tensor & true_divide_outf(const at::Tensor & self, const at::Tensor & other, at::Tensor & out) {
     return at::_ops::true_divide_out::call(self, other, out);
 }
 
 // aten::true_divide.Scalar(Tensor self, Scalar other) -> Tensor
-TORCH_API inline at::Tensor true_divide(const at::Tensor & self, const at::Scalar & other) {
+inline at::Tensor true_divide(const at::Tensor & self, const at::Scalar & other) {
     return at::_ops::true_divide_Scalar::call(self, other);
 }
 

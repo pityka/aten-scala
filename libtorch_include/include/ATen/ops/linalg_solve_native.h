@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
-TORCH_API at::Tensor linalg_solve(const at::Tensor & input, const at::Tensor & other);
-TORCH_API at::Tensor & linalg_solve_out(const at::Tensor & input, const at::Tensor & other, at::Tensor & out);
-
+TORCH_API at::Tensor linalg_solve(const at::Tensor & A, const at::Tensor & B, bool left=true);
+TORCH_API at::Tensor & linalg_solve_out(const at::Tensor & A, const at::Tensor & B, bool left, at::Tensor & out);
 } // namespace native
 } // namespace at

@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::_to_cpu(Tensor[] tensors) -> Tensor[]
-TORCH_API inline ::std::vector<at::Tensor> _to_cpu(at::TensorList tensors) {
+inline ::std::vector<at::Tensor> _to_cpu(at::TensorList tensors) {
     return at::_ops::_to_cpu::call(tensors);
 }
 

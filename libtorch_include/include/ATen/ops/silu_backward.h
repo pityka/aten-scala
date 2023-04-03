@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::silu_backward.grad_input(Tensor grad_output, Tensor self, *, Tensor(a!) grad_input) -> Tensor(a!)
-TORCH_API inline at::Tensor & silu_backward_out(at::Tensor & grad_input, const at::Tensor & grad_output, const at::Tensor & self) {
+inline at::Tensor & silu_backward_out(at::Tensor & grad_input, const at::Tensor & grad_output, const at::Tensor & self) {
     return at::_ops::silu_backward_grad_input::call(grad_output, self, grad_input);
 }
-
 // aten::silu_backward.grad_input(Tensor grad_output, Tensor self, *, Tensor(a!) grad_input) -> Tensor(a!)
-TORCH_API inline at::Tensor & silu_backward_outf(const at::Tensor & grad_output, const at::Tensor & self, at::Tensor & grad_input) {
+inline at::Tensor & silu_backward_outf(const at::Tensor & grad_output, const at::Tensor & self, at::Tensor & grad_input) {
     return at::_ops::silu_backward_grad_input::call(grad_output, self, grad_input);
 }
 
 // aten::silu_backward(Tensor grad_output, Tensor self) -> Tensor
-TORCH_API inline at::Tensor silu_backward(const at::Tensor & grad_output, const at::Tensor & self) {
+inline at::Tensor silu_backward(const at::Tensor & grad_output, const at::Tensor & self) {
     return at::_ops::silu_backward::call(grad_output, self);
 }
 

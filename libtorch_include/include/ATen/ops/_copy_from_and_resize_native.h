@@ -16,8 +16,7 @@
 
 namespace at {
 namespace native {
-
-
-
+TORCH_API at::Tensor & _copy_from_and_resize_out(const at::Tensor & self, const at::Tensor & dst, at::Tensor & out);
+TORCH_API at::Tensor _copy_from_and_resize_mps(const at::Tensor & self, const at::Tensor & dst);
 } // namespace native
 } // namespace at

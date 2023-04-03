@@ -17,7 +17,9 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
-TORCH_API at::Tensor embedding_renorm_functional(const at::Tensor & self, const at::Tensor & indices, double max_norm, double norm_type);
+TORCH_API at::Tensor embedding_renorm(const at::Tensor & self, const at::Tensor & indices, double max_norm, double norm_type);
+TORCH_API at::Tensor & embedding_renorm_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & indices, double max_norm, double norm_type);
+TORCH_API at::Tensor & embedding_renorm_outf(const at::Tensor & self, const at::Tensor & indices, double max_norm, double norm_type, at::Tensor & out);
 
 } // namespace compositeexplicitautograd
 } // namespace at

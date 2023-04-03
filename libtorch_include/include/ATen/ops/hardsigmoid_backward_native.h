@@ -16,10 +16,8 @@
 
 namespace at {
 namespace native {
-
 struct TORCH_API structured_hardsigmoid_backward_out : public at::meta::structured_hardsigmoid_backward {
 void impl(const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & grad_input);
 };
-
 } // namespace native
 } // namespace at

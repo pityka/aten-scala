@@ -23,18 +23,17 @@ namespace at {
 
 
 // aten::_coalesced.out(Tensor self, bool coalesced, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & _coalesced_out(at::Tensor & out, const at::Tensor & self, bool coalesced) {
+inline at::Tensor & _coalesced_out(at::Tensor & out, const at::Tensor & self, bool coalesced) {
     return at::_ops::_coalesced_out::call(self, coalesced, out);
 }
-
 // aten::_coalesced.out(Tensor self, bool coalesced, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & _coalesced_outf(const at::Tensor & self, bool coalesced, at::Tensor & out) {
+inline at::Tensor & _coalesced_outf(const at::Tensor & self, bool coalesced, at::Tensor & out) {
     return at::_ops::_coalesced_out::call(self, coalesced, out);
 }
 
-// aten::_coalesced.functional(Tensor self, bool coalesced) -> Tensor
-TORCH_API inline at::Tensor _coalesced_functional(const at::Tensor & self, bool coalesced) {
-    return at::_ops::_coalesced_functional::call(self, coalesced);
+// aten::_coalesced(Tensor self, bool coalesced) -> Tensor
+inline at::Tensor _coalesced(const at::Tensor & self, bool coalesced) {
+    return at::_ops::_coalesced::call(self, coalesced);
 }
 
 }

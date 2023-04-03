@@ -16,8 +16,7 @@
 
 namespace at {
 namespace native {
-
+TORCH_API at::Tensor & _histogramdd_from_bin_tensors_out(const at::Tensor & self, at::TensorList bins, const c10::optional<at::Tensor> & weight, bool density, at::Tensor & out);
 TORCH_API at::Tensor histogramdd_cpu(const at::Tensor & self, at::TensorList bins, const c10::optional<at::Tensor> & weight={}, bool density=false);
-
 } // namespace native
 } // namespace at

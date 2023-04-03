@@ -23,38 +23,45 @@ namespace at {
 
 
 // aten::bitwise_and.Tensor_out(Tensor self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & bitwise_and_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & other) {
+inline at::Tensor & bitwise_and_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & other) {
     return at::_ops::bitwise_and_Tensor_out::call(self, other, out);
 }
-
 // aten::bitwise_and.Tensor_out(Tensor self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & bitwise_and_outf(const at::Tensor & self, const at::Tensor & other, at::Tensor & out) {
+inline at::Tensor & bitwise_and_outf(const at::Tensor & self, const at::Tensor & other, at::Tensor & out) {
     return at::_ops::bitwise_and_Tensor_out::call(self, other, out);
 }
 
 // aten::bitwise_and.Scalar_out(Tensor self, Scalar other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & bitwise_and_out(at::Tensor & out, const at::Tensor & self, const at::Scalar & other) {
+inline at::Tensor & bitwise_and_out(at::Tensor & out, const at::Tensor & self, const at::Scalar & other) {
     return at::_ops::bitwise_and_Scalar_out::call(self, other, out);
 }
-
 // aten::bitwise_and.Scalar_out(Tensor self, Scalar other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & bitwise_and_outf(const at::Tensor & self, const at::Scalar & other, at::Tensor & out) {
+inline at::Tensor & bitwise_and_outf(const at::Tensor & self, const at::Scalar & other, at::Tensor & out) {
     return at::_ops::bitwise_and_Scalar_out::call(self, other, out);
 }
 
 // aten::bitwise_and.Scalar(Tensor self, Scalar other) -> Tensor
-TORCH_API inline at::Tensor bitwise_and(const at::Tensor & self, const at::Scalar & other) {
+inline at::Tensor bitwise_and(const at::Tensor & self, const at::Scalar & other) {
     return at::_ops::bitwise_and_Scalar::call(self, other);
 }
 
 // aten::bitwise_and.Scalar_Tensor(Scalar self, Tensor other) -> Tensor
-TORCH_API inline at::Tensor bitwise_and(const at::Scalar & self, const at::Tensor & other) {
+inline at::Tensor bitwise_and(const at::Scalar & self, const at::Tensor & other) {
     return at::_ops::bitwise_and_Scalar_Tensor::call(self, other);
 }
 
 // aten::bitwise_and.Tensor(Tensor self, Tensor other) -> Tensor
-TORCH_API inline at::Tensor bitwise_and(const at::Tensor & self, const at::Tensor & other) {
+inline at::Tensor bitwise_and(const at::Tensor & self, const at::Tensor & other) {
     return at::_ops::bitwise_and_Tensor::call(self, other);
+}
+
+// aten::bitwise_and.Scalar_Tensor_out(Scalar self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & bitwise_and_out(at::Tensor & out, const at::Scalar & self, const at::Tensor & other) {
+    return at::_ops::bitwise_and_Scalar_Tensor_out::call(self, other, out);
+}
+// aten::bitwise_and.Scalar_Tensor_out(Scalar self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & bitwise_and_outf(const at::Scalar & self, const at::Tensor & other, at::Tensor & out) {
+    return at::_ops::bitwise_and_Scalar_Tensor_out::call(self, other, out);
 }
 
 }

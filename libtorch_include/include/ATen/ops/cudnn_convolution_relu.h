@@ -23,8 +23,17 @@ namespace at {
 
 
 // aten::cudnn_convolution_relu(Tensor self, Tensor weight, Tensor? bias, int[] stride, int[] padding, int[] dilation, int groups) -> Tensor
-TORCH_API inline at::Tensor cudnn_convolution_relu(const at::Tensor & self, const at::Tensor & weight, const c10::optional<at::Tensor> & bias, at::IntArrayRef stride, at::IntArrayRef padding, at::IntArrayRef dilation, int64_t groups) {
+inline at::Tensor cudnn_convolution_relu(const at::Tensor & self, const at::Tensor & weight, const c10::optional<at::Tensor> & bias, at::IntArrayRef stride, at::IntArrayRef padding, at::IntArrayRef dilation, int64_t groups) {
     return at::_ops::cudnn_convolution_relu::call(self, weight, bias, stride, padding, dilation, groups);
+}
+
+// aten::cudnn_convolution_relu.out(Tensor self, Tensor weight, Tensor? bias, int[] stride, int[] padding, int[] dilation, int groups, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & cudnn_convolution_relu_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & weight, const c10::optional<at::Tensor> & bias, at::IntArrayRef stride, at::IntArrayRef padding, at::IntArrayRef dilation, int64_t groups) {
+    return at::_ops::cudnn_convolution_relu_out::call(self, weight, bias, stride, padding, dilation, groups, out);
+}
+// aten::cudnn_convolution_relu.out(Tensor self, Tensor weight, Tensor? bias, int[] stride, int[] padding, int[] dilation, int groups, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & cudnn_convolution_relu_outf(const at::Tensor & self, const at::Tensor & weight, const c10::optional<at::Tensor> & bias, at::IntArrayRef stride, at::IntArrayRef padding, at::IntArrayRef dilation, int64_t groups, at::Tensor & out) {
+    return at::_ops::cudnn_convolution_relu_out::call(self, weight, bias, stride, padding, dilation, groups, out);
 }
 
 }

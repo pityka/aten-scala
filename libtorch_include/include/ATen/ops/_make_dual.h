@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::_make_dual(Tensor(a) primal, Tensor tangent, int level) -> Tensor(a)
-TORCH_API inline at::Tensor _make_dual(const at::Tensor & primal, const at::Tensor & tangent, int64_t level) {
+inline at::Tensor _make_dual(const at::Tensor & primal, const at::Tensor & tangent, int64_t level) {
     return at::_ops::_make_dual::call(primal, tangent, level);
 }
 

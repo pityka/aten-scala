@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::allclose(Tensor self, Tensor other, float rtol=1e-05, float atol=1e-08, bool equal_nan=False) -> bool
-TORCH_API inline bool allclose(const at::Tensor & self, const at::Tensor & other, double rtol=1e-05, double atol=1e-08, bool equal_nan=false) {
+inline bool allclose(const at::Tensor & self, const at::Tensor & other, double rtol=1e-05, double atol=1e-08, bool equal_nan=false) {
     return at::_ops::allclose::call(self, other, rtol, atol, equal_nan);
 }
 

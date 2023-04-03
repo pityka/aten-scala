@@ -17,7 +17,9 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
-TORCH_API at::Tensor exponential_functional(const at::Tensor & self, double lambd=1, c10::optional<at::Generator> generator=c10::nullopt);
+TORCH_API at::Tensor exponential(const at::Tensor & self, double lambd=1, c10::optional<at::Generator> generator=c10::nullopt);
+TORCH_API at::Tensor & exponential_out(at::Tensor & out, const at::Tensor & self, double lambd=1, c10::optional<at::Generator> generator=c10::nullopt);
+TORCH_API at::Tensor & exponential_outf(const at::Tensor & self, double lambd, c10::optional<at::Generator> generator, at::Tensor & out);
 
 } // namespace compositeexplicitautograd
 } // namespace at

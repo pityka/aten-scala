@@ -23,8 +23,17 @@ namespace at {
 
 
 // aten::rot90(Tensor self, int k=1, int[] dims=[0,1]) -> Tensor
-TORCH_API inline at::Tensor rot90(const at::Tensor & self, int64_t k=1, at::IntArrayRef dims={0,1}) {
+inline at::Tensor rot90(const at::Tensor & self, int64_t k=1, at::IntArrayRef dims={0,1}) {
     return at::_ops::rot90::call(self, k, dims);
+}
+
+// aten::rot90.out(Tensor self, int k=1, int[] dims=[0,1], *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & rot90_out(at::Tensor & out, const at::Tensor & self, int64_t k=1, at::IntArrayRef dims={0,1}) {
+    return at::_ops::rot90_out::call(self, k, dims, out);
+}
+// aten::rot90.out(Tensor self, int k=1, int[] dims=[0,1], *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & rot90_outf(const at::Tensor & self, int64_t k, at::IntArrayRef dims, at::Tensor & out) {
+    return at::_ops::rot90_out::call(self, k, dims, out);
 }
 
 }

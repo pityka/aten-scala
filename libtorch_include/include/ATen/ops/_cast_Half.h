@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::_cast_Half(Tensor self, bool non_blocking=False) -> Tensor
-TORCH_API inline at::Tensor _cast_Half(const at::Tensor & self, bool non_blocking=false) {
+inline at::Tensor _cast_Half(const at::Tensor & self, bool non_blocking=false) {
     return at::_ops::_cast_Half::call(self, non_blocking);
 }
 

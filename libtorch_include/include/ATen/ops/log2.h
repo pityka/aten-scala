@@ -23,22 +23,21 @@ namespace at {
 
 
 // aten::log2(Tensor self) -> Tensor
-TORCH_API inline at::Tensor log2(const at::Tensor & self) {
+inline at::Tensor log2(const at::Tensor & self) {
     return at::_ops::log2::call(self);
 }
 
 // aten::log2_(Tensor(a!) self) -> Tensor(a!)
-TORCH_API inline at::Tensor & log2_(at::Tensor & self) {
+inline at::Tensor & log2_(at::Tensor & self) {
     return at::_ops::log2_::call(self);
 }
 
 // aten::log2.out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & log2_out(at::Tensor & out, const at::Tensor & self) {
+inline at::Tensor & log2_out(at::Tensor & out, const at::Tensor & self) {
     return at::_ops::log2_out::call(self, out);
 }
-
 // aten::log2.out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & log2_outf(const at::Tensor & self, at::Tensor & out) {
+inline at::Tensor & log2_outf(const at::Tensor & self, at::Tensor & out) {
     return at::_ops::log2_out::call(self, out);
 }
 

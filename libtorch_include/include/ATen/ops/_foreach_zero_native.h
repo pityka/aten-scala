@@ -16,10 +16,9 @@
 
 namespace at {
 namespace native {
-
-TORCH_API ::std::vector<at::Tensor> _foreach_zero_functional(at::TensorList self);
+TORCH_API ::std::vector<at::Tensor> _foreach_zero(at::TensorList self);
+TORCH_API void _foreach_zero_out(at::TensorList self, at::TensorList out);
 TORCH_API void foreach_tensor_zero_slow_(at::TensorList self);
 TORCH_API void foreach_tensor_zero_cuda_(at::TensorList self);
-
 } // namespace native
 } // namespace at

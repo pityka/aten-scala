@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::_gather_sparse_backward(Tensor self, int dim, Tensor index, Tensor grad) -> Tensor
-TORCH_API inline at::Tensor _gather_sparse_backward(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & grad) {
+inline at::Tensor _gather_sparse_backward(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & grad) {
     return at::_ops::_gather_sparse_backward::call(self, dim, index, grad);
 }
 

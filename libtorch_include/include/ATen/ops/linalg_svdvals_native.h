@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
-TORCH_API at::Tensor linalg_svdvals(const at::Tensor & A);
-TORCH_API at::Tensor & linalg_svdvals_out(const at::Tensor & A, at::Tensor & out);
-
+TORCH_API at::Tensor linalg_svdvals(const at::Tensor & A, c10::optional<c10::string_view> driver=c10::nullopt);
+TORCH_API at::Tensor & linalg_svdvals_out(const at::Tensor & A, c10::optional<c10::string_view> driver, at::Tensor & out);
 } // namespace native
 } // namespace at

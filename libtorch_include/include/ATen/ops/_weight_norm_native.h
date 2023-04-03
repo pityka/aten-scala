@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor _weight_norm(const at::Tensor & v, const at::Tensor & g, int64_t dim=0);
-
 } // namespace native
 } // namespace at

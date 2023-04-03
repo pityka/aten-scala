@@ -22,5 +22,13 @@
 namespace at {
 
 
+// aten::sparse_mask.out(Tensor self, Tensor mask, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & sparse_mask_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & mask) {
+    return at::_ops::sparse_mask_out::call(self, mask, out);
+}
+// aten::sparse_mask.out(Tensor self, Tensor mask, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & sparse_mask_outf(const at::Tensor & self, const at::Tensor & mask, at::Tensor & out) {
+    return at::_ops::sparse_mask_out::call(self, mask, out);
+}
 
 }

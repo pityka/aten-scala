@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API void _linalg_check_errors(const at::Tensor & info, c10::string_view api_name, bool is_matrix);
-
 } // namespace native
 } // namespace at

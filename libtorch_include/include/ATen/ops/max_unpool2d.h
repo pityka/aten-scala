@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::max_unpool2d.out(Tensor self, Tensor indices, int[2] output_size, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & max_unpool2d_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & indices, at::IntArrayRef output_size) {
+inline at::Tensor & max_unpool2d_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & indices, at::IntArrayRef output_size) {
     return at::_ops::max_unpool2d_out::call(self, indices, output_size, out);
 }
-
 // aten::max_unpool2d.out(Tensor self, Tensor indices, int[2] output_size, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & max_unpool2d_outf(const at::Tensor & self, const at::Tensor & indices, at::IntArrayRef output_size, at::Tensor & out) {
+inline at::Tensor & max_unpool2d_outf(const at::Tensor & self, const at::Tensor & indices, at::IntArrayRef output_size, at::Tensor & out) {
     return at::_ops::max_unpool2d_out::call(self, indices, output_size, out);
 }
 
 // aten::max_unpool2d(Tensor self, Tensor indices, int[2] output_size) -> Tensor
-TORCH_API inline at::Tensor max_unpool2d(const at::Tensor & self, const at::Tensor & indices, at::IntArrayRef output_size) {
+inline at::Tensor max_unpool2d(const at::Tensor & self, const at::Tensor & indices, at::IntArrayRef output_size) {
     return at::_ops::max_unpool2d::call(self, indices, output_size);
 }
 

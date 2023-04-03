@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor to_dense(const at::Tensor & self, c10::optional<at::ScalarType> dtype=c10::nullopt);
-
 } // namespace native
 } // namespace at

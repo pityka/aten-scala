@@ -16,11 +16,9 @@
 
 namespace at {
 namespace native {
-
-TORCH_API at::Tensor view_copy(const at::Tensor & self, at::IntArrayRef size);
-TORCH_API at::Tensor & view_copy_out(const at::Tensor & self, at::IntArrayRef size, at::Tensor & out);
-TORCH_API at::Tensor view_copy_dtype(const at::Tensor & self, at::ScalarType dtype);
+TORCH_API at::Tensor & view_copy_out_symint(const at::Tensor & self, c10::SymIntArrayRef size, at::Tensor & out);
+TORCH_API at::Tensor view_copy_symint(const at::Tensor & self, c10::SymIntArrayRef size);
 TORCH_API at::Tensor & view_copy_dtype_out(const at::Tensor & self, at::ScalarType dtype, at::Tensor & out);
-
+TORCH_API at::Tensor view_copy_dtype(const at::Tensor & self, at::ScalarType dtype);
 } // namespace native
 } // namespace at

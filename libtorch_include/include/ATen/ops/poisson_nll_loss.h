@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::poisson_nll_loss(Tensor input, Tensor target, bool log_input, bool full, float eps, int reduction) -> Tensor
-TORCH_API inline at::Tensor poisson_nll_loss(const at::Tensor & input, const at::Tensor & target, bool log_input, bool full, double eps, int64_t reduction) {
+inline at::Tensor poisson_nll_loss(const at::Tensor & input, const at::Tensor & target, bool log_input, bool full, double eps, int64_t reduction) {
     return at::_ops::poisson_nll_loss::call(input, target, log_input, full, eps, reduction);
 }
 

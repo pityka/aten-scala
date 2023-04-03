@@ -23,22 +23,20 @@ namespace at {
 
 
 // aten::linspace(Scalar start, Scalar end, int steps, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor
-TORCH_API inline at::Tensor linspace(const at::Scalar & start, const at::Scalar & end, int64_t steps, at::TensorOptions options={}) {
+inline at::Tensor linspace(const at::Scalar & start, const at::Scalar & end, int64_t steps, at::TensorOptions options={}) {
     return at::_ops::linspace::call(start, end, steps, optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt());
 }
-
 // aten::linspace(Scalar start, Scalar end, int steps, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor
-TORCH_API inline at::Tensor linspace(const at::Scalar & start, const at::Scalar & end, int64_t steps, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory) {
+inline at::Tensor linspace(const at::Scalar & start, const at::Scalar & end, int64_t steps, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory) {
     return at::_ops::linspace::call(start, end, steps, dtype, layout, device, pin_memory);
 }
 
 // aten::linspace.out(Scalar start, Scalar end, int steps, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & linspace_out(at::Tensor & out, const at::Scalar & start, const at::Scalar & end, int64_t steps) {
+inline at::Tensor & linspace_out(at::Tensor & out, const at::Scalar & start, const at::Scalar & end, int64_t steps) {
     return at::_ops::linspace_out::call(start, end, steps, out);
 }
-
 // aten::linspace.out(Scalar start, Scalar end, int steps, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & linspace_outf(const at::Scalar & start, const at::Scalar & end, int64_t steps, at::Tensor & out) {
+inline at::Tensor & linspace_outf(const at::Scalar & start, const at::Scalar & end, int64_t steps, at::Tensor & out) {
     return at::_ops::linspace_out::call(start, end, steps, out);
 }
 

@@ -17,8 +17,6 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
-TORCH_API at::Tensor copysign(const at::Tensor & self, const at::Tensor & other);
-TORCH_API at::Tensor & copysign_(at::Tensor & self, const at::Tensor & other);
 TORCH_API at::Tensor copysign(const at::Tensor & self, const at::Scalar & other);
 TORCH_API at::Tensor & copysign_out(at::Tensor & out, const at::Tensor & self, const at::Scalar & other);
 TORCH_API at::Tensor & copysign_outf(const at::Tensor & self, const at::Scalar & other, at::Tensor & out);

@@ -21,8 +21,6 @@ TORCH_API at::Tensor fmod(const at::Tensor & self, const at::Scalar & other);
 TORCH_API at::Tensor & fmod_out(at::Tensor & out, const at::Tensor & self, const at::Scalar & other);
 TORCH_API at::Tensor & fmod_outf(const at::Tensor & self, const at::Scalar & other, at::Tensor & out);
 TORCH_API at::Tensor & fmod_(at::Tensor & self, const at::Scalar & other);
-TORCH_API at::Tensor fmod(const at::Tensor & self, const at::Tensor & other);
-TORCH_API at::Tensor & fmod_(at::Tensor & self, const at::Tensor & other);
 
 } // namespace compositeexplicitautograd
 } // namespace at

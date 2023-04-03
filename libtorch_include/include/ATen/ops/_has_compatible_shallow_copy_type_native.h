@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API bool _has_compatible_shallow_copy_type(const at::Tensor & self, const at::Tensor & from);
-
 } // namespace native
 } // namespace at

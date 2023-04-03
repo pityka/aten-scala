@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::linalg_lu(Tensor A, *, bool pivot=True) -> (Tensor P, Tensor L, Tensor U)
-TORCH_API inline ::std::tuple<at::Tensor,at::Tensor,at::Tensor> linalg_lu(const at::Tensor & A, bool pivot=true) {
+inline ::std::tuple<at::Tensor,at::Tensor,at::Tensor> linalg_lu(const at::Tensor & A, bool pivot=true) {
     return at::_ops::linalg_lu::call(A, pivot);
 }
 
 // aten::linalg_lu.out(Tensor A, *, bool pivot=True, Tensor(a!) P, Tensor(b!) L, Tensor(c!) U) -> (Tensor(a!) P, Tensor(b!) L, Tensor(c!) U)
-TORCH_API inline ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> linalg_lu_out(at::Tensor & P, at::Tensor & L, at::Tensor & U, const at::Tensor & A, bool pivot=true) {
+inline ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> linalg_lu_out(at::Tensor & P, at::Tensor & L, at::Tensor & U, const at::Tensor & A, bool pivot=true) {
     return at::_ops::linalg_lu_out::call(A, pivot, P, L, U);
 }
-
 // aten::linalg_lu.out(Tensor A, *, bool pivot=True, Tensor(a!) P, Tensor(b!) L, Tensor(c!) U) -> (Tensor(a!) P, Tensor(b!) L, Tensor(c!) U)
-TORCH_API inline ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> linalg_lu_outf(const at::Tensor & A, bool pivot, at::Tensor & P, at::Tensor & L, at::Tensor & U) {
+inline ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> linalg_lu_outf(const at::Tensor & A, bool pivot, at::Tensor & P, at::Tensor & L, at::Tensor & U) {
     return at::_ops::linalg_lu_out::call(A, pivot, P, L, U);
 }
 

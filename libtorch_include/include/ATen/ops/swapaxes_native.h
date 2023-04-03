@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor swapaxes(const at::Tensor & self, int64_t axis0, int64_t axis1);
 TORCH_API at::Tensor & swapaxes_(at::Tensor & self, int64_t axis0, int64_t axis1);
-
 } // namespace native
 } // namespace at

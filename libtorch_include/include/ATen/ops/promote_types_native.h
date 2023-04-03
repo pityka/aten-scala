@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::ScalarType promote_types(at::ScalarType type1, at::ScalarType type2);
-
 } // namespace native
 } // namespace at

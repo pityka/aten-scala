@@ -16,7 +16,6 @@
 
 namespace at {
 namespace native {
-
 struct TORCH_API structured_mm_out_cpu : public at::meta::structured_mm {
 void impl(const at::Tensor & self, const at::Tensor & mat2, const at::Tensor & out);
 };
@@ -27,6 +26,8 @@ TORCH_API at::Tensor _sparse_mm(const at::Tensor & self, const at::Tensor & mat2
 TORCH_API at::Tensor & _sparse_mm_out(const at::Tensor & self, const at::Tensor & mat2, at::Tensor & out);
 TORCH_API at::Tensor _sparse_csr_mm(const at::Tensor & self, const at::Tensor & mat2);
 TORCH_API at::Tensor & _sparse_csr_mm_out(const at::Tensor & self, const at::Tensor & mat2, at::Tensor & out);
-
+struct TORCH_API structured_mm_out_mps : public at::meta::structured_mm {
+void impl(const at::Tensor & self, const at::Tensor & mat2, const at::Tensor & out);
+};
 } // namespace native
 } // namespace at

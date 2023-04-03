@@ -23,22 +23,22 @@ namespace at {
 
 
 // aten::result_type.Tensor(Tensor tensor, Tensor other) -> ScalarType
-TORCH_API inline at::ScalarType result_type(const at::Tensor & tensor, const at::Tensor & other) {
+inline at::ScalarType result_type(const at::Tensor & tensor, const at::Tensor & other) {
     return at::_ops::result_type_Tensor::call(tensor, other);
 }
 
 // aten::result_type.Scalar(Tensor tensor, Scalar other) -> ScalarType
-TORCH_API inline at::ScalarType result_type(const at::Tensor & tensor, const at::Scalar & other) {
+inline at::ScalarType result_type(const at::Tensor & tensor, const at::Scalar & other) {
     return at::_ops::result_type_Scalar::call(tensor, other);
 }
 
 // aten::result_type.Scalar_Tensor(Scalar scalar, Tensor tensor) -> ScalarType
-TORCH_API inline at::ScalarType result_type(const at::Scalar & scalar, const at::Tensor & tensor) {
+inline at::ScalarType result_type(const at::Scalar & scalar, const at::Tensor & tensor) {
     return at::_ops::result_type_Scalar_Tensor::call(scalar, tensor);
 }
 
 // aten::result_type.Scalar_Scalar(Scalar scalar1, Scalar scalar2) -> ScalarType
-TORCH_API inline at::ScalarType result_type(const at::Scalar & scalar1, const at::Scalar & scalar2) {
+inline at::ScalarType result_type(const at::Scalar & scalar1, const at::Scalar & scalar2) {
     return at::_ops::result_type_Scalar_Scalar::call(scalar1, scalar2);
 }
 

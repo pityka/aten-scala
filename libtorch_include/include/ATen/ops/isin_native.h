@@ -16,7 +16,6 @@
 
 namespace at {
 namespace native {
-
 struct TORCH_API structured_isin_Tensor_Tensor_out : public at::meta::structured_isin_Tensor_Tensor {
 void impl(const at::Tensor & elements, const at::Tensor & test_elements, bool assume_unique, bool invert, const at::Tensor & out);
 };
@@ -26,6 +25,5 @@ void impl(const at::Tensor & elements, const at::Scalar & test_element, bool ass
 struct TORCH_API structured_isin_Scalar_Tensor_out : public at::meta::structured_isin_Scalar_Tensor {
 void impl(const at::Scalar & element, const at::Tensor & test_elements, bool assume_unique, bool invert, const at::Tensor & out);
 };
-
 } // namespace native
 } // namespace at

@@ -22,5 +22,18 @@
 namespace at {
 
 
+// aten::lift(Tensor self) -> Tensor
+inline at::Tensor lift(const at::Tensor & self) {
+    return at::_ops::lift::call(self);
+}
+
+// aten::lift.out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & lift_out(at::Tensor & out, const at::Tensor & self) {
+    return at::_ops::lift_out::call(self, out);
+}
+// aten::lift.out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & lift_outf(const at::Tensor & self, at::Tensor & out) {
+    return at::_ops::lift_out::call(self, out);
+}
 
 }

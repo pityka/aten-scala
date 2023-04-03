@@ -23,32 +23,30 @@ namespace at {
 
 
 // aten::concat(Tensor[] tensors, int dim=0) -> Tensor
-TORCH_API inline at::Tensor concat(at::TensorList tensors, int64_t dim=0) {
+inline at::Tensor concat(at::TensorList tensors, int64_t dim=0) {
     return at::_ops::concat::call(tensors, dim);
 }
 
 // aten::concat.out(Tensor[] tensors, int dim=0, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & concat_out(at::Tensor & out, at::TensorList tensors, int64_t dim=0) {
+inline at::Tensor & concat_out(at::Tensor & out, at::TensorList tensors, int64_t dim=0) {
     return at::_ops::concat_out::call(tensors, dim, out);
 }
-
 // aten::concat.out(Tensor[] tensors, int dim=0, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & concat_outf(at::TensorList tensors, int64_t dim, at::Tensor & out) {
+inline at::Tensor & concat_outf(at::TensorList tensors, int64_t dim, at::Tensor & out) {
     return at::_ops::concat_out::call(tensors, dim, out);
 }
 
 // aten::concat.names(Tensor[] tensors, Dimname dim) -> Tensor
-TORCH_API inline at::Tensor concat(at::TensorList tensors, at::Dimname dim) {
+inline at::Tensor concat(at::TensorList tensors, at::Dimname dim) {
     return at::_ops::concat_names::call(tensors, dim);
 }
 
 // aten::concat.names_out(Tensor[] tensors, Dimname dim, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & concat_out(at::Tensor & out, at::TensorList tensors, at::Dimname dim) {
+inline at::Tensor & concat_out(at::Tensor & out, at::TensorList tensors, at::Dimname dim) {
     return at::_ops::concat_names_out::call(tensors, dim, out);
 }
-
 // aten::concat.names_out(Tensor[] tensors, Dimname dim, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & concat_outf(at::TensorList tensors, at::Dimname dim, at::Tensor & out) {
+inline at::Tensor & concat_outf(at::TensorList tensors, at::Dimname dim, at::Tensor & out) {
     return at::_ops::concat_names_out::call(tensors, dim, out);
 }
 

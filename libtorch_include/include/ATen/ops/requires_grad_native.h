@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor & requires_grad_(at::Tensor & self, bool requires_grad=true);
-
 } // namespace native
 } // namespace at

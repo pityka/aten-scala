@@ -19,6 +19,8 @@ namespace compositeexplicitautograd {
 
 TORCH_API at::Tensor empty_like(const at::Tensor & self, at::TensorOptions options={}, c10::optional<at::MemoryFormat> memory_format=c10::nullopt);
 TORCH_API at::Tensor empty_like(const at::Tensor & self, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory, c10::optional<at::MemoryFormat> memory_format);
+TORCH_API at::Tensor & empty_like_out(at::Tensor & out, const at::Tensor & self, c10::optional<at::MemoryFormat> memory_format=c10::nullopt);
+TORCH_API at::Tensor & empty_like_outf(const at::Tensor & self, c10::optional<at::MemoryFormat> memory_format, at::Tensor & out);
 
 } // namespace compositeexplicitautograd
 } // namespace at

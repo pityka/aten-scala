@@ -17,7 +17,8 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
-TORCH_API at::Tensor pixel_shuffle(const at::Tensor & self, int64_t upscale_factor);
+TORCH_API at::Tensor & pixel_shuffle_out(at::Tensor & out, const at::Tensor & self, int64_t upscale_factor);
+TORCH_API at::Tensor & pixel_shuffle_outf(const at::Tensor & self, int64_t upscale_factor, at::Tensor & out);
 
 } // namespace compositeexplicitautograd
 } // namespace at

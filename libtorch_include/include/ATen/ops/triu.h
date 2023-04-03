@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::triu.out(Tensor self, int diagonal=0, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & triu_out(at::Tensor & out, const at::Tensor & self, int64_t diagonal=0) {
+inline at::Tensor & triu_out(at::Tensor & out, const at::Tensor & self, int64_t diagonal=0) {
     return at::_ops::triu_out::call(self, diagonal, out);
 }
-
 // aten::triu.out(Tensor self, int diagonal=0, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & triu_outf(const at::Tensor & self, int64_t diagonal, at::Tensor & out) {
+inline at::Tensor & triu_outf(const at::Tensor & self, int64_t diagonal, at::Tensor & out) {
     return at::_ops::triu_out::call(self, diagonal, out);
 }
 
 // aten::triu(Tensor self, int diagonal=0) -> Tensor
-TORCH_API inline at::Tensor triu(const at::Tensor & self, int64_t diagonal=0) {
+inline at::Tensor triu(const at::Tensor & self, int64_t diagonal=0) {
     return at::_ops::triu::call(self, diagonal);
 }
 

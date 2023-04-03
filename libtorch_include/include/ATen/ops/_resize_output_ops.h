@@ -36,13 +36,13 @@ struct TORCH_API _resize_output_out {
   static const at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::IntArrayRef size, at::Device device, const at::Tensor & out);
 };
 
-struct TORCH_API _resize_output_functional {
+struct TORCH_API _resize_output {
   using schema = at::Tensor (const at::Tensor &, at::IntArrayRef, at::Device);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_resize_output")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "functional")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_resize_output.functional(Tensor self, int[] size, Device device) -> Tensor")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_resize_output(Tensor self, int[] size, Device device) -> Tensor")
   static at::Tensor call(const at::Tensor & self, at::IntArrayRef size, at::Device device);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::IntArrayRef size, at::Device device);
 };

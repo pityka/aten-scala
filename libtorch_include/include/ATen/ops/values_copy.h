@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::values_copy(Tensor self) -> Tensor
-TORCH_API inline at::Tensor values_copy(const at::Tensor & self) {
+inline at::Tensor values_copy(const at::Tensor & self) {
     return at::_ops::values_copy::call(self);
 }
 
 // aten::values_copy.out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & values_copy_out(at::Tensor & out, const at::Tensor & self) {
+inline at::Tensor & values_copy_out(at::Tensor & out, const at::Tensor & self) {
     return at::_ops::values_copy_out::call(self, out);
 }
-
 // aten::values_copy.out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & values_copy_outf(const at::Tensor & self, at::Tensor & out) {
+inline at::Tensor & values_copy_outf(const at::Tensor & self, at::Tensor & out) {
     return at::_ops::values_copy_out::call(self, out);
 }
 

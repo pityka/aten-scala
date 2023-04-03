@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API void _backward(const at::Tensor & self, at::TensorList inputs, const c10::optional<at::Tensor> & gradient={}, c10::optional<bool> retain_graph=c10::nullopt, bool create_graph=false);
-
 } // namespace native
 } // namespace at

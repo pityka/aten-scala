@@ -23,8 +23,17 @@ namespace at {
 
 
 // aten::cudnn_grid_sampler(Tensor self, Tensor grid) -> Tensor output
-TORCH_API inline at::Tensor cudnn_grid_sampler(const at::Tensor & self, const at::Tensor & grid) {
+inline at::Tensor cudnn_grid_sampler(const at::Tensor & self, const at::Tensor & grid) {
     return at::_ops::cudnn_grid_sampler::call(self, grid);
+}
+
+// aten::cudnn_grid_sampler.out(Tensor self, Tensor grid, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & cudnn_grid_sampler_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & grid) {
+    return at::_ops::cudnn_grid_sampler_out::call(self, grid, out);
+}
+// aten::cudnn_grid_sampler.out(Tensor self, Tensor grid, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & cudnn_grid_sampler_outf(const at::Tensor & self, const at::Tensor & grid, at::Tensor & out) {
+    return at::_ops::cudnn_grid_sampler_out::call(self, grid, out);
 }
 
 }

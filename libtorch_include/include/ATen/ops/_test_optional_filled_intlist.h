@@ -23,8 +23,17 @@ namespace at {
 
 
 // aten::_test_optional_filled_intlist(Tensor values, int[2]? addends) -> Tensor
-TORCH_API inline at::Tensor _test_optional_filled_intlist(const at::Tensor & values, at::OptionalIntArrayRef addends) {
+inline at::Tensor _test_optional_filled_intlist(const at::Tensor & values, at::OptionalIntArrayRef addends) {
     return at::_ops::_test_optional_filled_intlist::call(values, addends);
+}
+
+// aten::_test_optional_filled_intlist.out(Tensor values, int[2]? addends, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & _test_optional_filled_intlist_out(at::Tensor & out, const at::Tensor & values, at::OptionalIntArrayRef addends) {
+    return at::_ops::_test_optional_filled_intlist_out::call(values, addends, out);
+}
+// aten::_test_optional_filled_intlist.out(Tensor values, int[2]? addends, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & _test_optional_filled_intlist_outf(const at::Tensor & values, at::OptionalIntArrayRef addends, at::Tensor & out) {
+    return at::_ops::_test_optional_filled_intlist_out::call(values, addends, out);
 }
 
 }

@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::matrix_exp_backward(Tensor self, Tensor grad) -> Tensor
-TORCH_API inline at::Tensor matrix_exp_backward(const at::Tensor & self, const at::Tensor & grad) {
+inline at::Tensor matrix_exp_backward(const at::Tensor & self, const at::Tensor & grad) {
     return at::_ops::matrix_exp_backward::call(self, grad);
 }
 

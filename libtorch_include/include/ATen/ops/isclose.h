@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::isclose(Tensor self, Tensor other, float rtol=1e-05, float atol=1e-08, bool equal_nan=False) -> Tensor
-TORCH_API inline at::Tensor isclose(const at::Tensor & self, const at::Tensor & other, double rtol=1e-05, double atol=1e-08, bool equal_nan=false) {
+inline at::Tensor isclose(const at::Tensor & self, const at::Tensor & other, double rtol=1e-05, double atol=1e-08, bool equal_nan=false) {
     return at::_ops::isclose::call(self, other, rtol, atol, equal_nan);
 }
 

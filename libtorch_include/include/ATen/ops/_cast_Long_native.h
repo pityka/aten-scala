@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor _cast_Long(const at::Tensor & self, bool non_blocking=false);
-
 } // namespace native
 } // namespace at

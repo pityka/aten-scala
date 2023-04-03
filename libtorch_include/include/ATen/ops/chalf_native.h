@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor chalf(const at::Tensor & self, c10::optional<at::MemoryFormat> memory_format=c10::nullopt);
-
 } // namespace native
 } // namespace at

@@ -17,7 +17,7 @@ namespace at {
 
 namespace cpu {
 
-TORCH_API at::Tensor & range_out(at::Tensor & out, const at::Scalar & start, const at::Scalar & end, const at::Scalar & step=1);
+TORCH_API at::Tensor & range_out(at::Tensor & out, const at::Scalar & start, const at::Scalar & end, const at::Scalar & step);
 TORCH_API at::Tensor & range_outf(const at::Scalar & start, const at::Scalar & end, const at::Scalar & step, at::Tensor & out);
 
 } // namespace cpu

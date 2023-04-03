@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::unsqueeze(Tensor(a) self, int dim) -> Tensor(a)
-TORCH_API inline at::Tensor unsqueeze(const at::Tensor & self, int64_t dim) {
+inline at::Tensor unsqueeze(const at::Tensor & self, int64_t dim) {
     return at::_ops::unsqueeze::call(self, dim);
 }
 

@@ -1,6 +1,6 @@
 #pragma once
 
-// @generated from tools/autograd/templates/variable_factories.h
+// @generated from ../tools/autograd/templates/variable_factories.h
 
 #include <ATen/core/Tensor.h>
 #include <ATen/TracerMode.h>
@@ -256,6 +256,10 @@ inline at::Tensor empty(at::IntArrayRef size, at::TensorOptions options = {}, c1
   at::AutoDispatchBelowADInplaceOrView guard;
   return autograd::make_variable(at::empty(size, at::TensorOptions(options).requires_grad(c10::nullopt), memory_format), /*requires_grad=*/options.requires_grad());
 }
+inline at::Tensor empty_symint(c10::SymIntArrayRef size, at::TensorOptions options = {}, c10::optional<at::MemoryFormat> memory_format = c10::nullopt) {
+  at::AutoDispatchBelowADInplaceOrView guard;
+  return autograd::make_variable(at::empty_symint(size, at::TensorOptions(options).requires_grad(c10::nullopt), memory_format), /*requires_grad=*/options.requires_grad());
+}
 inline at::Tensor _empty_affine_quantized(at::IntArrayRef size, at::TensorOptions options = {}, double scale = 1, int64_t zero_point = 0, c10::optional<at::MemoryFormat> memory_format = MemoryFormat::Contiguous) {
   at::AutoDispatchBelowADInplaceOrView guard;
   return autograd::make_variable(at::_empty_affine_quantized(size, at::TensorOptions(options).requires_grad(c10::nullopt), scale, zero_point, memory_format), /*requires_grad=*/options.requires_grad());
@@ -276,6 +280,10 @@ inline at::Tensor empty_strided(at::IntArrayRef size, at::IntArrayRef stride, at
   at::AutoDispatchBelowADInplaceOrView guard;
   return autograd::make_variable(at::empty_strided(size, stride, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
 }
+inline at::Tensor empty_strided_symint(c10::SymIntArrayRef size, c10::SymIntArrayRef stride, at::TensorOptions options = {}) {
+  at::AutoDispatchBelowADInplaceOrView guard;
+  return autograd::make_variable(at::empty_strided_symint(size, stride, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
+}
 inline at::Tensor eye(int64_t n, at::TensorOptions options = {}) {
   at::AutoDispatchBelowADInplaceOrView guard;
   return autograd::make_variable(at::eye(n, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
@@ -291,6 +299,10 @@ inline at::Tensor full(at::IntArrayRef size, const at::Scalar & fill_value, c10:
 inline at::Tensor full(at::IntArrayRef size, const at::Scalar & fill_value, at::TensorOptions options = {}) {
   at::AutoDispatchBelowADInplaceOrView guard;
   return autograd::make_variable(at::full(size, fill_value, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
+}
+inline at::Tensor full_symint(c10::SymIntArrayRef size, const at::Scalar & fill_value, at::TensorOptions options = {}) {
+  at::AutoDispatchBelowADInplaceOrView guard;
+  return autograd::make_variable(at::full_symint(size, fill_value, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
 }
 inline at::Tensor full_like(const at::Tensor & self, const at::Scalar & fill_value, at::TensorOptions options = {}, c10::optional<at::MemoryFormat> memory_format = c10::nullopt) {
   at::AutoDispatchBelowADInplaceOrView guard;
@@ -352,6 +364,10 @@ inline at::Tensor ones(at::IntArrayRef size, at::TensorOptions options = {}) {
   at::AutoDispatchBelowADInplaceOrView guard;
   return autograd::make_variable(at::ones(size, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
 }
+inline at::Tensor ones_symint(c10::SymIntArrayRef size, at::TensorOptions options = {}) {
+  at::AutoDispatchBelowADInplaceOrView guard;
+  return autograd::make_variable(at::ones_symint(size, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
+}
 inline at::Tensor ones_like(const at::Tensor & self, at::TensorOptions options = {}, c10::optional<at::MemoryFormat> memory_format = c10::nullopt) {
   at::AutoDispatchBelowADInplaceOrView guard;
   return autograd::make_variable(at::ones_like(self, at::TensorOptions(options).requires_grad(c10::nullopt), memory_format), /*requires_grad=*/options.requires_grad());
@@ -364,37 +380,69 @@ inline at::Tensor rand(at::IntArrayRef size, c10::optional<at::DimnameList> name
   at::AutoDispatchBelowADInplaceOrView guard;
   return autograd::make_variable(at::rand(size, names, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
 }
+inline at::Tensor rand_symint(c10::SymIntArrayRef size, c10::optional<at::DimnameList> names, at::TensorOptions options = {}) {
+  at::AutoDispatchBelowADInplaceOrView guard;
+  return autograd::make_variable(at::rand_symint(size, names, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
+}
 inline at::Tensor rand(at::IntArrayRef size, c10::optional<at::Generator> generator, c10::optional<at::DimnameList> names, at::TensorOptions options = {}) {
   at::AutoDispatchBelowADInplaceOrView guard;
   return autograd::make_variable(at::rand(size, generator, names, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
+}
+inline at::Tensor rand_symint(c10::SymIntArrayRef size, c10::optional<at::Generator> generator, c10::optional<at::DimnameList> names, at::TensorOptions options = {}) {
+  at::AutoDispatchBelowADInplaceOrView guard;
+  return autograd::make_variable(at::rand_symint(size, generator, names, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
 }
 inline at::Tensor rand(at::IntArrayRef size, at::TensorOptions options = {}) {
   at::AutoDispatchBelowADInplaceOrView guard;
   return autograd::make_variable(at::rand(size, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
 }
+inline at::Tensor rand_symint(c10::SymIntArrayRef size, at::TensorOptions options = {}) {
+  at::AutoDispatchBelowADInplaceOrView guard;
+  return autograd::make_variable(at::rand_symint(size, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
+}
 inline at::Tensor rand(at::IntArrayRef size, c10::optional<at::Generator> generator, at::TensorOptions options = {}) {
   at::AutoDispatchBelowADInplaceOrView guard;
   return autograd::make_variable(at::rand(size, generator, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
+}
+inline at::Tensor rand_symint(c10::SymIntArrayRef size, c10::optional<at::Generator> generator, at::TensorOptions options = {}) {
+  at::AutoDispatchBelowADInplaceOrView guard;
+  return autograd::make_variable(at::rand_symint(size, generator, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
 }
 inline at::Tensor rand_like(const at::Tensor & self, at::TensorOptions options = {}, c10::optional<at::MemoryFormat> memory_format = c10::nullopt) {
   at::AutoDispatchBelowADInplaceOrView guard;
   return autograd::make_variable(at::rand_like(self, at::TensorOptions(options).requires_grad(c10::nullopt), memory_format), /*requires_grad=*/options.requires_grad());
 }
-inline at::Tensor randint(int64_t high, at::IntArrayRef size, at::TensorOptions options = {}) {
+inline at::Tensor randint(int64_t high, at::IntArrayRef size, at::TensorOptions options = at::kLong) {
   at::AutoDispatchBelowADInplaceOrView guard;
   return autograd::make_variable(at::randint(high, size, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
 }
-inline at::Tensor randint(int64_t high, at::IntArrayRef size, c10::optional<at::Generator> generator, at::TensorOptions options = {}) {
+inline at::Tensor randint_symint(int64_t high, c10::SymIntArrayRef size, at::TensorOptions options = at::kLong) {
+  at::AutoDispatchBelowADInplaceOrView guard;
+  return autograd::make_variable(at::randint_symint(high, size, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
+}
+inline at::Tensor randint(int64_t high, at::IntArrayRef size, c10::optional<at::Generator> generator, at::TensorOptions options = at::kLong) {
   at::AutoDispatchBelowADInplaceOrView guard;
   return autograd::make_variable(at::randint(high, size, generator, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
 }
-inline at::Tensor randint(int64_t low, int64_t high, at::IntArrayRef size, at::TensorOptions options = {}) {
+inline at::Tensor randint_symint(int64_t high, c10::SymIntArrayRef size, c10::optional<at::Generator> generator, at::TensorOptions options = at::kLong) {
+  at::AutoDispatchBelowADInplaceOrView guard;
+  return autograd::make_variable(at::randint_symint(high, size, generator, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
+}
+inline at::Tensor randint(int64_t low, int64_t high, at::IntArrayRef size, at::TensorOptions options = at::kLong) {
   at::AutoDispatchBelowADInplaceOrView guard;
   return autograd::make_variable(at::randint(low, high, size, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
 }
-inline at::Tensor randint(int64_t low, int64_t high, at::IntArrayRef size, c10::optional<at::Generator> generator, at::TensorOptions options = {}) {
+inline at::Tensor randint_symint(int64_t low, int64_t high, c10::SymIntArrayRef size, at::TensorOptions options = at::kLong) {
+  at::AutoDispatchBelowADInplaceOrView guard;
+  return autograd::make_variable(at::randint_symint(low, high, size, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
+}
+inline at::Tensor randint(int64_t low, int64_t high, at::IntArrayRef size, c10::optional<at::Generator> generator, at::TensorOptions options = at::kLong) {
   at::AutoDispatchBelowADInplaceOrView guard;
   return autograd::make_variable(at::randint(low, high, size, generator, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
+}
+inline at::Tensor randint_symint(int64_t low, int64_t high, c10::SymIntArrayRef size, c10::optional<at::Generator> generator, at::TensorOptions options = at::kLong) {
+  at::AutoDispatchBelowADInplaceOrView guard;
+  return autograd::make_variable(at::randint_symint(low, high, size, generator, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
 }
 inline at::Tensor randint_like(const at::Tensor & self, int64_t high, at::TensorOptions options = {}, c10::optional<at::MemoryFormat> memory_format = c10::nullopt) {
   at::AutoDispatchBelowADInplaceOrView guard;
@@ -408,17 +456,33 @@ inline at::Tensor randn(at::IntArrayRef size, at::TensorOptions options = {}) {
   at::AutoDispatchBelowADInplaceOrView guard;
   return autograd::make_variable(at::randn(size, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
 }
+inline at::Tensor randn_symint(c10::SymIntArrayRef size, at::TensorOptions options = {}) {
+  at::AutoDispatchBelowADInplaceOrView guard;
+  return autograd::make_variable(at::randn_symint(size, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
+}
 inline at::Tensor randn(at::IntArrayRef size, c10::optional<at::Generator> generator, at::TensorOptions options = {}) {
   at::AutoDispatchBelowADInplaceOrView guard;
   return autograd::make_variable(at::randn(size, generator, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
+}
+inline at::Tensor randn_symint(c10::SymIntArrayRef size, c10::optional<at::Generator> generator, at::TensorOptions options = {}) {
+  at::AutoDispatchBelowADInplaceOrView guard;
+  return autograd::make_variable(at::randn_symint(size, generator, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
 }
 inline at::Tensor randn(at::IntArrayRef size, c10::optional<at::DimnameList> names, at::TensorOptions options = {}) {
   at::AutoDispatchBelowADInplaceOrView guard;
   return autograd::make_variable(at::randn(size, names, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
 }
+inline at::Tensor randn_symint(c10::SymIntArrayRef size, c10::optional<at::DimnameList> names, at::TensorOptions options = {}) {
+  at::AutoDispatchBelowADInplaceOrView guard;
+  return autograd::make_variable(at::randn_symint(size, names, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
+}
 inline at::Tensor randn(at::IntArrayRef size, c10::optional<at::Generator> generator, c10::optional<at::DimnameList> names, at::TensorOptions options = {}) {
   at::AutoDispatchBelowADInplaceOrView guard;
   return autograd::make_variable(at::randn(size, generator, names, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
+}
+inline at::Tensor randn_symint(c10::SymIntArrayRef size, c10::optional<at::Generator> generator, c10::optional<at::DimnameList> names, at::TensorOptions options = {}) {
+  at::AutoDispatchBelowADInplaceOrView guard;
+  return autograd::make_variable(at::randn_symint(size, generator, names, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
 }
 inline at::Tensor randn_like(const at::Tensor & self, at::TensorOptions options = {}, c10::optional<at::MemoryFormat> memory_format = c10::nullopt) {
   at::AutoDispatchBelowADInplaceOrView guard;
@@ -451,6 +515,10 @@ inline at::Tensor _efficientzerotensor(at::IntArrayRef size, at::TensorOptions o
 inline at::Tensor zeros(at::IntArrayRef size, at::TensorOptions options = {}) {
   at::AutoDispatchBelowADInplaceOrView guard;
   return autograd::make_variable(at::zeros(size, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
+}
+inline at::Tensor zeros_symint(c10::SymIntArrayRef size, at::TensorOptions options = {}) {
+  at::AutoDispatchBelowADInplaceOrView guard;
+  return autograd::make_variable(at::zeros_symint(size, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
 }
 inline at::Tensor zeros_like(const at::Tensor & self, at::TensorOptions options = {}, c10::optional<at::MemoryFormat> memory_format = c10::nullopt) {
   at::AutoDispatchBelowADInplaceOrView guard;
@@ -532,6 +600,10 @@ inline at::Tensor _sparse_coo_tensor_unsafe(const at::Tensor & indices, const at
   at::AutoDispatchBelowADInplaceOrView guard;
   return autograd::make_variable(at::_sparse_coo_tensor_unsafe(indices, values, size, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
 }
+inline at::Tensor _sparse_coo_tensor_unsafe_symint(const at::Tensor & indices, const at::Tensor & values, c10::SymIntArrayRef size, at::TensorOptions options = {}) {
+  at::AutoDispatchBelowADInplaceOrView guard;
+  return autograd::make_variable(at::_sparse_coo_tensor_unsafe_symint(indices, values, size, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
+}
 inline at::Tensor _sparse_coo_tensor_with_dims(int64_t sparse_dim, int64_t dense_dim, at::IntArrayRef size, at::TensorOptions options) {
   at::AutoDispatchBelowADInplaceOrView guard;
   return autograd::make_variable(at::_sparse_coo_tensor_with_dims(sparse_dim, dense_dim, size, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
@@ -539,6 +611,10 @@ inline at::Tensor _sparse_coo_tensor_with_dims(int64_t sparse_dim, int64_t dense
 inline at::Tensor _sparse_coo_tensor_with_dims_and_tensors(int64_t sparse_dim, int64_t dense_dim, at::IntArrayRef size, const at::Tensor & indices, const at::Tensor & values, at::TensorOptions options) {
   at::AutoDispatchBelowADInplaceOrView guard;
   return autograd::make_variable(at::_sparse_coo_tensor_with_dims_and_tensors(sparse_dim, dense_dim, size, indices, values, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
+}
+inline at::Tensor _sparse_coo_tensor_with_dims_and_tensors_symint(int64_t sparse_dim, int64_t dense_dim, c10::SymIntArrayRef size, const at::Tensor & indices, const at::Tensor & values, at::TensorOptions options) {
+  at::AutoDispatchBelowADInplaceOrView guard;
+  return autograd::make_variable(at::_sparse_coo_tensor_with_dims_and_tensors_symint(sparse_dim, dense_dim, size, indices, values, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
 }
 inline at::Tensor _to_copy(const at::Tensor & self, at::TensorOptions options = {}, bool non_blocking = false, c10::optional<at::MemoryFormat> memory_format = c10::nullopt) {
   at::AutoDispatchBelowADInplaceOrView guard;
@@ -555,6 +631,10 @@ inline at::Tensor triu_indices(int64_t row, int64_t col, int64_t offset = 0, at:
 inline at::Tensor normal(double mean, double std, at::IntArrayRef size, c10::optional<at::Generator> generator = c10::nullopt, at::TensorOptions options = {}) {
   at::AutoDispatchBelowADInplaceOrView guard;
   return autograd::make_variable(at::normal(mean, std, size, generator, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
+}
+inline at::Tensor normal_symint(double mean, double std, c10::SymIntArrayRef size, c10::optional<at::Generator> generator = c10::nullopt, at::TensorOptions options = {}) {
+  at::AutoDispatchBelowADInplaceOrView guard;
+  return autograd::make_variable(at::normal_symint(mean, std, size, generator, at::TensorOptions(options).requires_grad(c10::nullopt)), /*requires_grad=*/options.requires_grad());
 }
 inline at::Tensor fft_fftfreq(int64_t n, double d = 1.0, at::TensorOptions options = {}) {
   at::AutoDispatchBelowADInplaceOrView guard;

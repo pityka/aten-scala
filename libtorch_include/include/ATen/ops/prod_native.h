@@ -16,13 +16,16 @@
 
 namespace at {
 namespace native {
-
+TORCH_API at::Tensor & prod_out(const at::Tensor & self, c10::optional<at::ScalarType> dtype, at::Tensor & out);
 TORCH_API at::Tensor prod(const at::Tensor & self, c10::optional<at::ScalarType> dtype=c10::nullopt);
+TORCH_API at::Tensor prod_mps(const at::Tensor & self, c10::optional<at::ScalarType> dtype=c10::nullopt);
 struct TORCH_API structured_prod_out : public at::meta::structured_prod_dim_int {
+void impl(const at::Tensor & self, int64_t dim, bool keepdim, c10::optional<at::ScalarType> dtype, const at::Tensor & out);
+};
+struct TORCH_API structured_prod_out_mps : public at::meta::structured_prod_dim_int {
 void impl(const at::Tensor & self, int64_t dim, bool keepdim, c10::optional<at::ScalarType> dtype, const at::Tensor & out);
 };
 TORCH_API at::Tensor prod(const at::Tensor & self, at::Dimname dim, bool keepdim=false, c10::optional<at::ScalarType> dtype=c10::nullopt);
 TORCH_API at::Tensor & prod_out(const at::Tensor & self, at::Dimname dim, bool keepdim, c10::optional<at::ScalarType> dtype, at::Tensor & out);
-
 } // namespace native
 } // namespace at

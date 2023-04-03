@@ -16,11 +16,9 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor sparse_sampled_addmm_sparse_csr_cpu(const at::Tensor & self, const at::Tensor & mat1, const at::Tensor & mat2, const at::Scalar & beta=1, const at::Scalar & alpha=1);
 TORCH_API at::Tensor & sparse_sampled_addmm_out_sparse_csr_cpu(const at::Tensor & self, const at::Tensor & mat1, const at::Tensor & mat2, const at::Scalar & beta, const at::Scalar & alpha, at::Tensor & out);
 TORCH_API at::Tensor sparse_sampled_addmm_sparse_csr_cuda(const at::Tensor & self, const at::Tensor & mat1, const at::Tensor & mat2, const at::Scalar & beta=1, const at::Scalar & alpha=1);
 TORCH_API at::Tensor & sparse_sampled_addmm_out_sparse_csr_cuda(const at::Tensor & self, const at::Tensor & mat1, const at::Tensor & mat2, const at::Scalar & beta, const at::Scalar & alpha, at::Tensor & out);
-
 } // namespace native
 } // namespace at

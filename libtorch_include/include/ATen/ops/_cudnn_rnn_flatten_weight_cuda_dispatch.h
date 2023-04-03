@@ -18,6 +18,7 @@ namespace at {
 namespace cuda {
 
 TORCH_API at::Tensor _cudnn_rnn_flatten_weight(at::TensorList weight_arr, int64_t weight_stride0, int64_t input_size, int64_t mode, int64_t hidden_size, int64_t proj_size, int64_t num_layers, bool batch_first, bool bidirectional);
+TORCH_API at::Tensor _cudnn_rnn_flatten_weight_symint(at::TensorList weight_arr, int64_t weight_stride0, c10::SymInt input_size, int64_t mode, c10::SymInt hidden_size, c10::SymInt proj_size, int64_t num_layers, bool batch_first, bool bidirectional);
 
 } // namespace cuda
 } // namespace at

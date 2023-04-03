@@ -23,17 +23,16 @@ namespace at {
 
 
 // aten::_fft_r2c(Tensor self, int[] dim, int normalization, bool onesided) -> Tensor
-TORCH_API inline at::Tensor _fft_r2c(const at::Tensor & self, at::IntArrayRef dim, int64_t normalization, bool onesided) {
+inline at::Tensor _fft_r2c(const at::Tensor & self, at::IntArrayRef dim, int64_t normalization, bool onesided) {
     return at::_ops::_fft_r2c::call(self, dim, normalization, onesided);
 }
 
 // aten::_fft_r2c.out(Tensor self, int[] dim, int normalization, bool onesided, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & _fft_r2c_out(at::Tensor & out, const at::Tensor & self, at::IntArrayRef dim, int64_t normalization, bool onesided) {
+inline at::Tensor & _fft_r2c_out(at::Tensor & out, const at::Tensor & self, at::IntArrayRef dim, int64_t normalization, bool onesided) {
     return at::_ops::_fft_r2c_out::call(self, dim, normalization, onesided, out);
 }
-
 // aten::_fft_r2c.out(Tensor self, int[] dim, int normalization, bool onesided, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & _fft_r2c_outf(const at::Tensor & self, at::IntArrayRef dim, int64_t normalization, bool onesided, at::Tensor & out) {
+inline at::Tensor & _fft_r2c_outf(const at::Tensor & self, at::IntArrayRef dim, int64_t normalization, bool onesided, at::Tensor & out) {
     return at::_ops::_fft_r2c_out::call(self, dim, normalization, onesided, out);
 }
 

@@ -16,10 +16,11 @@
 
 namespace at {
 namespace native {
-
+TORCH_API at::Tensor & quantize_per_tensor_out(const at::Tensor & self, double scale, int64_t zero_point, at::ScalarType dtype, at::Tensor & out);
 TORCH_API at::Tensor quantize_per_tensor(const at::Tensor & self, double scale, int64_t zero_point, at::ScalarType dtype);
+TORCH_API at::Tensor & quantize_per_tensor_tensor_qparams_out(const at::Tensor & self, const at::Tensor & scale, const at::Tensor & zero_point, at::ScalarType dtype, at::Tensor & out);
 TORCH_API at::Tensor quantize_per_tensor_tensor_qparams(const at::Tensor & self, const at::Tensor & scale, const at::Tensor & zero_point, at::ScalarType dtype);
+TORCH_API void quantize_per_tensor_tensors_out(at::TensorList tensors, const at::Tensor & scales, const at::Tensor & zero_points, at::ScalarType dtype, at::TensorList out);
 TORCH_API ::std::vector<at::Tensor> quantize_per_tensor_list_cpu(at::TensorList tensors, const at::Tensor & scales, const at::Tensor & zero_points, at::ScalarType dtype);
-
 } // namespace native
 } // namespace at

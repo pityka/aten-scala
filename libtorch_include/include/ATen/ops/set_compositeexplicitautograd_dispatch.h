@@ -17,10 +17,21 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
-TORCH_API at::Tensor set_functional(const at::Tensor & self, at::Storage source);
-TORCH_API at::Tensor set_functional(const at::Tensor & self, at::Storage source, int64_t storage_offset, at::IntArrayRef size, at::IntArrayRef stride={});
-TORCH_API at::Tensor set_functional(const at::Tensor & self, const at::Tensor & source);
-TORCH_API at::Tensor set_functional(const at::Tensor & self);
+TORCH_API at::Tensor set(const at::Tensor & self, at::Storage source);
+TORCH_API at::Tensor & set_out(at::Tensor & out, const at::Tensor & self, at::Storage source);
+TORCH_API at::Tensor & set_outf(const at::Tensor & self, at::Storage source, at::Tensor & out);
+TORCH_API at::Tensor set(const at::Tensor & self, at::Storage source, int64_t storage_offset, at::IntArrayRef size, at::IntArrayRef stride={});
+TORCH_API at::Tensor set_symint(const at::Tensor & self, at::Storage source, c10::SymInt storage_offset, c10::SymIntArrayRef size, c10::SymIntArrayRef stride={});
+TORCH_API at::Tensor & set_out(at::Tensor & out, const at::Tensor & self, at::Storage source, int64_t storage_offset, at::IntArrayRef size, at::IntArrayRef stride={});
+TORCH_API at::Tensor & set_outf(const at::Tensor & self, at::Storage source, int64_t storage_offset, at::IntArrayRef size, at::IntArrayRef stride, at::Tensor & out);
+TORCH_API at::Tensor & set_symint_out(at::Tensor & out, const at::Tensor & self, at::Storage source, c10::SymInt storage_offset, c10::SymIntArrayRef size, c10::SymIntArrayRef stride={});
+TORCH_API at::Tensor & set_symint_outf(const at::Tensor & self, at::Storage source, c10::SymInt storage_offset, c10::SymIntArrayRef size, c10::SymIntArrayRef stride, at::Tensor & out);
+TORCH_API at::Tensor set(const at::Tensor & self, const at::Tensor & source);
+TORCH_API at::Tensor & set_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & source);
+TORCH_API at::Tensor & set_outf(const at::Tensor & self, const at::Tensor & source, at::Tensor & out);
+TORCH_API at::Tensor set(const at::Tensor & self);
+TORCH_API at::Tensor & set_out(at::Tensor & out, const at::Tensor & self);
+TORCH_API at::Tensor & set_outf(const at::Tensor & self, at::Tensor & out);
 
 } // namespace compositeexplicitautograd
 } // namespace at

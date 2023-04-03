@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::_validate_sparse_bsr_tensor_args(Tensor crow_indices, Tensor col_indices, Tensor values, int[] size) -> ()
-TORCH_API inline void _validate_sparse_bsr_tensor_args(const at::Tensor & crow_indices, const at::Tensor & col_indices, const at::Tensor & values, at::IntArrayRef size) {
+inline void _validate_sparse_bsr_tensor_args(const at::Tensor & crow_indices, const at::Tensor & col_indices, const at::Tensor & values, at::IntArrayRef size) {
     return at::_ops::_validate_sparse_bsr_tensor_args::call(crow_indices, col_indices, values, size);
 }
 

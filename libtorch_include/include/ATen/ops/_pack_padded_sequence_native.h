@@ -16,8 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> _pack_padded_sequence(const at::Tensor & input, const at::Tensor & lengths, bool batch_first);
-
+TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> _pack_padded_sequence_out(const at::Tensor & input, const at::Tensor & lengths, bool batch_first, at::Tensor & out0, at::Tensor & out1);
 } // namespace native
 } // namespace at

@@ -23,22 +23,21 @@ namespace at {
 
 
 // aten::conj_physical(Tensor self) -> Tensor
-TORCH_API inline at::Tensor conj_physical(const at::Tensor & self) {
+inline at::Tensor conj_physical(const at::Tensor & self) {
     return at::_ops::conj_physical::call(self);
 }
 
 // aten::conj_physical.out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & conj_physical_out(at::Tensor & out, const at::Tensor & self) {
+inline at::Tensor & conj_physical_out(at::Tensor & out, const at::Tensor & self) {
     return at::_ops::conj_physical_out::call(self, out);
 }
-
 // aten::conj_physical.out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & conj_physical_outf(const at::Tensor & self, at::Tensor & out) {
+inline at::Tensor & conj_physical_outf(const at::Tensor & self, at::Tensor & out) {
     return at::_ops::conj_physical_out::call(self, out);
 }
 
 // aten::conj_physical_(Tensor(a!) self) -> Tensor(a!)
-TORCH_API inline at::Tensor & conj_physical_(at::Tensor & self) {
+inline at::Tensor & conj_physical_(at::Tensor & self) {
     return at::_ops::conj_physical_::call(self);
 }
 

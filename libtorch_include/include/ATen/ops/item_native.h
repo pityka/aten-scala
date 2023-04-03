@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Scalar item(const at::Tensor & self);
-
 } // namespace native
 } // namespace at

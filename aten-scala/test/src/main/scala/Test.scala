@@ -211,9 +211,10 @@ if (cuda) {
   tensor1.release()
   
 
-  val (eigA,eigB) = ATen.eig(tensor4, false)
-  assert(eigA.sizes.toList == List(4,2))
-  assert(eigB.sizes.toList == List(0))
+  val (eigA:Tensor,eigB:Tensor) = ATen.linalg_eig(tensor4)
+
+  assert(eigA.sizes.toList == List(4))
+  assert(eigB.sizes.toList == List(4,4))
   assert(tensor4.copyFromFloatArray(Array.ofDim[Float](16)))
   assert(!tensor4.copyFromFloatArray(Array.ofDim[Float](15)))
   val tensor5 = ATen.eye_1(2, 2, TensorOptions.d.cpu)

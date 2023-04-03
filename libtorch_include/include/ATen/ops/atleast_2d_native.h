@@ -16,9 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor atleast_2d(const at::Tensor & self);
 TORCH_API ::std::vector<at::Tensor> atleast_2d(at::TensorList tensors);
-
 } // namespace native
 } // namespace at

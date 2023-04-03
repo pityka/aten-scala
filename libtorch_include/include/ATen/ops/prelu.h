@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::prelu(Tensor self, Tensor weight) -> Tensor
-TORCH_API inline at::Tensor prelu(const at::Tensor & self, const at::Tensor & weight) {
+inline at::Tensor prelu(const at::Tensor & self, const at::Tensor & weight) {
     return at::_ops::prelu::call(self, weight);
 }
 

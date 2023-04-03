@@ -17,8 +17,8 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
-TORCH_API at::Tensor expand(const at::Tensor & self, c10::SymIntArrayRef size, bool implicit=false);
 TORCH_API at::Tensor expand(const at::Tensor & self, at::IntArrayRef size, bool implicit=false);
+TORCH_API at::Tensor expand_symint(const at::Tensor & self, c10::SymIntArrayRef size, bool implicit=false);
 
 } // namespace compositeexplicitautograd
 } // namespace at

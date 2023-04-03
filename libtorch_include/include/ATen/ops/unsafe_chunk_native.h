@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API ::std::vector<at::Tensor> unsafe_chunk(const at::Tensor & self, int64_t chunks, int64_t dim=0);
-
 } // namespace native
 } // namespace at

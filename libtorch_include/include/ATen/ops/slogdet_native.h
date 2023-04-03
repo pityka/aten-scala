@@ -16,8 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> slogdet(const at::Tensor & self);
-
+TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> slogdet_out(const at::Tensor & self, at::Tensor & sign, at::Tensor & logabsdet);
 } // namespace native
 } // namespace at

@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::fbgemm_linear_fp16_weight(Tensor input, Tensor packed_weight, Tensor bias) -> Tensor
-TORCH_API inline at::Tensor fbgemm_linear_fp16_weight(const at::Tensor & input, const at::Tensor & packed_weight, const at::Tensor & bias) {
+inline at::Tensor fbgemm_linear_fp16_weight(const at::Tensor & input, const at::Tensor & packed_weight, const at::Tensor & bias) {
     return at::_ops::fbgemm_linear_fp16_weight::call(input, packed_weight, bias);
 }
 

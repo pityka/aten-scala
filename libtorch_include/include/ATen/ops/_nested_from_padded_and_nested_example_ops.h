@@ -25,4 +25,15 @@ struct TORCH_API _nested_from_padded_and_nested_example {
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & padded, const at::Tensor & nt_example);
 };
 
+struct TORCH_API _nested_from_padded_and_nested_example_out {
+  using schema = at::Tensor & (const at::Tensor &, const at::Tensor &, at::Tensor &);
+  using ptr_schema = schema*;
+  // See Note [static constexpr char* members for windows NVCC]
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_nested_from_padded_and_nested_example")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_nested_from_padded_and_nested_example.out(Tensor padded, Tensor nt_example, *, Tensor(a!) out) -> Tensor(a!)")
+  static at::Tensor & call(const at::Tensor & padded, const at::Tensor & nt_example, at::Tensor & out);
+  static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & padded, const at::Tensor & nt_example, at::Tensor & out);
+};
+
 }} // namespace at::_ops

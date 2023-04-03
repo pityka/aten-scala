@@ -47,4 +47,15 @@ struct TORCH_API sparse_coo_tensor_indices_size {
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & indices, const at::Tensor & values, at::IntArrayRef size, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory);
 };
 
+struct TORCH_API sparse_coo_tensor_size_out {
+  using schema = at::Tensor & (at::IntArrayRef, at::Tensor &);
+  using ptr_schema = schema*;
+  // See Note [static constexpr char* members for windows NVCC]
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::sparse_coo_tensor")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "size_out")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "sparse_coo_tensor.size_out(int[] size, *, Tensor(a!) out) -> Tensor(a!)")
+  static at::Tensor & call(at::IntArrayRef size, at::Tensor & out);
+  static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::IntArrayRef size, at::Tensor & out);
+};
+
 }} // namespace at::_ops

@@ -16,10 +16,9 @@
 
 namespace at {
 namespace native {
-
-TORCH_API at::Tensor embedding_renorm_functional(const at::Tensor & self, const at::Tensor & indices, double max_norm, double norm_type);
+TORCH_API at::Tensor embedding_renorm(const at::Tensor & self, const at::Tensor & indices, double max_norm, double norm_type);
+TORCH_API at::Tensor & embedding_renorm_out(const at::Tensor & self, const at::Tensor & indices, double max_norm, double norm_type, at::Tensor & out);
 TORCH_API at::Tensor & embedding_renorm_cpu_(at::Tensor & self, const at::Tensor & indices, double max_norm, double norm_type);
 TORCH_API at::Tensor & embedding_renorm_cuda_(at::Tensor & self, const at::Tensor & indices, double max_norm, double norm_type);
-
 } // namespace native
 } // namespace at

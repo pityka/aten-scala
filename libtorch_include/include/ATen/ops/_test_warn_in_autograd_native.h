@@ -16,8 +16,7 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor _test_warn_in_autograd(const at::Tensor & self);
-
+TORCH_API at::Tensor & _test_warn_in_autograd_out(const at::Tensor & self, at::Tensor & out);
 } // namespace native
 } // namespace at

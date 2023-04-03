@@ -16,9 +16,8 @@
 
 namespace at {
 namespace native {
-
-TORCH_API ::std::vector<at::Tensor> foreach_tensor_norm_slow(at::TensorList tensors, const at::Scalar & ord=2);
-TORCH_API ::std::vector<at::Tensor> foreach_tensor_norm_cuda(at::TensorList tensors, const at::Scalar & ord=2);
-
+TORCH_API void _foreach_norm_Scalar_out(at::TensorList self, const at::Scalar & ord, at::TensorList out);
+TORCH_API ::std::vector<at::Tensor> foreach_tensor_norm_slow(at::TensorList self, const at::Scalar & ord=2);
+TORCH_API ::std::vector<at::Tensor> foreach_tensor_norm_cuda(at::TensorList self, const at::Scalar & ord=2);
 } // namespace native
 } // namespace at

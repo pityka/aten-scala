@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API void _cufft_set_plan_cache_max_size(int64_t device_index, int64_t max_size);
-
 } // namespace native
 } // namespace at

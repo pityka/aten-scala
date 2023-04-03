@@ -23,8 +23,17 @@ namespace at {
 
 
 // aten::_copy_from_and_resize(Tensor self, Tensor dst) -> Tensor
-TORCH_API inline at::Tensor _copy_from_and_resize(const at::Tensor & self, const at::Tensor & dst) {
+inline at::Tensor _copy_from_and_resize(const at::Tensor & self, const at::Tensor & dst) {
     return at::_ops::_copy_from_and_resize::call(self, dst);
+}
+
+// aten::_copy_from_and_resize.out(Tensor self, Tensor dst, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & _copy_from_and_resize_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & dst) {
+    return at::_ops::_copy_from_and_resize_out::call(self, dst, out);
+}
+// aten::_copy_from_and_resize.out(Tensor self, Tensor dst, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & _copy_from_and_resize_outf(const at::Tensor & self, const at::Tensor & dst, at::Tensor & out) {
+    return at::_ops::_copy_from_and_resize_out::call(self, dst, out);
 }
 
 }

@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor view_as(const at::Tensor & self, const at::Tensor & other);
-
 } // namespace native
 } // namespace at

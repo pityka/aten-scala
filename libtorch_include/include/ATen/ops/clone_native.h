@@ -16,12 +16,12 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor clone(const at::Tensor & self, c10::optional<at::MemoryFormat> memory_format=c10::nullopt);
+TORCH_API at::Tensor & clone_out(const at::Tensor & self, c10::optional<at::MemoryFormat> memory_format, at::Tensor & out);
+TORCH_API at::Tensor clone_nested(const at::Tensor & self, c10::optional<at::MemoryFormat> memory_format=c10::nullopt);
 TORCH_API at::Tensor clone_sparse(const at::Tensor & self, c10::optional<at::MemoryFormat> memory_format=c10::nullopt);
 TORCH_API at::Tensor clone_sparse_compressed(const at::Tensor & self, c10::optional<at::MemoryFormat> memory_format=c10::nullopt);
 TORCH_API at::Tensor mkldnn_clone(const at::Tensor & self, c10::optional<at::MemoryFormat> memory_format=c10::nullopt);
 TORCH_API at::Tensor quantized_clone(const at::Tensor & self, c10::optional<at::MemoryFormat> memory_format=c10::nullopt);
-
 } // namespace native
 } // namespace at

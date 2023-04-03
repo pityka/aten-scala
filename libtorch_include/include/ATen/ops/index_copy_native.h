@@ -16,12 +16,10 @@
 
 namespace at {
 namespace native {
-
 struct TORCH_API structured_index_copy_out : public at::meta::structured_index_copy {
 void impl(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & source, const at::Tensor & out);
 };
 TORCH_API at::Tensor & index_copy_(at::Tensor & self, at::Dimname dim, const at::Tensor & index, const at::Tensor & source);
 TORCH_API at::Tensor index_copy(const at::Tensor & self, at::Dimname dim, const at::Tensor & index, const at::Tensor & source);
-
 } // namespace native
 } // namespace at

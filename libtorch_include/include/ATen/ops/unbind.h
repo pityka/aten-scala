@@ -23,12 +23,12 @@ namespace at {
 
 
 // aten::unbind.int(Tensor(a -> *) self, int dim=0) -> Tensor(a)[]
-TORCH_API inline ::std::vector<at::Tensor> unbind(const at::Tensor & self, int64_t dim=0) {
+inline ::std::vector<at::Tensor> unbind(const at::Tensor & self, int64_t dim=0) {
     return at::_ops::unbind_int::call(self, dim);
 }
 
 // aten::unbind.Dimname(Tensor(a -> *) self, Dimname dim) -> Tensor(a)[]
-TORCH_API inline ::std::vector<at::Tensor> unbind(const at::Tensor & self, at::Dimname dim) {
+inline ::std::vector<at::Tensor> unbind(const at::Tensor & self, at::Dimname dim) {
     return at::_ops::unbind_Dimname::call(self, dim);
 }
 

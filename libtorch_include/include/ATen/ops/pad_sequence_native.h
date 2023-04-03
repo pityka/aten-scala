@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor pad_sequence(at::TensorList sequences, bool batch_first=false, double padding_value=0.0);
-
 } // namespace native
 } // namespace at

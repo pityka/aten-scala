@@ -16,11 +16,9 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor linalg_norm(const at::Tensor & self, const c10::optional<at::Scalar> & ord=c10::nullopt, at::OptionalIntArrayRef dim=c10::nullopt, bool keepdim=false, c10::optional<at::ScalarType> dtype=c10::nullopt);
 TORCH_API at::Tensor & linalg_norm_out(const at::Tensor & self, const c10::optional<at::Scalar> & ord, at::OptionalIntArrayRef dim, bool keepdim, c10::optional<at::ScalarType> dtype, at::Tensor & out);
 TORCH_API at::Tensor linalg_norm(const at::Tensor & self, c10::string_view ord, at::OptionalIntArrayRef dim=c10::nullopt, bool keepdim=false, c10::optional<at::ScalarType> dtype=c10::nullopt);
 TORCH_API at::Tensor & linalg_norm_out(const at::Tensor & self, c10::string_view ord, at::OptionalIntArrayRef dim, bool keepdim, c10::optional<at::ScalarType> dtype, at::Tensor & out);
-
 } // namespace native
 } // namespace at

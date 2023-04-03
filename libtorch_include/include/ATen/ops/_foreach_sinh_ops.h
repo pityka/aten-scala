@@ -20,9 +20,9 @@ struct TORCH_API _foreach_sinh {
   // See Note [static constexpr char* members for windows NVCC]
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_foreach_sinh")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_foreach_sinh(Tensor[] tensors) -> Tensor[]")
-  static ::std::vector<at::Tensor> call(at::TensorList tensors);
-  static ::std::vector<at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList tensors);
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_foreach_sinh(Tensor[] self) -> Tensor[]")
+  static ::std::vector<at::Tensor> call(at::TensorList self);
+  static ::std::vector<at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList self);
 };
 
 struct TORCH_API _foreach_sinh_ {
@@ -45,17 +45,6 @@ struct TORCH_API _foreach_sinh_out {
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_foreach_sinh.out(Tensor[] self, *, Tensor(a!)[] out) -> ()")
   static void call(at::TensorList self, at::TensorList out);
   static void redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList self, at::TensorList out);
-};
-
-struct TORCH_API _foreach_sinh_functional {
-  using schema = ::std::vector<at::Tensor> (at::TensorList);
-  using ptr_schema = schema*;
-  // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_foreach_sinh")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "functional")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_foreach_sinh.functional(Tensor[] self) -> Tensor[] self_out")
-  static ::std::vector<at::Tensor> call(at::TensorList self);
-  static ::std::vector<at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList self);
 };
 
 }} // namespace at::_ops

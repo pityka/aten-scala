@@ -16,8 +16,10 @@
 
 namespace at {
 namespace native {
-
 struct TORCH_API structured_pow_Tensor_Tensor_out : public at::meta::structured_pow_Tensor_Tensor {
+void impl(const at::Tensor & self, const at::Tensor & exponent, const at::Tensor & out);
+};
+struct TORCH_API structured_pow_tensor_tensor_out_mps : public at::meta::structured_pow_Tensor_Tensor {
 void impl(const at::Tensor & self, const at::Tensor & exponent, const at::Tensor & out);
 };
 struct TORCH_API structured_pow_Scalar_out : public at::meta::structured_pow_Scalar {
@@ -28,6 +30,8 @@ void impl(const at::Tensor & self, const at::Scalar & exponent, const at::Tensor
 };
 TORCH_API at::Tensor pow_sparse_scalar(const at::Tensor & self, const at::Scalar & exponent);
 TORCH_API at::Tensor & pow_out_sparse_scalar(const at::Tensor & self, const at::Scalar & exponent, at::Tensor & out);
-
+struct TORCH_API structured_pow_tensor_scalar_out_mps : public at::meta::structured_pow_Tensor_Scalar {
+void impl(const at::Tensor & self, const at::Scalar & exponent, const at::Tensor & out);
+};
 } // namespace native
 } // namespace at

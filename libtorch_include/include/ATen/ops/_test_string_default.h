@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::_test_string_default(Tensor dummy, str a="\"'\\", str b='"\'\\') -> Tensor
-TORCH_API inline at::Tensor _test_string_default(const at::Tensor & dummy, c10::string_view a="\"'\\", c10::string_view b="\"'\\") {
+inline at::Tensor _test_string_default(const at::Tensor & dummy, c10::string_view a="\"'\\", c10::string_view b="\"'\\") {
     return at::_ops::_test_string_default::call(dummy, a, b);
 }
 

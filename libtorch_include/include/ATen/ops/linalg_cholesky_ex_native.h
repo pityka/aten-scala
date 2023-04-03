@@ -12,13 +12,12 @@
 #include <ATen/core/Tensor.h>
 #include <tuple>
 #include <vector>
-
+#include <ATen/ops/linalg_cholesky_ex_meta.h>
 
 namespace at {
 namespace native {
-
-TORCH_API ::std::tuple<at::Tensor,at::Tensor> linalg_cholesky_ex(const at::Tensor & self, bool upper=false, bool check_errors=false);
-TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> linalg_cholesky_ex_out(const at::Tensor & self, bool upper, bool check_errors, at::Tensor & L, at::Tensor & info);
-
+struct TORCH_API structured_linalg_cholesky_ex_out : public at::meta::structured_linalg_cholesky_ex {
+void impl(const at::Tensor & self, bool upper, bool check_errors, const at::Tensor & L, const at::Tensor & info);
+};
 } // namespace native
 } // namespace at

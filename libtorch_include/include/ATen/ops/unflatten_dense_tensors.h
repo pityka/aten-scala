@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::unflatten_dense_tensors(Tensor flat, Tensor[] tensors) -> Tensor[]
-TORCH_API inline ::std::vector<at::Tensor> unflatten_dense_tensors(const at::Tensor & flat, at::TensorList tensors) {
+inline ::std::vector<at::Tensor> unflatten_dense_tensors(const at::Tensor & flat, at::TensorList tensors) {
     return at::_ops::unflatten_dense_tensors::call(flat, tensors);
 }
 

@@ -604,11 +604,12 @@ object Parser extends App {
         s"${arg.name}.isEmpty()  ? 0L : ${arg.name}.get().pointer",
         dereference = false
       )
-    case arg @ ArgData(TpeData("c10::optional", None, _), argName,_) =>
+    case arg @ ArgData(TpeData("c10::optional", None, typeMembers), argName,_) =>
       val jniArgName = "jniparam_" + argName
       val convertFromJni = ""
+      val typeMemberName = typeMembers.head.tpe
       MappedType(
-        "c10::nullopt",
+        s"(c10::optional<$typeMemberName>)c10::nullopt",
         arg,
         "",
         convertFromJni,

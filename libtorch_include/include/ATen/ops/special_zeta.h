@@ -23,47 +23,44 @@ namespace at {
 
 
 // aten::special_zeta(Tensor self, Tensor other) -> Tensor
-TORCH_API inline at::Tensor special_zeta(const at::Tensor & self, const at::Tensor & other) {
+inline at::Tensor special_zeta(const at::Tensor & self, const at::Tensor & other) {
     return at::_ops::special_zeta::call(self, other);
 }
 
 // aten::special_zeta.self_scalar(Scalar self, Tensor other) -> Tensor
-TORCH_API inline at::Tensor special_zeta(const at::Scalar & self, const at::Tensor & other) {
+inline at::Tensor special_zeta(const at::Scalar & self, const at::Tensor & other) {
     return at::_ops::special_zeta_self_scalar::call(self, other);
 }
 
 // aten::special_zeta.other_scalar(Tensor self, Scalar other) -> Tensor
-TORCH_API inline at::Tensor special_zeta(const at::Tensor & self, const at::Scalar & other) {
+inline at::Tensor special_zeta(const at::Tensor & self, const at::Scalar & other) {
     return at::_ops::special_zeta_other_scalar::call(self, other);
 }
 
 // aten::special_zeta.out(Tensor self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & special_zeta_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & other) {
+inline at::Tensor & special_zeta_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & other) {
     return at::_ops::special_zeta_out::call(self, other, out);
 }
-
 // aten::special_zeta.out(Tensor self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & special_zeta_outf(const at::Tensor & self, const at::Tensor & other, at::Tensor & out) {
+inline at::Tensor & special_zeta_outf(const at::Tensor & self, const at::Tensor & other, at::Tensor & out) {
     return at::_ops::special_zeta_out::call(self, other, out);
 }
 
 // aten::special_zeta.self_scalar_out(Scalar self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & special_zeta_out(at::Tensor & out, const at::Scalar & self, const at::Tensor & other) {
+inline at::Tensor & special_zeta_out(at::Tensor & out, const at::Scalar & self, const at::Tensor & other) {
     return at::_ops::special_zeta_self_scalar_out::call(self, other, out);
 }
-
 // aten::special_zeta.self_scalar_out(Scalar self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & special_zeta_outf(const at::Scalar & self, const at::Tensor & other, at::Tensor & out) {
+inline at::Tensor & special_zeta_outf(const at::Scalar & self, const at::Tensor & other, at::Tensor & out) {
     return at::_ops::special_zeta_self_scalar_out::call(self, other, out);
 }
 
 // aten::special_zeta.other_scalar_out(Tensor self, Scalar other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & special_zeta_out(at::Tensor & out, const at::Tensor & self, const at::Scalar & other) {
+inline at::Tensor & special_zeta_out(at::Tensor & out, const at::Tensor & self, const at::Scalar & other) {
     return at::_ops::special_zeta_other_scalar_out::call(self, other, out);
 }
-
 // aten::special_zeta.other_scalar_out(Tensor self, Scalar other, *, Tensor(a!) out) -> Tensor(a!)
-TORCH_API inline at::Tensor & special_zeta_outf(const at::Tensor & self, const at::Scalar & other, at::Tensor & out) {
+inline at::Tensor & special_zeta_outf(const at::Tensor & self, const at::Scalar & other, at::Tensor & out) {
     return at::_ops::special_zeta_other_scalar_out::call(self, other, out);
 }
 

@@ -16,16 +16,19 @@
 
 namespace at {
 namespace native {
-
-TORCH_API at::Tensor random_functional(const at::Tensor & self, int64_t from, c10::optional<int64_t> to, c10::optional<at::Generator> generator=c10::nullopt);
+TORCH_API at::Tensor random(const at::Tensor & self, int64_t from, c10::optional<int64_t> to, c10::optional<at::Generator> generator=c10::nullopt);
+TORCH_API at::Tensor & random_from_out(const at::Tensor & self, int64_t from, c10::optional<int64_t> to, c10::optional<at::Generator> generator, at::Tensor & out);
 TORCH_API at::Tensor & random_(at::Tensor & self, int64_t from, c10::optional<int64_t> to, c10::optional<at::Generator> generator=c10::nullopt);
+TORCH_API at::Tensor & random_mps_(at::Tensor & self, int64_t from, c10::optional<int64_t> to, c10::optional<at::Generator> generator=c10::nullopt);
 TORCH_API at::Tensor & random_meta_(at::Tensor & self, int64_t from, c10::optional<int64_t> to, c10::optional<at::Generator> generator=c10::nullopt);
-TORCH_API at::Tensor random_functional(const at::Tensor & self, int64_t to, c10::optional<at::Generator> generator=c10::nullopt);
+TORCH_API at::Tensor random(const at::Tensor & self, int64_t to, c10::optional<at::Generator> generator=c10::nullopt);
+TORCH_API at::Tensor & random_to_out(const at::Tensor & self, int64_t to, c10::optional<at::Generator> generator, at::Tensor & out);
 TORCH_API at::Tensor & random_(at::Tensor & self, int64_t to, c10::optional<at::Generator> generator=c10::nullopt);
+TORCH_API at::Tensor & random_mps_(at::Tensor & self, int64_t to, c10::optional<at::Generator> generator=c10::nullopt);
 TORCH_API at::Tensor & random_meta_(at::Tensor & self, int64_t to, c10::optional<at::Generator> generator=c10::nullopt);
-TORCH_API at::Tensor random_functional(const at::Tensor & self, c10::optional<at::Generator> generator=c10::nullopt);
+TORCH_API at::Tensor random(const at::Tensor & self, c10::optional<at::Generator> generator=c10::nullopt);
+TORCH_API at::Tensor & random_out(const at::Tensor & self, c10::optional<at::Generator> generator, at::Tensor & out);
 TORCH_API at::Tensor & random_(at::Tensor & self, c10::optional<at::Generator> generator=c10::nullopt);
 TORCH_API at::Tensor & random_meta_(at::Tensor & self, c10::optional<at::Generator> generator=c10::nullopt);
-
 } // namespace native
 } // namespace at

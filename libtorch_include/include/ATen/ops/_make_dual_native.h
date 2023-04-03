@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor _make_dual(const at::Tensor & primal, const at::Tensor & tangent, int64_t level);
-
 } // namespace native
 } // namespace at

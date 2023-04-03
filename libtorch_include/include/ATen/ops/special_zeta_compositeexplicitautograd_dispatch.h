@@ -17,7 +17,6 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
-TORCH_API at::Tensor special_zeta(const at::Tensor & self, const at::Tensor & other);
 TORCH_API at::Tensor special_zeta(const at::Scalar & self, const at::Tensor & other);
 TORCH_API at::Tensor & special_zeta_out(at::Tensor & out, const at::Scalar & self, const at::Tensor & other);
 TORCH_API at::Tensor & special_zeta_outf(const at::Scalar & self, const at::Tensor & other, at::Tensor & out);

@@ -16,7 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API ::std::vector<at::Tensor> gradient(const at::Tensor & self, const c10::optional<at::Scalar> & spacing=c10::nullopt, c10::optional<int64_t> dim=c10::nullopt, int64_t edge_order=1);
 TORCH_API ::std::vector<at::Tensor> gradient(const at::Tensor & self, const at::Scalar & spacing, at::IntArrayRef dim, int64_t edge_order=1);
 TORCH_API ::std::vector<at::Tensor> gradient(const at::Tensor & self, at::IntArrayRef dim, int64_t edge_order=1);
@@ -24,6 +23,5 @@ TORCH_API ::std::vector<at::Tensor> gradient(const at::Tensor & self, at::ArrayR
 TORCH_API ::std::vector<at::Tensor> gradient(const at::Tensor & self, at::ArrayRef<at::Scalar> spacing, at::IntArrayRef dim, int64_t edge_order=1);
 TORCH_API ::std::vector<at::Tensor> gradient(const at::Tensor & self, at::TensorList spacing, c10::optional<int64_t> dim=c10::nullopt, int64_t edge_order=1);
 TORCH_API ::std::vector<at::Tensor> gradient(const at::Tensor & self, at::TensorList spacing, at::IntArrayRef dim, int64_t edge_order=1);
-
 } // namespace native
 } // namespace at

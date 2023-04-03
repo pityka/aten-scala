@@ -16,8 +16,6 @@
 
 namespace at {
 namespace native {
-
 TORCH_API at::Tensor cdist(const at::Tensor & x1, const at::Tensor & x2, double p=2, c10::optional<int64_t> compute_mode=c10::nullopt);
-
 } // namespace native
 } // namespace at

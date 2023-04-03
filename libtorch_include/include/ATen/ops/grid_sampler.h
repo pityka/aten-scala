@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::grid_sampler(Tensor input, Tensor grid, int interpolation_mode, int padding_mode, bool align_corners) -> Tensor
-TORCH_API inline at::Tensor grid_sampler(const at::Tensor & input, const at::Tensor & grid, int64_t interpolation_mode, int64_t padding_mode, bool align_corners) {
+inline at::Tensor grid_sampler(const at::Tensor & input, const at::Tensor & grid, int64_t interpolation_mode, int64_t padding_mode, bool align_corners) {
     return at::_ops::grid_sampler::call(input, grid, interpolation_mode, padding_mode, align_corners);
 }
 
