@@ -103,6 +103,14 @@ public class Tensor {
   
   public native void copyFrom(Tensor other, boolean nonBlocking);
 
+  public native boolean copyFromShortArray( short[] data);
+  public native boolean copyFromShortArrayAtOffset( short[] data, long offset);
+  public native boolean copyToShortArray( short[] data);
+
+  public native boolean copyFromIntArray( int[] data);
+  public native boolean copyFromIntArrayAtOffset( int[] data, long offset);
+  public native boolean copyToIntArray( int[] data);
+
   public native boolean copyFromFloatArray( float[] data);
   public native boolean copyFromFloatArrayAtOffset( float[] data, long offset);
   public native boolean copyToFloatArray( float[] data);

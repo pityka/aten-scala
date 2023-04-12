@@ -241,6 +241,14 @@ if (cuda) {
     assert(!tensorLong.copyFromLongArrayAtOffset(longA,3L))
   }
 
+  {
+    val tensorInt = ATen.eye_1(2,2,TensorOptions.dtypeInt)
+    val intA  =Array.ofDim[Int](2)
+    assert(tensorInt.copyFromIntArrayAtOffset(intA,1L))
+    assert(!tensorInt.copyFromIntArrayAtOffset(intA,3L))
+    
+  }
+
   val tensorLong = ATen.eye_1(2,2,TensorOptions.dtypeLong)
   val longA  =Array.ofDim[Long](4)
   val longA2  =Array.ofDim[Long](4)

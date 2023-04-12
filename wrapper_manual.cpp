@@ -458,6 +458,30 @@ extern "C" {
     }
     return nullptr;
   }
+  JNIEXPORT jobject JNICALL Java_aten_TensorOptions_toInt(JNIEnv *env, jobject thisObj) { try{
+    
+    jclass cls = tensorOptionsClass;
+    TensorOptions* tensorOptions = reinterpret_cast<TensorOptions*>(env->GetLongField( thisObj, tensorOptionsPointerFid));
+    
+    TensorOptions* t2 = new TensorOptions(tensorOptions->dtype(kInt));
+     return allocateTensorOptions(env,t2);
+     } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return nullptr;
+  }
+  JNIEXPORT jobject JNICALL Java_aten_TensorOptions_toShort(JNIEnv *env, jobject thisObj) { try{
+    
+    jclass cls = tensorOptionsClass;
+    TensorOptions* tensorOptions = reinterpret_cast<TensorOptions*>(env->GetLongField( thisObj, tensorOptionsPointerFid));
+    
+    TensorOptions* t2 = new TensorOptions(tensorOptions->dtype(kShort));
+     return allocateTensorOptions(env,t2);
+     } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return nullptr;
+  }
   JNIEXPORT jobject JNICALL Java_aten_TensorOptions_toLong(JNIEnv *env, jobject thisObj) { try{
     
     jclass cls = tensorOptionsClass;
@@ -511,6 +535,26 @@ extern "C" {
   JNIEXPORT jobject JNICALL Java_aten_TensorOptions_dtypeFloat(JNIEnv *env, jobject thisObj) {try{
     
     TensorOptions* tensorOptions =new TensorOptions((ScalarType)6);
+    
+     return allocateTensorOptions(env,tensorOptions);
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return nullptr;
+  }
+  JNIEXPORT jobject JNICALL Java_aten_TensorOptions_dtypeInt(JNIEnv *env, jobject thisObj) {try{
+    
+    TensorOptions* tensorOptions =new TensorOptions((ScalarType)3);
+    
+     return allocateTensorOptions(env,tensorOptions);
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return nullptr;
+  }
+  JNIEXPORT jobject JNICALL Java_aten_TensorOptions_dtypeShort(JNIEnv *env, jobject thisObj) {try{
+    
+    TensorOptions* tensorOptions =new TensorOptions((ScalarType)2);
     
      return allocateTensorOptions(env,tensorOptions);
     } catch (exception& e) {
@@ -879,9 +923,7 @@ extern "C" {
     } else {
       float* in = env->GetFloatArrayElements(datain, nullptr);
       float* ptr = reinterpret_cast<float*>(tensor->data_ptr());
-      for (int64_t i = 0;i < len;i++){
-        ptr[i] = in[i];
-      }
+      memcpy(ptr,in,len*4);
       env->ReleaseFloatArrayElements(datain,in,0);
       return true;
     }
@@ -901,9 +943,7 @@ extern "C" {
     } else {
       float* in = env->GetFloatArrayElements(datain, nullptr);
       float* ptr = reinterpret_cast<float*>(tensor->data_ptr());
-      for (int64_t i = 0;i < len;i++){
-        ptr[i+offset] = in[i];
-      }
+      memcpy(&ptr[offset],in,len*4);
       env->ReleaseFloatArrayElements(datain,in,0);
       return true;
     }
@@ -923,9 +963,7 @@ extern "C" {
     } else {
       float* in = env->GetFloatArrayElements(datain, nullptr);
       float* ptr = reinterpret_cast<float*>(tensor.data_ptr());
-      for (int64_t i = 0;i < len;i++){
-        in[i] =  ptr[i]  ;
-      }
+      memcpy(in,ptr,len*4);
       env->ReleaseFloatArrayElements(datain,in,0);
       return true;
     }
@@ -946,9 +984,7 @@ extern "C" {
     } else {
       jlong* in = env->GetLongArrayElements(datain, nullptr);
       int64_t* ptr = reinterpret_cast<int64_t*>(tensor->data_ptr());
-      for (int64_t i = 0;i < len;i++){
-        ptr[i] = in[i];
-      }
+      memcpy(ptr,in,len*8);
       env->ReleaseLongArrayElements(datain,in,0);
       return true;
     }
@@ -968,9 +1004,7 @@ extern "C" {
       
       jlong* in = env->GetLongArrayElements(datain, nullptr);
       int64_t* ptr = reinterpret_cast<int64_t*>(tensor->data_ptr());
-      for (int64_t i = 0;i < len;i++){
-        ptr[i+offset] = in[i];
-      }
+      memcpy(&ptr[offset],in,len*8);
       env->ReleaseLongArrayElements(datain,in,0);
       
       return true;
@@ -991,10 +1025,132 @@ extern "C" {
     } else {
       jlong* in = env->GetLongArrayElements(datain, nullptr);
       int64_t* ptr = reinterpret_cast<int64_t*>(tensor.data_ptr());
-      for (int64_t i = 0;i < len;i++){
-        in[i] = ptr[i];
-      }
+      memcpy(in,ptr,len*8);
       env->ReleaseLongArrayElements(datain,in,0);
+      return true;
+    }
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return false;
+  }
+
+ JNIEXPORT jboolean JNICALL Java_aten_Tensor_copyFromIntArray(JNIEnv *env, jobject thisObj, jintArray datain) {try{
+    
+    jclass cls = tensorClass;
+    Tensor* tensor = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
+    
+      long len = env->GetArrayLength(datain);
+    if (static_cast<int8_t>(tensor->scalar_type()) != 3 || !tensor->is_contiguous() || !tensor->is_non_overlapping_and_dense() || tensor->data_ptr() == nullptr || len != tensor->numel() || tensor->is_cuda() || tensor->is_sparse()) {
+      return false;
+    } else {
+      jint* in = env->GetIntArrayElements(datain, nullptr);
+      int32_t* ptr = reinterpret_cast<int32_t*>(tensor->data_ptr());
+      memcpy(ptr,in,len*4);
+      env->ReleaseIntArrayElements(datain,in,0);
+      return true;
+    }
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return false;
+  }
+ JNIEXPORT jboolean JNICALL Java_aten_Tensor_copyFromIntArrayAtOffset(JNIEnv *env, jobject thisObj, jintArray datain, jlong offset ) {try{
+    
+    jclass cls = tensorClass;
+    Tensor* tensor = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
+      long len = env->GetArrayLength(datain);
+    if (static_cast<int8_t>(tensor->scalar_type()) != 3 || !tensor->is_contiguous() || !tensor->is_non_overlapping_and_dense() || tensor->data_ptr() == nullptr || len+offset > tensor->numel() || tensor->is_cuda() || tensor->is_sparse()) {
+      return false;
+    } else {
+      
+      jint* in = env->GetIntArrayElements(datain, nullptr);
+      int32_t* ptr = reinterpret_cast<int32_t*>(tensor->data_ptr());
+      memcpy(&ptr[offset],in,len*4);
+      env->ReleaseIntArrayElements(datain,in,0);
+      
+      return true;
+    }
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return false;
+  }
+  JNIEXPORT jboolean JNICALL Java_aten_Tensor_copyToIntArray(JNIEnv *env, jobject thisObj, jintArray datain) {try{
+    
+    jclass cls = tensorClass;
+    Tensor tensor = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid))->contiguous();
+    
+      long len = env->GetArrayLength(datain);
+    if (static_cast<int8_t>(tensor.scalar_type()) != 3 || !tensor.is_contiguous() || !tensor.is_non_overlapping_and_dense() || tensor.data_ptr() == nullptr || len != tensor.numel() || tensor.is_cuda() || tensor.is_sparse()) {
+      return false;
+    } else {
+      jint* in = env->GetIntArrayElements(datain, nullptr);
+      int32_t* ptr = reinterpret_cast<int32_t*>(tensor.data_ptr());
+      memcpy(in,ptr,len*4);
+      env->ReleaseIntArrayElements(datain,in,0);
+      return true;
+    }
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return false;
+  }
+
+ JNIEXPORT jboolean JNICALL Java_aten_Tensor_copyFromShortArray(JNIEnv *env, jobject thisObj, jshortArray datain) {try{
+    
+    jclass cls = tensorClass;
+    Tensor* tensor = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
+    
+      long len = env->GetArrayLength(datain);
+    if (static_cast<int8_t>(tensor->scalar_type()) != 2 || !tensor->is_contiguous() || !tensor->is_non_overlapping_and_dense() || tensor->data_ptr() == nullptr || len != tensor->numel() || tensor->is_cuda() || tensor->is_sparse()) {
+      return false;
+    } else {
+      jshort* in = env->GetShortArrayElements(datain, nullptr);
+      int16_t* ptr = reinterpret_cast<int16_t*>(tensor->data_ptr());
+      memcpy(ptr,in,len*2);
+      env->ReleaseShortArrayElements(datain,in,0);
+      return true;
+    }
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return false;
+  }
+ JNIEXPORT jboolean JNICALL Java_aten_Tensor_copyFromShortArrayAtOffset(JNIEnv *env, jobject thisObj, jshortArray datain, jlong offset ) {try{
+    
+    jclass cls = tensorClass;
+    Tensor* tensor = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid));
+      long len = env->GetArrayLength(datain);
+    if (static_cast<int8_t>(tensor->scalar_type()) != 2 || !tensor->is_contiguous() || !tensor->is_non_overlapping_and_dense() || tensor->data_ptr() == nullptr || len+offset > tensor->numel() || tensor->is_cuda() || tensor->is_sparse()) {
+      return false;
+    } else {
+      
+      jshort* in = env->GetShortArrayElements(datain, nullptr);
+      int16_t* ptr = reinterpret_cast<int16_t*>(tensor->data_ptr());
+      memcpy(&ptr[offset],in,len*2);
+      env->ReleaseShortArrayElements(datain,in,0);
+      
+      return true;
+    }
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return false;
+  }
+  JNIEXPORT jboolean JNICALL Java_aten_Tensor_copyToShortArray(JNIEnv *env, jobject thisObj, jshortArray datain) {try{
+    
+    jclass cls = tensorClass;
+    Tensor tensor = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid))->contiguous();
+    
+      long len = env->GetArrayLength(datain);
+    if (static_cast<int8_t>(tensor.scalar_type()) != 2 || !tensor.is_contiguous() || !tensor.is_non_overlapping_and_dense() || tensor.data_ptr() == nullptr || len != tensor.numel() || tensor.is_cuda() || tensor.is_sparse()) {
+      return false;
+    } else {
+      jshort* in = env->GetShortArrayElements(datain, nullptr);
+      int32_t* ptr = reinterpret_cast<int32_t*>(tensor.data_ptr());
+      memcpy(in,ptr,len*2);
+      env->ReleaseShortArrayElements(datain,in,0);
       return true;
     }
     } catch (exception& e) {
@@ -1014,9 +1170,7 @@ extern "C" {
     } else {
       jbyte* in = env->GetByteArrayElements(datain, nullptr);
       int8_t* ptr = reinterpret_cast<int8_t*>(tensor->data_ptr());
-      for (int64_t i = 0;i < len;i++){
-        ptr[i] = in[i];
-      }
+      memcpy(ptr,in,len);
       env->ReleaseByteArrayElements(datain,in,0);
       return true;
     }
@@ -1036,9 +1190,7 @@ extern "C" {
       
       jbyte* in = env->GetByteArrayElements(datain, nullptr);
       int8_t* ptr = reinterpret_cast<int8_t*>(tensor->data_ptr());
-      for (int64_t i = 0;i < len;i++){
-        ptr[i+offset] = in[i];
-      }
+      memcpy(&ptr[offset],in,len);
       env->ReleaseByteArrayElements(datain,in,0);
       
       return true;
@@ -1059,9 +1211,7 @@ extern "C" {
     } else {
       jbyte* in = env->GetByteArrayElements(datain, nullptr);
       int8_t* ptr = reinterpret_cast<int8_t*>(tensor.data_ptr());
-      for (int64_t i = 0;i < len;i++){
-        in[i] = ptr[i];
-      }
+      memcpy(in,ptr,len);
       env->ReleaseByteArrayElements(datain,in,0);
       return true;
     }
@@ -1082,9 +1232,7 @@ extern "C" {
     } else {
       double* in = env->GetDoubleArrayElements(datain, nullptr);
       double* ptr = reinterpret_cast<double*>(tensor->data_ptr());
-      for (int64_t i = 0;i < len;i++){
-        ptr[i] = in[i];
-      }
+      memcpy(ptr,in,len*8);
       env->ReleaseDoubleArrayElements(datain,in,0);
       return true;
     }
@@ -1104,9 +1252,7 @@ extern "C" {
     } else {
       double* in = env->GetDoubleArrayElements(datain, nullptr);
       double* ptr = reinterpret_cast<double*>(tensor->data_ptr());
-      for (int64_t i = 0;i < len;i++){
-        ptr[i+offset] = in[i];
-      }
+      memcpy(&ptr[offset],in,len*8);
       env->ReleaseDoubleArrayElements(datain,in,0);
       return true;
     }
@@ -1126,9 +1272,7 @@ extern "C" {
     } else {
       double* in = env->GetDoubleArrayElements(datain, nullptr);
       double* ptr = reinterpret_cast<double*>(tensor.data_ptr());
-      for (int64_t i = 0;i < len;i++){
-        in[i] = ptr[i];
-      }
+      memcpy(in,ptr,len*8);
       env->ReleaseDoubleArrayElements(datain,in,0);
       return true;
     }

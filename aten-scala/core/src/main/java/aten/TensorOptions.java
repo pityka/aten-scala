@@ -26,6 +26,8 @@ public class TensorOptions {
   public static native TensorOptions dtypeLong();
   public static native TensorOptions dtypeByte();
   public static native TensorOptions dtypeHalf();
+  public static native TensorOptions dtypeShort();
+  public static native TensorOptions dtypeInt();
 
   public static TensorOptions d() {
     return TensorOptions.dtypeDouble();
@@ -40,12 +42,20 @@ public class TensorOptions {
     return TensorOptions.dtypeHalf();
   }
   public static TensorOptions b() {
-    return TensorOptions.dtypeByte();
+    return TensorOptions.dtypeByte(); 
+  }
+  public static TensorOptions sh() {
+    return TensorOptions.dtypeShort(); 
+  }
+  public static TensorOptions i() {
+    return TensorOptions.dtypeInt(); 
   }
   public native TensorOptions toDouble();
   public native TensorOptions toLong();
+  public native TensorOptions toInt();
   public native TensorOptions toFloat();
   public native TensorOptions toHalf();
+  public native TensorOptions toShort();
   public native TensorOptions toByte();
 
   public native TensorOptions cpu();
@@ -74,6 +84,10 @@ public class TensorOptions {
       return TensorOptions.dtypeHalf();
     } else if (i == 4) {
       return TensorOptions.dtypeLong();
+    } else if (i == 3) {
+      return TensorOptions.dtypeInt();
+    } else if (i == 2) {
+      return TensorOptions.dtypeShort();
     } else if (i == 1) {
       return TensorOptions.dtypeByte();
     } else {
@@ -95,6 +109,12 @@ public class TensorOptions {
   }
   public boolean isByte() {
     return scalarTypeByte() == 1;
+  }
+  public boolean isShort() {
+    return scalarTypeByte() == 2;
+  }
+  public boolean isInt() {
+    return scalarTypeByte() == 3;
   }
 
 }
