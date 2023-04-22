@@ -28,6 +28,7 @@ public class TensorOptions {
   public static native TensorOptions dtypeHalf();
   public static native TensorOptions dtypeShort();
   public static native TensorOptions dtypeInt();
+  public static native TensorOptions dtypeBF16();
 
   public static TensorOptions d() {
     return TensorOptions.dtypeDouble();
@@ -57,6 +58,7 @@ public class TensorOptions {
   public native TensorOptions toHalf();
   public native TensorOptions toShort();
   public native TensorOptions toByte();
+  public native TensorOptions toBF16();
 
   public native TensorOptions cpu();
   public native boolean isCPU();
@@ -90,6 +92,8 @@ public class TensorOptions {
       return TensorOptions.dtypeShort();
     } else if (i == 1) {
       return TensorOptions.dtypeByte();
+    } else if (i == 15) {
+      return TensorOptions.dtypeBF16();
     } else {
       throw new RuntimeException("unknown scalar type "+i);
     }
@@ -115,6 +119,9 @@ public class TensorOptions {
   }
   public boolean isInt() {
     return scalarTypeByte() == 3;
+  }
+  public boolean isBF16() {
+    return scalarTypeByte() == 15;
   }
 
 }

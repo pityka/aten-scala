@@ -458,6 +458,18 @@ extern "C" {
     }
     return nullptr;
   }
+  JNIEXPORT jobject JNICALL Java_aten_TensorOptions_toBF16(JNIEnv *env, jobject thisObj) { try{
+    
+    jclass cls = tensorOptionsClass;
+    TensorOptions* tensorOptions = reinterpret_cast<TensorOptions*>(env->GetLongField( thisObj, tensorOptionsPointerFid));
+    
+    TensorOptions* t2 = new TensorOptions(tensorOptions->dtype(kBFloat16));
+     return allocateTensorOptions(env,t2);
+     } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return nullptr;
+  }
   JNIEXPORT jobject JNICALL Java_aten_TensorOptions_toInt(JNIEnv *env, jobject thisObj) { try{
     
     jclass cls = tensorOptionsClass;
@@ -575,6 +587,16 @@ extern "C" {
   JNIEXPORT jobject JNICALL Java_aten_TensorOptions_dtypeDouble(JNIEnv *env, jobject thisObj) {
     try{
     TensorOptions* tensorOptions =new TensorOptions((ScalarType)7);
+    
+     return allocateTensorOptions(env,tensorOptions);
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return nullptr;
+  }
+  JNIEXPORT jobject JNICALL Java_aten_TensorOptions_dtypeBF16(JNIEnv *env, jobject thisObj) {
+    try{
+    TensorOptions* tensorOptions =new TensorOptions((ScalarType)15);
     
      return allocateTensorOptions(env,tensorOptions);
     } catch (exception& e) {
@@ -1206,7 +1228,7 @@ extern "C" {
     Tensor tensor = reinterpret_cast<Tensor*>(env->GetLongField( thisObj, tensorPointerFid))->contiguous();
     
       long len = env->GetArrayLength(datain);
-    if (static_cast<int8_t>(tensor.scalar_type()) != 1 || !tensor.is_contiguous() || !tensor.is_non_overlapping_and_dense() || tensor.data_ptr() == nullptr || len != tensor.numel() || tensor.is_cuda() || tensor.is_sparse()) {
+    if (  !tensor.is_contiguous() || !tensor.is_non_overlapping_and_dense() || tensor.data_ptr() == nullptr || len != tensor.numel() * tensor.element_size() || tensor.is_cuda() || tensor.is_sparse()) {
       return false;
     } else {
       jbyte* in = env->GetByteArrayElements(datain, nullptr);
@@ -2068,6 +2090,19 @@ throwRuntimeException(env,"compiled without cuda" );
     }
     return ;
   }
+
+  JNIEXPORT void JNICALL Java_aten_Tensor_allowtf32(JNIEnv *env, jobject thisObj, jboolean flag ) {try{
+#if defined(WITHOUTCUDA)
+#else
+      
+    at::globalContext().setAllowTF32CuBLAS(flag);
+    at::globalContext().setAllowTF32CuDNN(flag);
+#endif      
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    
+}
 
 
 }

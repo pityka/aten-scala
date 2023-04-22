@@ -205,4 +205,6 @@ public class Tensor {
     */
   public static native void setDefaultAllocator();
 
+  public static native void allowtf32(boolean flag);
+
 }
