@@ -20,6 +20,7 @@ public class CudaStream {
   private native void lowlevelsynchronize(long pckd, byte deviceIndex);
   private static native long lowlevelgetStreamFromPool(boolean isHighPriority, byte device_index);
   private static native long lowlevelgetDefaultCUDAStream(byte device_index);
+  private static native long lowlevelgetCurrentCUDAStream(byte device_index);
   private static native void lowlevelsetCurrentCUDAStream(long cudaStream, byte device_index);
   private static native String nativeToString(long cudaStream);
   public static native void cudaSetDevice(int device);
@@ -35,6 +36,9 @@ public class CudaStream {
 
   public static CudaStream getDefaultCUDAStream(byte device_index) {
     return new CudaStream(lowlevelgetDefaultCUDAStream(device_index), device_index);
+  }
+  public static CudaStream getCurrentCUDAStream(byte device_index) {
+    return new CudaStream(lowlevelgetCurrentCUDAStream(device_index), device_index);
   }
 
   public static void setCurrentCUDAStream(CudaStream stream) {

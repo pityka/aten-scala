@@ -1850,6 +1850,19 @@ throwRuntimeException(env,"compiled without cuda" );
     }
     return 0;
 }
+JNIEXPORT jlong JNICALL Java_aten_CudaStream_lowlevelgetCurrentCUDAStream(JNIEnv *env, jobject thisObj,  jbyte device ) {try{
+#if defined(WITHOUTCUDA)
+throwRuntimeException(env,"compiled without cuda" );
+#else      
+    c10::cuda::CUDAStream stream = c10::cuda::getCurrentCUDAStream(device);
+    c10::StreamData3 p = stream.pack3();
+    return reinterpret_unsigned_to_signed(p.stream_id);
+#endif
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return 0;
+}
 JNIEXPORT void JNICALL Java_aten_CudaStream_lowlevelsetCurrentCUDAStream(JNIEnv *env, jobject thisObj,  jlong packedStreamId, jbyte packedDeviceIndex ) {try{
 #if defined(WITHOUTCUDA)
 #else            
