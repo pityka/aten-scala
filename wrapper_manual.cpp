@@ -41,18 +41,18 @@ jfieldID tensorOptionsPointerFid;
 jclass longClass;
 jmethodID longCtor;
 
-int64_t reinterpret_unsigned_to_signed(uint64_t x) {
-  int64_t tmp;
-  std::memcpy(&tmp, &x, sizeof(tmp));
-  const int64_t y = tmp;
-  return y;
-}
-uint64_t reinterpret_signed_to_unsigned(int64_t x) {
-  uint64_t tmp;
-  std::memcpy(&tmp, &x, sizeof(tmp));
-  const uint64_t y = tmp;
-  return y;
-}
+// int64_t reinterpret_unsigned_to_signed(uint64_t x) {
+//   int64_t tmp;
+//   std::memcpy(&tmp, &x, sizeof(tmp));
+//   const int64_t y = tmp;
+//   return y;
+// }
+// uint64_t reinterpret_signed_to_unsigned(int64_t x) {
+//   uint64_t tmp;
+//   std::memcpy(&tmp, &x, sizeof(tmp));
+//   const uint64_t y = tmp;
+//   return y;
+// }
 
 jint JNI_OnLoad(JavaVM* vm, void* reserved) {
 
@@ -1788,7 +1788,7 @@ JNIEXPORT void JNICALL Java_aten_CudaStream_lowlevelsynchronize(JNIEnv *env, job
 #if defined(WITHOUTCUDA)
 #else
       
-    c10::cuda::CUDAStream stream = c10::cuda::CUDAStream::unpack3(reinterpret_signed_to_unsigned(packedStreamId), packedDeviceIndex, c10::kCUDA
+    c10::cuda::CUDAStream stream = c10::cuda::CUDAStream::unpack3(packedStreamId, packedDeviceIndex, c10::kCUDA
     );
     stream.synchronize();
 #endif      
@@ -1830,7 +1830,7 @@ throwRuntimeException(env,"compiled without cuda" );
       
     c10::cuda::CUDAStream stream = c10::cuda::getStreamFromPool(isHighPriority,device);
     c10::StreamData3 p = stream.pack3();
-    return reinterpret_unsigned_to_signed(p.stream_id);
+    return p.stream_id;
 #endif      
     } catch (exception& e) {
       throwRuntimeException(env,e.what() );
@@ -1843,7 +1843,7 @@ throwRuntimeException(env,"compiled without cuda" );
 #else      
     c10::cuda::CUDAStream stream = c10::cuda::getDefaultCUDAStream(device);
     c10::StreamData3 p = stream.pack3();
-    return reinterpret_unsigned_to_signed(p.stream_id);
+    return p.stream_id;
 #endif
     } catch (exception& e) {
       throwRuntimeException(env,e.what() );
@@ -1856,7 +1856,7 @@ throwRuntimeException(env,"compiled without cuda" );
 #else      
     c10::cuda::CUDAStream stream = c10::cuda::getCurrentCUDAStream(device);
     c10::StreamData3 p = stream.pack3();
-    return reinterpret_unsigned_to_signed(p.stream_id);
+    return p.stream_id;
 #endif
     } catch (exception& e) {
       throwRuntimeException(env,e.what() );
@@ -1866,7 +1866,7 @@ throwRuntimeException(env,"compiled without cuda" );
 JNIEXPORT void JNICALL Java_aten_CudaStream_lowlevelsetCurrentCUDAStream(JNIEnv *env, jobject thisObj,  jlong packedStreamId, jbyte packedDeviceIndex ) {try{
 #if defined(WITHOUTCUDA)
 #else            
-    c10::cuda::CUDAStream stream = c10::cuda::CUDAStream::unpack3(reinterpret_signed_to_unsigned(packedStreamId), packedDeviceIndex, c10::kCUDA
+    c10::cuda::CUDAStream stream = c10::cuda::CUDAStream::unpack3(packedStreamId, packedDeviceIndex, c10::kCUDA
     );
     c10::cuda::setCurrentCUDAStream(stream);
 #endif
@@ -1879,7 +1879,7 @@ JNIEXPORT void JNICALL Java_aten_CudaStream_lowlevelsetCurrentCUDAStream(JNIEnv 
       #if defined(WITHOUTCUDA)
 throwRuntimeException(env,"compiled without cuda" );
 #else      
-        c10::cuda::CUDAStream stream = c10::cuda::CUDAStream::unpack3(reinterpret_signed_to_unsigned(packedStreamId), deviceIndex, c10::kCUDA);
+        c10::cuda::CUDAStream stream = c10::cuda::CUDAStream::unpack3(packedStreamId, deviceIndex, c10::kCUDA);
         std::stringstream ss;
 
         ss<< stream;

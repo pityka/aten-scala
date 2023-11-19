@@ -14,7 +14,7 @@ public class CudaStream {
 
   @Override
   public String toString() {
-    return nativeToString(packedStreamId);
+    return nativeToString(packedStreamId, deviceIndex);
   }
 
   private native void lowlevelsynchronize(long pckd, byte deviceIndex);
@@ -22,7 +22,7 @@ public class CudaStream {
   private static native long lowlevelgetDefaultCUDAStream(byte device_index);
   private static native long lowlevelgetCurrentCUDAStream(byte device_index);
   private static native void lowlevelsetCurrentCUDAStream(long cudaStream, byte device_index);
-  private static native String nativeToString(long cudaStream);
+  private static native String nativeToString(long cudaStream, byte deviceIndex);
   public static native void cudaSetDevice(int device);
   public static native int cudaGetDevice();
 
