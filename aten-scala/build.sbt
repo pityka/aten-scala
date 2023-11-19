@@ -27,7 +27,7 @@ inThisBuild(
 
 
 val commonSettings = Seq(
-  scalaVersion := "2.13.5",
+  scalaVersion := "2.13.12",
   organization := "io.github.pityka",
   licenses += ("MIT", url("http://opensource.org/licenses/MIT")),
   publishTo := sonatypePublishTo.value
@@ -55,7 +55,7 @@ lazy val core = project
   .in(file("core"))
   .settings(commonSettings)
   .settings(
-    crossScalaVersions := Seq("2.13.8","2.12.15","3.1.1"),
+    crossScalaVersions := Seq("2.13.8","2.12.15","3.3.1"),
     name := "aten-scala-core",
     libraryDependencies ++= Seq(
       "com.github.fommil" % "jniloader" % "1.1"
