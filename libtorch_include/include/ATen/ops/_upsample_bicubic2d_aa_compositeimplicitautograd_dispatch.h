@@ -17,8 +17,8 @@ namespace at {
 
 namespace compositeimplicitautograd {
 
-TORCH_API at::Tensor _upsample_bicubic2d_aa(const at::Tensor & input, at::OptionalIntArrayRef output_size, bool align_corners, c10::optional<at::ArrayRef<double>> scale_factors);
-TORCH_API at::Tensor _upsample_bicubic2d_aa_symint(const at::Tensor & input, at::OptionalSymIntArrayRef output_size, bool align_corners, c10::optional<at::ArrayRef<double>> scale_factors);
+TORCH_API at::Tensor _upsample_bicubic2d_aa(const at::Tensor & input, at::OptionalIntArrayRef output_size, bool align_corners, ::std::optional<at::ArrayRef<double>> scale_factors);
+TORCH_API at::Tensor _upsample_bicubic2d_aa_symint(const at::Tensor & input, at::OptionalSymIntArrayRef output_size, bool align_corners, ::std::optional<at::ArrayRef<double>> scale_factors);
 
 } // namespace compositeimplicitautograd
 } // namespace at

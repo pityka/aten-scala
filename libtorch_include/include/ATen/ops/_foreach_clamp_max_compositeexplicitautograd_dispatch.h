@@ -17,12 +17,18 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
+TORCH_API ::std::vector<at::Tensor> _foreach_clamp_max(at::TensorList self, const at::Scalar & scalar);
 TORCH_API void _foreach_clamp_max_out(at::TensorList out, at::TensorList self, const at::Scalar & scalar);
 TORCH_API void _foreach_clamp_max_outf(at::TensorList self, const at::Scalar & scalar, at::TensorList out);
+TORCH_API void _foreach_clamp_max_(at::TensorList self, const at::Scalar & scalar);
+TORCH_API ::std::vector<at::Tensor> _foreach_clamp_max(at::TensorList self, at::TensorList other);
 TORCH_API void _foreach_clamp_max_out(at::TensorList out, at::TensorList self, at::TensorList other);
 TORCH_API void _foreach_clamp_max_outf(at::TensorList self, at::TensorList other, at::TensorList out);
+TORCH_API void _foreach_clamp_max_(at::TensorList self, at::TensorList other);
+TORCH_API ::std::vector<at::Tensor> _foreach_clamp_max(at::TensorList self, at::ArrayRef<at::Scalar> scalars);
 TORCH_API void _foreach_clamp_max_out(at::TensorList out, at::TensorList self, at::ArrayRef<at::Scalar> scalars);
 TORCH_API void _foreach_clamp_max_outf(at::TensorList self, at::ArrayRef<at::Scalar> scalars, at::TensorList out);
+TORCH_API void _foreach_clamp_max_(at::TensorList self, at::ArrayRef<at::Scalar> scalars);
 
 } // namespace compositeexplicitautograd
 } // namespace at

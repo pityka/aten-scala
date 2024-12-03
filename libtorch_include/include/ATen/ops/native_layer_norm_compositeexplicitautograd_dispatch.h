@@ -17,12 +17,12 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
-TORCH_API ::std::tuple<at::Tensor,at::Tensor,at::Tensor> native_layer_norm(const at::Tensor & input, at::IntArrayRef normalized_shape, const c10::optional<at::Tensor> & weight, const c10::optional<at::Tensor> & bias, double eps);
-TORCH_API ::std::tuple<at::Tensor,at::Tensor,at::Tensor> native_layer_norm_symint(const at::Tensor & input, c10::SymIntArrayRef normalized_shape, const c10::optional<at::Tensor> & weight, const c10::optional<at::Tensor> & bias, double eps);
-TORCH_API ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> native_layer_norm_out(at::Tensor & out0, at::Tensor & out1, at::Tensor & out2, const at::Tensor & input, at::IntArrayRef normalized_shape, const c10::optional<at::Tensor> & weight, const c10::optional<at::Tensor> & bias, double eps);
-TORCH_API ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> native_layer_norm_outf(const at::Tensor & input, at::IntArrayRef normalized_shape, const c10::optional<at::Tensor> & weight, const c10::optional<at::Tensor> & bias, double eps, at::Tensor & out0, at::Tensor & out1, at::Tensor & out2);
-TORCH_API ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> native_layer_norm_symint_out(at::Tensor & out0, at::Tensor & out1, at::Tensor & out2, const at::Tensor & input, c10::SymIntArrayRef normalized_shape, const c10::optional<at::Tensor> & weight, const c10::optional<at::Tensor> & bias, double eps);
-TORCH_API ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> native_layer_norm_symint_outf(const at::Tensor & input, c10::SymIntArrayRef normalized_shape, const c10::optional<at::Tensor> & weight, const c10::optional<at::Tensor> & bias, double eps, at::Tensor & out0, at::Tensor & out1, at::Tensor & out2);
+TORCH_API ::std::tuple<at::Tensor,at::Tensor,at::Tensor> native_layer_norm(const at::Tensor & input, at::IntArrayRef normalized_shape, const ::std::optional<at::Tensor> & weight, const ::std::optional<at::Tensor> & bias, double eps);
+TORCH_API ::std::tuple<at::Tensor,at::Tensor,at::Tensor> native_layer_norm_symint(const at::Tensor & input, c10::SymIntArrayRef normalized_shape, const ::std::optional<at::Tensor> & weight, const ::std::optional<at::Tensor> & bias, double eps);
+TORCH_API ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> native_layer_norm_out(at::Tensor & out0, at::Tensor & out1, at::Tensor & out2, const at::Tensor & input, at::IntArrayRef normalized_shape, const ::std::optional<at::Tensor> & weight, const ::std::optional<at::Tensor> & bias, double eps);
+TORCH_API ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> native_layer_norm_outf(const at::Tensor & input, at::IntArrayRef normalized_shape, const ::std::optional<at::Tensor> & weight, const ::std::optional<at::Tensor> & bias, double eps, at::Tensor & out0, at::Tensor & out1, at::Tensor & out2);
+TORCH_API ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> native_layer_norm_symint_out(at::Tensor & out0, at::Tensor & out1, at::Tensor & out2, const at::Tensor & input, c10::SymIntArrayRef normalized_shape, const ::std::optional<at::Tensor> & weight, const ::std::optional<at::Tensor> & bias, double eps);
+TORCH_API ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> native_layer_norm_symint_outf(const at::Tensor & input, c10::SymIntArrayRef normalized_shape, const ::std::optional<at::Tensor> & weight, const ::std::optional<at::Tensor> & bias, double eps, at::Tensor & out0, at::Tensor & out1, at::Tensor & out2);
 
 } // namespace compositeexplicitautograd
 } // namespace at

@@ -13,7 +13,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 
 
 
@@ -23,16 +23,16 @@ namespace at {
 
 
 // aten::binary_cross_entropy_with_logits(Tensor self, Tensor target, Tensor? weight=None, Tensor? pos_weight=None, int reduction=Mean) -> Tensor
-inline at::Tensor binary_cross_entropy_with_logits(const at::Tensor & self, const at::Tensor & target, const c10::optional<at::Tensor> & weight={}, const c10::optional<at::Tensor> & pos_weight={}, int64_t reduction=at::Reduction::Mean) {
+inline at::Tensor binary_cross_entropy_with_logits(const at::Tensor & self, const at::Tensor & target, const ::std::optional<at::Tensor> & weight={}, const ::std::optional<at::Tensor> & pos_weight={}, int64_t reduction=at::Reduction::Mean) {
     return at::_ops::binary_cross_entropy_with_logits::call(self, target, weight, pos_weight, reduction);
 }
 
 // aten::binary_cross_entropy_with_logits.out(Tensor self, Tensor target, Tensor? weight=None, Tensor? pos_weight=None, int reduction=Mean, *, Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & binary_cross_entropy_with_logits_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & target, const c10::optional<at::Tensor> & weight={}, const c10::optional<at::Tensor> & pos_weight={}, int64_t reduction=at::Reduction::Mean) {
+inline at::Tensor & binary_cross_entropy_with_logits_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & target, const ::std::optional<at::Tensor> & weight={}, const ::std::optional<at::Tensor> & pos_weight={}, int64_t reduction=at::Reduction::Mean) {
     return at::_ops::binary_cross_entropy_with_logits_out::call(self, target, weight, pos_weight, reduction, out);
 }
 // aten::binary_cross_entropy_with_logits.out(Tensor self, Tensor target, Tensor? weight=None, Tensor? pos_weight=None, int reduction=Mean, *, Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & binary_cross_entropy_with_logits_outf(const at::Tensor & self, const at::Tensor & target, const c10::optional<at::Tensor> & weight, const c10::optional<at::Tensor> & pos_weight, int64_t reduction, at::Tensor & out) {
+inline at::Tensor & binary_cross_entropy_with_logits_outf(const at::Tensor & self, const at::Tensor & target, const ::std::optional<at::Tensor> & weight, const ::std::optional<at::Tensor> & pos_weight, int64_t reduction, at::Tensor & out) {
     return at::_ops::binary_cross_entropy_with_logits_out::call(self, target, weight, pos_weight, reduction, out);
 }
 

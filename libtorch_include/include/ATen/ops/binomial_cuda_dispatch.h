@@ -17,7 +17,7 @@ namespace at {
 
 namespace cuda {
 
-TORCH_API at::Tensor binomial(const at::Tensor & count, const at::Tensor & prob, c10::optional<at::Generator> generator=c10::nullopt);
+TORCH_API at::Tensor binomial(const at::Tensor & count, const at::Tensor & prob, ::std::optional<at::Generator> generator=::std::nullopt);
 
 } // namespace cuda
 } // namespace at

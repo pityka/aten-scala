@@ -13,7 +13,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 
 
 
@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::vander(Tensor x, int? N=None, bool increasing=False) -> Tensor
-inline at::Tensor vander(const at::Tensor & x, c10::optional<int64_t> N=c10::nullopt, bool increasing=false) {
+inline at::Tensor vander(const at::Tensor & x, ::std::optional<int64_t> N=::std::nullopt, bool increasing=false) {
     return at::_ops::vander::call(x, N, increasing);
 }
 

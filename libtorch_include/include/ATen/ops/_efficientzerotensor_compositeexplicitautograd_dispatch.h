@@ -19,6 +19,8 @@ namespace compositeexplicitautograd {
 
 TORCH_API at::Tensor & _efficientzerotensor_out(at::Tensor & out, at::IntArrayRef size);
 TORCH_API at::Tensor & _efficientzerotensor_outf(at::IntArrayRef size, at::Tensor & out);
+TORCH_API at::Tensor & _efficientzerotensor_symint_out(at::Tensor & out, c10::SymIntArrayRef size);
+TORCH_API at::Tensor & _efficientzerotensor_symint_outf(c10::SymIntArrayRef size, at::Tensor & out);
 
 } // namespace compositeexplicitautograd
 } // namespace at

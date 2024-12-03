@@ -17,7 +17,7 @@ namespace at {
 
 namespace compositeexplicitautogradnonfunctional {
 
-TORCH_API at::Tensor index(const at::Tensor & self, const c10::List<c10::optional<at::Tensor>> & indices);
+TORCH_API at::Tensor index(const at::Tensor & self, const c10::List<::std::optional<at::Tensor>> & indices);
 
 } // namespace compositeexplicitautogradnonfunctional
 } // namespace at

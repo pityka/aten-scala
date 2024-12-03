@@ -4,17 +4,14 @@
 #include <torch/csrc/jit/ir/ir.h>
 #include <torch/csrc/jit/passes/symbolic_shape_analysis.h>
 
-#include <unordered_map>
-
-namespace torch {
-namespace jit {
+namespace torch::jit {
 
 // Takes in a TensorExprGraph of static shapes and generalizes the input shapes
 // to symbolic dimensions. Dimensions of value 1 will be preserved, otherwise
 // dimensions with the same value will be bucketed to the same symbolic shape.
 // E.g. Tensor(5, 3), Tensor(3, 1) -> Tensor(SS(-1), SS(-2)), Tensor(SS(-2), 1)
 // From there, runs symbolic shape inference on the graph, and creates a
-// versionining if in the graph with prim::TensorExprDynamicGuard checking if
+// versioning if in the graph with prim::TensorExprDynamicGuard checking if
 // the inputs at runtime match the Generalized Symbolic Shapes that are inputs
 // to the TE Kernel. The computate to calculate all symbolic dimensions is
 // inlined in to the if block with the TE Kernel. All Sym Dim Value* are
@@ -51,5 +48,4 @@ enum class StrideInput {
 TORCH_API std::string toString(StrideInput si);
 TORCH_API StrideInput strideInputFromString(const std::string& si);
 
-} // namespace jit
-} // namespace torch
+} // namespace torch::jit

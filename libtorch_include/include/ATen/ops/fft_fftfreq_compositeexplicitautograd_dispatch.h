@@ -18,7 +18,7 @@ namespace at {
 namespace compositeexplicitautograd {
 
 TORCH_API at::Tensor fft_fftfreq(int64_t n, double d=1.0, at::TensorOptions options={});
-TORCH_API at::Tensor fft_fftfreq(int64_t n, double d, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory);
+TORCH_API at::Tensor fft_fftfreq(int64_t n, double d, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory);
 TORCH_API at::Tensor & fft_fftfreq_out(at::Tensor & out, int64_t n, double d=1.0);
 TORCH_API at::Tensor & fft_fftfreq_outf(int64_t n, double d, at::Tensor & out);
 

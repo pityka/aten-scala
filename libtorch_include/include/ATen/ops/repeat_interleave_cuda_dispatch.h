@@ -17,7 +17,8 @@ namespace at {
 
 namespace cuda {
 
-TORCH_API at::Tensor repeat_interleave(const at::Tensor & repeats, c10::optional<int64_t> output_size=c10::nullopt);
+TORCH_API at::Tensor repeat_interleave(const at::Tensor & repeats, ::std::optional<int64_t> output_size=::std::nullopt);
+TORCH_API at::Tensor repeat_interleave_symint(const at::Tensor & repeats, ::std::optional<c10::SymInt> output_size=::std::nullopt);
 
 } // namespace cuda
 } // namespace at

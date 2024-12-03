@@ -17,7 +17,7 @@ namespace at {
 
 namespace compositeexplicitautogradnonfunctional {
 
-TORCH_API ::std::tuple<at::Tensor,at::Tensor> sort(const at::Tensor & self, c10::optional<bool> stable, int64_t dim=-1, bool descending=false);
+TORCH_API ::std::tuple<at::Tensor,at::Tensor> sort(const at::Tensor & self, ::std::optional<bool> stable, int64_t dim=-1, bool descending=false);
 
 } // namespace compositeexplicitautogradnonfunctional
 } // namespace at

@@ -17,9 +17,12 @@ namespace at {
 
 namespace compositeimplicitautograd {
 
-TORCH_API at::Tensor fft_ihfft(const at::Tensor & self, c10::optional<int64_t> n=c10::nullopt, int64_t dim=-1, c10::optional<c10::string_view> norm=c10::nullopt);
-TORCH_API at::Tensor & fft_ihfft_out(at::Tensor & out, const at::Tensor & self, c10::optional<int64_t> n=c10::nullopt, int64_t dim=-1, c10::optional<c10::string_view> norm=c10::nullopt);
-TORCH_API at::Tensor & fft_ihfft_outf(const at::Tensor & self, c10::optional<int64_t> n, int64_t dim, c10::optional<c10::string_view> norm, at::Tensor & out);
+TORCH_API at::Tensor fft_ihfft(const at::Tensor & self, ::std::optional<int64_t> n=::std::nullopt, int64_t dim=-1, ::std::optional<c10::string_view> norm=::std::nullopt);
+TORCH_API at::Tensor fft_ihfft_symint(const at::Tensor & self, ::std::optional<c10::SymInt> n=::std::nullopt, int64_t dim=-1, ::std::optional<c10::string_view> norm=::std::nullopt);
+TORCH_API at::Tensor & fft_ihfft_out(at::Tensor & out, const at::Tensor & self, ::std::optional<int64_t> n=::std::nullopt, int64_t dim=-1, ::std::optional<c10::string_view> norm=::std::nullopt);
+TORCH_API at::Tensor & fft_ihfft_outf(const at::Tensor & self, ::std::optional<int64_t> n, int64_t dim, ::std::optional<c10::string_view> norm, at::Tensor & out);
+TORCH_API at::Tensor & fft_ihfft_symint_out(at::Tensor & out, const at::Tensor & self, ::std::optional<c10::SymInt> n=::std::nullopt, int64_t dim=-1, ::std::optional<c10::string_view> norm=::std::nullopt);
+TORCH_API at::Tensor & fft_ihfft_symint_outf(const at::Tensor & self, ::std::optional<c10::SymInt> n, int64_t dim, ::std::optional<c10::string_view> norm, at::Tensor & out);
 
 } // namespace compositeimplicitautograd
 } // namespace at

@@ -21,6 +21,8 @@ TORCH_API ::std::tuple<at::Tensor,at::Tensor> min(const at::Tensor & self, int64
 TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> min_out(at::Tensor & min, at::Tensor & min_indices, const at::Tensor & self, int64_t dim, bool keepdim=false);
 TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> min_outf(const at::Tensor & self, int64_t dim, bool keepdim, at::Tensor & min, at::Tensor & min_indices);
 TORCH_API at::Tensor min(const at::Tensor & self);
+TORCH_API at::Tensor & min_out(at::Tensor & out, const at::Tensor & self);
+TORCH_API at::Tensor & min_outf(const at::Tensor & self, at::Tensor & out);
 
 } // namespace cpu
 } // namespace at

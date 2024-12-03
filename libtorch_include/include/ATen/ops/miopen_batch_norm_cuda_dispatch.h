@@ -17,7 +17,7 @@ namespace at {
 
 namespace cuda {
 
-TORCH_API ::std::tuple<at::Tensor,at::Tensor,at::Tensor> miopen_batch_norm(const at::Tensor & input, const at::Tensor & weight, const c10::optional<at::Tensor> & bias, const c10::optional<at::Tensor> & running_mean, const c10::optional<at::Tensor> & running_var, bool training, double exponential_average_factor, double epsilon);
+TORCH_API ::std::tuple<at::Tensor,at::Tensor,at::Tensor> miopen_batch_norm(const at::Tensor & input, const at::Tensor & weight, const ::std::optional<at::Tensor> & bias, const ::std::optional<at::Tensor> & running_mean, const ::std::optional<at::Tensor> & running_var, bool training, double exponential_average_factor, double epsilon);
 
 } // namespace cuda
 } // namespace at

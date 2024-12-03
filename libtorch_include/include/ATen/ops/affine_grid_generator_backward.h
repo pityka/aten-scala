@@ -13,7 +13,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 
 
 
@@ -22,9 +22,26 @@
 namespace at {
 
 
-// aten::affine_grid_generator_backward(Tensor grad, int[] size, bool align_corners) -> Tensor
+// aten::affine_grid_generator_backward(Tensor grad, SymInt[] size, bool align_corners) -> Tensor
 inline at::Tensor affine_grid_generator_backward(const at::Tensor & grad, at::IntArrayRef size, bool align_corners) {
+    return at::_ops::affine_grid_generator_backward::call(grad, c10::fromIntArrayRefSlow(size), align_corners);
+}
+namespace symint {
+  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  at::Tensor affine_grid_generator_backward(const at::Tensor & grad, at::IntArrayRef size, bool align_corners) {
+    return at::_ops::affine_grid_generator_backward::call(grad, c10::fromIntArrayRefSlow(size), align_corners);
+  }
+}
+
+// aten::affine_grid_generator_backward(Tensor grad, SymInt[] size, bool align_corners) -> Tensor
+inline at::Tensor affine_grid_generator_backward_symint(const at::Tensor & grad, c10::SymIntArrayRef size, bool align_corners) {
     return at::_ops::affine_grid_generator_backward::call(grad, size, align_corners);
+}
+namespace symint {
+  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  at::Tensor affine_grid_generator_backward(const at::Tensor & grad, c10::SymIntArrayRef size, bool align_corners) {
+    return at::_ops::affine_grid_generator_backward::call(grad, size, align_corners);
+  }
 }
 
 }

@@ -17,7 +17,7 @@ namespace at {
 
 namespace compositeimplicitautograd {
 
-TORCH_API at::Tensor rnn_tanh_cell(const at::Tensor & input, const at::Tensor & hx, const at::Tensor & w_ih, const at::Tensor & w_hh, const c10::optional<at::Tensor> & b_ih={}, const c10::optional<at::Tensor> & b_hh={});
+TORCH_API at::Tensor rnn_tanh_cell(const at::Tensor & input, const at::Tensor & hx, const at::Tensor & w_ih, const at::Tensor & w_hh, const ::std::optional<at::Tensor> & b_ih={}, const ::std::optional<at::Tensor> & b_hh={});
 
 } // namespace compositeimplicitautograd
 } // namespace at

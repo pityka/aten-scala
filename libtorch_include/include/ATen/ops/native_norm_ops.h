@@ -26,14 +26,14 @@ struct TORCH_API native_norm {
 };
 
 struct TORCH_API native_norm_ScalarOpt_dim_dtype {
-  using schema = at::Tensor (const at::Tensor &, const c10::optional<at::Scalar> &, at::IntArrayRef, bool, c10::optional<at::ScalarType>);
+  using schema = at::Tensor (const at::Tensor &, const ::std::optional<at::Scalar> &, at::IntArrayRef, bool, ::std::optional<at::ScalarType>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::native_norm")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "ScalarOpt_dim_dtype")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "native_norm.ScalarOpt_dim_dtype(Tensor self, Scalar? p, int[1] dim, bool keepdim, ScalarType? dtype) -> Tensor")
-  static at::Tensor call(const at::Tensor & self, const c10::optional<at::Scalar> & p, at::IntArrayRef dim, bool keepdim, c10::optional<at::ScalarType> dtype);
-  static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const c10::optional<at::Scalar> & p, at::IntArrayRef dim, bool keepdim, c10::optional<at::ScalarType> dtype);
+  static at::Tensor call(const at::Tensor & self, const ::std::optional<at::Scalar> & p, at::IntArrayRef dim, bool keepdim, ::std::optional<at::ScalarType> dtype);
+  static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const ::std::optional<at::Scalar> & p, at::IntArrayRef dim, bool keepdim, ::std::optional<at::ScalarType> dtype);
 };
 
 struct TORCH_API native_norm_out {
@@ -48,14 +48,14 @@ struct TORCH_API native_norm_out {
 };
 
 struct TORCH_API native_norm_ScalarOpt_dim_dtype_out {
-  using schema = at::Tensor & (const at::Tensor &, const c10::optional<at::Scalar> &, at::IntArrayRef, bool, c10::optional<at::ScalarType>, at::Tensor &);
+  using schema = at::Tensor & (const at::Tensor &, const ::std::optional<at::Scalar> &, at::IntArrayRef, bool, ::std::optional<at::ScalarType>, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::native_norm")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "ScalarOpt_dim_dtype_out")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "native_norm.ScalarOpt_dim_dtype_out(Tensor self, Scalar? p, int[1] dim, bool keepdim, ScalarType? dtype, *, Tensor(a!) out) -> Tensor(a!)")
-  static at::Tensor & call(const at::Tensor & self, const c10::optional<at::Scalar> & p, at::IntArrayRef dim, bool keepdim, c10::optional<at::ScalarType> dtype, at::Tensor & out);
-  static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const c10::optional<at::Scalar> & p, at::IntArrayRef dim, bool keepdim, c10::optional<at::ScalarType> dtype, at::Tensor & out);
+  static at::Tensor & call(const at::Tensor & self, const ::std::optional<at::Scalar> & p, at::IntArrayRef dim, bool keepdim, ::std::optional<at::ScalarType> dtype, at::Tensor & out);
+  static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const ::std::optional<at::Scalar> & p, at::IntArrayRef dim, bool keepdim, ::std::optional<at::ScalarType> dtype, at::Tensor & out);
 };
 
 }} // namespace at::_ops

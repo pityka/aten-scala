@@ -3,8 +3,6 @@
 #include <torch/data/dataloader/base.h>
 #include <torch/data/worker_exception.h>
 
-#include <torch/csrc/utils/memory.h>
-
 #include <c10/util/Exception.h>
 #include <c10/util/irange.h>
 
@@ -52,7 +50,7 @@ class StatelessDataLoader : public DataLoaderBase<
     }
     if (this->options_.workers == 0) {
       this->main_thread_dataset_ =
-          torch::make_unique<Dataset>(std::move(dataset));
+          std::make_unique<Dataset>(std::move(dataset));
     }
   }
 
@@ -66,7 +64,7 @@ class StatelessDataLoader : public DataLoaderBase<
 
   /// Queries the sampler for the next batch request (possibly progressing its
   /// internal state).
-  optional<BatchRequestType> get_batch_request() override {
+  std::optional<BatchRequestType> get_batch_request() override {
     auto indices = sampler_.next(this->options_.batch_size);
     if (!indices ||
         (indices->size() < this->options_.batch_size &&

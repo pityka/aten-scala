@@ -17,9 +17,9 @@ namespace at {
 
 namespace compositeimplicitautograd {
 
-TORCH_API at::Tensor special_logit(const at::Tensor & self, c10::optional<double> eps=c10::nullopt);
-TORCH_API at::Tensor & special_logit_out(at::Tensor & out, const at::Tensor & self, c10::optional<double> eps=c10::nullopt);
-TORCH_API at::Tensor & special_logit_outf(const at::Tensor & self, c10::optional<double> eps, at::Tensor & out);
+TORCH_API at::Tensor special_logit(const at::Tensor & self, ::std::optional<double> eps=::std::nullopt);
+TORCH_API at::Tensor & special_logit_out(at::Tensor & out, const at::Tensor & self, ::std::optional<double> eps=::std::nullopt);
+TORCH_API at::Tensor & special_logit_outf(const at::Tensor & self, ::std::optional<double> eps, at::Tensor & out);
 
 } // namespace compositeimplicitautograd
 } // namespace at

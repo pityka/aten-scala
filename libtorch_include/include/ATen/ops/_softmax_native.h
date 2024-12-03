@@ -6,7 +6,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 #include <c10/core/QScheme.h>
 #include <ATen/core/Reduction.h>
 #include <ATen/core/Tensor.h>
@@ -23,9 +23,6 @@ struct TORCH_API structured_softmax_cuda_out : public at::meta::structured__soft
 void impl(const at::Tensor & self, int64_t dim, bool half_to_float, const at::Tensor & out);
 };
 TORCH_API at::Tensor softmax_nested(const at::Tensor & self, int64_t dim, bool half_to_float);
-struct TORCH_API structured_softmax_mps_out : public at::meta::structured__softmax {
-void impl(const at::Tensor & self, int64_t dim, bool half_to_float, const at::Tensor & out);
-};
 TORCH_API at::Tensor mkldnn_softmax(const at::Tensor & self, int64_t dim, bool half_to_float);
 } // namespace native
 } // namespace at

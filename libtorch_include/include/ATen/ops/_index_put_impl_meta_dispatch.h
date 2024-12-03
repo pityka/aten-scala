@@ -17,7 +17,7 @@ namespace at {
 
 namespace meta {
 
-TORCH_API at::Tensor & _index_put_impl_(at::Tensor & self, const c10::List<c10::optional<at::Tensor>> & indices, const at::Tensor & values, bool accumulate=false, bool unsafe=false);
+TORCH_API at::Tensor & _index_put_impl_(at::Tensor & self, const c10::List<::std::optional<at::Tensor>> & indices, const at::Tensor & values, bool accumulate=false, bool unsafe=false);
 
 } // namespace meta
 } // namespace at

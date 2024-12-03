@@ -20,9 +20,9 @@ namespace compositeimplicitautograd {
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> sort(const at::Tensor & self, at::Dimname dim, bool descending=false);
 TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> sort_out(at::Tensor & values, at::Tensor & indices, const at::Tensor & self, at::Dimname dim, bool descending=false);
 TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> sort_outf(const at::Tensor & self, at::Dimname dim, bool descending, at::Tensor & values, at::Tensor & indices);
-TORCH_API ::std::tuple<at::Tensor,at::Tensor> sort(const at::Tensor & self, c10::optional<bool> stable, at::Dimname dim, bool descending=false);
-TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> sort_out(at::Tensor & values, at::Tensor & indices, const at::Tensor & self, c10::optional<bool> stable, at::Dimname dim, bool descending=false);
-TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> sort_outf(const at::Tensor & self, c10::optional<bool> stable, at::Dimname dim, bool descending, at::Tensor & values, at::Tensor & indices);
+TORCH_API ::std::tuple<at::Tensor,at::Tensor> sort(const at::Tensor & self, ::std::optional<bool> stable, at::Dimname dim, bool descending=false);
+TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> sort_out(at::Tensor & values, at::Tensor & indices, const at::Tensor & self, ::std::optional<bool> stable, at::Dimname dim, bool descending=false);
+TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> sort_outf(const at::Tensor & self, ::std::optional<bool> stable, at::Dimname dim, bool descending, at::Tensor & values, at::Tensor & indices);
 
 } // namespace compositeimplicitautograd
 } // namespace at

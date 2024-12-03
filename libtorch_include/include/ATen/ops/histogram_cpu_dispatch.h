@@ -17,12 +17,12 @@ namespace at {
 
 namespace cpu {
 
-TORCH_API ::std::tuple<at::Tensor,at::Tensor> histogram(const at::Tensor & self, const at::Tensor & bins, const c10::optional<at::Tensor> & weight={}, bool density=false);
-TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> histogram_out(at::Tensor & hist, at::Tensor & bin_edges, const at::Tensor & self, const at::Tensor & bins, const c10::optional<at::Tensor> & weight={}, bool density=false);
-TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> histogram_outf(const at::Tensor & self, const at::Tensor & bins, const c10::optional<at::Tensor> & weight, bool density, at::Tensor & hist, at::Tensor & bin_edges);
-TORCH_API ::std::tuple<at::Tensor,at::Tensor> histogram(const at::Tensor & self, int64_t bins=100, c10::optional<at::ArrayRef<double>> range=c10::nullopt, const c10::optional<at::Tensor> & weight={}, bool density=false);
-TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> histogram_out(at::Tensor & hist, at::Tensor & bin_edges, const at::Tensor & self, int64_t bins=100, c10::optional<at::ArrayRef<double>> range=c10::nullopt, const c10::optional<at::Tensor> & weight={}, bool density=false);
-TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> histogram_outf(const at::Tensor & self, int64_t bins, c10::optional<at::ArrayRef<double>> range, const c10::optional<at::Tensor> & weight, bool density, at::Tensor & hist, at::Tensor & bin_edges);
+TORCH_API ::std::tuple<at::Tensor,at::Tensor> histogram(const at::Tensor & self, const at::Tensor & bins, const ::std::optional<at::Tensor> & weight={}, bool density=false);
+TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> histogram_out(at::Tensor & hist, at::Tensor & bin_edges, const at::Tensor & self, const at::Tensor & bins, const ::std::optional<at::Tensor> & weight={}, bool density=false);
+TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> histogram_outf(const at::Tensor & self, const at::Tensor & bins, const ::std::optional<at::Tensor> & weight, bool density, at::Tensor & hist, at::Tensor & bin_edges);
+TORCH_API ::std::tuple<at::Tensor,at::Tensor> histogram(const at::Tensor & self, int64_t bins=100, ::std::optional<at::ArrayRef<double>> range=::std::nullopt, const ::std::optional<at::Tensor> & weight={}, bool density=false);
+TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> histogram_out(at::Tensor & hist, at::Tensor & bin_edges, const at::Tensor & self, int64_t bins=100, ::std::optional<at::ArrayRef<double>> range=::std::nullopt, const ::std::optional<at::Tensor> & weight={}, bool density=false);
+TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> histogram_outf(const at::Tensor & self, int64_t bins, ::std::optional<at::ArrayRef<double>> range, const ::std::optional<at::Tensor> & weight, bool density, at::Tensor & hist, at::Tensor & bin_edges);
 
 } // namespace cpu
 } // namespace at

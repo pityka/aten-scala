@@ -17,7 +17,7 @@ namespace at {
 
 namespace cpu {
 
-TORCH_API at::Tensor segment_reduce(const at::Tensor & data, c10::string_view reduce, const c10::optional<at::Tensor> & lengths={}, const c10::optional<at::Tensor> & indices={}, const c10::optional<at::Tensor> & offsets={}, int64_t axis=0, bool unsafe=false, const c10::optional<at::Scalar> & initial=c10::nullopt);
+TORCH_API at::Tensor segment_reduce(const at::Tensor & data, c10::string_view reduce, const ::std::optional<at::Tensor> & lengths={}, const ::std::optional<at::Tensor> & indices={}, const ::std::optional<at::Tensor> & offsets={}, int64_t axis=0, bool unsafe=false, const ::std::optional<at::Scalar> & initial=::std::nullopt);
 
 } // namespace cpu
 } // namespace at

@@ -17,7 +17,7 @@ namespace at {
 
 namespace compositeimplicitautograd {
 
-TORCH_API ::std::tuple<at::Tensor,at::Tensor> _scaled_dot_product_attention_math(const at::Tensor & query, const at::Tensor & key, const at::Tensor & value, const c10::optional<at::Tensor> & attn_mask={}, double dropout_p=0.0, bool is_causal=false, const c10::optional<at::Tensor> & dropout_mask={});
+TORCH_API ::std::tuple<at::Tensor,at::Tensor> _scaled_dot_product_attention_math(const at::Tensor & query, const at::Tensor & key, const at::Tensor & value, const ::std::optional<at::Tensor> & attn_mask={}, double dropout_p=0.0, bool is_causal=false, const ::std::optional<at::Tensor> & dropout_mask={}, ::std::optional<double> scale=::std::nullopt, bool enable_gqa=false);
 
 } // namespace compositeimplicitautograd
 } // namespace at

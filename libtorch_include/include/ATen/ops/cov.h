@@ -13,7 +13,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 
 
 
@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::cov(Tensor self, *, int correction=1, Tensor? fweights=None, Tensor? aweights=None) -> Tensor
-inline at::Tensor cov(const at::Tensor & self, int64_t correction=1, const c10::optional<at::Tensor> & fweights={}, const c10::optional<at::Tensor> & aweights={}) {
+inline at::Tensor cov(const at::Tensor & self, int64_t correction=1, const ::std::optional<at::Tensor> & fweights={}, const ::std::optional<at::Tensor> & aweights={}) {
     return at::_ops::cov::call(self, correction, fweights, aweights);
 }
 

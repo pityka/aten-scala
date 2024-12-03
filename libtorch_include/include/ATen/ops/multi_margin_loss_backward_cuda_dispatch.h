@@ -17,9 +17,9 @@ namespace at {
 
 namespace cuda {
 
-TORCH_API at::Tensor multi_margin_loss_backward(const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & target, const at::Scalar & p, const at::Scalar & margin, const c10::optional<at::Tensor> & weight={}, int64_t reduction=at::Reduction::Mean);
-TORCH_API at::Tensor & multi_margin_loss_backward_out(at::Tensor & grad_input, const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & target, const at::Scalar & p, const at::Scalar & margin, const c10::optional<at::Tensor> & weight={}, int64_t reduction=at::Reduction::Mean);
-TORCH_API at::Tensor & multi_margin_loss_backward_outf(const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & target, const at::Scalar & p, const at::Scalar & margin, const c10::optional<at::Tensor> & weight, int64_t reduction, at::Tensor & grad_input);
+TORCH_API at::Tensor multi_margin_loss_backward(const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & target, const at::Scalar & p, const at::Scalar & margin, const ::std::optional<at::Tensor> & weight={}, int64_t reduction=at::Reduction::Mean);
+TORCH_API at::Tensor & multi_margin_loss_backward_out(at::Tensor & grad_input, const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & target, const at::Scalar & p, const at::Scalar & margin, const ::std::optional<at::Tensor> & weight={}, int64_t reduction=at::Reduction::Mean);
+TORCH_API at::Tensor & multi_margin_loss_backward_outf(const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & target, const at::Scalar & p, const at::Scalar & margin, const ::std::optional<at::Tensor> & weight, int64_t reduction, at::Tensor & grad_input);
 
 } // namespace cuda
 } // namespace at

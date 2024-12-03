@@ -18,6 +18,7 @@ namespace at {
 namespace cuda {
 
 TORCH_API void _assert_async(const at::Tensor & self);
+TORCH_API void _assert_async(const at::Tensor & self, c10::string_view assert_msg);
 
 } // namespace cuda
 } // namespace at

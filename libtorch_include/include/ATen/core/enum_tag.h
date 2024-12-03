@@ -8,11 +8,14 @@ namespace at {
         core,
         data_dependent_output,
         dynamic_output_shape,
+        flexible_layout,
         generated,
         inplace_view,
+        needs_fixed_stride_order,
         nondeterministic_bitwise,
         nondeterministic_seeded,
         pointwise,
+        pt2_compliant_tag,
         view_copy
     };
 }

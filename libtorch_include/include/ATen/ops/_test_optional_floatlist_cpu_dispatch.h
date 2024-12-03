@@ -17,7 +17,7 @@ namespace at {
 
 namespace cpu {
 
-TORCH_API at::Tensor _test_optional_floatlist(const at::Tensor & values, c10::optional<at::ArrayRef<double>> addends);
+TORCH_API at::Tensor _test_optional_floatlist(const at::Tensor & values, ::std::optional<at::ArrayRef<double>> addends);
 
 } // namespace cpu
 } // namespace at

@@ -6,7 +6,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 #include <c10/core/QScheme.h>
 #include <ATen/core/Reduction.h>
 #include <ATen/core/Tensor.h>
@@ -20,7 +20,5 @@ TORCH_API at::Tensor glu_backward_cpu(const at::Tensor & grad_output, const at::
 TORCH_API at::Tensor & glu_backward_cpu_out(const at::Tensor & grad_output, const at::Tensor & self, int64_t dim, at::Tensor & grad_input);
 TORCH_API at::Tensor glu_backward_cuda(const at::Tensor & grad_output, const at::Tensor & self, int64_t dim);
 TORCH_API at::Tensor & glu_backward_cuda_out(const at::Tensor & grad_output, const at::Tensor & self, int64_t dim, at::Tensor & grad_input);
-TORCH_API at::Tensor glu_backward_mps(const at::Tensor & grad_output, const at::Tensor & self, int64_t dim);
-TORCH_API at::Tensor & glu_backward_mps_out(const at::Tensor & grad_output, const at::Tensor & self, int64_t dim, at::Tensor & grad_input);
 } // namespace native
 } // namespace at

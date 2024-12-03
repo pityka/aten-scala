@@ -17,12 +17,12 @@ namespace at {
 
 namespace compositeimplicitautograd {
 
-TORCH_API at::Tensor linalg_matrix_rank(const at::Tensor & input, const c10::optional<at::Tensor> & atol={}, const c10::optional<at::Tensor> & rtol={}, bool hermitian=false);
-TORCH_API at::Tensor & linalg_matrix_rank_out(at::Tensor & out, const at::Tensor & input, const c10::optional<at::Tensor> & atol={}, const c10::optional<at::Tensor> & rtol={}, bool hermitian=false);
-TORCH_API at::Tensor & linalg_matrix_rank_outf(const at::Tensor & input, const c10::optional<at::Tensor> & atol, const c10::optional<at::Tensor> & rtol, bool hermitian, at::Tensor & out);
-TORCH_API at::Tensor linalg_matrix_rank(const at::Tensor & self, c10::optional<double> atol, c10::optional<double> rtol, bool hermitian=false);
-TORCH_API at::Tensor & linalg_matrix_rank_out(at::Tensor & out, const at::Tensor & self, c10::optional<double> atol, c10::optional<double> rtol, bool hermitian=false);
-TORCH_API at::Tensor & linalg_matrix_rank_outf(const at::Tensor & self, c10::optional<double> atol, c10::optional<double> rtol, bool hermitian, at::Tensor & out);
+TORCH_API at::Tensor linalg_matrix_rank(const at::Tensor & input, const ::std::optional<at::Tensor> & atol={}, const ::std::optional<at::Tensor> & rtol={}, bool hermitian=false);
+TORCH_API at::Tensor & linalg_matrix_rank_out(at::Tensor & out, const at::Tensor & input, const ::std::optional<at::Tensor> & atol={}, const ::std::optional<at::Tensor> & rtol={}, bool hermitian=false);
+TORCH_API at::Tensor & linalg_matrix_rank_outf(const at::Tensor & input, const ::std::optional<at::Tensor> & atol, const ::std::optional<at::Tensor> & rtol, bool hermitian, at::Tensor & out);
+TORCH_API at::Tensor linalg_matrix_rank(const at::Tensor & self, ::std::optional<double> atol, ::std::optional<double> rtol, bool hermitian=false);
+TORCH_API at::Tensor & linalg_matrix_rank_out(at::Tensor & out, const at::Tensor & self, ::std::optional<double> atol, ::std::optional<double> rtol, bool hermitian=false);
+TORCH_API at::Tensor & linalg_matrix_rank_outf(const at::Tensor & self, ::std::optional<double> atol, ::std::optional<double> rtol, bool hermitian, at::Tensor & out);
 TORCH_API at::Tensor linalg_matrix_rank(const at::Tensor & self, double tol, bool hermitian=false);
 TORCH_API at::Tensor & linalg_matrix_rank_out(at::Tensor & out, const at::Tensor & self, double tol, bool hermitian=false);
 TORCH_API at::Tensor & linalg_matrix_rank_outf(const at::Tensor & self, double tol, bool hermitian, at::Tensor & out);

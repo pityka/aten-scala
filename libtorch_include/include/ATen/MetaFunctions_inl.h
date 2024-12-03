@@ -22,7 +22,9 @@
 #include <ATen/ops/_coalesced_meta_dispatch.h>
 #include <ATen/ops/_convert_indices_from_coo_to_csr_meta_dispatch.h>
 #include <ATen/ops/_convert_indices_from_csr_to_coo_meta_dispatch.h>
+#include <ATen/ops/_ctc_loss_meta_dispatch.h>
 #include <ATen/ops/_efficientzerotensor_meta_dispatch.h>
+#include <ATen/ops/_fill_mem_eff_dropout_mask_meta_dispatch.h>
 #include <ATen/ops/_fused_sdp_choice_meta_dispatch.h>
 #include <ATen/ops/_index_put_impl_meta_dispatch.h>
 #include <ATen/ops/_linalg_det_meta_dispatch.h>
@@ -94,6 +96,7 @@
 #include <ATen/ops/clamp_meta_dispatch.h>
 #include <ATen/ops/clamp_max_meta_dispatch.h>
 #include <ATen/ops/clamp_min_meta_dispatch.h>
+#include <ATen/ops/copy_meta_dispatch.h>
 #include <ATen/ops/copy_sparse_to_sparse_meta_dispatch.h>
 #include <ATen/ops/copysign_meta_dispatch.h>
 #include <ATen/ops/cos_meta_dispatch.h>

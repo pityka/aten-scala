@@ -15,25 +15,25 @@ namespace _ops {
 
 
 struct TORCH_API _histogramdd_from_bin_tensors {
-  using schema = at::Tensor (const at::Tensor &, at::TensorList, const c10::optional<at::Tensor> &, bool);
+  using schema = at::Tensor (const at::Tensor &, at::TensorList, const ::std::optional<at::Tensor> &, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_histogramdd_from_bin_tensors")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_histogramdd_from_bin_tensors(Tensor self, Tensor[] bins, *, Tensor? weight=None, bool density=False) -> Tensor")
-  static at::Tensor call(const at::Tensor & self, at::TensorList bins, const c10::optional<at::Tensor> & weight, bool density);
-  static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::TensorList bins, const c10::optional<at::Tensor> & weight, bool density);
+  static at::Tensor call(const at::Tensor & self, at::TensorList bins, const ::std::optional<at::Tensor> & weight, bool density);
+  static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::TensorList bins, const ::std::optional<at::Tensor> & weight, bool density);
 };
 
 struct TORCH_API _histogramdd_from_bin_tensors_out {
-  using schema = at::Tensor & (const at::Tensor &, at::TensorList, const c10::optional<at::Tensor> &, bool, at::Tensor &);
+  using schema = at::Tensor & (const at::Tensor &, at::TensorList, const ::std::optional<at::Tensor> &, bool, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_histogramdd_from_bin_tensors")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_histogramdd_from_bin_tensors.out(Tensor self, Tensor[] bins, *, Tensor? weight=None, bool density=False, Tensor(a!) out) -> Tensor(a!)")
-  static at::Tensor & call(const at::Tensor & self, at::TensorList bins, const c10::optional<at::Tensor> & weight, bool density, at::Tensor & out);
-  static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::TensorList bins, const c10::optional<at::Tensor> & weight, bool density, at::Tensor & out);
+  static at::Tensor & call(const at::Tensor & self, at::TensorList bins, const ::std::optional<at::Tensor> & weight, bool density, at::Tensor & out);
+  static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::TensorList bins, const ::std::optional<at::Tensor> & weight, bool density, at::Tensor & out);
 };
 
 }} // namespace at::_ops

@@ -13,7 +13,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 
 
 
@@ -23,16 +23,16 @@ namespace at {
 
 
 // aten::_histogramdd_from_bin_tensors(Tensor self, Tensor[] bins, *, Tensor? weight=None, bool density=False) -> Tensor
-inline at::Tensor _histogramdd_from_bin_tensors(const at::Tensor & self, at::TensorList bins, const c10::optional<at::Tensor> & weight={}, bool density=false) {
+inline at::Tensor _histogramdd_from_bin_tensors(const at::Tensor & self, at::TensorList bins, const ::std::optional<at::Tensor> & weight={}, bool density=false) {
     return at::_ops::_histogramdd_from_bin_tensors::call(self, bins, weight, density);
 }
 
 // aten::_histogramdd_from_bin_tensors.out(Tensor self, Tensor[] bins, *, Tensor? weight=None, bool density=False, Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & _histogramdd_from_bin_tensors_out(at::Tensor & out, const at::Tensor & self, at::TensorList bins, const c10::optional<at::Tensor> & weight={}, bool density=false) {
+inline at::Tensor & _histogramdd_from_bin_tensors_out(at::Tensor & out, const at::Tensor & self, at::TensorList bins, const ::std::optional<at::Tensor> & weight={}, bool density=false) {
     return at::_ops::_histogramdd_from_bin_tensors_out::call(self, bins, weight, density, out);
 }
 // aten::_histogramdd_from_bin_tensors.out(Tensor self, Tensor[] bins, *, Tensor? weight=None, bool density=False, Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & _histogramdd_from_bin_tensors_outf(const at::Tensor & self, at::TensorList bins, const c10::optional<at::Tensor> & weight, bool density, at::Tensor & out) {
+inline at::Tensor & _histogramdd_from_bin_tensors_outf(const at::Tensor & self, at::TensorList bins, const ::std::optional<at::Tensor> & weight, bool density, at::Tensor & out) {
     return at::_ops::_histogramdd_from_bin_tensors_out::call(self, bins, weight, density, out);
 }
 

@@ -17,7 +17,8 @@ namespace at {
 
 namespace cuda {
 
-TORCH_API ::std::tuple<at::Tensor,at::Tensor> _efficient_attention_forward(const at::Tensor & query, const at::Tensor & key, const at::Tensor & value, const c10::optional<at::Tensor> & cu_seqlens_q, const c10::optional<at::Tensor> & cu_seqlens_k, c10::optional<int64_t> max_seqlen_q, bool compute_log_sumexp=false, bool causal=false);
+TORCH_API ::std::tuple<at::Tensor,at::Tensor,at::Tensor,at::Tensor,c10::SymInt,c10::SymInt> _efficient_attention_forward(const at::Tensor & query, const at::Tensor & key, const at::Tensor & value, const ::std::optional<at::Tensor> & bias, const ::std::optional<at::Tensor> & cu_seqlens_q, const ::std::optional<at::Tensor> & cu_seqlens_k, ::std::optional<int64_t> max_seqlen_q, ::std::optional<int64_t> max_seqlen_k, double dropout_p, int64_t custom_mask_type, bool compute_log_sumexp=false, ::std::optional<double> scale=::std::nullopt, const ::std::optional<at::Tensor> & seqlen_k={}, ::std::optional<int64_t> window_size=::std::nullopt);
+TORCH_API ::std::tuple<at::Tensor,at::Tensor,at::Tensor,at::Tensor,c10::SymInt,c10::SymInt> _efficient_attention_forward_symint(const at::Tensor & query, const at::Tensor & key, const at::Tensor & value, const ::std::optional<at::Tensor> & bias, const ::std::optional<at::Tensor> & cu_seqlens_q, const ::std::optional<at::Tensor> & cu_seqlens_k, ::std::optional<c10::SymInt> max_seqlen_q, ::std::optional<c10::SymInt> max_seqlen_k, double dropout_p, int64_t custom_mask_type, bool compute_log_sumexp=false, ::std::optional<double> scale=::std::nullopt, const ::std::optional<at::Tensor> & seqlen_k={}, ::std::optional<int64_t> window_size=::std::nullopt);
 
 } // namespace cuda
 } // namespace at

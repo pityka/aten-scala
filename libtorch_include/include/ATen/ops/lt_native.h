@@ -6,7 +6,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 #include <c10/core/QScheme.h>
 #include <ATen/core/Reduction.h>
 #include <ATen/core/Tensor.h>
@@ -19,15 +19,9 @@ namespace native {
 struct TORCH_API structured_lt_Scalar_out : public at::meta::structured_lt_Scalar {
 void impl(const at::Tensor & self, const at::Scalar & other, const at::Tensor & out);
 };
-struct TORCH_API structured_lt_scalar_out_mps : public at::meta::structured_lt_Scalar {
-void impl(const at::Tensor & self, const at::Scalar & other, const at::Tensor & out);
-};
 TORCH_API at::Tensor lt_quantized_cpu(const at::Tensor & self, const at::Scalar & other);
 TORCH_API at::Tensor & lt_out_quantized_cpu(const at::Tensor & self, const at::Scalar & other, at::Tensor & out);
 struct TORCH_API structured_lt_Tensor_out : public at::meta::structured_lt_Tensor {
-void impl(const at::Tensor & self, const at::Tensor & other, const at::Tensor & out);
-};
-struct TORCH_API structured_lt_tensor_out_mps : public at::meta::structured_lt_Tensor {
 void impl(const at::Tensor & self, const at::Tensor & other, const at::Tensor & out);
 };
 TORCH_API at::Tensor lt_quantized_cpu(const at::Tensor & self, const at::Tensor & other);

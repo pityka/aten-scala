@@ -17,8 +17,8 @@ namespace at {
 
 namespace compositeexplicitautogradnonfunctional {
 
-TORCH_API at::Tensor norm(const at::Tensor & self, const c10::optional<at::Scalar> & p, at::IntArrayRef dim, bool keepdim, at::ScalarType dtype);
-TORCH_API at::Tensor norm(const at::Tensor & self, const c10::optional<at::Scalar> & p, at::IntArrayRef dim, bool keepdim=false);
+TORCH_API at::Tensor norm(const at::Tensor & self, const ::std::optional<at::Scalar> & p, at::IntArrayRef dim, bool keepdim, at::ScalarType dtype);
+TORCH_API at::Tensor norm(const at::Tensor & self, const ::std::optional<at::Scalar> & p, at::IntArrayRef dim, bool keepdim=false);
 
 } // namespace compositeexplicitautogradnonfunctional
 } // namespace at

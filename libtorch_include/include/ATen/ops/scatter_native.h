@@ -6,7 +6,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 #include <c10/core/QScheme.h>
 #include <ATen/core/Reduction.h>
 #include <ATen/core/Tensor.h>
@@ -19,25 +19,13 @@ namespace native {
 struct TORCH_API structured_scatter_src_out : public at::meta::structured_scatter_src {
 void impl(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & src, const at::Tensor & out);
 };
-struct TORCH_API structured_scatter_src_out_mps : public at::meta::structured_scatter_src {
-void impl(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & src, const at::Tensor & out);
-};
 struct TORCH_API structured_scatter_value_out : public at::meta::structured_scatter_value {
-void impl(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Scalar & value, const at::Tensor & out);
-};
-struct TORCH_API structured_scatter_value_out_mps : public at::meta::structured_scatter_value {
 void impl(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Scalar & value, const at::Tensor & out);
 };
 struct TORCH_API structured_scatter_reduce_out : public at::meta::structured_scatter_reduce {
 void impl(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & src, c10::string_view reduce, const at::Tensor & out);
 };
-struct TORCH_API structured_scatter_reduce_out_mps : public at::meta::structured_scatter_reduce {
-void impl(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & src, c10::string_view reduce, const at::Tensor & out);
-};
 struct TORCH_API structured_scatter_value_reduce_out : public at::meta::structured_scatter_value_reduce {
-void impl(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Scalar & value, c10::string_view reduce, const at::Tensor & out);
-};
-struct TORCH_API structured_scatter_value_reduce_out_mps : public at::meta::structured_scatter_value_reduce {
 void impl(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Scalar & value, c10::string_view reduce, const at::Tensor & out);
 };
 TORCH_API at::Tensor scatter(const at::Tensor & self, at::Dimname dim, const at::Tensor & index, const at::Tensor & src);

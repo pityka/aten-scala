@@ -18,9 +18,9 @@ namespace at {
 namespace compositeexplicitautograd {
 
 TORCH_API at::Tensor new_full(const at::Tensor & self, at::IntArrayRef size, const at::Scalar & fill_value, at::TensorOptions options={});
-TORCH_API at::Tensor new_full(const at::Tensor & self, at::IntArrayRef size, const at::Scalar & fill_value, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory);
+TORCH_API at::Tensor new_full(const at::Tensor & self, at::IntArrayRef size, const at::Scalar & fill_value, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory);
 TORCH_API at::Tensor new_full_symint(const at::Tensor & self, c10::SymIntArrayRef size, const at::Scalar & fill_value, at::TensorOptions options={});
-TORCH_API at::Tensor new_full_symint(const at::Tensor & self, c10::SymIntArrayRef size, const at::Scalar & fill_value, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory);
+TORCH_API at::Tensor new_full_symint(const at::Tensor & self, c10::SymIntArrayRef size, const at::Scalar & fill_value, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory);
 TORCH_API at::Tensor & new_full_out(at::Tensor & out, const at::Tensor & self, at::IntArrayRef size, const at::Scalar & fill_value);
 TORCH_API at::Tensor & new_full_outf(const at::Tensor & self, at::IntArrayRef size, const at::Scalar & fill_value, at::Tensor & out);
 TORCH_API at::Tensor & new_full_symint_out(at::Tensor & out, const at::Tensor & self, c10::SymIntArrayRef size, const at::Scalar & fill_value);

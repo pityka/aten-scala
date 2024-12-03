@@ -17,8 +17,8 @@ namespace at {
 
 namespace compositeimplicitautograd {
 
-TORCH_API at::Tensor linalg_tensorsolve(const at::Tensor & self, const at::Tensor & other, at::OptionalIntArrayRef dims=c10::nullopt);
-TORCH_API at::Tensor & linalg_tensorsolve_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & other, at::OptionalIntArrayRef dims=c10::nullopt);
+TORCH_API at::Tensor linalg_tensorsolve(const at::Tensor & self, const at::Tensor & other, at::OptionalIntArrayRef dims=::std::nullopt);
+TORCH_API at::Tensor & linalg_tensorsolve_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & other, at::OptionalIntArrayRef dims=::std::nullopt);
 TORCH_API at::Tensor & linalg_tensorsolve_outf(const at::Tensor & self, const at::Tensor & other, at::OptionalIntArrayRef dims, at::Tensor & out);
 
 } // namespace compositeimplicitautograd

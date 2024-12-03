@@ -17,8 +17,9 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
-TORCH_API void _foreach_norm_out(at::TensorList out, at::TensorList self, const at::Scalar & ord=2);
-TORCH_API void _foreach_norm_outf(at::TensorList self, const at::Scalar & ord, at::TensorList out);
+TORCH_API ::std::vector<at::Tensor> _foreach_norm(at::TensorList self, const at::Scalar & ord=2, ::std::optional<at::ScalarType> dtype=::std::nullopt);
+TORCH_API void _foreach_norm_out(at::TensorList out, at::TensorList self, const at::Scalar & ord=2, ::std::optional<at::ScalarType> dtype=::std::nullopt);
+TORCH_API void _foreach_norm_outf(at::TensorList self, const at::Scalar & ord, ::std::optional<at::ScalarType> dtype, at::TensorList out);
 
 } // namespace compositeexplicitautograd
 } // namespace at

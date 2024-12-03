@@ -17,8 +17,8 @@ namespace at {
 
 namespace compositeimplicitautograd {
 
-TORCH_API at::Tensor rrelu(const at::Tensor & self, const at::Scalar & lower=0.125, const at::Scalar & upper=0.3333333333333333, bool training=false, c10::optional<at::Generator> generator=c10::nullopt);
-TORCH_API at::Tensor & rrelu_(at::Tensor & self, const at::Scalar & lower=0.125, const at::Scalar & upper=0.3333333333333333, bool training=false, c10::optional<at::Generator> generator=c10::nullopt);
+TORCH_API at::Tensor rrelu(const at::Tensor & self, const at::Scalar & lower=0.125, const at::Scalar & upper=0.3333333333333333, bool training=false, ::std::optional<at::Generator> generator=::std::nullopt);
+TORCH_API at::Tensor & rrelu_(at::Tensor & self, const at::Scalar & lower=0.125, const at::Scalar & upper=0.3333333333333333, bool training=false, ::std::optional<at::Generator> generator=::std::nullopt);
 
 } // namespace compositeimplicitautograd
 } // namespace at

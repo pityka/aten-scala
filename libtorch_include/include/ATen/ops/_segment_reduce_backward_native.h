@@ -6,7 +6,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 #include <c10/core/QScheme.h>
 #include <ATen/core/Reduction.h>
 #include <ATen/core/Tensor.h>
@@ -16,7 +16,7 @@
 
 namespace at {
 namespace native {
-TORCH_API at::Tensor & _segment_reduce_backward_out(const at::Tensor & grad, const at::Tensor & output, const at::Tensor & data, c10::string_view reduce, const c10::optional<at::Tensor> & lengths, const c10::optional<at::Tensor> & offsets, int64_t axis, const c10::optional<at::Scalar> & initial, at::Tensor & out);
-TORCH_API at::Tensor _segment_reduce_backward_kernel(const at::Tensor & grad, const at::Tensor & output, const at::Tensor & data, c10::string_view reduce, const c10::optional<at::Tensor> & lengths={}, const c10::optional<at::Tensor> & offsets={}, int64_t axis=0, const c10::optional<at::Scalar> & initial=c10::nullopt);
+TORCH_API at::Tensor & _segment_reduce_backward_out(const at::Tensor & grad, const at::Tensor & output, const at::Tensor & data, c10::string_view reduce, const ::std::optional<at::Tensor> & lengths, const ::std::optional<at::Tensor> & offsets, int64_t axis, const ::std::optional<at::Scalar> & initial, at::Tensor & out);
+TORCH_API at::Tensor _segment_reduce_backward_kernel(const at::Tensor & grad, const at::Tensor & output, const at::Tensor & data, c10::string_view reduce, const ::std::optional<at::Tensor> & lengths={}, const ::std::optional<at::Tensor> & offsets={}, int64_t axis=0, const ::std::optional<at::Scalar> & initial=::std::nullopt);
 } // namespace native
 } // namespace at

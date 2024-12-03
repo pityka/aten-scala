@@ -17,7 +17,7 @@ namespace at {
 
 namespace compositeimplicitautograd {
 
-TORCH_API at::Tensor nested_to_padded_tensor(const at::Tensor & self, double padding, at::OptionalIntArrayRef output_size=c10::nullopt);
+TORCH_API at::Tensor nested_to_padded_tensor(const at::Tensor & self, double padding, at::OptionalIntArrayRef output_size=::std::nullopt);
 
 } // namespace compositeimplicitautograd
 } // namespace at

@@ -17,9 +17,9 @@ namespace at {
 
 namespace compositeimplicitautograd {
 
-TORCH_API at::Tensor prod(const at::Tensor & self, at::Dimname dim, bool keepdim=false, c10::optional<at::ScalarType> dtype=c10::nullopt);
-TORCH_API at::Tensor & prod_out(at::Tensor & out, const at::Tensor & self, at::Dimname dim, bool keepdim=false, c10::optional<at::ScalarType> dtype=c10::nullopt);
-TORCH_API at::Tensor & prod_outf(const at::Tensor & self, at::Dimname dim, bool keepdim, c10::optional<at::ScalarType> dtype, at::Tensor & out);
+TORCH_API at::Tensor prod(const at::Tensor & self, at::Dimname dim, bool keepdim=false, ::std::optional<at::ScalarType> dtype=::std::nullopt);
+TORCH_API at::Tensor & prod_out(at::Tensor & out, const at::Tensor & self, at::Dimname dim, bool keepdim=false, ::std::optional<at::ScalarType> dtype=::std::nullopt);
+TORCH_API at::Tensor & prod_outf(const at::Tensor & self, at::Dimname dim, bool keepdim, ::std::optional<at::ScalarType> dtype, at::Tensor & out);
 
 } // namespace compositeimplicitautograd
 } // namespace at

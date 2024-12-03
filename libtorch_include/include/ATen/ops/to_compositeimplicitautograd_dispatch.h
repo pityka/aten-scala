@@ -17,11 +17,11 @@ namespace at {
 
 namespace compositeimplicitautograd {
 
-TORCH_API at::Tensor to(const at::Tensor & self, at::TensorOptions options={}, bool non_blocking=false, bool copy=false, c10::optional<at::MemoryFormat> memory_format=c10::nullopt);
-TORCH_API at::Tensor to(const at::Tensor & self, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory, bool non_blocking, bool copy, c10::optional<at::MemoryFormat> memory_format);
-TORCH_API at::Tensor to(const at::Tensor & self, at::Device device, at::ScalarType dtype, bool non_blocking=false, bool copy=false, c10::optional<at::MemoryFormat> memory_format=c10::nullopt);
-TORCH_API at::Tensor to(const at::Tensor & self, at::ScalarType dtype, bool non_blocking=false, bool copy=false, c10::optional<at::MemoryFormat> memory_format=c10::nullopt);
-TORCH_API at::Tensor to(const at::Tensor & self, const at::Tensor & other, bool non_blocking=false, bool copy=false, c10::optional<at::MemoryFormat> memory_format=c10::nullopt);
+TORCH_API at::Tensor to(const at::Tensor & self, at::TensorOptions options={}, bool non_blocking=false, bool copy=false, ::std::optional<at::MemoryFormat> memory_format=::std::nullopt);
+TORCH_API at::Tensor to(const at::Tensor & self, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory, bool non_blocking, bool copy, ::std::optional<at::MemoryFormat> memory_format);
+TORCH_API at::Tensor to(const at::Tensor & self, at::Device device, at::ScalarType dtype, bool non_blocking=false, bool copy=false, ::std::optional<at::MemoryFormat> memory_format=::std::nullopt);
+TORCH_API at::Tensor to(const at::Tensor & self, at::ScalarType dtype, bool non_blocking=false, bool copy=false, ::std::optional<at::MemoryFormat> memory_format=::std::nullopt);
+TORCH_API at::Tensor to(const at::Tensor & self, const at::Tensor & other, bool non_blocking=false, bool copy=false, ::std::optional<at::MemoryFormat> memory_format=::std::nullopt);
 
 } // namespace compositeimplicitautograd
 } // namespace at

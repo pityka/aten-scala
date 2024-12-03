@@ -13,7 +13,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 
 
 
@@ -21,21 +21,6 @@
 
 namespace at {
 
-
-// aten::_foreach_addcdiv_.Scalar(Tensor(a!)[] self, Tensor[] tensor1, Tensor[] tensor2, Scalar value=1) -> ()
-inline void _foreach_addcdiv_(at::TensorList self, at::TensorList tensor1, at::TensorList tensor2, const at::Scalar & value=1) {
-    return at::_ops::_foreach_addcdiv__Scalar::call(self, tensor1, tensor2, value);
-}
-
-// aten::_foreach_addcdiv_.ScalarList(Tensor(a!)[] self, Tensor[] tensor1, Tensor[] tensor2, Scalar[] scalars) -> ()
-inline void _foreach_addcdiv_(at::TensorList self, at::TensorList tensor1, at::TensorList tensor2, at::ArrayRef<at::Scalar> scalars) {
-    return at::_ops::_foreach_addcdiv__ScalarList::call(self, tensor1, tensor2, scalars);
-}
-
-// aten::_foreach_addcdiv_.Tensor(Tensor(a!)[] self, Tensor[] tensor1, Tensor[] tensor2, Tensor scalars) -> ()
-inline void _foreach_addcdiv_(at::TensorList self, at::TensorList tensor1, at::TensorList tensor2, const at::Tensor & scalars) {
-    return at::_ops::_foreach_addcdiv__Tensor::call(self, tensor1, tensor2, scalars);
-}
 
 // aten::_foreach_addcdiv.Scalar(Tensor[] self, Tensor[] tensor1, Tensor[] tensor2, Scalar value=1) -> Tensor[]
 inline ::std::vector<at::Tensor> _foreach_addcdiv(at::TensorList self, at::TensorList tensor1, at::TensorList tensor2, const at::Scalar & value=1) {
@@ -50,6 +35,21 @@ inline ::std::vector<at::Tensor> _foreach_addcdiv(at::TensorList self, at::Tenso
 // aten::_foreach_addcdiv.Tensor(Tensor[] self, Tensor[] tensor1, Tensor[] tensor2, Tensor scalars) -> Tensor[]
 inline ::std::vector<at::Tensor> _foreach_addcdiv(at::TensorList self, at::TensorList tensor1, at::TensorList tensor2, const at::Tensor & scalars) {
     return at::_ops::_foreach_addcdiv_Tensor::call(self, tensor1, tensor2, scalars);
+}
+
+// aten::_foreach_addcdiv_.Scalar(Tensor(a!)[] self, Tensor[] tensor1, Tensor[] tensor2, Scalar value=1) -> ()
+inline void _foreach_addcdiv_(at::TensorList self, at::TensorList tensor1, at::TensorList tensor2, const at::Scalar & value=1) {
+    return at::_ops::_foreach_addcdiv__Scalar::call(self, tensor1, tensor2, value);
+}
+
+// aten::_foreach_addcdiv_.ScalarList(Tensor(a!)[] self, Tensor[] tensor1, Tensor[] tensor2, Scalar[] scalars) -> ()
+inline void _foreach_addcdiv_(at::TensorList self, at::TensorList tensor1, at::TensorList tensor2, at::ArrayRef<at::Scalar> scalars) {
+    return at::_ops::_foreach_addcdiv__ScalarList::call(self, tensor1, tensor2, scalars);
+}
+
+// aten::_foreach_addcdiv_.Tensor(Tensor(a!)[] self, Tensor[] tensor1, Tensor[] tensor2, Tensor scalars) -> ()
+inline void _foreach_addcdiv_(at::TensorList self, at::TensorList tensor1, at::TensorList tensor2, const at::Tensor & scalars) {
+    return at::_ops::_foreach_addcdiv__Tensor::call(self, tensor1, tensor2, scalars);
 }
 
 // aten::_foreach_addcdiv.Scalar_out(Tensor[] self, Tensor[] tensor1, Tensor[] tensor2, Scalar value=1, *, Tensor(a!)[] out) -> ()

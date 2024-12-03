@@ -17,8 +17,8 @@ namespace at {
 
 namespace compositeexplicitautogradnonfunctional {
 
-TORCH_API at::Tensor slice_copy(const at::Tensor & self, int64_t dim=0, c10::optional<int64_t> start=c10::nullopt, c10::optional<int64_t> end=c10::nullopt, int64_t step=1);
-TORCH_API at::Tensor slice_copy_symint(const at::Tensor & self, int64_t dim=0, c10::optional<c10::SymInt> start=c10::nullopt, c10::optional<c10::SymInt> end=c10::nullopt, c10::SymInt step=1);
+TORCH_API at::Tensor slice_copy(const at::Tensor & self, int64_t dim=0, ::std::optional<int64_t> start=::std::nullopt, ::std::optional<int64_t> end=::std::nullopt, int64_t step=1);
+TORCH_API at::Tensor slice_copy_symint(const at::Tensor & self, int64_t dim=0, ::std::optional<c10::SymInt> start=::std::nullopt, ::std::optional<c10::SymInt> end=::std::nullopt, c10::SymInt step=1);
 
 } // namespace compositeexplicitautogradnonfunctional
 } // namespace at

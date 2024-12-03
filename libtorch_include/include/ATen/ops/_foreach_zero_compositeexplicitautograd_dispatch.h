@@ -20,6 +20,7 @@ namespace compositeexplicitautograd {
 TORCH_API ::std::vector<at::Tensor> _foreach_zero(at::TensorList self);
 TORCH_API void _foreach_zero_out(at::TensorList out, at::TensorList self);
 TORCH_API void _foreach_zero_outf(at::TensorList self, at::TensorList out);
+TORCH_API void _foreach_zero_(at::TensorList self);
 
 } // namespace compositeexplicitautograd
 } // namespace at

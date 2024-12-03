@@ -2,8 +2,7 @@
 #include <ATen/native/TensorIterator.h>
 #include <c10/util/irange.h>
 
-namespace at {
-namespace native {
+namespace at::native {
 
 namespace {
 static bool is_constant_index(int ntensor, const int64_t* strides) {
@@ -57,7 +56,7 @@ void cpu_index_kernel(TensorIteratorBase& iter, IntArrayRef index_size, IntArray
                       const func_t& f, bool serial_execution=false)
 {
   int ntensor = iter.ntensors();
-  // When launch the index parallel version, set a relative samll grain size less than the INTERNAL::GRAIN_SIZE
+  // When launch the index parallel version, set a relative small grain size less than the INTERNAL::GRAIN_SIZE
   // to make the whole available thread numbers get more balanced work load and a better cache location.
   // The grain size here is chosen by the op benchmark to overcome the thread launch overhead
   const int index_parallel_grain_size = 3000;
@@ -68,14 +67,8 @@ void cpu_index_kernel(TensorIteratorBase& iter, IntArrayRef index_size, IntArray
     if (is_constant_index(ntensor, strides)) {
       // specialization for when every element uses the same index
       int64_t offset = indexer.get(0);
-      if (strides[0] == sizeof(scalar_t) && strides[1] == sizeof(scalar_t)) {
-        for (const auto i : c10::irange(n)) {
-          f(dst + strides[0] * i, src + strides[1] * i, offset);
-        }
-      } else {
-        for (const auto i : c10::irange(n)) {
-          f(dst + strides[0] * i, src + strides[1] * i, offset);
-        }
+      for (const auto i : c10::irange(n)) {
+        f(dst + strides[0] * i, src + strides[1] * i, offset);
       }
     } else {
       for (const auto i : c10::irange(n)) {
@@ -91,4 +84,4 @@ void cpu_index_kernel(TensorIteratorBase& iter, IntArrayRef index_size, IntArray
   }
 }
 } // at
-} // native
+// native

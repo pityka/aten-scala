@@ -19,8 +19,8 @@ namespace compositeexplicitautograd {
 
 TORCH_API at::Tensor & native_norm_out(at::Tensor & out, const at::Tensor & self, const at::Scalar & p=2);
 TORCH_API at::Tensor & native_norm_outf(const at::Tensor & self, const at::Scalar & p, at::Tensor & out);
-TORCH_API at::Tensor & native_norm_out(at::Tensor & out, const at::Tensor & self, const c10::optional<at::Scalar> & p, at::IntArrayRef dim, bool keepdim, c10::optional<at::ScalarType> dtype);
-TORCH_API at::Tensor & native_norm_outf(const at::Tensor & self, const c10::optional<at::Scalar> & p, at::IntArrayRef dim, bool keepdim, c10::optional<at::ScalarType> dtype, at::Tensor & out);
+TORCH_API at::Tensor & native_norm_out(at::Tensor & out, const at::Tensor & self, const ::std::optional<at::Scalar> & p, at::IntArrayRef dim, bool keepdim, ::std::optional<at::ScalarType> dtype);
+TORCH_API at::Tensor & native_norm_outf(const at::Tensor & self, const ::std::optional<at::Scalar> & p, at::IntArrayRef dim, bool keepdim, ::std::optional<at::ScalarType> dtype, at::Tensor & out);
 
 } // namespace compositeexplicitautograd
 } // namespace at

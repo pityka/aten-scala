@@ -17,7 +17,7 @@ namespace at {
 
 namespace compositeimplicitautograd {
 
-TORCH_API void _backward(const at::Tensor & self, at::TensorList inputs, const c10::optional<at::Tensor> & gradient={}, c10::optional<bool> retain_graph=c10::nullopt, bool create_graph=false);
+TORCH_API void _backward(const at::Tensor & self, at::TensorList inputs, const ::std::optional<at::Tensor> & gradient={}, ::std::optional<bool> retain_graph=::std::nullopt, bool create_graph=false);
 
 } // namespace compositeimplicitautograd
 } // namespace at

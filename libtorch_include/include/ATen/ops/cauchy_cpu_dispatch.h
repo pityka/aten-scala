@@ -17,7 +17,7 @@ namespace at {
 
 namespace cpu {
 
-TORCH_API at::Tensor & cauchy_(at::Tensor & self, double median=0, double sigma=1, c10::optional<at::Generator> generator=c10::nullopt);
+TORCH_API at::Tensor & cauchy_(at::Tensor & self, double median=0, double sigma=1, ::std::optional<at::Generator> generator=::std::nullopt);
 
 } // namespace cpu
 } // namespace at

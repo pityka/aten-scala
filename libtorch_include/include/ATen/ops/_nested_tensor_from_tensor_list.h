@@ -13,7 +13,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 
 
 
@@ -23,16 +23,16 @@ namespace at {
 
 
 // aten::_nested_tensor_from_tensor_list(Tensor[] list, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor
-inline at::Tensor _nested_tensor_from_tensor_list(at::TensorList list, c10::optional<at::ScalarType> dtype=c10::nullopt, c10::optional<at::Layout> layout=c10::nullopt, c10::optional<at::Device> device=c10::nullopt, c10::optional<bool> pin_memory=c10::nullopt) {
+inline at::Tensor _nested_tensor_from_tensor_list(at::TensorList list, ::std::optional<at::ScalarType> dtype=::std::nullopt, ::std::optional<at::Layout> layout=::std::nullopt, ::std::optional<at::Device> device=::std::nullopt, ::std::optional<bool> pin_memory=::std::nullopt) {
     return at::_ops::_nested_tensor_from_tensor_list::call(list, dtype, layout, device, pin_memory);
 }
 
 // aten::_nested_tensor_from_tensor_list.out(Tensor[] list, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None, *, Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & _nested_tensor_from_tensor_list_out(at::Tensor & out, at::TensorList list, c10::optional<at::ScalarType> dtype=c10::nullopt, c10::optional<at::Layout> layout=c10::nullopt, c10::optional<at::Device> device=c10::nullopt, c10::optional<bool> pin_memory=c10::nullopt) {
+inline at::Tensor & _nested_tensor_from_tensor_list_out(at::Tensor & out, at::TensorList list, ::std::optional<at::ScalarType> dtype=::std::nullopt, ::std::optional<at::Layout> layout=::std::nullopt, ::std::optional<at::Device> device=::std::nullopt, ::std::optional<bool> pin_memory=::std::nullopt) {
     return at::_ops::_nested_tensor_from_tensor_list_out::call(list, dtype, layout, device, pin_memory, out);
 }
 // aten::_nested_tensor_from_tensor_list.out(Tensor[] list, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None, *, Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & _nested_tensor_from_tensor_list_outf(at::TensorList list, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory, at::Tensor & out) {
+inline at::Tensor & _nested_tensor_from_tensor_list_outf(at::TensorList list, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory, at::Tensor & out) {
     return at::_ops::_nested_tensor_from_tensor_list_out::call(list, dtype, layout, device, pin_memory, out);
 }
 

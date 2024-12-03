@@ -17,7 +17,7 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
-TORCH_API bool is_pinned(const at::Tensor & self, c10::optional<at::Device> device=c10::nullopt);
+TORCH_API bool is_pinned(const at::Tensor & self, ::std::optional<at::Device> device=::std::nullopt);
 
 } // namespace compositeexplicitautograd
 } // namespace at

@@ -17,8 +17,8 @@ namespace at {
 
 namespace compositeimplicitautograd {
 
-TORCH_API at::Tensor softmax(const at::Tensor & self, int64_t dim, c10::optional<at::ScalarType> dtype=c10::nullopt);
-TORCH_API at::Tensor softmax(const at::Tensor & self, at::Dimname dim, c10::optional<at::ScalarType> dtype=c10::nullopt);
+TORCH_API at::Tensor softmax(const at::Tensor & self, int64_t dim, ::std::optional<at::ScalarType> dtype=::std::nullopt);
+TORCH_API at::Tensor softmax(const at::Tensor & self, at::Dimname dim, ::std::optional<at::ScalarType> dtype=::std::nullopt);
 
 } // namespace compositeimplicitautograd
 } // namespace at

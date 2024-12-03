@@ -13,7 +13,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 
 
 
@@ -28,7 +28,7 @@ inline at::Tensor native_norm(const at::Tensor & self, const at::Scalar & p=2) {
 }
 
 // aten::native_norm.ScalarOpt_dim_dtype(Tensor self, Scalar? p, int[1] dim, bool keepdim, ScalarType? dtype) -> Tensor
-inline at::Tensor native_norm(const at::Tensor & self, const c10::optional<at::Scalar> & p, at::IntArrayRef dim, bool keepdim, c10::optional<at::ScalarType> dtype) {
+inline at::Tensor native_norm(const at::Tensor & self, const ::std::optional<at::Scalar> & p, at::IntArrayRef dim, bool keepdim, ::std::optional<at::ScalarType> dtype) {
     return at::_ops::native_norm_ScalarOpt_dim_dtype::call(self, p, dim, keepdim, dtype);
 }
 
@@ -42,11 +42,11 @@ inline at::Tensor & native_norm_outf(const at::Tensor & self, const at::Scalar &
 }
 
 // aten::native_norm.ScalarOpt_dim_dtype_out(Tensor self, Scalar? p, int[1] dim, bool keepdim, ScalarType? dtype, *, Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & native_norm_out(at::Tensor & out, const at::Tensor & self, const c10::optional<at::Scalar> & p, at::IntArrayRef dim, bool keepdim, c10::optional<at::ScalarType> dtype) {
+inline at::Tensor & native_norm_out(at::Tensor & out, const at::Tensor & self, const ::std::optional<at::Scalar> & p, at::IntArrayRef dim, bool keepdim, ::std::optional<at::ScalarType> dtype) {
     return at::_ops::native_norm_ScalarOpt_dim_dtype_out::call(self, p, dim, keepdim, dtype, out);
 }
 // aten::native_norm.ScalarOpt_dim_dtype_out(Tensor self, Scalar? p, int[1] dim, bool keepdim, ScalarType? dtype, *, Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & native_norm_outf(const at::Tensor & self, const c10::optional<at::Scalar> & p, at::IntArrayRef dim, bool keepdim, c10::optional<at::ScalarType> dtype, at::Tensor & out) {
+inline at::Tensor & native_norm_outf(const at::Tensor & self, const ::std::optional<at::Scalar> & p, at::IntArrayRef dim, bool keepdim, ::std::optional<at::ScalarType> dtype, at::Tensor & out) {
     return at::_ops::native_norm_ScalarOpt_dim_dtype_out::call(self, p, dim, keepdim, dtype, out);
 }
 

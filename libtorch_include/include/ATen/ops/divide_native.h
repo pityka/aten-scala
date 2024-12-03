@@ -6,7 +6,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 #include <c10/core/QScheme.h>
 #include <ATen/core/Reduction.h>
 #include <ATen/core/Tensor.h>
@@ -21,10 +21,10 @@ TORCH_API at::Tensor & divide_out(const at::Tensor & self, const at::Tensor & ot
 TORCH_API at::Tensor & divide_(at::Tensor & self, const at::Tensor & other);
 TORCH_API at::Tensor divide(const at::Tensor & self, const at::Scalar & other);
 TORCH_API at::Tensor & divide_(at::Tensor & self, const at::Scalar & other);
-TORCH_API at::Tensor divide(const at::Tensor & self, const at::Tensor & other, c10::optional<c10::string_view> rounding_mode);
-TORCH_API at::Tensor & divide_out(const at::Tensor & self, const at::Tensor & other, c10::optional<c10::string_view> rounding_mode, at::Tensor & out);
-TORCH_API at::Tensor & divide_(at::Tensor & self, const at::Tensor & other, c10::optional<c10::string_view> rounding_mode);
-TORCH_API at::Tensor divide(const at::Tensor & self, const at::Scalar & other, c10::optional<c10::string_view> rounding_mode);
-TORCH_API at::Tensor & divide_(at::Tensor & self, const at::Scalar & other, c10::optional<c10::string_view> rounding_mode);
+TORCH_API at::Tensor divide(const at::Tensor & self, const at::Tensor & other, ::std::optional<c10::string_view> rounding_mode);
+TORCH_API at::Tensor & divide_out(const at::Tensor & self, const at::Tensor & other, ::std::optional<c10::string_view> rounding_mode, at::Tensor & out);
+TORCH_API at::Tensor & divide_(at::Tensor & self, const at::Tensor & other, ::std::optional<c10::string_view> rounding_mode);
+TORCH_API at::Tensor divide(const at::Tensor & self, const at::Scalar & other, ::std::optional<c10::string_view> rounding_mode);
+TORCH_API at::Tensor & divide_(at::Tensor & self, const at::Scalar & other, ::std::optional<c10::string_view> rounding_mode);
 } // namespace native
 } // namespace at

@@ -17,9 +17,9 @@ namespace at {
 
 namespace cuda {
 
-TORCH_API at::Tensor batch_norm_elemt(const at::Tensor & input, const c10::optional<at::Tensor> & weight, const c10::optional<at::Tensor> & bias, const at::Tensor & mean, const at::Tensor & invstd, double eps);
-TORCH_API at::Tensor & batch_norm_elemt_out(at::Tensor & out, const at::Tensor & input, const c10::optional<at::Tensor> & weight, const c10::optional<at::Tensor> & bias, const at::Tensor & mean, const at::Tensor & invstd, double eps);
-TORCH_API at::Tensor & batch_norm_elemt_outf(const at::Tensor & input, const c10::optional<at::Tensor> & weight, const c10::optional<at::Tensor> & bias, const at::Tensor & mean, const at::Tensor & invstd, double eps, at::Tensor & out);
+TORCH_API at::Tensor batch_norm_elemt(const at::Tensor & input, const ::std::optional<at::Tensor> & weight, const ::std::optional<at::Tensor> & bias, const at::Tensor & mean, const at::Tensor & invstd, double eps);
+TORCH_API at::Tensor & batch_norm_elemt_out(at::Tensor & out, const at::Tensor & input, const ::std::optional<at::Tensor> & weight, const ::std::optional<at::Tensor> & bias, const at::Tensor & mean, const at::Tensor & invstd, double eps);
+TORCH_API at::Tensor & batch_norm_elemt_outf(const at::Tensor & input, const ::std::optional<at::Tensor> & weight, const ::std::optional<at::Tensor> & bias, const at::Tensor & mean, const at::Tensor & invstd, double eps, at::Tensor & out);
 
 } // namespace cuda
 } // namespace at

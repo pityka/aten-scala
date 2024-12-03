@@ -6,7 +6,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 #include <c10/core/QScheme.h>
 #include <ATen/core/Reduction.h>
 #include <ATen/core/Tensor.h>
@@ -19,8 +19,7 @@ namespace native {
 TORCH_API at::Tensor & count_nonzero_dim_IntList_out(const at::Tensor & self, at::IntArrayRef dim, at::Tensor & out);
 TORCH_API at::Tensor count_nonzero_cpu(const at::Tensor & self, at::IntArrayRef dim);
 TORCH_API at::Tensor count_nonzero_cuda(const at::Tensor & self, at::IntArrayRef dim);
-TORCH_API at::Tensor count_nonzero_mps(const at::Tensor & self, at::IntArrayRef dim);
-TORCH_API at::Tensor count_nonzero(const at::Tensor & self, c10::optional<int64_t> dim=c10::nullopt);
-TORCH_API at::Tensor & count_nonzero_out(const at::Tensor & self, c10::optional<int64_t> dim, at::Tensor & out);
+TORCH_API at::Tensor count_nonzero(const at::Tensor & self, ::std::optional<int64_t> dim=::std::nullopt);
+TORCH_API at::Tensor & count_nonzero_out(const at::Tensor & self, ::std::optional<int64_t> dim, at::Tensor & out);
 } // namespace native
 } // namespace at

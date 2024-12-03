@@ -13,7 +13,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 
 
 
@@ -23,11 +23,11 @@ namespace at {
 
 
 // aten::to_mkldnn.out(Tensor self, ScalarType? dtype=None, *, Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & to_mkldnn_out(at::Tensor & out, const at::Tensor & self, c10::optional<at::ScalarType> dtype=c10::nullopt) {
+inline at::Tensor & to_mkldnn_out(at::Tensor & out, const at::Tensor & self, ::std::optional<at::ScalarType> dtype=::std::nullopt) {
     return at::_ops::to_mkldnn_out::call(self, dtype, out);
 }
 // aten::to_mkldnn.out(Tensor self, ScalarType? dtype=None, *, Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & to_mkldnn_outf(const at::Tensor & self, c10::optional<at::ScalarType> dtype, at::Tensor & out) {
+inline at::Tensor & to_mkldnn_outf(const at::Tensor & self, ::std::optional<at::ScalarType> dtype, at::Tensor & out) {
     return at::_ops::to_mkldnn_out::call(self, dtype, out);
 }
 

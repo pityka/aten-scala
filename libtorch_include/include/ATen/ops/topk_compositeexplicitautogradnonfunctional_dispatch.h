@@ -18,6 +18,7 @@ namespace at {
 namespace compositeexplicitautogradnonfunctional {
 
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> topk(const at::Tensor & self, int64_t k, int64_t dim=-1, bool largest=true, bool sorted=true);
+TORCH_API ::std::tuple<at::Tensor,at::Tensor> topk_symint(const at::Tensor & self, c10::SymInt k, int64_t dim=-1, bool largest=true, bool sorted=true);
 
 } // namespace compositeexplicitautogradnonfunctional
 } // namespace at

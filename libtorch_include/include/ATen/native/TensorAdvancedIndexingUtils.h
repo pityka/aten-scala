@@ -3,10 +3,10 @@
 #include <ATen/native/IndexingUtils.h>
 #include <ATen/native/TensorIterator.h>
 
-namespace at {
-namespace native {
+namespace at::native {
 namespace {
-static std::string shapes_as_str(TensorList tensors) {
+#ifndef STRIP_ERROR_MESSAGES
+inline std::string shapes_as_str(TensorList tensors) {
   std::ostringstream os;
   bool first = true;
   for (auto& tensor : tensors) {
@@ -20,9 +20,10 @@ static std::string shapes_as_str(TensorList tensors) {
   }
   return os.str();
 }
+#endif
 } // anonymous namespace
 
-static std::tuple<bool, Tensor> canDispatchToMaskedFill(const Tensor& self, const torch::List<c10::optional<at::Tensor>>& indices,
+inline std::tuple<bool, Tensor> canDispatchToMaskedFill(const Tensor& self, const torch::List<std::optional<at::Tensor>>& indices,
 const Tensor& value){
   if (!(value.numel() ==1 && value.device().is_cpu())){
     return std::make_tuple(false,Tensor());
@@ -30,11 +31,11 @@ const Tensor& value){
   int64_t num_ind = 0;
   Tensor mask;
   auto self_device = self.device();
-  for (const c10::optional<Tensor> i: indices) {
+  for (const std::optional<Tensor>& i: indices) {
     if (!i.has_value() || !(*i).defined()){
       num_ind++;
     } else {
-      Tensor index = std::move(*i);
+      const Tensor &index = *i;
       if ((index.scalar_type() != kByte && index.scalar_type() != kBool) ||
           index.device() != self_device || mask.defined()){
         return std::make_tuple(false, Tensor());
@@ -49,14 +50,13 @@ const Tensor& value){
       }
     }
   }
-  for (const auto i : c10::irange(num_ind, self.ndimension())) {
-    (void)i; //Suppress unused variable warning
+  for (C10_UNUSED const auto i : c10::irange(num_ind, self.ndimension())) {
     mask = mask.unsqueeze(-1);
   }
   return std::make_tuple(true, mask);
 }
 
-static AdvancedIndex make_info(Tensor self, IOptTensorListRef orig) {
+inline AdvancedIndex make_info(Tensor self, IOptTensorListRef orig) {
   checkIndexTensorTypes(orig, /*allow_int*/ true);
   // first expand BoolTensor (masks) or ByteTensor (masks) into 1 or more LongTensors
   auto indices = expandTensors(self, orig);
@@ -91,5 +91,4 @@ static AdvancedIndex make_info(Tensor self, IOptTensorListRef orig) {
   return AdvancedIndex(self, indices);
 }
 
-} // at
-} // native
+} // namespace at::native

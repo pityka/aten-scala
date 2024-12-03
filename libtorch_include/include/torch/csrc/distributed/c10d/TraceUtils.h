@@ -1,17 +1,52 @@
 #pragma once
-
+#include <c10/core/ScalarType.h>
+#include <c10/util/ApproximateClock.h>
 #include <c10/util/irange.h>
+#include <c10/util/string_view.h>
 #include <torch/csrc/distributed/c10d/Store.hpp>
 #include <torch/csrc/distributed/c10d/Types.hpp>
+#include <torch/csrc/distributed/c10d/Utils.hpp>
+#include <torch/csrc/jit/serialization/pickler.h>
+#include <torch/csrc/profiler/combined_traceback.h>
+#include <chrono>
 
 #include <sys/types.h>
-
 #include <cstdlib>
+#include <fstream>
 #include <string>
 #include <system_error>
 #include <vector>
 
 namespace c10d {
+
+// A struct to hold the latest status of the process group.
+struct ProcessGroupStatus {
+  // the sequential number of the last collective enqueued into workMetaList_
+  // This is useful for indentifying a rank that has not join a collective
+  // initialized to be -1 to indicate no collective has been enqueued
+  int64_t lastEnqueuedSeq{-1};
+  // the sequential number of the last collective started as the kernel
+  int64_t lastStartedSeq{-1};
+  // the sequential number of the last colletive completed marked by
+  // the watchdog thread
+  // initialized to be -1 to indicate no collective has been completed
+  int64_t lastCompletedSeq{-1};
+
+  // the name of the last collective enqueued into workMetaList_
+  std::string lastEnqueuedWorkName;
+  // the name of the last collective started as the kernel
+  std::string lastStartedWorkName;
+  // the name of the last collective completed
+  std::string lastCompletedWorkName;
+
+  // the sizes of the last work enqueued
+  size_t lastEnqueuedNumelIn;
+  size_t lastEnqueuedNumelOut;
+  // the sizes of the last work completed
+  size_t lastCompletedNumelIn;
+  size_t lastCompletedNumelOut;
+};
+
 inline std::string getTraceStartKey(const std::string& pgName, int rank) {
   return pgName + "_" + std::to_string(rank) + "_trace_start";
 }
@@ -254,6 +289,64 @@ inline std::string retrieveDesyncReport(
   }
 
   return report;
+}
+
+inline std::string pickle_str(const c10::IValue& v) {
+  std::vector<char> result;
+  {
+    auto writer = [&](const char* data, size_t size) {
+      result.insert(result.end(), data, data + size);
+    };
+    torch::jit::Pickler pickler(
+        writer, nullptr, nullptr, nullptr, nullptr, false);
+    pickler.protocol();
+    pickler.pushIValue(v);
+    pickler.stop();
+  }
+  return std::string(result.begin(), result.end());
+}
+
+inline std::string get_python_cpp_trace() {
+  // usage:
+  // LOG(INFO) << "stacktrace: "
+  //           << get_python_cpp_trace();
+  // warn: might be slow in getting cpp traces
+  // because of slow/broken addr2line
+  // in different system libs
+  std::shared_ptr<torch::CapturedTraceback> tb =
+      torch::CapturedTraceback::gather(
+          /*python=*/true, /*script=*/true, /*cpp=*/true);
+  torch::SymbolizedTracebacks s_tbs = torch::symbolize({tb.get()});
+  const auto& s_tb = s_tbs.tracebacks.at(0);
+  std::stringstream oss;
+  for (auto idx : c10::irange(s_tb.size())) {
+    auto frame_id = s_tb[idx];
+    const auto& frame = s_tbs.all_frames.at(frame_id);
+    oss << "#" << idx << " " << frame.funcname << " from " << frame.filename
+        << ":" << frame.lineno << std::endl;
+  }
+  return oss.str();
+}
+
+inline c10::Dict<c10::IValue, c10::IValue> new_dict() {
+  return c10::Dict<c10::IValue, c10::IValue>(
+      c10::AnyType::get(), c10::AnyType::get());
+}
+
+inline c10::List<c10::IValue> new_list() {
+  return c10::List<c10::IValue>(c10::AnyType::get());
+}
+
+inline std::string ranks_str(const std::vector<uint64_t>& ranks) {
+  std::string str;
+  for (const auto& rank : ranks) {
+    if (str.empty()) {
+      str = std::to_string(rank);
+    } else {
+      str += ", " + std::to_string(rank);
+    }
+  }
+  return c10::str("[", str, "]");
 }
 
 } // namespace c10d

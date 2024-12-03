@@ -13,7 +13,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 
 
 
@@ -53,6 +53,15 @@ inline ::std::tuple<at::Tensor &,at::Tensor &> min_outf(const at::Tensor & self,
 // aten::min(Tensor self) -> Tensor
 inline at::Tensor min(const at::Tensor & self) {
     return at::_ops::min::call(self);
+}
+
+// aten::min.unary_out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & min_out(at::Tensor & out, const at::Tensor & self) {
+    return at::_ops::min_unary_out::call(self, out);
+}
+// aten::min.unary_out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & min_outf(const at::Tensor & self, at::Tensor & out) {
+    return at::_ops::min_unary_out::call(self, out);
 }
 
 // aten::min.out(Tensor self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)

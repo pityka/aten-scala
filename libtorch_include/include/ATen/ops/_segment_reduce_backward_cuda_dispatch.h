@@ -17,7 +17,7 @@ namespace at {
 
 namespace cuda {
 
-TORCH_API at::Tensor _segment_reduce_backward(const at::Tensor & grad, const at::Tensor & output, const at::Tensor & data, c10::string_view reduce, const c10::optional<at::Tensor> & lengths={}, const c10::optional<at::Tensor> & offsets={}, int64_t axis=0, const c10::optional<at::Scalar> & initial=c10::nullopt);
+TORCH_API at::Tensor _segment_reduce_backward(const at::Tensor & grad, const at::Tensor & output, const at::Tensor & data, c10::string_view reduce, const ::std::optional<at::Tensor> & lengths={}, const ::std::optional<at::Tensor> & offsets={}, int64_t axis=0, const ::std::optional<at::Scalar> & initial=::std::nullopt);
 
 } // namespace cuda
 } // namespace at

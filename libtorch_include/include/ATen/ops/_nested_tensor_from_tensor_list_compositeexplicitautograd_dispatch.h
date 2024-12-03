@@ -17,9 +17,9 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
-TORCH_API at::Tensor _nested_tensor_from_tensor_list(at::TensorList list, c10::optional<at::ScalarType> dtype=c10::nullopt, c10::optional<at::Layout> layout=c10::nullopt, c10::optional<at::Device> device=c10::nullopt, c10::optional<bool> pin_memory=c10::nullopt);
-TORCH_API at::Tensor & _nested_tensor_from_tensor_list_out(at::Tensor & out, at::TensorList list, c10::optional<at::ScalarType> dtype=c10::nullopt, c10::optional<at::Layout> layout=c10::nullopt, c10::optional<at::Device> device=c10::nullopt, c10::optional<bool> pin_memory=c10::nullopt);
-TORCH_API at::Tensor & _nested_tensor_from_tensor_list_outf(at::TensorList list, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory, at::Tensor & out);
+TORCH_API at::Tensor _nested_tensor_from_tensor_list(at::TensorList list, ::std::optional<at::ScalarType> dtype=::std::nullopt, ::std::optional<at::Layout> layout=::std::nullopt, ::std::optional<at::Device> device=::std::nullopt, ::std::optional<bool> pin_memory=::std::nullopt);
+TORCH_API at::Tensor & _nested_tensor_from_tensor_list_out(at::Tensor & out, at::TensorList list, ::std::optional<at::ScalarType> dtype=::std::nullopt, ::std::optional<at::Layout> layout=::std::nullopt, ::std::optional<at::Device> device=::std::nullopt, ::std::optional<bool> pin_memory=::std::nullopt);
+TORCH_API at::Tensor & _nested_tensor_from_tensor_list_outf(at::TensorList list, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory, at::Tensor & out);
 
 } // namespace compositeexplicitautograd
 } // namespace at

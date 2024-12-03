@@ -17,8 +17,8 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
-TORCH_API at::Tensor & from_file_out(at::Tensor & out, c10::string_view filename, c10::optional<bool> shared=c10::nullopt, c10::optional<int64_t> size=0);
-TORCH_API at::Tensor & from_file_outf(c10::string_view filename, c10::optional<bool> shared, c10::optional<int64_t> size, at::Tensor & out);
+TORCH_API at::Tensor & from_file_out(at::Tensor & out, c10::string_view filename, ::std::optional<bool> shared=::std::nullopt, ::std::optional<int64_t> size=0);
+TORCH_API at::Tensor & from_file_outf(c10::string_view filename, ::std::optional<bool> shared, ::std::optional<int64_t> size, at::Tensor & out);
 
 } // namespace compositeexplicitautograd
 } // namespace at

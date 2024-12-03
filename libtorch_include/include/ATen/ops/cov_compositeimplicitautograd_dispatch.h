@@ -17,7 +17,7 @@ namespace at {
 
 namespace compositeimplicitautograd {
 
-TORCH_API at::Tensor cov(const at::Tensor & self, int64_t correction=1, const c10::optional<at::Tensor> & fweights={}, const c10::optional<at::Tensor> & aweights={});
+TORCH_API at::Tensor cov(const at::Tensor & self, int64_t correction=1, const ::std::optional<at::Tensor> & fweights={}, const ::std::optional<at::Tensor> & aweights={});
 
 } // namespace compositeimplicitautograd
 } // namespace at

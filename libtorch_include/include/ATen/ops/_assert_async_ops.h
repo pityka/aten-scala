@@ -25,4 +25,15 @@ struct TORCH_API _assert_async {
   static void redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self);
 };
 
+struct TORCH_API _assert_async_msg {
+  using schema = void (const at::Tensor &, c10::string_view);
+  using ptr_schema = schema*;
+  // See Note [static constexpr char* members for windows NVCC]
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_assert_async")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "msg")
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_assert_async.msg(Tensor self, str assert_msg) -> ()")
+  static void call(const at::Tensor & self, c10::string_view assert_msg);
+  static void redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, c10::string_view assert_msg);
+};
+
 }} // namespace at::_ops

@@ -17,9 +17,9 @@ namespace at {
 
 namespace compositeimplicitautograd {
 
-TORCH_API at::Tensor linalg_svdvals(const at::Tensor & A, c10::optional<c10::string_view> driver=c10::nullopt);
-TORCH_API at::Tensor & linalg_svdvals_out(at::Tensor & out, const at::Tensor & A, c10::optional<c10::string_view> driver=c10::nullopt);
-TORCH_API at::Tensor & linalg_svdvals_outf(const at::Tensor & A, c10::optional<c10::string_view> driver, at::Tensor & out);
+TORCH_API at::Tensor linalg_svdvals(const at::Tensor & A, ::std::optional<c10::string_view> driver=::std::nullopt);
+TORCH_API at::Tensor & linalg_svdvals_out(at::Tensor & out, const at::Tensor & A, ::std::optional<c10::string_view> driver=::std::nullopt);
+TORCH_API at::Tensor & linalg_svdvals_outf(const at::Tensor & A, ::std::optional<c10::string_view> driver, at::Tensor & out);
 
 } // namespace compositeimplicitautograd
 } // namespace at

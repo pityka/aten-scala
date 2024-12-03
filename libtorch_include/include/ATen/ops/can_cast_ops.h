@@ -20,9 +20,9 @@ struct TORCH_API can_cast {
   // See Note [static constexpr char* members for windows NVCC]
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::can_cast")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "can_cast(ScalarType from, ScalarType to) -> bool")
-  static bool call(at::ScalarType from, at::ScalarType to);
-  static bool redispatch(c10::DispatchKeySet dispatchKeySet, at::ScalarType from, at::ScalarType to);
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "can_cast(ScalarType from_, ScalarType to) -> bool")
+  static bool call(at::ScalarType from_, at::ScalarType to);
+  static bool redispatch(c10::DispatchKeySet dispatchKeySet, at::ScalarType from_, at::ScalarType to);
 };
 
 }} // namespace at::_ops

@@ -13,7 +13,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 
 
 
@@ -22,9 +22,26 @@
 namespace at {
 
 
-// aten::_efficient_attention_forward(Tensor query, Tensor key, Tensor value, Tensor? cu_seqlens_q, Tensor? cu_seqlens_k, int? max_seqlen_q, bool compute_log_sumexp=False, bool causal=False) -> (Tensor, Tensor)
-inline ::std::tuple<at::Tensor,at::Tensor> _efficient_attention_forward(const at::Tensor & query, const at::Tensor & key, const at::Tensor & value, const c10::optional<at::Tensor> & cu_seqlens_q, const c10::optional<at::Tensor> & cu_seqlens_k, c10::optional<int64_t> max_seqlen_q, bool compute_log_sumexp=false, bool causal=false) {
-    return at::_ops::_efficient_attention_forward::call(query, key, value, cu_seqlens_q, cu_seqlens_k, max_seqlen_q, compute_log_sumexp, causal);
+// aten::_efficient_attention_forward(Tensor query, Tensor key, Tensor value, Tensor? bias, Tensor? cu_seqlens_q, Tensor? cu_seqlens_k, SymInt? max_seqlen_q, SymInt? max_seqlen_k, float dropout_p, int custom_mask_type, bool compute_log_sumexp=False, *, float? scale=None, Tensor? seqlen_k=None, int? window_size=None) -> (Tensor output, Tensor logsumexp, Tensor philox_seed, Tensor philox_offset, SymInt max_seqlen_batch_q, SymInt max_seqlen_batch_k)
+inline ::std::tuple<at::Tensor,at::Tensor,at::Tensor,at::Tensor,c10::SymInt,c10::SymInt> _efficient_attention_forward(const at::Tensor & query, const at::Tensor & key, const at::Tensor & value, const ::std::optional<at::Tensor> & bias, const ::std::optional<at::Tensor> & cu_seqlens_q, const ::std::optional<at::Tensor> & cu_seqlens_k, ::std::optional<int64_t> max_seqlen_q, ::std::optional<int64_t> max_seqlen_k, double dropout_p, int64_t custom_mask_type, bool compute_log_sumexp=false, ::std::optional<double> scale=::std::nullopt, const ::std::optional<at::Tensor> & seqlen_k={}, ::std::optional<int64_t> window_size=::std::nullopt) {
+    return at::_ops::_efficient_attention_forward::call(query, key, value, bias, cu_seqlens_q, cu_seqlens_k, max_seqlen_q.has_value() ? ::std::make_optional(c10::SymInt(*max_seqlen_q)) : ::std::nullopt, max_seqlen_k.has_value() ? ::std::make_optional(c10::SymInt(*max_seqlen_k)) : ::std::nullopt, dropout_p, custom_mask_type, compute_log_sumexp, scale, seqlen_k, window_size);
+}
+namespace symint {
+  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  ::std::tuple<at::Tensor,at::Tensor,at::Tensor,at::Tensor,c10::SymInt,c10::SymInt> _efficient_attention_forward(const at::Tensor & query, const at::Tensor & key, const at::Tensor & value, const ::std::optional<at::Tensor> & bias, const ::std::optional<at::Tensor> & cu_seqlens_q, const ::std::optional<at::Tensor> & cu_seqlens_k, ::std::optional<int64_t> max_seqlen_q, ::std::optional<int64_t> max_seqlen_k, double dropout_p, int64_t custom_mask_type, bool compute_log_sumexp=false, ::std::optional<double> scale=::std::nullopt, const ::std::optional<at::Tensor> & seqlen_k={}, ::std::optional<int64_t> window_size=::std::nullopt) {
+    return at::_ops::_efficient_attention_forward::call(query, key, value, bias, cu_seqlens_q, cu_seqlens_k, max_seqlen_q.has_value() ? ::std::make_optional(c10::SymInt(*max_seqlen_q)) : ::std::nullopt, max_seqlen_k.has_value() ? ::std::make_optional(c10::SymInt(*max_seqlen_k)) : ::std::nullopt, dropout_p, custom_mask_type, compute_log_sumexp, scale, seqlen_k, window_size);
+  }
+}
+
+// aten::_efficient_attention_forward(Tensor query, Tensor key, Tensor value, Tensor? bias, Tensor? cu_seqlens_q, Tensor? cu_seqlens_k, SymInt? max_seqlen_q, SymInt? max_seqlen_k, float dropout_p, int custom_mask_type, bool compute_log_sumexp=False, *, float? scale=None, Tensor? seqlen_k=None, int? window_size=None) -> (Tensor output, Tensor logsumexp, Tensor philox_seed, Tensor philox_offset, SymInt max_seqlen_batch_q, SymInt max_seqlen_batch_k)
+inline ::std::tuple<at::Tensor,at::Tensor,at::Tensor,at::Tensor,c10::SymInt,c10::SymInt> _efficient_attention_forward_symint(const at::Tensor & query, const at::Tensor & key, const at::Tensor & value, const ::std::optional<at::Tensor> & bias, const ::std::optional<at::Tensor> & cu_seqlens_q, const ::std::optional<at::Tensor> & cu_seqlens_k, ::std::optional<c10::SymInt> max_seqlen_q, ::std::optional<c10::SymInt> max_seqlen_k, double dropout_p, int64_t custom_mask_type, bool compute_log_sumexp=false, ::std::optional<double> scale=::std::nullopt, const ::std::optional<at::Tensor> & seqlen_k={}, ::std::optional<int64_t> window_size=::std::nullopt) {
+    return at::_ops::_efficient_attention_forward::call(query, key, value, bias, cu_seqlens_q, cu_seqlens_k, max_seqlen_q, max_seqlen_k, dropout_p, custom_mask_type, compute_log_sumexp, scale, seqlen_k, window_size);
+}
+namespace symint {
+  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  ::std::tuple<at::Tensor,at::Tensor,at::Tensor,at::Tensor,c10::SymInt,c10::SymInt> _efficient_attention_forward(const at::Tensor & query, const at::Tensor & key, const at::Tensor & value, const ::std::optional<at::Tensor> & bias, const ::std::optional<at::Tensor> & cu_seqlens_q, const ::std::optional<at::Tensor> & cu_seqlens_k, ::std::optional<c10::SymInt> max_seqlen_q, ::std::optional<c10::SymInt> max_seqlen_k, double dropout_p, int64_t custom_mask_type, bool compute_log_sumexp=false, ::std::optional<double> scale=::std::nullopt, const ::std::optional<at::Tensor> & seqlen_k={}, ::std::optional<int64_t> window_size=::std::nullopt) {
+    return at::_ops::_efficient_attention_forward::call(query, key, value, bias, cu_seqlens_q, cu_seqlens_k, max_seqlen_q, max_seqlen_k, dropout_p, custom_mask_type, compute_log_sumexp, scale, seqlen_k, window_size);
+  }
 }
 
 }

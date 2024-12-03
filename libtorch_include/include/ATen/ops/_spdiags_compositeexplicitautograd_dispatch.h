@@ -17,8 +17,8 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
-TORCH_API at::Tensor & _spdiags_out(at::Tensor & out, const at::Tensor & diagonals, const at::Tensor & offsets, at::IntArrayRef shape, c10::optional<at::Layout> layout=c10::nullopt);
-TORCH_API at::Tensor & _spdiags_outf(const at::Tensor & diagonals, const at::Tensor & offsets, at::IntArrayRef shape, c10::optional<at::Layout> layout, at::Tensor & out);
+TORCH_API at::Tensor & _spdiags_out(at::Tensor & out, const at::Tensor & diagonals, const at::Tensor & offsets, at::IntArrayRef shape, ::std::optional<at::Layout> layout=::std::nullopt);
+TORCH_API at::Tensor & _spdiags_outf(const at::Tensor & diagonals, const at::Tensor & offsets, at::IntArrayRef shape, ::std::optional<at::Layout> layout, at::Tensor & out);
 
 } // namespace compositeexplicitautograd
 } // namespace at

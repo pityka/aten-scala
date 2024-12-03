@@ -17,8 +17,8 @@ namespace at {
 
 namespace cpu {
 
-TORCH_API at::Tensor from_file(c10::string_view filename, c10::optional<bool> shared=c10::nullopt, c10::optional<int64_t> size=0, at::TensorOptions options={});
-TORCH_API at::Tensor from_file(c10::string_view filename, c10::optional<bool> shared, c10::optional<int64_t> size, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory);
+TORCH_API at::Tensor from_file(c10::string_view filename, ::std::optional<bool> shared=::std::nullopt, ::std::optional<int64_t> size=0, at::TensorOptions options={});
+TORCH_API at::Tensor from_file(c10::string_view filename, ::std::optional<bool> shared, ::std::optional<int64_t> size, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory);
 
 } // namespace cpu
 } // namespace at

@@ -15,25 +15,25 @@ namespace _ops {
 
 
 struct TORCH_API from_file {
-  using schema = at::Tensor (c10::string_view, c10::optional<bool>, c10::optional<int64_t>, c10::optional<at::ScalarType>, c10::optional<at::Layout>, c10::optional<at::Device>, c10::optional<bool>);
+  using schema = at::Tensor (c10::string_view, ::std::optional<bool>, ::std::optional<int64_t>, ::std::optional<at::ScalarType>, ::std::optional<at::Layout>, ::std::optional<at::Device>, ::std::optional<bool>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::from_file")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "from_file(str filename, bool? shared=None, int? size=0, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor")
-  static at::Tensor call(c10::string_view filename, c10::optional<bool> shared, c10::optional<int64_t> size, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory);
-  static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, c10::string_view filename, c10::optional<bool> shared, c10::optional<int64_t> size, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory);
+  static at::Tensor call(c10::string_view filename, ::std::optional<bool> shared, ::std::optional<int64_t> size, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory);
+  static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, c10::string_view filename, ::std::optional<bool> shared, ::std::optional<int64_t> size, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory);
 };
 
 struct TORCH_API from_file_out {
-  using schema = at::Tensor & (c10::string_view, c10::optional<bool>, c10::optional<int64_t>, at::Tensor &);
+  using schema = at::Tensor & (c10::string_view, ::std::optional<bool>, ::std::optional<int64_t>, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::from_file")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "from_file.out(str filename, bool? shared=None, int? size=0, *, Tensor(a!) out) -> Tensor(a!)")
-  static at::Tensor & call(c10::string_view filename, c10::optional<bool> shared, c10::optional<int64_t> size, at::Tensor & out);
-  static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, c10::string_view filename, c10::optional<bool> shared, c10::optional<int64_t> size, at::Tensor & out);
+  static at::Tensor & call(c10::string_view filename, ::std::optional<bool> shared, ::std::optional<int64_t> size, at::Tensor & out);
+  static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, c10::string_view filename, ::std::optional<bool> shared, ::std::optional<int64_t> size, at::Tensor & out);
 };
 
 }} // namespace at::_ops

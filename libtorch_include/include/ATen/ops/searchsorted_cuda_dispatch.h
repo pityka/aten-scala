@@ -17,10 +17,12 @@ namespace at {
 
 namespace cuda {
 
-TORCH_API at::Tensor searchsorted(const at::Tensor & sorted_sequence, const at::Tensor & self, bool out_int32=false, bool right=false, c10::optional<c10::string_view> side=c10::nullopt, const c10::optional<at::Tensor> & sorter={});
-TORCH_API at::Tensor & searchsorted_out(at::Tensor & out, const at::Tensor & sorted_sequence, const at::Tensor & self, bool out_int32=false, bool right=false, c10::optional<c10::string_view> side=c10::nullopt, const c10::optional<at::Tensor> & sorter={});
-TORCH_API at::Tensor & searchsorted_outf(const at::Tensor & sorted_sequence, const at::Tensor & self, bool out_int32, bool right, c10::optional<c10::string_view> side, const c10::optional<at::Tensor> & sorter, at::Tensor & out);
-TORCH_API at::Tensor searchsorted(const at::Tensor & sorted_sequence, const at::Scalar & self, bool out_int32=false, bool right=false, c10::optional<c10::string_view> side=c10::nullopt, const c10::optional<at::Tensor> & sorter={});
+TORCH_API at::Tensor searchsorted(const at::Tensor & sorted_sequence, const at::Tensor & self, bool out_int32=false, bool right=false, ::std::optional<c10::string_view> side=::std::nullopt, const ::std::optional<at::Tensor> & sorter={});
+TORCH_API at::Tensor & searchsorted_out(at::Tensor & out, const at::Tensor & sorted_sequence, const at::Tensor & self, bool out_int32=false, bool right=false, ::std::optional<c10::string_view> side=::std::nullopt, const ::std::optional<at::Tensor> & sorter={});
+TORCH_API at::Tensor & searchsorted_outf(const at::Tensor & sorted_sequence, const at::Tensor & self, bool out_int32, bool right, ::std::optional<c10::string_view> side, const ::std::optional<at::Tensor> & sorter, at::Tensor & out);
+TORCH_API at::Tensor searchsorted(const at::Tensor & sorted_sequence, const at::Scalar & self, bool out_int32=false, bool right=false, ::std::optional<c10::string_view> side=::std::nullopt, const ::std::optional<at::Tensor> & sorter={});
+TORCH_API at::Tensor & searchsorted_out(at::Tensor & out, const at::Tensor & sorted_sequence, const at::Scalar & self, bool out_int32=false, bool right=false, ::std::optional<c10::string_view> side=::std::nullopt, const ::std::optional<at::Tensor> & sorter={});
+TORCH_API at::Tensor & searchsorted_outf(const at::Tensor & sorted_sequence, const at::Scalar & self, bool out_int32, bool right, ::std::optional<c10::string_view> side, const ::std::optional<at::Tensor> & sorter, at::Tensor & out);
 
 } // namespace cuda
 } // namespace at

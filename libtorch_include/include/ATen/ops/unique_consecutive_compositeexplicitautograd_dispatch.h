@@ -17,8 +17,8 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
-TORCH_API ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> unique_consecutive_out(at::Tensor & out0, at::Tensor & out1, at::Tensor & out2, const at::Tensor & self, bool return_inverse=false, bool return_counts=false, c10::optional<int64_t> dim=c10::nullopt);
-TORCH_API ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> unique_consecutive_outf(const at::Tensor & self, bool return_inverse, bool return_counts, c10::optional<int64_t> dim, at::Tensor & out0, at::Tensor & out1, at::Tensor & out2);
+TORCH_API ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> unique_consecutive_out(at::Tensor & out0, at::Tensor & out1, at::Tensor & out2, const at::Tensor & self, bool return_inverse=false, bool return_counts=false, ::std::optional<int64_t> dim=::std::nullopt);
+TORCH_API ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> unique_consecutive_outf(const at::Tensor & self, bool return_inverse, bool return_counts, ::std::optional<int64_t> dim, at::Tensor & out0, at::Tensor & out1, at::Tensor & out2);
 
 } // namespace compositeexplicitautograd
 } // namespace at

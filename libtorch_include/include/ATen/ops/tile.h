@@ -13,7 +13,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 
 
 
@@ -22,9 +22,26 @@
 namespace at {
 
 
-// aten::tile(Tensor self, int[] dims) -> Tensor
+// aten::tile(Tensor self, SymInt[] dims) -> Tensor
 inline at::Tensor tile(const at::Tensor & self, at::IntArrayRef dims) {
+    return at::_ops::tile::call(self, c10::fromIntArrayRefSlow(dims));
+}
+namespace symint {
+  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  at::Tensor tile(const at::Tensor & self, at::IntArrayRef dims) {
+    return at::_ops::tile::call(self, c10::fromIntArrayRefSlow(dims));
+  }
+}
+
+// aten::tile(Tensor self, SymInt[] dims) -> Tensor
+inline at::Tensor tile_symint(const at::Tensor & self, c10::SymIntArrayRef dims) {
     return at::_ops::tile::call(self, dims);
+}
+namespace symint {
+  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  at::Tensor tile(const at::Tensor & self, c10::SymIntArrayRef dims) {
+    return at::_ops::tile::call(self, dims);
+  }
 }
 
 }

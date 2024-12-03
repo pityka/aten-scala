@@ -17,8 +17,8 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
-TORCH_API at::Tensor & _histogramdd_from_bin_tensors_out(at::Tensor & out, const at::Tensor & self, at::TensorList bins, const c10::optional<at::Tensor> & weight={}, bool density=false);
-TORCH_API at::Tensor & _histogramdd_from_bin_tensors_outf(const at::Tensor & self, at::TensorList bins, const c10::optional<at::Tensor> & weight, bool density, at::Tensor & out);
+TORCH_API at::Tensor & _histogramdd_from_bin_tensors_out(at::Tensor & out, const at::Tensor & self, at::TensorList bins, const ::std::optional<at::Tensor> & weight={}, bool density=false);
+TORCH_API at::Tensor & _histogramdd_from_bin_tensors_outf(const at::Tensor & self, at::TensorList bins, const ::std::optional<at::Tensor> & weight, bool density, at::Tensor & out);
 
 } // namespace compositeexplicitautograd
 } // namespace at

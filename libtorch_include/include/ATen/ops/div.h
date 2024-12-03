@@ -13,7 +13,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 
 
 
@@ -37,16 +37,16 @@ inline at::Tensor & div_outf(const at::Tensor & self, const at::Tensor & other, 
 }
 
 // aten::div.Tensor_mode(Tensor self, Tensor other, *, str? rounding_mode) -> Tensor
-inline at::Tensor div(const at::Tensor & self, const at::Tensor & other, c10::optional<c10::string_view> rounding_mode) {
+inline at::Tensor div(const at::Tensor & self, const at::Tensor & other, ::std::optional<c10::string_view> rounding_mode) {
     return at::_ops::div_Tensor_mode::call(self, other, rounding_mode);
 }
 
 // aten::div.out_mode(Tensor self, Tensor other, *, str? rounding_mode, Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & div_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & other, c10::optional<c10::string_view> rounding_mode) {
+inline at::Tensor & div_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & other, ::std::optional<c10::string_view> rounding_mode) {
     return at::_ops::div_out_mode::call(self, other, rounding_mode, out);
 }
 // aten::div.out_mode(Tensor self, Tensor other, *, str? rounding_mode, Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & div_outf(const at::Tensor & self, const at::Tensor & other, c10::optional<c10::string_view> rounding_mode, at::Tensor & out) {
+inline at::Tensor & div_outf(const at::Tensor & self, const at::Tensor & other, ::std::optional<c10::string_view> rounding_mode, at::Tensor & out) {
     return at::_ops::div_out_mode::call(self, other, rounding_mode, out);
 }
 
@@ -56,7 +56,7 @@ inline at::Tensor div(const at::Tensor & self, const at::Scalar & other) {
 }
 
 // aten::div.Scalar_mode(Tensor self, Scalar other, *, str? rounding_mode) -> Tensor
-inline at::Tensor div(const at::Tensor & self, const at::Scalar & other, c10::optional<c10::string_view> rounding_mode) {
+inline at::Tensor div(const at::Tensor & self, const at::Scalar & other, ::std::optional<c10::string_view> rounding_mode) {
     return at::_ops::div_Scalar_mode::call(self, other, rounding_mode);
 }
 
@@ -70,11 +70,11 @@ inline at::Tensor & div_outf(const at::Tensor & self, const at::Scalar & other, 
 }
 
 // aten::div.Scalar_mode_out(Tensor self, Scalar other, *, str? rounding_mode, Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & div_out(at::Tensor & out, const at::Tensor & self, const at::Scalar & other, c10::optional<c10::string_view> rounding_mode) {
+inline at::Tensor & div_out(at::Tensor & out, const at::Tensor & self, const at::Scalar & other, ::std::optional<c10::string_view> rounding_mode) {
     return at::_ops::div_Scalar_mode_out::call(self, other, rounding_mode, out);
 }
 // aten::div.Scalar_mode_out(Tensor self, Scalar other, *, str? rounding_mode, Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & div_outf(const at::Tensor & self, const at::Scalar & other, c10::optional<c10::string_view> rounding_mode, at::Tensor & out) {
+inline at::Tensor & div_outf(const at::Tensor & self, const at::Scalar & other, ::std::optional<c10::string_view> rounding_mode, at::Tensor & out) {
     return at::_ops::div_Scalar_mode_out::call(self, other, rounding_mode, out);
 }
 

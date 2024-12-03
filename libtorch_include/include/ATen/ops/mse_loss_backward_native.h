@@ -6,7 +6,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 #include <c10/core/QScheme.h>
 #include <ATen/core/Reduction.h>
 #include <ATen/core/Tensor.h>
@@ -18,7 +18,5 @@ namespace at {
 namespace native {
 TORCH_API at::Tensor mse_loss_backward(const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & target, int64_t reduction);
 TORCH_API at::Tensor & mse_loss_backward_out(const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & target, int64_t reduction, at::Tensor & grad_input);
-TORCH_API at::Tensor mse_loss_backward_mps(const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & target, int64_t reduction);
-TORCH_API at::Tensor & mse_loss_backward_out_mps(const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & target, int64_t reduction, at::Tensor & grad_input);
 } // namespace native
 } // namespace at

@@ -15,14 +15,14 @@ namespace _ops {
 
 
 struct TORCH_API pad_sequence {
-  using schema = at::Tensor (at::TensorList, bool, double);
+  using schema = at::Tensor (at::TensorList, bool, double, c10::string_view);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::pad_sequence")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "pad_sequence(Tensor[] sequences, bool batch_first=False, float padding_value=0.0) -> Tensor")
-  static at::Tensor call(at::TensorList sequences, bool batch_first, double padding_value);
-  static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList sequences, bool batch_first, double padding_value);
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "pad_sequence(Tensor[] sequences, bool batch_first=False, float padding_value=0.0, str padding_side=\"right\") -> Tensor")
+  static at::Tensor call(at::TensorList sequences, bool batch_first, double padding_value, c10::string_view padding_side);
+  static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList sequences, bool batch_first, double padding_value, c10::string_view padding_side);
 };
 
 }} // namespace at::_ops

@@ -17,9 +17,9 @@ namespace at {
 
 namespace cuda {
 
-TORCH_API ::std::tuple<at::Tensor,at::Tensor,at::Tensor> _linalg_svd(const at::Tensor & A, bool full_matrices=false, bool compute_uv=true, c10::optional<c10::string_view> driver=c10::nullopt);
-TORCH_API ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> _linalg_svd_out(at::Tensor & U, at::Tensor & S, at::Tensor & Vh, const at::Tensor & A, bool full_matrices=false, bool compute_uv=true, c10::optional<c10::string_view> driver=c10::nullopt);
-TORCH_API ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> _linalg_svd_outf(const at::Tensor & A, bool full_matrices, bool compute_uv, c10::optional<c10::string_view> driver, at::Tensor & U, at::Tensor & S, at::Tensor & Vh);
+TORCH_API ::std::tuple<at::Tensor,at::Tensor,at::Tensor> _linalg_svd(const at::Tensor & A, bool full_matrices=false, bool compute_uv=true, ::std::optional<c10::string_view> driver=::std::nullopt);
+TORCH_API ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> _linalg_svd_out(at::Tensor & U, at::Tensor & S, at::Tensor & Vh, const at::Tensor & A, bool full_matrices=false, bool compute_uv=true, ::std::optional<c10::string_view> driver=::std::nullopt);
+TORCH_API ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> _linalg_svd_outf(const at::Tensor & A, bool full_matrices, bool compute_uv, ::std::optional<c10::string_view> driver, at::Tensor & U, at::Tensor & S, at::Tensor & Vh);
 
 } // namespace cuda
 } // namespace at

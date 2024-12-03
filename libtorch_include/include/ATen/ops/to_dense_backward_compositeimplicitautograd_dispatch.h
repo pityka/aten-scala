@@ -17,7 +17,7 @@ namespace at {
 
 namespace compositeimplicitautograd {
 
-TORCH_API at::Tensor to_dense_backward(const at::Tensor & grad, const at::Tensor & input);
+TORCH_API at::Tensor to_dense_backward(const at::Tensor & grad, const at::Tensor & input, ::std::optional<bool> masked_grad=::std::nullopt);
 
 } // namespace compositeimplicitautograd
 } // namespace at

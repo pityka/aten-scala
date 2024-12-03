@@ -17,9 +17,9 @@ namespace at {
 
 namespace cpu {
 
-TORCH_API ::std::tuple<at::Tensor,at::Tensor> sort(const at::Tensor & self, c10::optional<bool> stable, int64_t dim=-1, bool descending=false);
-TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> sort_out(at::Tensor & values, at::Tensor & indices, const at::Tensor & self, c10::optional<bool> stable, int64_t dim=-1, bool descending=false);
-TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> sort_outf(const at::Tensor & self, c10::optional<bool> stable, int64_t dim, bool descending, at::Tensor & values, at::Tensor & indices);
+TORCH_API ::std::tuple<at::Tensor,at::Tensor> sort(const at::Tensor & self, ::std::optional<bool> stable, int64_t dim=-1, bool descending=false);
+TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> sort_out(at::Tensor & values, at::Tensor & indices, const at::Tensor & self, ::std::optional<bool> stable, int64_t dim=-1, bool descending=false);
+TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> sort_outf(const at::Tensor & self, ::std::optional<bool> stable, int64_t dim, bool descending, at::Tensor & values, at::Tensor & indices);
 
 } // namespace cpu
 } // namespace at

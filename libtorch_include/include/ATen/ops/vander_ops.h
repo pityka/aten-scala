@@ -15,14 +15,14 @@ namespace _ops {
 
 
 struct TORCH_API vander {
-  using schema = at::Tensor (const at::Tensor &, c10::optional<int64_t>, bool);
+  using schema = at::Tensor (const at::Tensor &, ::std::optional<int64_t>, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::vander")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "vander(Tensor x, int? N=None, bool increasing=False) -> Tensor")
-  static at::Tensor call(const at::Tensor & x, c10::optional<int64_t> N, bool increasing);
-  static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & x, c10::optional<int64_t> N, bool increasing);
+  static at::Tensor call(const at::Tensor & x, ::std::optional<int64_t> N, bool increasing);
+  static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & x, ::std::optional<int64_t> N, bool increasing);
 };
 
 }} // namespace at::_ops

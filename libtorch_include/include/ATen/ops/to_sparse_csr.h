@@ -13,7 +13,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 
 
 
@@ -22,13 +22,5 @@
 namespace at {
 
 
-// aten::to_sparse_csr.out(Tensor self, int? dense_dim=None, *, Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & to_sparse_csr_out(at::Tensor & out, const at::Tensor & self, c10::optional<int64_t> dense_dim=c10::nullopt) {
-    return at::_ops::to_sparse_csr_out::call(self, dense_dim, out);
-}
-// aten::to_sparse_csr.out(Tensor self, int? dense_dim=None, *, Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & to_sparse_csr_outf(const at::Tensor & self, c10::optional<int64_t> dense_dim, at::Tensor & out) {
-    return at::_ops::to_sparse_csr_out::call(self, dense_dim, out);
-}
 
 }

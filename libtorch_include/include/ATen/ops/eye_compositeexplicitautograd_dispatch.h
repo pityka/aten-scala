@@ -18,9 +18,13 @@ namespace at {
 namespace compositeexplicitautograd {
 
 TORCH_API at::Tensor eye(int64_t n, at::TensorOptions options={});
-TORCH_API at::Tensor eye(int64_t n, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory);
+TORCH_API at::Tensor eye(int64_t n, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory);
+TORCH_API at::Tensor eye_symint(c10::SymInt n, at::TensorOptions options={});
+TORCH_API at::Tensor eye_symint(c10::SymInt n, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory);
 TORCH_API at::Tensor eye(int64_t n, int64_t m, at::TensorOptions options={});
-TORCH_API at::Tensor eye(int64_t n, int64_t m, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory);
+TORCH_API at::Tensor eye(int64_t n, int64_t m, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory);
+TORCH_API at::Tensor eye_symint(c10::SymInt n, c10::SymInt m, at::TensorOptions options={});
+TORCH_API at::Tensor eye_symint(c10::SymInt n, c10::SymInt m, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory);
 
 } // namespace compositeexplicitautograd
 } // namespace at

@@ -15,25 +15,25 @@ namespace _ops {
 
 
 struct TORCH_API _pin_memory {
-  using schema = at::Tensor (const at::Tensor &, c10::optional<at::Device>);
+  using schema = at::Tensor (const at::Tensor &, ::std::optional<at::Device>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_pin_memory")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_pin_memory(Tensor self, Device? device=None) -> Tensor")
-  static at::Tensor call(const at::Tensor & self, c10::optional<at::Device> device);
-  static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, c10::optional<at::Device> device);
+  static at::Tensor call(const at::Tensor & self, ::std::optional<at::Device> device);
+  static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, ::std::optional<at::Device> device);
 };
 
 struct TORCH_API _pin_memory_out {
-  using schema = at::Tensor & (const at::Tensor &, c10::optional<at::Device>, at::Tensor &);
+  using schema = at::Tensor & (const at::Tensor &, ::std::optional<at::Device>, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_pin_memory")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_pin_memory.out(Tensor self, Device? device=None, *, Tensor(a!) out) -> Tensor(a!)")
-  static at::Tensor & call(const at::Tensor & self, c10::optional<at::Device> device, at::Tensor & out);
-  static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, c10::optional<at::Device> device, at::Tensor & out);
+  static at::Tensor & call(const at::Tensor & self, ::std::optional<at::Device> device, at::Tensor & out);
+  static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, ::std::optional<at::Device> device, at::Tensor & out);
 };
 
 }} // namespace at::_ops

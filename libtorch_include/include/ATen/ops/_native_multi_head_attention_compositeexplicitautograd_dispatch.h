@@ -17,8 +17,8 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
-TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> _native_multi_head_attention_out(at::Tensor & out0, at::Tensor & out1, const at::Tensor & query, const at::Tensor & key, const at::Tensor & value, int64_t embed_dim, int64_t num_head, const at::Tensor & qkv_weight, const at::Tensor & qkv_bias, const at::Tensor & proj_weight, const at::Tensor & proj_bias, const c10::optional<at::Tensor> & mask={}, bool need_weights=true, bool average_attn_weights=true, c10::optional<int64_t> mask_type=c10::nullopt);
-TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> _native_multi_head_attention_outf(const at::Tensor & query, const at::Tensor & key, const at::Tensor & value, int64_t embed_dim, int64_t num_head, const at::Tensor & qkv_weight, const at::Tensor & qkv_bias, const at::Tensor & proj_weight, const at::Tensor & proj_bias, const c10::optional<at::Tensor> & mask, bool need_weights, bool average_attn_weights, c10::optional<int64_t> mask_type, at::Tensor & out0, at::Tensor & out1);
+TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> _native_multi_head_attention_out(at::Tensor & out0, at::Tensor & out1, const at::Tensor & query, const at::Tensor & key, const at::Tensor & value, int64_t embed_dim, int64_t num_head, const at::Tensor & qkv_weight, const at::Tensor & qkv_bias, const at::Tensor & proj_weight, const at::Tensor & proj_bias, const ::std::optional<at::Tensor> & mask={}, bool need_weights=true, bool average_attn_weights=true, ::std::optional<int64_t> mask_type=::std::nullopt);
+TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> _native_multi_head_attention_outf(const at::Tensor & query, const at::Tensor & key, const at::Tensor & value, int64_t embed_dim, int64_t num_head, const at::Tensor & qkv_weight, const at::Tensor & qkv_bias, const at::Tensor & proj_weight, const at::Tensor & proj_bias, const ::std::optional<at::Tensor> & mask, bool need_weights, bool average_attn_weights, ::std::optional<int64_t> mask_type, at::Tensor & out0, at::Tensor & out1);
 
 } // namespace compositeexplicitautograd
 } // namespace at

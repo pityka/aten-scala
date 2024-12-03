@@ -18,11 +18,17 @@ namespace at {
 namespace compositeexplicitautograd {
 
 TORCH_API at::Tensor randperm(int64_t n, at::TensorOptions options=at::kLong);
-TORCH_API at::Tensor randperm(int64_t n, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory);
+TORCH_API at::Tensor randperm(int64_t n, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory);
+TORCH_API at::Tensor randperm_symint(c10::SymInt n, at::TensorOptions options=at::kLong);
+TORCH_API at::Tensor randperm_symint(c10::SymInt n, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory);
 TORCH_API at::Tensor & randperm_out(at::Tensor & out, int64_t n);
 TORCH_API at::Tensor & randperm_outf(int64_t n, at::Tensor & out);
-TORCH_API at::Tensor randperm(int64_t n, c10::optional<at::Generator> generator, at::TensorOptions options=at::kLong);
-TORCH_API at::Tensor randperm(int64_t n, c10::optional<at::Generator> generator, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory);
+TORCH_API at::Tensor & randperm_symint_out(at::Tensor & out, c10::SymInt n);
+TORCH_API at::Tensor & randperm_symint_outf(c10::SymInt n, at::Tensor & out);
+TORCH_API at::Tensor randperm(int64_t n, ::std::optional<at::Generator> generator, at::TensorOptions options=at::kLong);
+TORCH_API at::Tensor randperm(int64_t n, ::std::optional<at::Generator> generator, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory);
+TORCH_API at::Tensor randperm_symint(c10::SymInt n, ::std::optional<at::Generator> generator, at::TensorOptions options=at::kLong);
+TORCH_API at::Tensor randperm_symint(c10::SymInt n, ::std::optional<at::Generator> generator, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory);
 
 } // namespace compositeexplicitautograd
 } // namespace at

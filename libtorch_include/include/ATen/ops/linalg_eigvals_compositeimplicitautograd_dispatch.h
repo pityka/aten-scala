@@ -18,8 +18,6 @@ namespace at {
 namespace compositeimplicitautograd {
 
 TORCH_API at::Tensor linalg_eigvals(const at::Tensor & self);
-TORCH_API at::Tensor & linalg_eigvals_out(at::Tensor & out, const at::Tensor & self);
-TORCH_API at::Tensor & linalg_eigvals_outf(const at::Tensor & self, at::Tensor & out);
 
 } // namespace compositeimplicitautograd
 } // namespace at

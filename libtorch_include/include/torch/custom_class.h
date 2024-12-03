@@ -12,7 +12,6 @@
 #include <c10/util/TypeTraits.h>
 #include <torch/custom_class_detail.h>
 #include <torch/library.h>
-#include <iostream>
 #include <sstream>
 
 namespace torch {
@@ -61,7 +60,7 @@ decltype(auto) init(Func&& f) {
 template <class CurClass>
 class class_ : public ::torch::detail::class_base {
   static_assert(
-      std::is_base_of<CustomClassHolder, CurClass>::value,
+      std::is_base_of_v<CustomClassHolder, CurClass>,
       "torch::class_<T> requires T to inherit from CustomClassHolder");
 
  public:
@@ -104,7 +103,7 @@ class class_ : public ::torch::detail::class_base {
         "__init__",
         std::move(func),
         std::move(doc_string),
-        std::move(default_args));
+        default_args);
     return *this;
   }
 
@@ -127,7 +126,7 @@ class class_ : public ::torch::detail::class_base {
         "__init__",
         std::move(init_lambda_wrapper),
         std::move(doc_string),
-        std::move(default_args));
+        default_args);
 
     return *this;
   }
@@ -161,7 +160,7 @@ class class_ : public ::torch::detail::class_base {
         std::move(name),
         std::move(wrapped_f),
         std::move(doc_string),
-        std::move(default_args));
+        default_args);
     return *this;
   }
 
@@ -258,7 +257,7 @@ class class_ : public ::torch::detail::class_base {
   /// This is an unsafe method registration API added for adding custom JIT
   /// backend support via custom C++ classes. It is not for general purpose use.
   class_& _def_unboxed(
-      std::string name,
+      const std::string& name,
       std::function<void(jit::Stack&)> func,
       c10::FunctionSchema schema,
       std::string doc_string = "") {
@@ -305,6 +304,7 @@ class class_ : public ::torch::detail::class_base {
   ///               std::vector<std::string>{"i", "was", "deserialized"});
   ///         })
   template <typename GetStateFn, typename SetStateFn>
+  // NOLINTNEXTLINE(cppcoreguidelines-missing-std-forward)
   class_& def_pickle(GetStateFn&& get_state, SetStateFn&& set_state) {
     static_assert(
         c10::guts::is_stateless_lambda<std::decay_t<GetStateFn>>::value &&
@@ -323,9 +323,9 @@ class class_ : public ::torch::detail::class_base {
         typename SetStateTraits::parameter_types>;
     auto setstate_wrapper = [set_state = std::forward<SetStateFn>(set_state)](
                                 c10::tagged_capsule<CurClass> self,
-                                SetStateArg&& arg) {
+                                SetStateArg arg) {
       c10::intrusive_ptr<CurClass> classObj =
-          at::guts::invoke(set_state, std::forward<SetStateArg>(arg));
+          at::guts::invoke(set_state, std::move(arg));
       auto object = self.ivalue.toObject();
       object->setSlot(0, c10::IValue::make_capsule(classObj));
     };
@@ -336,11 +336,13 @@ class class_ : public ::torch::detail::class_base {
 
     // type validation
     auto getstate_schema = classTypePtr->getMethod("__getstate__").getSchema();
+#ifndef STRIP_ERROR_MESSAGES
     auto format_getstate_schema = [&getstate_schema]() {
       std::stringstream ss;
       ss << getstate_schema;
       return ss.str();
     };
+#endif
     TORCH_CHECK(
         getstate_schema.arguments().size() == 1,
         "__getstate__ should take exactly one argument: self. Got: ",

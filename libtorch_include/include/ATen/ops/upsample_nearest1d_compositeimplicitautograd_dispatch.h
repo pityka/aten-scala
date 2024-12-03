@@ -17,8 +17,8 @@ namespace at {
 
 namespace compositeimplicitautograd {
 
-TORCH_API at::Tensor upsample_nearest1d(const at::Tensor & input, at::OptionalIntArrayRef output_size, c10::optional<at::ArrayRef<double>> scale_factors);
-TORCH_API at::Tensor upsample_nearest1d_symint(const at::Tensor & input, at::OptionalSymIntArrayRef output_size, c10::optional<at::ArrayRef<double>> scale_factors);
+TORCH_API at::Tensor upsample_nearest1d(const at::Tensor & input, at::OptionalIntArrayRef output_size, ::std::optional<at::ArrayRef<double>> scale_factors);
+TORCH_API at::Tensor upsample_nearest1d_symint(const at::Tensor & input, at::OptionalSymIntArrayRef output_size, ::std::optional<at::ArrayRef<double>> scale_factors);
 
 } // namespace compositeimplicitautograd
 } // namespace at

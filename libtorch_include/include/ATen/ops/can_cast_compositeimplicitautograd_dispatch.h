@@ -17,7 +17,7 @@ namespace at {
 
 namespace compositeimplicitautograd {
 
-TORCH_API bool can_cast(at::ScalarType from, at::ScalarType to);
+TORCH_API bool can_cast(at::ScalarType from_, at::ScalarType to);
 
 } // namespace compositeimplicitautograd
 } // namespace at

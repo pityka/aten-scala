@@ -17,7 +17,7 @@ namespace at {
 
 namespace compositeimplicitautograd {
 
-TORCH_API at::Tensor einsum(c10::string_view equation, at::TensorList tensors, at::OptionalIntArrayRef path=c10::nullopt);
+TORCH_API at::Tensor einsum(c10::string_view equation, at::TensorList tensors, at::OptionalIntArrayRef path=::std::nullopt);
 
 } // namespace compositeimplicitautograd
 } // namespace at

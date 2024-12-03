@@ -17,7 +17,7 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
-TORCH_API ::std::tuple<at::Tensor,at::Tensor,at::Tensor,at::Tensor> linalg_lstsq(const at::Tensor & self, const at::Tensor & b, c10::optional<double> rcond=c10::nullopt, c10::optional<c10::string_view> driver=c10::nullopt);
+TORCH_API ::std::tuple<at::Tensor,at::Tensor,at::Tensor,at::Tensor> linalg_lstsq(const at::Tensor & self, const at::Tensor & b, ::std::optional<double> rcond=::std::nullopt, ::std::optional<c10::string_view> driver=::std::nullopt);
 
 } // namespace compositeexplicitautograd
 } // namespace at

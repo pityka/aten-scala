@@ -15,14 +15,14 @@ namespace _ops {
 
 
 struct TORCH_API gradient_scalarint {
-  using schema = ::std::vector<at::Tensor> (const at::Tensor &, const c10::optional<at::Scalar> &, c10::optional<int64_t>, int64_t);
+  using schema = ::std::vector<at::Tensor> (const at::Tensor &, const ::std::optional<at::Scalar> &, ::std::optional<int64_t>, int64_t);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::gradient")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "scalarint")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "gradient.scalarint(Tensor self, *, Scalar? spacing=None, int? dim=None, int edge_order=1) -> Tensor[]")
-  static ::std::vector<at::Tensor> call(const at::Tensor & self, const c10::optional<at::Scalar> & spacing, c10::optional<int64_t> dim, int64_t edge_order);
-  static ::std::vector<at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const c10::optional<at::Scalar> & spacing, c10::optional<int64_t> dim, int64_t edge_order);
+  static ::std::vector<at::Tensor> call(const at::Tensor & self, const ::std::optional<at::Scalar> & spacing, ::std::optional<int64_t> dim, int64_t edge_order);
+  static ::std::vector<at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const ::std::optional<at::Scalar> & spacing, ::std::optional<int64_t> dim, int64_t edge_order);
 };
 
 struct TORCH_API gradient_scalararray {
@@ -48,14 +48,14 @@ struct TORCH_API gradient_array {
 };
 
 struct TORCH_API gradient_scalarrayint {
-  using schema = ::std::vector<at::Tensor> (const at::Tensor &, at::ArrayRef<at::Scalar>, c10::optional<int64_t>, int64_t);
+  using schema = ::std::vector<at::Tensor> (const at::Tensor &, at::ArrayRef<at::Scalar>, ::std::optional<int64_t>, int64_t);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::gradient")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "scalarrayint")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "gradient.scalarrayint(Tensor self, *, Scalar[] spacing, int? dim=None, int edge_order=1) -> Tensor[]")
-  static ::std::vector<at::Tensor> call(const at::Tensor & self, at::ArrayRef<at::Scalar> spacing, c10::optional<int64_t> dim, int64_t edge_order);
-  static ::std::vector<at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::ArrayRef<at::Scalar> spacing, c10::optional<int64_t> dim, int64_t edge_order);
+  static ::std::vector<at::Tensor> call(const at::Tensor & self, at::ArrayRef<at::Scalar> spacing, ::std::optional<int64_t> dim, int64_t edge_order);
+  static ::std::vector<at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::ArrayRef<at::Scalar> spacing, ::std::optional<int64_t> dim, int64_t edge_order);
 };
 
 struct TORCH_API gradient_scalarrayarray {
@@ -70,14 +70,14 @@ struct TORCH_API gradient_scalarrayarray {
 };
 
 struct TORCH_API gradient_tensorarrayint {
-  using schema = ::std::vector<at::Tensor> (const at::Tensor &, at::TensorList, c10::optional<int64_t>, int64_t);
+  using schema = ::std::vector<at::Tensor> (const at::Tensor &, at::TensorList, ::std::optional<int64_t>, int64_t);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::gradient")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "tensorarrayint")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "gradient.tensorarrayint(Tensor self, *, Tensor[] spacing, int? dim=None, int edge_order=1) -> Tensor[]")
-  static ::std::vector<at::Tensor> call(const at::Tensor & self, at::TensorList spacing, c10::optional<int64_t> dim, int64_t edge_order);
-  static ::std::vector<at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::TensorList spacing, c10::optional<int64_t> dim, int64_t edge_order);
+  static ::std::vector<at::Tensor> call(const at::Tensor & self, at::TensorList spacing, ::std::optional<int64_t> dim, int64_t edge_order);
+  static ::std::vector<at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::TensorList spacing, ::std::optional<int64_t> dim, int64_t edge_order);
 };
 
 struct TORCH_API gradient_tensorarray {

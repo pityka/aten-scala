@@ -17,7 +17,7 @@ namespace at {
 
 namespace meta {
 
-TORCH_API at::Tensor & logit_(at::Tensor & self, c10::optional<double> eps=c10::nullopt);
+TORCH_API at::Tensor & logit_(at::Tensor & self, ::std::optional<double> eps=::std::nullopt);
 
 } // namespace meta
 } // namespace at

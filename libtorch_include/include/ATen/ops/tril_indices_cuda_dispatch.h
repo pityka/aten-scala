@@ -18,7 +18,7 @@ namespace at {
 namespace cuda {
 
 TORCH_API at::Tensor tril_indices(int64_t row, int64_t col, int64_t offset=0, at::TensorOptions options=at::kLong);
-TORCH_API at::Tensor tril_indices(int64_t row, int64_t col, int64_t offset, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory);
+TORCH_API at::Tensor tril_indices(int64_t row, int64_t col, int64_t offset, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory);
 
 } // namespace cuda
 } // namespace at

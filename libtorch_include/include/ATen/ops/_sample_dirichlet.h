@@ -13,7 +13,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 
 
 
@@ -23,16 +23,16 @@ namespace at {
 
 
 // aten::_sample_dirichlet(Tensor self, Generator? generator=None) -> Tensor
-inline at::Tensor _sample_dirichlet(const at::Tensor & self, c10::optional<at::Generator> generator=c10::nullopt) {
+inline at::Tensor _sample_dirichlet(const at::Tensor & self, ::std::optional<at::Generator> generator=::std::nullopt) {
     return at::_ops::_sample_dirichlet::call(self, generator);
 }
 
 // aten::_sample_dirichlet.out(Tensor self, Generator? generator=None, *, Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & _sample_dirichlet_out(at::Tensor & out, const at::Tensor & self, c10::optional<at::Generator> generator=c10::nullopt) {
+inline at::Tensor & _sample_dirichlet_out(at::Tensor & out, const at::Tensor & self, ::std::optional<at::Generator> generator=::std::nullopt) {
     return at::_ops::_sample_dirichlet_out::call(self, generator, out);
 }
 // aten::_sample_dirichlet.out(Tensor self, Generator? generator=None, *, Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & _sample_dirichlet_outf(const at::Tensor & self, c10::optional<at::Generator> generator, at::Tensor & out) {
+inline at::Tensor & _sample_dirichlet_outf(const at::Tensor & self, ::std::optional<at::Generator> generator, at::Tensor & out) {
     return at::_ops::_sample_dirichlet_out::call(self, generator, out);
 }
 

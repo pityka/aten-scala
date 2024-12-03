@@ -17,8 +17,8 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
-TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> _fused_dropout_out(at::Tensor & out0, at::Tensor & out1, const at::Tensor & self, double p, c10::optional<at::Generator> generator=c10::nullopt);
-TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> _fused_dropout_outf(const at::Tensor & self, double p, c10::optional<at::Generator> generator, at::Tensor & out0, at::Tensor & out1);
+TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> _fused_dropout_out(at::Tensor & out0, at::Tensor & out1, const at::Tensor & self, double p, ::std::optional<at::Generator> generator=::std::nullopt);
+TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> _fused_dropout_outf(const at::Tensor & self, double p, ::std::optional<at::Generator> generator, at::Tensor & out0, at::Tensor & out1);
 
 } // namespace compositeexplicitautograd
 } // namespace at

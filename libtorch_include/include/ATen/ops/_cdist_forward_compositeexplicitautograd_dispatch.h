@@ -17,8 +17,8 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
-TORCH_API at::Tensor & _cdist_forward_out(at::Tensor & out, const at::Tensor & x1, const at::Tensor & x2, double p, c10::optional<int64_t> compute_mode);
-TORCH_API at::Tensor & _cdist_forward_outf(const at::Tensor & x1, const at::Tensor & x2, double p, c10::optional<int64_t> compute_mode, at::Tensor & out);
+TORCH_API at::Tensor & _cdist_forward_out(at::Tensor & out, const at::Tensor & x1, const at::Tensor & x2, double p, ::std::optional<int64_t> compute_mode);
+TORCH_API at::Tensor & _cdist_forward_outf(const at::Tensor & x1, const at::Tensor & x2, double p, ::std::optional<int64_t> compute_mode, at::Tensor & out);
 
 } // namespace compositeexplicitautograd
 } // namespace at

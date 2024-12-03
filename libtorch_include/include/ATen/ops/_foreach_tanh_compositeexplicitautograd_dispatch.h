@@ -17,8 +17,10 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
+TORCH_API ::std::vector<at::Tensor> _foreach_tanh(at::TensorList self);
 TORCH_API void _foreach_tanh_out(at::TensorList out, at::TensorList self);
 TORCH_API void _foreach_tanh_outf(at::TensorList self, at::TensorList out);
+TORCH_API void _foreach_tanh_(at::TensorList self);
 
 } // namespace compositeexplicitautograd
 } // namespace at

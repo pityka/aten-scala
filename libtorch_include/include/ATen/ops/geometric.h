@@ -13,7 +13,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 
 
 
@@ -23,16 +23,16 @@ namespace at {
 
 
 // aten::geometric.out(Tensor self, float p, *, Generator? generator=None, Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & geometric_out(at::Tensor & out, const at::Tensor & self, double p, c10::optional<at::Generator> generator=c10::nullopt) {
+inline at::Tensor & geometric_out(at::Tensor & out, const at::Tensor & self, double p, ::std::optional<at::Generator> generator=::std::nullopt) {
     return at::_ops::geometric_out::call(self, p, generator, out);
 }
 // aten::geometric.out(Tensor self, float p, *, Generator? generator=None, Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & geometric_outf(const at::Tensor & self, double p, c10::optional<at::Generator> generator, at::Tensor & out) {
+inline at::Tensor & geometric_outf(const at::Tensor & self, double p, ::std::optional<at::Generator> generator, at::Tensor & out) {
     return at::_ops::geometric_out::call(self, p, generator, out);
 }
 
 // aten::geometric(Tensor self, float p, *, Generator? generator=None) -> Tensor
-inline at::Tensor geometric(const at::Tensor & self, double p, c10::optional<at::Generator> generator=c10::nullopt) {
+inline at::Tensor geometric(const at::Tensor & self, double p, ::std::optional<at::Generator> generator=::std::nullopt) {
     return at::_ops::geometric::call(self, p, generator);
 }
 

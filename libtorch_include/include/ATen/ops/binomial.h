@@ -13,7 +13,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 
 
 
@@ -23,16 +23,16 @@ namespace at {
 
 
 // aten::binomial(Tensor count, Tensor prob, Generator? generator=None) -> Tensor
-inline at::Tensor binomial(const at::Tensor & count, const at::Tensor & prob, c10::optional<at::Generator> generator=c10::nullopt) {
+inline at::Tensor binomial(const at::Tensor & count, const at::Tensor & prob, ::std::optional<at::Generator> generator=::std::nullopt) {
     return at::_ops::binomial::call(count, prob, generator);
 }
 
 // aten::binomial.out(Tensor count, Tensor prob, Generator? generator=None, *, Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & binomial_out(at::Tensor & out, const at::Tensor & count, const at::Tensor & prob, c10::optional<at::Generator> generator=c10::nullopt) {
+inline at::Tensor & binomial_out(at::Tensor & out, const at::Tensor & count, const at::Tensor & prob, ::std::optional<at::Generator> generator=::std::nullopt) {
     return at::_ops::binomial_out::call(count, prob, generator, out);
 }
 // aten::binomial.out(Tensor count, Tensor prob, Generator? generator=None, *, Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & binomial_outf(const at::Tensor & count, const at::Tensor & prob, c10::optional<at::Generator> generator, at::Tensor & out) {
+inline at::Tensor & binomial_outf(const at::Tensor & count, const at::Tensor & prob, ::std::optional<at::Generator> generator, at::Tensor & out) {
     return at::_ops::binomial_out::call(count, prob, generator, out);
 }
 

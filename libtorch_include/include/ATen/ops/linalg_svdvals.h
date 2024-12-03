@@ -13,7 +13,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 
 
 
@@ -23,16 +23,16 @@ namespace at {
 
 
 // aten::linalg_svdvals(Tensor A, *, str? driver=None) -> Tensor
-inline at::Tensor linalg_svdvals(const at::Tensor & A, c10::optional<c10::string_view> driver=c10::nullopt) {
+inline at::Tensor linalg_svdvals(const at::Tensor & A, ::std::optional<c10::string_view> driver=::std::nullopt) {
     return at::_ops::linalg_svdvals::call(A, driver);
 }
 
 // aten::linalg_svdvals.out(Tensor A, *, str? driver=None, Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & linalg_svdvals_out(at::Tensor & out, const at::Tensor & A, c10::optional<c10::string_view> driver=c10::nullopt) {
+inline at::Tensor & linalg_svdvals_out(at::Tensor & out, const at::Tensor & A, ::std::optional<c10::string_view> driver=::std::nullopt) {
     return at::_ops::linalg_svdvals_out::call(A, driver, out);
 }
 // aten::linalg_svdvals.out(Tensor A, *, str? driver=None, Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & linalg_svdvals_outf(const at::Tensor & A, c10::optional<c10::string_view> driver, at::Tensor & out) {
+inline at::Tensor & linalg_svdvals_outf(const at::Tensor & A, ::std::optional<c10::string_view> driver, at::Tensor & out) {
     return at::_ops::linalg_svdvals_out::call(A, driver, out);
 }
 

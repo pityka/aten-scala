@@ -17,9 +17,9 @@ namespace at {
 
 namespace compositeimplicitautograd {
 
-TORCH_API at::Tensor linalg_cond(const at::Tensor & self, const c10::optional<at::Scalar> & p=c10::nullopt);
-TORCH_API at::Tensor & linalg_cond_out(at::Tensor & out, const at::Tensor & self, const c10::optional<at::Scalar> & p=c10::nullopt);
-TORCH_API at::Tensor & linalg_cond_outf(const at::Tensor & self, const c10::optional<at::Scalar> & p, at::Tensor & out);
+TORCH_API at::Tensor linalg_cond(const at::Tensor & self, const ::std::optional<at::Scalar> & p=::std::nullopt);
+TORCH_API at::Tensor & linalg_cond_out(at::Tensor & out, const at::Tensor & self, const ::std::optional<at::Scalar> & p=::std::nullopt);
+TORCH_API at::Tensor & linalg_cond_outf(const at::Tensor & self, const ::std::optional<at::Scalar> & p, at::Tensor & out);
 TORCH_API at::Tensor linalg_cond(const at::Tensor & self, c10::string_view p);
 TORCH_API at::Tensor & linalg_cond_out(at::Tensor & out, const at::Tensor & self, c10::string_view p);
 TORCH_API at::Tensor & linalg_cond_outf(const at::Tensor & self, c10::string_view p, at::Tensor & out);

@@ -17,8 +17,8 @@ namespace at {
 
 namespace meta {
 
-TORCH_API at::Tensor & bernoulli_(at::Tensor & self, const at::Tensor & p, c10::optional<at::Generator> generator=c10::nullopt);
-TORCH_API at::Tensor & bernoulli_(at::Tensor & self, double p=0.5, c10::optional<at::Generator> generator=c10::nullopt);
+TORCH_API at::Tensor & bernoulli_(at::Tensor & self, const at::Tensor & p, ::std::optional<at::Generator> generator=::std::nullopt);
+TORCH_API at::Tensor & bernoulli_(at::Tensor & self, double p=0.5, ::std::optional<at::Generator> generator=::std::nullopt);
 
 } // namespace meta
 } // namespace at

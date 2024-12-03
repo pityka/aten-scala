@@ -13,7 +13,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 
 
 
@@ -23,16 +23,16 @@ namespace at {
 
 
 // aten::clone(Tensor self, *, MemoryFormat? memory_format=None) -> Tensor
-inline at::Tensor clone(const at::Tensor & self, c10::optional<at::MemoryFormat> memory_format=c10::nullopt) {
+inline at::Tensor clone(const at::Tensor & self, ::std::optional<at::MemoryFormat> memory_format=::std::nullopt) {
     return at::_ops::clone::call(self, memory_format);
 }
 
 // aten::clone.out(Tensor self, *, MemoryFormat? memory_format=None, Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & clone_out(at::Tensor & out, const at::Tensor & self, c10::optional<at::MemoryFormat> memory_format=c10::nullopt) {
+inline at::Tensor & clone_out(at::Tensor & out, const at::Tensor & self, ::std::optional<at::MemoryFormat> memory_format=::std::nullopt) {
     return at::_ops::clone_out::call(self, memory_format, out);
 }
 // aten::clone.out(Tensor self, *, MemoryFormat? memory_format=None, Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & clone_outf(const at::Tensor & self, c10::optional<at::MemoryFormat> memory_format, at::Tensor & out) {
+inline at::Tensor & clone_outf(const at::Tensor & self, ::std::optional<at::MemoryFormat> memory_format, at::Tensor & out) {
     return at::_ops::clone_out::call(self, memory_format, out);
 }
 

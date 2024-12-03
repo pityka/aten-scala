@@ -18,8 +18,11 @@ namespace at {
 namespace cpu {
 
 TORCH_API at::Tensor max_unpool2d(const at::Tensor & self, const at::Tensor & indices, at::IntArrayRef output_size);
+TORCH_API at::Tensor max_unpool2d_symint(const at::Tensor & self, const at::Tensor & indices, c10::SymIntArrayRef output_size);
 TORCH_API at::Tensor & max_unpool2d_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & indices, at::IntArrayRef output_size);
 TORCH_API at::Tensor & max_unpool2d_outf(const at::Tensor & self, const at::Tensor & indices, at::IntArrayRef output_size, at::Tensor & out);
+TORCH_API at::Tensor & max_unpool2d_symint_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & indices, c10::SymIntArrayRef output_size);
+TORCH_API at::Tensor & max_unpool2d_symint_outf(const at::Tensor & self, const at::Tensor & indices, c10::SymIntArrayRef output_size, at::Tensor & out);
 
 } // namespace cpu
 } // namespace at

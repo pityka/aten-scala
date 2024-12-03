@@ -6,7 +6,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 #include <c10/core/QScheme.h>
 #include <ATen/core/Reduction.h>
 #include <ATen/core/Tensor.h>
@@ -24,11 +24,9 @@ void impl(const at::Tensor & self, c10::string_view approximate, const at::Tenso
 };
 TORCH_API at::Tensor NestedTensor_gelu(const at::Tensor & self, c10::string_view approximate="none");
 TORCH_API at::Tensor & NestedTensor_gelu_(at::Tensor & self, c10::string_view approximate="none");
-struct TORCH_API structured_gelu_out_mps : public at::meta::structured_gelu {
-void impl(const at::Tensor & self, c10::string_view approximate, const at::Tensor & out);
-};
 TORCH_API at::Tensor mkldnn_gelu(const at::Tensor & self, c10::string_view approximate="none");
 TORCH_API at::Tensor gelu_quantized_cpu(const at::Tensor & self, c10::string_view approximate="none");
+TORCH_API at::Tensor & gelu_quantized_cpu_(at::Tensor & self, c10::string_view approximate="none");
 TORCH_API at::Tensor gelu_quantized_cuda(const at::Tensor & self, c10::string_view approximate="none");
 } // namespace native
 } // namespace at

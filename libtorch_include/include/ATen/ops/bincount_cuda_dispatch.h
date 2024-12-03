@@ -17,7 +17,7 @@ namespace at {
 
 namespace cuda {
 
-TORCH_API at::Tensor bincount(const at::Tensor & self, const c10::optional<at::Tensor> & weights={}, int64_t minlength=0);
+TORCH_API at::Tensor bincount(const at::Tensor & self, const ::std::optional<at::Tensor> & weights={}, int64_t minlength=0);
 
 } // namespace cuda
 } // namespace at

@@ -17,9 +17,9 @@ namespace at {
 
 namespace meta {
 
-TORCH_API at::Tensor logit_backward(const at::Tensor & grad_output, const at::Tensor & self, c10::optional<double> eps=c10::nullopt);
-TORCH_API at::Tensor & logit_backward_out(at::Tensor & grad_input, const at::Tensor & grad_output, const at::Tensor & self, c10::optional<double> eps=c10::nullopt);
-TORCH_API at::Tensor & logit_backward_outf(const at::Tensor & grad_output, const at::Tensor & self, c10::optional<double> eps, at::Tensor & grad_input);
+TORCH_API at::Tensor logit_backward(const at::Tensor & grad_output, const at::Tensor & self, ::std::optional<double> eps=::std::nullopt);
+TORCH_API at::Tensor & logit_backward_out(at::Tensor & grad_input, const at::Tensor & grad_output, const at::Tensor & self, ::std::optional<double> eps=::std::nullopt);
+TORCH_API at::Tensor & logit_backward_outf(const at::Tensor & grad_output, const at::Tensor & self, ::std::optional<double> eps, at::Tensor & grad_input);
 
 } // namespace meta
 } // namespace at

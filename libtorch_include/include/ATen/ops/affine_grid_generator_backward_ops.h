@@ -15,14 +15,14 @@ namespace _ops {
 
 
 struct TORCH_API affine_grid_generator_backward {
-  using schema = at::Tensor (const at::Tensor &, at::IntArrayRef, bool);
+  using schema = at::Tensor (const at::Tensor &, c10::SymIntArrayRef, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::affine_grid_generator_backward")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "affine_grid_generator_backward(Tensor grad, int[] size, bool align_corners) -> Tensor")
-  static at::Tensor call(const at::Tensor & grad, at::IntArrayRef size, bool align_corners);
-  static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & grad, at::IntArrayRef size, bool align_corners);
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "affine_grid_generator_backward(Tensor grad, SymInt[] size, bool align_corners) -> Tensor")
+  static at::Tensor call(const at::Tensor & grad, c10::SymIntArrayRef size, bool align_corners);
+  static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & grad, c10::SymIntArrayRef size, bool align_corners);
 };
 
 }} // namespace at::_ops

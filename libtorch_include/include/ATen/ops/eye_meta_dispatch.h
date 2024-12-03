@@ -19,8 +19,12 @@ namespace meta {
 
 TORCH_API at::Tensor & eye_out(at::Tensor & out, int64_t n);
 TORCH_API at::Tensor & eye_outf(int64_t n, at::Tensor & out);
+TORCH_API at::Tensor & eye_symint_out(at::Tensor & out, c10::SymInt n);
+TORCH_API at::Tensor & eye_symint_outf(c10::SymInt n, at::Tensor & out);
 TORCH_API at::Tensor & eye_out(at::Tensor & out, int64_t n, int64_t m);
 TORCH_API at::Tensor & eye_outf(int64_t n, int64_t m, at::Tensor & out);
+TORCH_API at::Tensor & eye_symint_out(at::Tensor & out, c10::SymInt n, c10::SymInt m);
+TORCH_API at::Tensor & eye_symint_outf(c10::SymInt n, c10::SymInt m, at::Tensor & out);
 
 } // namespace meta
 } // namespace at

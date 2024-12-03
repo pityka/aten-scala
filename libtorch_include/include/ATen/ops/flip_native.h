@@ -6,7 +6,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 #include <c10/core/QScheme.h>
 #include <ATen/core/Reduction.h>
 #include <ATen/core/Tensor.h>
@@ -18,6 +18,5 @@ namespace at {
 namespace native {
 TORCH_API at::Tensor & flip_out(const at::Tensor & self, at::IntArrayRef dims, at::Tensor & out);
 TORCH_API at::Tensor flip(const at::Tensor & self, at::IntArrayRef dims);
-TORCH_API at::Tensor flip_mps(const at::Tensor & self, at::IntArrayRef dims);
 } // namespace native
 } // namespace at

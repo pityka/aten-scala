@@ -17,10 +17,10 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
-TORCH_API at::Tensor & _sparse_coo_tensor_with_dims_and_tensors_out(at::Tensor & out, int64_t sparse_dim, int64_t dense_dim, at::IntArrayRef size, const at::Tensor & indices, const at::Tensor & values);
-TORCH_API at::Tensor & _sparse_coo_tensor_with_dims_and_tensors_outf(int64_t sparse_dim, int64_t dense_dim, at::IntArrayRef size, const at::Tensor & indices, const at::Tensor & values, at::Tensor & out);
-TORCH_API at::Tensor & _sparse_coo_tensor_with_dims_and_tensors_symint_out(at::Tensor & out, int64_t sparse_dim, int64_t dense_dim, c10::SymIntArrayRef size, const at::Tensor & indices, const at::Tensor & values);
-TORCH_API at::Tensor & _sparse_coo_tensor_with_dims_and_tensors_symint_outf(int64_t sparse_dim, int64_t dense_dim, c10::SymIntArrayRef size, const at::Tensor & indices, const at::Tensor & values, at::Tensor & out);
+TORCH_API at::Tensor & _sparse_coo_tensor_with_dims_and_tensors_out(at::Tensor & out, int64_t sparse_dim, int64_t dense_dim, at::IntArrayRef size, const at::Tensor & indices, const at::Tensor & values, ::std::optional<bool> is_coalesced=::std::nullopt);
+TORCH_API at::Tensor & _sparse_coo_tensor_with_dims_and_tensors_outf(int64_t sparse_dim, int64_t dense_dim, at::IntArrayRef size, const at::Tensor & indices, const at::Tensor & values, ::std::optional<bool> is_coalesced, at::Tensor & out);
+TORCH_API at::Tensor & _sparse_coo_tensor_with_dims_and_tensors_symint_out(at::Tensor & out, int64_t sparse_dim, int64_t dense_dim, c10::SymIntArrayRef size, const at::Tensor & indices, const at::Tensor & values, ::std::optional<bool> is_coalesced=::std::nullopt);
+TORCH_API at::Tensor & _sparse_coo_tensor_with_dims_and_tensors_symint_outf(int64_t sparse_dim, int64_t dense_dim, c10::SymIntArrayRef size, const at::Tensor & indices, const at::Tensor & values, ::std::optional<bool> is_coalesced, at::Tensor & out);
 
 } // namespace compositeexplicitautograd
 } // namespace at

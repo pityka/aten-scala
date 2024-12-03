@@ -17,8 +17,8 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
-TORCH_API at::Tensor & _masked_softmax_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & mask, c10::optional<int64_t> dim=c10::nullopt, c10::optional<int64_t> mask_type=c10::nullopt);
-TORCH_API at::Tensor & _masked_softmax_outf(const at::Tensor & self, const at::Tensor & mask, c10::optional<int64_t> dim, c10::optional<int64_t> mask_type, at::Tensor & out);
+TORCH_API at::Tensor & _masked_softmax_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & mask, ::std::optional<int64_t> dim=::std::nullopt, ::std::optional<int64_t> mask_type=::std::nullopt);
+TORCH_API at::Tensor & _masked_softmax_outf(const at::Tensor & self, const at::Tensor & mask, ::std::optional<int64_t> dim, ::std::optional<int64_t> mask_type, at::Tensor & out);
 
 } // namespace compositeexplicitautograd
 } // namespace at

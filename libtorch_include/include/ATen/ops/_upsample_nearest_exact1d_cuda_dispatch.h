@@ -17,12 +17,12 @@ namespace at {
 
 namespace cuda {
 
-TORCH_API at::Tensor _upsample_nearest_exact1d(const at::Tensor & self, at::IntArrayRef output_size, c10::optional<double> scales=c10::nullopt);
-TORCH_API at::Tensor _upsample_nearest_exact1d_symint(const at::Tensor & self, c10::SymIntArrayRef output_size, c10::optional<double> scales=c10::nullopt);
-TORCH_API at::Tensor & _upsample_nearest_exact1d_out(at::Tensor & out, const at::Tensor & self, at::IntArrayRef output_size, c10::optional<double> scales=c10::nullopt);
-TORCH_API at::Tensor & _upsample_nearest_exact1d_outf(const at::Tensor & self, at::IntArrayRef output_size, c10::optional<double> scales, at::Tensor & out);
-TORCH_API at::Tensor & _upsample_nearest_exact1d_symint_out(at::Tensor & out, const at::Tensor & self, c10::SymIntArrayRef output_size, c10::optional<double> scales=c10::nullopt);
-TORCH_API at::Tensor & _upsample_nearest_exact1d_symint_outf(const at::Tensor & self, c10::SymIntArrayRef output_size, c10::optional<double> scales, at::Tensor & out);
+TORCH_API at::Tensor _upsample_nearest_exact1d(const at::Tensor & self, at::IntArrayRef output_size, ::std::optional<double> scales=::std::nullopt);
+TORCH_API at::Tensor _upsample_nearest_exact1d_symint(const at::Tensor & self, c10::SymIntArrayRef output_size, ::std::optional<double> scales=::std::nullopt);
+TORCH_API at::Tensor & _upsample_nearest_exact1d_out(at::Tensor & out, const at::Tensor & self, at::IntArrayRef output_size, ::std::optional<double> scales=::std::nullopt);
+TORCH_API at::Tensor & _upsample_nearest_exact1d_outf(const at::Tensor & self, at::IntArrayRef output_size, ::std::optional<double> scales, at::Tensor & out);
+TORCH_API at::Tensor & _upsample_nearest_exact1d_symint_out(at::Tensor & out, const at::Tensor & self, c10::SymIntArrayRef output_size, ::std::optional<double> scales=::std::nullopt);
+TORCH_API at::Tensor & _upsample_nearest_exact1d_symint_outf(const at::Tensor & self, c10::SymIntArrayRef output_size, ::std::optional<double> scales, at::Tensor & out);
 
 } // namespace cuda
 } // namespace at

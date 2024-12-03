@@ -17,8 +17,10 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
+TORCH_API ::std::vector<at::Tensor> _foreach_log10(at::TensorList self);
 TORCH_API void _foreach_log10_out(at::TensorList out, at::TensorList self);
 TORCH_API void _foreach_log10_outf(at::TensorList self, at::TensorList out);
+TORCH_API void _foreach_log10_(at::TensorList self);
 
 } // namespace compositeexplicitautograd
 } // namespace at

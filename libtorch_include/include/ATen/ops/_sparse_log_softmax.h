@@ -13,7 +13,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 
 
 
@@ -23,12 +23,12 @@ namespace at {
 
 
 // aten::_sparse_log_softmax.int(Tensor self, int dim, ScalarType? dtype=None) -> Tensor
-inline at::Tensor _sparse_log_softmax(const at::Tensor & self, int64_t dim, c10::optional<at::ScalarType> dtype=c10::nullopt) {
+inline at::Tensor _sparse_log_softmax(const at::Tensor & self, int64_t dim, ::std::optional<at::ScalarType> dtype=::std::nullopt) {
     return at::_ops::_sparse_log_softmax_int::call(self, dim, dtype);
 }
 
 // aten::_sparse_log_softmax.Dimname(Tensor self, Dimname dim, *, ScalarType? dtype=None) -> Tensor
-inline at::Tensor _sparse_log_softmax(const at::Tensor & self, at::Dimname dim, c10::optional<at::ScalarType> dtype=c10::nullopt) {
+inline at::Tensor _sparse_log_softmax(const at::Tensor & self, at::Dimname dim, ::std::optional<at::ScalarType> dtype=::std::nullopt) {
     return at::_ops::_sparse_log_softmax_Dimname::call(self, dim, dtype);
 }
 

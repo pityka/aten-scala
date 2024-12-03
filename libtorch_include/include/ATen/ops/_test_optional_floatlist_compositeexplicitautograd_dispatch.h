@@ -17,8 +17,8 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
-TORCH_API at::Tensor & _test_optional_floatlist_out(at::Tensor & out, const at::Tensor & values, c10::optional<at::ArrayRef<double>> addends);
-TORCH_API at::Tensor & _test_optional_floatlist_outf(const at::Tensor & values, c10::optional<at::ArrayRef<double>> addends, at::Tensor & out);
+TORCH_API at::Tensor & _test_optional_floatlist_out(at::Tensor & out, const at::Tensor & values, ::std::optional<at::ArrayRef<double>> addends);
+TORCH_API at::Tensor & _test_optional_floatlist_outf(const at::Tensor & values, ::std::optional<at::ArrayRef<double>> addends, at::Tensor & out);
 
 } // namespace compositeexplicitautograd
 } // namespace at

@@ -17,9 +17,9 @@ namespace at {
 
 namespace cpu {
 
-TORCH_API at::Tensor multi_margin_loss(const at::Tensor & self, const at::Tensor & target, const at::Scalar & p=1, const at::Scalar & margin=1, const c10::optional<at::Tensor> & weight={}, int64_t reduction=at::Reduction::Mean);
-TORCH_API at::Tensor & multi_margin_loss_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & target, const at::Scalar & p=1, const at::Scalar & margin=1, const c10::optional<at::Tensor> & weight={}, int64_t reduction=at::Reduction::Mean);
-TORCH_API at::Tensor & multi_margin_loss_outf(const at::Tensor & self, const at::Tensor & target, const at::Scalar & p, const at::Scalar & margin, const c10::optional<at::Tensor> & weight, int64_t reduction, at::Tensor & out);
+TORCH_API at::Tensor multi_margin_loss(const at::Tensor & self, const at::Tensor & target, const at::Scalar & p=1, const at::Scalar & margin=1, const ::std::optional<at::Tensor> & weight={}, int64_t reduction=at::Reduction::Mean);
+TORCH_API at::Tensor & multi_margin_loss_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & target, const at::Scalar & p=1, const at::Scalar & margin=1, const ::std::optional<at::Tensor> & weight={}, int64_t reduction=at::Reduction::Mean);
+TORCH_API at::Tensor & multi_margin_loss_outf(const at::Tensor & self, const at::Tensor & target, const at::Scalar & p, const at::Scalar & margin, const ::std::optional<at::Tensor> & weight, int64_t reduction, at::Tensor & out);
 
 } // namespace cpu
 } // namespace at

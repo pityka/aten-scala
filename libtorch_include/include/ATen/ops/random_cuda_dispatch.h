@@ -17,9 +17,9 @@ namespace at {
 
 namespace cuda {
 
-TORCH_API at::Tensor & random_(at::Tensor & self, int64_t from, c10::optional<int64_t> to, c10::optional<at::Generator> generator=c10::nullopt);
-TORCH_API at::Tensor & random_(at::Tensor & self, int64_t to, c10::optional<at::Generator> generator=c10::nullopt);
-TORCH_API at::Tensor & random_(at::Tensor & self, c10::optional<at::Generator> generator=c10::nullopt);
+TORCH_API at::Tensor & random_(at::Tensor & self, int64_t from, ::std::optional<int64_t> to, ::std::optional<at::Generator> generator=::std::nullopt);
+TORCH_API at::Tensor & random_(at::Tensor & self, int64_t to, ::std::optional<at::Generator> generator=::std::nullopt);
+TORCH_API at::Tensor & random_(at::Tensor & self, ::std::optional<at::Generator> generator=::std::nullopt);
 
 } // namespace cuda
 } // namespace at

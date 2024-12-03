@@ -15,14 +15,14 @@ namespace _ops {
 
 
 struct TORCH_API to_dense_backward {
-  using schema = at::Tensor (const at::Tensor &, const at::Tensor &);
+  using schema = at::Tensor (const at::Tensor &, const at::Tensor &, ::std::optional<bool>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::to_dense_backward")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "to_dense_backward(Tensor grad, Tensor input) -> Tensor")
-  static at::Tensor call(const at::Tensor & grad, const at::Tensor & input);
-  static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & grad, const at::Tensor & input);
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "to_dense_backward(Tensor grad, Tensor input, bool? masked_grad=None) -> Tensor")
+  static at::Tensor call(const at::Tensor & grad, const at::Tensor & input, ::std::optional<bool> masked_grad);
+  static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & grad, const at::Tensor & input, ::std::optional<bool> masked_grad);
 };
 
 }} // namespace at::_ops

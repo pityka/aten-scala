@@ -13,7 +13,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 
 
 
@@ -22,18 +22,70 @@
 namespace at {
 
 
-// aten::roll(Tensor self, int[1] shifts, int[1] dims=[]) -> Tensor
+// aten::roll(Tensor self, SymInt[1] shifts, int[1] dims=[]) -> Tensor
 inline at::Tensor roll(const at::Tensor & self, at::IntArrayRef shifts, at::IntArrayRef dims={}) {
-    return at::_ops::roll::call(self, shifts, dims);
+    return at::_ops::roll::call(self, c10::fromIntArrayRefSlow(shifts), dims);
+}
+namespace symint {
+  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  at::Tensor roll(const at::Tensor & self, at::IntArrayRef shifts, at::IntArrayRef dims={}) {
+    return at::_ops::roll::call(self, c10::fromIntArrayRefSlow(shifts), dims);
+  }
 }
 
-// aten::roll.out(Tensor self, int[1] shifts, int[1] dims=[], *, Tensor(a!) out) -> Tensor(a!)
+// aten::roll(Tensor self, SymInt[1] shifts, int[1] dims=[]) -> Tensor
+inline at::Tensor roll_symint(const at::Tensor & self, c10::SymIntArrayRef shifts, at::IntArrayRef dims={}) {
+    return at::_ops::roll::call(self, shifts, dims);
+}
+namespace symint {
+  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  at::Tensor roll(const at::Tensor & self, c10::SymIntArrayRef shifts, at::IntArrayRef dims={}) {
+    return at::_ops::roll::call(self, shifts, dims);
+  }
+}
+
+// aten::roll.out(Tensor self, SymInt[1] shifts, int[1] dims=[], *, Tensor(a!) out) -> Tensor(a!)
 inline at::Tensor & roll_out(at::Tensor & out, const at::Tensor & self, at::IntArrayRef shifts, at::IntArrayRef dims={}) {
+    return at::_ops::roll_out::call(self, c10::fromIntArrayRefSlow(shifts), dims, out);
+}
+namespace symint {
+  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  at::Tensor & roll_out(at::Tensor & out, const at::Tensor & self, at::IntArrayRef shifts, at::IntArrayRef dims={}) {
+    return at::_ops::roll_out::call(self, c10::fromIntArrayRefSlow(shifts), dims, out);
+  }
+}
+
+// aten::roll.out(Tensor self, SymInt[1] shifts, int[1] dims=[], *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & roll_outf(const at::Tensor & self, at::IntArrayRef shifts, at::IntArrayRef dims, at::Tensor & out) {
+    return at::_ops::roll_out::call(self, c10::fromIntArrayRefSlow(shifts), dims, out);
+}
+namespace symint {
+  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  at::Tensor & roll_outf(const at::Tensor & self, at::IntArrayRef shifts, at::IntArrayRef dims, at::Tensor & out) {
+    return at::_ops::roll_out::call(self, c10::fromIntArrayRefSlow(shifts), dims, out);
+  }
+}
+
+// aten::roll.out(Tensor self, SymInt[1] shifts, int[1] dims=[], *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & roll_symint_out(at::Tensor & out, const at::Tensor & self, c10::SymIntArrayRef shifts, at::IntArrayRef dims={}) {
     return at::_ops::roll_out::call(self, shifts, dims, out);
 }
-// aten::roll.out(Tensor self, int[1] shifts, int[1] dims=[], *, Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & roll_outf(const at::Tensor & self, at::IntArrayRef shifts, at::IntArrayRef dims, at::Tensor & out) {
+namespace symint {
+  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  at::Tensor & roll_out(at::Tensor & out, const at::Tensor & self, c10::SymIntArrayRef shifts, at::IntArrayRef dims={}) {
     return at::_ops::roll_out::call(self, shifts, dims, out);
+  }
+}
+
+// aten::roll.out(Tensor self, SymInt[1] shifts, int[1] dims=[], *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & roll_symint_outf(const at::Tensor & self, c10::SymIntArrayRef shifts, at::IntArrayRef dims, at::Tensor & out) {
+    return at::_ops::roll_out::call(self, shifts, dims, out);
+}
+namespace symint {
+  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  at::Tensor & roll_outf(const at::Tensor & self, c10::SymIntArrayRef shifts, at::IntArrayRef dims, at::Tensor & out) {
+    return at::_ops::roll_out::call(self, shifts, dims, out);
+  }
 }
 
 }

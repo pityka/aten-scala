@@ -15,14 +15,14 @@ namespace _ops {
 
 
 struct TORCH_API _cufft_get_plan_cache_size {
-  using schema = int64_t (int64_t);
+  using schema = int64_t (at::DeviceIndex);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_cufft_get_plan_cache_size")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_cufft_get_plan_cache_size(int device_index) -> int")
-  static int64_t call(int64_t device_index);
-  static int64_t redispatch(c10::DispatchKeySet dispatchKeySet, int64_t device_index);
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_cufft_get_plan_cache_size(DeviceIndex device_index) -> int")
+  static int64_t call(at::DeviceIndex device_index);
+  static int64_t redispatch(c10::DispatchKeySet dispatchKeySet, at::DeviceIndex device_index);
 };
 
 }} // namespace at::_ops

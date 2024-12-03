@@ -18,8 +18,11 @@ namespace at {
 namespace meta {
 
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> topk(const at::Tensor & self, int64_t k, int64_t dim=-1, bool largest=true, bool sorted=true);
+TORCH_API ::std::tuple<at::Tensor,at::Tensor> topk_symint(const at::Tensor & self, c10::SymInt k, int64_t dim=-1, bool largest=true, bool sorted=true);
 TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> topk_out(at::Tensor & values, at::Tensor & indices, const at::Tensor & self, int64_t k, int64_t dim=-1, bool largest=true, bool sorted=true);
 TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> topk_outf(const at::Tensor & self, int64_t k, int64_t dim, bool largest, bool sorted, at::Tensor & values, at::Tensor & indices);
+TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> topk_symint_out(at::Tensor & values, at::Tensor & indices, const at::Tensor & self, c10::SymInt k, int64_t dim=-1, bool largest=true, bool sorted=true);
+TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> topk_symint_outf(const at::Tensor & self, c10::SymInt k, int64_t dim, bool largest, bool sorted, at::Tensor & values, at::Tensor & indices);
 
 } // namespace meta
 } // namespace at

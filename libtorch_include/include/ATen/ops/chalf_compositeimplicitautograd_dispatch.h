@@ -17,7 +17,7 @@ namespace at {
 
 namespace compositeimplicitautograd {
 
-TORCH_API at::Tensor chalf(const at::Tensor & self, c10::optional<at::MemoryFormat> memory_format=c10::nullopt);
+TORCH_API at::Tensor chalf(const at::Tensor & self, ::std::optional<at::MemoryFormat> memory_format=::std::nullopt);
 
 } // namespace compositeimplicitautograd
 } // namespace at

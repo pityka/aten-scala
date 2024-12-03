@@ -17,7 +17,7 @@ namespace at {
 
 namespace cpu {
 
-TORCH_API at::Tensor & exponential_(at::Tensor & self, double lambd=1, c10::optional<at::Generator> generator=c10::nullopt);
+TORCH_API at::Tensor & exponential_(at::Tensor & self, double lambd=1, ::std::optional<at::Generator> generator=::std::nullopt);
 
 } // namespace cpu
 } // namespace at

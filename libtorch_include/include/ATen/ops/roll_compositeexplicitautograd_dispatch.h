@@ -19,6 +19,8 @@ namespace compositeexplicitautograd {
 
 TORCH_API at::Tensor & roll_out(at::Tensor & out, const at::Tensor & self, at::IntArrayRef shifts, at::IntArrayRef dims={});
 TORCH_API at::Tensor & roll_outf(const at::Tensor & self, at::IntArrayRef shifts, at::IntArrayRef dims, at::Tensor & out);
+TORCH_API at::Tensor & roll_symint_out(at::Tensor & out, const at::Tensor & self, c10::SymIntArrayRef shifts, at::IntArrayRef dims={});
+TORCH_API at::Tensor & roll_symint_outf(const at::Tensor & self, c10::SymIntArrayRef shifts, at::IntArrayRef dims, at::Tensor & out);
 
 } // namespace compositeexplicitautograd
 } // namespace at

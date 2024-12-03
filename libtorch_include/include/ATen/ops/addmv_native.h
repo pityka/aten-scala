@@ -6,7 +6,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 #include <c10/core/QScheme.h>
 #include <ATen/core/Reduction.h>
 #include <ATen/core/Tensor.h>
@@ -24,8 +24,5 @@ void impl(const at::Tensor & self, const at::Tensor & mat, const at::Tensor & ve
 };
 TORCH_API at::Tensor & addmv_out_sparse_compressed(const at::Tensor & self, const at::Tensor & mat, const at::Tensor & vec, const at::Scalar & beta, const at::Scalar & alpha, at::Tensor & out);
 TORCH_API at::Tensor & addmv_out_sparse_compressed_cuda(const at::Tensor & self, const at::Tensor & mat, const at::Tensor & vec, const at::Scalar & beta, const at::Scalar & alpha, at::Tensor & out);
-struct TORCH_API structured_addmv_out_mps : public at::meta::structured_addmv {
-void impl(const at::Tensor & self, const at::Tensor & mat, const at::Tensor & vec, const at::Scalar & beta, const at::Scalar & alpha, const at::Tensor & out);
-};
 } // namespace native
 } // namespace at

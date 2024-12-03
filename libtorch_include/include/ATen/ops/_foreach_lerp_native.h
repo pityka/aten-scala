@@ -6,7 +6,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 #include <c10/core/QScheme.h>
 #include <ATen/core/Reduction.h>
 #include <ATen/core/Tensor.h>
@@ -16,13 +16,13 @@
 
 namespace at {
 namespace native {
-TORCH_API void _foreach_lerp_List_out(at::TensorList self, at::TensorList tensors1, at::TensorList weights, at::TensorList out);
 TORCH_API ::std::vector<at::Tensor> foreach_tensor_ternary_lerp_slow(at::TensorList self, at::TensorList tensors1, at::TensorList weights);
+TORCH_API void _foreach_lerp_List_out(at::TensorList self, at::TensorList tensors1, at::TensorList weights, at::TensorList out);
 TORCH_API void foreach_tensor_ternary_lerp_slow_(at::TensorList self, at::TensorList tensors1, at::TensorList weights);
 TORCH_API ::std::vector<at::Tensor> foreach_tensor_lerp_ternary_cuda(at::TensorList self, at::TensorList tensors1, at::TensorList weights);
 TORCH_API void foreach_tensor_lerp_ternary_cuda_(at::TensorList self, at::TensorList tensors1, at::TensorList weights);
-TORCH_API void _foreach_lerp_Scalar_out(at::TensorList self, at::TensorList tensors1, const at::Scalar & weight, at::TensorList out);
 TORCH_API ::std::vector<at::Tensor> foreach_tensor_lerp_list_kernel_slow(at::TensorList self, at::TensorList tensors1, const at::Scalar & weight);
+TORCH_API void _foreach_lerp_Scalar_out(at::TensorList self, at::TensorList tensors1, const at::Scalar & weight, at::TensorList out);
 TORCH_API void foreach_tensor_lerp_list_kernel_slow_(at::TensorList self, at::TensorList tensors1, const at::Scalar & weight);
 TORCH_API ::std::vector<at::Tensor> foreach_tensor_lerp_list_cuda(at::TensorList self, at::TensorList tensors1, const at::Scalar & weight);
 TORCH_API void foreach_tensor_lerp_list_cuda_(at::TensorList self, at::TensorList tensors1, const at::Scalar & weight);

@@ -17,8 +17,8 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
-TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> _thnn_fused_gru_cell_out(at::Tensor & out0, at::Tensor & out1, const at::Tensor & input_gates, const at::Tensor & hidden_gates, const at::Tensor & hx, const c10::optional<at::Tensor> & input_bias={}, const c10::optional<at::Tensor> & hidden_bias={});
-TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> _thnn_fused_gru_cell_outf(const at::Tensor & input_gates, const at::Tensor & hidden_gates, const at::Tensor & hx, const c10::optional<at::Tensor> & input_bias, const c10::optional<at::Tensor> & hidden_bias, at::Tensor & out0, at::Tensor & out1);
+TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> _thnn_fused_gru_cell_out(at::Tensor & out0, at::Tensor & out1, const at::Tensor & input_gates, const at::Tensor & hidden_gates, const at::Tensor & hx, const ::std::optional<at::Tensor> & input_bias={}, const ::std::optional<at::Tensor> & hidden_bias={});
+TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> _thnn_fused_gru_cell_outf(const at::Tensor & input_gates, const at::Tensor & hidden_gates, const at::Tensor & hx, const ::std::optional<at::Tensor> & input_bias, const ::std::optional<at::Tensor> & hidden_bias, at::Tensor & out0, at::Tensor & out1);
 
 } // namespace compositeexplicitautograd
 } // namespace at

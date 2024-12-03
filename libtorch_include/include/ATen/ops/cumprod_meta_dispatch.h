@@ -17,10 +17,10 @@ namespace at {
 
 namespace meta {
 
-TORCH_API at::Tensor cumprod(const at::Tensor & self, int64_t dim, c10::optional<at::ScalarType> dtype=c10::nullopt);
-TORCH_API at::Tensor & cumprod_out(at::Tensor & out, const at::Tensor & self, int64_t dim, c10::optional<at::ScalarType> dtype=c10::nullopt);
-TORCH_API at::Tensor & cumprod_outf(const at::Tensor & self, int64_t dim, c10::optional<at::ScalarType> dtype, at::Tensor & out);
-TORCH_API at::Tensor & cumprod_(at::Tensor & self, int64_t dim, c10::optional<at::ScalarType> dtype=c10::nullopt);
+TORCH_API at::Tensor cumprod(const at::Tensor & self, int64_t dim, ::std::optional<at::ScalarType> dtype=::std::nullopt);
+TORCH_API at::Tensor & cumprod_out(at::Tensor & out, const at::Tensor & self, int64_t dim, ::std::optional<at::ScalarType> dtype=::std::nullopt);
+TORCH_API at::Tensor & cumprod_outf(const at::Tensor & self, int64_t dim, ::std::optional<at::ScalarType> dtype, at::Tensor & out);
+TORCH_API at::Tensor & cumprod_(at::Tensor & self, int64_t dim, ::std::optional<at::ScalarType> dtype=::std::nullopt);
 
 } // namespace meta
 } // namespace at

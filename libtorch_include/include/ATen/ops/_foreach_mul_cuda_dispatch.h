@@ -23,6 +23,8 @@ TORCH_API ::std::vector<at::Tensor> _foreach_mul(at::TensorList self, at::Tensor
 TORCH_API void _foreach_mul_(at::TensorList self, at::TensorList other);
 TORCH_API ::std::vector<at::Tensor> _foreach_mul(at::TensorList self, at::ArrayRef<at::Scalar> scalars);
 TORCH_API void _foreach_mul_(at::TensorList self, at::ArrayRef<at::Scalar> scalars);
+TORCH_API ::std::vector<at::Tensor> _foreach_mul(at::TensorList self, const at::Tensor & other);
+TORCH_API void _foreach_mul_(at::TensorList self, const at::Tensor & other);
 
 } // namespace cuda
 } // namespace at

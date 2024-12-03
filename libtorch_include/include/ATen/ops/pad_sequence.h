@@ -13,7 +13,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 
 
 
@@ -22,9 +22,9 @@
 namespace at {
 
 
-// aten::pad_sequence(Tensor[] sequences, bool batch_first=False, float padding_value=0.0) -> Tensor
-inline at::Tensor pad_sequence(at::TensorList sequences, bool batch_first=false, double padding_value=0.0) {
-    return at::_ops::pad_sequence::call(sequences, batch_first, padding_value);
+// aten::pad_sequence(Tensor[] sequences, bool batch_first=False, float padding_value=0.0, str padding_side="right") -> Tensor
+inline at::Tensor pad_sequence(at::TensorList sequences, bool batch_first=false, double padding_value=0.0, c10::string_view padding_side="right") {
+    return at::_ops::pad_sequence::call(sequences, batch_first, padding_value, padding_side);
 }
 
 }

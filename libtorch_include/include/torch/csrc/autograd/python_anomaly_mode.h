@@ -3,11 +3,9 @@
 #include <pybind11/pybind11.h>
 #include <torch/csrc/autograd/anomaly_mode.h>
 #include <torch/csrc/python_headers.h>
-#include <torch/csrc/utils/auto_gil.h>
 #include <torch/csrc/utils/pybind.h>
 
-namespace torch {
-namespace autograd {
+namespace torch::autograd {
 
 struct PyAnomalyMetadata : public AnomalyMetadata {
   static constexpr const char* ANOMALY_TRACE_KEY = "traceback_";
@@ -15,6 +13,7 @@ struct PyAnomalyMetadata : public AnomalyMetadata {
 
   PyAnomalyMetadata() {
     pybind11::gil_scoped_acquire gil;
+    // NOLINTNEXTLINE(cppcoreguidelines-prefer-member-initializer)
     dict_ = PyDict_New();
   }
   ~PyAnomalyMetadata() override {
@@ -33,12 +32,11 @@ struct PyAnomalyMetadata : public AnomalyMetadata {
   }
 
  private:
-  PyObject* dict_;
+  PyObject* dict_{nullptr};
 };
 void _print_stack(
     PyObject* trace_stack,
     const std::string& current_node_name,
     bool is_parent);
 
-} // namespace autograd
-} // namespace torch
+} // namespace torch::autograd

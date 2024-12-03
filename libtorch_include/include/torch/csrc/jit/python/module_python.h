@@ -6,19 +6,18 @@
 
 namespace py = pybind11;
 
-namespace torch {
-namespace jit {
+namespace torch::jit {
 
-inline c10::optional<Module> as_module(py::handle obj) {
+inline std::optional<Module> as_module(py::handle obj) {
   static py::handle ScriptModule =
       py::module::import("torch.jit").attr("ScriptModule");
   if (py::isinstance(obj, ScriptModule)) {
     return py::cast<Module>(obj.attr("_c"));
   }
-  return c10::nullopt;
+  return std::nullopt;
 }
 
-inline c10::optional<Object> as_object(py::handle obj) {
+inline std::optional<Object> as_object(py::handle obj) {
   static py::handle ScriptObject =
       py::module::import("torch").attr("ScriptObject");
   if (py::isinstance(obj, ScriptObject)) {
@@ -30,8 +29,7 @@ inline c10::optional<Object> as_object(py::handle obj) {
   if (py::isinstance(obj, RecursiveScriptClass)) {
     return py::cast<Object>(obj.attr("_c"));
   }
-  return c10::nullopt;
+  return std::nullopt;
 }
 
-} // namespace jit
-} // namespace torch
+} // namespace torch::jit

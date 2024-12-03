@@ -17,7 +17,7 @@ namespace at {
 
 namespace cuda {
 
-TORCH_API ::std::tuple<at::Tensor,at::Tensor> _fused_dropout(const at::Tensor & self, double p, c10::optional<at::Generator> generator=c10::nullopt);
+TORCH_API ::std::tuple<at::Tensor,at::Tensor> _fused_dropout(const at::Tensor & self, double p, ::std::optional<at::Generator> generator=::std::nullopt);
 
 } // namespace cuda
 } // namespace at

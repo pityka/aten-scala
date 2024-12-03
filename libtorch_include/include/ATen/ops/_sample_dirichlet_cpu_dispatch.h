@@ -17,7 +17,7 @@ namespace at {
 
 namespace cpu {
 
-TORCH_API at::Tensor _sample_dirichlet(const at::Tensor & self, c10::optional<at::Generator> generator=c10::nullopt);
+TORCH_API at::Tensor _sample_dirichlet(const at::Tensor & self, ::std::optional<at::Generator> generator=::std::nullopt);
 
 } // namespace cpu
 } // namespace at

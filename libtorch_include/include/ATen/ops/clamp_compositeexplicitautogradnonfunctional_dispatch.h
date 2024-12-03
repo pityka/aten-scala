@@ -17,10 +17,10 @@ namespace at {
 
 namespace compositeexplicitautogradnonfunctional {
 
-TORCH_API at::Tensor clamp(const at::Tensor & self, const c10::optional<at::Scalar> & min, const c10::optional<at::Scalar> & max=c10::nullopt);
-TORCH_API at::Tensor & clamp_(at::Tensor & self, const c10::optional<at::Scalar> & min, const c10::optional<at::Scalar> & max=c10::nullopt);
-TORCH_API at::Tensor clamp(const at::Tensor & self, const c10::optional<at::Tensor> & min={}, const c10::optional<at::Tensor> & max={});
-TORCH_API at::Tensor & clamp_(at::Tensor & self, const c10::optional<at::Tensor> & min={}, const c10::optional<at::Tensor> & max={});
+TORCH_API at::Tensor clamp(const at::Tensor & self, const ::std::optional<at::Scalar> & min, const ::std::optional<at::Scalar> & max=::std::nullopt);
+TORCH_API at::Tensor & clamp_(at::Tensor & self, const ::std::optional<at::Scalar> & min, const ::std::optional<at::Scalar> & max=::std::nullopt);
+TORCH_API at::Tensor clamp(const at::Tensor & self, const ::std::optional<at::Tensor> & min={}, const ::std::optional<at::Tensor> & max={});
+TORCH_API at::Tensor & clamp_(at::Tensor & self, const ::std::optional<at::Tensor> & min={}, const ::std::optional<at::Tensor> & max={});
 
 } // namespace compositeexplicitautogradnonfunctional
 } // namespace at

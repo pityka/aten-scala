@@ -6,7 +6,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 #include <c10/core/QScheme.h>
 #include <ATen/core/Reduction.h>
 #include <ATen/core/Tensor.h>
@@ -16,13 +16,7 @@
 
 namespace at {
 namespace native {
-TORCH_API at::Tensor & to_sparse_sparse_dim_out(const at::Tensor & self, int64_t sparse_dim, at::Tensor & out);
-TORCH_API at::Tensor dense_to_sparse(const at::Tensor & self, int64_t sparse_dim);
-TORCH_API at::Tensor sparse_coo_to_sparse(const at::Tensor & self, int64_t sparse_dim);
-TORCH_API at::Tensor sparse_compressed_to_sparse(const at::Tensor & self, int64_t sparse_dim);
-TORCH_API at::Tensor & to_sparse_out(const at::Tensor & self, c10::optional<at::Layout> layout, at::OptionalIntArrayRef blocksize, c10::optional<int64_t> dense_dim, at::Tensor & out);
-TORCH_API at::Tensor dense_to_sparse(const at::Tensor & self, c10::optional<at::Layout> layout=c10::nullopt, at::OptionalIntArrayRef blocksize=c10::nullopt, c10::optional<int64_t> dense_dim=c10::nullopt);
-TORCH_API at::Tensor sparse_coo_to_sparse(const at::Tensor & self, c10::optional<at::Layout> layout=c10::nullopt, at::OptionalIntArrayRef blocksize=c10::nullopt, c10::optional<int64_t> dense_dim=c10::nullopt);
-TORCH_API at::Tensor sparse_compressed_to_sparse(const at::Tensor & self, c10::optional<at::Layout> layout=c10::nullopt, at::OptionalIntArrayRef blocksize=c10::nullopt, c10::optional<int64_t> dense_dim=c10::nullopt);
+TORCH_API at::Tensor to_sparse(const at::Tensor & self, int64_t sparse_dim);
+TORCH_API at::Tensor to_sparse(const at::Tensor & self, ::std::optional<at::Layout> layout=::std::nullopt, at::OptionalIntArrayRef blocksize=::std::nullopt, ::std::optional<int64_t> dense_dim=::std::nullopt);
 } // namespace native
 } // namespace at

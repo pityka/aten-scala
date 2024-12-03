@@ -17,7 +17,7 @@ namespace at {
 
 namespace compositeexplicitautogradnonfunctional {
 
-TORCH_API at::Tensor bernoulli(const at::Tensor & self, double p, c10::optional<at::Generator> generator=c10::nullopt);
+TORCH_API at::Tensor bernoulli(const at::Tensor & self, double p, ::std::optional<at::Generator> generator=::std::nullopt);
 
 } // namespace compositeexplicitautogradnonfunctional
 } // namespace at

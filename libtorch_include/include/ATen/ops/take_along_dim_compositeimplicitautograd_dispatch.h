@@ -17,9 +17,9 @@ namespace at {
 
 namespace compositeimplicitautograd {
 
-TORCH_API at::Tensor take_along_dim(const at::Tensor & self, const at::Tensor & indices, c10::optional<int64_t> dim=c10::nullopt);
-TORCH_API at::Tensor & take_along_dim_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & indices, c10::optional<int64_t> dim=c10::nullopt);
-TORCH_API at::Tensor & take_along_dim_outf(const at::Tensor & self, const at::Tensor & indices, c10::optional<int64_t> dim, at::Tensor & out);
+TORCH_API at::Tensor take_along_dim(const at::Tensor & self, const at::Tensor & indices, ::std::optional<int64_t> dim=::std::nullopt);
+TORCH_API at::Tensor & take_along_dim_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & indices, ::std::optional<int64_t> dim=::std::nullopt);
+TORCH_API at::Tensor & take_along_dim_outf(const at::Tensor & self, const at::Tensor & indices, ::std::optional<int64_t> dim, at::Tensor & out);
 
 } // namespace compositeimplicitautograd
 } // namespace at

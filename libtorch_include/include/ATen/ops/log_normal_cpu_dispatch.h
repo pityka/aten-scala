@@ -17,7 +17,7 @@ namespace at {
 
 namespace cpu {
 
-TORCH_API at::Tensor & log_normal_(at::Tensor & self, double mean=1, double std=2, c10::optional<at::Generator> generator=c10::nullopt);
+TORCH_API at::Tensor & log_normal_(at::Tensor & self, double mean=1, double std=2, ::std::optional<at::Generator> generator=::std::nullopt);
 
 } // namespace cpu
 } // namespace at

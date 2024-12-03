@@ -13,7 +13,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 
 
 
@@ -23,30 +23,30 @@ namespace at {
 
 
 // aten::nanquantile(Tensor self, Tensor q, int? dim=None, bool keepdim=False, *, str interpolation='linear') -> Tensor
-inline at::Tensor nanquantile(const at::Tensor & self, const at::Tensor & q, c10::optional<int64_t> dim=c10::nullopt, bool keepdim=false, c10::string_view interpolation="linear") {
+inline at::Tensor nanquantile(const at::Tensor & self, const at::Tensor & q, ::std::optional<int64_t> dim=::std::nullopt, bool keepdim=false, c10::string_view interpolation="linear") {
     return at::_ops::nanquantile::call(self, q, dim, keepdim, interpolation);
 }
 
 // aten::nanquantile.out(Tensor self, Tensor q, int? dim=None, bool keepdim=False, *, str interpolation='linear', Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & nanquantile_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & q, c10::optional<int64_t> dim=c10::nullopt, bool keepdim=false, c10::string_view interpolation="linear") {
+inline at::Tensor & nanquantile_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & q, ::std::optional<int64_t> dim=::std::nullopt, bool keepdim=false, c10::string_view interpolation="linear") {
     return at::_ops::nanquantile_out::call(self, q, dim, keepdim, interpolation, out);
 }
 // aten::nanquantile.out(Tensor self, Tensor q, int? dim=None, bool keepdim=False, *, str interpolation='linear', Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & nanquantile_outf(const at::Tensor & self, const at::Tensor & q, c10::optional<int64_t> dim, bool keepdim, c10::string_view interpolation, at::Tensor & out) {
+inline at::Tensor & nanquantile_outf(const at::Tensor & self, const at::Tensor & q, ::std::optional<int64_t> dim, bool keepdim, c10::string_view interpolation, at::Tensor & out) {
     return at::_ops::nanquantile_out::call(self, q, dim, keepdim, interpolation, out);
 }
 
 // aten::nanquantile.scalar(Tensor self, float q, int? dim=None, bool keepdim=False, *, str interpolation='linear') -> Tensor
-inline at::Tensor nanquantile(const at::Tensor & self, double q, c10::optional<int64_t> dim=c10::nullopt, bool keepdim=false, c10::string_view interpolation="linear") {
+inline at::Tensor nanquantile(const at::Tensor & self, double q, ::std::optional<int64_t> dim=::std::nullopt, bool keepdim=false, c10::string_view interpolation="linear") {
     return at::_ops::nanquantile_scalar::call(self, q, dim, keepdim, interpolation);
 }
 
 // aten::nanquantile.scalar_out(Tensor self, float q, int? dim=None, bool keepdim=False, *, str interpolation='linear', Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & nanquantile_out(at::Tensor & out, const at::Tensor & self, double q, c10::optional<int64_t> dim=c10::nullopt, bool keepdim=false, c10::string_view interpolation="linear") {
+inline at::Tensor & nanquantile_out(at::Tensor & out, const at::Tensor & self, double q, ::std::optional<int64_t> dim=::std::nullopt, bool keepdim=false, c10::string_view interpolation="linear") {
     return at::_ops::nanquantile_scalar_out::call(self, q, dim, keepdim, interpolation, out);
 }
 // aten::nanquantile.scalar_out(Tensor self, float q, int? dim=None, bool keepdim=False, *, str interpolation='linear', Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & nanquantile_outf(const at::Tensor & self, double q, c10::optional<int64_t> dim, bool keepdim, c10::string_view interpolation, at::Tensor & out) {
+inline at::Tensor & nanquantile_outf(const at::Tensor & self, double q, ::std::optional<int64_t> dim, bool keepdim, c10::string_view interpolation, at::Tensor & out) {
     return at::_ops::nanquantile_scalar_out::call(self, q, dim, keepdim, interpolation, out);
 }
 

@@ -17,7 +17,7 @@ namespace at {
 
 namespace compositeimplicitautograd {
 
-TORCH_API at::Tensor vander(const at::Tensor & x, c10::optional<int64_t> N=c10::nullopt, bool increasing=false);
+TORCH_API at::Tensor vander(const at::Tensor & x, ::std::optional<int64_t> N=::std::nullopt, bool increasing=false);
 
 } // namespace compositeimplicitautograd
 } // namespace at

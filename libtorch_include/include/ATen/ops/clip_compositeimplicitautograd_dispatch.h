@@ -17,14 +17,14 @@ namespace at {
 
 namespace compositeimplicitautograd {
 
-TORCH_API at::Tensor clip(const at::Tensor & self, const c10::optional<at::Scalar> & min, const c10::optional<at::Scalar> & max=c10::nullopt);
-TORCH_API at::Tensor & clip_out(at::Tensor & out, const at::Tensor & self, const c10::optional<at::Scalar> & min, const c10::optional<at::Scalar> & max=c10::nullopt);
-TORCH_API at::Tensor & clip_outf(const at::Tensor & self, const c10::optional<at::Scalar> & min, const c10::optional<at::Scalar> & max, at::Tensor & out);
-TORCH_API at::Tensor & clip_(at::Tensor & self, const c10::optional<at::Scalar> & min, const c10::optional<at::Scalar> & max=c10::nullopt);
-TORCH_API at::Tensor clip(const at::Tensor & self, const c10::optional<at::Tensor> & min={}, const c10::optional<at::Tensor> & max={});
-TORCH_API at::Tensor & clip_out(at::Tensor & out, const at::Tensor & self, const c10::optional<at::Tensor> & min={}, const c10::optional<at::Tensor> & max={});
-TORCH_API at::Tensor & clip_outf(const at::Tensor & self, const c10::optional<at::Tensor> & min, const c10::optional<at::Tensor> & max, at::Tensor & out);
-TORCH_API at::Tensor & clip_(at::Tensor & self, const c10::optional<at::Tensor> & min={}, const c10::optional<at::Tensor> & max={});
+TORCH_API at::Tensor clip(const at::Tensor & self, const ::std::optional<at::Scalar> & min, const ::std::optional<at::Scalar> & max=::std::nullopt);
+TORCH_API at::Tensor & clip_out(at::Tensor & out, const at::Tensor & self, const ::std::optional<at::Scalar> & min, const ::std::optional<at::Scalar> & max=::std::nullopt);
+TORCH_API at::Tensor & clip_outf(const at::Tensor & self, const ::std::optional<at::Scalar> & min, const ::std::optional<at::Scalar> & max, at::Tensor & out);
+TORCH_API at::Tensor & clip_(at::Tensor & self, const ::std::optional<at::Scalar> & min, const ::std::optional<at::Scalar> & max=::std::nullopt);
+TORCH_API at::Tensor clip(const at::Tensor & self, const ::std::optional<at::Tensor> & min={}, const ::std::optional<at::Tensor> & max={});
+TORCH_API at::Tensor & clip_out(at::Tensor & out, const at::Tensor & self, const ::std::optional<at::Tensor> & min={}, const ::std::optional<at::Tensor> & max={});
+TORCH_API at::Tensor & clip_outf(const at::Tensor & self, const ::std::optional<at::Tensor> & min, const ::std::optional<at::Tensor> & max, at::Tensor & out);
+TORCH_API at::Tensor & clip_(at::Tensor & self, const ::std::optional<at::Tensor> & min={}, const ::std::optional<at::Tensor> & max={});
 
 } // namespace compositeimplicitautograd
 } // namespace at

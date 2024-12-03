@@ -18,8 +18,11 @@ namespace at {
 namespace cpu {
 
 TORCH_API at::Tensor _fft_c2r(const at::Tensor & self, at::IntArrayRef dim, int64_t normalization, int64_t last_dim_size);
+TORCH_API at::Tensor _fft_c2r_symint(const at::Tensor & self, at::IntArrayRef dim, int64_t normalization, c10::SymInt last_dim_size);
 TORCH_API at::Tensor & _fft_c2r_out(at::Tensor & out, const at::Tensor & self, at::IntArrayRef dim, int64_t normalization, int64_t last_dim_size);
 TORCH_API at::Tensor & _fft_c2r_outf(const at::Tensor & self, at::IntArrayRef dim, int64_t normalization, int64_t last_dim_size, at::Tensor & out);
+TORCH_API at::Tensor & _fft_c2r_symint_out(at::Tensor & out, const at::Tensor & self, at::IntArrayRef dim, int64_t normalization, c10::SymInt last_dim_size);
+TORCH_API at::Tensor & _fft_c2r_symint_outf(const at::Tensor & self, at::IntArrayRef dim, int64_t normalization, c10::SymInt last_dim_size, at::Tensor & out);
 
 } // namespace cpu
 } // namespace at

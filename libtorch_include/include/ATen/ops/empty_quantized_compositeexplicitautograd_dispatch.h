@@ -17,8 +17,8 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
-TORCH_API at::Tensor & empty_quantized_out(at::Tensor & out, at::IntArrayRef size, const at::Tensor & qtensor, c10::optional<at::MemoryFormat> memory_format=c10::nullopt);
-TORCH_API at::Tensor & empty_quantized_outf(at::IntArrayRef size, const at::Tensor & qtensor, c10::optional<at::MemoryFormat> memory_format, at::Tensor & out);
+TORCH_API at::Tensor & empty_quantized_out(at::Tensor & out, at::IntArrayRef size, const at::Tensor & qtensor, ::std::optional<at::MemoryFormat> memory_format=::std::nullopt);
+TORCH_API at::Tensor & empty_quantized_outf(at::IntArrayRef size, const at::Tensor & qtensor, ::std::optional<at::MemoryFormat> memory_format, at::Tensor & out);
 
 } // namespace compositeexplicitautograd
 } // namespace at

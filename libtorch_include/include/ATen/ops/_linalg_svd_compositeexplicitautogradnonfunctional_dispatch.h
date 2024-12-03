@@ -17,7 +17,7 @@ namespace at {
 
 namespace compositeexplicitautogradnonfunctional {
 
-TORCH_API ::std::tuple<at::Tensor,at::Tensor,at::Tensor> _linalg_svd(const at::Tensor & A, bool full_matrices=false, bool compute_uv=true, c10::optional<c10::string_view> driver=c10::nullopt);
+TORCH_API ::std::tuple<at::Tensor,at::Tensor,at::Tensor> _linalg_svd(const at::Tensor & A, bool full_matrices=false, bool compute_uv=true, ::std::optional<c10::string_view> driver=::std::nullopt);
 
 } // namespace compositeexplicitautogradnonfunctional
 } // namespace at

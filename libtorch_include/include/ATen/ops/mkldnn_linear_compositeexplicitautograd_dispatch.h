@@ -17,8 +17,8 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
-TORCH_API at::Tensor & mkldnn_linear_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & weight, const c10::optional<at::Tensor> & bias={});
-TORCH_API at::Tensor & mkldnn_linear_outf(const at::Tensor & self, const at::Tensor & weight, const c10::optional<at::Tensor> & bias, at::Tensor & out);
+TORCH_API at::Tensor & mkldnn_linear_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & weight, const ::std::optional<at::Tensor> & bias={});
+TORCH_API at::Tensor & mkldnn_linear_outf(const at::Tensor & self, const at::Tensor & weight, const ::std::optional<at::Tensor> & bias, at::Tensor & out);
 
 } // namespace compositeexplicitautograd
 } // namespace at

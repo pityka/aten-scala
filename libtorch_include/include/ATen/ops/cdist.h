@@ -13,7 +13,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 
 
 
@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::cdist(Tensor x1, Tensor x2, float p=2, int? compute_mode=None) -> Tensor
-inline at::Tensor cdist(const at::Tensor & x1, const at::Tensor & x2, double p=2, c10::optional<int64_t> compute_mode=c10::nullopt) {
+inline at::Tensor cdist(const at::Tensor & x1, const at::Tensor & x2, double p=2, ::std::optional<int64_t> compute_mode=::std::nullopt) {
     return at::_ops::cdist::call(x1, x2, p, compute_mode);
 }
 

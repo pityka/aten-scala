@@ -17,16 +17,16 @@ namespace at {
 
 namespace cpu {
 
-TORCH_API at::Tensor & normal_(at::Tensor & self, double mean=0, double std=1, c10::optional<at::Generator> generator=c10::nullopt);
-TORCH_API at::Tensor normal(const at::Tensor & mean, double std=1, c10::optional<at::Generator> generator=c10::nullopt);
-TORCH_API at::Tensor & normal_out(at::Tensor & out, const at::Tensor & mean, double std=1, c10::optional<at::Generator> generator=c10::nullopt);
-TORCH_API at::Tensor & normal_outf(const at::Tensor & mean, double std, c10::optional<at::Generator> generator, at::Tensor & out);
-TORCH_API at::Tensor normal(double mean, const at::Tensor & std, c10::optional<at::Generator> generator=c10::nullopt);
-TORCH_API at::Tensor & normal_out(at::Tensor & out, double mean, const at::Tensor & std, c10::optional<at::Generator> generator=c10::nullopt);
-TORCH_API at::Tensor & normal_outf(double mean, const at::Tensor & std, c10::optional<at::Generator> generator, at::Tensor & out);
-TORCH_API at::Tensor normal(const at::Tensor & mean, const at::Tensor & std, c10::optional<at::Generator> generator=c10::nullopt);
-TORCH_API at::Tensor & normal_out(at::Tensor & out, const at::Tensor & mean, const at::Tensor & std, c10::optional<at::Generator> generator=c10::nullopt);
-TORCH_API at::Tensor & normal_outf(const at::Tensor & mean, const at::Tensor & std, c10::optional<at::Generator> generator, at::Tensor & out);
+TORCH_API at::Tensor & normal_(at::Tensor & self, double mean=0, double std=1, ::std::optional<at::Generator> generator=::std::nullopt);
+TORCH_API at::Tensor normal(const at::Tensor & mean, double std=1, ::std::optional<at::Generator> generator=::std::nullopt);
+TORCH_API at::Tensor & normal_out(at::Tensor & out, const at::Tensor & mean, double std=1, ::std::optional<at::Generator> generator=::std::nullopt);
+TORCH_API at::Tensor & normal_outf(const at::Tensor & mean, double std, ::std::optional<at::Generator> generator, at::Tensor & out);
+TORCH_API at::Tensor normal(double mean, const at::Tensor & std, ::std::optional<at::Generator> generator=::std::nullopt);
+TORCH_API at::Tensor & normal_out(at::Tensor & out, double mean, const at::Tensor & std, ::std::optional<at::Generator> generator=::std::nullopt);
+TORCH_API at::Tensor & normal_outf(double mean, const at::Tensor & std, ::std::optional<at::Generator> generator, at::Tensor & out);
+TORCH_API at::Tensor normal(const at::Tensor & mean, const at::Tensor & std, ::std::optional<at::Generator> generator=::std::nullopt);
+TORCH_API at::Tensor & normal_out(at::Tensor & out, const at::Tensor & mean, const at::Tensor & std, ::std::optional<at::Generator> generator=::std::nullopt);
+TORCH_API at::Tensor & normal_outf(const at::Tensor & mean, const at::Tensor & std, ::std::optional<at::Generator> generator, at::Tensor & out);
 
 } // namespace cpu
 } // namespace at

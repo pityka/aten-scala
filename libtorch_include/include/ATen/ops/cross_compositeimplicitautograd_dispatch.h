@@ -17,9 +17,9 @@ namespace at {
 
 namespace compositeimplicitautograd {
 
-TORCH_API at::Tensor cross(const at::Tensor & self, const at::Tensor & other, c10::optional<int64_t> dim=c10::nullopt);
-TORCH_API at::Tensor & cross_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & other, c10::optional<int64_t> dim=c10::nullopt);
-TORCH_API at::Tensor & cross_outf(const at::Tensor & self, const at::Tensor & other, c10::optional<int64_t> dim, at::Tensor & out);
+TORCH_API at::Tensor cross(const at::Tensor & self, const at::Tensor & other, ::std::optional<int64_t> dim=::std::nullopt);
+TORCH_API at::Tensor & cross_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & other, ::std::optional<int64_t> dim=::std::nullopt);
+TORCH_API at::Tensor & cross_outf(const at::Tensor & self, const at::Tensor & other, ::std::optional<int64_t> dim, at::Tensor & out);
 
 } // namespace compositeimplicitautograd
 } // namespace at

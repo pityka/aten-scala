@@ -17,7 +17,7 @@ namespace at {
 
 namespace compositeexplicitautogradnonfunctional {
 
-TORCH_API at::Tensor prod(const at::Tensor & self, int64_t dim, bool keepdim=false, c10::optional<at::ScalarType> dtype=c10::nullopt);
+TORCH_API at::Tensor prod(const at::Tensor & self, int64_t dim, bool keepdim=false, ::std::optional<at::ScalarType> dtype=::std::nullopt);
 
 } // namespace compositeexplicitautogradnonfunctional
 } // namespace at

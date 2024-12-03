@@ -13,7 +13,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 
 
 
@@ -23,21 +23,21 @@ namespace at {
 
 
 // aten::resize_as_(Tensor(a!) self, Tensor the_template, *, MemoryFormat? memory_format=None) -> Tensor(a!)
-inline const at::Tensor & resize_as_(const at::Tensor & self, const at::Tensor & the_template, c10::optional<at::MemoryFormat> memory_format=c10::nullopt) {
+inline const at::Tensor & resize_as_(const at::Tensor & self, const at::Tensor & the_template, ::std::optional<at::MemoryFormat> memory_format=::std::nullopt) {
     return at::_ops::resize_as_::call(self, the_template, memory_format);
 }
 
 // aten::resize_as.out(Tensor self, Tensor the_template, *, MemoryFormat? memory_format=None, Tensor(a!) out) -> Tensor(a!)
-inline const at::Tensor & resize_as_out(const at::Tensor & out, const at::Tensor & self, const at::Tensor & the_template, c10::optional<at::MemoryFormat> memory_format=c10::nullopt) {
+inline const at::Tensor & resize_as_out(const at::Tensor & out, const at::Tensor & self, const at::Tensor & the_template, ::std::optional<at::MemoryFormat> memory_format=::std::nullopt) {
     return at::_ops::resize_as_out::call(self, the_template, memory_format, out);
 }
 // aten::resize_as.out(Tensor self, Tensor the_template, *, MemoryFormat? memory_format=None, Tensor(a!) out) -> Tensor(a!)
-inline const at::Tensor & resize_as_outf(const at::Tensor & self, const at::Tensor & the_template, c10::optional<at::MemoryFormat> memory_format, const at::Tensor & out) {
+inline const at::Tensor & resize_as_outf(const at::Tensor & self, const at::Tensor & the_template, ::std::optional<at::MemoryFormat> memory_format, const at::Tensor & out) {
     return at::_ops::resize_as_out::call(self, the_template, memory_format, out);
 }
 
 // aten::resize_as(Tensor self, Tensor the_template, *, MemoryFormat? memory_format=None) -> Tensor
-inline at::Tensor resize_as(const at::Tensor & self, const at::Tensor & the_template, c10::optional<at::MemoryFormat> memory_format=c10::nullopt) {
+inline at::Tensor resize_as(const at::Tensor & self, const at::Tensor & the_template, ::std::optional<at::MemoryFormat> memory_format=::std::nullopt) {
     return at::_ops::resize_as::call(self, the_template, memory_format);
 }
 

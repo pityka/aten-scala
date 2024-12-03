@@ -16,8 +16,7 @@
 // of a batching rule from the signature of the operator, many of which use the
 // helper functions in this file.
 
-namespace at {
-namespace functorch {
+namespace at::functorch {
 
 // Metaprogramming things
 template <class... Items> using typelist = c10::guts::typelist::typelist<Items...>;
@@ -42,31 +41,31 @@ struct IfFirstIsTensorAndSecondisBatchDimThenTailElseNext {
   using type = Next;
 };
 template <class Next, class Tail>
-struct IfFirstIsTensorAndSecondisBatchDimThenTailElseNext<Tensor, optional<int64_t>, Next, Tail> {
+struct IfFirstIsTensorAndSecondisBatchDimThenTailElseNext<Tensor, std::optional<int64_t>, Next, Tail> {
   using type = Tail;
 };
 template <class Next, class Tail>
-struct IfFirstIsTensorAndSecondisBatchDimThenTailElseNext<const Tensor&, optional<int64_t>, Next, Tail> {
+struct IfFirstIsTensorAndSecondisBatchDimThenTailElseNext<const Tensor&, std::optional<int64_t>, Next, Tail> {
   using type = Tail;
 };
 template <class Next, class Tail>
-struct IfFirstIsTensorAndSecondisBatchDimThenTailElseNext<Tensor&, optional<int64_t>, Next, Tail> {
+struct IfFirstIsTensorAndSecondisBatchDimThenTailElseNext<Tensor&, std::optional<int64_t>, Next, Tail> {
   using type = Tail;
 };
 template <class Next, class Tail>
-struct IfFirstIsTensorAndSecondisBatchDimThenTailElseNext<optional<Tensor>, optional<int64_t>, Next, Tail> {
+struct IfFirstIsTensorAndSecondisBatchDimThenTailElseNext<std::optional<Tensor>, std::optional<int64_t>, Next, Tail> {
   using type = Tail;
 };
 template <class Next, class Tail>
-struct IfFirstIsTensorAndSecondisBatchDimThenTailElseNext<const optional<Tensor>&, optional<int64_t>, Next, Tail> {
+struct IfFirstIsTensorAndSecondisBatchDimThenTailElseNext<const std::optional<Tensor>&, std::optional<int64_t>, Next, Tail> {
   using type = Tail;
 };
 template <class Next, class Tail>
-struct IfFirstIsTensorAndSecondisBatchDimThenTailElseNext<optional<Tensor>&, optional<int64_t>, Next, Tail> {
+struct IfFirstIsTensorAndSecondisBatchDimThenTailElseNext<std::optional<Tensor>&, std::optional<int64_t>, Next, Tail> {
   using type = Tail;
 };
 template <class Next, class Tail>
-struct IfFirstIsTensorAndSecondisBatchDimThenTailElseNext<std::vector<Tensor>, optional<int64_t>, Next, Tail> {
+struct IfFirstIsTensorAndSecondisBatchDimThenTailElseNext<std::vector<Tensor>, std::optional<int64_t>, Next, Tail> {
   using type = Tail;
 };
 template <class TypeList> struct RemoveBatchDimAfterTensor {
@@ -124,5 +123,4 @@ template <typename batch_rule_t> struct ToOperatorType {
 };
 template <typename batch_rule_t> using to_operator_t = typename ToOperatorType<batch_rule_t>::type;
 
-}
-} // namespace at
+} // namespace at::functorch

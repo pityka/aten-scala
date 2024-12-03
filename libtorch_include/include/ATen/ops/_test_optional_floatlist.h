@@ -13,7 +13,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 
 
 
@@ -23,16 +23,16 @@ namespace at {
 
 
 // aten::_test_optional_floatlist(Tensor values, float[]? addends) -> Tensor
-inline at::Tensor _test_optional_floatlist(const at::Tensor & values, c10::optional<at::ArrayRef<double>> addends) {
+inline at::Tensor _test_optional_floatlist(const at::Tensor & values, ::std::optional<at::ArrayRef<double>> addends) {
     return at::_ops::_test_optional_floatlist::call(values, addends);
 }
 
 // aten::_test_optional_floatlist.out(Tensor values, float[]? addends, *, Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & _test_optional_floatlist_out(at::Tensor & out, const at::Tensor & values, c10::optional<at::ArrayRef<double>> addends) {
+inline at::Tensor & _test_optional_floatlist_out(at::Tensor & out, const at::Tensor & values, ::std::optional<at::ArrayRef<double>> addends) {
     return at::_ops::_test_optional_floatlist_out::call(values, addends, out);
 }
 // aten::_test_optional_floatlist.out(Tensor values, float[]? addends, *, Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & _test_optional_floatlist_outf(const at::Tensor & values, c10::optional<at::ArrayRef<double>> addends, at::Tensor & out) {
+inline at::Tensor & _test_optional_floatlist_outf(const at::Tensor & values, ::std::optional<at::ArrayRef<double>> addends, at::Tensor & out) {
     return at::_ops::_test_optional_floatlist_out::call(values, addends, out);
 }
 

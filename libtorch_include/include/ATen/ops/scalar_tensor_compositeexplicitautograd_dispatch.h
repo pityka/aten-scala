@@ -18,7 +18,7 @@ namespace at {
 namespace compositeexplicitautograd {
 
 TORCH_API at::Tensor scalar_tensor(const at::Scalar & s, at::TensorOptions options={});
-TORCH_API at::Tensor scalar_tensor(const at::Scalar & s, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory);
+TORCH_API at::Tensor scalar_tensor(const at::Scalar & s, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory);
 TORCH_API at::Tensor & scalar_tensor_out(at::Tensor & out, const at::Scalar & s);
 TORCH_API at::Tensor & scalar_tensor_outf(const at::Scalar & s, at::Tensor & out);
 

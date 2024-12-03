@@ -17,9 +17,9 @@ namespace at {
 
 namespace meta {
 
-TORCH_API at::Tensor index(const at::Tensor & self, const c10::List<c10::optional<at::Tensor>> & indices);
-TORCH_API at::Tensor & index_out(at::Tensor & out, const at::Tensor & self, const c10::List<c10::optional<at::Tensor>> & indices);
-TORCH_API at::Tensor & index_outf(const at::Tensor & self, const c10::List<c10::optional<at::Tensor>> & indices, at::Tensor & out);
+TORCH_API at::Tensor index(const at::Tensor & self, const c10::List<::std::optional<at::Tensor>> & indices);
+TORCH_API at::Tensor & index_out(at::Tensor & out, const at::Tensor & self, const c10::List<::std::optional<at::Tensor>> & indices);
+TORCH_API at::Tensor & index_outf(const at::Tensor & self, const c10::List<::std::optional<at::Tensor>> & indices, at::Tensor & out);
 
 } // namespace meta
 } // namespace at

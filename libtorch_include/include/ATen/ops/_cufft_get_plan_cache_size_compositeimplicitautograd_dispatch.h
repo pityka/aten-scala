@@ -17,7 +17,7 @@ namespace at {
 
 namespace compositeimplicitautograd {
 
-TORCH_API int64_t _cufft_get_plan_cache_size(int64_t device_index);
+TORCH_API int64_t _cufft_get_plan_cache_size(at::DeviceIndex device_index);
 
 } // namespace compositeimplicitautograd
 } // namespace at

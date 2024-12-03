@@ -13,7 +13,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 
 
 
@@ -25,6 +25,11 @@ namespace at {
 // aten::_assert_async(Tensor self) -> ()
 inline void _assert_async(const at::Tensor & self) {
     return at::_ops::_assert_async::call(self);
+}
+
+// aten::_assert_async.msg(Tensor self, str assert_msg) -> ()
+inline void _assert_async(const at::Tensor & self, c10::string_view assert_msg) {
+    return at::_ops::_assert_async_msg::call(self, assert_msg);
 }
 
 }

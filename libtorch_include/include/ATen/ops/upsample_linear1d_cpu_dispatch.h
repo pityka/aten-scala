@@ -17,12 +17,12 @@ namespace at {
 
 namespace cpu {
 
-TORCH_API at::Tensor upsample_linear1d(const at::Tensor & self, at::IntArrayRef output_size, bool align_corners, c10::optional<double> scales=c10::nullopt);
-TORCH_API at::Tensor upsample_linear1d_symint(const at::Tensor & self, c10::SymIntArrayRef output_size, bool align_corners, c10::optional<double> scales=c10::nullopt);
-TORCH_API at::Tensor & upsample_linear1d_out(at::Tensor & out, const at::Tensor & self, at::IntArrayRef output_size, bool align_corners, c10::optional<double> scales=c10::nullopt);
-TORCH_API at::Tensor & upsample_linear1d_outf(const at::Tensor & self, at::IntArrayRef output_size, bool align_corners, c10::optional<double> scales, at::Tensor & out);
-TORCH_API at::Tensor & upsample_linear1d_symint_out(at::Tensor & out, const at::Tensor & self, c10::SymIntArrayRef output_size, bool align_corners, c10::optional<double> scales=c10::nullopt);
-TORCH_API at::Tensor & upsample_linear1d_symint_outf(const at::Tensor & self, c10::SymIntArrayRef output_size, bool align_corners, c10::optional<double> scales, at::Tensor & out);
+TORCH_API at::Tensor upsample_linear1d(const at::Tensor & self, at::IntArrayRef output_size, bool align_corners, ::std::optional<double> scales=::std::nullopt);
+TORCH_API at::Tensor upsample_linear1d_symint(const at::Tensor & self, c10::SymIntArrayRef output_size, bool align_corners, ::std::optional<double> scales=::std::nullopt);
+TORCH_API at::Tensor & upsample_linear1d_out(at::Tensor & out, const at::Tensor & self, at::IntArrayRef output_size, bool align_corners, ::std::optional<double> scales=::std::nullopt);
+TORCH_API at::Tensor & upsample_linear1d_outf(const at::Tensor & self, at::IntArrayRef output_size, bool align_corners, ::std::optional<double> scales, at::Tensor & out);
+TORCH_API at::Tensor & upsample_linear1d_symint_out(at::Tensor & out, const at::Tensor & self, c10::SymIntArrayRef output_size, bool align_corners, ::std::optional<double> scales=::std::nullopt);
+TORCH_API at::Tensor & upsample_linear1d_symint_outf(const at::Tensor & self, c10::SymIntArrayRef output_size, bool align_corners, ::std::optional<double> scales, at::Tensor & out);
 
 } // namespace cpu
 } // namespace at

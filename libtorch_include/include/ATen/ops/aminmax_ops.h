@@ -15,25 +15,25 @@ namespace _ops {
 
 
 struct TORCH_API aminmax {
-  using schema = ::std::tuple<at::Tensor,at::Tensor> (const at::Tensor &, c10::optional<int64_t>, bool);
+  using schema = ::std::tuple<at::Tensor,at::Tensor> (const at::Tensor &, ::std::optional<int64_t>, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::aminmax")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "aminmax(Tensor self, *, int? dim=None, bool keepdim=False) -> (Tensor min, Tensor max)")
-  static ::std::tuple<at::Tensor,at::Tensor> call(const at::Tensor & self, c10::optional<int64_t> dim, bool keepdim);
-  static ::std::tuple<at::Tensor,at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, c10::optional<int64_t> dim, bool keepdim);
+  static ::std::tuple<at::Tensor,at::Tensor> call(const at::Tensor & self, ::std::optional<int64_t> dim, bool keepdim);
+  static ::std::tuple<at::Tensor,at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, ::std::optional<int64_t> dim, bool keepdim);
 };
 
 struct TORCH_API aminmax_out {
-  using schema = ::std::tuple<at::Tensor &,at::Tensor &> (const at::Tensor &, c10::optional<int64_t>, bool, at::Tensor &, at::Tensor &);
+  using schema = ::std::tuple<at::Tensor &,at::Tensor &> (const at::Tensor &, ::std::optional<int64_t>, bool, at::Tensor &, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::aminmax")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "aminmax.out(Tensor self, *, int? dim=None, bool keepdim=False, Tensor(a!) min, Tensor(b!) max) -> (Tensor(a!) min, Tensor(b!) max)")
-  static ::std::tuple<at::Tensor &,at::Tensor &> call(const at::Tensor & self, c10::optional<int64_t> dim, bool keepdim, at::Tensor & min, at::Tensor & max);
-  static ::std::tuple<at::Tensor &,at::Tensor &> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, c10::optional<int64_t> dim, bool keepdim, at::Tensor & min, at::Tensor & max);
+  static ::std::tuple<at::Tensor &,at::Tensor &> call(const at::Tensor & self, ::std::optional<int64_t> dim, bool keepdim, at::Tensor & min, at::Tensor & max);
+  static ::std::tuple<at::Tensor &,at::Tensor &> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, ::std::optional<int64_t> dim, bool keepdim, at::Tensor & min, at::Tensor & max);
 };
 
 }} // namespace at::_ops

@@ -6,7 +6,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 #include <c10/core/QScheme.h>
 #include <ATen/core/Reduction.h>
 #include <ATen/core/Tensor.h>
@@ -16,8 +16,8 @@
 
 namespace at {
 namespace native {
-TORCH_API at::Tensor resize_as(const at::Tensor & self, const at::Tensor & the_template, c10::optional<at::MemoryFormat> memory_format=c10::nullopt);
-TORCH_API const at::Tensor & resize_as_out(const at::Tensor & self, const at::Tensor & the_template, c10::optional<at::MemoryFormat> memory_format, const at::Tensor & out);
-TORCH_API const at::Tensor & resize_as_(const at::Tensor & self, const at::Tensor & the_template, c10::optional<at::MemoryFormat> memory_format=c10::nullopt);
+TORCH_API at::Tensor resize_as(const at::Tensor & self, const at::Tensor & the_template, ::std::optional<at::MemoryFormat> memory_format=::std::nullopt);
+TORCH_API const at::Tensor & resize_as_out(const at::Tensor & self, const at::Tensor & the_template, ::std::optional<at::MemoryFormat> memory_format, const at::Tensor & out);
+TORCH_API const at::Tensor & resize_as_(const at::Tensor & self, const at::Tensor & the_template, ::std::optional<at::MemoryFormat> memory_format=::std::nullopt);
 } // namespace native
 } // namespace at

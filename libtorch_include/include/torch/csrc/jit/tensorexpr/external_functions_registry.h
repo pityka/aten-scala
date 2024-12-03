@@ -5,9 +5,7 @@
 #include <string>
 #include <unordered_map>
 
-namespace torch {
-namespace jit {
-namespace tensorexpr {
+namespace torch::jit::tensorexpr {
 
 // The external functions that could be called from NNC must have the same
 // signature defined by `NNCExternalFunction`.
@@ -16,7 +14,7 @@ namespace tensorexpr {
 // It was picked for two reasons: 1) it should be generic enough to represent
 // most of the ops we might want to call, 2) it should be possible to generate a
 // code for this call in LLVM codegen.
-// The first 5 parameters allow to pass any number of contiguos CPU tensors in
+// The first 5 parameters allow to pass any number of contiguous CPU tensors in
 // case we need to run aten ops (TODO: support different devices). The first
 // buffer in the array is assumed to be the output buffer. We couldn't use
 // `at::Tensor` (or `c10::IValue`) type there directly as it would mean that
@@ -56,6 +54,4 @@ struct RegisterNNCExternalFunction {
   }
 };
 
-} // namespace tensorexpr
-} // namespace jit
-} // namespace torch
+} // namespace torch::jit::tensorexpr

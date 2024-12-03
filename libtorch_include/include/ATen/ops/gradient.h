@@ -13,7 +13,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 
 
 
@@ -23,7 +23,7 @@ namespace at {
 
 
 // aten::gradient.scalarint(Tensor self, *, Scalar? spacing=None, int? dim=None, int edge_order=1) -> Tensor[]
-inline ::std::vector<at::Tensor> gradient(const at::Tensor & self, const c10::optional<at::Scalar> & spacing=c10::nullopt, c10::optional<int64_t> dim=c10::nullopt, int64_t edge_order=1) {
+inline ::std::vector<at::Tensor> gradient(const at::Tensor & self, const ::std::optional<at::Scalar> & spacing=::std::nullopt, ::std::optional<int64_t> dim=::std::nullopt, int64_t edge_order=1) {
     return at::_ops::gradient_scalarint::call(self, spacing, dim, edge_order);
 }
 
@@ -38,7 +38,7 @@ inline ::std::vector<at::Tensor> gradient(const at::Tensor & self, at::IntArrayR
 }
 
 // aten::gradient.scalarrayint(Tensor self, *, Scalar[] spacing, int? dim=None, int edge_order=1) -> Tensor[]
-inline ::std::vector<at::Tensor> gradient(const at::Tensor & self, at::ArrayRef<at::Scalar> spacing, c10::optional<int64_t> dim=c10::nullopt, int64_t edge_order=1) {
+inline ::std::vector<at::Tensor> gradient(const at::Tensor & self, at::ArrayRef<at::Scalar> spacing, ::std::optional<int64_t> dim=::std::nullopt, int64_t edge_order=1) {
     return at::_ops::gradient_scalarrayint::call(self, spacing, dim, edge_order);
 }
 
@@ -48,7 +48,7 @@ inline ::std::vector<at::Tensor> gradient(const at::Tensor & self, at::ArrayRef<
 }
 
 // aten::gradient.tensorarrayint(Tensor self, *, Tensor[] spacing, int? dim=None, int edge_order=1) -> Tensor[]
-inline ::std::vector<at::Tensor> gradient(const at::Tensor & self, at::TensorList spacing, c10::optional<int64_t> dim=c10::nullopt, int64_t edge_order=1) {
+inline ::std::vector<at::Tensor> gradient(const at::Tensor & self, at::TensorList spacing, ::std::optional<int64_t> dim=::std::nullopt, int64_t edge_order=1) {
     return at::_ops::gradient_tensorarrayint::call(self, spacing, dim, edge_order);
 }
 

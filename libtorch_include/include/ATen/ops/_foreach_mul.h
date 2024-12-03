@@ -13,7 +13,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 
 
 
@@ -52,6 +52,16 @@ inline void _foreach_mul_(at::TensorList self, at::ArrayRef<at::Scalar> scalars)
     return at::_ops::_foreach_mul__ScalarList::call(self, scalars);
 }
 
+// aten::_foreach_mul.Tensor(Tensor[] self, Tensor other) -> Tensor[]
+inline ::std::vector<at::Tensor> _foreach_mul(at::TensorList self, const at::Tensor & other) {
+    return at::_ops::_foreach_mul_Tensor::call(self, other);
+}
+
+// aten::_foreach_mul_.Tensor(Tensor(a!)[] self, Tensor other) -> ()
+inline void _foreach_mul_(at::TensorList self, const at::Tensor & other) {
+    return at::_ops::_foreach_mul__Tensor::call(self, other);
+}
+
 // aten::_foreach_mul.Scalar_out(Tensor[] self, Scalar scalar, *, Tensor(a!)[] out) -> ()
 inline void _foreach_mul_out(at::TensorList out, at::TensorList self, const at::Scalar & scalar) {
     return at::_ops::_foreach_mul_Scalar_out::call(self, scalar, out);
@@ -77,6 +87,15 @@ inline void _foreach_mul_out(at::TensorList out, at::TensorList self, at::ArrayR
 // aten::_foreach_mul.ScalarList_out(Tensor[] self, Scalar[] scalars, *, Tensor(a!)[] out) -> ()
 inline void _foreach_mul_outf(at::TensorList self, at::ArrayRef<at::Scalar> scalars, at::TensorList out) {
     return at::_ops::_foreach_mul_ScalarList_out::call(self, scalars, out);
+}
+
+// aten::_foreach_mul.Tensor_out(Tensor[] self, Tensor other, *, Tensor(a!)[] out) -> ()
+inline void _foreach_mul_out(at::TensorList out, at::TensorList self, const at::Tensor & other) {
+    return at::_ops::_foreach_mul_Tensor_out::call(self, other, out);
+}
+// aten::_foreach_mul.Tensor_out(Tensor[] self, Tensor other, *, Tensor(a!)[] out) -> ()
+inline void _foreach_mul_outf(at::TensorList self, const at::Tensor & other, at::TensorList out) {
+    return at::_ops::_foreach_mul_Tensor_out::call(self, other, out);
 }
 
 }

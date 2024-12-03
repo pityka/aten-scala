@@ -17,9 +17,9 @@ namespace at {
 
 namespace cpu {
 
-TORCH_API at::Tensor multinomial(const at::Tensor & self, int64_t num_samples, bool replacement=false, c10::optional<at::Generator> generator=c10::nullopt);
-TORCH_API at::Tensor & multinomial_out(at::Tensor & out, const at::Tensor & self, int64_t num_samples, bool replacement=false, c10::optional<at::Generator> generator=c10::nullopt);
-TORCH_API at::Tensor & multinomial_outf(const at::Tensor & self, int64_t num_samples, bool replacement, c10::optional<at::Generator> generator, at::Tensor & out);
+TORCH_API at::Tensor multinomial(const at::Tensor & self, int64_t num_samples, bool replacement=false, ::std::optional<at::Generator> generator=::std::nullopt);
+TORCH_API at::Tensor & multinomial_out(at::Tensor & out, const at::Tensor & self, int64_t num_samples, bool replacement=false, ::std::optional<at::Generator> generator=::std::nullopt);
+TORCH_API at::Tensor & multinomial_outf(const at::Tensor & self, int64_t num_samples, bool replacement, ::std::optional<at::Generator> generator, at::Tensor & out);
 
 } // namespace cpu
 } // namespace at

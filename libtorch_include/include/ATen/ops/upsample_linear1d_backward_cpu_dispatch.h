@@ -17,12 +17,12 @@ namespace at {
 
 namespace cpu {
 
-TORCH_API at::Tensor upsample_linear1d_backward(const at::Tensor & grad_output, at::IntArrayRef output_size, at::IntArrayRef input_size, bool align_corners, c10::optional<double> scales=c10::nullopt);
-TORCH_API at::Tensor upsample_linear1d_backward_symint(const at::Tensor & grad_output, c10::SymIntArrayRef output_size, c10::SymIntArrayRef input_size, bool align_corners, c10::optional<double> scales=c10::nullopt);
-TORCH_API at::Tensor & upsample_linear1d_backward_out(at::Tensor & grad_input, const at::Tensor & grad_output, at::IntArrayRef output_size, at::IntArrayRef input_size, bool align_corners, c10::optional<double> scales=c10::nullopt);
-TORCH_API at::Tensor & upsample_linear1d_backward_outf(const at::Tensor & grad_output, at::IntArrayRef output_size, at::IntArrayRef input_size, bool align_corners, c10::optional<double> scales, at::Tensor & grad_input);
-TORCH_API at::Tensor & upsample_linear1d_backward_symint_out(at::Tensor & grad_input, const at::Tensor & grad_output, c10::SymIntArrayRef output_size, c10::SymIntArrayRef input_size, bool align_corners, c10::optional<double> scales=c10::nullopt);
-TORCH_API at::Tensor & upsample_linear1d_backward_symint_outf(const at::Tensor & grad_output, c10::SymIntArrayRef output_size, c10::SymIntArrayRef input_size, bool align_corners, c10::optional<double> scales, at::Tensor & grad_input);
+TORCH_API at::Tensor upsample_linear1d_backward(const at::Tensor & grad_output, at::IntArrayRef output_size, at::IntArrayRef input_size, bool align_corners, ::std::optional<double> scales=::std::nullopt);
+TORCH_API at::Tensor upsample_linear1d_backward_symint(const at::Tensor & grad_output, c10::SymIntArrayRef output_size, c10::SymIntArrayRef input_size, bool align_corners, ::std::optional<double> scales=::std::nullopt);
+TORCH_API at::Tensor & upsample_linear1d_backward_out(at::Tensor & grad_input, const at::Tensor & grad_output, at::IntArrayRef output_size, at::IntArrayRef input_size, bool align_corners, ::std::optional<double> scales=::std::nullopt);
+TORCH_API at::Tensor & upsample_linear1d_backward_outf(const at::Tensor & grad_output, at::IntArrayRef output_size, at::IntArrayRef input_size, bool align_corners, ::std::optional<double> scales, at::Tensor & grad_input);
+TORCH_API at::Tensor & upsample_linear1d_backward_symint_out(at::Tensor & grad_input, const at::Tensor & grad_output, c10::SymIntArrayRef output_size, c10::SymIntArrayRef input_size, bool align_corners, ::std::optional<double> scales=::std::nullopt);
+TORCH_API at::Tensor & upsample_linear1d_backward_symint_outf(const at::Tensor & grad_output, c10::SymIntArrayRef output_size, c10::SymIntArrayRef input_size, bool align_corners, ::std::optional<double> scales, at::Tensor & grad_input);
 
 } // namespace cpu
 } // namespace at

@@ -17,10 +17,10 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
-TORCH_API at::Tensor _to_copy(const at::Tensor & self, at::TensorOptions options={}, bool non_blocking=false, c10::optional<at::MemoryFormat> memory_format=c10::nullopt);
-TORCH_API at::Tensor _to_copy(const at::Tensor & self, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory, bool non_blocking, c10::optional<at::MemoryFormat> memory_format);
-TORCH_API at::Tensor & _to_copy_out(at::Tensor & out, const at::Tensor & self, bool non_blocking=false, c10::optional<at::MemoryFormat> memory_format=c10::nullopt);
-TORCH_API at::Tensor & _to_copy_outf(const at::Tensor & self, bool non_blocking, c10::optional<at::MemoryFormat> memory_format, at::Tensor & out);
+TORCH_API at::Tensor _to_copy(const at::Tensor & self, at::TensorOptions options={}, bool non_blocking=false, ::std::optional<at::MemoryFormat> memory_format=::std::nullopt);
+TORCH_API at::Tensor _to_copy(const at::Tensor & self, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory, bool non_blocking, ::std::optional<at::MemoryFormat> memory_format);
+TORCH_API at::Tensor & _to_copy_out(at::Tensor & out, const at::Tensor & self, bool non_blocking=false, ::std::optional<at::MemoryFormat> memory_format=::std::nullopt);
+TORCH_API at::Tensor & _to_copy_outf(const at::Tensor & self, bool non_blocking, ::std::optional<at::MemoryFormat> memory_format, at::Tensor & out);
 
 } // namespace compositeexplicitautograd
 } // namespace at

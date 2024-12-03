@@ -17,8 +17,8 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
-TORCH_API at::Tensor & bincount_out(at::Tensor & out, const at::Tensor & self, const c10::optional<at::Tensor> & weights={}, int64_t minlength=0);
-TORCH_API at::Tensor & bincount_outf(const at::Tensor & self, const c10::optional<at::Tensor> & weights, int64_t minlength, at::Tensor & out);
+TORCH_API at::Tensor & bincount_out(at::Tensor & out, const at::Tensor & self, const ::std::optional<at::Tensor> & weights={}, int64_t minlength=0);
+TORCH_API at::Tensor & bincount_outf(const at::Tensor & self, const ::std::optional<at::Tensor> & weights, int64_t minlength, at::Tensor & out);
 
 } // namespace compositeexplicitautograd
 } // namespace at

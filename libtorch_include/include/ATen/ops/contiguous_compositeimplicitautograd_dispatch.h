@@ -17,7 +17,7 @@ namespace at {
 
 namespace compositeimplicitautograd {
 
-TORCH_API at::Tensor contiguous(const at::Tensor & self, at::MemoryFormat memory_format=MemoryFormat::Contiguous);
+TORCH_API at::Tensor contiguous(const at::Tensor & self, at::MemoryFormat memory_format=c10::MemoryFormat::Contiguous);
 
 } // namespace compositeimplicitautograd
 } // namespace at

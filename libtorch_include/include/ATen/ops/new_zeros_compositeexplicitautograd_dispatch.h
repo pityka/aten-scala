@@ -18,9 +18,9 @@ namespace at {
 namespace compositeexplicitautograd {
 
 TORCH_API at::Tensor new_zeros(const at::Tensor & self, at::IntArrayRef size, at::TensorOptions options={});
-TORCH_API at::Tensor new_zeros(const at::Tensor & self, at::IntArrayRef size, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory);
+TORCH_API at::Tensor new_zeros(const at::Tensor & self, at::IntArrayRef size, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory);
 TORCH_API at::Tensor new_zeros_symint(const at::Tensor & self, c10::SymIntArrayRef size, at::TensorOptions options={});
-TORCH_API at::Tensor new_zeros_symint(const at::Tensor & self, c10::SymIntArrayRef size, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory);
+TORCH_API at::Tensor new_zeros_symint(const at::Tensor & self, c10::SymIntArrayRef size, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory);
 TORCH_API at::Tensor & new_zeros_out(at::Tensor & out, const at::Tensor & self, at::IntArrayRef size);
 TORCH_API at::Tensor & new_zeros_outf(const at::Tensor & self, at::IntArrayRef size, at::Tensor & out);
 TORCH_API at::Tensor & new_zeros_symint_out(at::Tensor & out, const at::Tensor & self, c10::SymIntArrayRef size);

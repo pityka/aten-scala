@@ -220,6 +220,21 @@ object Parser extends App {
           cType = "bool",
           returnOnException = "false"
         )
+        case TpeData("c10::SymInt",None,List())=>        
+        MappedReturnType(
+          convert = s"""
+          int64_t data_$returnable = $argName.as_int_unchecked();
+          jclass ret_cls$returnable = longClass;
+  jmethodID ret_midInit$returnable = longCtor;    
+  jobject ret_obj$returnable = env->NewObject( ret_cls$returnable, ret_midInit$returnable, data_$returnable);
+   jobject $returnable = ret_obj$returnable;
+          """,
+          jniType = "jlong",
+          javaType = "java.lang.Long",
+          cType = "c10::SymInt",
+          returnOnException = "0"
+        )            
+      
 
       case TpeData(
           "std::tuple",
@@ -492,6 +507,8 @@ object Parser extends App {
         "",
         true
       )
+   
+    
     case arg @ ArgData(TpeData("at::TensorOptions", Some("&"), List()), argName,_) =>
       val jniArgName = "jniparam_" + argName
       val convertFromJni = s"""
@@ -604,12 +621,49 @@ object Parser extends App {
         s"${arg.name}.isEmpty()  ? 0L : ${arg.name}.get().pointer",
         dereference = false
       )
+    case arg @ ArgData(
+          TpeData("std::optional", Some("&"), List(TpeData("at::Tensor",None,Nil))),
+          argName,_
+        ) =>
+      val jniArgName = "jniparam_" + argName
+      
+      val convertFromJni = s"""
+        ::std::optional<Tensor> ${jniArgName}_c;
+         if (${jniArgName} == 0 ) {
+           ${jniArgName}_c = {};
+         } else {
+           ${jniArgName}_c  = ::std::optional<Tensor>(*reinterpret_cast<Tensor*>($jniArgName));
+         }"""
+        MappedType(
+        jniArgName + "_c",
+        arg,
+        "jlong " + jniArgName,
+        convertFromJni,
+        "scala.Option<Tensor>",
+        "long",
+        s"${arg.name}.isEmpty()  ? 0L : ${arg.name}.get().pointer",
+        dereference = false
+      ) 
     case arg @ ArgData(TpeData("c10::optional", None, typeMembers), argName,_) =>
       val jniArgName = "jniparam_" + argName
       val convertFromJni = ""
       val typeMemberName = typeMembers.head.tpe
       MappedType(
         s"(c10::optional<$typeMemberName>)c10::nullopt",
+        arg,
+        "",
+        convertFromJni,
+        "",
+        "",
+        "",
+        true
+      )
+    case arg @ ArgData(TpeData("::std::optional", None, typeMembers), argName,_) =>
+      val jniArgName = "jniparam_" + argName
+      val convertFromJni = ""
+      val typeMemberName = typeMembers.head.tpe
+      MappedType(
+        s"(::std::optional<$typeMemberName>)::std::nullopt",
         arg,
         "",
         convertFromJni,

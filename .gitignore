@@ -13,3 +13,4 @@ aten-scala/jni-linux/src/main/resources/libatenscalajni.so
 aten-scala/.bsp/sbt.json
 libatenscalajni_aarm64.dylib
 libatenscalajni_x86.dylib
+libtorch_lib/

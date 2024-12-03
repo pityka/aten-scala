@@ -13,7 +13,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 
 
 
@@ -24,47 +24,47 @@ namespace at {
 
 namespace symint {
   template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
-  at::Tensor to_padded_tensor(const at::Tensor & self, double padding, at::OptionalIntArrayRef output_size=c10::nullopt) {
-    return at::_ops::to_padded_tensor::call(self, padding, output_size.has_value() ? c10::make_optional(c10::fromIntArrayRefSlow(*output_size)) : c10::nullopt);
+  at::Tensor to_padded_tensor(const at::Tensor & self, double padding, at::OptionalIntArrayRef output_size=::std::nullopt) {
+    return at::_ops::to_padded_tensor::call(self, padding, output_size.has_value() ? ::std::make_optional(c10::fromIntArrayRefSlow(*output_size)) : ::std::nullopt);
   }
 }
 
 namespace symint {
   template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
-  at::Tensor to_padded_tensor(const at::Tensor & self, double padding, at::OptionalSymIntArrayRef output_size=c10::nullopt) {
+  at::Tensor to_padded_tensor(const at::Tensor & self, double padding, at::OptionalSymIntArrayRef output_size=::std::nullopt) {
     return at::_ops::to_padded_tensor::call(self, padding, output_size);
   }
 }
 
 // aten::to_padded_tensor.out(Tensor self, float padding, SymInt[]? output_size=None, *, Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & to_padded_tensor_out(at::Tensor & out, const at::Tensor & self, double padding, at::OptionalIntArrayRef output_size=c10::nullopt) {
-    return at::_ops::to_padded_tensor_out::call(self, padding, output_size.has_value() ? c10::make_optional(c10::fromIntArrayRefSlow(*output_size)) : c10::nullopt, out);
+inline at::Tensor & to_padded_tensor_out(at::Tensor & out, const at::Tensor & self, double padding, at::OptionalIntArrayRef output_size=::std::nullopt) {
+    return at::_ops::to_padded_tensor_out::call(self, padding, output_size.has_value() ? ::std::make_optional(c10::fromIntArrayRefSlow(*output_size)) : ::std::nullopt, out);
 }
 namespace symint {
   template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
-  at::Tensor & to_padded_tensor_out(at::Tensor & out, const at::Tensor & self, double padding, at::OptionalIntArrayRef output_size=c10::nullopt) {
-    return at::_ops::to_padded_tensor_out::call(self, padding, output_size.has_value() ? c10::make_optional(c10::fromIntArrayRefSlow(*output_size)) : c10::nullopt, out);
+  at::Tensor & to_padded_tensor_out(at::Tensor & out, const at::Tensor & self, double padding, at::OptionalIntArrayRef output_size=::std::nullopt) {
+    return at::_ops::to_padded_tensor_out::call(self, padding, output_size.has_value() ? ::std::make_optional(c10::fromIntArrayRefSlow(*output_size)) : ::std::nullopt, out);
   }
 }
 
 // aten::to_padded_tensor.out(Tensor self, float padding, SymInt[]? output_size=None, *, Tensor(a!) out) -> Tensor(a!)
 inline at::Tensor & to_padded_tensor_outf(const at::Tensor & self, double padding, at::OptionalIntArrayRef output_size, at::Tensor & out) {
-    return at::_ops::to_padded_tensor_out::call(self, padding, output_size.has_value() ? c10::make_optional(c10::fromIntArrayRefSlow(*output_size)) : c10::nullopt, out);
+    return at::_ops::to_padded_tensor_out::call(self, padding, output_size.has_value() ? ::std::make_optional(c10::fromIntArrayRefSlow(*output_size)) : ::std::nullopt, out);
 }
 namespace symint {
   template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
   at::Tensor & to_padded_tensor_outf(const at::Tensor & self, double padding, at::OptionalIntArrayRef output_size, at::Tensor & out) {
-    return at::_ops::to_padded_tensor_out::call(self, padding, output_size.has_value() ? c10::make_optional(c10::fromIntArrayRefSlow(*output_size)) : c10::nullopt, out);
+    return at::_ops::to_padded_tensor_out::call(self, padding, output_size.has_value() ? ::std::make_optional(c10::fromIntArrayRefSlow(*output_size)) : ::std::nullopt, out);
   }
 }
 
 // aten::to_padded_tensor.out(Tensor self, float padding, SymInt[]? output_size=None, *, Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & to_padded_tensor_symint_out(at::Tensor & out, const at::Tensor & self, double padding, at::OptionalSymIntArrayRef output_size=c10::nullopt) {
+inline at::Tensor & to_padded_tensor_symint_out(at::Tensor & out, const at::Tensor & self, double padding, at::OptionalSymIntArrayRef output_size=::std::nullopt) {
     return at::_ops::to_padded_tensor_out::call(self, padding, output_size, out);
 }
 namespace symint {
   template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
-  at::Tensor & to_padded_tensor_out(at::Tensor & out, const at::Tensor & self, double padding, at::OptionalSymIntArrayRef output_size=c10::nullopt) {
+  at::Tensor & to_padded_tensor_out(at::Tensor & out, const at::Tensor & self, double padding, at::OptionalSymIntArrayRef output_size=::std::nullopt) {
     return at::_ops::to_padded_tensor_out::call(self, padding, output_size, out);
   }
 }

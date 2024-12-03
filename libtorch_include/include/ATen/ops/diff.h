@@ -13,7 +13,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 
 
 
@@ -23,16 +23,16 @@ namespace at {
 
 
 // aten::diff(Tensor self, int n=1, int dim=-1, Tensor? prepend=None, Tensor? append=None) -> Tensor
-inline at::Tensor diff(const at::Tensor & self, int64_t n=1, int64_t dim=-1, const c10::optional<at::Tensor> & prepend={}, const c10::optional<at::Tensor> & append={}) {
+inline at::Tensor diff(const at::Tensor & self, int64_t n=1, int64_t dim=-1, const ::std::optional<at::Tensor> & prepend={}, const ::std::optional<at::Tensor> & append={}) {
     return at::_ops::diff::call(self, n, dim, prepend, append);
 }
 
 // aten::diff.out(Tensor self, int n=1, int dim=-1, Tensor? prepend=None, Tensor? append=None, *, Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & diff_out(at::Tensor & out, const at::Tensor & self, int64_t n=1, int64_t dim=-1, const c10::optional<at::Tensor> & prepend={}, const c10::optional<at::Tensor> & append={}) {
+inline at::Tensor & diff_out(at::Tensor & out, const at::Tensor & self, int64_t n=1, int64_t dim=-1, const ::std::optional<at::Tensor> & prepend={}, const ::std::optional<at::Tensor> & append={}) {
     return at::_ops::diff_out::call(self, n, dim, prepend, append, out);
 }
 // aten::diff.out(Tensor self, int n=1, int dim=-1, Tensor? prepend=None, Tensor? append=None, *, Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & diff_outf(const at::Tensor & self, int64_t n, int64_t dim, const c10::optional<at::Tensor> & prepend, const c10::optional<at::Tensor> & append, at::Tensor & out) {
+inline at::Tensor & diff_outf(const at::Tensor & self, int64_t n, int64_t dim, const ::std::optional<at::Tensor> & prepend, const ::std::optional<at::Tensor> & append, at::Tensor & out) {
     return at::_ops::diff_out::call(self, n, dim, prepend, append, out);
 }
 

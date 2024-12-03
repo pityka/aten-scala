@@ -18,7 +18,9 @@ namespace at {
 namespace compositeimplicitautograd {
 
 TORCH_API at::Tensor unflatten(const at::Tensor & self, int64_t dim, at::IntArrayRef sizes);
+TORCH_API at::Tensor unflatten_symint(const at::Tensor & self, int64_t dim, c10::SymIntArrayRef sizes);
 TORCH_API at::Tensor unflatten(const at::Tensor & self, at::Dimname dim, at::IntArrayRef sizes, at::DimnameList names);
+TORCH_API at::Tensor unflatten_symint(const at::Tensor & self, at::Dimname dim, c10::SymIntArrayRef sizes, at::DimnameList names);
 
 } // namespace compositeimplicitautograd
 } // namespace at

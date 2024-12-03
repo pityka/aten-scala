@@ -17,10 +17,10 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
-TORCH_API at::Tensor resize_as(const at::Tensor & self, const at::Tensor & the_template, c10::optional<at::MemoryFormat> memory_format=c10::nullopt);
-TORCH_API const at::Tensor & resize_as_out(const at::Tensor & out, const at::Tensor & self, const at::Tensor & the_template, c10::optional<at::MemoryFormat> memory_format=c10::nullopt);
-TORCH_API const at::Tensor & resize_as_outf(const at::Tensor & self, const at::Tensor & the_template, c10::optional<at::MemoryFormat> memory_format, const at::Tensor & out);
-TORCH_API const at::Tensor & resize_as_(const at::Tensor & self, const at::Tensor & the_template, c10::optional<at::MemoryFormat> memory_format=c10::nullopt);
+TORCH_API at::Tensor resize_as(const at::Tensor & self, const at::Tensor & the_template, ::std::optional<at::MemoryFormat> memory_format=::std::nullopt);
+TORCH_API const at::Tensor & resize_as_out(const at::Tensor & out, const at::Tensor & self, const at::Tensor & the_template, ::std::optional<at::MemoryFormat> memory_format=::std::nullopt);
+TORCH_API const at::Tensor & resize_as_outf(const at::Tensor & self, const at::Tensor & the_template, ::std::optional<at::MemoryFormat> memory_format, const at::Tensor & out);
+TORCH_API const at::Tensor & resize_as_(const at::Tensor & self, const at::Tensor & the_template, ::std::optional<at::MemoryFormat> memory_format=::std::nullopt);
 
 } // namespace compositeexplicitautograd
 } // namespace at

@@ -6,7 +6,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 #include <c10/core/QScheme.h>
 #include <ATen/core/Reduction.h>
 #include <ATen/core/Tensor.h>
@@ -16,6 +16,6 @@
 
 namespace at {
 namespace native {
-TORCH_API void _backward(const at::Tensor & self, at::TensorList inputs, const c10::optional<at::Tensor> & gradient={}, c10::optional<bool> retain_graph=c10::nullopt, bool create_graph=false);
+TORCH_API void _backward(const at::Tensor & self, at::TensorList inputs, const ::std::optional<at::Tensor> & gradient={}, ::std::optional<bool> retain_graph=::std::nullopt, bool create_graph=false);
 } // namespace native
 } // namespace at

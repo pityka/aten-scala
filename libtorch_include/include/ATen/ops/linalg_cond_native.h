@@ -6,7 +6,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 #include <c10/core/QScheme.h>
 #include <ATen/core/Reduction.h>
 #include <ATen/core/Tensor.h>
@@ -16,8 +16,8 @@
 
 namespace at {
 namespace native {
-TORCH_API at::Tensor linalg_cond(const at::Tensor & self, const c10::optional<at::Scalar> & p=c10::nullopt);
-TORCH_API at::Tensor & linalg_cond_out(const at::Tensor & self, const c10::optional<at::Scalar> & p, at::Tensor & out);
+TORCH_API at::Tensor linalg_cond(const at::Tensor & self, const ::std::optional<at::Scalar> & p=::std::nullopt);
+TORCH_API at::Tensor & linalg_cond_out(const at::Tensor & self, const ::std::optional<at::Scalar> & p, at::Tensor & out);
 TORCH_API at::Tensor linalg_cond(const at::Tensor & self, c10::string_view p);
 TORCH_API at::Tensor & linalg_cond_out(const at::Tensor & self, c10::string_view p, at::Tensor & out);
 } // namespace native

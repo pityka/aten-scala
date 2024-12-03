@@ -17,8 +17,8 @@ namespace at {
 
 namespace cuda {
 
-TORCH_API at::Tensor & nan_to_num_out(at::Tensor & out, const at::Tensor & self, c10::optional<double> nan=c10::nullopt, c10::optional<double> posinf=c10::nullopt, c10::optional<double> neginf=c10::nullopt);
-TORCH_API at::Tensor & nan_to_num_outf(const at::Tensor & self, c10::optional<double> nan, c10::optional<double> posinf, c10::optional<double> neginf, at::Tensor & out);
+TORCH_API at::Tensor & nan_to_num_out(at::Tensor & out, const at::Tensor & self, ::std::optional<double> nan=::std::nullopt, ::std::optional<double> posinf=::std::nullopt, ::std::optional<double> neginf=::std::nullopt);
+TORCH_API at::Tensor & nan_to_num_outf(const at::Tensor & self, ::std::optional<double> nan, ::std::optional<double> posinf, ::std::optional<double> neginf, at::Tensor & out);
 
 } // namespace cuda
 } // namespace at

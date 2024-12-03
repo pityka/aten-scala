@@ -15,14 +15,14 @@ namespace _ops {
 
 
 struct TORCH_API _validate_sparse_coo_tensor_args {
-  using schema = void (const at::Tensor &, const at::Tensor &, at::IntArrayRef);
+  using schema = void (const at::Tensor &, const at::Tensor &, at::IntArrayRef, ::std::optional<bool>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_validate_sparse_coo_tensor_args")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_validate_sparse_coo_tensor_args(Tensor indices, Tensor values, int[] size) -> ()")
-  static void call(const at::Tensor & indices, const at::Tensor & values, at::IntArrayRef size);
-  static void redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & indices, const at::Tensor & values, at::IntArrayRef size);
+  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_validate_sparse_coo_tensor_args(Tensor indices, Tensor values, int[] size, bool? is_coalesced=None) -> ()")
+  static void call(const at::Tensor & indices, const at::Tensor & values, at::IntArrayRef size, ::std::optional<bool> is_coalesced);
+  static void redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & indices, const at::Tensor & values, at::IntArrayRef size, ::std::optional<bool> is_coalesced);
 };
 
 }} // namespace at::_ops

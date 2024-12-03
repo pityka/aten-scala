@@ -17,9 +17,9 @@ namespace at {
 
 namespace cpu {
 
-TORCH_API ::std::tuple<at::Tensor,at::Tensor> aminmax(const at::Tensor & self, c10::optional<int64_t> dim=c10::nullopt, bool keepdim=false);
-TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> aminmax_out(at::Tensor & min, at::Tensor & max, const at::Tensor & self, c10::optional<int64_t> dim=c10::nullopt, bool keepdim=false);
-TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> aminmax_outf(const at::Tensor & self, c10::optional<int64_t> dim, bool keepdim, at::Tensor & min, at::Tensor & max);
+TORCH_API ::std::tuple<at::Tensor,at::Tensor> aminmax(const at::Tensor & self, ::std::optional<int64_t> dim=::std::nullopt, bool keepdim=false);
+TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> aminmax_out(at::Tensor & min, at::Tensor & max, const at::Tensor & self, ::std::optional<int64_t> dim=::std::nullopt, bool keepdim=false);
+TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> aminmax_outf(const at::Tensor & self, ::std::optional<int64_t> dim, bool keepdim, at::Tensor & min, at::Tensor & max);
 
 } // namespace cpu
 } // namespace at

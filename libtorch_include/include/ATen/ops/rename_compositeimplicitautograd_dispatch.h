@@ -17,8 +17,8 @@ namespace at {
 
 namespace compositeimplicitautograd {
 
-TORCH_API at::Tensor & rename_(at::Tensor & self, c10::optional<at::DimnameList> names);
-TORCH_API at::Tensor rename(const at::Tensor & self, c10::optional<at::DimnameList> names);
+TORCH_API at::Tensor & rename_(at::Tensor & self, ::std::optional<at::DimnameList> names);
+TORCH_API at::Tensor rename(const at::Tensor & self, ::std::optional<at::DimnameList> names);
 
 } // namespace compositeimplicitautograd
 } // namespace at

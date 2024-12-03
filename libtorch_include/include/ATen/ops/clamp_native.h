@@ -6,7 +6,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 #include <c10/core/QScheme.h>
 #include <ATen/core/Reduction.h>
 #include <ATen/core/Tensor.h>
@@ -19,14 +19,8 @@ namespace native {
 struct TORCH_API structured_clamp_out : public at::meta::structured_clamp {
 void impl(const at::Tensor & self, at::OptionalScalarRef min, at::OptionalScalarRef max, const at::Tensor & out);
 };
-struct TORCH_API structured_clamp_out_mps : public at::meta::structured_clamp {
-void impl(const at::Tensor & self, at::OptionalScalarRef min, at::OptionalScalarRef max, const at::Tensor & out);
-};
-TORCH_API at::Tensor clamp_quantized_cpu(const at::Tensor & self, const c10::optional<at::Scalar> & min=c10::nullopt, const c10::optional<at::Scalar> & max=c10::nullopt);
+TORCH_API at::Tensor clamp_quantized_cpu(const at::Tensor & self, const ::std::optional<at::Scalar> & min=::std::nullopt, const ::std::optional<at::Scalar> & max=::std::nullopt);
 struct TORCH_API structured_clamp_Tensor_out : public at::meta::structured_clamp_Tensor {
-void impl(const at::Tensor & self, at::OptionalTensorRef min, at::OptionalTensorRef max, const at::Tensor & out);
-};
-struct TORCH_API structured_clamp_Tensor_out_mps : public at::meta::structured_clamp_Tensor {
 void impl(const at::Tensor & self, at::OptionalTensorRef min, at::OptionalTensorRef max, const at::Tensor & out);
 };
 } // namespace native

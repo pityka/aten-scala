@@ -13,7 +13,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 
 
 
@@ -23,16 +23,16 @@ namespace at {
 
 
 // aten::take_along_dim.out(Tensor self, Tensor indices, int? dim=None, *, Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & take_along_dim_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & indices, c10::optional<int64_t> dim=c10::nullopt) {
+inline at::Tensor & take_along_dim_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & indices, ::std::optional<int64_t> dim=::std::nullopt) {
     return at::_ops::take_along_dim_out::call(self, indices, dim, out);
 }
 // aten::take_along_dim.out(Tensor self, Tensor indices, int? dim=None, *, Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & take_along_dim_outf(const at::Tensor & self, const at::Tensor & indices, c10::optional<int64_t> dim, at::Tensor & out) {
+inline at::Tensor & take_along_dim_outf(const at::Tensor & self, const at::Tensor & indices, ::std::optional<int64_t> dim, at::Tensor & out) {
     return at::_ops::take_along_dim_out::call(self, indices, dim, out);
 }
 
 // aten::take_along_dim(Tensor self, Tensor indices, int? dim=None) -> Tensor
-inline at::Tensor take_along_dim(const at::Tensor & self, const at::Tensor & indices, c10::optional<int64_t> dim=c10::nullopt) {
+inline at::Tensor take_along_dim(const at::Tensor & self, const at::Tensor & indices, ::std::optional<int64_t> dim=::std::nullopt) {
     return at::_ops::take_along_dim::call(self, indices, dim);
 }
 

@@ -17,7 +17,7 @@ namespace at {
 
 namespace cuda {
 
-TORCH_API ::std::vector<at::Tensor> _foreach_norm(at::TensorList self, const at::Scalar & ord=2);
+TORCH_API ::std::vector<at::Tensor> _foreach_norm(at::TensorList self, const at::Scalar & ord=2, ::std::optional<at::ScalarType> dtype=::std::nullopt);
 
 } // namespace cuda
 } // namespace at

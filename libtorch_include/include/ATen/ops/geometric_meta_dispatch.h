@@ -17,7 +17,7 @@ namespace at {
 
 namespace meta {
 
-TORCH_API at::Tensor & geometric_(at::Tensor & self, double p, c10::optional<at::Generator> generator=c10::nullopt);
+TORCH_API at::Tensor & geometric_(at::Tensor & self, double p, ::std::optional<at::Generator> generator=::std::nullopt);
 
 } // namespace meta
 } // namespace at

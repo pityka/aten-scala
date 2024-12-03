@@ -17,12 +17,12 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
-TORCH_API at::Tensor resize(const at::Tensor & self, at::IntArrayRef size, c10::optional<at::MemoryFormat> memory_format=c10::nullopt);
-TORCH_API at::Tensor resize_symint(const at::Tensor & self, c10::SymIntArrayRef size, c10::optional<at::MemoryFormat> memory_format=c10::nullopt);
-TORCH_API const at::Tensor & resize_out(const at::Tensor & out, const at::Tensor & self, at::IntArrayRef size, c10::optional<at::MemoryFormat> memory_format=c10::nullopt);
-TORCH_API const at::Tensor & resize_outf(const at::Tensor & self, at::IntArrayRef size, c10::optional<at::MemoryFormat> memory_format, const at::Tensor & out);
-TORCH_API const at::Tensor & resize_symint_out(const at::Tensor & out, const at::Tensor & self, c10::SymIntArrayRef size, c10::optional<at::MemoryFormat> memory_format=c10::nullopt);
-TORCH_API const at::Tensor & resize_symint_outf(const at::Tensor & self, c10::SymIntArrayRef size, c10::optional<at::MemoryFormat> memory_format, const at::Tensor & out);
+TORCH_API at::Tensor resize(const at::Tensor & self, at::IntArrayRef size, ::std::optional<at::MemoryFormat> memory_format=::std::nullopt);
+TORCH_API at::Tensor resize_symint(const at::Tensor & self, c10::SymIntArrayRef size, ::std::optional<at::MemoryFormat> memory_format=::std::nullopt);
+TORCH_API const at::Tensor & resize_out(const at::Tensor & out, const at::Tensor & self, at::IntArrayRef size, ::std::optional<at::MemoryFormat> memory_format=::std::nullopt);
+TORCH_API const at::Tensor & resize_outf(const at::Tensor & self, at::IntArrayRef size, ::std::optional<at::MemoryFormat> memory_format, const at::Tensor & out);
+TORCH_API const at::Tensor & resize_symint_out(const at::Tensor & out, const at::Tensor & self, c10::SymIntArrayRef size, ::std::optional<at::MemoryFormat> memory_format=::std::nullopt);
+TORCH_API const at::Tensor & resize_symint_outf(const at::Tensor & self, c10::SymIntArrayRef size, ::std::optional<at::MemoryFormat> memory_format, const at::Tensor & out);
 
 } // namespace compositeexplicitautograd
 } // namespace at

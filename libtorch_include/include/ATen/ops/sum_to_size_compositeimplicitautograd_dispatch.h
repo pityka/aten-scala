@@ -18,6 +18,7 @@ namespace at {
 namespace compositeimplicitautograd {
 
 TORCH_API at::Tensor sum_to_size(const at::Tensor & self, at::IntArrayRef size);
+TORCH_API at::Tensor sum_to_size_symint(const at::Tensor & self, c10::SymIntArrayRef size);
 
 } // namespace compositeimplicitautograd
 } // namespace at

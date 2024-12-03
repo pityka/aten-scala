@@ -17,7 +17,7 @@ namespace at {
 
 namespace compositeimplicitautograd {
 
-TORCH_API at::Tensor to_dense(const at::Tensor & self, c10::optional<at::ScalarType> dtype=c10::nullopt);
+TORCH_API at::Tensor to_dense(const at::Tensor & self, ::std::optional<at::ScalarType> dtype=::std::nullopt, ::std::optional<bool> masked_grad=::std::nullopt);
 
 } // namespace compositeimplicitautograd
 } // namespace at

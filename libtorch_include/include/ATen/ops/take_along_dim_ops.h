@@ -15,25 +15,25 @@ namespace _ops {
 
 
 struct TORCH_API take_along_dim_out {
-  using schema = at::Tensor & (const at::Tensor &, const at::Tensor &, c10::optional<int64_t>, at::Tensor &);
+  using schema = at::Tensor & (const at::Tensor &, const at::Tensor &, ::std::optional<int64_t>, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::take_along_dim")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "take_along_dim.out(Tensor self, Tensor indices, int? dim=None, *, Tensor(a!) out) -> Tensor(a!)")
-  static at::Tensor & call(const at::Tensor & self, const at::Tensor & indices, c10::optional<int64_t> dim, at::Tensor & out);
-  static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & indices, c10::optional<int64_t> dim, at::Tensor & out);
+  static at::Tensor & call(const at::Tensor & self, const at::Tensor & indices, ::std::optional<int64_t> dim, at::Tensor & out);
+  static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & indices, ::std::optional<int64_t> dim, at::Tensor & out);
 };
 
 struct TORCH_API take_along_dim {
-  using schema = at::Tensor (const at::Tensor &, const at::Tensor &, c10::optional<int64_t>);
+  using schema = at::Tensor (const at::Tensor &, const at::Tensor &, ::std::optional<int64_t>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::take_along_dim")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "take_along_dim(Tensor self, Tensor indices, int? dim=None) -> Tensor")
-  static at::Tensor call(const at::Tensor & self, const at::Tensor & indices, c10::optional<int64_t> dim);
-  static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & indices, c10::optional<int64_t> dim);
+  static at::Tensor call(const at::Tensor & self, const at::Tensor & indices, ::std::optional<int64_t> dim);
+  static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & indices, ::std::optional<int64_t> dim);
 };
 
 }} // namespace at::_ops

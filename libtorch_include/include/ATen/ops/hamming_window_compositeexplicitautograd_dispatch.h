@@ -18,19 +18,19 @@ namespace at {
 namespace compositeexplicitautograd {
 
 TORCH_API at::Tensor hamming_window(int64_t window_length, at::TensorOptions options={});
-TORCH_API at::Tensor hamming_window(int64_t window_length, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory);
+TORCH_API at::Tensor hamming_window(int64_t window_length, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory);
 TORCH_API at::Tensor & hamming_window_out(at::Tensor & out, int64_t window_length);
 TORCH_API at::Tensor & hamming_window_outf(int64_t window_length, at::Tensor & out);
 TORCH_API at::Tensor hamming_window(int64_t window_length, bool periodic, at::TensorOptions options={});
-TORCH_API at::Tensor hamming_window(int64_t window_length, bool periodic, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory);
+TORCH_API at::Tensor hamming_window(int64_t window_length, bool periodic, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory);
 TORCH_API at::Tensor & hamming_window_out(at::Tensor & out, int64_t window_length, bool periodic);
 TORCH_API at::Tensor & hamming_window_outf(int64_t window_length, bool periodic, at::Tensor & out);
 TORCH_API at::Tensor hamming_window(int64_t window_length, bool periodic, double alpha, at::TensorOptions options={});
-TORCH_API at::Tensor hamming_window(int64_t window_length, bool periodic, double alpha, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory);
+TORCH_API at::Tensor hamming_window(int64_t window_length, bool periodic, double alpha, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory);
 TORCH_API at::Tensor & hamming_window_out(at::Tensor & out, int64_t window_length, bool periodic, double alpha);
 TORCH_API at::Tensor & hamming_window_outf(int64_t window_length, bool periodic, double alpha, at::Tensor & out);
 TORCH_API at::Tensor hamming_window(int64_t window_length, bool periodic, double alpha, double beta, at::TensorOptions options={});
-TORCH_API at::Tensor hamming_window(int64_t window_length, bool periodic, double alpha, double beta, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory);
+TORCH_API at::Tensor hamming_window(int64_t window_length, bool periodic, double alpha, double beta, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory);
 TORCH_API at::Tensor & hamming_window_out(at::Tensor & out, int64_t window_length, bool periodic, double alpha, double beta);
 TORCH_API at::Tensor & hamming_window_outf(int64_t window_length, bool periodic, double alpha, double beta, at::Tensor & out);
 

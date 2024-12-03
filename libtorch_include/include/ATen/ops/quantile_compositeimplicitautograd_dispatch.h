@@ -17,12 +17,12 @@ namespace at {
 
 namespace compositeimplicitautograd {
 
-TORCH_API at::Tensor quantile(const at::Tensor & self, const at::Tensor & q, c10::optional<int64_t> dim=c10::nullopt, bool keepdim=false, c10::string_view interpolation="linear");
-TORCH_API at::Tensor & quantile_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & q, c10::optional<int64_t> dim=c10::nullopt, bool keepdim=false, c10::string_view interpolation="linear");
-TORCH_API at::Tensor & quantile_outf(const at::Tensor & self, const at::Tensor & q, c10::optional<int64_t> dim, bool keepdim, c10::string_view interpolation, at::Tensor & out);
-TORCH_API at::Tensor quantile(const at::Tensor & self, double q, c10::optional<int64_t> dim=c10::nullopt, bool keepdim=false, c10::string_view interpolation="linear");
-TORCH_API at::Tensor & quantile_out(at::Tensor & out, const at::Tensor & self, double q, c10::optional<int64_t> dim=c10::nullopt, bool keepdim=false, c10::string_view interpolation="linear");
-TORCH_API at::Tensor & quantile_outf(const at::Tensor & self, double q, c10::optional<int64_t> dim, bool keepdim, c10::string_view interpolation, at::Tensor & out);
+TORCH_API at::Tensor quantile(const at::Tensor & self, const at::Tensor & q, ::std::optional<int64_t> dim=::std::nullopt, bool keepdim=false, c10::string_view interpolation="linear");
+TORCH_API at::Tensor & quantile_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & q, ::std::optional<int64_t> dim=::std::nullopt, bool keepdim=false, c10::string_view interpolation="linear");
+TORCH_API at::Tensor & quantile_outf(const at::Tensor & self, const at::Tensor & q, ::std::optional<int64_t> dim, bool keepdim, c10::string_view interpolation, at::Tensor & out);
+TORCH_API at::Tensor quantile(const at::Tensor & self, double q, ::std::optional<int64_t> dim=::std::nullopt, bool keepdim=false, c10::string_view interpolation="linear");
+TORCH_API at::Tensor & quantile_out(at::Tensor & out, const at::Tensor & self, double q, ::std::optional<int64_t> dim=::std::nullopt, bool keepdim=false, c10::string_view interpolation="linear");
+TORCH_API at::Tensor & quantile_outf(const at::Tensor & self, double q, ::std::optional<int64_t> dim, bool keepdim, c10::string_view interpolation, at::Tensor & out);
 
 } // namespace compositeimplicitautograd
 } // namespace at

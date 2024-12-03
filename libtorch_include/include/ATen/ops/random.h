@@ -13,7 +13,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 
 
 
@@ -23,44 +23,44 @@ namespace at {
 
 
 // aten::random.from_out(Tensor self, int from, int? to, *, Generator? generator=None, Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & random_out(at::Tensor & out, const at::Tensor & self, int64_t from, c10::optional<int64_t> to, c10::optional<at::Generator> generator=c10::nullopt) {
+inline at::Tensor & random_out(at::Tensor & out, const at::Tensor & self, int64_t from, ::std::optional<int64_t> to, ::std::optional<at::Generator> generator=::std::nullopt) {
     return at::_ops::random_from_out::call(self, from, to, generator, out);
 }
 // aten::random.from_out(Tensor self, int from, int? to, *, Generator? generator=None, Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & random_outf(const at::Tensor & self, int64_t from, c10::optional<int64_t> to, c10::optional<at::Generator> generator, at::Tensor & out) {
+inline at::Tensor & random_outf(const at::Tensor & self, int64_t from, ::std::optional<int64_t> to, ::std::optional<at::Generator> generator, at::Tensor & out) {
     return at::_ops::random_from_out::call(self, from, to, generator, out);
 }
 
 // aten::random.from(Tensor self, int from, int? to, *, Generator? generator=None) -> Tensor
-inline at::Tensor random(const at::Tensor & self, int64_t from, c10::optional<int64_t> to, c10::optional<at::Generator> generator=c10::nullopt) {
+inline at::Tensor random(const at::Tensor & self, int64_t from, ::std::optional<int64_t> to, ::std::optional<at::Generator> generator=::std::nullopt) {
     return at::_ops::random_from::call(self, from, to, generator);
 }
 
 // aten::random.to_out(Tensor self, int to, *, Generator? generator=None, Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & random_out(at::Tensor & out, const at::Tensor & self, int64_t to, c10::optional<at::Generator> generator=c10::nullopt) {
+inline at::Tensor & random_out(at::Tensor & out, const at::Tensor & self, int64_t to, ::std::optional<at::Generator> generator=::std::nullopt) {
     return at::_ops::random_to_out::call(self, to, generator, out);
 }
 // aten::random.to_out(Tensor self, int to, *, Generator? generator=None, Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & random_outf(const at::Tensor & self, int64_t to, c10::optional<at::Generator> generator, at::Tensor & out) {
+inline at::Tensor & random_outf(const at::Tensor & self, int64_t to, ::std::optional<at::Generator> generator, at::Tensor & out) {
     return at::_ops::random_to_out::call(self, to, generator, out);
 }
 
 // aten::random.to(Tensor self, int to, *, Generator? generator=None) -> Tensor
-inline at::Tensor random(const at::Tensor & self, int64_t to, c10::optional<at::Generator> generator=c10::nullopt) {
+inline at::Tensor random(const at::Tensor & self, int64_t to, ::std::optional<at::Generator> generator=::std::nullopt) {
     return at::_ops::random_to::call(self, to, generator);
 }
 
 // aten::random.out(Tensor self, *, Generator? generator=None, Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & random_out(at::Tensor & out, const at::Tensor & self, c10::optional<at::Generator> generator=c10::nullopt) {
+inline at::Tensor & random_out(at::Tensor & out, const at::Tensor & self, ::std::optional<at::Generator> generator=::std::nullopt) {
     return at::_ops::random_out::call(self, generator, out);
 }
 // aten::random.out(Tensor self, *, Generator? generator=None, Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & random_outf(const at::Tensor & self, c10::optional<at::Generator> generator, at::Tensor & out) {
+inline at::Tensor & random_outf(const at::Tensor & self, ::std::optional<at::Generator> generator, at::Tensor & out) {
     return at::_ops::random_out::call(self, generator, out);
 }
 
 // aten::random(Tensor self, *, Generator? generator=None) -> Tensor
-inline at::Tensor random(const at::Tensor & self, c10::optional<at::Generator> generator=c10::nullopt) {
+inline at::Tensor random(const at::Tensor & self, ::std::optional<at::Generator> generator=::std::nullopt) {
     return at::_ops::random::call(self, generator);
 }
 

@@ -7,9 +7,7 @@
 #include <torch/csrc/jit/serialization/pickler.h>
 #include <vector>
 
-namespace torch {
-namespace distributed {
-namespace rpc {
+namespace torch::distributed::rpc {
 
 // Temporary solution of RRef operations.
 // TODO: Remove all these messages and use rpc + registered functions instead.
@@ -17,8 +15,6 @@ class TORCH_API RRefMessageBase : public RpcCommandBase {
  public:
   RRefMessageBase(const RRefId& rrefId, MessageType type)
       : rrefId_(rrefId), type_(type) {}
-
-  ~RRefMessageBase() override = default;
 
   const RRefId& rrefId();
 
@@ -111,7 +107,7 @@ class TORCH_API PythonRRefFetchRet final : public RRefFetchRet {
       const Message& message);
 };
 
-// UserRRef (regardless it's the creator or not) uses this message to notiify
+// UserRRef (regardless it's the creator or not) uses this message to notify
 // OwnerRRef on delete.
 class TORCH_API RRefUserDelete final : public ForkMessageBase {
  public:
@@ -161,6 +157,4 @@ class TORCH_API RRefAck final : public RpcCommandBase {
   static std::unique_ptr<RRefAck> fromMessage(const Message& message);
 };
 
-} // namespace rpc
-} // namespace distributed
-} // namespace torch
+} // namespace torch::distributed::rpc

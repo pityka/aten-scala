@@ -15,25 +15,25 @@ namespace _ops {
 
 
 struct TORCH_API index_Tensor {
-  using schema = at::Tensor (const at::Tensor &, const c10::List<c10::optional<at::Tensor>> &);
+  using schema = at::Tensor (const at::Tensor &, const c10::List<::std::optional<at::Tensor>> &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::index")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Tensor")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "index.Tensor(Tensor self, Tensor?[] indices) -> Tensor")
-  static at::Tensor call(const at::Tensor & self, const c10::List<c10::optional<at::Tensor>> & indices);
-  static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const c10::List<c10::optional<at::Tensor>> & indices);
+  static at::Tensor call(const at::Tensor & self, const c10::List<::std::optional<at::Tensor>> & indices);
+  static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const c10::List<::std::optional<at::Tensor>> & indices);
 };
 
 struct TORCH_API index_Tensor_out {
-  using schema = at::Tensor & (const at::Tensor &, const c10::List<c10::optional<at::Tensor>> &, at::Tensor &);
+  using schema = at::Tensor & (const at::Tensor &, const c10::List<::std::optional<at::Tensor>> &, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::index")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Tensor_out")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "index.Tensor_out(Tensor self, Tensor?[] indices, *, Tensor(a!) out) -> Tensor(a!)")
-  static at::Tensor & call(const at::Tensor & self, const c10::List<c10::optional<at::Tensor>> & indices, at::Tensor & out);
-  static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const c10::List<c10::optional<at::Tensor>> & indices, at::Tensor & out);
+  static at::Tensor & call(const at::Tensor & self, const c10::List<::std::optional<at::Tensor>> & indices, at::Tensor & out);
+  static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const c10::List<::std::optional<at::Tensor>> & indices, at::Tensor & out);
 };
 
 }} // namespace at::_ops

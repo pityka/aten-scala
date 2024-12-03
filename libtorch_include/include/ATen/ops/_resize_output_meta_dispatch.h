@@ -18,6 +18,7 @@ namespace at {
 namespace meta {
 
 TORCH_API const at::Tensor & _resize_output_(const at::Tensor & self, at::IntArrayRef size, at::Device device);
+TORCH_API const at::Tensor & _resize_output__symint(const at::Tensor & self, c10::SymIntArrayRef size, at::Device device);
 
 } // namespace meta
 } // namespace at

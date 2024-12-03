@@ -217,38 +217,47 @@ class Vectorized<double> {
   }
 
   Vectorized<double> C10_ALWAYS_INLINE acos() const {
-     return {Sleef_acosd2_u10vsx(_vec0), Sleef_acosd2_u10vsx(_vec1)};
+     return {Sleef_acosd2_u10(_vec0), Sleef_acosd2_u10(_vec1)};
+  }
+  Vectorized<double> C10_ALWAYS_INLINE acosh() const {
+  return {Sleef_acoshd2_u10(_vec0), Sleef_acoshd2_u10(_vec1)};
   }
   Vectorized<double> C10_ALWAYS_INLINE asin() const {
-     return {Sleef_asind2_u10vsx(_vec0), Sleef_asind2_u10vsx(_vec1)};
+     return {Sleef_asind2_u10(_vec0), Sleef_asind2_u10(_vec1)};
   }
   Vectorized<double> atan() const {
-     return {Sleef_atand2_u10vsx(_vec0), Sleef_atand2_u10vsx(_vec1)};
+     return {Sleef_atand2_u10(_vec0), Sleef_atand2_u10(_vec1)};
+  }
+  Vectorized<double> atanh() const {
+     return {Sleef_atanhd2_u10(_vec0), Sleef_atanhd2_u10(_vec1)};
   }
   Vectorized<double> atan2(const Vectorized<double>& b) const {
-     return {Sleef_atan2d2_u10vsx(_vec0, b._vec0), Sleef_atan2d2_u10vsx(_vec1, b._vec1)};
+     return {Sleef_atan2d2_u10(_vec0, b._vec0), Sleef_atan2d2_u10(_vec1, b._vec1)};
   }
   Vectorized<double> copysign(const Vectorized<double> &sign) const {
-    return {Sleef_copysignd2_vsx(_vec0, sign._vec0), Sleef_copysignd2_vsx(_vec1, sign._vec1)};
+    return {Sleef_copysignd2(_vec0, sign._vec0), Sleef_copysignd2(_vec1, sign._vec1)};
   }
   Vectorized<double> erf() const {
-     return {Sleef_erfd2_u10vsx(_vec0), Sleef_erfd2_u10vsx(_vec1)};
+     return {Sleef_erfd2_u10(_vec0), Sleef_erfd2_u10(_vec1)};
   }
   Vectorized<double> erfc() const {
-     return {Sleef_erfcd2_u15vsx(_vec0), Sleef_erfcd2_u15vsx(_vec1)};
+     return {Sleef_erfcd2_u15(_vec0), Sleef_erfcd2_u15(_vec1)};
   }
   Vectorized<double> C10_ALWAYS_INLINE exp() const {
-     return {Sleef_expd2_u10vsx(_vec0), Sleef_expd2_u10vsx(_vec1)};
+     return {Sleef_expd2_u10(_vec0), Sleef_expd2_u10(_vec1)};
   }
   Vectorized<double> C10_ALWAYS_INLINE exp2() const {
-    return {Sleef_exp2d2_u10vsx(_vec0), Sleef_exp2d2_u10vsx(_vec1)};
+    return {Sleef_exp2d2_u10(_vec0), Sleef_exp2d2_u10(_vec1)};
   }
   Vectorized<double> expm1() const {
-     return {Sleef_expm1d2_u10vsx(_vec0), Sleef_expm1d2_u10vsx(_vec1)};
+     return {Sleef_expm1d2_u10(_vec0), Sleef_expm1d2_u10(_vec1)};
+  }
+  Vectorized<double> C10_ALWAYS_INLINE exp_u20() const {
+     return exp();
   }
 
   Vectorized<double> lgamma() const __ubsan_ignore_undefined__ {
-     return {Sleef_lgammad2_u10vsx(_vec0), Sleef_lgammad2_u10vsx(_vec1)};
+     return {Sleef_lgammad2_u10(_vec0), Sleef_lgammad2_u10(_vec1)};
   }
 
   Vectorized<double> erfinv() const {
@@ -271,25 +280,25 @@ class Vectorized<double> {
   }
 
   Vectorized<double> C10_ALWAYS_INLINE log() const {
-     return {Sleef_logd2_u10vsx(_vec0), Sleef_logd2_u10vsx(_vec1)};
+     return {Sleef_logd2_u10(_vec0), Sleef_logd2_u10(_vec1)};
   }
   Vectorized<double> C10_ALWAYS_INLINE log10() const {
-     return {Sleef_log10d2_u10vsx(_vec0), Sleef_log10d2_u10vsx(_vec1)};
+     return {Sleef_log10d2_u10(_vec0), Sleef_log10d2_u10(_vec1)};
   }
   Vectorized<double> C10_ALWAYS_INLINE log1p() const {
-     return {Sleef_log1pd2_u10vsx(_vec0), Sleef_log1pd2_u10vsx(_vec1)};
+     return {Sleef_log1pd2_u10(_vec0), Sleef_log1pd2_u10(_vec1)};
   }
   Vectorized<double> C10_ALWAYS_INLINE log2() const {
-     return {Sleef_log2d2_u10vsx(_vec0), Sleef_log2d2_u10vsx(_vec1)};
+     return {Sleef_log2d2_u10(_vec0), Sleef_log2d2_u10(_vec1)};
   }
   Vectorized<double> C10_ALWAYS_INLINE ceil() const {
     return {vec_ceil(_vec0), vec_ceil(_vec1)};
   }
   Vectorized<double> C10_ALWAYS_INLINE cos() const {
-     return {Sleef_cosd2_u10vsx(_vec0), Sleef_cosd2_u10vsx(_vec1)};
+     return {Sleef_cosd2_u10(_vec0), Sleef_cosd2_u10(_vec1)};
   }
   Vectorized<double> C10_ALWAYS_INLINE cosh() const {
-     return {Sleef_coshd2_u10vsx(_vec0), Sleef_coshd2_u10vsx(_vec1)};
+     return {Sleef_coshd2_u10(_vec0), Sleef_coshd2_u10(_vec1)};
   }
   Vectorized<double> C10_ALWAYS_INLINE floor() const {
     return {vec_floor(_vec0), vec_floor(_vec1)};
@@ -301,16 +310,16 @@ class Vectorized<double> {
     return {vec_rint(_vec0), vec_rint(_vec1)};
   }
   Vectorized<double> C10_ALWAYS_INLINE sin() const {
-     return {Sleef_sind2_u10vsx(_vec0), Sleef_sind2_u10vsx(_vec1)};
+     return {Sleef_sind2_u10(_vec0), Sleef_sind2_u10(_vec1)};
   }
   Vectorized<double> C10_ALWAYS_INLINE sinh() const {
-     return {Sleef_sinhd2_u10vsx(_vec0), Sleef_sinhd2_u10vsx(_vec1)};
+     return {Sleef_sinhd2_u10(_vec0), Sleef_sinhd2_u10(_vec1)};
   }
   Vectorized<double> C10_ALWAYS_INLINE tan() const {
-     return {Sleef_tand2_u10vsx(_vec0), Sleef_tand2_u10vsx(_vec1)};
+     return {Sleef_tand2_u10(_vec0), Sleef_tand2_u10(_vec1)};
   }
   Vectorized<double> C10_ALWAYS_INLINE tanh() const {
-     return {Sleef_tanhd2_u10vsx(_vec0), Sleef_tanhd2_u10vsx(_vec1)};
+     return {Sleef_tanhd2_u10(_vec0), Sleef_tanhd2_u10(_vec1)};
   }
   Vectorized<double> C10_ALWAYS_INLINE trunc() const {
     return {vec_trunc(_vec0), vec_trunc(_vec1)};
@@ -333,18 +342,18 @@ class Vectorized<double> {
   }
 
   Vectorized<double> C10_ALWAYS_INLINE pow(const Vectorized<double>& b) const {
-     return {Sleef_powd2_u10vsx(_vec0, b._vec0), Sleef_powd2_u10vsx(_vec1, b._vec1)};
+     return {Sleef_powd2_u10(_vec0, b._vec0), Sleef_powd2_u10(_vec1, b._vec1)};
   }
   Vectorized<double> C10_ALWAYS_INLINE fmod(const Vectorized<double>& b) const {
-     return {Sleef_fmodd2_vsx(_vec0, b._vec0),Sleef_fmodd2_vsx(_vec1, b._vec1)};
+     return {Sleef_fmodd2(_vec0, b._vec0),Sleef_fmodd2(_vec1, b._vec1)};
   }
 
   Vectorized<double> hypot(const Vectorized<double>& b) const {
-     return {Sleef_hypotd2_u05vsx(_vec0, b._vec0), Sleef_hypotd2_u05vsx(_vec1, b._vec1)};
+     return {Sleef_hypotd2_u05(_vec0, b._vec0), Sleef_hypotd2_u05(_vec1, b._vec1)};
   }
 
   Vectorized<double> nextafter(const Vectorized<double>& b) const {
-     return {Sleef_nextafterd2_vsx(_vec0, b._vec0), Sleef_nextafterd2_vsx(_vec1, b._vec1)};
+     return {Sleef_nextafterd2(_vec0, b._vec0), Sleef_nextafterd2(_vec1, b._vec1)};
   }
 
   Vectorized<double> igamma(const Vectorized<double>& x) const {
@@ -364,6 +373,10 @@ class Vectorized<double> {
     return map(calc_i0e);
   }
 
+  Vectorized<double> digamma() const {
+    return map(calc_digamma);
+  }
+
   Vectorized<double> _nor() const {
     return {vec_nor(_vec0, _vec0), vec_nor(_vec1, _vec1)};
   }
@@ -372,6 +385,19 @@ class Vectorized<double> {
     auto x = *this;
     auto ret = (x == x);
     return ret._nor();
+  }
+  bool has_inf_nan() const {
+    for (const auto i : c10::irange(size()/2)) {
+      if(_isnan(_vec0[i]) || _isinf(_vec0[i])) {
+        return true;
+      }
+    }
+    for (const auto i : c10::irange(size()/2)) {
+      if(_isnan(_vec1[i]) || _isinf(_vec1[i])) {
+        return true;
+      }
+    }
+    return false;
   }
 
   DEFINE_MEMBER_OP(operator==, double, vec_cmpeq)
@@ -410,6 +436,42 @@ Vectorized<double> inline minimum(
     const Vectorized<double>& b) {
   return a.minimum(b);
 }
+
+template <>
+Vectorized<double> C10_ALWAYS_INLINE operator+(const Vectorized<double>& a, const Vectorized<double>& b) {
+  return Vectorized<double>{vec_add(a.vec0(), b.vec0()), vec_add(a.vec1(), b.vec1())};
+}
+
+template <>
+Vectorized<double> C10_ALWAYS_INLINE operator-(const Vectorized<double>& a, const Vectorized<double>& b) {
+  return Vectorized<double>{vec_sub(a.vec0(), b.vec0()), vec_sub(a.vec1(), b.vec1())};
+}
+
+template <>
+Vectorized<double> C10_ALWAYS_INLINE operator*(const Vectorized<double>& a, const Vectorized<double>& b) {
+  return Vectorized<double>{vec_mul(a.vec0(), b.vec0()), vec_mul(a.vec1(), b.vec1())};
+}
+
+template <>
+Vectorized<double> C10_ALWAYS_INLINE operator/(const Vectorized<double>& a, const Vectorized<double>& b) {
+  return Vectorized<double>{vec_div(a.vec0(), b.vec0()), vec_div(a.vec1(), b.vec1())};
+}
+
+template <>
+Vectorized<double> C10_ALWAYS_INLINE operator&(const Vectorized<double>& a, const Vectorized<double>& b) {
+  return Vectorized<double>{vec_and(a.vec0(), b.vec0()), vec_and(a.vec1(), b.vec1())};
+}
+
+template <>
+Vectorized<double> C10_ALWAYS_INLINE operator|(const Vectorized<double>& a, const Vectorized<double>& b) {
+  return Vectorized<double>{vec_or(a.vec0(), b.vec0()), vec_or(a.vec1(), b.vec1())};
+}
+
+template <>
+Vectorized<double> C10_ALWAYS_INLINE operator^(const Vectorized<double>& a, const Vectorized<double>& b) {
+  return Vectorized<double>{vec_xor(a.vec0(), b.vec0()), vec_xor(a.vec1(), b.vec1())};
+}
+
 } // namespace
 } // namespace vec
 } // namespace at

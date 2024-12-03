@@ -18,6 +18,7 @@ namespace at {
 namespace cuda {
 
 TORCH_API at::Tensor roll(const at::Tensor & self, at::IntArrayRef shifts, at::IntArrayRef dims={});
+TORCH_API at::Tensor roll_symint(const at::Tensor & self, c10::SymIntArrayRef shifts, at::IntArrayRef dims={});
 
 } // namespace cuda
 } // namespace at

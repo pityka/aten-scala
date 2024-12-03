@@ -13,7 +13,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 
 
 
@@ -23,16 +23,16 @@ namespace at {
 
 
 // aten::poisson(Tensor self, Generator? generator=None) -> Tensor
-inline at::Tensor poisson(const at::Tensor & self, c10::optional<at::Generator> generator=c10::nullopt) {
+inline at::Tensor poisson(const at::Tensor & self, ::std::optional<at::Generator> generator=::std::nullopt) {
     return at::_ops::poisson::call(self, generator);
 }
 
 // aten::poisson.out(Tensor self, Generator? generator=None, *, Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & poisson_out(at::Tensor & out, const at::Tensor & self, c10::optional<at::Generator> generator=c10::nullopt) {
+inline at::Tensor & poisson_out(at::Tensor & out, const at::Tensor & self, ::std::optional<at::Generator> generator=::std::nullopt) {
     return at::_ops::poisson_out::call(self, generator, out);
 }
 // aten::poisson.out(Tensor self, Generator? generator=None, *, Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & poisson_outf(const at::Tensor & self, c10::optional<at::Generator> generator, at::Tensor & out) {
+inline at::Tensor & poisson_outf(const at::Tensor & self, ::std::optional<at::Generator> generator, at::Tensor & out) {
     return at::_ops::poisson_out::call(self, generator, out);
 }
 

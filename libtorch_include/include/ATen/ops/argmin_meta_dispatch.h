@@ -17,9 +17,9 @@ namespace at {
 
 namespace meta {
 
-TORCH_API at::Tensor argmin(const at::Tensor & self, c10::optional<int64_t> dim=c10::nullopt, bool keepdim=false);
-TORCH_API at::Tensor & argmin_out(at::Tensor & out, const at::Tensor & self, c10::optional<int64_t> dim=c10::nullopt, bool keepdim=false);
-TORCH_API at::Tensor & argmin_outf(const at::Tensor & self, c10::optional<int64_t> dim, bool keepdim, at::Tensor & out);
+TORCH_API at::Tensor argmin(const at::Tensor & self, ::std::optional<int64_t> dim=::std::nullopt, bool keepdim=false);
+TORCH_API at::Tensor & argmin_out(at::Tensor & out, const at::Tensor & self, ::std::optional<int64_t> dim=::std::nullopt, bool keepdim=false);
+TORCH_API at::Tensor & argmin_outf(const at::Tensor & self, ::std::optional<int64_t> dim, bool keepdim, at::Tensor & out);
 
 } // namespace meta
 } // namespace at

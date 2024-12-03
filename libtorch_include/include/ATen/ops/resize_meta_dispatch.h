@@ -17,8 +17,8 @@ namespace at {
 
 namespace meta {
 
-TORCH_API const at::Tensor & resize_(const at::Tensor & self, at::IntArrayRef size, c10::optional<at::MemoryFormat> memory_format=c10::nullopt);
-TORCH_API const at::Tensor & resize__symint(const at::Tensor & self, c10::SymIntArrayRef size, c10::optional<at::MemoryFormat> memory_format=c10::nullopt);
+TORCH_API const at::Tensor & resize_(const at::Tensor & self, at::IntArrayRef size, ::std::optional<at::MemoryFormat> memory_format=::std::nullopt);
+TORCH_API const at::Tensor & resize__symint(const at::Tensor & self, c10::SymIntArrayRef size, ::std::optional<at::MemoryFormat> memory_format=::std::nullopt);
 
 } // namespace meta
 } // namespace at

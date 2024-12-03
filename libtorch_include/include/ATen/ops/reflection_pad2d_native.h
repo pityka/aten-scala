@@ -6,7 +6,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 #include <c10/core/QScheme.h>
 #include <ATen/core/Reduction.h>
 #include <ATen/core/Tensor.h>
@@ -20,8 +20,6 @@ TORCH_API at::Tensor reflection_pad2d_cpu(const at::Tensor & self, at::IntArrayR
 TORCH_API at::Tensor & reflection_pad2d_out_cpu(const at::Tensor & self, at::IntArrayRef padding, at::Tensor & out);
 TORCH_API at::Tensor reflection_pad2d_cuda(const at::Tensor & self, at::IntArrayRef padding);
 TORCH_API at::Tensor & reflection_pad2d_out_cuda(const at::Tensor & self, at::IntArrayRef padding, at::Tensor & out);
-TORCH_API at::Tensor reflection_pad2d_mps(const at::Tensor & self, at::IntArrayRef padding);
-TORCH_API at::Tensor & reflection_pad2d_out_mps(const at::Tensor & self, at::IntArrayRef padding, at::Tensor & out);
 TORCH_API at::Tensor reflection_pad2d_quantized_cpu(const at::Tensor & self, at::IntArrayRef padding);
 } // namespace native
 } // namespace at

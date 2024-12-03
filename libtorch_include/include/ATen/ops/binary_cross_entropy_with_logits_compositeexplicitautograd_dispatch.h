@@ -17,9 +17,9 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
-TORCH_API at::Tensor binary_cross_entropy_with_logits(const at::Tensor & self, const at::Tensor & target, const c10::optional<at::Tensor> & weight={}, const c10::optional<at::Tensor> & pos_weight={}, int64_t reduction=at::Reduction::Mean);
-TORCH_API at::Tensor & binary_cross_entropy_with_logits_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & target, const c10::optional<at::Tensor> & weight={}, const c10::optional<at::Tensor> & pos_weight={}, int64_t reduction=at::Reduction::Mean);
-TORCH_API at::Tensor & binary_cross_entropy_with_logits_outf(const at::Tensor & self, const at::Tensor & target, const c10::optional<at::Tensor> & weight, const c10::optional<at::Tensor> & pos_weight, int64_t reduction, at::Tensor & out);
+TORCH_API at::Tensor binary_cross_entropy_with_logits(const at::Tensor & self, const at::Tensor & target, const ::std::optional<at::Tensor> & weight={}, const ::std::optional<at::Tensor> & pos_weight={}, int64_t reduction=at::Reduction::Mean);
+TORCH_API at::Tensor & binary_cross_entropy_with_logits_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & target, const ::std::optional<at::Tensor> & weight={}, const ::std::optional<at::Tensor> & pos_weight={}, int64_t reduction=at::Reduction::Mean);
+TORCH_API at::Tensor & binary_cross_entropy_with_logits_outf(const at::Tensor & self, const at::Tensor & target, const ::std::optional<at::Tensor> & weight, const ::std::optional<at::Tensor> & pos_weight, int64_t reduction, at::Tensor & out);
 
 } // namespace compositeexplicitautograd
 } // namespace at

@@ -1,15 +1,22 @@
 #pragma once
 
+#include <ATen/BlasBackend.h>
 #include <ATen/CPUGeneratorImpl.h>
+#include <ATen/DeviceAccelerator.h>
 #include <ATen/LinalgBackend.h>
 #include <ATen/core/ATenGeneral.h>
 #include <ATen/core/DeprecatedTypeProperties.h>
 #include <ATen/core/Generator.h>
 #include <ATen/core/LegacyTypeDispatch.h>
+#include <ATen/detail/AcceleratorHooksInterface.h>
 #include <ATen/detail/CUDAHooksInterface.h>
 #include <ATen/detail/HIPHooksInterface.h>
+#include <ATen/detail/IPUHooksInterface.h>
+#include <ATen/detail/MAIAHooksInterface.h>
 #include <ATen/detail/MPSHooksInterface.h>
-#include <ATen/detail/ORTHooksInterface.h>
+#include <ATen/detail/MTIAHooksInterface.h>
+#include <ATen/detail/PrivateUse1HooksInterface.h>
+#include <ATen/detail/XPUHooksInterface.h>
 #include <c10/core/QEngine.h>
 #include <c10/core/impl/DeviceGuardImplInterface.h>
 #include <c10/util/CallOnce.h>
@@ -18,7 +25,6 @@
 #include <c10/util/irange.h>
 
 #include <cstdint>
-#include <memory>
 #include <mutex>
 
 namespace at {
@@ -32,7 +38,7 @@ class TORCH_API Context {
   Context();
 
   const Generator& defaultGenerator(Device device) {
-    DeviceType device_type = device.type();
+    c10::DeviceType device_type = device.type();
     initCUDAIfNeeded(device_type);
     initHIPIfNeeded(device_type);
     if (device_type == at::kCPU) {
@@ -41,23 +47,71 @@ class TORCH_API Context {
       return at::detail::getCUDAHooks().getDefaultCUDAGenerator(device.index());
     } else if (device_type == at::kMPS) {
       return at::detail::getMPSHooks().getDefaultMPSGenerator();
+    } else if (device_type == at::kXPU) {
+      return at::detail::getXPUHooks().getDefaultXPUGenerator(device.index());
+    } else if (device_type == at::kIPU) {
+      return at::detail::getIPUHooks().getDefaultIPUGenerator(device.index());
+    } else if (device_type == at::kPrivateUse1) {
+      return at::detail::getPrivateUse1Hooks().getDefaultGenerator(
+          device.index());
     } else {
-      AT_ERROR(DeviceTypeName(device_type), " device type not enabled.");
+      AT_ERROR(c10::DeviceTypeName(device_type), " device type not enabled.");
     }
   }
-  Device getDeviceFromPtr(void* data, DeviceType device_type) {
+  const AcceleratorHooksInterface& getAcceleratorHooksInterface(
+      std::optional<c10::DeviceType> opt_device_type = std::nullopt) {
+    c10::DeviceType device_type = opt_device_type.has_value()
+        ? opt_device_type.value()
+        : at::getAccelerator(true).value();
+    if (device_type == at::kCUDA) {
+      return at::detail::getCUDAHooks();
+    } else if (device_type == at::kXPU) {
+      return at::detail::getXPUHooks();
+    } else if (device_type == at::kMPS) {
+      return at::detail::getMPSHooks();
+    } else if (device_type == at::kPrivateUse1) {
+      return at::detail::getPrivateUse1Hooks();
+    } else if (device_type == at::kMTIA) {
+      return at::detail::getMTIAHooks();
+    } else if (device_type == at::kHIP) {
+      return at::detail::getHIPHooks();
+    } else {
+      AT_ERROR(
+          c10::DeviceTypeName(device_type), " device type not an accelerator.");
+    }
+  }
+  Device getDeviceFromPtr(void* data, c10::DeviceType device_type) {
     initCUDAIfNeeded(device_type);
     initHIPIfNeeded(device_type);
+    initXPUIfNeeded(device_type);
     if (device_type == at::kCPU) {
-      return DeviceType::CPU;
+      return c10::DeviceType::CPU;
     } else if (device_type == at::kCUDA) {
       return at::detail::getCUDAHooks().getDeviceFromPtr(data);
+    } else if (device_type == at::kXPU) {
+      return at::detail::getXPUHooks().getDeviceFromPtr(data);
+    } else if (device_type == at::kPrivateUse1) {
+      return at::detail::getPrivateUse1Hooks().getDeviceFromPtr(data);
     } else {
-      AT_ERROR(DeviceTypeName(device_type), " device type not enabled.");
+      AT_ERROR(c10::DeviceTypeName(device_type), " device type not enabled.");
     }
   }
-  static bool isPinnedPtr(void* data) {
-    return detail::getCUDAHooks().isPinnedPtr(data);
+  bool isPinnedPtr(
+      const void* data,
+      std::optional<c10::DeviceType> device_type = std::nullopt) {
+    auto opt_device_type =
+        device_type.has_value() ? device_type : at::getAccelerator();
+    if (!opt_device_type.has_value() || // there is no accelerator
+        !at::isAccelerator(
+            opt_device_type.value())) { // passed device not an accelerator
+      return false;
+    }
+    return getAcceleratorHooksInterface(opt_device_type.value())
+        .isPinnedPtr(data);
+  }
+  Allocator* getPinnedMemoryAllocator(
+      std::optional<c10::DeviceType> device_type = std::nullopt) {
+    return getAcceleratorHooksInterface(device_type).getPinnedMemoryAllocator();
   }
   static bool hasOpenMP();
   static bool hasMKL();
@@ -68,6 +122,9 @@ class TORCH_API Context {
   }
   static bool hasCUDA() {
     return detail::getCUDAHooks().hasCUDA();
+  }
+  static bool hasMTIA() {
+    return detail::getMTIAHooks().hasMTIA();
   }
   static bool hasCUDART() {
     return detail::getCUDAHooks().hasCUDART();
@@ -84,6 +141,9 @@ class TORCH_API Context {
   static bool hasCuSOLVER() {
     return detail::getCUDAHooks().hasCuSOLVER();
   }
+  static bool hasCuBLASLt() {
+    return detail::getCUDAHooks().hasCuBLASLt();
+  }
   static bool hasHIP() {
     return detail::getHIPHooks().hasHIP();
   }
@@ -91,16 +151,19 @@ class TORCH_API Context {
     return detail::getMPSHooks().hasMPS();
   }
   static bool hasIPU() {
-    return c10::impl::hasDeviceGuardImpl(at::DeviceType::IPU);
+    return c10::impl::hasDeviceGuardImpl(c10::DeviceType::IPU);
   }
   static bool hasXLA() {
-    return c10::impl::hasDeviceGuardImpl(at::DeviceType::XLA);
+    return c10::impl::hasDeviceGuardImpl(c10::DeviceType::XLA);
+  }
+  static bool hasXPU() {
+    return detail::getXPUHooks().hasXPU();
   }
   static bool hasLazy() {
-    return c10::impl::hasDeviceGuardImpl(at::DeviceType::Lazy);
+    return c10::impl::hasDeviceGuardImpl(c10::DeviceType::Lazy);
   }
-  static bool hasORT() {
-    return c10::impl::hasDeviceGuardImpl(at::DeviceType::ORT);
+  static bool hasMAIA() {
+    return c10::impl::hasDeviceGuardImpl(c10::DeviceType::MAIA);
   }
   // defined in header so that getNonVariableType has ability to inline
   // call_once check. getNonVariableType is called fairly frequently
@@ -109,6 +172,19 @@ class TORCH_API Context {
   }
   void lazyInitHIP() {
     c10::call_once(thh_init, [&] { detail::getHIPHooks().initHIP(); });
+  }
+  void lazyInitXPU() {
+    c10::call_once(thx_init, [&] { detail::getXPUHooks().initXPU(); });
+  }
+  void lazyInitMTIA() {
+    c10::call_once(th_mtia_init, [&] { detail::getMTIAHooks().initMTIA(); });
+  }
+  void lazyInitPrivateUse1() {
+    c10::call_once(thp_init, [&] {
+      if (isPrivateUse1HooksRegistered()) {
+        at::detail::getPrivateUse1Hooks().initPrivateUse1();
+      }
+    });
   }
   static const at::cuda::NVRTC& getNVRTC() {
     return detail::getCUDAHooks().nvrtc();
@@ -130,6 +206,10 @@ class TORCH_API Context {
   void setBenchmarkLimitCuDNN(int);
   bool deterministicCuDNN() const;
   void setDeterministicCuDNN(bool);
+  bool deterministicMkldnn() const;
+  void setDeterministicMkldnn(bool);
+  bool userEnabledNNPACK() const;
+  void setUserEnabledNNPACK(bool e);
 
   // Note [Disabling Fused SDP Kernels]
   // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -151,8 +231,20 @@ class TORCH_API Context {
   void setSDPUseMath(bool);
   bool userEnabledMathSDP() const;
 
+  void setSDPUseCuDNN(bool);
+  bool userEnabledCuDNNSDP() const;
+
+  void setAllowFP16BF16ReductionMathSDP(bool);
+  bool allowFP16BF16ReductionMathSDP() const;
+
+  void setSDPUseOverrideable(bool);
+  bool userEnabledOverrideableSDP() const;
+
   at::LinalgBackend linalgPreferredBackend() const;
   void setLinalgPreferredBackend(at::LinalgBackend);
+
+  at::BlasBackend blasPreferredBackend();
+  void setBlasPreferredBackend(at::BlasBackend);
 
   // Note [Enabling Deterministic Operations]
   // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -186,6 +278,8 @@ class TORCH_API Context {
   bool deterministicAlgorithms() const;
   bool deterministicAlgorithmsWarnOnly() const;
   void setDeterministicAlgorithms(bool, bool);
+  bool deterministicFillUninitializedMemory() const;
+  void setDeterministicFillUninitializedMemory(bool);
 
   // Note [Writing Nondeterministic Operations]
   // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -232,7 +326,7 @@ class TORCH_API Context {
   // Throws an error if `Context::deterministicAlgorithms()` is true, CUDA
   // >= 10.2, and CUBLAS_WORKSPACE_CONFIG is not set to either ":16:8" or
   // ":4096:8". For more details:
-  // https://docs.nvidia.com/cuda/cublas/index.html#cublasApi_reproducibility
+  // https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility
   void alertCuBLASConfigNotDeterministic() const;
 
   void setFloat32MatmulPrecision(const std::string& s);
@@ -263,28 +357,43 @@ class TORCH_API Context {
 
   void setDefaultMobileCPUAllocator();
   void unsetDefaultMobileCPUAllocator();
+  bool allowFP16ReductionCPU() const;
+  void setAllowFP16ReductionCPU(bool);
 
  private:
-  void initCUDAIfNeeded(DeviceType p) {
-    if (p == DeviceType::CUDA) {
+  void initCUDAIfNeeded(c10::DeviceType p) {
+    if (p == c10::DeviceType::CUDA) {
       lazyInitCUDA();
     }
   }
-  void initHIPIfNeeded(DeviceType p) {
-    if (p == DeviceType::HIP) {
+  void initHIPIfNeeded(c10::DeviceType p) {
+    if (p == c10::DeviceType::HIP) {
       lazyInitHIP();
+    }
+  }
+  void initXPUIfNeeded(c10::DeviceType p) {
+    if (p == c10::DeviceType::XPU) {
+      lazyInitXPU();
     }
   }
   static bool checkCuBLASConfigDeterministic();
   c10::once_flag thc_init;
   c10::once_flag thh_init;
+  c10::once_flag thx_init;
+  c10::once_flag th_mtia_init;
+  c10::once_flag thp_init;
   bool enabled_cudnn = true;
   bool deterministic_cudnn = false;
+  bool deterministic_mkldnn = false;
   bool _deterministic_algorithms = false;
   bool _deterministic_algorithms_warn_only = false;
+  bool _deterministic_fill_uninitialized_memory = true;
   bool enabled_flashSDP = true;
   bool enabled_mem_efficientSDP = true;
   bool enabled_mathSDP = true;
+  bool enabled_cudnnSDP = true;
+  bool enabled_overrideable = true;
+  bool allow_fp16_bf16_reduction_mathSDP = false;
 #ifdef USE_ROCM
   bool benchmark_cudnn = true;
 #else
@@ -299,80 +408,101 @@ class TORCH_API Context {
   bool allow_fp16_reduction_cublas = true;
   bool allow_bf16_reduction_cublas = true;
   bool enabled_mkldnn = true;
-  at::LinalgBackend linalg_preferred_backend = at::LinalgBackend::Default;
+  bool enabled_nnpack = true;
+  at::LinalgBackend linalg_preferred_backend =
+      c10::utils::check_env("TORCH_LINALG_PREFER_CUSOLVER") == true
+      ? at::LinalgBackend::Cusolver
+      : at::LinalgBackend::Default;
+  at::BlasBackend blas_preferred_backend =
+#ifdef USE_ROCM
+      (c10::utils::check_env("TORCH_BLAS_PREFER_HIPBLASLT") != false)
+#else
+      (c10::utils::check_env("TORCH_BLAS_PREFER_CUBLASLT") == true)
+#endif
+      ? at::BlasBackend::Cublaslt
+      : at::BlasBackend::Cublas;
 #ifdef C10_MOBILE
   bool release_original_weights = true;
 #else
   bool release_original_weights = false;
 #endif
   bool display_vmap_fallback_warnings_ = false;
-  c10::optional<at::QEngine> quantized_engine = c10::nullopt;
+  std::optional<at::QEngine> quantized_engine = std::nullopt;
   bool enable_sparse_tensor_invariant_checks = false;
+  bool allow_fp16_reduction_cpu = false;
 
   Allocator* prev_allocator_ptr_{nullptr};
 };
 
 TORCH_API Context& globalContext();
 
-static inline void init() {
+inline void init() {
   globalContext();
 }
 
 TORCH_API Allocator* getCPUAllocator();
 
-static inline DeprecatedTypeProperties& getDeprecatedTypeProperties(
+inline DeprecatedTypeProperties& getDeprecatedTypeProperties(
     Backend p,
     ScalarType s) {
   return globalDeprecatedTypePropertiesRegistry().getDeprecatedTypeProperties(
       p, s);
 }
 
-static inline DeprecatedTypeProperties& CPU(ScalarType s) {
+inline DeprecatedTypeProperties& CPU(ScalarType s) {
   return globalDeprecatedTypePropertiesRegistry().getDeprecatedTypeProperties(
       Backend::CPU, s);
 }
 
-static inline DeprecatedTypeProperties& CUDA(ScalarType s) {
+inline DeprecatedTypeProperties& CUDA(ScalarType s) {
   return globalDeprecatedTypePropertiesRegistry().getDeprecatedTypeProperties(
       Backend::CUDA, s);
 }
 
-static inline DeprecatedTypeProperties& HIP(ScalarType s) {
+inline DeprecatedTypeProperties& HIP(ScalarType s) {
   return globalDeprecatedTypePropertiesRegistry().getDeprecatedTypeProperties(
       Backend::HIP, s);
 }
 
-static inline DeprecatedTypeProperties& MPS(ScalarType s) {
+inline DeprecatedTypeProperties& MPS(ScalarType s) {
   return globalDeprecatedTypePropertiesRegistry().getDeprecatedTypeProperties(
       Backend::MPS, s);
 }
 
-static inline bool hasCUDA() {
+inline bool hasCUDA() {
   return globalContext().hasCUDA();
 }
 
-static inline bool hasHIP() {
+inline bool hasMTIA() {
+  return globalContext().hasMTIA();
+}
+
+inline bool hasHIP() {
   return globalContext().hasHIP();
 }
 
-static inline bool hasIPU() {
+inline bool hasIPU() {
   return globalContext().hasIPU();
 }
 
-static inline bool hasXLA() {
+inline bool hasXLA() {
   return globalContext().hasXLA();
 }
 
-static inline bool hasMPS() {
+inline bool hasMPS() {
   return globalContext().hasMPS();
 }
 
-static inline bool hasORT() {
-  return globalContext().hasORT();
+inline bool hasMAIA() {
+  return globalContext().hasMAIA();
+}
+
+inline bool hasXPU() {
+  return globalContext().hasXPU();
 }
 
 // Despite its name, this function returns the number of *CUDA* GPUs.
-static inline size_t getNumGPUs() {
+inline size_t getNumGPUs() {
   // WARNING: DO NOT ADD LOGIC TO HANDLE OTHER DEVICE TYPES TO THIS
   // FUNCTION.  If you are interested in interrogating the number of
   // devices for a specific device type, add that function to the
@@ -391,28 +521,28 @@ static inline size_t getNumGPUs() {
   }
 }
 
-static inline bool hasOpenMP() {
+inline bool hasOpenMP() {
   return globalContext().hasOpenMP();
 }
 
-static inline bool hasMKL() {
+inline bool hasMKL() {
   return globalContext().hasMKL();
 }
 
-static inline bool hasLAPACK() {
+inline bool hasLAPACK() {
   return globalContext().hasLAPACK();
 }
 
-static inline bool hasMAGMA() {
+inline bool hasMAGMA() {
   return globalContext().hasMAGMA();
 }
 
-static inline bool hasMKLDNN() {
+inline bool hasMKLDNN() {
   return globalContext().hasMKLDNN();
 }
 
-static inline void manual_seed(uint64_t seed) {
-  auto gen = globalContext().defaultGenerator(DeviceType::CPU);
+inline void manual_seed(uint64_t seed) {
+  auto gen = globalContext().defaultGenerator(c10::DeviceType::CPU);
   {
     // See Note [Acquire lock when using random generators]
     std::lock_guard<std::mutex> lock(gen.mutex());
@@ -420,9 +550,9 @@ static inline void manual_seed(uint64_t seed) {
   }
   // NB: Sometimes we build with CUDA, but we don't have any GPUs
   // available. In that case, we must not seed CUDA; it will fail!
-  const auto num_gpus = detail::getCUDAHooks().getNumGPUs();
-  if (hasCUDA() && num_gpus > 0) {
-    for (const auto i : c10::irange(num_gpus)) {
+  const auto cuda_num_gpus = detail::getCUDAHooks().getNumGPUs();
+  if (hasCUDA() && cuda_num_gpus > 0) {
+    for (const auto i : c10::irange(cuda_num_gpus)) {
       auto cuda_gen = globalContext().defaultGenerator(
           Device(at::kCUDA, static_cast<c10::DeviceIndex>(i)));
       {
@@ -433,8 +563,21 @@ static inline void manual_seed(uint64_t seed) {
     }
   }
 
+  const auto xpu_num_gpus = detail::getXPUHooks().getNumGPUs();
+  if (hasXPU() && xpu_num_gpus) {
+    for (const auto i : c10::irange(xpu_num_gpus)) {
+      auto xpu_gen = globalContext().defaultGenerator(
+          Device(at::kXPU, static_cast<c10::DeviceIndex>(i)));
+      {
+        // See Note [Acquire lock when using random generators]
+        std::lock_guard<std::mutex> lock(xpu_gen.mutex());
+        xpu_gen.set_current_seed(seed);
+      }
+    }
+  }
+
   if (hasMPS()) {
-    auto mps_gen = globalContext().defaultGenerator(DeviceType::MPS);
+    auto mps_gen = globalContext().defaultGenerator(c10::DeviceType::MPS);
     // See Note [Acquire lock when using random generators]
     std::lock_guard<std::mutex> lock(mps_gen.mutex());
     mps_gen.set_current_seed(seed);
@@ -458,15 +601,10 @@ struct TORCH_API NoTF32Guard {
   bool changed = false;
 };
 
-#ifdef USE_ROCM
 struct TORCH_API ROCmBackwardPassGuard {
   ROCmBackwardPassGuard();
   ~ROCmBackwardPassGuard();
   static bool is_backward_pass();
-
- private:
-  static thread_local bool is_backward_pass_;
 };
-#endif
 
 } // namespace at

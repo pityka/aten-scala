@@ -17,8 +17,10 @@ namespace at {
 
 namespace cuda {
 
-TORCH_API at::Tensor & randperm_out(at::Tensor & out, int64_t n, c10::optional<at::Generator> generator);
-TORCH_API at::Tensor & randperm_outf(int64_t n, c10::optional<at::Generator> generator, at::Tensor & out);
+TORCH_API at::Tensor & randperm_out(at::Tensor & out, int64_t n, ::std::optional<at::Generator> generator);
+TORCH_API at::Tensor & randperm_outf(int64_t n, ::std::optional<at::Generator> generator, at::Tensor & out);
+TORCH_API at::Tensor & randperm_symint_out(at::Tensor & out, c10::SymInt n, ::std::optional<at::Generator> generator);
+TORCH_API at::Tensor & randperm_symint_outf(c10::SymInt n, ::std::optional<at::Generator> generator, at::Tensor & out);
 
 } // namespace cuda
 } // namespace at

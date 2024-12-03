@@ -17,15 +17,15 @@ namespace at {
 
 namespace compositeexplicitautograd {
 
-TORCH_API at::Tensor random(const at::Tensor & self, int64_t from, c10::optional<int64_t> to, c10::optional<at::Generator> generator=c10::nullopt);
-TORCH_API at::Tensor & random_out(at::Tensor & out, const at::Tensor & self, int64_t from, c10::optional<int64_t> to, c10::optional<at::Generator> generator=c10::nullopt);
-TORCH_API at::Tensor & random_outf(const at::Tensor & self, int64_t from, c10::optional<int64_t> to, c10::optional<at::Generator> generator, at::Tensor & out);
-TORCH_API at::Tensor random(const at::Tensor & self, int64_t to, c10::optional<at::Generator> generator=c10::nullopt);
-TORCH_API at::Tensor & random_out(at::Tensor & out, const at::Tensor & self, int64_t to, c10::optional<at::Generator> generator=c10::nullopt);
-TORCH_API at::Tensor & random_outf(const at::Tensor & self, int64_t to, c10::optional<at::Generator> generator, at::Tensor & out);
-TORCH_API at::Tensor random(const at::Tensor & self, c10::optional<at::Generator> generator=c10::nullopt);
-TORCH_API at::Tensor & random_out(at::Tensor & out, const at::Tensor & self, c10::optional<at::Generator> generator=c10::nullopt);
-TORCH_API at::Tensor & random_outf(const at::Tensor & self, c10::optional<at::Generator> generator, at::Tensor & out);
+TORCH_API at::Tensor random(const at::Tensor & self, int64_t from, ::std::optional<int64_t> to, ::std::optional<at::Generator> generator=::std::nullopt);
+TORCH_API at::Tensor & random_out(at::Tensor & out, const at::Tensor & self, int64_t from, ::std::optional<int64_t> to, ::std::optional<at::Generator> generator=::std::nullopt);
+TORCH_API at::Tensor & random_outf(const at::Tensor & self, int64_t from, ::std::optional<int64_t> to, ::std::optional<at::Generator> generator, at::Tensor & out);
+TORCH_API at::Tensor random(const at::Tensor & self, int64_t to, ::std::optional<at::Generator> generator=::std::nullopt);
+TORCH_API at::Tensor & random_out(at::Tensor & out, const at::Tensor & self, int64_t to, ::std::optional<at::Generator> generator=::std::nullopt);
+TORCH_API at::Tensor & random_outf(const at::Tensor & self, int64_t to, ::std::optional<at::Generator> generator, at::Tensor & out);
+TORCH_API at::Tensor random(const at::Tensor & self, ::std::optional<at::Generator> generator=::std::nullopt);
+TORCH_API at::Tensor & random_out(at::Tensor & out, const at::Tensor & self, ::std::optional<at::Generator> generator=::std::nullopt);
+TORCH_API at::Tensor & random_outf(const at::Tensor & self, ::std::optional<at::Generator> generator, at::Tensor & out);
 
 } // namespace compositeexplicitautograd
 } // namespace at

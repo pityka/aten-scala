@@ -17,7 +17,7 @@ namespace at {
 
 namespace cpu {
 
-TORCH_API at::Tensor _histogramdd_from_bin_tensors(const at::Tensor & self, at::TensorList bins, const c10::optional<at::Tensor> & weight={}, bool density=false);
+TORCH_API at::Tensor _histogramdd_from_bin_tensors(const at::Tensor & self, at::TensorList bins, const ::std::optional<at::Tensor> & weight={}, bool density=false);
 
 } // namespace cpu
 } // namespace at

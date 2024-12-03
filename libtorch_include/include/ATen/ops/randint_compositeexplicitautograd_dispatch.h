@@ -18,37 +18,37 @@ namespace at {
 namespace compositeexplicitautograd {
 
 TORCH_API at::Tensor randint(int64_t high, at::IntArrayRef size, at::TensorOptions options=at::kLong);
-TORCH_API at::Tensor randint(int64_t high, at::IntArrayRef size, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory);
-TORCH_API at::Tensor randint_symint(int64_t high, c10::SymIntArrayRef size, at::TensorOptions options=at::kLong);
-TORCH_API at::Tensor randint_symint(int64_t high, c10::SymIntArrayRef size, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory);
+TORCH_API at::Tensor randint(int64_t high, at::IntArrayRef size, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory);
+TORCH_API at::Tensor randint_symint(c10::SymInt high, c10::SymIntArrayRef size, at::TensorOptions options=at::kLong);
+TORCH_API at::Tensor randint_symint(c10::SymInt high, c10::SymIntArrayRef size, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory);
 TORCH_API at::Tensor & randint_out(at::Tensor & out, int64_t high, at::IntArrayRef size);
 TORCH_API at::Tensor & randint_outf(int64_t high, at::IntArrayRef size, at::Tensor & out);
-TORCH_API at::Tensor & randint_symint_out(at::Tensor & out, int64_t high, c10::SymIntArrayRef size);
-TORCH_API at::Tensor & randint_symint_outf(int64_t high, c10::SymIntArrayRef size, at::Tensor & out);
-TORCH_API at::Tensor randint(int64_t high, at::IntArrayRef size, c10::optional<at::Generator> generator, at::TensorOptions options=at::kLong);
-TORCH_API at::Tensor randint(int64_t high, at::IntArrayRef size, c10::optional<at::Generator> generator, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory);
-TORCH_API at::Tensor randint_symint(int64_t high, c10::SymIntArrayRef size, c10::optional<at::Generator> generator, at::TensorOptions options=at::kLong);
-TORCH_API at::Tensor randint_symint(int64_t high, c10::SymIntArrayRef size, c10::optional<at::Generator> generator, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory);
-TORCH_API at::Tensor & randint_out(at::Tensor & out, int64_t high, at::IntArrayRef size, c10::optional<at::Generator> generator);
-TORCH_API at::Tensor & randint_outf(int64_t high, at::IntArrayRef size, c10::optional<at::Generator> generator, at::Tensor & out);
-TORCH_API at::Tensor & randint_symint_out(at::Tensor & out, int64_t high, c10::SymIntArrayRef size, c10::optional<at::Generator> generator);
-TORCH_API at::Tensor & randint_symint_outf(int64_t high, c10::SymIntArrayRef size, c10::optional<at::Generator> generator, at::Tensor & out);
+TORCH_API at::Tensor & randint_symint_out(at::Tensor & out, c10::SymInt high, c10::SymIntArrayRef size);
+TORCH_API at::Tensor & randint_symint_outf(c10::SymInt high, c10::SymIntArrayRef size, at::Tensor & out);
+TORCH_API at::Tensor randint(int64_t high, at::IntArrayRef size, ::std::optional<at::Generator> generator, at::TensorOptions options=at::kLong);
+TORCH_API at::Tensor randint(int64_t high, at::IntArrayRef size, ::std::optional<at::Generator> generator, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory);
+TORCH_API at::Tensor randint_symint(c10::SymInt high, c10::SymIntArrayRef size, ::std::optional<at::Generator> generator, at::TensorOptions options=at::kLong);
+TORCH_API at::Tensor randint_symint(c10::SymInt high, c10::SymIntArrayRef size, ::std::optional<at::Generator> generator, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory);
+TORCH_API at::Tensor & randint_out(at::Tensor & out, int64_t high, at::IntArrayRef size, ::std::optional<at::Generator> generator);
+TORCH_API at::Tensor & randint_outf(int64_t high, at::IntArrayRef size, ::std::optional<at::Generator> generator, at::Tensor & out);
+TORCH_API at::Tensor & randint_symint_out(at::Tensor & out, c10::SymInt high, c10::SymIntArrayRef size, ::std::optional<at::Generator> generator);
+TORCH_API at::Tensor & randint_symint_outf(c10::SymInt high, c10::SymIntArrayRef size, ::std::optional<at::Generator> generator, at::Tensor & out);
 TORCH_API at::Tensor randint(int64_t low, int64_t high, at::IntArrayRef size, at::TensorOptions options=at::kLong);
-TORCH_API at::Tensor randint(int64_t low, int64_t high, at::IntArrayRef size, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory);
-TORCH_API at::Tensor randint_symint(int64_t low, int64_t high, c10::SymIntArrayRef size, at::TensorOptions options=at::kLong);
-TORCH_API at::Tensor randint_symint(int64_t low, int64_t high, c10::SymIntArrayRef size, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory);
+TORCH_API at::Tensor randint(int64_t low, int64_t high, at::IntArrayRef size, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory);
+TORCH_API at::Tensor randint_symint(c10::SymInt low, c10::SymInt high, c10::SymIntArrayRef size, at::TensorOptions options=at::kLong);
+TORCH_API at::Tensor randint_symint(c10::SymInt low, c10::SymInt high, c10::SymIntArrayRef size, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory);
 TORCH_API at::Tensor & randint_out(at::Tensor & out, int64_t low, int64_t high, at::IntArrayRef size);
 TORCH_API at::Tensor & randint_outf(int64_t low, int64_t high, at::IntArrayRef size, at::Tensor & out);
-TORCH_API at::Tensor & randint_symint_out(at::Tensor & out, int64_t low, int64_t high, c10::SymIntArrayRef size);
-TORCH_API at::Tensor & randint_symint_outf(int64_t low, int64_t high, c10::SymIntArrayRef size, at::Tensor & out);
-TORCH_API at::Tensor randint(int64_t low, int64_t high, at::IntArrayRef size, c10::optional<at::Generator> generator, at::TensorOptions options=at::kLong);
-TORCH_API at::Tensor randint(int64_t low, int64_t high, at::IntArrayRef size, c10::optional<at::Generator> generator, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory);
-TORCH_API at::Tensor randint_symint(int64_t low, int64_t high, c10::SymIntArrayRef size, c10::optional<at::Generator> generator, at::TensorOptions options=at::kLong);
-TORCH_API at::Tensor randint_symint(int64_t low, int64_t high, c10::SymIntArrayRef size, c10::optional<at::Generator> generator, c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout, c10::optional<at::Device> device, c10::optional<bool> pin_memory);
-TORCH_API at::Tensor & randint_out(at::Tensor & out, int64_t low, int64_t high, at::IntArrayRef size, c10::optional<at::Generator> generator);
-TORCH_API at::Tensor & randint_outf(int64_t low, int64_t high, at::IntArrayRef size, c10::optional<at::Generator> generator, at::Tensor & out);
-TORCH_API at::Tensor & randint_symint_out(at::Tensor & out, int64_t low, int64_t high, c10::SymIntArrayRef size, c10::optional<at::Generator> generator);
-TORCH_API at::Tensor & randint_symint_outf(int64_t low, int64_t high, c10::SymIntArrayRef size, c10::optional<at::Generator> generator, at::Tensor & out);
+TORCH_API at::Tensor & randint_symint_out(at::Tensor & out, c10::SymInt low, c10::SymInt high, c10::SymIntArrayRef size);
+TORCH_API at::Tensor & randint_symint_outf(c10::SymInt low, c10::SymInt high, c10::SymIntArrayRef size, at::Tensor & out);
+TORCH_API at::Tensor randint(int64_t low, int64_t high, at::IntArrayRef size, ::std::optional<at::Generator> generator, at::TensorOptions options=at::kLong);
+TORCH_API at::Tensor randint(int64_t low, int64_t high, at::IntArrayRef size, ::std::optional<at::Generator> generator, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory);
+TORCH_API at::Tensor randint_symint(c10::SymInt low, c10::SymInt high, c10::SymIntArrayRef size, ::std::optional<at::Generator> generator, at::TensorOptions options=at::kLong);
+TORCH_API at::Tensor randint_symint(c10::SymInt low, c10::SymInt high, c10::SymIntArrayRef size, ::std::optional<at::Generator> generator, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory);
+TORCH_API at::Tensor & randint_out(at::Tensor & out, int64_t low, int64_t high, at::IntArrayRef size, ::std::optional<at::Generator> generator);
+TORCH_API at::Tensor & randint_outf(int64_t low, int64_t high, at::IntArrayRef size, ::std::optional<at::Generator> generator, at::Tensor & out);
+TORCH_API at::Tensor & randint_symint_out(at::Tensor & out, c10::SymInt low, c10::SymInt high, c10::SymIntArrayRef size, ::std::optional<at::Generator> generator);
+TORCH_API at::Tensor & randint_symint_outf(c10::SymInt low, c10::SymInt high, c10::SymIntArrayRef size, ::std::optional<at::Generator> generator, at::Tensor & out);
 
 } // namespace compositeexplicitautograd
 } // namespace at

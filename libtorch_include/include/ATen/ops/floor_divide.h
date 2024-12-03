@@ -13,7 +13,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 
 
 
@@ -39,6 +39,15 @@ inline at::Tensor & floor_divide_outf(const at::Tensor & self, const at::Tensor 
 // aten::floor_divide.Scalar(Tensor self, Scalar other) -> Tensor
 inline at::Tensor floor_divide(const at::Tensor & self, const at::Scalar & other) {
     return at::_ops::floor_divide_Scalar::call(self, other);
+}
+
+// aten::floor_divide.Scalar_out(Tensor self, Scalar other, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & floor_divide_out(at::Tensor & out, const at::Tensor & self, const at::Scalar & other) {
+    return at::_ops::floor_divide_Scalar_out::call(self, other, out);
+}
+// aten::floor_divide.Scalar_out(Tensor self, Scalar other, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & floor_divide_outf(const at::Tensor & self, const at::Scalar & other, at::Tensor & out) {
+    return at::_ops::floor_divide_Scalar_out::call(self, other, out);
 }
 
 }

@@ -17,7 +17,7 @@ namespace at {
 
 namespace cpu {
 
-TORCH_API at::Tensor to_mkldnn(const at::Tensor & self, c10::optional<at::ScalarType> dtype=c10::nullopt);
+TORCH_API at::Tensor to_mkldnn(const at::Tensor & self, ::std::optional<at::ScalarType> dtype=::std::nullopt);
 
 } // namespace cpu
 } // namespace at

@@ -6,7 +6,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 #include <c10/core/QScheme.h>
 #include <ATen/core/Reduction.h>
 #include <ATen/core/Tensor.h>
@@ -19,6 +19,6 @@ namespace native {
 struct TORCH_API structured_index_out : public at::meta::structured_index_Tensor {
 void impl(const at::Tensor & self, at::DimVector sizes, at::DimVector strides, const at::Tensor & out);
 };
-TORCH_API at::Tensor quantized_index(const at::Tensor & self, const c10::List<c10::optional<at::Tensor>> & indices);
+TORCH_API at::Tensor quantized_index(const at::Tensor & self, const c10::List<::std::optional<at::Tensor>> & indices);
 } // namespace native
 } // namespace at

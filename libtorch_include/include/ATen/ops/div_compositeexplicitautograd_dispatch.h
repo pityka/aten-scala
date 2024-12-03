@@ -21,10 +21,10 @@ TORCH_API at::Tensor div(const at::Tensor & self, const at::Scalar & other);
 TORCH_API at::Tensor & div_out(at::Tensor & out, const at::Tensor & self, const at::Scalar & other);
 TORCH_API at::Tensor & div_outf(const at::Tensor & self, const at::Scalar & other, at::Tensor & out);
 TORCH_API at::Tensor & div_(at::Tensor & self, const at::Scalar & other);
-TORCH_API at::Tensor div(const at::Tensor & self, const at::Scalar & other, c10::optional<c10::string_view> rounding_mode);
-TORCH_API at::Tensor & div_out(at::Tensor & out, const at::Tensor & self, const at::Scalar & other, c10::optional<c10::string_view> rounding_mode);
-TORCH_API at::Tensor & div_outf(const at::Tensor & self, const at::Scalar & other, c10::optional<c10::string_view> rounding_mode, at::Tensor & out);
-TORCH_API at::Tensor & div_(at::Tensor & self, const at::Scalar & other, c10::optional<c10::string_view> rounding_mode);
+TORCH_API at::Tensor div(const at::Tensor & self, const at::Scalar & other, ::std::optional<c10::string_view> rounding_mode);
+TORCH_API at::Tensor & div_out(at::Tensor & out, const at::Tensor & self, const at::Scalar & other, ::std::optional<c10::string_view> rounding_mode);
+TORCH_API at::Tensor & div_outf(const at::Tensor & self, const at::Scalar & other, ::std::optional<c10::string_view> rounding_mode, at::Tensor & out);
+TORCH_API at::Tensor & div_(at::Tensor & self, const at::Scalar & other, ::std::optional<c10::string_view> rounding_mode);
 
 } // namespace compositeexplicitautograd
 } // namespace at

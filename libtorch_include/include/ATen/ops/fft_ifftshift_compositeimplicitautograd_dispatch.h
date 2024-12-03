@@ -17,7 +17,7 @@ namespace at {
 
 namespace compositeimplicitautograd {
 
-TORCH_API at::Tensor fft_ifftshift(const at::Tensor & self, at::OptionalIntArrayRef dim=c10::nullopt);
+TORCH_API at::Tensor fft_ifftshift(const at::Tensor & self, at::OptionalIntArrayRef dim=::std::nullopt);
 
 } // namespace compositeimplicitautograd
 } // namespace at

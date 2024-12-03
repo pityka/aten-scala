@@ -17,9 +17,9 @@ namespace at {
 
 namespace compositeimplicitautograd {
 
-TORCH_API at::Tensor linalg_pinv(const at::Tensor & self, c10::optional<double> atol, c10::optional<double> rtol, bool hermitian=false);
-TORCH_API at::Tensor & linalg_pinv_out(at::Tensor & out, const at::Tensor & self, c10::optional<double> atol, c10::optional<double> rtol, bool hermitian=false);
-TORCH_API at::Tensor & linalg_pinv_outf(const at::Tensor & self, c10::optional<double> atol, c10::optional<double> rtol, bool hermitian, at::Tensor & out);
+TORCH_API at::Tensor linalg_pinv(const at::Tensor & self, ::std::optional<double> atol, ::std::optional<double> rtol, bool hermitian=false);
+TORCH_API at::Tensor & linalg_pinv_out(at::Tensor & out, const at::Tensor & self, ::std::optional<double> atol, ::std::optional<double> rtol, bool hermitian=false);
+TORCH_API at::Tensor & linalg_pinv_outf(const at::Tensor & self, ::std::optional<double> atol, ::std::optional<double> rtol, bool hermitian, at::Tensor & out);
 TORCH_API at::Tensor linalg_pinv(const at::Tensor & self, double rcond, bool hermitian=false);
 TORCH_API at::Tensor & linalg_pinv_out(at::Tensor & out, const at::Tensor & self, double rcond, bool hermitian=false);
 TORCH_API at::Tensor & linalg_pinv_outf(const at::Tensor & self, double rcond, bool hermitian, at::Tensor & out);

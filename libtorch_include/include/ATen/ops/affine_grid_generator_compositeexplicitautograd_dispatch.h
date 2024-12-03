@@ -18,8 +18,11 @@ namespace at {
 namespace compositeexplicitautograd {
 
 TORCH_API at::Tensor affine_grid_generator(const at::Tensor & theta, at::IntArrayRef size, bool align_corners);
+TORCH_API at::Tensor affine_grid_generator_symint(const at::Tensor & theta, c10::SymIntArrayRef size, bool align_corners);
 TORCH_API at::Tensor & affine_grid_generator_out(at::Tensor & out, const at::Tensor & theta, at::IntArrayRef size, bool align_corners);
 TORCH_API at::Tensor & affine_grid_generator_outf(const at::Tensor & theta, at::IntArrayRef size, bool align_corners, at::Tensor & out);
+TORCH_API at::Tensor & affine_grid_generator_symint_out(at::Tensor & out, const at::Tensor & theta, c10::SymIntArrayRef size, bool align_corners);
+TORCH_API at::Tensor & affine_grid_generator_symint_outf(const at::Tensor & theta, c10::SymIntArrayRef size, bool align_corners, at::Tensor & out);
 
 } // namespace compositeexplicitautograd
 } // namespace at

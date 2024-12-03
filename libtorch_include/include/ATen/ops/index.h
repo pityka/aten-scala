@@ -13,7 +13,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 
 
 
@@ -23,16 +23,16 @@ namespace at {
 
 
 // aten::index.Tensor(Tensor self, Tensor?[] indices) -> Tensor
-inline at::Tensor index(const at::Tensor & self, const c10::List<c10::optional<at::Tensor>> & indices) {
+inline at::Tensor index(const at::Tensor & self, const c10::List<::std::optional<at::Tensor>> & indices) {
     return at::_ops::index_Tensor::call(self, indices);
 }
 
 // aten::index.Tensor_out(Tensor self, Tensor?[] indices, *, Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & index_out(at::Tensor & out, const at::Tensor & self, const c10::List<c10::optional<at::Tensor>> & indices) {
+inline at::Tensor & index_out(at::Tensor & out, const at::Tensor & self, const c10::List<::std::optional<at::Tensor>> & indices) {
     return at::_ops::index_Tensor_out::call(self, indices, out);
 }
 // aten::index.Tensor_out(Tensor self, Tensor?[] indices, *, Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & index_outf(const at::Tensor & self, const c10::List<c10::optional<at::Tensor>> & indices, at::Tensor & out) {
+inline at::Tensor & index_outf(const at::Tensor & self, const c10::List<::std::optional<at::Tensor>> & indices, at::Tensor & out) {
     return at::_ops::index_Tensor_out::call(self, indices, out);
 }
 

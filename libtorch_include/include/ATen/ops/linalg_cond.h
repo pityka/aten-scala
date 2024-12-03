@@ -13,7 +13,7 @@
 #include <c10/core/Storage.h>
 #include <c10/core/TensorOptions.h>
 #include <c10/util/Deprecated.h>
-#include <c10/util/Optional.h>
+#include <optional>
 
 
 
@@ -23,16 +23,16 @@ namespace at {
 
 
 // aten::linalg_cond(Tensor self, Scalar? p=None) -> Tensor
-inline at::Tensor linalg_cond(const at::Tensor & self, const c10::optional<at::Scalar> & p=c10::nullopt) {
+inline at::Tensor linalg_cond(const at::Tensor & self, const ::std::optional<at::Scalar> & p=::std::nullopt) {
     return at::_ops::linalg_cond::call(self, p);
 }
 
 // aten::linalg_cond.out(Tensor self, Scalar? p=None, *, Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & linalg_cond_out(at::Tensor & out, const at::Tensor & self, const c10::optional<at::Scalar> & p=c10::nullopt) {
+inline at::Tensor & linalg_cond_out(at::Tensor & out, const at::Tensor & self, const ::std::optional<at::Scalar> & p=::std::nullopt) {
     return at::_ops::linalg_cond_out::call(self, p, out);
 }
 // aten::linalg_cond.out(Tensor self, Scalar? p=None, *, Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & linalg_cond_outf(const at::Tensor & self, const c10::optional<at::Scalar> & p, at::Tensor & out) {
+inline at::Tensor & linalg_cond_outf(const at::Tensor & self, const ::std::optional<at::Scalar> & p, at::Tensor & out) {
     return at::_ops::linalg_cond_out::call(self, p, out);
 }
 

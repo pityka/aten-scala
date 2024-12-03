@@ -15,14 +15,14 @@ namespace _ops {
 
 
 struct TORCH_API is_pinned {
-  using schema = bool (const at::Tensor &, c10::optional<at::Device>);
+  using schema = bool (const at::Tensor &, ::std::optional<at::Device>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::is_pinned")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
   STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "is_pinned(Tensor self, Device? device=None) -> bool")
-  static bool call(const at::Tensor & self, c10::optional<at::Device> device);
-  static bool redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, c10::optional<at::Device> device);
+  static bool call(const at::Tensor & self, ::std::optional<at::Device> device);
+  static bool redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, ::std::optional<at::Device> device);
 };
 
 }} // namespace at::_ops
