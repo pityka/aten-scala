@@ -132,6 +132,12 @@ if (cuda) {
   
   println("boo")
 
+  {
+    val undefined = Tensor.undefined
+    assert(undefined.useCount() == 0)
+    undefined.release
+  }
+
   val tensor1 = ATen.eye_0(3L, TensorOptions.dtypeFloat)
   println(tensor1)
   assert(tensor1.useCount() == 1)

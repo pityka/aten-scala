@@ -1720,6 +1720,24 @@ JNIEXPORT jlong JNICALL Java_aten_Tensor_lowlevelzeros_1like(JNIEnv *env, jobjec
     }
     return 0;
 }
+JNIEXPORT jlong JNICALL Java_aten_Tensor_lowlevelundefined(JNIEnv *env, jobject thisObj) {try{
+  
+   
+
+
+   
+  jclass ret_clsreturnable_result = tensorClass;
+  Tensor* result_on_heapreturnable_result = new Tensor();
+  jlong ret_addressreturnable_result = reinterpret_cast<jlong>(result_on_heapreturnable_result);
+ 
+   jlong returnable_result = ret_addressreturnable_result;
+    return returnable_result;
+
+    } catch (exception& e) {
+      throwRuntimeException(env,e.what() );
+    }
+    return 0;
+}
 
 JNIEXPORT jlong JNICALL Java_aten_Tensor_lowlevelfrom_1file(JNIEnv *env, jobject thisObj ,jstring path, jlong offset, jlong len, jbyte scalarType, jboolean pin) {try{
   

@@ -186,6 +186,11 @@ public class Tensor {
 
   
 
+  public static native long lowlevelundefined();
+  public static Tensor undefined() {
+      return Tensor.factory(lowlevelundefined());
+  }
+
   public static native long lowlevelzeros_like(long tensor);
   public static Tensor zeros_like(Tensor tensor) {
       return Tensor.factory(lowlevelzeros_like(tensor.pointer));
