@@ -18,9 +18,9 @@ struct TORCH_API _masked_softmax {
   using schema = at::Tensor (const at::Tensor &, const at::Tensor &, ::std::optional<int64_t>, ::std::optional<int64_t>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_masked_softmax")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_masked_softmax(Tensor self, Tensor mask, int? dim=None, int? mask_type=None) -> Tensor")
+  static constexpr const char* name = "aten::_masked_softmax";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "_masked_softmax(Tensor self, Tensor mask, int? dim=None, int? mask_type=None) -> Tensor";
   static at::Tensor call(const at::Tensor & self, const at::Tensor & mask, ::std::optional<int64_t> dim, ::std::optional<int64_t> mask_type);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & mask, ::std::optional<int64_t> dim, ::std::optional<int64_t> mask_type);
 };
@@ -29,9 +29,9 @@ struct TORCH_API _masked_softmax_out {
   using schema = at::Tensor & (const at::Tensor &, const at::Tensor &, ::std::optional<int64_t>, ::std::optional<int64_t>, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_masked_softmax")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_masked_softmax.out(Tensor self, Tensor mask, int? dim=None, int? mask_type=None, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::_masked_softmax";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "_masked_softmax.out(Tensor self, Tensor mask, int? dim=None, int? mask_type=None, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, const at::Tensor & mask, ::std::optional<int64_t> dim, ::std::optional<int64_t> mask_type, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & mask, ::std::optional<int64_t> dim, ::std::optional<int64_t> mask_type, at::Tensor & out);
 };

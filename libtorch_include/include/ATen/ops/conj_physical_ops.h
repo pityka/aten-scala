@@ -18,9 +18,9 @@ struct TORCH_API conj_physical {
   using schema = at::Tensor (const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::conj_physical")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "conj_physical(Tensor self) -> Tensor")
+  static constexpr const char* name = "aten::conj_physical";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "conj_physical(Tensor self) -> Tensor";
   static at::Tensor call(const at::Tensor & self);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self);
 };
@@ -29,9 +29,9 @@ struct TORCH_API conj_physical_out {
   using schema = at::Tensor & (const at::Tensor &, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::conj_physical")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "conj_physical.out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::conj_physical";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "conj_physical.out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::Tensor & out);
 };
@@ -40,9 +40,9 @@ struct TORCH_API conj_physical_ {
   using schema = at::Tensor & (at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::conj_physical_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "conj_physical_(Tensor(a!) self) -> Tensor(a!)")
+  static constexpr const char* name = "aten::conj_physical_";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "conj_physical_(Tensor(a!) self) -> Tensor(a!)";
   static at::Tensor & call(at::Tensor & self);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::Tensor & self);
 };

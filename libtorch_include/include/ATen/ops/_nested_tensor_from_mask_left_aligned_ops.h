@@ -18,9 +18,9 @@ struct TORCH_API _nested_tensor_from_mask_left_aligned {
   using schema = bool (const at::Tensor &, const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_nested_tensor_from_mask_left_aligned")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_nested_tensor_from_mask_left_aligned(Tensor t, Tensor mask) -> bool")
+  static constexpr const char* name = "aten::_nested_tensor_from_mask_left_aligned";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "_nested_tensor_from_mask_left_aligned(Tensor t, Tensor mask) -> bool";
   static bool call(const at::Tensor & t, const at::Tensor & mask);
   static bool redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & t, const at::Tensor & mask);
 };

@@ -18,9 +18,9 @@ struct TORCH_API _validate_sparse_bsr_tensor_args {
   using schema = void (const at::Tensor &, const at::Tensor &, const at::Tensor &, at::IntArrayRef);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_validate_sparse_bsr_tensor_args")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_validate_sparse_bsr_tensor_args(Tensor crow_indices, Tensor col_indices, Tensor values, int[] size) -> ()")
+  static constexpr const char* name = "aten::_validate_sparse_bsr_tensor_args";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "_validate_sparse_bsr_tensor_args(Tensor crow_indices, Tensor col_indices, Tensor values, int[] size) -> ()";
   static void call(const at::Tensor & crow_indices, const at::Tensor & col_indices, const at::Tensor & values, at::IntArrayRef size);
   static void redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & crow_indices, const at::Tensor & col_indices, const at::Tensor & values, at::IntArrayRef size);
 };

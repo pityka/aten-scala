@@ -18,9 +18,9 @@ struct TORCH_API vsplit_int {
   using schema = ::std::vector<at::Tensor> (const at::Tensor &, int64_t);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::vsplit")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "int")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "vsplit.int(Tensor(a -> *) self, int sections) -> Tensor(a)[]")
+  static constexpr const char* name = "aten::vsplit";
+  static constexpr const char* overload_name = "int";
+  static constexpr const char* schema_str = "vsplit.int(Tensor(a -> *) self, int sections) -> Tensor(a)[]";
   static ::std::vector<at::Tensor> call(const at::Tensor & self, int64_t sections);
   static ::std::vector<at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t sections);
 };
@@ -29,9 +29,9 @@ struct TORCH_API vsplit_array {
   using schema = ::std::vector<at::Tensor> (const at::Tensor &, at::IntArrayRef);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::vsplit")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "array")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "vsplit.array(Tensor(a -> *) self, int[] indices) -> Tensor(a)[]")
+  static constexpr const char* name = "aten::vsplit";
+  static constexpr const char* overload_name = "array";
+  static constexpr const char* schema_str = "vsplit.array(Tensor(a -> *) self, int[] indices) -> Tensor(a)[]";
   static ::std::vector<at::Tensor> call(const at::Tensor & self, at::IntArrayRef indices);
   static ::std::vector<at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::IntArrayRef indices);
 };

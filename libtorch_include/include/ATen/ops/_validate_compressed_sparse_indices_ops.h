@@ -18,9 +18,9 @@ struct TORCH_API _validate_compressed_sparse_indices {
   using schema = void (bool, const at::Tensor &, const at::Tensor &, int64_t, int64_t, int64_t);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_validate_compressed_sparse_indices")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_validate_compressed_sparse_indices(bool is_crow, Tensor compressed_idx, Tensor plain_idx, int cdim, int dim, int nnz) -> ()")
+  static constexpr const char* name = "aten::_validate_compressed_sparse_indices";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "_validate_compressed_sparse_indices(bool is_crow, Tensor compressed_idx, Tensor plain_idx, int cdim, int dim, int nnz) -> ()";
   static void call(bool is_crow, const at::Tensor & compressed_idx, const at::Tensor & plain_idx, int64_t cdim, int64_t dim, int64_t nnz);
   static void redispatch(c10::DispatchKeySet dispatchKeySet, bool is_crow, const at::Tensor & compressed_idx, const at::Tensor & plain_idx, int64_t cdim, int64_t dim, int64_t nnz);
 };

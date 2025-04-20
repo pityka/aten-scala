@@ -19,5 +19,8 @@ namespace native {
 struct TORCH_API structured_acosh_out : public at::meta::structured_acosh {
 void impl(const at::Tensor & self, const at::Tensor & out);
 };
+struct TORCH_API structured_acosh_out_mps : public at::meta::structured_acosh {
+void impl(const at::Tensor & self, const at::Tensor & out);
+};
 } // namespace native
 } // namespace at

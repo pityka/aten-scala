@@ -25,6 +25,8 @@ TORCH_API at::Tensor relu_sparse(const at::Tensor & self);
 TORCH_API at::Tensor & relu_sparse_(at::Tensor & self);
 TORCH_API at::Tensor relu_sparse_csr(const at::Tensor & self);
 TORCH_API at::Tensor & relu_sparse_csr_(at::Tensor & self);
+TORCH_API at::Tensor relu_mps(const at::Tensor & self);
+TORCH_API at::Tensor & relu_mps_(at::Tensor & self);
 TORCH_API at::Tensor mkldnn_relu(const at::Tensor & self);
 TORCH_API at::Tensor & mkldnn_relu_(at::Tensor & self);
 TORCH_API at::Tensor relu_quantized_cpu(const at::Tensor & self);

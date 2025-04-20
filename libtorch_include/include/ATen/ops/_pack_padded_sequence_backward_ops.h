@@ -18,9 +18,9 @@ struct TORCH_API _pack_padded_sequence_backward {
   using schema = at::Tensor (const at::Tensor &, c10::SymIntArrayRef, const at::Tensor &, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_pack_padded_sequence_backward")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_pack_padded_sequence_backward(Tensor grad, SymInt[] input_size, Tensor batch_sizes, bool batch_first) -> Tensor")
+  static constexpr const char* name = "aten::_pack_padded_sequence_backward";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "_pack_padded_sequence_backward(Tensor grad, SymInt[] input_size, Tensor batch_sizes, bool batch_first) -> Tensor";
   static at::Tensor call(const at::Tensor & grad, c10::SymIntArrayRef input_size, const at::Tensor & batch_sizes, bool batch_first);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & grad, c10::SymIntArrayRef input_size, const at::Tensor & batch_sizes, bool batch_first);
 };

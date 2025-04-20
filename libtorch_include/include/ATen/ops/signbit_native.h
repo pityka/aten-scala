@@ -23,5 +23,8 @@ TORCH_API at::Tensor signbit_sparse(const at::Tensor & self);
 TORCH_API at::Tensor & signbit_sparse_out(const at::Tensor & self, at::Tensor & out);
 TORCH_API at::Tensor signbit_sparse_csr(const at::Tensor & self);
 TORCH_API at::Tensor & signbit_sparse_csr_out(const at::Tensor & self, at::Tensor & out);
+struct TORCH_API structured_signbit_out_mps : public at::meta::structured_signbit {
+void impl(const at::Tensor & self, const at::Tensor & out);
+};
 } // namespace native
 } // namespace at

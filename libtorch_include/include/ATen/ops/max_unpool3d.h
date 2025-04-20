@@ -27,7 +27,7 @@ inline at::Tensor & max_unpool3d_out(at::Tensor & out, const at::Tensor & self, 
     return at::_ops::max_unpool3d_out::call(self, indices, c10::fromIntArrayRefSlow(output_size), stride, padding, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & max_unpool3d_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & indices, at::IntArrayRef output_size, at::IntArrayRef stride, at::IntArrayRef padding) {
     return at::_ops::max_unpool3d_out::call(self, indices, c10::fromIntArrayRefSlow(output_size), stride, padding, out);
   }
@@ -38,7 +38,7 @@ inline at::Tensor & max_unpool3d_outf(const at::Tensor & self, const at::Tensor 
     return at::_ops::max_unpool3d_out::call(self, indices, c10::fromIntArrayRefSlow(output_size), stride, padding, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & max_unpool3d_outf(const at::Tensor & self, const at::Tensor & indices, at::IntArrayRef output_size, at::IntArrayRef stride, at::IntArrayRef padding, at::Tensor & out) {
     return at::_ops::max_unpool3d_out::call(self, indices, c10::fromIntArrayRefSlow(output_size), stride, padding, out);
   }
@@ -49,7 +49,7 @@ inline at::Tensor & max_unpool3d_symint_out(at::Tensor & out, const at::Tensor &
     return at::_ops::max_unpool3d_out::call(self, indices, output_size, stride, padding, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & max_unpool3d_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & indices, c10::SymIntArrayRef output_size, at::IntArrayRef stride, at::IntArrayRef padding) {
     return at::_ops::max_unpool3d_out::call(self, indices, output_size, stride, padding, out);
   }
@@ -60,7 +60,7 @@ inline at::Tensor & max_unpool3d_symint_outf(const at::Tensor & self, const at::
     return at::_ops::max_unpool3d_out::call(self, indices, output_size, stride, padding, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & max_unpool3d_outf(const at::Tensor & self, const at::Tensor & indices, c10::SymIntArrayRef output_size, at::IntArrayRef stride, at::IntArrayRef padding, at::Tensor & out) {
     return at::_ops::max_unpool3d_out::call(self, indices, output_size, stride, padding, out);
   }
@@ -71,7 +71,7 @@ inline at::Tensor max_unpool3d(const at::Tensor & self, const at::Tensor & indic
     return at::_ops::max_unpool3d::call(self, indices, c10::fromIntArrayRefSlow(output_size), stride, padding);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor max_unpool3d(const at::Tensor & self, const at::Tensor & indices, at::IntArrayRef output_size, at::IntArrayRef stride, at::IntArrayRef padding) {
     return at::_ops::max_unpool3d::call(self, indices, c10::fromIntArrayRefSlow(output_size), stride, padding);
   }
@@ -82,7 +82,7 @@ inline at::Tensor max_unpool3d_symint(const at::Tensor & self, const at::Tensor 
     return at::_ops::max_unpool3d::call(self, indices, output_size, stride, padding);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor max_unpool3d(const at::Tensor & self, const at::Tensor & indices, c10::SymIntArrayRef output_size, at::IntArrayRef stride, at::IntArrayRef padding) {
     return at::_ops::max_unpool3d::call(self, indices, output_size, stride, padding);
   }

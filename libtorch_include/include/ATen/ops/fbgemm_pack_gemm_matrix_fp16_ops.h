@@ -18,9 +18,9 @@ struct TORCH_API fbgemm_pack_gemm_matrix_fp16 {
   using schema = at::Tensor (const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::fbgemm_pack_gemm_matrix_fp16")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "fbgemm_pack_gemm_matrix_fp16(Tensor input) -> Tensor")
+  static constexpr const char* name = "aten::fbgemm_pack_gemm_matrix_fp16";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "fbgemm_pack_gemm_matrix_fp16(Tensor input) -> Tensor";
   static at::Tensor call(const at::Tensor & input);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & input);
 };

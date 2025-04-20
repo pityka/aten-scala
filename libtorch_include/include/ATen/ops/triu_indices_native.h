@@ -19,5 +19,6 @@ namespace native {
 TORCH_API at::Tensor & triu_indices_out(int64_t row, int64_t col, int64_t offset, at::Tensor & out);
 TORCH_API at::Tensor triu_indices_cpu(int64_t row, int64_t col, int64_t offset=0, ::std::optional<at::ScalarType> dtype={}, ::std::optional<at::Layout> layout={}, ::std::optional<at::Device> device={}, ::std::optional<bool> pin_memory={});
 TORCH_API at::Tensor triu_indices_cuda(int64_t row, int64_t col, int64_t offset=0, ::std::optional<at::ScalarType> dtype={}, ::std::optional<at::Layout> layout={}, ::std::optional<at::Device> device={}, ::std::optional<bool> pin_memory={});
+TORCH_API at::Tensor triu_indices_mps(int64_t row, int64_t col, int64_t offset=0, ::std::optional<at::ScalarType> dtype={}, ::std::optional<at::Layout> layout={}, ::std::optional<at::Device> device={}, ::std::optional<bool> pin_memory={});
 } // namespace native
 } // namespace at

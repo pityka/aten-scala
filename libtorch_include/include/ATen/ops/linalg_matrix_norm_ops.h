@@ -18,9 +18,9 @@ struct TORCH_API linalg_matrix_norm {
   using schema = at::Tensor (const at::Tensor &, const at::Scalar &, at::IntArrayRef, bool, ::std::optional<at::ScalarType>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::linalg_matrix_norm")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "linalg_matrix_norm(Tensor self, Scalar ord, int[] dim=[-2,-1], bool keepdim=False, *, ScalarType? dtype=None) -> Tensor")
+  static constexpr const char* name = "aten::linalg_matrix_norm";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "linalg_matrix_norm(Tensor self, Scalar ord, int[] dim=[-2,-1], bool keepdim=False, *, ScalarType? dtype=None) -> Tensor";
   static at::Tensor call(const at::Tensor & self, const at::Scalar & ord, at::IntArrayRef dim, bool keepdim, ::std::optional<at::ScalarType> dtype);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Scalar & ord, at::IntArrayRef dim, bool keepdim, ::std::optional<at::ScalarType> dtype);
 };
@@ -29,9 +29,9 @@ struct TORCH_API linalg_matrix_norm_out {
   using schema = at::Tensor & (const at::Tensor &, const at::Scalar &, at::IntArrayRef, bool, ::std::optional<at::ScalarType>, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::linalg_matrix_norm")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "linalg_matrix_norm.out(Tensor self, Scalar ord, int[] dim=[-2,-1], bool keepdim=False, *, ScalarType? dtype=None, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::linalg_matrix_norm";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "linalg_matrix_norm.out(Tensor self, Scalar ord, int[] dim=[-2,-1], bool keepdim=False, *, ScalarType? dtype=None, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, const at::Scalar & ord, at::IntArrayRef dim, bool keepdim, ::std::optional<at::ScalarType> dtype, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Scalar & ord, at::IntArrayRef dim, bool keepdim, ::std::optional<at::ScalarType> dtype, at::Tensor & out);
 };
@@ -40,9 +40,9 @@ struct TORCH_API linalg_matrix_norm_str_ord {
   using schema = at::Tensor (const at::Tensor &, c10::string_view, at::IntArrayRef, bool, ::std::optional<at::ScalarType>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::linalg_matrix_norm")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "str_ord")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "linalg_matrix_norm.str_ord(Tensor self, str ord='fro', int[] dim=[-2,-1], bool keepdim=False, *, ScalarType? dtype=None) -> Tensor")
+  static constexpr const char* name = "aten::linalg_matrix_norm";
+  static constexpr const char* overload_name = "str_ord";
+  static constexpr const char* schema_str = "linalg_matrix_norm.str_ord(Tensor self, str ord='fro', int[] dim=[-2,-1], bool keepdim=False, *, ScalarType? dtype=None) -> Tensor";
   static at::Tensor call(const at::Tensor & self, c10::string_view ord, at::IntArrayRef dim, bool keepdim, ::std::optional<at::ScalarType> dtype);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, c10::string_view ord, at::IntArrayRef dim, bool keepdim, ::std::optional<at::ScalarType> dtype);
 };
@@ -51,9 +51,9 @@ struct TORCH_API linalg_matrix_norm_str_ord_out {
   using schema = at::Tensor & (const at::Tensor &, c10::string_view, at::IntArrayRef, bool, ::std::optional<at::ScalarType>, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::linalg_matrix_norm")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "str_ord_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "linalg_matrix_norm.str_ord_out(Tensor self, str ord='fro', int[] dim=[-2,-1], bool keepdim=False, *, ScalarType? dtype=None, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::linalg_matrix_norm";
+  static constexpr const char* overload_name = "str_ord_out";
+  static constexpr const char* schema_str = "linalg_matrix_norm.str_ord_out(Tensor self, str ord='fro', int[] dim=[-2,-1], bool keepdim=False, *, ScalarType? dtype=None, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, c10::string_view ord, at::IntArrayRef dim, bool keepdim, ::std::optional<at::ScalarType> dtype, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, c10::string_view ord, at::IntArrayRef dim, bool keepdim, ::std::optional<at::ScalarType> dtype, at::Tensor & out);
 };

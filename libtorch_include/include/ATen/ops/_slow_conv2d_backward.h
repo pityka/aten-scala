@@ -27,7 +27,7 @@ inline ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> _slow_conv2d_backwar
     return at::_ops::_slow_conv2d_backward_grad_input::call(grad_output, self, weight, c10::fromIntArrayRefSlow(kernel_size), c10::fromIntArrayRefSlow(stride), c10::fromIntArrayRefSlow(padding), grad_input, grad_weight, grad_bias);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> _slow_conv2d_backward_out(at::Tensor & grad_input, at::Tensor & grad_weight, at::Tensor & grad_bias, const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & weight, at::IntArrayRef kernel_size, at::IntArrayRef stride, at::IntArrayRef padding) {
     return at::_ops::_slow_conv2d_backward_grad_input::call(grad_output, self, weight, c10::fromIntArrayRefSlow(kernel_size), c10::fromIntArrayRefSlow(stride), c10::fromIntArrayRefSlow(padding), grad_input, grad_weight, grad_bias);
   }
@@ -38,7 +38,7 @@ inline ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> _slow_conv2d_backwar
     return at::_ops::_slow_conv2d_backward_grad_input::call(grad_output, self, weight, c10::fromIntArrayRefSlow(kernel_size), c10::fromIntArrayRefSlow(stride), c10::fromIntArrayRefSlow(padding), grad_input, grad_weight, grad_bias);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> _slow_conv2d_backward_outf(const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & weight, at::IntArrayRef kernel_size, at::IntArrayRef stride, at::IntArrayRef padding, at::Tensor & grad_input, at::Tensor & grad_weight, at::Tensor & grad_bias) {
     return at::_ops::_slow_conv2d_backward_grad_input::call(grad_output, self, weight, c10::fromIntArrayRefSlow(kernel_size), c10::fromIntArrayRefSlow(stride), c10::fromIntArrayRefSlow(padding), grad_input, grad_weight, grad_bias);
   }
@@ -49,7 +49,7 @@ inline ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> _slow_conv2d_backwar
     return at::_ops::_slow_conv2d_backward_grad_input::call(grad_output, self, weight, kernel_size, stride, padding, grad_input, grad_weight, grad_bias);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> _slow_conv2d_backward_out(at::Tensor & grad_input, at::Tensor & grad_weight, at::Tensor & grad_bias, const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & weight, c10::SymIntArrayRef kernel_size, c10::SymIntArrayRef stride, c10::SymIntArrayRef padding) {
     return at::_ops::_slow_conv2d_backward_grad_input::call(grad_output, self, weight, kernel_size, stride, padding, grad_input, grad_weight, grad_bias);
   }
@@ -60,7 +60,7 @@ inline ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> _slow_conv2d_backwar
     return at::_ops::_slow_conv2d_backward_grad_input::call(grad_output, self, weight, kernel_size, stride, padding, grad_input, grad_weight, grad_bias);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> _slow_conv2d_backward_outf(const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & weight, c10::SymIntArrayRef kernel_size, c10::SymIntArrayRef stride, c10::SymIntArrayRef padding, at::Tensor & grad_input, at::Tensor & grad_weight, at::Tensor & grad_bias) {
     return at::_ops::_slow_conv2d_backward_grad_input::call(grad_output, self, weight, kernel_size, stride, padding, grad_input, grad_weight, grad_bias);
   }
@@ -71,7 +71,7 @@ inline ::std::tuple<at::Tensor,at::Tensor,at::Tensor> _slow_conv2d_backward(cons
     return at::_ops::_slow_conv2d_backward_output_mask::call(grad_output, self, weight, c10::fromIntArrayRefSlow(kernel_size), c10::fromIntArrayRefSlow(stride), c10::fromIntArrayRefSlow(padding), output_mask);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   ::std::tuple<at::Tensor,at::Tensor,at::Tensor> _slow_conv2d_backward(const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & weight, at::IntArrayRef kernel_size, at::IntArrayRef stride, at::IntArrayRef padding, ::std::array<bool,3> output_mask) {
     return at::_ops::_slow_conv2d_backward_output_mask::call(grad_output, self, weight, c10::fromIntArrayRefSlow(kernel_size), c10::fromIntArrayRefSlow(stride), c10::fromIntArrayRefSlow(padding), output_mask);
   }
@@ -82,7 +82,7 @@ inline ::std::tuple<at::Tensor,at::Tensor,at::Tensor> _slow_conv2d_backward_symi
     return at::_ops::_slow_conv2d_backward_output_mask::call(grad_output, self, weight, kernel_size, stride, padding, output_mask);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   ::std::tuple<at::Tensor,at::Tensor,at::Tensor> _slow_conv2d_backward(const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & weight, c10::SymIntArrayRef kernel_size, c10::SymIntArrayRef stride, c10::SymIntArrayRef padding, ::std::array<bool,3> output_mask) {
     return at::_ops::_slow_conv2d_backward_output_mask::call(grad_output, self, weight, kernel_size, stride, padding, output_mask);
   }
@@ -93,7 +93,7 @@ inline ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> _slow_conv2d_backwar
     return at::_ops::_slow_conv2d_backward_output_mask_out::call(grad_output, self, weight, c10::fromIntArrayRefSlow(kernel_size), c10::fromIntArrayRefSlow(stride), c10::fromIntArrayRefSlow(padding), output_mask, out0, out1, out2);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> _slow_conv2d_backward_out(at::Tensor & out0, at::Tensor & out1, at::Tensor & out2, const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & weight, at::IntArrayRef kernel_size, at::IntArrayRef stride, at::IntArrayRef padding, ::std::array<bool,3> output_mask) {
     return at::_ops::_slow_conv2d_backward_output_mask_out::call(grad_output, self, weight, c10::fromIntArrayRefSlow(kernel_size), c10::fromIntArrayRefSlow(stride), c10::fromIntArrayRefSlow(padding), output_mask, out0, out1, out2);
   }
@@ -104,7 +104,7 @@ inline ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> _slow_conv2d_backwar
     return at::_ops::_slow_conv2d_backward_output_mask_out::call(grad_output, self, weight, c10::fromIntArrayRefSlow(kernel_size), c10::fromIntArrayRefSlow(stride), c10::fromIntArrayRefSlow(padding), output_mask, out0, out1, out2);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> _slow_conv2d_backward_outf(const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & weight, at::IntArrayRef kernel_size, at::IntArrayRef stride, at::IntArrayRef padding, ::std::array<bool,3> output_mask, at::Tensor & out0, at::Tensor & out1, at::Tensor & out2) {
     return at::_ops::_slow_conv2d_backward_output_mask_out::call(grad_output, self, weight, c10::fromIntArrayRefSlow(kernel_size), c10::fromIntArrayRefSlow(stride), c10::fromIntArrayRefSlow(padding), output_mask, out0, out1, out2);
   }
@@ -115,7 +115,7 @@ inline ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> _slow_conv2d_backwar
     return at::_ops::_slow_conv2d_backward_output_mask_out::call(grad_output, self, weight, kernel_size, stride, padding, output_mask, out0, out1, out2);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> _slow_conv2d_backward_out(at::Tensor & out0, at::Tensor & out1, at::Tensor & out2, const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & weight, c10::SymIntArrayRef kernel_size, c10::SymIntArrayRef stride, c10::SymIntArrayRef padding, ::std::array<bool,3> output_mask) {
     return at::_ops::_slow_conv2d_backward_output_mask_out::call(grad_output, self, weight, kernel_size, stride, padding, output_mask, out0, out1, out2);
   }
@@ -126,7 +126,7 @@ inline ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> _slow_conv2d_backwar
     return at::_ops::_slow_conv2d_backward_output_mask_out::call(grad_output, self, weight, kernel_size, stride, padding, output_mask, out0, out1, out2);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> _slow_conv2d_backward_outf(const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & weight, c10::SymIntArrayRef kernel_size, c10::SymIntArrayRef stride, c10::SymIntArrayRef padding, ::std::array<bool,3> output_mask, at::Tensor & out0, at::Tensor & out1, at::Tensor & out2) {
     return at::_ops::_slow_conv2d_backward_output_mask_out::call(grad_output, self, weight, kernel_size, stride, padding, output_mask, out0, out1, out2);
   }

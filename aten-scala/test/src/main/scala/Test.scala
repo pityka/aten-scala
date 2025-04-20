@@ -369,7 +369,7 @@ if (cuda) {
   {
     val e = ATen.ones(Array(2,3),TensorOptions.dtypeDouble)
     var i = 0 
-    val N = 10000000
+    val N = 1000000
     while (i < N) {
       e.dim()
       i+=1 
@@ -387,7 +387,7 @@ if (cuda) {
     val topt = TensorOptions.dtypeDouble
     val d = Array(2L,3L)
     var i = 0 
-    val N = 1000000
+    val N = 100000
     while (i < N) {
       val e = ATen.ones(d,topt)
       i+=1 
@@ -406,7 +406,7 @@ if (cuda) {
     val d = Array(2L,3L)
     val e = ATen.ones(d,topt)
     var i = 0 
-    val N = 1000000
+    val N = 100000
     while (i < N) {
       ATen.zero_(e)
       i+=1 

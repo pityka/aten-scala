@@ -18,9 +18,9 @@ struct TORCH_API cudnn_grid_sampler_backward {
   using schema = ::std::tuple<at::Tensor,at::Tensor> (const at::Tensor &, const at::Tensor &, const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::cudnn_grid_sampler_backward")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "cudnn_grid_sampler_backward(Tensor self, Tensor grid, Tensor grad_output) -> (Tensor grad_self, Tensor grad_grid)")
+  static constexpr const char* name = "aten::cudnn_grid_sampler_backward";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "cudnn_grid_sampler_backward(Tensor self, Tensor grid, Tensor grad_output) -> (Tensor grad_self, Tensor grad_grid)";
   static ::std::tuple<at::Tensor,at::Tensor> call(const at::Tensor & self, const at::Tensor & grid, const at::Tensor & grad_output);
   static ::std::tuple<at::Tensor,at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & grid, const at::Tensor & grad_output);
 };
@@ -29,9 +29,9 @@ struct TORCH_API cudnn_grid_sampler_backward_out {
   using schema = ::std::tuple<at::Tensor &,at::Tensor &> (const at::Tensor &, const at::Tensor &, const at::Tensor &, at::Tensor &, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::cudnn_grid_sampler_backward")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "cudnn_grid_sampler_backward.out(Tensor self, Tensor grid, Tensor grad_output, *, Tensor(a!) out0, Tensor(b!) out1) -> (Tensor(a!), Tensor(b!))")
+  static constexpr const char* name = "aten::cudnn_grid_sampler_backward";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "cudnn_grid_sampler_backward.out(Tensor self, Tensor grid, Tensor grad_output, *, Tensor(a!) out0, Tensor(b!) out1) -> (Tensor(a!), Tensor(b!))";
   static ::std::tuple<at::Tensor &,at::Tensor &> call(const at::Tensor & self, const at::Tensor & grid, const at::Tensor & grad_output, at::Tensor & out0, at::Tensor & out1);
   static ::std::tuple<at::Tensor &,at::Tensor &> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & grid, const at::Tensor & grad_output, at::Tensor & out0, at::Tensor & out1);
 };

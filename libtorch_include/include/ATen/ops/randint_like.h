@@ -27,7 +27,7 @@ inline at::Tensor randint_like(const at::Tensor & self, int64_t high, at::Tensor
     return at::_ops::randint_like::call(self, high, c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt(), c10::impl::check_tensor_options_and_extract_memory_format(options, memory_format));
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor randint_like(const at::Tensor & self, int64_t high, at::TensorOptions options={}, ::std::optional<at::MemoryFormat> memory_format=::std::nullopt) {
     return at::_ops::randint_like::call(self, high, c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt(), c10::impl::check_tensor_options_and_extract_memory_format(options, memory_format));
   }
@@ -38,7 +38,7 @@ inline at::Tensor randint_like(const at::Tensor & self, int64_t high, ::std::opt
     return at::_ops::randint_like::call(self, high, dtype, layout, device, pin_memory, memory_format);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor randint_like(const at::Tensor & self, int64_t high, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory, ::std::optional<at::MemoryFormat> memory_format) {
     return at::_ops::randint_like::call(self, high, dtype, layout, device, pin_memory, memory_format);
   }
@@ -49,7 +49,7 @@ inline at::Tensor randint_like_symint(const at::Tensor & self, c10::SymInt high,
     return at::_ops::randint_like::call(self, high, c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt(), c10::impl::check_tensor_options_and_extract_memory_format(options, memory_format));
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor randint_like(const at::Tensor & self, c10::SymInt high, at::TensorOptions options={}, ::std::optional<at::MemoryFormat> memory_format=::std::nullopt) {
     return at::_ops::randint_like::call(self, high, c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt(), c10::impl::check_tensor_options_and_extract_memory_format(options, memory_format));
   }
@@ -60,7 +60,7 @@ inline at::Tensor randint_like_symint(const at::Tensor & self, c10::SymInt high,
     return at::_ops::randint_like::call(self, high, dtype, layout, device, pin_memory, memory_format);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor randint_like(const at::Tensor & self, c10::SymInt high, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory, ::std::optional<at::MemoryFormat> memory_format) {
     return at::_ops::randint_like::call(self, high, dtype, layout, device, pin_memory, memory_format);
   }
@@ -71,7 +71,7 @@ inline at::Tensor randint_like(const at::Tensor & self, int64_t low, int64_t hig
     return at::_ops::randint_like_low_dtype::call(self, low, high, c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt(), c10::impl::check_tensor_options_and_extract_memory_format(options, memory_format));
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor randint_like(const at::Tensor & self, int64_t low, int64_t high, at::TensorOptions options={}, ::std::optional<at::MemoryFormat> memory_format=::std::nullopt) {
     return at::_ops::randint_like_low_dtype::call(self, low, high, c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt(), c10::impl::check_tensor_options_and_extract_memory_format(options, memory_format));
   }
@@ -82,7 +82,7 @@ inline at::Tensor randint_like(const at::Tensor & self, int64_t low, int64_t hig
     return at::_ops::randint_like_low_dtype::call(self, low, high, dtype, layout, device, pin_memory, memory_format);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor randint_like(const at::Tensor & self, int64_t low, int64_t high, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory, ::std::optional<at::MemoryFormat> memory_format) {
     return at::_ops::randint_like_low_dtype::call(self, low, high, dtype, layout, device, pin_memory, memory_format);
   }
@@ -93,7 +93,7 @@ inline at::Tensor randint_like_symint(const at::Tensor & self, c10::SymInt low, 
     return at::_ops::randint_like_low_dtype::call(self, low, high, c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt(), c10::impl::check_tensor_options_and_extract_memory_format(options, memory_format));
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor randint_like(const at::Tensor & self, c10::SymInt low, c10::SymInt high, at::TensorOptions options={}, ::std::optional<at::MemoryFormat> memory_format=::std::nullopt) {
     return at::_ops::randint_like_low_dtype::call(self, low, high, c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt(), c10::impl::check_tensor_options_and_extract_memory_format(options, memory_format));
   }
@@ -104,7 +104,7 @@ inline at::Tensor randint_like_symint(const at::Tensor & self, c10::SymInt low, 
     return at::_ops::randint_like_low_dtype::call(self, low, high, dtype, layout, device, pin_memory, memory_format);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor randint_like(const at::Tensor & self, c10::SymInt low, c10::SymInt high, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory, ::std::optional<at::MemoryFormat> memory_format) {
     return at::_ops::randint_like_low_dtype::call(self, low, high, dtype, layout, device, pin_memory, memory_format);
   }
@@ -115,7 +115,7 @@ inline at::Tensor & randint_like_out(at::Tensor & out, const at::Tensor & self, 
     return at::_ops::randint_like_out::call(self, high, memory_format, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & randint_like_out(at::Tensor & out, const at::Tensor & self, int64_t high, ::std::optional<at::MemoryFormat> memory_format=::std::nullopt) {
     return at::_ops::randint_like_out::call(self, high, memory_format, out);
   }
@@ -126,7 +126,7 @@ inline at::Tensor & randint_like_outf(const at::Tensor & self, int64_t high, ::s
     return at::_ops::randint_like_out::call(self, high, memory_format, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & randint_like_outf(const at::Tensor & self, int64_t high, ::std::optional<at::MemoryFormat> memory_format, at::Tensor & out) {
     return at::_ops::randint_like_out::call(self, high, memory_format, out);
   }
@@ -137,7 +137,7 @@ inline at::Tensor & randint_like_symint_out(at::Tensor & out, const at::Tensor &
     return at::_ops::randint_like_out::call(self, high, memory_format, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & randint_like_out(at::Tensor & out, const at::Tensor & self, c10::SymInt high, ::std::optional<at::MemoryFormat> memory_format=::std::nullopt) {
     return at::_ops::randint_like_out::call(self, high, memory_format, out);
   }
@@ -148,7 +148,7 @@ inline at::Tensor & randint_like_symint_outf(const at::Tensor & self, c10::SymIn
     return at::_ops::randint_like_out::call(self, high, memory_format, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & randint_like_outf(const at::Tensor & self, c10::SymInt high, ::std::optional<at::MemoryFormat> memory_format, at::Tensor & out) {
     return at::_ops::randint_like_out::call(self, high, memory_format, out);
   }
@@ -159,7 +159,7 @@ inline at::Tensor & randint_like_out(at::Tensor & out, const at::Tensor & self, 
     return at::_ops::randint_like_low_dtype_out::call(self, low, high, memory_format, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & randint_like_out(at::Tensor & out, const at::Tensor & self, int64_t low, int64_t high, ::std::optional<at::MemoryFormat> memory_format=::std::nullopt) {
     return at::_ops::randint_like_low_dtype_out::call(self, low, high, memory_format, out);
   }
@@ -170,7 +170,7 @@ inline at::Tensor & randint_like_outf(const at::Tensor & self, int64_t low, int6
     return at::_ops::randint_like_low_dtype_out::call(self, low, high, memory_format, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & randint_like_outf(const at::Tensor & self, int64_t low, int64_t high, ::std::optional<at::MemoryFormat> memory_format, at::Tensor & out) {
     return at::_ops::randint_like_low_dtype_out::call(self, low, high, memory_format, out);
   }
@@ -181,7 +181,7 @@ inline at::Tensor & randint_like_symint_out(at::Tensor & out, const at::Tensor &
     return at::_ops::randint_like_low_dtype_out::call(self, low, high, memory_format, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & randint_like_out(at::Tensor & out, const at::Tensor & self, c10::SymInt low, c10::SymInt high, ::std::optional<at::MemoryFormat> memory_format=::std::nullopt) {
     return at::_ops::randint_like_low_dtype_out::call(self, low, high, memory_format, out);
   }
@@ -192,7 +192,7 @@ inline at::Tensor & randint_like_symint_outf(const at::Tensor & self, c10::SymIn
     return at::_ops::randint_like_low_dtype_out::call(self, low, high, memory_format, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & randint_like_outf(const at::Tensor & self, c10::SymInt low, c10::SymInt high, ::std::optional<at::MemoryFormat> memory_format, at::Tensor & out) {
     return at::_ops::randint_like_low_dtype_out::call(self, low, high, memory_format, out);
   }

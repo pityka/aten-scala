@@ -21,5 +21,6 @@ TORCH_API ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> native_layer_norm
 TORCH_API ::std::tuple<at::Tensor,at::Tensor,at::Tensor> layer_norm_cpu(const at::Tensor & input, at::IntArrayRef normalized_shape, const ::std::optional<at::Tensor> & weight, const ::std::optional<at::Tensor> & bias, double eps);
 TORCH_API ::std::tuple<at::Tensor,at::Tensor,at::Tensor> layer_norm_cuda(const at::Tensor & input, at::IntArrayRef normalized_shape, const ::std::optional<at::Tensor> & weight, const ::std::optional<at::Tensor> & bias, double eps);
 TORCH_API ::std::tuple<at::Tensor,at::Tensor,at::Tensor> nested_layer_norm(const at::Tensor & input, at::IntArrayRef normalized_shape, const ::std::optional<at::Tensor> & weight, const ::std::optional<at::Tensor> & bias, double eps);
+TORCH_API ::std::tuple<at::Tensor,at::Tensor,at::Tensor> layer_norm_mps(const at::Tensor & input, at::IntArrayRef normalized_shape, const ::std::optional<at::Tensor> & weight, const ::std::optional<at::Tensor> & bias, double eps);
 } // namespace native
 } // namespace at

@@ -27,7 +27,7 @@ inline at::Tensor randperm(int64_t n, at::TensorOptions options=at::kLong) {
     return at::_ops::randperm::call(n, c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt());
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor randperm(int64_t n, at::TensorOptions options=at::kLong) {
     return at::_ops::randperm::call(n, c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt());
   }
@@ -38,7 +38,7 @@ inline at::Tensor randperm(int64_t n, ::std::optional<at::ScalarType> dtype, ::s
     return at::_ops::randperm::call(n, dtype, layout, device, pin_memory);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor randperm(int64_t n, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory) {
     return at::_ops::randperm::call(n, dtype, layout, device, pin_memory);
   }
@@ -49,7 +49,7 @@ inline at::Tensor randperm_symint(c10::SymInt n, at::TensorOptions options=at::k
     return at::_ops::randperm::call(n, c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt());
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor randperm(c10::SymInt n, at::TensorOptions options=at::kLong) {
     return at::_ops::randperm::call(n, c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt());
   }
@@ -60,7 +60,7 @@ inline at::Tensor randperm_symint(c10::SymInt n, ::std::optional<at::ScalarType>
     return at::_ops::randperm::call(n, dtype, layout, device, pin_memory);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor randperm(c10::SymInt n, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory) {
     return at::_ops::randperm::call(n, dtype, layout, device, pin_memory);
   }
@@ -71,7 +71,7 @@ inline at::Tensor randperm(int64_t n, ::std::optional<at::Generator> generator, 
     return at::_ops::randperm_generator::call(n, generator, c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt());
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor randperm(int64_t n, ::std::optional<at::Generator> generator, at::TensorOptions options=at::kLong) {
     return at::_ops::randperm_generator::call(n, generator, c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt());
   }
@@ -82,7 +82,7 @@ inline at::Tensor randperm(int64_t n, ::std::optional<at::Generator> generator, 
     return at::_ops::randperm_generator::call(n, generator, dtype, layout, device, pin_memory);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor randperm(int64_t n, ::std::optional<at::Generator> generator, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory) {
     return at::_ops::randperm_generator::call(n, generator, dtype, layout, device, pin_memory);
   }
@@ -93,7 +93,7 @@ inline at::Tensor randperm_symint(c10::SymInt n, ::std::optional<at::Generator> 
     return at::_ops::randperm_generator::call(n, generator, c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt());
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor randperm(c10::SymInt n, ::std::optional<at::Generator> generator, at::TensorOptions options=at::kLong) {
     return at::_ops::randperm_generator::call(n, generator, c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt());
   }
@@ -104,7 +104,7 @@ inline at::Tensor randperm_symint(c10::SymInt n, ::std::optional<at::Generator> 
     return at::_ops::randperm_generator::call(n, generator, dtype, layout, device, pin_memory);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor randperm(c10::SymInt n, ::std::optional<at::Generator> generator, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory) {
     return at::_ops::randperm_generator::call(n, generator, dtype, layout, device, pin_memory);
   }
@@ -115,7 +115,7 @@ inline at::Tensor & randperm_out(at::Tensor & out, int64_t n) {
     return at::_ops::randperm_out::call(n, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & randperm_out(at::Tensor & out, int64_t n) {
     return at::_ops::randperm_out::call(n, out);
   }
@@ -126,7 +126,7 @@ inline at::Tensor & randperm_outf(int64_t n, at::Tensor & out) {
     return at::_ops::randperm_out::call(n, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & randperm_outf(int64_t n, at::Tensor & out) {
     return at::_ops::randperm_out::call(n, out);
   }
@@ -137,7 +137,7 @@ inline at::Tensor & randperm_symint_out(at::Tensor & out, c10::SymInt n) {
     return at::_ops::randperm_out::call(n, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & randperm_out(at::Tensor & out, c10::SymInt n) {
     return at::_ops::randperm_out::call(n, out);
   }
@@ -148,7 +148,7 @@ inline at::Tensor & randperm_symint_outf(c10::SymInt n, at::Tensor & out) {
     return at::_ops::randperm_out::call(n, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & randperm_outf(c10::SymInt n, at::Tensor & out) {
     return at::_ops::randperm_out::call(n, out);
   }
@@ -159,7 +159,7 @@ inline at::Tensor & randperm_out(at::Tensor & out, int64_t n, ::std::optional<at
     return at::_ops::randperm_generator_out::call(n, generator, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & randperm_out(at::Tensor & out, int64_t n, ::std::optional<at::Generator> generator) {
     return at::_ops::randperm_generator_out::call(n, generator, out);
   }
@@ -170,7 +170,7 @@ inline at::Tensor & randperm_outf(int64_t n, ::std::optional<at::Generator> gene
     return at::_ops::randperm_generator_out::call(n, generator, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & randperm_outf(int64_t n, ::std::optional<at::Generator> generator, at::Tensor & out) {
     return at::_ops::randperm_generator_out::call(n, generator, out);
   }
@@ -181,7 +181,7 @@ inline at::Tensor & randperm_symint_out(at::Tensor & out, c10::SymInt n, ::std::
     return at::_ops::randperm_generator_out::call(n, generator, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & randperm_out(at::Tensor & out, c10::SymInt n, ::std::optional<at::Generator> generator) {
     return at::_ops::randperm_generator_out::call(n, generator, out);
   }
@@ -192,7 +192,7 @@ inline at::Tensor & randperm_symint_outf(c10::SymInt n, ::std::optional<at::Gene
     return at::_ops::randperm_generator_out::call(n, generator, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & randperm_outf(c10::SymInt n, ::std::optional<at::Generator> generator, at::Tensor & out) {
     return at::_ops::randperm_generator_out::call(n, generator, out);
   }

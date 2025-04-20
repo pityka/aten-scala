@@ -21,6 +21,7 @@ TORCH_API at::Tensor std(const at::Tensor & self, at::OptionalIntArrayRef dim, b
 TORCH_API at::Tensor & std_out(const at::Tensor & self, at::OptionalIntArrayRef dim, bool unbiased, bool keepdim, at::Tensor & out);
 TORCH_API at::Tensor std(const at::Tensor & self, at::OptionalIntArrayRef dim=::std::nullopt, const ::std::optional<at::Scalar> & correction=::std::nullopt, bool keepdim=false);
 TORCH_API at::Tensor & std_out(const at::Tensor & self, at::OptionalIntArrayRef dim, const ::std::optional<at::Scalar> & correction, bool keepdim, at::Tensor & out);
+TORCH_API at::Tensor std_mps(const at::Tensor & self, at::OptionalIntArrayRef dim=::std::nullopt, const ::std::optional<at::Scalar> & correction=::std::nullopt, bool keepdim=false);
 TORCH_API at::Tensor std_quantized_cpu(const at::Tensor & self, at::OptionalIntArrayRef dim=::std::nullopt, const ::std::optional<at::Scalar> & correction=::std::nullopt, bool keepdim=false);
 TORCH_API at::Tensor & std_out_quantized_cpu(const at::Tensor & self, at::OptionalIntArrayRef dim, const ::std::optional<at::Scalar> & correction, bool keepdim, at::Tensor & out);
 TORCH_API at::Tensor std(const at::Tensor & self, at::DimnameList dim, bool unbiased=true, bool keepdim=false);

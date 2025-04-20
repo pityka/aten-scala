@@ -18,9 +18,9 @@ struct TORCH_API view {
   using schema = at::Tensor (const at::Tensor &, c10::SymIntArrayRef);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::view")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "view(Tensor(a) self, SymInt[] size) -> Tensor(a)")
+  static constexpr const char* name = "aten::view";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "view(Tensor(a) self, SymInt[] size) -> Tensor(a)";
   static at::Tensor call(const at::Tensor & self, c10::SymIntArrayRef size);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, c10::SymIntArrayRef size);
 };
@@ -29,9 +29,9 @@ struct TORCH_API view_dtype {
   using schema = at::Tensor (const at::Tensor &, at::ScalarType);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::view")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "dtype")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "view.dtype(Tensor(a) self, ScalarType dtype) -> Tensor(a)")
+  static constexpr const char* name = "aten::view";
+  static constexpr const char* overload_name = "dtype";
+  static constexpr const char* schema_str = "view.dtype(Tensor(a) self, ScalarType dtype) -> Tensor(a)";
   static at::Tensor call(const at::Tensor & self, at::ScalarType dtype);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::ScalarType dtype);
 };

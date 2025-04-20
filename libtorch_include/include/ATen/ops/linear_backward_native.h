@@ -18,5 +18,6 @@ namespace at {
 namespace native {
 TORCH_API ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> linear_backward_out(const at::Tensor & self, const at::Tensor & grad_output, const at::Tensor & weight, ::std::array<bool,3> output_mask, at::Tensor & out0, at::Tensor & out1, at::Tensor & out2);
 TORCH_API ::std::tuple<at::Tensor,at::Tensor,at::Tensor> nested_linear_backward(const at::Tensor & self, const at::Tensor & grad_output, const at::Tensor & weight, ::std::array<bool,3> output_mask);
+TORCH_API ::std::tuple<at::Tensor,at::Tensor,at::Tensor> mps_linear_backward(const at::Tensor & self, const at::Tensor & grad_output, const at::Tensor & weight, ::std::array<bool,3> output_mask);
 } // namespace native
 } // namespace at

@@ -18,9 +18,9 @@ struct TORCH_API linalg_cholesky_ex {
   using schema = ::std::tuple<at::Tensor,at::Tensor> (const at::Tensor &, bool, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::linalg_cholesky_ex")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "linalg_cholesky_ex(Tensor self, *, bool upper=False, bool check_errors=False) -> (Tensor L, Tensor info)")
+  static constexpr const char* name = "aten::linalg_cholesky_ex";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "linalg_cholesky_ex(Tensor self, *, bool upper=False, bool check_errors=False) -> (Tensor L, Tensor info)";
   static ::std::tuple<at::Tensor,at::Tensor> call(const at::Tensor & self, bool upper, bool check_errors);
   static ::std::tuple<at::Tensor,at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, bool upper, bool check_errors);
 };
@@ -29,9 +29,9 @@ struct TORCH_API linalg_cholesky_ex_L {
   using schema = ::std::tuple<at::Tensor &,at::Tensor &> (const at::Tensor &, bool, bool, at::Tensor &, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::linalg_cholesky_ex")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "L")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "linalg_cholesky_ex.L(Tensor self, *, bool upper=False, bool check_errors=False, Tensor(a!) L, Tensor(b!) info) -> (Tensor(a!) L, Tensor(b!) info)")
+  static constexpr const char* name = "aten::linalg_cholesky_ex";
+  static constexpr const char* overload_name = "L";
+  static constexpr const char* schema_str = "linalg_cholesky_ex.L(Tensor self, *, bool upper=False, bool check_errors=False, Tensor(a!) L, Tensor(b!) info) -> (Tensor(a!) L, Tensor(b!) info)";
   static ::std::tuple<at::Tensor &,at::Tensor &> call(const at::Tensor & self, bool upper, bool check_errors, at::Tensor & L, at::Tensor & info);
   static ::std::tuple<at::Tensor &,at::Tensor &> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, bool upper, bool check_errors, at::Tensor & L, at::Tensor & info);
 };

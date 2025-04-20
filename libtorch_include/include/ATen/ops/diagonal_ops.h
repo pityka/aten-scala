@@ -18,9 +18,9 @@ struct TORCH_API diagonal {
   using schema = at::Tensor (const at::Tensor &, int64_t, int64_t, int64_t);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::diagonal")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "diagonal(Tensor(a) self, int offset=0, int dim1=0, int dim2=1) -> Tensor(a)")
+  static constexpr const char* name = "aten::diagonal";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "diagonal(Tensor(a) self, int offset=0, int dim1=0, int dim2=1) -> Tensor(a)";
   static at::Tensor call(const at::Tensor & self, int64_t offset, int64_t dim1, int64_t dim2);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t offset, int64_t dim1, int64_t dim2);
 };
@@ -29,9 +29,9 @@ struct TORCH_API diagonal_Dimname {
   using schema = at::Tensor (const at::Tensor &, at::Dimname, at::Dimname, at::Dimname, int64_t);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::diagonal")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Dimname")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "diagonal.Dimname(Tensor(a) self, *, Dimname outdim, Dimname dim1, Dimname dim2, int offset=0) -> Tensor(a)")
+  static constexpr const char* name = "aten::diagonal";
+  static constexpr const char* overload_name = "Dimname";
+  static constexpr const char* schema_str = "diagonal.Dimname(Tensor(a) self, *, Dimname outdim, Dimname dim1, Dimname dim2, int offset=0) -> Tensor(a)";
   static at::Tensor call(const at::Tensor & self, at::Dimname outdim, at::Dimname dim1, at::Dimname dim2, int64_t offset);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::Dimname outdim, at::Dimname dim1, at::Dimname dim2, int64_t offset);
 };

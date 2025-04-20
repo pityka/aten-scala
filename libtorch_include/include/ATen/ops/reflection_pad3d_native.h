@@ -22,5 +22,8 @@ void impl(const at::Tensor & self, at::ArrayRef<int64_t> padding, const at::Tens
 struct TORCH_API structured_reflection_pad3d_out_cuda : public at::meta::structured_reflection_pad3d {
 void impl(const at::Tensor & self, at::ArrayRef<int64_t> padding, const at::Tensor & out);
 };
+struct TORCH_API structured_reflection_pad3d_out_mps : public at::meta::structured_reflection_pad3d {
+void impl(const at::Tensor & self, at::ArrayRef<int64_t> padding, const at::Tensor & out);
+};
 } // namespace native
 } // namespace at

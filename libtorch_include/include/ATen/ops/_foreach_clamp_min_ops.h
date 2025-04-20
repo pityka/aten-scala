@@ -18,9 +18,9 @@ struct TORCH_API _foreach_clamp_min_Scalar {
   using schema = ::std::vector<at::Tensor> (at::TensorList, const at::Scalar &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_foreach_clamp_min")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Scalar")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_foreach_clamp_min.Scalar(Tensor[] self, Scalar scalar) -> Tensor[]")
+  static constexpr const char* name = "aten::_foreach_clamp_min";
+  static constexpr const char* overload_name = "Scalar";
+  static constexpr const char* schema_str = "_foreach_clamp_min.Scalar(Tensor[] self, Scalar scalar) -> Tensor[]";
   static ::std::vector<at::Tensor> call(at::TensorList self, const at::Scalar & scalar);
   static ::std::vector<at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList self, const at::Scalar & scalar);
 };
@@ -29,9 +29,9 @@ struct TORCH_API _foreach_clamp_min__Scalar {
   using schema = void (at::TensorList, const at::Scalar &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_foreach_clamp_min_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Scalar")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_foreach_clamp_min_.Scalar(Tensor(a!)[] self, Scalar scalar) -> ()")
+  static constexpr const char* name = "aten::_foreach_clamp_min_";
+  static constexpr const char* overload_name = "Scalar";
+  static constexpr const char* schema_str = "_foreach_clamp_min_.Scalar(Tensor(a!)[] self, Scalar scalar) -> ()";
   static void call(at::TensorList self, const at::Scalar & scalar);
   static void redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList self, const at::Scalar & scalar);
 };
@@ -40,9 +40,9 @@ struct TORCH_API _foreach_clamp_min_List {
   using schema = ::std::vector<at::Tensor> (at::TensorList, at::TensorList);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_foreach_clamp_min")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "List")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_foreach_clamp_min.List(Tensor[] self, Tensor[] other) -> Tensor[]")
+  static constexpr const char* name = "aten::_foreach_clamp_min";
+  static constexpr const char* overload_name = "List";
+  static constexpr const char* schema_str = "_foreach_clamp_min.List(Tensor[] self, Tensor[] other) -> Tensor[]";
   static ::std::vector<at::Tensor> call(at::TensorList self, at::TensorList other);
   static ::std::vector<at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList self, at::TensorList other);
 };
@@ -51,9 +51,9 @@ struct TORCH_API _foreach_clamp_min__List {
   using schema = void (at::TensorList, at::TensorList);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_foreach_clamp_min_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "List")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_foreach_clamp_min_.List(Tensor(a!)[] self, Tensor[] other) -> ()")
+  static constexpr const char* name = "aten::_foreach_clamp_min_";
+  static constexpr const char* overload_name = "List";
+  static constexpr const char* schema_str = "_foreach_clamp_min_.List(Tensor(a!)[] self, Tensor[] other) -> ()";
   static void call(at::TensorList self, at::TensorList other);
   static void redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList self, at::TensorList other);
 };
@@ -62,9 +62,9 @@ struct TORCH_API _foreach_clamp_min_ScalarList {
   using schema = ::std::vector<at::Tensor> (at::TensorList, at::ArrayRef<at::Scalar>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_foreach_clamp_min")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "ScalarList")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_foreach_clamp_min.ScalarList(Tensor[] self, Scalar[] scalars) -> Tensor[]")
+  static constexpr const char* name = "aten::_foreach_clamp_min";
+  static constexpr const char* overload_name = "ScalarList";
+  static constexpr const char* schema_str = "_foreach_clamp_min.ScalarList(Tensor[] self, Scalar[] scalars) -> Tensor[]";
   static ::std::vector<at::Tensor> call(at::TensorList self, at::ArrayRef<at::Scalar> scalars);
   static ::std::vector<at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList self, at::ArrayRef<at::Scalar> scalars);
 };
@@ -73,9 +73,9 @@ struct TORCH_API _foreach_clamp_min__ScalarList {
   using schema = void (at::TensorList, at::ArrayRef<at::Scalar>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_foreach_clamp_min_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "ScalarList")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_foreach_clamp_min_.ScalarList(Tensor(a!)[] self, Scalar[] scalars) -> ()")
+  static constexpr const char* name = "aten::_foreach_clamp_min_";
+  static constexpr const char* overload_name = "ScalarList";
+  static constexpr const char* schema_str = "_foreach_clamp_min_.ScalarList(Tensor(a!)[] self, Scalar[] scalars) -> ()";
   static void call(at::TensorList self, at::ArrayRef<at::Scalar> scalars);
   static void redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList self, at::ArrayRef<at::Scalar> scalars);
 };
@@ -84,9 +84,9 @@ struct TORCH_API _foreach_clamp_min_Scalar_out {
   using schema = void (at::TensorList, const at::Scalar &, at::TensorList);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_foreach_clamp_min")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Scalar_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_foreach_clamp_min.Scalar_out(Tensor[] self, Scalar scalar, *, Tensor(a!)[] out) -> ()")
+  static constexpr const char* name = "aten::_foreach_clamp_min";
+  static constexpr const char* overload_name = "Scalar_out";
+  static constexpr const char* schema_str = "_foreach_clamp_min.Scalar_out(Tensor[] self, Scalar scalar, *, Tensor(a!)[] out) -> ()";
   static void call(at::TensorList self, const at::Scalar & scalar, at::TensorList out);
   static void redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList self, const at::Scalar & scalar, at::TensorList out);
 };
@@ -95,9 +95,9 @@ struct TORCH_API _foreach_clamp_min_List_out {
   using schema = void (at::TensorList, at::TensorList, at::TensorList);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_foreach_clamp_min")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "List_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_foreach_clamp_min.List_out(Tensor[] self, Tensor[] other, *, Tensor(a!)[] out) -> ()")
+  static constexpr const char* name = "aten::_foreach_clamp_min";
+  static constexpr const char* overload_name = "List_out";
+  static constexpr const char* schema_str = "_foreach_clamp_min.List_out(Tensor[] self, Tensor[] other, *, Tensor(a!)[] out) -> ()";
   static void call(at::TensorList self, at::TensorList other, at::TensorList out);
   static void redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList self, at::TensorList other, at::TensorList out);
 };
@@ -106,9 +106,9 @@ struct TORCH_API _foreach_clamp_min_ScalarList_out {
   using schema = void (at::TensorList, at::ArrayRef<at::Scalar>, at::TensorList);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_foreach_clamp_min")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "ScalarList_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_foreach_clamp_min.ScalarList_out(Tensor[] self, Scalar[] scalars, *, Tensor(a!)[] out) -> ()")
+  static constexpr const char* name = "aten::_foreach_clamp_min";
+  static constexpr const char* overload_name = "ScalarList_out";
+  static constexpr const char* schema_str = "_foreach_clamp_min.ScalarList_out(Tensor[] self, Scalar[] scalars, *, Tensor(a!)[] out) -> ()";
   static void call(at::TensorList self, at::ArrayRef<at::Scalar> scalars, at::TensorList out);
   static void redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList self, at::ArrayRef<at::Scalar> scalars, at::TensorList out);
 };

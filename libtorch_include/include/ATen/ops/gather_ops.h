@@ -18,9 +18,9 @@ struct TORCH_API gather_out {
   using schema = at::Tensor & (const at::Tensor &, int64_t, const at::Tensor &, bool, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::gather")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "gather.out(Tensor self, int dim, Tensor index, *, bool sparse_grad=False, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::gather";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "gather.out(Tensor self, int dim, Tensor index, *, bool sparse_grad=False, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, int64_t dim, const at::Tensor & index, bool sparse_grad, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t dim, const at::Tensor & index, bool sparse_grad, at::Tensor & out);
 };
@@ -29,9 +29,9 @@ struct TORCH_API gather {
   using schema = at::Tensor (const at::Tensor &, int64_t, const at::Tensor &, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::gather")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "gather(Tensor self, int dim, Tensor index, *, bool sparse_grad=False) -> Tensor")
+  static constexpr const char* name = "aten::gather";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "gather(Tensor self, int dim, Tensor index, *, bool sparse_grad=False) -> Tensor";
   static at::Tensor call(const at::Tensor & self, int64_t dim, const at::Tensor & index, bool sparse_grad);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t dim, const at::Tensor & index, bool sparse_grad);
 };
@@ -40,9 +40,9 @@ struct TORCH_API gather_dimname_out {
   using schema = at::Tensor & (const at::Tensor &, at::Dimname, const at::Tensor &, bool, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::gather")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "dimname_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "gather.dimname_out(Tensor self, Dimname dim, Tensor index, *, bool sparse_grad=False, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::gather";
+  static constexpr const char* overload_name = "dimname_out";
+  static constexpr const char* schema_str = "gather.dimname_out(Tensor self, Dimname dim, Tensor index, *, bool sparse_grad=False, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, at::Dimname dim, const at::Tensor & index, bool sparse_grad, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::Dimname dim, const at::Tensor & index, bool sparse_grad, at::Tensor & out);
 };
@@ -51,9 +51,9 @@ struct TORCH_API gather_dimname {
   using schema = at::Tensor (const at::Tensor &, at::Dimname, const at::Tensor &, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::gather")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "dimname")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "gather.dimname(Tensor self, Dimname dim, Tensor index, *, bool sparse_grad=False) -> Tensor")
+  static constexpr const char* name = "aten::gather";
+  static constexpr const char* overload_name = "dimname";
+  static constexpr const char* schema_str = "gather.dimname(Tensor self, Dimname dim, Tensor index, *, bool sparse_grad=False) -> Tensor";
   static at::Tensor call(const at::Tensor & self, at::Dimname dim, const at::Tensor & index, bool sparse_grad);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::Dimname dim, const at::Tensor & index, bool sparse_grad);
 };

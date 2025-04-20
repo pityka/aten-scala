@@ -23,5 +23,8 @@ struct TORCH_API structured_baddbmm_out_cuda : public at::meta::structured_baddb
 void impl(const at::Tensor & self, const at::Tensor & batch1, const at::Tensor & batch2, const at::Scalar & beta, const at::Scalar & alpha, const at::Tensor & out);
 };
 TORCH_API at::Tensor & baddbmm_out_sparse_csr_cuda(const at::Tensor & self, const at::Tensor & batch1, const at::Tensor & batch2, const at::Scalar & beta, const at::Scalar & alpha, at::Tensor & out);
+struct TORCH_API structured_baddbmm_out_mps : public at::meta::structured_baddbmm {
+void impl(const at::Tensor & self, const at::Tensor & batch1, const at::Tensor & batch2, const at::Scalar & beta, const at::Scalar & alpha, const at::Tensor & out);
+};
 } // namespace native
 } // namespace at

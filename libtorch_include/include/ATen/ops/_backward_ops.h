@@ -18,9 +18,9 @@ struct TORCH_API _backward {
   using schema = void (const at::Tensor &, at::TensorList, const ::std::optional<at::Tensor> &, ::std::optional<bool>, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_backward")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_backward(Tensor self, Tensor[] inputs, Tensor? gradient=None, bool? retain_graph=None, bool create_graph=False) -> ()")
+  static constexpr const char* name = "aten::_backward";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "_backward(Tensor self, Tensor[] inputs, Tensor? gradient=None, bool? retain_graph=None, bool create_graph=False) -> ()";
   static void call(const at::Tensor & self, at::TensorList inputs, const ::std::optional<at::Tensor> & gradient, ::std::optional<bool> retain_graph, bool create_graph);
   static void redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::TensorList inputs, const ::std::optional<at::Tensor> & gradient, ::std::optional<bool> retain_graph, bool create_graph);
 };

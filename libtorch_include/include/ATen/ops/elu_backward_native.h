@@ -19,5 +19,8 @@ namespace native {
 struct TORCH_API structured_elu_backward_out : public at::meta::structured_elu_backward {
 void impl(const at::Tensor & grad_output, const at::Scalar & alpha, const at::Scalar & scale, const at::Scalar & input_scale, bool is_result, const at::Tensor & self_or_result, const at::Tensor & grad_input);
 };
+struct TORCH_API structured_elu_backward_out_mps : public at::meta::structured_elu_backward {
+void impl(const at::Tensor & grad_output, const at::Scalar & alpha, const at::Scalar & scale, const at::Scalar & input_scale, bool is_result, const at::Tensor & self_or_result, const at::Tensor & grad_input);
+};
 } // namespace native
 } // namespace at

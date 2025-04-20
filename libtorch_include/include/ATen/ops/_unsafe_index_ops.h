@@ -18,9 +18,9 @@ struct TORCH_API _unsafe_index_Tensor {
   using schema = at::Tensor (const at::Tensor &, const c10::List<::std::optional<at::Tensor>> &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_unsafe_index")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Tensor")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_unsafe_index.Tensor(Tensor self, Tensor?[] indices) -> Tensor")
+  static constexpr const char* name = "aten::_unsafe_index";
+  static constexpr const char* overload_name = "Tensor";
+  static constexpr const char* schema_str = "_unsafe_index.Tensor(Tensor self, Tensor?[] indices) -> Tensor";
   static at::Tensor call(const at::Tensor & self, const c10::List<::std::optional<at::Tensor>> & indices);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const c10::List<::std::optional<at::Tensor>> & indices);
 };

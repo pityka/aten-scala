@@ -18,9 +18,9 @@ struct TORCH_API _linalg_eigh {
   using schema = ::std::tuple<at::Tensor,at::Tensor> (const at::Tensor &, c10::string_view, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_linalg_eigh")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_linalg_eigh(Tensor A, str UPLO=\"L\", bool compute_v=True) -> (Tensor eigenvalues, Tensor eigenvectors)")
+  static constexpr const char* name = "aten::_linalg_eigh";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "_linalg_eigh(Tensor A, str UPLO=\"L\", bool compute_v=True) -> (Tensor eigenvalues, Tensor eigenvectors)";
   static ::std::tuple<at::Tensor,at::Tensor> call(const at::Tensor & A, c10::string_view UPLO, bool compute_v);
   static ::std::tuple<at::Tensor,at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & A, c10::string_view UPLO, bool compute_v);
 };
@@ -29,9 +29,9 @@ struct TORCH_API _linalg_eigh_eigenvalues {
   using schema = ::std::tuple<at::Tensor &,at::Tensor &> (const at::Tensor &, c10::string_view, bool, at::Tensor &, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_linalg_eigh")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "eigenvalues")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_linalg_eigh.eigenvalues(Tensor A, str UPLO=\"L\", bool compute_v=True, *, Tensor(a!) eigenvalues, Tensor(b!) eigenvectors) -> (Tensor(a!) eigenvalues, Tensor(b!) eigenvectors)")
+  static constexpr const char* name = "aten::_linalg_eigh";
+  static constexpr const char* overload_name = "eigenvalues";
+  static constexpr const char* schema_str = "_linalg_eigh.eigenvalues(Tensor A, str UPLO=\"L\", bool compute_v=True, *, Tensor(a!) eigenvalues, Tensor(b!) eigenvectors) -> (Tensor(a!) eigenvalues, Tensor(b!) eigenvectors)";
   static ::std::tuple<at::Tensor &,at::Tensor &> call(const at::Tensor & A, c10::string_view UPLO, bool compute_v, at::Tensor & eigenvalues, at::Tensor & eigenvectors);
   static ::std::tuple<at::Tensor &,at::Tensor &> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & A, c10::string_view UPLO, bool compute_v, at::Tensor & eigenvalues, at::Tensor & eigenvectors);
 };

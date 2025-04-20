@@ -27,7 +27,7 @@ inline at::Tensor upsample_linear1d(const at::Tensor & input, at::OptionalIntArr
     return at::_ops::upsample_linear1d_vec::call(input, output_size.has_value() ? ::std::make_optional(c10::fromIntArrayRefSlow(*output_size)) : ::std::nullopt, align_corners, scale_factors);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor upsample_linear1d(const at::Tensor & input, at::OptionalIntArrayRef output_size, bool align_corners, ::std::optional<at::ArrayRef<double>> scale_factors) {
     return at::_ops::upsample_linear1d_vec::call(input, output_size.has_value() ? ::std::make_optional(c10::fromIntArrayRefSlow(*output_size)) : ::std::nullopt, align_corners, scale_factors);
   }
@@ -38,7 +38,7 @@ inline at::Tensor upsample_linear1d_symint(const at::Tensor & input, at::Optiona
     return at::_ops::upsample_linear1d_vec::call(input, output_size, align_corners, scale_factors);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor upsample_linear1d(const at::Tensor & input, at::OptionalSymIntArrayRef output_size, bool align_corners, ::std::optional<at::ArrayRef<double>> scale_factors) {
     return at::_ops::upsample_linear1d_vec::call(input, output_size, align_corners, scale_factors);
   }
@@ -49,7 +49,7 @@ inline at::Tensor & upsample_linear1d_out(at::Tensor & out, const at::Tensor & s
     return at::_ops::upsample_linear1d_out::call(self, c10::fromIntArrayRefSlow(output_size), align_corners, scales, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & upsample_linear1d_out(at::Tensor & out, const at::Tensor & self, at::IntArrayRef output_size, bool align_corners, ::std::optional<double> scales=::std::nullopt) {
     return at::_ops::upsample_linear1d_out::call(self, c10::fromIntArrayRefSlow(output_size), align_corners, scales, out);
   }
@@ -60,7 +60,7 @@ inline at::Tensor & upsample_linear1d_outf(const at::Tensor & self, at::IntArray
     return at::_ops::upsample_linear1d_out::call(self, c10::fromIntArrayRefSlow(output_size), align_corners, scales, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & upsample_linear1d_outf(const at::Tensor & self, at::IntArrayRef output_size, bool align_corners, ::std::optional<double> scales, at::Tensor & out) {
     return at::_ops::upsample_linear1d_out::call(self, c10::fromIntArrayRefSlow(output_size), align_corners, scales, out);
   }
@@ -71,7 +71,7 @@ inline at::Tensor & upsample_linear1d_symint_out(at::Tensor & out, const at::Ten
     return at::_ops::upsample_linear1d_out::call(self, output_size, align_corners, scales, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & upsample_linear1d_out(at::Tensor & out, const at::Tensor & self, c10::SymIntArrayRef output_size, bool align_corners, ::std::optional<double> scales=::std::nullopt) {
     return at::_ops::upsample_linear1d_out::call(self, output_size, align_corners, scales, out);
   }
@@ -82,7 +82,7 @@ inline at::Tensor & upsample_linear1d_symint_outf(const at::Tensor & self, c10::
     return at::_ops::upsample_linear1d_out::call(self, output_size, align_corners, scales, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & upsample_linear1d_outf(const at::Tensor & self, c10::SymIntArrayRef output_size, bool align_corners, ::std::optional<double> scales, at::Tensor & out) {
     return at::_ops::upsample_linear1d_out::call(self, output_size, align_corners, scales, out);
   }
@@ -93,7 +93,7 @@ inline at::Tensor upsample_linear1d(const at::Tensor & self, at::IntArrayRef out
     return at::_ops::upsample_linear1d::call(self, c10::fromIntArrayRefSlow(output_size), align_corners, scales);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor upsample_linear1d(const at::Tensor & self, at::IntArrayRef output_size, bool align_corners, ::std::optional<double> scales=::std::nullopt) {
     return at::_ops::upsample_linear1d::call(self, c10::fromIntArrayRefSlow(output_size), align_corners, scales);
   }
@@ -104,7 +104,7 @@ inline at::Tensor upsample_linear1d_symint(const at::Tensor & self, c10::SymIntA
     return at::_ops::upsample_linear1d::call(self, output_size, align_corners, scales);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor upsample_linear1d(const at::Tensor & self, c10::SymIntArrayRef output_size, bool align_corners, ::std::optional<double> scales=::std::nullopt) {
     return at::_ops::upsample_linear1d::call(self, output_size, align_corners, scales);
   }

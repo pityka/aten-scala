@@ -27,7 +27,7 @@ inline at::Tensor _padded_dense_to_jagged_forward(const at::Tensor & dense, at::
     return at::_ops::_padded_dense_to_jagged_forward::call(dense, offsets, total_L.has_value() ? ::std::make_optional(c10::SymInt(*total_L)) : ::std::nullopt);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor _padded_dense_to_jagged_forward(const at::Tensor & dense, at::TensorList offsets, ::std::optional<int64_t> total_L=::std::nullopt) {
     return at::_ops::_padded_dense_to_jagged_forward::call(dense, offsets, total_L.has_value() ? ::std::make_optional(c10::SymInt(*total_L)) : ::std::nullopt);
   }
@@ -38,7 +38,7 @@ inline at::Tensor _padded_dense_to_jagged_forward_symint(const at::Tensor & dens
     return at::_ops::_padded_dense_to_jagged_forward::call(dense, offsets, total_L);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor _padded_dense_to_jagged_forward(const at::Tensor & dense, at::TensorList offsets, ::std::optional<c10::SymInt> total_L=::std::nullopt) {
     return at::_ops::_padded_dense_to_jagged_forward::call(dense, offsets, total_L);
   }

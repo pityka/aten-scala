@@ -17,5 +17,6 @@
 namespace at {
 namespace native {
 TORCH_API at::Tensor & _copy_from_out(const at::Tensor & self, const at::Tensor & dst, bool non_blocking, at::Tensor & out);
+TORCH_API at::Tensor _copy_from_mps(const at::Tensor & self, const at::Tensor & dst, bool non_blocking=false);
 } // namespace native
 } // namespace at

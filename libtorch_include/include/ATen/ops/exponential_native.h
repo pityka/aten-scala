@@ -19,5 +19,6 @@ namespace native {
 TORCH_API at::Tensor exponential(const at::Tensor & self, double lambd=1, ::std::optional<at::Generator> generator=::std::nullopt);
 TORCH_API at::Tensor & exponential_out(const at::Tensor & self, double lambd, ::std::optional<at::Generator> generator, at::Tensor & out);
 TORCH_API at::Tensor & exponential_(at::Tensor & self, double lambd=1, ::std::optional<at::Generator> generator=::std::nullopt);
+TORCH_API at::Tensor & exponential_mps_(at::Tensor & self, double lambd=1, ::std::optional<at::Generator> generator=::std::nullopt);
 } // namespace native
 } // namespace at

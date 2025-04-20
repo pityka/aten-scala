@@ -18,9 +18,9 @@ struct TORCH_API fix {
   using schema = at::Tensor (const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::fix")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "fix(Tensor self) -> Tensor")
+  static constexpr const char* name = "aten::fix";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "fix(Tensor self) -> Tensor";
   static at::Tensor call(const at::Tensor & self);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self);
 };
@@ -29,9 +29,9 @@ struct TORCH_API fix_ {
   using schema = at::Tensor & (at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::fix_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "fix_(Tensor(a!) self) -> Tensor(a!)")
+  static constexpr const char* name = "aten::fix_";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "fix_(Tensor(a!) self) -> Tensor(a!)";
   static at::Tensor & call(at::Tensor & self);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::Tensor & self);
 };
@@ -40,9 +40,9 @@ struct TORCH_API fix_out {
   using schema = at::Tensor & (const at::Tensor &, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::fix")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "fix.out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::fix";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "fix.out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::Tensor & out);
 };

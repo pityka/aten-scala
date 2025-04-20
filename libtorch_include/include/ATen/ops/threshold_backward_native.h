@@ -24,6 +24,9 @@ TORCH_API at::Tensor threshold_backward_sparse(const at::Tensor & grad_output, c
 TORCH_API at::Tensor & threshold_backward_sparse_out(const at::Tensor & grad_output, const at::Tensor & self, const at::Scalar & threshold, at::Tensor & grad_input);
 TORCH_API at::Tensor threshold_backward_sparse_compressed(const at::Tensor & grad_output, const at::Tensor & self, const at::Scalar & threshold);
 TORCH_API at::Tensor & threshold_backward_sparse_compressed_out(const at::Tensor & grad_output, const at::Tensor & self, const at::Scalar & threshold, at::Tensor & grad_input);
+struct TORCH_API structured_threshold_backward_out_mps : public at::meta::structured_threshold_backward {
+void impl(const at::Tensor & grad_output, const at::Tensor & self, const at::Scalar & threshold, const at::Tensor & grad_input);
+};
 TORCH_API at::Tensor mkldnn_relu_backward(const at::Tensor & grad_output, const at::Tensor & self, const at::Scalar & threshold);
 } // namespace native
 } // namespace at

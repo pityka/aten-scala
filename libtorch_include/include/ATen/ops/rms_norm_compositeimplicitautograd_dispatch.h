@@ -18,6 +18,7 @@ namespace at {
 namespace compositeimplicitautograd {
 
 TORCH_API at::Tensor rms_norm(const at::Tensor & input, at::IntArrayRef normalized_shape, const ::std::optional<at::Tensor> & weight={}, ::std::optional<double> eps=::std::nullopt);
+TORCH_API at::Tensor rms_norm_symint(const at::Tensor & input, c10::SymIntArrayRef normalized_shape, const ::std::optional<at::Tensor> & weight={}, ::std::optional<double> eps=::std::nullopt);
 
 } // namespace compositeimplicitautograd
 } // namespace at

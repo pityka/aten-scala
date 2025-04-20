@@ -18,9 +18,9 @@ struct TORCH_API multinomial_out {
   using schema = at::Tensor & (const at::Tensor &, int64_t, bool, ::std::optional<at::Generator>, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::multinomial")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "multinomial.out(Tensor self, int num_samples, bool replacement=False, *, Generator? generator=None, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::multinomial";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "multinomial.out(Tensor self, int num_samples, bool replacement=False, *, Generator? generator=None, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, int64_t num_samples, bool replacement, ::std::optional<at::Generator> generator, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t num_samples, bool replacement, ::std::optional<at::Generator> generator, at::Tensor & out);
 };
@@ -29,9 +29,9 @@ struct TORCH_API multinomial {
   using schema = at::Tensor (const at::Tensor &, int64_t, bool, ::std::optional<at::Generator>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::multinomial")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "multinomial(Tensor self, int num_samples, bool replacement=False, *, Generator? generator=None) -> Tensor")
+  static constexpr const char* name = "aten::multinomial";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "multinomial(Tensor self, int num_samples, bool replacement=False, *, Generator? generator=None) -> Tensor";
   static at::Tensor call(const at::Tensor & self, int64_t num_samples, bool replacement, ::std::optional<at::Generator> generator);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t num_samples, bool replacement, ::std::optional<at::Generator> generator);
 };

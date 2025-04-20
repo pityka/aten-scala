@@ -29,5 +29,8 @@ TORCH_API at::Tensor & bmm_out_sparse_cpu(const at::Tensor & self, const at::Ten
 TORCH_API at::Tensor bmm_sparse_cuda(const at::Tensor & self, const at::Tensor & mat2);
 TORCH_API at::Tensor & bmm_out_sparse_cuda(const at::Tensor & self, const at::Tensor & mat2, at::Tensor & out);
 TORCH_API at::Tensor & bmm_out_sparse_csr_cuda(const at::Tensor & self, const at::Tensor & mat2, at::Tensor & out);
+struct TORCH_API structured_bmm_out_mps : public at::meta::structured_bmm {
+void impl(const at::Tensor & self, const at::Tensor & mat2, const at::Tensor & out);
+};
 } // namespace native
 } // namespace at

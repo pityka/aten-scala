@@ -18,5 +18,7 @@ namespace at {
 namespace native {
 TORCH_API at::Tensor linalg_solve_triangular(const at::Tensor & self, const at::Tensor & B, bool upper, bool left=true, bool unitriangular=false);
 TORCH_API at::Tensor & linalg_solve_triangular_out(const at::Tensor & self, const at::Tensor & B, bool upper, bool left, bool unitriangular, at::Tensor & out);
+TORCH_API at::Tensor linalg_solve_triangular_mps(const at::Tensor & self, const at::Tensor & B, bool upper, bool left=true, bool unitriangular=false);
+TORCH_API at::Tensor & linalg_solve_triangular_mps_out(const at::Tensor & self, const at::Tensor & B, bool upper, bool left, bool unitriangular, at::Tensor & out);
 } // namespace native
 } // namespace at

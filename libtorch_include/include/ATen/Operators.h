@@ -69,6 +69,7 @@
 #include <ATen/ops/_convert_indices_from_coo_to_csr_ops.h>
 #include <ATen/ops/_convert_indices_from_csr_to_coo_ops.h>
 #include <ATen/ops/_convert_weight_to_int4pack_ops.h>
+#include <ATen/ops/_convert_weight_to_int4pack_for_cpu_ops.h>
 #include <ATen/ops/_convolution_ops.h>
 #include <ATen/ops/_convolution_double_backward_ops.h>
 #include <ATen/ops/_convolution_mode_ops.h>
@@ -154,6 +155,7 @@
 #include <ATen/ops/_foreach_pow_ops.h>
 #include <ATen/ops/_foreach_reciprocal_ops.h>
 #include <ATen/ops/_foreach_round_ops.h>
+#include <ATen/ops/_foreach_rsqrt_ops.h>
 #include <ATen/ops/_foreach_sigmoid_ops.h>
 #include <ATen/ops/_foreach_sign_ops.h>
 #include <ATen/ops/_foreach_sin_ops.h>
@@ -228,6 +230,7 @@
 #include <ATen/ops/_nested_compute_contiguous_strides_offsets_ops.h>
 #include <ATen/ops/_nested_from_padded_ops.h>
 #include <ATen/ops/_nested_from_padded_and_nested_example_ops.h>
+#include <ATen/ops/_nested_from_padded_tensor_ops.h>
 #include <ATen/ops/_nested_get_jagged_dummy_ops.h>
 #include <ATen/ops/_nested_get_lengths_ops.h>
 #include <ATen/ops/_nested_get_max_seqlen_ops.h>
@@ -400,6 +403,7 @@
 #include <ATen/ops/_values_copy_ops.h>
 #include <ATen/ops/_version_ops.h>
 #include <ATen/ops/_weight_int4pack_mm_ops.h>
+#include <ATen/ops/_weight_int4pack_mm_for_cpu_ops.h>
 #include <ATen/ops/_weight_int8pack_mm_ops.h>
 #include <ATen/ops/_weight_norm_ops.h>
 #include <ATen/ops/_weight_norm_differentiable_backward_ops.h>

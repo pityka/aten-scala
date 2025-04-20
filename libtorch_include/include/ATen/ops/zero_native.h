@@ -19,10 +19,11 @@ namespace native {
 TORCH_API at::Tensor zero(const at::Tensor & self);
 TORCH_API at::Tensor & zero_out(const at::Tensor & self, at::Tensor & out);
 TORCH_API at::Tensor & zero_(at::Tensor & self);
+TORCH_API at::Tensor & zero_meta_(at::Tensor & self);
 TORCH_API at::Tensor & zero_nested_(at::Tensor & self);
 TORCH_API at::Tensor & zero_sparse_(at::Tensor & self);
 TORCH_API at::Tensor & zero_sparse_csr_(at::Tensor & self);
-TORCH_API at::Tensor & zero_meta_(at::Tensor & self);
+TORCH_API at::Tensor & zero_mps_(at::Tensor & self);
 TORCH_API at::Tensor & mkldnn_zero_(at::Tensor & self);
 } // namespace native
 } // namespace at

@@ -18,9 +18,9 @@ struct TORCH_API cudnn_grid_sampler {
   using schema = at::Tensor (const at::Tensor &, const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::cudnn_grid_sampler")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "cudnn_grid_sampler(Tensor self, Tensor grid) -> Tensor output")
+  static constexpr const char* name = "aten::cudnn_grid_sampler";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "cudnn_grid_sampler(Tensor self, Tensor grid) -> Tensor output";
   static at::Tensor call(const at::Tensor & self, const at::Tensor & grid);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & grid);
 };
@@ -29,9 +29,9 @@ struct TORCH_API cudnn_grid_sampler_out {
   using schema = at::Tensor & (const at::Tensor &, const at::Tensor &, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::cudnn_grid_sampler")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "cudnn_grid_sampler.out(Tensor self, Tensor grid, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::cudnn_grid_sampler";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "cudnn_grid_sampler.out(Tensor self, Tensor grid, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, const at::Tensor & grid, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & grid, at::Tensor & out);
 };

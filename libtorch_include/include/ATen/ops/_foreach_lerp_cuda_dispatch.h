@@ -21,6 +21,8 @@ TORCH_API ::std::vector<at::Tensor> _foreach_lerp(at::TensorList self, at::Tenso
 TORCH_API void _foreach_lerp_(at::TensorList self, at::TensorList tensors1, at::TensorList weights);
 TORCH_API ::std::vector<at::Tensor> _foreach_lerp(at::TensorList self, at::TensorList tensors1, const at::Scalar & weight);
 TORCH_API void _foreach_lerp_(at::TensorList self, at::TensorList tensors1, const at::Scalar & weight);
+TORCH_API ::std::vector<at::Tensor> _foreach_lerp(at::TensorList self, at::TensorList tensors1, at::ArrayRef<at::Scalar> weight);
+TORCH_API void _foreach_lerp_(at::TensorList self, at::TensorList tensors1, at::ArrayRef<at::Scalar> weight);
 
 } // namespace cuda
 } // namespace at

@@ -18,9 +18,9 @@ struct TORCH_API align_tensors {
   using schema = ::std::vector<at::Tensor> (at::TensorList);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::align_tensors")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "align_tensors(Tensor[] tensors) -> Tensor[]")
+  static constexpr const char* name = "aten::align_tensors";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "align_tensors(Tensor[] tensors) -> Tensor[]";
   static ::std::vector<at::Tensor> call(at::TensorList tensors);
   static ::std::vector<at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList tensors);
 };

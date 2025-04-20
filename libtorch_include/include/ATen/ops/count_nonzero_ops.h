@@ -18,9 +18,9 @@ struct TORCH_API count_nonzero_dim_IntList {
   using schema = at::Tensor (const at::Tensor &, at::IntArrayRef);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::count_nonzero")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "dim_IntList")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "count_nonzero.dim_IntList(Tensor self, int[] dim) -> Tensor")
+  static constexpr const char* name = "aten::count_nonzero";
+  static constexpr const char* overload_name = "dim_IntList";
+  static constexpr const char* schema_str = "count_nonzero.dim_IntList(Tensor self, int[] dim) -> Tensor";
   static at::Tensor call(const at::Tensor & self, at::IntArrayRef dim);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::IntArrayRef dim);
 };
@@ -29,9 +29,9 @@ struct TORCH_API count_nonzero {
   using schema = at::Tensor (const at::Tensor &, ::std::optional<int64_t>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::count_nonzero")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "count_nonzero(Tensor self, int? dim=None) -> Tensor")
+  static constexpr const char* name = "aten::count_nonzero";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "count_nonzero(Tensor self, int? dim=None) -> Tensor";
   static at::Tensor call(const at::Tensor & self, ::std::optional<int64_t> dim);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, ::std::optional<int64_t> dim);
 };
@@ -40,9 +40,9 @@ struct TORCH_API count_nonzero_dim_IntList_out {
   using schema = at::Tensor & (const at::Tensor &, at::IntArrayRef, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::count_nonzero")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "dim_IntList_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "count_nonzero.dim_IntList_out(Tensor self, int[] dim, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::count_nonzero";
+  static constexpr const char* overload_name = "dim_IntList_out";
+  static constexpr const char* schema_str = "count_nonzero.dim_IntList_out(Tensor self, int[] dim, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, at::IntArrayRef dim, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::IntArrayRef dim, at::Tensor & out);
 };
@@ -51,9 +51,9 @@ struct TORCH_API count_nonzero_out {
   using schema = at::Tensor & (const at::Tensor &, ::std::optional<int64_t>, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::count_nonzero")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "count_nonzero.out(Tensor self, int? dim=None, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::count_nonzero";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "count_nonzero.out(Tensor self, int? dim=None, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, ::std::optional<int64_t> dim, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, ::std::optional<int64_t> dim, at::Tensor & out);
 };

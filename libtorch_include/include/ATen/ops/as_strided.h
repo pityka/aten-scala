@@ -27,7 +27,7 @@ inline at::Tensor as_strided(const at::Tensor & self, at::IntArrayRef size, at::
     return at::_ops::as_strided::call(self, c10::fromIntArrayRefSlow(size), c10::fromIntArrayRefSlow(stride), storage_offset.has_value() ? ::std::make_optional(c10::SymInt(*storage_offset)) : ::std::nullopt);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor as_strided(const at::Tensor & self, at::IntArrayRef size, at::IntArrayRef stride, ::std::optional<int64_t> storage_offset=::std::nullopt) {
     return at::_ops::as_strided::call(self, c10::fromIntArrayRefSlow(size), c10::fromIntArrayRefSlow(stride), storage_offset.has_value() ? ::std::make_optional(c10::SymInt(*storage_offset)) : ::std::nullopt);
   }
@@ -38,7 +38,7 @@ inline at::Tensor as_strided_symint(const at::Tensor & self, c10::SymIntArrayRef
     return at::_ops::as_strided::call(self, size, stride, storage_offset);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor as_strided(const at::Tensor & self, c10::SymIntArrayRef size, c10::SymIntArrayRef stride, ::std::optional<c10::SymInt> storage_offset=::std::nullopt) {
     return at::_ops::as_strided::call(self, size, stride, storage_offset);
   }
@@ -49,7 +49,7 @@ inline const at::Tensor & as_strided_(const at::Tensor & self, at::IntArrayRef s
     return at::_ops::as_strided_::call(self, c10::fromIntArrayRefSlow(size), c10::fromIntArrayRefSlow(stride), storage_offset.has_value() ? ::std::make_optional(c10::SymInt(*storage_offset)) : ::std::nullopt);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   const at::Tensor & as_strided_(const at::Tensor & self, at::IntArrayRef size, at::IntArrayRef stride, ::std::optional<int64_t> storage_offset=::std::nullopt) {
     return at::_ops::as_strided_::call(self, c10::fromIntArrayRefSlow(size), c10::fromIntArrayRefSlow(stride), storage_offset.has_value() ? ::std::make_optional(c10::SymInt(*storage_offset)) : ::std::nullopt);
   }
@@ -60,7 +60,7 @@ inline const at::Tensor & as_strided__symint(const at::Tensor & self, c10::SymIn
     return at::_ops::as_strided_::call(self, size, stride, storage_offset);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   const at::Tensor & as_strided_(const at::Tensor & self, c10::SymIntArrayRef size, c10::SymIntArrayRef stride, ::std::optional<c10::SymInt> storage_offset=::std::nullopt) {
     return at::_ops::as_strided_::call(self, size, stride, storage_offset);
   }

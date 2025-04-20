@@ -18,9 +18,9 @@ struct TORCH_API gelu_out {
   using schema = at::Tensor & (const at::Tensor &, c10::string_view, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::gelu")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "gelu.out(Tensor self, *, str approximate='none', Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::gelu";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "gelu.out(Tensor self, *, str approximate='none', Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, c10::string_view approximate, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, c10::string_view approximate, at::Tensor & out);
 };
@@ -29,9 +29,9 @@ struct TORCH_API gelu_ {
   using schema = at::Tensor & (at::Tensor &, c10::string_view);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::gelu_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "gelu_(Tensor(a!) self, *, str approximate='none') -> Tensor(a!)")
+  static constexpr const char* name = "aten::gelu_";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "gelu_(Tensor(a!) self, *, str approximate='none') -> Tensor(a!)";
   static at::Tensor & call(at::Tensor & self, c10::string_view approximate);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::Tensor & self, c10::string_view approximate);
 };
@@ -40,9 +40,9 @@ struct TORCH_API gelu {
   using schema = at::Tensor (const at::Tensor &, c10::string_view);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::gelu")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "gelu(Tensor self, *, str approximate='none') -> Tensor")
+  static constexpr const char* name = "aten::gelu";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "gelu(Tensor self, *, str approximate='none') -> Tensor";
   static at::Tensor call(const at::Tensor & self, c10::string_view approximate);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, c10::string_view approximate);
 };

@@ -18,9 +18,9 @@ struct TORCH_API qscheme {
   using schema = at::QScheme (const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::qscheme")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "qscheme(Tensor self) -> QScheme")
+  static constexpr const char* name = "aten::qscheme";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "qscheme(Tensor self) -> QScheme";
   static at::QScheme call(const at::Tensor & self);
   static at::QScheme redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self);
 };

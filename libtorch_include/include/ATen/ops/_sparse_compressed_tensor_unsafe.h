@@ -27,7 +27,7 @@ inline at::Tensor _sparse_compressed_tensor_unsafe(const at::Tensor & compressed
     return at::_ops::_sparse_compressed_tensor_unsafe::call(compressed_indices, plain_indices, values, c10::fromIntArrayRefSlow(size), c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt());
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor _sparse_compressed_tensor_unsafe(const at::Tensor & compressed_indices, const at::Tensor & plain_indices, const at::Tensor & values, at::IntArrayRef size, at::TensorOptions options={}) {
     return at::_ops::_sparse_compressed_tensor_unsafe::call(compressed_indices, plain_indices, values, c10::fromIntArrayRefSlow(size), c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt());
   }
@@ -38,7 +38,7 @@ inline at::Tensor _sparse_compressed_tensor_unsafe(const at::Tensor & compressed
     return at::_ops::_sparse_compressed_tensor_unsafe::call(compressed_indices, plain_indices, values, c10::fromIntArrayRefSlow(size), dtype, layout, device, pin_memory);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor _sparse_compressed_tensor_unsafe(const at::Tensor & compressed_indices, const at::Tensor & plain_indices, const at::Tensor & values, at::IntArrayRef size, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory) {
     return at::_ops::_sparse_compressed_tensor_unsafe::call(compressed_indices, plain_indices, values, c10::fromIntArrayRefSlow(size), dtype, layout, device, pin_memory);
   }
@@ -49,7 +49,7 @@ inline at::Tensor _sparse_compressed_tensor_unsafe_symint(const at::Tensor & com
     return at::_ops::_sparse_compressed_tensor_unsafe::call(compressed_indices, plain_indices, values, size, c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt());
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor _sparse_compressed_tensor_unsafe(const at::Tensor & compressed_indices, const at::Tensor & plain_indices, const at::Tensor & values, c10::SymIntArrayRef size, at::TensorOptions options={}) {
     return at::_ops::_sparse_compressed_tensor_unsafe::call(compressed_indices, plain_indices, values, size, c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt());
   }
@@ -60,7 +60,7 @@ inline at::Tensor _sparse_compressed_tensor_unsafe_symint(const at::Tensor & com
     return at::_ops::_sparse_compressed_tensor_unsafe::call(compressed_indices, plain_indices, values, size, dtype, layout, device, pin_memory);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor _sparse_compressed_tensor_unsafe(const at::Tensor & compressed_indices, const at::Tensor & plain_indices, const at::Tensor & values, c10::SymIntArrayRef size, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory) {
     return at::_ops::_sparse_compressed_tensor_unsafe::call(compressed_indices, plain_indices, values, size, dtype, layout, device, pin_memory);
   }

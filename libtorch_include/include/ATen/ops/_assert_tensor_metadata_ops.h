@@ -15,14 +15,14 @@ namespace _ops {
 
 
 struct TORCH_API _assert_tensor_metadata {
-  using schema = void (const at::Tensor &, at::OptionalSymIntArrayRef, at::OptionalSymIntArrayRef, ::std::optional<at::ScalarType>);
+  using schema = void (const at::Tensor &, at::OptionalSymIntArrayRef, at::OptionalSymIntArrayRef, ::std::optional<at::ScalarType>, ::std::optional<at::Device>, ::std::optional<at::Layout>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_assert_tensor_metadata")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_assert_tensor_metadata(Tensor a, SymInt[]? size=None, SymInt[]? stride=None, ScalarType? dtype=None) -> ()")
-  static void call(const at::Tensor & a, at::OptionalSymIntArrayRef size, at::OptionalSymIntArrayRef stride, ::std::optional<at::ScalarType> dtype);
-  static void redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & a, at::OptionalSymIntArrayRef size, at::OptionalSymIntArrayRef stride, ::std::optional<at::ScalarType> dtype);
+  static constexpr const char* name = "aten::_assert_tensor_metadata";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "_assert_tensor_metadata(Tensor a, SymInt[]? size=None, SymInt[]? stride=None, ScalarType? dtype=None, *, Device? device=None, Layout? layout=None) -> ()";
+  static void call(const at::Tensor & a, at::OptionalSymIntArrayRef size, at::OptionalSymIntArrayRef stride, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Device> device, ::std::optional<at::Layout> layout);
+  static void redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & a, at::OptionalSymIntArrayRef size, at::OptionalSymIntArrayRef stride, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Device> device, ::std::optional<at::Layout> layout);
 };
 
 }} // namespace at::_ops

@@ -27,7 +27,7 @@ inline at::Tensor _pack_padded_sequence_backward(const at::Tensor & grad, at::In
     return at::_ops::_pack_padded_sequence_backward::call(grad, c10::fromIntArrayRefSlow(input_size), batch_sizes, batch_first);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor _pack_padded_sequence_backward(const at::Tensor & grad, at::IntArrayRef input_size, const at::Tensor & batch_sizes, bool batch_first) {
     return at::_ops::_pack_padded_sequence_backward::call(grad, c10::fromIntArrayRefSlow(input_size), batch_sizes, batch_first);
   }
@@ -38,7 +38,7 @@ inline at::Tensor _pack_padded_sequence_backward_symint(const at::Tensor & grad,
     return at::_ops::_pack_padded_sequence_backward::call(grad, input_size, batch_sizes, batch_first);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor _pack_padded_sequence_backward(const at::Tensor & grad, c10::SymIntArrayRef input_size, const at::Tensor & batch_sizes, bool batch_first) {
     return at::_ops::_pack_padded_sequence_backward::call(grad, input_size, batch_sizes, batch_first);
   }

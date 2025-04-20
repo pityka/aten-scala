@@ -18,9 +18,9 @@ struct TORCH_API trace_backward {
   using schema = at::Tensor (const at::Tensor &, c10::SymIntArrayRef);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::trace_backward")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "trace_backward(Tensor grad, SymInt[] sizes) -> Tensor")
+  static constexpr const char* name = "aten::trace_backward";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "trace_backward(Tensor grad, SymInt[] sizes) -> Tensor";
   static at::Tensor call(const at::Tensor & grad, c10::SymIntArrayRef sizes);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & grad, c10::SymIntArrayRef sizes);
 };

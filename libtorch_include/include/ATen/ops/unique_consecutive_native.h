@@ -19,5 +19,6 @@ namespace native {
 TORCH_API ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> unique_consecutive_out(const at::Tensor & self, bool return_inverse, bool return_counts, ::std::optional<int64_t> dim, at::Tensor & out0, at::Tensor & out1, at::Tensor & out2);
 TORCH_API ::std::tuple<at::Tensor,at::Tensor,at::Tensor> unique_consecutive_cpu(const at::Tensor & self, bool return_inverse=false, bool return_counts=false, ::std::optional<int64_t> dim=::std::nullopt);
 TORCH_API ::std::tuple<at::Tensor,at::Tensor,at::Tensor> unique_consecutive_cuda(const at::Tensor & self, bool return_inverse=false, bool return_counts=false, ::std::optional<int64_t> dim=::std::nullopt);
+TORCH_API ::std::tuple<at::Tensor,at::Tensor,at::Tensor> unique_consecutive_mps(const at::Tensor & self, bool return_inverse=false, bool return_counts=false, ::std::optional<int64_t> dim=::std::nullopt);
 } // namespace native
 } // namespace at

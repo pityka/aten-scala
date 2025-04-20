@@ -18,9 +18,9 @@ struct TORCH_API _foreach_norm_Scalar {
   using schema = ::std::vector<at::Tensor> (at::TensorList, const at::Scalar &, ::std::optional<at::ScalarType>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_foreach_norm")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Scalar")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_foreach_norm.Scalar(Tensor[] self, Scalar ord=2, ScalarType? dtype=None) -> Tensor[]")
+  static constexpr const char* name = "aten::_foreach_norm";
+  static constexpr const char* overload_name = "Scalar";
+  static constexpr const char* schema_str = "_foreach_norm.Scalar(Tensor[] self, Scalar ord=2, ScalarType? dtype=None) -> Tensor[]";
   static ::std::vector<at::Tensor> call(at::TensorList self, const at::Scalar & ord, ::std::optional<at::ScalarType> dtype);
   static ::std::vector<at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList self, const at::Scalar & ord, ::std::optional<at::ScalarType> dtype);
 };
@@ -29,9 +29,9 @@ struct TORCH_API _foreach_norm_Scalar_out {
   using schema = void (at::TensorList, const at::Scalar &, ::std::optional<at::ScalarType>, at::TensorList);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_foreach_norm")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Scalar_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_foreach_norm.Scalar_out(Tensor[] self, Scalar ord=2, ScalarType? dtype=None, *, Tensor(a!)[] out) -> ()")
+  static constexpr const char* name = "aten::_foreach_norm";
+  static constexpr const char* overload_name = "Scalar_out";
+  static constexpr const char* schema_str = "_foreach_norm.Scalar_out(Tensor[] self, Scalar ord=2, ScalarType? dtype=None, *, Tensor(a!)[] out) -> ()";
   static void call(at::TensorList self, const at::Scalar & ord, ::std::optional<at::ScalarType> dtype, at::TensorList out);
   static void redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList self, const at::Scalar & ord, ::std::optional<at::ScalarType> dtype, at::TensorList out);
 };

@@ -18,9 +18,9 @@ struct TORCH_API celu {
   using schema = at::Tensor (const at::Tensor &, const at::Scalar &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::celu")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "celu(Tensor self, Scalar alpha=1.0) -> Tensor")
+  static constexpr const char* name = "aten::celu";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "celu(Tensor self, Scalar alpha=1.0) -> Tensor";
   static at::Tensor call(const at::Tensor & self, const at::Scalar & alpha);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Scalar & alpha);
 };
@@ -29,9 +29,9 @@ struct TORCH_API celu_ {
   using schema = at::Tensor & (at::Tensor &, const at::Scalar &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::celu_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "celu_(Tensor(a!) self, Scalar alpha=1.0) -> Tensor(a!)")
+  static constexpr const char* name = "aten::celu_";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "celu_(Tensor(a!) self, Scalar alpha=1.0) -> Tensor(a!)";
   static at::Tensor & call(at::Tensor & self, const at::Scalar & alpha);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::Tensor & self, const at::Scalar & alpha);
 };
@@ -40,9 +40,9 @@ struct TORCH_API celu_out {
   using schema = at::Tensor & (const at::Tensor &, const at::Scalar &, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::celu")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "celu.out(Tensor self, Scalar alpha=1.0, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::celu";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "celu.out(Tensor self, Scalar alpha=1.0, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, const at::Scalar & alpha, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Scalar & alpha, at::Tensor & out);
 };

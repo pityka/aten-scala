@@ -27,7 +27,7 @@ inline at::Tensor _pad_enum(const at::Tensor & self, at::IntArrayRef pad, int64_
     return at::_ops::_pad_enum::call(self, c10::fromIntArrayRefSlow(pad), mode, value);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor _pad_enum(const at::Tensor & self, at::IntArrayRef pad, int64_t mode, ::std::optional<double> value=::std::nullopt) {
     return at::_ops::_pad_enum::call(self, c10::fromIntArrayRefSlow(pad), mode, value);
   }
@@ -38,7 +38,7 @@ inline at::Tensor _pad_enum_symint(const at::Tensor & self, c10::SymIntArrayRef 
     return at::_ops::_pad_enum::call(self, pad, mode, value);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor _pad_enum(const at::Tensor & self, c10::SymIntArrayRef pad, int64_t mode, ::std::optional<double> value=::std::nullopt) {
     return at::_ops::_pad_enum::call(self, pad, mode, value);
   }

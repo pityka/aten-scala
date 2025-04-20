@@ -27,7 +27,7 @@ inline at::Tensor & replication_pad1d_backward_out(at::Tensor & grad_input, cons
     return at::_ops::replication_pad1d_backward_grad_input::call(grad_output, self, c10::fromIntArrayRefSlow(padding), grad_input);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & replication_pad1d_backward_out(at::Tensor & grad_input, const at::Tensor & grad_output, const at::Tensor & self, at::IntArrayRef padding) {
     return at::_ops::replication_pad1d_backward_grad_input::call(grad_output, self, c10::fromIntArrayRefSlow(padding), grad_input);
   }
@@ -38,7 +38,7 @@ inline at::Tensor & replication_pad1d_backward_outf(const at::Tensor & grad_outp
     return at::_ops::replication_pad1d_backward_grad_input::call(grad_output, self, c10::fromIntArrayRefSlow(padding), grad_input);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & replication_pad1d_backward_outf(const at::Tensor & grad_output, const at::Tensor & self, at::IntArrayRef padding, at::Tensor & grad_input) {
     return at::_ops::replication_pad1d_backward_grad_input::call(grad_output, self, c10::fromIntArrayRefSlow(padding), grad_input);
   }
@@ -49,7 +49,7 @@ inline at::Tensor & replication_pad1d_backward_symint_out(at::Tensor & grad_inpu
     return at::_ops::replication_pad1d_backward_grad_input::call(grad_output, self, padding, grad_input);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & replication_pad1d_backward_out(at::Tensor & grad_input, const at::Tensor & grad_output, const at::Tensor & self, c10::SymIntArrayRef padding) {
     return at::_ops::replication_pad1d_backward_grad_input::call(grad_output, self, padding, grad_input);
   }
@@ -60,7 +60,7 @@ inline at::Tensor & replication_pad1d_backward_symint_outf(const at::Tensor & gr
     return at::_ops::replication_pad1d_backward_grad_input::call(grad_output, self, padding, grad_input);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & replication_pad1d_backward_outf(const at::Tensor & grad_output, const at::Tensor & self, c10::SymIntArrayRef padding, at::Tensor & grad_input) {
     return at::_ops::replication_pad1d_backward_grad_input::call(grad_output, self, padding, grad_input);
   }
@@ -71,7 +71,7 @@ inline at::Tensor replication_pad1d_backward(const at::Tensor & grad_output, con
     return at::_ops::replication_pad1d_backward::call(grad_output, self, c10::fromIntArrayRefSlow(padding));
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor replication_pad1d_backward(const at::Tensor & grad_output, const at::Tensor & self, at::IntArrayRef padding) {
     return at::_ops::replication_pad1d_backward::call(grad_output, self, c10::fromIntArrayRefSlow(padding));
   }
@@ -82,7 +82,7 @@ inline at::Tensor replication_pad1d_backward_symint(const at::Tensor & grad_outp
     return at::_ops::replication_pad1d_backward::call(grad_output, self, padding);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor replication_pad1d_backward(const at::Tensor & grad_output, const at::Tensor & self, c10::SymIntArrayRef padding) {
     return at::_ops::replication_pad1d_backward::call(grad_output, self, padding);
   }

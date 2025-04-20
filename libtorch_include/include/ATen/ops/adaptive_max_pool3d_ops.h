@@ -18,9 +18,9 @@ struct TORCH_API adaptive_max_pool3d_out {
   using schema = ::std::tuple<at::Tensor &,at::Tensor &> (const at::Tensor &, at::IntArrayRef, at::Tensor &, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::adaptive_max_pool3d")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "adaptive_max_pool3d.out(Tensor self, int[3] output_size, *, Tensor(a!) out, Tensor(b!) indices) -> (Tensor(a!), Tensor(b!))")
+  static constexpr const char* name = "aten::adaptive_max_pool3d";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "adaptive_max_pool3d.out(Tensor self, int[3] output_size, *, Tensor(a!) out, Tensor(b!) indices) -> (Tensor(a!), Tensor(b!))";
   static ::std::tuple<at::Tensor &,at::Tensor &> call(const at::Tensor & self, at::IntArrayRef output_size, at::Tensor & out, at::Tensor & indices);
   static ::std::tuple<at::Tensor &,at::Tensor &> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::IntArrayRef output_size, at::Tensor & out, at::Tensor & indices);
 };
@@ -29,9 +29,9 @@ struct TORCH_API adaptive_max_pool3d {
   using schema = ::std::tuple<at::Tensor,at::Tensor> (const at::Tensor &, at::IntArrayRef);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::adaptive_max_pool3d")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "adaptive_max_pool3d(Tensor self, int[3] output_size) -> (Tensor, Tensor)")
+  static constexpr const char* name = "aten::adaptive_max_pool3d";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "adaptive_max_pool3d(Tensor self, int[3] output_size) -> (Tensor, Tensor)";
   static ::std::tuple<at::Tensor,at::Tensor> call(const at::Tensor & self, at::IntArrayRef output_size);
   static ::std::tuple<at::Tensor,at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::IntArrayRef output_size);
 };

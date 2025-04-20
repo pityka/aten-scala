@@ -27,7 +27,7 @@ inline at::Tensor conv_depthwise3d(const at::Tensor & self, const at::Tensor & w
     return at::_ops::conv_depthwise3d::call(self, weight, c10::fromIntArrayRefSlow(kernel_size), bias, c10::fromIntArrayRefSlow(stride), c10::fromIntArrayRefSlow(padding), c10::fromIntArrayRefSlow(dilation));
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor conv_depthwise3d(const at::Tensor & self, const at::Tensor & weight, at::IntArrayRef kernel_size, const ::std::optional<at::Tensor> & bias, at::IntArrayRef stride, at::IntArrayRef padding, at::IntArrayRef dilation) {
     return at::_ops::conv_depthwise3d::call(self, weight, c10::fromIntArrayRefSlow(kernel_size), bias, c10::fromIntArrayRefSlow(stride), c10::fromIntArrayRefSlow(padding), c10::fromIntArrayRefSlow(dilation));
   }
@@ -38,7 +38,7 @@ inline at::Tensor conv_depthwise3d_symint(const at::Tensor & self, const at::Ten
     return at::_ops::conv_depthwise3d::call(self, weight, kernel_size, bias, stride, padding, dilation);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor conv_depthwise3d(const at::Tensor & self, const at::Tensor & weight, c10::SymIntArrayRef kernel_size, const ::std::optional<at::Tensor> & bias, c10::SymIntArrayRef stride, c10::SymIntArrayRef padding, c10::SymIntArrayRef dilation) {
     return at::_ops::conv_depthwise3d::call(self, weight, kernel_size, bias, stride, padding, dilation);
   }
@@ -49,7 +49,7 @@ inline at::Tensor & conv_depthwise3d_out(at::Tensor & out, const at::Tensor & se
     return at::_ops::conv_depthwise3d_out::call(self, weight, c10::fromIntArrayRefSlow(kernel_size), bias, c10::fromIntArrayRefSlow(stride), c10::fromIntArrayRefSlow(padding), c10::fromIntArrayRefSlow(dilation), out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & conv_depthwise3d_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & weight, at::IntArrayRef kernel_size, const ::std::optional<at::Tensor> & bias, at::IntArrayRef stride, at::IntArrayRef padding, at::IntArrayRef dilation) {
     return at::_ops::conv_depthwise3d_out::call(self, weight, c10::fromIntArrayRefSlow(kernel_size), bias, c10::fromIntArrayRefSlow(stride), c10::fromIntArrayRefSlow(padding), c10::fromIntArrayRefSlow(dilation), out);
   }
@@ -60,7 +60,7 @@ inline at::Tensor & conv_depthwise3d_outf(const at::Tensor & self, const at::Ten
     return at::_ops::conv_depthwise3d_out::call(self, weight, c10::fromIntArrayRefSlow(kernel_size), bias, c10::fromIntArrayRefSlow(stride), c10::fromIntArrayRefSlow(padding), c10::fromIntArrayRefSlow(dilation), out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & conv_depthwise3d_outf(const at::Tensor & self, const at::Tensor & weight, at::IntArrayRef kernel_size, const ::std::optional<at::Tensor> & bias, at::IntArrayRef stride, at::IntArrayRef padding, at::IntArrayRef dilation, at::Tensor & out) {
     return at::_ops::conv_depthwise3d_out::call(self, weight, c10::fromIntArrayRefSlow(kernel_size), bias, c10::fromIntArrayRefSlow(stride), c10::fromIntArrayRefSlow(padding), c10::fromIntArrayRefSlow(dilation), out);
   }
@@ -71,7 +71,7 @@ inline at::Tensor & conv_depthwise3d_symint_out(at::Tensor & out, const at::Tens
     return at::_ops::conv_depthwise3d_out::call(self, weight, kernel_size, bias, stride, padding, dilation, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & conv_depthwise3d_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & weight, c10::SymIntArrayRef kernel_size, const ::std::optional<at::Tensor> & bias, c10::SymIntArrayRef stride, c10::SymIntArrayRef padding, c10::SymIntArrayRef dilation) {
     return at::_ops::conv_depthwise3d_out::call(self, weight, kernel_size, bias, stride, padding, dilation, out);
   }
@@ -82,7 +82,7 @@ inline at::Tensor & conv_depthwise3d_symint_outf(const at::Tensor & self, const 
     return at::_ops::conv_depthwise3d_out::call(self, weight, kernel_size, bias, stride, padding, dilation, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & conv_depthwise3d_outf(const at::Tensor & self, const at::Tensor & weight, c10::SymIntArrayRef kernel_size, const ::std::optional<at::Tensor> & bias, c10::SymIntArrayRef stride, c10::SymIntArrayRef padding, c10::SymIntArrayRef dilation, at::Tensor & out) {
     return at::_ops::conv_depthwise3d_out::call(self, weight, kernel_size, bias, stride, padding, dilation, out);
   }

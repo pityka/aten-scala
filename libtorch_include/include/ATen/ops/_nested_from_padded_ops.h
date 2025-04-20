@@ -18,9 +18,9 @@ struct TORCH_API _nested_from_padded {
   using schema = at::Tensor (const at::Tensor &, const at::Tensor &, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_nested_from_padded")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_nested_from_padded(Tensor padded, Tensor cpu_nested_shape_example, bool fuse_transform_0213=False) -> Tensor")
+  static constexpr const char* name = "aten::_nested_from_padded";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "_nested_from_padded(Tensor padded, Tensor cpu_nested_shape_example, bool fuse_transform_0213=False) -> Tensor";
   static at::Tensor call(const at::Tensor & padded, const at::Tensor & cpu_nested_shape_example, bool fuse_transform_0213);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & padded, const at::Tensor & cpu_nested_shape_example, bool fuse_transform_0213);
 };
@@ -29,9 +29,9 @@ struct TORCH_API _nested_from_padded_out {
   using schema = at::Tensor & (const at::Tensor &, const at::Tensor &, bool, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_nested_from_padded")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_nested_from_padded.out(Tensor padded, Tensor cpu_nested_shape_example, bool fuse_transform_0213=False, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::_nested_from_padded";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "_nested_from_padded.out(Tensor padded, Tensor cpu_nested_shape_example, bool fuse_transform_0213=False, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & padded, const at::Tensor & cpu_nested_shape_example, bool fuse_transform_0213, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & padded, const at::Tensor & cpu_nested_shape_example, bool fuse_transform_0213, at::Tensor & out);
 };

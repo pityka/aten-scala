@@ -18,9 +18,9 @@ struct TORCH_API randperm {
   using schema = at::Tensor (c10::SymInt, ::std::optional<at::ScalarType>, ::std::optional<at::Layout>, ::std::optional<at::Device>, ::std::optional<bool>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::randperm")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "randperm(SymInt n, *, ScalarType? dtype=long, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor")
+  static constexpr const char* name = "aten::randperm";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "randperm(SymInt n, *, ScalarType? dtype=long, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor";
   static at::Tensor call(c10::SymInt n, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, c10::SymInt n, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory);
 };
@@ -29,9 +29,9 @@ struct TORCH_API randperm_generator {
   using schema = at::Tensor (c10::SymInt, ::std::optional<at::Generator>, ::std::optional<at::ScalarType>, ::std::optional<at::Layout>, ::std::optional<at::Device>, ::std::optional<bool>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::randperm")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "generator")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "randperm.generator(SymInt n, *, Generator? generator, ScalarType? dtype=long, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor")
+  static constexpr const char* name = "aten::randperm";
+  static constexpr const char* overload_name = "generator";
+  static constexpr const char* schema_str = "randperm.generator(SymInt n, *, Generator? generator, ScalarType? dtype=long, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor";
   static at::Tensor call(c10::SymInt n, ::std::optional<at::Generator> generator, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, c10::SymInt n, ::std::optional<at::Generator> generator, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory);
 };
@@ -40,9 +40,9 @@ struct TORCH_API randperm_out {
   using schema = at::Tensor & (c10::SymInt, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::randperm")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "randperm.out(SymInt n, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::randperm";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "randperm.out(SymInt n, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(c10::SymInt n, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, c10::SymInt n, at::Tensor & out);
 };
@@ -51,9 +51,9 @@ struct TORCH_API randperm_generator_out {
   using schema = at::Tensor & (c10::SymInt, ::std::optional<at::Generator>, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::randperm")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "generator_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "randperm.generator_out(SymInt n, *, Generator? generator, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::randperm";
+  static constexpr const char* overload_name = "generator_out";
+  static constexpr const char* schema_str = "randperm.generator_out(SymInt n, *, Generator? generator, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(c10::SymInt n, ::std::optional<at::Generator> generator, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, c10::SymInt n, ::std::optional<at::Generator> generator, at::Tensor & out);
 };

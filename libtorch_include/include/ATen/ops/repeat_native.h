@@ -18,5 +18,6 @@ namespace at {
 namespace native {
 TORCH_API at::Tensor repeat(const at::Tensor & self, at::IntArrayRef repeats);
 TORCH_API at::Tensor & repeat_out_symint(const at::Tensor & self, c10::SymIntArrayRef repeats, at::Tensor & out);
+TORCH_API at::Tensor repeat_mps(const at::Tensor & self, at::IntArrayRef repeats);
 } // namespace native
 } // namespace at

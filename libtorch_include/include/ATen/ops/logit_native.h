@@ -19,5 +19,7 @@ namespace native {
 TORCH_API at::Tensor logit(const at::Tensor & self, ::std::optional<double> eps=::std::nullopt);
 TORCH_API at::Tensor & logit_out(const at::Tensor & self, ::std::optional<double> eps, at::Tensor & out);
 TORCH_API at::Tensor & logit_(at::Tensor & self, ::std::optional<double> eps=::std::nullopt);
+TORCH_API at::Tensor logit_mps(const at::Tensor & self, ::std::optional<double> eps=::std::nullopt);
+TORCH_API at::Tensor & logit_out_mps(const at::Tensor & self, ::std::optional<double> eps, at::Tensor & out);
 } // namespace native
 } // namespace at

@@ -27,7 +27,7 @@ inline at::Tensor channel_shuffle(const at::Tensor & self, int64_t groups) {
     return at::_ops::channel_shuffle::call(self, groups);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor channel_shuffle(const at::Tensor & self, int64_t groups) {
     return at::_ops::channel_shuffle::call(self, groups);
   }
@@ -38,7 +38,7 @@ inline at::Tensor channel_shuffle_symint(const at::Tensor & self, c10::SymInt gr
     return at::_ops::channel_shuffle::call(self, groups);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor channel_shuffle(const at::Tensor & self, c10::SymInt groups) {
     return at::_ops::channel_shuffle::call(self, groups);
   }
@@ -49,7 +49,7 @@ inline at::Tensor & channel_shuffle_out(at::Tensor & out, const at::Tensor & sel
     return at::_ops::channel_shuffle_out::call(self, groups, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & channel_shuffle_out(at::Tensor & out, const at::Tensor & self, int64_t groups) {
     return at::_ops::channel_shuffle_out::call(self, groups, out);
   }
@@ -60,7 +60,7 @@ inline at::Tensor & channel_shuffle_outf(const at::Tensor & self, int64_t groups
     return at::_ops::channel_shuffle_out::call(self, groups, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & channel_shuffle_outf(const at::Tensor & self, int64_t groups, at::Tensor & out) {
     return at::_ops::channel_shuffle_out::call(self, groups, out);
   }
@@ -71,7 +71,7 @@ inline at::Tensor & channel_shuffle_symint_out(at::Tensor & out, const at::Tenso
     return at::_ops::channel_shuffle_out::call(self, groups, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & channel_shuffle_out(at::Tensor & out, const at::Tensor & self, c10::SymInt groups) {
     return at::_ops::channel_shuffle_out::call(self, groups, out);
   }
@@ -82,7 +82,7 @@ inline at::Tensor & channel_shuffle_symint_outf(const at::Tensor & self, c10::Sy
     return at::_ops::channel_shuffle_out::call(self, groups, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & channel_shuffle_outf(const at::Tensor & self, c10::SymInt groups, at::Tensor & out) {
     return at::_ops::channel_shuffle_out::call(self, groups, out);
   }

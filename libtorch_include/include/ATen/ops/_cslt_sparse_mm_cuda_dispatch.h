@@ -17,7 +17,7 @@ namespace at {
 
 namespace cuda {
 
-TORCH_API at::Tensor _cslt_sparse_mm(const at::Tensor & compressed_A, const at::Tensor & dense_B, const ::std::optional<at::Tensor> & bias={}, const ::std::optional<at::Tensor> & alpha={}, ::std::optional<at::ScalarType> out_dtype=::std::nullopt, bool transpose_result=false, int64_t alg_id=0);
+TORCH_API at::Tensor _cslt_sparse_mm(const at::Tensor & compressed_A, const at::Tensor & dense_B, const ::std::optional<at::Tensor> & bias={}, const ::std::optional<at::Tensor> & alpha={}, ::std::optional<at::ScalarType> out_dtype=::std::nullopt, bool transpose_result=false, int64_t alg_id=0, int64_t split_k=1, bool split_k_one_kernel=true);
 
 } // namespace cuda
 } // namespace at

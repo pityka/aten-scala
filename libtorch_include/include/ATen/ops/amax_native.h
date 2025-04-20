@@ -19,5 +19,8 @@ namespace native {
 struct TORCH_API structured_amax_out : public at::meta::structured_amax {
 void impl(const at::Tensor & self, at::IntArrayRef dim, bool keepdim, const at::Tensor & out);
 };
+struct TORCH_API structured_amax_out_mps : public at::meta::structured_amax {
+void impl(const at::Tensor & self, at::IntArrayRef dim, bool keepdim, const at::Tensor & out);
+};
 } // namespace native
 } // namespace at

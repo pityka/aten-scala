@@ -22,5 +22,8 @@ void impl(const at::Tensor & self, at::IntArrayRef output_size, const at::Tensor
 struct TORCH_API structured_adaptive_max_pool2d_out_cuda : public at::meta::structured_adaptive_max_pool2d {
 void impl(const at::Tensor & self, at::IntArrayRef output_size, const at::Tensor & out, const at::Tensor & indices);
 };
+struct TORCH_API structured_adaptive_max_pool2d_out_mps : public at::meta::structured_adaptive_max_pool2d {
+void impl(const at::Tensor & self, at::IntArrayRef output_size, const at::Tensor & out, const at::Tensor & indices);
+};
 } // namespace native
 } // namespace at

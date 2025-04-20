@@ -18,9 +18,9 @@ struct TORCH_API clamp {
   using schema = at::Tensor (const at::Tensor &, const ::std::optional<at::Scalar> &, const ::std::optional<at::Scalar> &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::clamp")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "clamp(Tensor self, Scalar? min=None, Scalar? max=None) -> Tensor")
+  static constexpr const char* name = "aten::clamp";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "clamp(Tensor self, Scalar? min=None, Scalar? max=None) -> Tensor";
   static at::Tensor call(const at::Tensor & self, const ::std::optional<at::Scalar> & min, const ::std::optional<at::Scalar> & max);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const ::std::optional<at::Scalar> & min, const ::std::optional<at::Scalar> & max);
 };
@@ -29,9 +29,9 @@ struct TORCH_API clamp_Tensor {
   using schema = at::Tensor (const at::Tensor &, const ::std::optional<at::Tensor> &, const ::std::optional<at::Tensor> &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::clamp")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Tensor")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "clamp.Tensor(Tensor self, Tensor? min=None, Tensor? max=None) -> Tensor")
+  static constexpr const char* name = "aten::clamp";
+  static constexpr const char* overload_name = "Tensor";
+  static constexpr const char* schema_str = "clamp.Tensor(Tensor self, Tensor? min=None, Tensor? max=None) -> Tensor";
   static at::Tensor call(const at::Tensor & self, const ::std::optional<at::Tensor> & min, const ::std::optional<at::Tensor> & max);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const ::std::optional<at::Tensor> & min, const ::std::optional<at::Tensor> & max);
 };
@@ -40,9 +40,9 @@ struct TORCH_API clamp_ {
   using schema = at::Tensor & (at::Tensor &, const ::std::optional<at::Scalar> &, const ::std::optional<at::Scalar> &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::clamp_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "clamp_(Tensor(a!) self, Scalar? min=None, Scalar? max=None) -> Tensor(a!)")
+  static constexpr const char* name = "aten::clamp_";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "clamp_(Tensor(a!) self, Scalar? min=None, Scalar? max=None) -> Tensor(a!)";
   static at::Tensor & call(at::Tensor & self, const ::std::optional<at::Scalar> & min, const ::std::optional<at::Scalar> & max);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::Tensor & self, const ::std::optional<at::Scalar> & min, const ::std::optional<at::Scalar> & max);
 };
@@ -51,9 +51,9 @@ struct TORCH_API clamp__Tensor {
   using schema = at::Tensor & (at::Tensor &, const ::std::optional<at::Tensor> &, const ::std::optional<at::Tensor> &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::clamp_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Tensor")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "clamp_.Tensor(Tensor(a!) self, Tensor? min=None, Tensor? max=None) -> Tensor(a!)")
+  static constexpr const char* name = "aten::clamp_";
+  static constexpr const char* overload_name = "Tensor";
+  static constexpr const char* schema_str = "clamp_.Tensor(Tensor(a!) self, Tensor? min=None, Tensor? max=None) -> Tensor(a!)";
   static at::Tensor & call(at::Tensor & self, const ::std::optional<at::Tensor> & min, const ::std::optional<at::Tensor> & max);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::Tensor & self, const ::std::optional<at::Tensor> & min, const ::std::optional<at::Tensor> & max);
 };
@@ -62,9 +62,9 @@ struct TORCH_API clamp_out {
   using schema = at::Tensor & (const at::Tensor &, const ::std::optional<at::Scalar> &, const ::std::optional<at::Scalar> &, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::clamp")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "clamp.out(Tensor self, Scalar? min=None, Scalar? max=None, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::clamp";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "clamp.out(Tensor self, Scalar? min=None, Scalar? max=None, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, const ::std::optional<at::Scalar> & min, const ::std::optional<at::Scalar> & max, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const ::std::optional<at::Scalar> & min, const ::std::optional<at::Scalar> & max, at::Tensor & out);
 };
@@ -73,9 +73,9 @@ struct TORCH_API clamp_Tensor_out {
   using schema = at::Tensor & (const at::Tensor &, const ::std::optional<at::Tensor> &, const ::std::optional<at::Tensor> &, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::clamp")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Tensor_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "clamp.Tensor_out(Tensor self, Tensor? min=None, Tensor? max=None, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::clamp";
+  static constexpr const char* overload_name = "Tensor_out";
+  static constexpr const char* schema_str = "clamp.Tensor_out(Tensor self, Tensor? min=None, Tensor? max=None, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, const ::std::optional<at::Tensor> & min, const ::std::optional<at::Tensor> & max, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const ::std::optional<at::Tensor> & min, const ::std::optional<at::Tensor> & max, at::Tensor & out);
 };

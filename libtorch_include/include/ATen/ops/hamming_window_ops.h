@@ -18,9 +18,9 @@ struct TORCH_API hamming_window {
   using schema = at::Tensor (int64_t, ::std::optional<at::ScalarType>, ::std::optional<at::Layout>, ::std::optional<at::Device>, ::std::optional<bool>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::hamming_window")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "hamming_window(int window_length, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor")
+  static constexpr const char* name = "aten::hamming_window";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "hamming_window(int window_length, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor";
   static at::Tensor call(int64_t window_length, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, int64_t window_length, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory);
 };
@@ -29,9 +29,9 @@ struct TORCH_API hamming_window_periodic {
   using schema = at::Tensor (int64_t, bool, ::std::optional<at::ScalarType>, ::std::optional<at::Layout>, ::std::optional<at::Device>, ::std::optional<bool>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::hamming_window")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "periodic")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "hamming_window.periodic(int window_length, bool periodic, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor")
+  static constexpr const char* name = "aten::hamming_window";
+  static constexpr const char* overload_name = "periodic";
+  static constexpr const char* schema_str = "hamming_window.periodic(int window_length, bool periodic, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor";
   static at::Tensor call(int64_t window_length, bool periodic, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, int64_t window_length, bool periodic, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory);
 };
@@ -40,9 +40,9 @@ struct TORCH_API hamming_window_periodic_alpha {
   using schema = at::Tensor (int64_t, bool, double, ::std::optional<at::ScalarType>, ::std::optional<at::Layout>, ::std::optional<at::Device>, ::std::optional<bool>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::hamming_window")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "periodic_alpha")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "hamming_window.periodic_alpha(int window_length, bool periodic, float alpha, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor")
+  static constexpr const char* name = "aten::hamming_window";
+  static constexpr const char* overload_name = "periodic_alpha";
+  static constexpr const char* schema_str = "hamming_window.periodic_alpha(int window_length, bool periodic, float alpha, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor";
   static at::Tensor call(int64_t window_length, bool periodic, double alpha, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, int64_t window_length, bool periodic, double alpha, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory);
 };
@@ -51,9 +51,9 @@ struct TORCH_API hamming_window_periodic_alpha_beta {
   using schema = at::Tensor (int64_t, bool, double, double, ::std::optional<at::ScalarType>, ::std::optional<at::Layout>, ::std::optional<at::Device>, ::std::optional<bool>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::hamming_window")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "periodic_alpha_beta")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "hamming_window.periodic_alpha_beta(int window_length, bool periodic, float alpha, float beta, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor")
+  static constexpr const char* name = "aten::hamming_window";
+  static constexpr const char* overload_name = "periodic_alpha_beta";
+  static constexpr const char* schema_str = "hamming_window.periodic_alpha_beta(int window_length, bool periodic, float alpha, float beta, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor";
   static at::Tensor call(int64_t window_length, bool periodic, double alpha, double beta, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, int64_t window_length, bool periodic, double alpha, double beta, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory);
 };
@@ -62,9 +62,9 @@ struct TORCH_API hamming_window_out {
   using schema = at::Tensor & (int64_t, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::hamming_window")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "hamming_window.out(int window_length, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::hamming_window";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "hamming_window.out(int window_length, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(int64_t window_length, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, int64_t window_length, at::Tensor & out);
 };
@@ -73,9 +73,9 @@ struct TORCH_API hamming_window_periodic_out {
   using schema = at::Tensor & (int64_t, bool, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::hamming_window")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "periodic_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "hamming_window.periodic_out(int window_length, bool periodic, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::hamming_window";
+  static constexpr const char* overload_name = "periodic_out";
+  static constexpr const char* schema_str = "hamming_window.periodic_out(int window_length, bool periodic, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(int64_t window_length, bool periodic, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, int64_t window_length, bool periodic, at::Tensor & out);
 };
@@ -84,9 +84,9 @@ struct TORCH_API hamming_window_periodic_alpha_out {
   using schema = at::Tensor & (int64_t, bool, double, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::hamming_window")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "periodic_alpha_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "hamming_window.periodic_alpha_out(int window_length, bool periodic, float alpha, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::hamming_window";
+  static constexpr const char* overload_name = "periodic_alpha_out";
+  static constexpr const char* schema_str = "hamming_window.periodic_alpha_out(int window_length, bool periodic, float alpha, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(int64_t window_length, bool periodic, double alpha, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, int64_t window_length, bool periodic, double alpha, at::Tensor & out);
 };
@@ -95,9 +95,9 @@ struct TORCH_API hamming_window_periodic_alpha_beta_out {
   using schema = at::Tensor & (int64_t, bool, double, double, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::hamming_window")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "periodic_alpha_beta_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "hamming_window.periodic_alpha_beta_out(int window_length, bool periodic, float alpha, float beta, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::hamming_window";
+  static constexpr const char* overload_name = "periodic_alpha_beta_out";
+  static constexpr const char* schema_str = "hamming_window.periodic_alpha_beta_out(int window_length, bool periodic, float alpha, float beta, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(int64_t window_length, bool periodic, double alpha, double beta, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, int64_t window_length, bool periodic, double alpha, double beta, at::Tensor & out);
 };

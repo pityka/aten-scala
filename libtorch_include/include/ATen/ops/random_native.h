@@ -20,13 +20,16 @@ TORCH_API at::Tensor random(const at::Tensor & self, int64_t from, ::std::option
 TORCH_API at::Tensor & random_from_out(const at::Tensor & self, int64_t from, ::std::optional<int64_t> to, ::std::optional<at::Generator> generator, at::Tensor & out);
 TORCH_API at::Tensor & random_(at::Tensor & self, int64_t from, ::std::optional<int64_t> to, ::std::optional<at::Generator> generator=::std::nullopt);
 TORCH_API at::Tensor & random_meta_(at::Tensor & self, int64_t from, ::std::optional<int64_t> to, ::std::optional<at::Generator> generator=::std::nullopt);
+TORCH_API at::Tensor & random_mps_(at::Tensor & self, int64_t from, ::std::optional<int64_t> to, ::std::optional<at::Generator> generator=::std::nullopt);
 TORCH_API at::Tensor random(const at::Tensor & self, int64_t to, ::std::optional<at::Generator> generator=::std::nullopt);
 TORCH_API at::Tensor & random_to_out(const at::Tensor & self, int64_t to, ::std::optional<at::Generator> generator, at::Tensor & out);
 TORCH_API at::Tensor & random_(at::Tensor & self, int64_t to, ::std::optional<at::Generator> generator=::std::nullopt);
 TORCH_API at::Tensor & random_meta_(at::Tensor & self, int64_t to, ::std::optional<at::Generator> generator=::std::nullopt);
+TORCH_API at::Tensor & random_mps_(at::Tensor & self, int64_t to, ::std::optional<at::Generator> generator=::std::nullopt);
 TORCH_API at::Tensor random(const at::Tensor & self, ::std::optional<at::Generator> generator=::std::nullopt);
 TORCH_API at::Tensor & random_out(const at::Tensor & self, ::std::optional<at::Generator> generator, at::Tensor & out);
 TORCH_API at::Tensor & random_(at::Tensor & self, ::std::optional<at::Generator> generator=::std::nullopt);
 TORCH_API at::Tensor & random_meta_(at::Tensor & self, ::std::optional<at::Generator> generator=::std::nullopt);
+TORCH_API at::Tensor & random_mps_(at::Tensor & self, ::std::optional<at::Generator> generator=::std::nullopt);
 } // namespace native
 } // namespace at

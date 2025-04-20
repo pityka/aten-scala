@@ -18,5 +18,6 @@ namespace at {
 namespace native {
 TORCH_API at::Tensor & hardswish_backward_out(const at::Tensor & grad_output, const at::Tensor & self, at::Tensor & out);
 TORCH_API at::Tensor hardswish_backward(const at::Tensor & grad_output, const at::Tensor & self);
+TORCH_API at::Tensor hardswish_backward_mps(const at::Tensor & grad_output, const at::Tensor & self);
 } // namespace native
 } // namespace at

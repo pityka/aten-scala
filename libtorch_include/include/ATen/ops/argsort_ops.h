@@ -18,9 +18,9 @@ struct TORCH_API argsort {
   using schema = at::Tensor (const at::Tensor &, int64_t, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::argsort")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "argsort(Tensor self, int dim=-1, bool descending=False) -> Tensor")
+  static constexpr const char* name = "aten::argsort";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "argsort(Tensor self, int dim=-1, bool descending=False) -> Tensor";
   static at::Tensor call(const at::Tensor & self, int64_t dim, bool descending);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t dim, bool descending);
 };
@@ -29,9 +29,9 @@ struct TORCH_API argsort_stable {
   using schema = at::Tensor (const at::Tensor &, bool, int64_t, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::argsort")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "stable")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "argsort.stable(Tensor self, *, bool stable, int dim=-1, bool descending=False) -> Tensor")
+  static constexpr const char* name = "aten::argsort";
+  static constexpr const char* overload_name = "stable";
+  static constexpr const char* schema_str = "argsort.stable(Tensor self, *, bool stable, int dim=-1, bool descending=False) -> Tensor";
   static at::Tensor call(const at::Tensor & self, bool stable, int64_t dim, bool descending);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, bool stable, int64_t dim, bool descending);
 };
@@ -40,9 +40,9 @@ struct TORCH_API argsort_stable_out {
   using schema = at::Tensor & (const at::Tensor &, bool, int64_t, bool, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::argsort")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "stable_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "argsort.stable_out(Tensor self, *, bool stable, int dim=-1, bool descending=False, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::argsort";
+  static constexpr const char* overload_name = "stable_out";
+  static constexpr const char* schema_str = "argsort.stable_out(Tensor self, *, bool stable, int dim=-1, bool descending=False, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, bool stable, int64_t dim, bool descending, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, bool stable, int64_t dim, bool descending, at::Tensor & out);
 };
@@ -51,9 +51,9 @@ struct TORCH_API argsort_dimname {
   using schema = at::Tensor (const at::Tensor &, at::Dimname, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::argsort")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "dimname")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "argsort.dimname(Tensor self, Dimname dim, bool descending=False) -> Tensor")
+  static constexpr const char* name = "aten::argsort";
+  static constexpr const char* overload_name = "dimname";
+  static constexpr const char* schema_str = "argsort.dimname(Tensor self, Dimname dim, bool descending=False) -> Tensor";
   static at::Tensor call(const at::Tensor & self, at::Dimname dim, bool descending);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::Dimname dim, bool descending);
 };

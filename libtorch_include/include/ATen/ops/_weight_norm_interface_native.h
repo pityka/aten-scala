@@ -19,5 +19,6 @@ namespace native {
 TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> _weight_norm_interface_out(const at::Tensor & v, const at::Tensor & g, int64_t dim, at::Tensor & out0, at::Tensor & out1);
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> weight_norm_cpu(const at::Tensor & v, const at::Tensor & g, int64_t dim=0);
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> weight_norm_cuda(const at::Tensor & v, const at::Tensor & g, int64_t dim=0);
+TORCH_API ::std::tuple<at::Tensor,at::Tensor> weight_norm_mps(const at::Tensor & v, const at::Tensor & g, int64_t dim=0);
 } // namespace native
 } // namespace at

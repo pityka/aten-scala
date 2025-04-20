@@ -18,9 +18,9 @@ struct TORCH_API resize_as_sparse_ {
   using schema = const at::Tensor & (const at::Tensor &, const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::resize_as_sparse_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "resize_as_sparse_(Tensor(a!) self, Tensor the_template) -> Tensor(a!)")
+  static constexpr const char* name = "aten::resize_as_sparse_";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "resize_as_sparse_(Tensor(a!) self, Tensor the_template) -> Tensor(a!)";
   static const at::Tensor & call(const at::Tensor & self, const at::Tensor & the_template);
   static const at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & the_template);
 };
@@ -29,9 +29,9 @@ struct TORCH_API resize_as_sparse_out {
   using schema = const at::Tensor & (const at::Tensor &, const at::Tensor &, const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::resize_as_sparse")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "resize_as_sparse.out(Tensor self, Tensor the_template, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::resize_as_sparse";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "resize_as_sparse.out(Tensor self, Tensor the_template, *, Tensor(a!) out) -> Tensor(a!)";
   static const at::Tensor & call(const at::Tensor & self, const at::Tensor & the_template, const at::Tensor & out);
   static const at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & the_template, const at::Tensor & out);
 };
@@ -40,9 +40,9 @@ struct TORCH_API resize_as_sparse {
   using schema = at::Tensor (const at::Tensor &, const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::resize_as_sparse")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "resize_as_sparse(Tensor self, Tensor the_template) -> Tensor")
+  static constexpr const char* name = "aten::resize_as_sparse";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "resize_as_sparse(Tensor self, Tensor the_template) -> Tensor";
   static at::Tensor call(const at::Tensor & self, const at::Tensor & the_template);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & the_template);
 };

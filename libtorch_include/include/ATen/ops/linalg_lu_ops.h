@@ -18,9 +18,9 @@ struct TORCH_API linalg_lu {
   using schema = ::std::tuple<at::Tensor,at::Tensor,at::Tensor> (const at::Tensor &, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::linalg_lu")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "linalg_lu(Tensor A, *, bool pivot=True) -> (Tensor P, Tensor L, Tensor U)")
+  static constexpr const char* name = "aten::linalg_lu";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "linalg_lu(Tensor A, *, bool pivot=True) -> (Tensor P, Tensor L, Tensor U)";
   static ::std::tuple<at::Tensor,at::Tensor,at::Tensor> call(const at::Tensor & A, bool pivot);
   static ::std::tuple<at::Tensor,at::Tensor,at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & A, bool pivot);
 };
@@ -29,9 +29,9 @@ struct TORCH_API linalg_lu_out {
   using schema = ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> (const at::Tensor &, bool, at::Tensor &, at::Tensor &, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::linalg_lu")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "linalg_lu.out(Tensor A, *, bool pivot=True, Tensor(a!) P, Tensor(b!) L, Tensor(c!) U) -> (Tensor(a!) P, Tensor(b!) L, Tensor(c!) U)")
+  static constexpr const char* name = "aten::linalg_lu";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "linalg_lu.out(Tensor A, *, bool pivot=True, Tensor(a!) P, Tensor(b!) L, Tensor(c!) U) -> (Tensor(a!) P, Tensor(b!) L, Tensor(c!) U)";
   static ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> call(const at::Tensor & A, bool pivot, at::Tensor & P, at::Tensor & L, at::Tensor & U);
   static ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & A, bool pivot, at::Tensor & P, at::Tensor & L, at::Tensor & U);
 };

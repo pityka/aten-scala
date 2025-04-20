@@ -18,9 +18,9 @@ struct TORCH_API rsub_Tensor {
   using schema = at::Tensor (const at::Tensor &, const at::Tensor &, const at::Scalar &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::rsub")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Tensor")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "rsub.Tensor(Tensor self, Tensor other, *, Scalar alpha=1) -> Tensor")
+  static constexpr const char* name = "aten::rsub";
+  static constexpr const char* overload_name = "Tensor";
+  static constexpr const char* schema_str = "rsub.Tensor(Tensor self, Tensor other, *, Scalar alpha=1) -> Tensor";
   static at::Tensor call(const at::Tensor & self, const at::Tensor & other, const at::Scalar & alpha);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & other, const at::Scalar & alpha);
 };
@@ -29,9 +29,9 @@ struct TORCH_API rsub_Scalar {
   using schema = at::Tensor (const at::Tensor &, const at::Scalar &, const at::Scalar &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::rsub")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Scalar")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "rsub.Scalar(Tensor self, Scalar other, Scalar alpha=1) -> Tensor")
+  static constexpr const char* name = "aten::rsub";
+  static constexpr const char* overload_name = "Scalar";
+  static constexpr const char* schema_str = "rsub.Scalar(Tensor self, Scalar other, Scalar alpha=1) -> Tensor";
   static at::Tensor call(const at::Tensor & self, const at::Scalar & other, const at::Scalar & alpha);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Scalar & other, const at::Scalar & alpha);
 };
@@ -40,9 +40,9 @@ struct TORCH_API rsub_Tensor_out {
   using schema = at::Tensor & (const at::Tensor &, const at::Tensor &, const at::Scalar &, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::rsub")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Tensor_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "rsub.Tensor_out(Tensor self, Tensor other, *, Scalar alpha=1, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::rsub";
+  static constexpr const char* overload_name = "Tensor_out";
+  static constexpr const char* schema_str = "rsub.Tensor_out(Tensor self, Tensor other, *, Scalar alpha=1, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, const at::Tensor & other, const at::Scalar & alpha, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & other, const at::Scalar & alpha, at::Tensor & out);
 };
@@ -51,9 +51,9 @@ struct TORCH_API rsub_Scalar_out {
   using schema = at::Tensor & (const at::Tensor &, const at::Scalar &, const at::Scalar &, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::rsub")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Scalar_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "rsub.Scalar_out(Tensor self, Scalar other, Scalar alpha=1, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::rsub";
+  static constexpr const char* overload_name = "Scalar_out";
+  static constexpr const char* schema_str = "rsub.Scalar_out(Tensor self, Scalar other, Scalar alpha=1, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, const at::Scalar & other, const at::Scalar & alpha, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Scalar & other, const at::Scalar & alpha, at::Tensor & out);
 };

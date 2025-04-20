@@ -19,6 +19,9 @@ namespace native {
 struct TORCH_API structured_gather_out : public at::meta::structured_gather {
 void impl(const at::Tensor & self, int64_t dim, const at::Tensor & index, bool sparse_grad, const at::Tensor & out);
 };
+struct TORCH_API structured_gather_out_mps : public at::meta::structured_gather {
+void impl(const at::Tensor & self, int64_t dim, const at::Tensor & index, bool sparse_grad, const at::Tensor & out);
+};
 TORCH_API at::Tensor gather(const at::Tensor & self, at::Dimname dim, const at::Tensor & index, bool sparse_grad=false);
 TORCH_API at::Tensor & gather_out(const at::Tensor & self, at::Dimname dim, const at::Tensor & index, bool sparse_grad, at::Tensor & out);
 } // namespace native

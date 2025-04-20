@@ -18,9 +18,9 @@ struct TORCH_API record_stream {
   using schema = void (at::Tensor &, at::Stream);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::record_stream")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "record_stream(Tensor(a!) self, Stream s) -> ()")
+  static constexpr const char* name = "aten::record_stream";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "record_stream(Tensor(a!) self, Stream s) -> ()";
   static void call(at::Tensor & self, at::Stream s);
   static void redispatch(c10::DispatchKeySet dispatchKeySet, at::Tensor & self, at::Stream s);
 };

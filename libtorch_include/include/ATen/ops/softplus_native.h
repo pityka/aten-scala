@@ -19,5 +19,8 @@ namespace native {
 struct TORCH_API structured_softplus_out : public at::meta::structured_softplus {
 void impl(const at::Tensor & self, const at::Scalar & beta, const at::Scalar & threshold, const at::Tensor & out);
 };
+struct TORCH_API structured_softplus_out_mps : public at::meta::structured_softplus {
+void impl(const at::Tensor & self, const at::Scalar & beta, const at::Scalar & threshold, const at::Tensor & out);
+};
 } // namespace native
 } // namespace at

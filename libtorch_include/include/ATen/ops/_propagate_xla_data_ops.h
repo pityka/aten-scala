@@ -18,9 +18,9 @@ struct TORCH_API _propagate_xla_data {
   using schema = void (const at::Tensor &, const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_propagate_xla_data")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_propagate_xla_data(Tensor input, Tensor output) -> ()")
+  static constexpr const char* name = "aten::_propagate_xla_data";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "_propagate_xla_data(Tensor input, Tensor output) -> ()";
   static void call(const at::Tensor & input, const at::Tensor & output);
   static void redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & input, const at::Tensor & output);
 };

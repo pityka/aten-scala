@@ -27,7 +27,7 @@ inline at::Tensor unflatten(const at::Tensor & self, int64_t dim, at::IntArrayRe
     return at::_ops::unflatten_int::call(self, dim, c10::fromIntArrayRefSlow(sizes));
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor unflatten(const at::Tensor & self, int64_t dim, at::IntArrayRef sizes) {
     return at::_ops::unflatten_int::call(self, dim, c10::fromIntArrayRefSlow(sizes));
   }
@@ -38,7 +38,7 @@ inline at::Tensor unflatten_symint(const at::Tensor & self, int64_t dim, c10::Sy
     return at::_ops::unflatten_int::call(self, dim, sizes);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor unflatten(const at::Tensor & self, int64_t dim, c10::SymIntArrayRef sizes) {
     return at::_ops::unflatten_int::call(self, dim, sizes);
   }
@@ -49,7 +49,7 @@ inline at::Tensor unflatten(const at::Tensor & self, at::Dimname dim, at::IntArr
     return at::_ops::unflatten_Dimname::call(self, dim, c10::fromIntArrayRefSlow(sizes), names);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor unflatten(const at::Tensor & self, at::Dimname dim, at::IntArrayRef sizes, at::DimnameList names) {
     return at::_ops::unflatten_Dimname::call(self, dim, c10::fromIntArrayRefSlow(sizes), names);
   }
@@ -60,7 +60,7 @@ inline at::Tensor unflatten_symint(const at::Tensor & self, at::Dimname dim, c10
     return at::_ops::unflatten_Dimname::call(self, dim, sizes, names);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor unflatten(const at::Tensor & self, at::Dimname dim, c10::SymIntArrayRef sizes, at::DimnameList names) {
     return at::_ops::unflatten_Dimname::call(self, dim, sizes, names);
   }

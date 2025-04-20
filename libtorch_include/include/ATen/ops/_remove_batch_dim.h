@@ -22,9 +22,26 @@
 namespace at {
 
 
-// aten::_remove_batch_dim(Tensor self, int level, int batch_size, int out_dim) -> Tensor
+// aten::_remove_batch_dim(Tensor self, int level, SymInt batch_size, int out_dim) -> Tensor
 inline at::Tensor _remove_batch_dim(const at::Tensor & self, int64_t level, int64_t batch_size, int64_t out_dim) {
     return at::_ops::_remove_batch_dim::call(self, level, batch_size, out_dim);
+}
+namespace symint {
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
+  at::Tensor _remove_batch_dim(const at::Tensor & self, int64_t level, int64_t batch_size, int64_t out_dim) {
+    return at::_ops::_remove_batch_dim::call(self, level, batch_size, out_dim);
+  }
+}
+
+// aten::_remove_batch_dim(Tensor self, int level, SymInt batch_size, int out_dim) -> Tensor
+inline at::Tensor _remove_batch_dim_symint(const at::Tensor & self, int64_t level, c10::SymInt batch_size, int64_t out_dim) {
+    return at::_ops::_remove_batch_dim::call(self, level, batch_size, out_dim);
+}
+namespace symint {
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
+  at::Tensor _remove_batch_dim(const at::Tensor & self, int64_t level, c10::SymInt batch_size, int64_t out_dim) {
+    return at::_ops::_remove_batch_dim::call(self, level, batch_size, out_dim);
+  }
 }
 
 }

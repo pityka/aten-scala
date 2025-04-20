@@ -20,5 +20,7 @@ TORCH_API at::Tensor masked_select_cpu(const at::Tensor & self, const at::Tensor
 TORCH_API at::Tensor & masked_select_out_cpu(const at::Tensor & self, const at::Tensor & mask, at::Tensor & out);
 TORCH_API at::Tensor masked_select_cuda(const at::Tensor & self, const at::Tensor & mask);
 TORCH_API at::Tensor & masked_select_out_cuda(const at::Tensor & self, const at::Tensor & mask, at::Tensor & out);
+TORCH_API at::Tensor masked_select_mps(const at::Tensor & self, const at::Tensor & mask);
+TORCH_API at::Tensor & masked_select_out_mps(const at::Tensor & self, const at::Tensor & mask, at::Tensor & out);
 } // namespace native
 } // namespace at

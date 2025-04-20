@@ -18,9 +18,9 @@ struct TORCH_API normal_ {
   using schema = at::Tensor & (at::Tensor &, double, double, ::std::optional<at::Generator>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::normal_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "normal_(Tensor(a!) self, float mean=0, float std=1, *, Generator? generator=None) -> Tensor(a!)")
+  static constexpr const char* name = "aten::normal_";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "normal_(Tensor(a!) self, float mean=0, float std=1, *, Generator? generator=None) -> Tensor(a!)";
   static at::Tensor & call(at::Tensor & self, double mean, double std, ::std::optional<at::Generator> generator);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::Tensor & self, double mean, double std, ::std::optional<at::Generator> generator);
 };
@@ -29,9 +29,9 @@ struct TORCH_API normal_functional {
   using schema = at::Tensor (const at::Tensor &, double, double, ::std::optional<at::Generator>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::normal_functional")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "normal_functional(Tensor self, float mean=0, float std=1, *, Generator? generator=None) -> Tensor")
+  static constexpr const char* name = "aten::normal_functional";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "normal_functional(Tensor self, float mean=0, float std=1, *, Generator? generator=None) -> Tensor";
   static at::Tensor call(const at::Tensor & self, double mean, double std, ::std::optional<at::Generator> generator);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, double mean, double std, ::std::optional<at::Generator> generator);
 };
@@ -40,9 +40,9 @@ struct TORCH_API normal_Tensor_float_out {
   using schema = at::Tensor & (const at::Tensor &, double, ::std::optional<at::Generator>, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::normal")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Tensor_float_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "normal.Tensor_float_out(Tensor mean, float std=1, *, Generator? generator=None, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::normal";
+  static constexpr const char* overload_name = "Tensor_float_out";
+  static constexpr const char* schema_str = "normal.Tensor_float_out(Tensor mean, float std=1, *, Generator? generator=None, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & mean, double std, ::std::optional<at::Generator> generator, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & mean, double std, ::std::optional<at::Generator> generator, at::Tensor & out);
 };
@@ -51,9 +51,9 @@ struct TORCH_API normal_Tensor_float {
   using schema = at::Tensor (const at::Tensor &, double, ::std::optional<at::Generator>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::normal")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Tensor_float")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "normal.Tensor_float(Tensor mean, float std=1, *, Generator? generator=None) -> Tensor")
+  static constexpr const char* name = "aten::normal";
+  static constexpr const char* overload_name = "Tensor_float";
+  static constexpr const char* schema_str = "normal.Tensor_float(Tensor mean, float std=1, *, Generator? generator=None) -> Tensor";
   static at::Tensor call(const at::Tensor & mean, double std, ::std::optional<at::Generator> generator);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & mean, double std, ::std::optional<at::Generator> generator);
 };
@@ -62,9 +62,9 @@ struct TORCH_API normal_float_Tensor_out {
   using schema = at::Tensor & (double, const at::Tensor &, ::std::optional<at::Generator>, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::normal")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "float_Tensor_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "normal.float_Tensor_out(float mean, Tensor std, *, Generator? generator=None, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::normal";
+  static constexpr const char* overload_name = "float_Tensor_out";
+  static constexpr const char* schema_str = "normal.float_Tensor_out(float mean, Tensor std, *, Generator? generator=None, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(double mean, const at::Tensor & std, ::std::optional<at::Generator> generator, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, double mean, const at::Tensor & std, ::std::optional<at::Generator> generator, at::Tensor & out);
 };
@@ -73,9 +73,9 @@ struct TORCH_API normal_float_Tensor {
   using schema = at::Tensor (double, const at::Tensor &, ::std::optional<at::Generator>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::normal")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "float_Tensor")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "normal.float_Tensor(float mean, Tensor std, *, Generator? generator=None) -> Tensor")
+  static constexpr const char* name = "aten::normal";
+  static constexpr const char* overload_name = "float_Tensor";
+  static constexpr const char* schema_str = "normal.float_Tensor(float mean, Tensor std, *, Generator? generator=None) -> Tensor";
   static at::Tensor call(double mean, const at::Tensor & std, ::std::optional<at::Generator> generator);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, double mean, const at::Tensor & std, ::std::optional<at::Generator> generator);
 };
@@ -84,9 +84,9 @@ struct TORCH_API normal_Tensor_Tensor_out {
   using schema = at::Tensor & (const at::Tensor &, const at::Tensor &, ::std::optional<at::Generator>, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::normal")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Tensor_Tensor_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "normal.Tensor_Tensor_out(Tensor mean, Tensor std, *, Generator? generator=None, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::normal";
+  static constexpr const char* overload_name = "Tensor_Tensor_out";
+  static constexpr const char* schema_str = "normal.Tensor_Tensor_out(Tensor mean, Tensor std, *, Generator? generator=None, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & mean, const at::Tensor & std, ::std::optional<at::Generator> generator, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & mean, const at::Tensor & std, ::std::optional<at::Generator> generator, at::Tensor & out);
 };
@@ -95,9 +95,9 @@ struct TORCH_API normal_Tensor_Tensor {
   using schema = at::Tensor (const at::Tensor &, const at::Tensor &, ::std::optional<at::Generator>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::normal")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Tensor_Tensor")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "normal.Tensor_Tensor(Tensor mean, Tensor std, *, Generator? generator=None) -> Tensor")
+  static constexpr const char* name = "aten::normal";
+  static constexpr const char* overload_name = "Tensor_Tensor";
+  static constexpr const char* schema_str = "normal.Tensor_Tensor(Tensor mean, Tensor std, *, Generator? generator=None) -> Tensor";
   static at::Tensor call(const at::Tensor & mean, const at::Tensor & std, ::std::optional<at::Generator> generator);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & mean, const at::Tensor & std, ::std::optional<at::Generator> generator);
 };
@@ -106,9 +106,9 @@ struct TORCH_API normal_float_float {
   using schema = at::Tensor (double, double, c10::SymIntArrayRef, ::std::optional<at::Generator>, ::std::optional<at::ScalarType>, ::std::optional<at::Layout>, ::std::optional<at::Device>, ::std::optional<bool>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::normal")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "float_float")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "normal.float_float(float mean, float std, SymInt[] size, *, Generator? generator=None, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor")
+  static constexpr const char* name = "aten::normal";
+  static constexpr const char* overload_name = "float_float";
+  static constexpr const char* schema_str = "normal.float_float(float mean, float std, SymInt[] size, *, Generator? generator=None, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor";
   static at::Tensor call(double mean, double std, c10::SymIntArrayRef size, ::std::optional<at::Generator> generator, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, double mean, double std, c10::SymIntArrayRef size, ::std::optional<at::Generator> generator, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory);
 };
@@ -117,9 +117,9 @@ struct TORCH_API normal_float_float_out {
   using schema = at::Tensor & (double, double, c10::SymIntArrayRef, ::std::optional<at::Generator>, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::normal")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "float_float_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "normal.float_float_out(float mean, float std, SymInt[] size, *, Generator? generator=None, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::normal";
+  static constexpr const char* overload_name = "float_float_out";
+  static constexpr const char* schema_str = "normal.float_float_out(float mean, float std, SymInt[] size, *, Generator? generator=None, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(double mean, double std, c10::SymIntArrayRef size, ::std::optional<at::Generator> generator, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, double mean, double std, c10::SymIntArrayRef size, ::std::optional<at::Generator> generator, at::Tensor & out);
 };
@@ -128,9 +128,9 @@ struct TORCH_API normal_out {
   using schema = at::Tensor & (const at::Tensor &, double, double, ::std::optional<at::Generator>, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::normal")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "normal.out(Tensor self, float mean=0, float std=1, *, Generator? generator=None, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::normal";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "normal.out(Tensor self, float mean=0, float std=1, *, Generator? generator=None, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, double mean, double std, ::std::optional<at::Generator> generator, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, double mean, double std, ::std::optional<at::Generator> generator, at::Tensor & out);
 };

@@ -18,6 +18,7 @@ namespace at {
 namespace native {
 TORCH_API at::Tensor & pixel_shuffle_out(const at::Tensor & self, int64_t upscale_factor, at::Tensor & out);
 TORCH_API at::Tensor pixel_shuffle_cpu(const at::Tensor & self, int64_t upscale_factor);
+TORCH_API at::Tensor pixel_shuffle_mps(const at::Tensor & self, int64_t upscale_factor);
 TORCH_API at::Tensor math_pixel_shuffle(const at::Tensor & self, int64_t upscale_factor);
 } // namespace native
 } // namespace at

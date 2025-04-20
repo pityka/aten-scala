@@ -16,7 +16,7 @@
 
 namespace at {
 namespace native {
-TORCH_API at::Tensor _weight_int4pack_mm_cpu(const at::Tensor & self, const at::Tensor & mat2, int64_t qGroupSize, const at::Tensor & qScaleAndZeros);
 TORCH_API at::Tensor _weight_int4pack_mm_cuda(const at::Tensor & self, const at::Tensor & mat2, int64_t qGroupSize, const at::Tensor & qScaleAndZeros);
+TORCH_API at::Tensor _weight_int4pack_mm_mps(const at::Tensor & self, const at::Tensor & mat2, int64_t qGroupSize, const at::Tensor & qScaleAndZeros);
 } // namespace native
 } // namespace at

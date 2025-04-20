@@ -22,5 +22,8 @@ void impl(const at::Tensor & self, int64_t diagonal, const at::Tensor & out);
 struct TORCH_API structured_tril_cuda : public at::meta::structured_tril {
 void impl(const at::Tensor & self, int64_t diagonal, const at::Tensor & out);
 };
+struct TORCH_API structured_tril_mps_out : public at::meta::structured_tril {
+void impl(const at::Tensor & self, int64_t diagonal, const at::Tensor & out);
+};
 } // namespace native
 } // namespace at

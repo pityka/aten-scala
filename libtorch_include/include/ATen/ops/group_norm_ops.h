@@ -18,9 +18,9 @@ struct TORCH_API group_norm {
   using schema = at::Tensor (const at::Tensor &, int64_t, const ::std::optional<at::Tensor> &, const ::std::optional<at::Tensor> &, double, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::group_norm")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "group_norm(Tensor input, int num_groups, Tensor? weight=None, Tensor? bias=None, float eps=1e-05, bool cudnn_enabled=True) -> Tensor")
+  static constexpr const char* name = "aten::group_norm";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "group_norm(Tensor input, int num_groups, Tensor? weight=None, Tensor? bias=None, float eps=1e-05, bool cudnn_enabled=True) -> Tensor";
   static at::Tensor call(const at::Tensor & input, int64_t num_groups, const ::std::optional<at::Tensor> & weight, const ::std::optional<at::Tensor> & bias, double eps, bool cudnn_enabled);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & input, int64_t num_groups, const ::std::optional<at::Tensor> & weight, const ::std::optional<at::Tensor> & bias, double eps, bool cudnn_enabled);
 };

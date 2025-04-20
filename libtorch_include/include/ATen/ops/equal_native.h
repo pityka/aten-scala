@@ -18,6 +18,7 @@ namespace at {
 namespace native {
 TORCH_API bool cpu_equal(const at::Tensor & self, const at::Tensor & other);
 TORCH_API bool cuda_equal(const at::Tensor & self, const at::Tensor & other);
+TORCH_API bool mps_equal(const at::Tensor & self, const at::Tensor & other);
 TORCH_API bool equal_quantized_cpu(const at::Tensor & self, const at::Tensor & other);
 } // namespace native
 } // namespace at

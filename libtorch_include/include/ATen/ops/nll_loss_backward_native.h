@@ -22,5 +22,8 @@ void impl(const at::Tensor & grad_output, const at::Tensor & self, const at::Ten
 struct TORCH_API structured_nll_loss_backward_out_cuda : public at::meta::structured_nll_loss_backward {
 void impl(const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & target, at::OptionalTensorRef weight, int64_t reduction, int64_t ignore_index, const at::Tensor & total_weight, const at::Tensor & grad_input);
 };
+struct TORCH_API structured_nll_loss_backward_out_mps : public at::meta::structured_nll_loss_backward {
+void impl(const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & target, at::OptionalTensorRef weight, int64_t reduction, int64_t ignore_index, const at::Tensor & total_weight, const at::Tensor & grad_input);
+};
 } // namespace native
 } // namespace at

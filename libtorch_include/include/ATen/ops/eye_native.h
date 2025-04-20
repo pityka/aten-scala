@@ -19,8 +19,10 @@ namespace native {
 TORCH_API at::Tensor eye(int64_t n, ::std::optional<at::ScalarType> dtype={}, ::std::optional<at::Layout> layout={}, ::std::optional<at::Device> device={}, ::std::optional<bool> pin_memory={});
 TORCH_API at::Tensor & eye_out_cpu(int64_t n, at::Tensor & out);
 TORCH_API at::Tensor & eye_out_cuda(int64_t n, at::Tensor & out);
+TORCH_API at::Tensor & eye_out_mps(int64_t n, at::Tensor & out);
 TORCH_API at::Tensor eye(int64_t n, int64_t m, ::std::optional<at::ScalarType> dtype={}, ::std::optional<at::Layout> layout={}, ::std::optional<at::Device> device={}, ::std::optional<bool> pin_memory={});
 TORCH_API at::Tensor & eye_out_cpu(int64_t n, int64_t m, at::Tensor & out);
 TORCH_API at::Tensor & eye_out_cuda(int64_t n, int64_t m, at::Tensor & out);
+TORCH_API at::Tensor & eye_out_mps(int64_t n, int64_t m, at::Tensor & out);
 } // namespace native
 } // namespace at

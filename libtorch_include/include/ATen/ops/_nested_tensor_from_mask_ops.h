@@ -18,9 +18,9 @@ struct TORCH_API _nested_tensor_from_mask {
   using schema = at::Tensor (const at::Tensor &, const at::Tensor &, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_nested_tensor_from_mask")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_nested_tensor_from_mask(Tensor t, Tensor mask, bool mask_check=True) -> Tensor")
+  static constexpr const char* name = "aten::_nested_tensor_from_mask";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "_nested_tensor_from_mask(Tensor t, Tensor mask, bool mask_check=True) -> Tensor";
   static at::Tensor call(const at::Tensor & t, const at::Tensor & mask, bool mask_check);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & t, const at::Tensor & mask, bool mask_check);
 };
@@ -29,9 +29,9 @@ struct TORCH_API _nested_tensor_from_mask_out {
   using schema = at::Tensor & (const at::Tensor &, const at::Tensor &, bool, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_nested_tensor_from_mask")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_nested_tensor_from_mask.out(Tensor t, Tensor mask, bool mask_check=True, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::_nested_tensor_from_mask";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "_nested_tensor_from_mask.out(Tensor t, Tensor mask, bool mask_check=True, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & t, const at::Tensor & mask, bool mask_check, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & t, const at::Tensor & mask, bool mask_check, at::Tensor & out);
 };

@@ -18,9 +18,9 @@ struct TORCH_API view_copy {
   using schema = at::Tensor (const at::Tensor &, c10::SymIntArrayRef);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::view_copy")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "view_copy(Tensor self, SymInt[] size) -> Tensor")
+  static constexpr const char* name = "aten::view_copy";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "view_copy(Tensor self, SymInt[] size) -> Tensor";
   static at::Tensor call(const at::Tensor & self, c10::SymIntArrayRef size);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, c10::SymIntArrayRef size);
 };
@@ -29,9 +29,9 @@ struct TORCH_API view_copy_dtype {
   using schema = at::Tensor (const at::Tensor &, at::ScalarType);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::view_copy")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "dtype")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "view_copy.dtype(Tensor self, ScalarType dtype) -> Tensor")
+  static constexpr const char* name = "aten::view_copy";
+  static constexpr const char* overload_name = "dtype";
+  static constexpr const char* schema_str = "view_copy.dtype(Tensor self, ScalarType dtype) -> Tensor";
   static at::Tensor call(const at::Tensor & self, at::ScalarType dtype);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::ScalarType dtype);
 };
@@ -40,9 +40,9 @@ struct TORCH_API view_copy_out {
   using schema = at::Tensor & (const at::Tensor &, c10::SymIntArrayRef, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::view_copy")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "view_copy.out(Tensor self, SymInt[] size, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::view_copy";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "view_copy.out(Tensor self, SymInt[] size, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, c10::SymIntArrayRef size, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, c10::SymIntArrayRef size, at::Tensor & out);
 };
@@ -51,9 +51,9 @@ struct TORCH_API view_copy_dtype_out {
   using schema = at::Tensor & (const at::Tensor &, at::ScalarType, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::view_copy")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "dtype_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "view_copy.dtype_out(Tensor self, ScalarType dtype, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::view_copy";
+  static constexpr const char* overload_name = "dtype_out";
+  static constexpr const char* schema_str = "view_copy.dtype_out(Tensor self, ScalarType dtype, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, at::ScalarType dtype, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::ScalarType dtype, at::Tensor & out);
 };

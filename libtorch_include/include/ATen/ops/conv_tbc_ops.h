@@ -18,9 +18,9 @@ struct TORCH_API conv_tbc {
   using schema = at::Tensor (const at::Tensor &, const at::Tensor &, const at::Tensor &, int64_t);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::conv_tbc")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "conv_tbc(Tensor self, Tensor weight, Tensor bias, int pad=0) -> Tensor")
+  static constexpr const char* name = "aten::conv_tbc";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "conv_tbc(Tensor self, Tensor weight, Tensor bias, int pad=0) -> Tensor";
   static at::Tensor call(const at::Tensor & self, const at::Tensor & weight, const at::Tensor & bias, int64_t pad);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & weight, const at::Tensor & bias, int64_t pad);
 };
@@ -29,9 +29,9 @@ struct TORCH_API conv_tbc_out {
   using schema = at::Tensor & (const at::Tensor &, const at::Tensor &, const at::Tensor &, int64_t, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::conv_tbc")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "conv_tbc.out(Tensor self, Tensor weight, Tensor bias, int pad=0, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::conv_tbc";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "conv_tbc.out(Tensor self, Tensor weight, Tensor bias, int pad=0, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, const at::Tensor & weight, const at::Tensor & bias, int64_t pad, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & weight, const at::Tensor & bias, int64_t pad, at::Tensor & out);
 };

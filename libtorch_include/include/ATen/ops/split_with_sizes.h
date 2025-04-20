@@ -27,7 +27,7 @@ inline ::std::vector<at::Tensor> split_with_sizes(const at::Tensor & self, at::I
     return at::_ops::split_with_sizes::call(self, c10::fromIntArrayRefSlow(split_sizes), dim);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   ::std::vector<at::Tensor> split_with_sizes(const at::Tensor & self, at::IntArrayRef split_sizes, int64_t dim=0) {
     return at::_ops::split_with_sizes::call(self, c10::fromIntArrayRefSlow(split_sizes), dim);
   }
@@ -38,7 +38,7 @@ inline ::std::vector<at::Tensor> split_with_sizes_symint(const at::Tensor & self
     return at::_ops::split_with_sizes::call(self, split_sizes, dim);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   ::std::vector<at::Tensor> split_with_sizes(const at::Tensor & self, c10::SymIntArrayRef split_sizes, int64_t dim=0) {
     return at::_ops::split_with_sizes::call(self, split_sizes, dim);
   }

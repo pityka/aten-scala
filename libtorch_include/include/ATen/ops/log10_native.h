@@ -19,5 +19,8 @@ namespace native {
 struct TORCH_API structured_log10_out : public at::meta::structured_log10 {
 void impl(const at::Tensor & self, const at::Tensor & out);
 };
+struct TORCH_API structured_log10_out_mps : public at::meta::structured_log10 {
+void impl(const at::Tensor & self, const at::Tensor & out);
+};
 } // namespace native
 } // namespace at

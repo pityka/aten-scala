@@ -18,9 +18,9 @@ struct TORCH_API linalg_ldl_factor {
   using schema = ::std::tuple<at::Tensor,at::Tensor> (const at::Tensor &, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::linalg_ldl_factor")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "linalg_ldl_factor(Tensor self, *, bool hermitian=False) -> (Tensor LD, Tensor pivots)")
+  static constexpr const char* name = "aten::linalg_ldl_factor";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "linalg_ldl_factor(Tensor self, *, bool hermitian=False) -> (Tensor LD, Tensor pivots)";
   static ::std::tuple<at::Tensor,at::Tensor> call(const at::Tensor & self, bool hermitian);
   static ::std::tuple<at::Tensor,at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, bool hermitian);
 };
@@ -29,9 +29,9 @@ struct TORCH_API linalg_ldl_factor_out {
   using schema = ::std::tuple<at::Tensor &,at::Tensor &> (const at::Tensor &, bool, at::Tensor &, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::linalg_ldl_factor")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "linalg_ldl_factor.out(Tensor self, *, bool hermitian=False, Tensor(a!) LD, Tensor(b!) pivots) -> (Tensor(a!) LD, Tensor(b!) pivots)")
+  static constexpr const char* name = "aten::linalg_ldl_factor";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "linalg_ldl_factor.out(Tensor self, *, bool hermitian=False, Tensor(a!) LD, Tensor(b!) pivots) -> (Tensor(a!) LD, Tensor(b!) pivots)";
   static ::std::tuple<at::Tensor &,at::Tensor &> call(const at::Tensor & self, bool hermitian, at::Tensor & LD, at::Tensor & pivots);
   static ::std::tuple<at::Tensor &,at::Tensor &> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, bool hermitian, at::Tensor & LD, at::Tensor & pivots);
 };

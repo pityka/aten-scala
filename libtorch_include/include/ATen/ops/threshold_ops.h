@@ -18,9 +18,9 @@ struct TORCH_API threshold {
   using schema = at::Tensor (const at::Tensor &, const at::Scalar &, const at::Scalar &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::threshold")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "threshold(Tensor self, Scalar threshold, Scalar value) -> Tensor")
+  static constexpr const char* name = "aten::threshold";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "threshold(Tensor self, Scalar threshold, Scalar value) -> Tensor";
   static at::Tensor call(const at::Tensor & self, const at::Scalar & threshold, const at::Scalar & value);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Scalar & threshold, const at::Scalar & value);
 };
@@ -29,9 +29,9 @@ struct TORCH_API threshold_ {
   using schema = at::Tensor & (at::Tensor &, const at::Scalar &, const at::Scalar &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::threshold_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "threshold_(Tensor(a!) self, Scalar threshold, Scalar value) -> Tensor(a!)")
+  static constexpr const char* name = "aten::threshold_";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "threshold_(Tensor(a!) self, Scalar threshold, Scalar value) -> Tensor(a!)";
   static at::Tensor & call(at::Tensor & self, const at::Scalar & threshold, const at::Scalar & value);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::Tensor & self, const at::Scalar & threshold, const at::Scalar & value);
 };
@@ -40,9 +40,9 @@ struct TORCH_API threshold_out {
   using schema = at::Tensor & (const at::Tensor &, const at::Scalar &, const at::Scalar &, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::threshold")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "threshold.out(Tensor self, Scalar threshold, Scalar value, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::threshold";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "threshold.out(Tensor self, Scalar threshold, Scalar value, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, const at::Scalar & threshold, const at::Scalar & value, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Scalar & threshold, const at::Scalar & value, at::Tensor & out);
 };

@@ -18,9 +18,9 @@ struct TORCH_API _test_parallel_materialize {
   using schema = at::Tensor (const at::Tensor &, int64_t, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_test_parallel_materialize")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_test_parallel_materialize(Tensor self, int num_parallel, bool skip_first=False) -> Tensor")
+  static constexpr const char* name = "aten::_test_parallel_materialize";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "_test_parallel_materialize(Tensor self, int num_parallel, bool skip_first=False) -> Tensor";
   static at::Tensor call(const at::Tensor & self, int64_t num_parallel, bool skip_first);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t num_parallel, bool skip_first);
 };

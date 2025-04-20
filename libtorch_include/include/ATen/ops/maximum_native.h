@@ -19,5 +19,8 @@ namespace native {
 struct TORCH_API structured_maximum_out : public at::meta::structured_maximum {
 void impl(const at::Tensor & self, const at::Tensor & other, const at::Tensor & out);
 };
+struct TORCH_API structured_maximum_out_mps : public at::meta::structured_maximum {
+void impl(const at::Tensor & self, const at::Tensor & other, const at::Tensor & out);
+};
 } // namespace native
 } // namespace at

@@ -18,9 +18,9 @@ struct TORCH_API polar {
   using schema = at::Tensor (const at::Tensor &, const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::polar")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "polar(Tensor abs, Tensor angle) -> Tensor")
+  static constexpr const char* name = "aten::polar";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "polar(Tensor abs, Tensor angle) -> Tensor";
   static at::Tensor call(const at::Tensor & abs, const at::Tensor & angle);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & abs, const at::Tensor & angle);
 };
@@ -29,9 +29,9 @@ struct TORCH_API polar_out {
   using schema = at::Tensor & (const at::Tensor &, const at::Tensor &, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::polar")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "polar.out(Tensor abs, Tensor angle, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::polar";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "polar.out(Tensor abs, Tensor angle, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & abs, const at::Tensor & angle, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & abs, const at::Tensor & angle, at::Tensor & out);
 };

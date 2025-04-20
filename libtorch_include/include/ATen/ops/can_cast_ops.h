@@ -18,9 +18,9 @@ struct TORCH_API can_cast {
   using schema = bool (at::ScalarType, at::ScalarType);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::can_cast")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "can_cast(ScalarType from_, ScalarType to) -> bool")
+  static constexpr const char* name = "aten::can_cast";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "can_cast(ScalarType from_, ScalarType to) -> bool";
   static bool call(at::ScalarType from_, at::ScalarType to);
   static bool redispatch(c10::DispatchKeySet dispatchKeySet, at::ScalarType from_, at::ScalarType to);
 };

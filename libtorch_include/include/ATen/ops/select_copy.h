@@ -27,7 +27,7 @@ inline at::Tensor select_copy(const at::Tensor & self, int64_t dim, int64_t inde
     return at::_ops::select_copy_int::call(self, dim, index);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor select_copy(const at::Tensor & self, int64_t dim, int64_t index) {
     return at::_ops::select_copy_int::call(self, dim, index);
   }
@@ -38,7 +38,7 @@ inline at::Tensor select_copy_symint(const at::Tensor & self, int64_t dim, c10::
     return at::_ops::select_copy_int::call(self, dim, index);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor select_copy(const at::Tensor & self, int64_t dim, c10::SymInt index) {
     return at::_ops::select_copy_int::call(self, dim, index);
   }
@@ -49,7 +49,7 @@ inline at::Tensor & select_copy_out(at::Tensor & out, const at::Tensor & self, i
     return at::_ops::select_copy_int_out::call(self, dim, index, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & select_copy_out(at::Tensor & out, const at::Tensor & self, int64_t dim, int64_t index) {
     return at::_ops::select_copy_int_out::call(self, dim, index, out);
   }
@@ -60,7 +60,7 @@ inline at::Tensor & select_copy_outf(const at::Tensor & self, int64_t dim, int64
     return at::_ops::select_copy_int_out::call(self, dim, index, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & select_copy_outf(const at::Tensor & self, int64_t dim, int64_t index, at::Tensor & out) {
     return at::_ops::select_copy_int_out::call(self, dim, index, out);
   }
@@ -71,7 +71,7 @@ inline at::Tensor & select_copy_symint_out(at::Tensor & out, const at::Tensor & 
     return at::_ops::select_copy_int_out::call(self, dim, index, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & select_copy_out(at::Tensor & out, const at::Tensor & self, int64_t dim, c10::SymInt index) {
     return at::_ops::select_copy_int_out::call(self, dim, index, out);
   }
@@ -82,7 +82,7 @@ inline at::Tensor & select_copy_symint_outf(const at::Tensor & self, int64_t dim
     return at::_ops::select_copy_int_out::call(self, dim, index, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & select_copy_outf(const at::Tensor & self, int64_t dim, c10::SymInt index, at::Tensor & out) {
     return at::_ops::select_copy_int_out::call(self, dim, index, out);
   }

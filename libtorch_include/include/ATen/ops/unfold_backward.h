@@ -27,7 +27,7 @@ inline at::Tensor unfold_backward(const at::Tensor & grad_in, at::IntArrayRef in
     return at::_ops::unfold_backward::call(grad_in, c10::fromIntArrayRefSlow(input_sizes), dim, size, step);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor unfold_backward(const at::Tensor & grad_in, at::IntArrayRef input_sizes, int64_t dim, int64_t size, int64_t step) {
     return at::_ops::unfold_backward::call(grad_in, c10::fromIntArrayRefSlow(input_sizes), dim, size, step);
   }
@@ -38,7 +38,7 @@ inline at::Tensor unfold_backward_symint(const at::Tensor & grad_in, c10::SymInt
     return at::_ops::unfold_backward::call(grad_in, input_sizes, dim, size, step);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor unfold_backward(const at::Tensor & grad_in, c10::SymIntArrayRef input_sizes, int64_t dim, int64_t size, int64_t step) {
     return at::_ops::unfold_backward::call(grad_in, input_sizes, dim, size, step);
   }
@@ -49,7 +49,7 @@ inline at::Tensor & unfold_backward_out(at::Tensor & out, const at::Tensor & gra
     return at::_ops::unfold_backward_out::call(grad_in, c10::fromIntArrayRefSlow(input_sizes), dim, size, step, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & unfold_backward_out(at::Tensor & out, const at::Tensor & grad_in, at::IntArrayRef input_sizes, int64_t dim, int64_t size, int64_t step) {
     return at::_ops::unfold_backward_out::call(grad_in, c10::fromIntArrayRefSlow(input_sizes), dim, size, step, out);
   }
@@ -60,7 +60,7 @@ inline at::Tensor & unfold_backward_outf(const at::Tensor & grad_in, at::IntArra
     return at::_ops::unfold_backward_out::call(grad_in, c10::fromIntArrayRefSlow(input_sizes), dim, size, step, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & unfold_backward_outf(const at::Tensor & grad_in, at::IntArrayRef input_sizes, int64_t dim, int64_t size, int64_t step, at::Tensor & out) {
     return at::_ops::unfold_backward_out::call(grad_in, c10::fromIntArrayRefSlow(input_sizes), dim, size, step, out);
   }
@@ -71,7 +71,7 @@ inline at::Tensor & unfold_backward_symint_out(at::Tensor & out, const at::Tenso
     return at::_ops::unfold_backward_out::call(grad_in, input_sizes, dim, size, step, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & unfold_backward_out(at::Tensor & out, const at::Tensor & grad_in, c10::SymIntArrayRef input_sizes, int64_t dim, int64_t size, int64_t step) {
     return at::_ops::unfold_backward_out::call(grad_in, input_sizes, dim, size, step, out);
   }
@@ -82,7 +82,7 @@ inline at::Tensor & unfold_backward_symint_outf(const at::Tensor & grad_in, c10:
     return at::_ops::unfold_backward_out::call(grad_in, input_sizes, dim, size, step, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & unfold_backward_outf(const at::Tensor & grad_in, c10::SymIntArrayRef input_sizes, int64_t dim, int64_t size, int64_t step, at::Tensor & out) {
     return at::_ops::unfold_backward_out::call(grad_in, input_sizes, dim, size, step, out);
   }

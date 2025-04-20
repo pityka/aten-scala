@@ -18,9 +18,9 @@ struct TORCH_API random__from {
   using schema = at::Tensor & (at::Tensor &, int64_t, ::std::optional<int64_t>, ::std::optional<at::Generator>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::random_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "from")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "random_.from(Tensor(a!) self, int from, int? to, *, Generator? generator=None) -> Tensor(a!)")
+  static constexpr const char* name = "aten::random_";
+  static constexpr const char* overload_name = "from";
+  static constexpr const char* schema_str = "random_.from(Tensor(a!) self, int from, int? to, *, Generator? generator=None) -> Tensor(a!)";
   static at::Tensor & call(at::Tensor & self, int64_t from, ::std::optional<int64_t> to, ::std::optional<at::Generator> generator);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::Tensor & self, int64_t from, ::std::optional<int64_t> to, ::std::optional<at::Generator> generator);
 };
@@ -29,9 +29,9 @@ struct TORCH_API random__to {
   using schema = at::Tensor & (at::Tensor &, int64_t, ::std::optional<at::Generator>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::random_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "to")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "random_.to(Tensor(a!) self, int to, *, Generator? generator=None) -> Tensor(a!)")
+  static constexpr const char* name = "aten::random_";
+  static constexpr const char* overload_name = "to";
+  static constexpr const char* schema_str = "random_.to(Tensor(a!) self, int to, *, Generator? generator=None) -> Tensor(a!)";
   static at::Tensor & call(at::Tensor & self, int64_t to, ::std::optional<at::Generator> generator);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::Tensor & self, int64_t to, ::std::optional<at::Generator> generator);
 };
@@ -40,9 +40,9 @@ struct TORCH_API random_ {
   using schema = at::Tensor & (at::Tensor &, ::std::optional<at::Generator>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::random_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "random_(Tensor(a!) self, *, Generator? generator=None) -> Tensor(a!)")
+  static constexpr const char* name = "aten::random_";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "random_(Tensor(a!) self, *, Generator? generator=None) -> Tensor(a!)";
   static at::Tensor & call(at::Tensor & self, ::std::optional<at::Generator> generator);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::Tensor & self, ::std::optional<at::Generator> generator);
 };
@@ -51,9 +51,9 @@ struct TORCH_API random_from_out {
   using schema = at::Tensor & (const at::Tensor &, int64_t, ::std::optional<int64_t>, ::std::optional<at::Generator>, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::random")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "from_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "random.from_out(Tensor self, int from, int? to, *, Generator? generator=None, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::random";
+  static constexpr const char* overload_name = "from_out";
+  static constexpr const char* schema_str = "random.from_out(Tensor self, int from, int? to, *, Generator? generator=None, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, int64_t from, ::std::optional<int64_t> to, ::std::optional<at::Generator> generator, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t from, ::std::optional<int64_t> to, ::std::optional<at::Generator> generator, at::Tensor & out);
 };
@@ -62,9 +62,9 @@ struct TORCH_API random_from {
   using schema = at::Tensor (const at::Tensor &, int64_t, ::std::optional<int64_t>, ::std::optional<at::Generator>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::random")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "from")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "random.from(Tensor self, int from, int? to, *, Generator? generator=None) -> Tensor")
+  static constexpr const char* name = "aten::random";
+  static constexpr const char* overload_name = "from";
+  static constexpr const char* schema_str = "random.from(Tensor self, int from, int? to, *, Generator? generator=None) -> Tensor";
   static at::Tensor call(const at::Tensor & self, int64_t from, ::std::optional<int64_t> to, ::std::optional<at::Generator> generator);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t from, ::std::optional<int64_t> to, ::std::optional<at::Generator> generator);
 };
@@ -73,9 +73,9 @@ struct TORCH_API random_to_out {
   using schema = at::Tensor & (const at::Tensor &, int64_t, ::std::optional<at::Generator>, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::random")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "to_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "random.to_out(Tensor self, int to, *, Generator? generator=None, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::random";
+  static constexpr const char* overload_name = "to_out";
+  static constexpr const char* schema_str = "random.to_out(Tensor self, int to, *, Generator? generator=None, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, int64_t to, ::std::optional<at::Generator> generator, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t to, ::std::optional<at::Generator> generator, at::Tensor & out);
 };
@@ -84,9 +84,9 @@ struct TORCH_API random_to {
   using schema = at::Tensor (const at::Tensor &, int64_t, ::std::optional<at::Generator>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::random")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "to")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "random.to(Tensor self, int to, *, Generator? generator=None) -> Tensor")
+  static constexpr const char* name = "aten::random";
+  static constexpr const char* overload_name = "to";
+  static constexpr const char* schema_str = "random.to(Tensor self, int to, *, Generator? generator=None) -> Tensor";
   static at::Tensor call(const at::Tensor & self, int64_t to, ::std::optional<at::Generator> generator);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t to, ::std::optional<at::Generator> generator);
 };
@@ -95,9 +95,9 @@ struct TORCH_API random_out {
   using schema = at::Tensor & (const at::Tensor &, ::std::optional<at::Generator>, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::random")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "random.out(Tensor self, *, Generator? generator=None, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::random";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "random.out(Tensor self, *, Generator? generator=None, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, ::std::optional<at::Generator> generator, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, ::std::optional<at::Generator> generator, at::Tensor & out);
 };
@@ -106,9 +106,9 @@ struct TORCH_API random {
   using schema = at::Tensor (const at::Tensor &, ::std::optional<at::Generator>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::random")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "random(Tensor self, *, Generator? generator=None) -> Tensor")
+  static constexpr const char* name = "aten::random";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "random(Tensor self, *, Generator? generator=None) -> Tensor";
   static at::Tensor call(const at::Tensor & self, ::std::optional<at::Generator> generator);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, ::std::optional<at::Generator> generator);
 };

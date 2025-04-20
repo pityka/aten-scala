@@ -18,9 +18,9 @@ struct TORCH_API _sobol_engine_scramble_ {
   using schema = at::Tensor & (at::Tensor &, const at::Tensor &, int64_t);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_sobol_engine_scramble_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_sobol_engine_scramble_(Tensor(a!) self, Tensor ltm, int dimension) -> Tensor(a!)")
+  static constexpr const char* name = "aten::_sobol_engine_scramble_";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "_sobol_engine_scramble_(Tensor(a!) self, Tensor ltm, int dimension) -> Tensor(a!)";
   static at::Tensor & call(at::Tensor & self, const at::Tensor & ltm, int64_t dimension);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::Tensor & self, const at::Tensor & ltm, int64_t dimension);
 };

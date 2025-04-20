@@ -15,14 +15,14 @@ namespace _ops {
 
 
 struct TORCH_API rms_norm {
-  using schema = at::Tensor (const at::Tensor &, at::IntArrayRef, const ::std::optional<at::Tensor> &, ::std::optional<double>);
+  using schema = at::Tensor (const at::Tensor &, c10::SymIntArrayRef, const ::std::optional<at::Tensor> &, ::std::optional<double>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::rms_norm")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "rms_norm(Tensor input, int[] normalized_shape, Tensor? weight=None, float? eps=None) -> Tensor")
-  static at::Tensor call(const at::Tensor & input, at::IntArrayRef normalized_shape, const ::std::optional<at::Tensor> & weight, ::std::optional<double> eps);
-  static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & input, at::IntArrayRef normalized_shape, const ::std::optional<at::Tensor> & weight, ::std::optional<double> eps);
+  static constexpr const char* name = "aten::rms_norm";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "rms_norm(Tensor input, SymInt[] normalized_shape, Tensor? weight=None, float? eps=None) -> Tensor";
+  static at::Tensor call(const at::Tensor & input, c10::SymIntArrayRef normalized_shape, const ::std::optional<at::Tensor> & weight, ::std::optional<double> eps);
+  static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & input, c10::SymIntArrayRef normalized_shape, const ::std::optional<at::Tensor> & weight, ::std::optional<double> eps);
 };
 
 }} // namespace at::_ops

@@ -19,5 +19,8 @@ namespace native {
 struct TORCH_API structured_minimum_out : public at::meta::structured_minimum {
 void impl(const at::Tensor & self, const at::Tensor & other, const at::Tensor & out);
 };
+struct TORCH_API structured_minimum_out_mps : public at::meta::structured_minimum {
+void impl(const at::Tensor & self, const at::Tensor & other, const at::Tensor & out);
+};
 } // namespace native
 } // namespace at

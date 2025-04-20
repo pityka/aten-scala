@@ -18,9 +18,9 @@ struct TORCH_API cosine_similarity {
   using schema = at::Tensor (const at::Tensor &, const at::Tensor &, int64_t, double);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::cosine_similarity")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "cosine_similarity(Tensor x1, Tensor x2, int dim=1, float eps=1e-08) -> Tensor")
+  static constexpr const char* name = "aten::cosine_similarity";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "cosine_similarity(Tensor x1, Tensor x2, int dim=1, float eps=1e-08) -> Tensor";
   static at::Tensor call(const at::Tensor & x1, const at::Tensor & x2, int64_t dim, double eps);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & x1, const at::Tensor & x2, int64_t dim, double eps);
 };

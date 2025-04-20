@@ -18,9 +18,9 @@ struct TORCH_API renorm_out {
   using schema = at::Tensor & (const at::Tensor &, const at::Scalar &, int64_t, const at::Scalar &, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::renorm")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "renorm.out(Tensor self, Scalar p, int dim, Scalar maxnorm, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::renorm";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "renorm.out(Tensor self, Scalar p, int dim, Scalar maxnorm, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, const at::Scalar & p, int64_t dim, const at::Scalar & maxnorm, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Scalar & p, int64_t dim, const at::Scalar & maxnorm, at::Tensor & out);
 };
@@ -29,9 +29,9 @@ struct TORCH_API renorm {
   using schema = at::Tensor (const at::Tensor &, const at::Scalar &, int64_t, const at::Scalar &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::renorm")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "renorm(Tensor self, Scalar p, int dim, Scalar maxnorm) -> Tensor")
+  static constexpr const char* name = "aten::renorm";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "renorm(Tensor self, Scalar p, int dim, Scalar maxnorm) -> Tensor";
   static at::Tensor call(const at::Tensor & self, const at::Scalar & p, int64_t dim, const at::Scalar & maxnorm);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Scalar & p, int64_t dim, const at::Scalar & maxnorm);
 };
@@ -40,9 +40,9 @@ struct TORCH_API renorm_ {
   using schema = at::Tensor & (at::Tensor &, const at::Scalar &, int64_t, const at::Scalar &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::renorm_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "renorm_(Tensor(a!) self, Scalar p, int dim, Scalar maxnorm) -> Tensor(a!)")
+  static constexpr const char* name = "aten::renorm_";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "renorm_(Tensor(a!) self, Scalar p, int dim, Scalar maxnorm) -> Tensor(a!)";
   static at::Tensor & call(at::Tensor & self, const at::Scalar & p, int64_t dim, const at::Scalar & maxnorm);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::Tensor & self, const at::Scalar & p, int64_t dim, const at::Scalar & maxnorm);
 };

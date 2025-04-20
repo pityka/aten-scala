@@ -18,9 +18,9 @@ struct TORCH_API set_data {
   using schema = void (at::Tensor &, const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::set_data")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "set_data(Tensor(a!) self, Tensor new_data) -> ()")
+  static constexpr const char* name = "aten::set_data";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "set_data(Tensor(a!) self, Tensor new_data) -> ()";
   static void call(at::Tensor & self, const at::Tensor & new_data);
   static void redispatch(c10::DispatchKeySet dispatchKeySet, at::Tensor & self, const at::Tensor & new_data);
 };

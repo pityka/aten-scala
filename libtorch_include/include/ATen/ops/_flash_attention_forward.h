@@ -27,7 +27,7 @@ inline ::std::tuple<at::Tensor,at::Tensor,at::Tensor,at::Tensor,at::Tensor> _fla
     return at::_ops::_flash_attention_forward::call(query, key, value, cum_seq_q, cum_seq_k, max_q, max_k, dropout_p, is_causal, return_debug_mask, scale, window_size_left.has_value() ? ::std::make_optional(c10::SymInt(*window_size_left)) : ::std::nullopt, window_size_right.has_value() ? ::std::make_optional(c10::SymInt(*window_size_right)) : ::std::nullopt, seqused_k, alibi_slopes);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   ::std::tuple<at::Tensor,at::Tensor,at::Tensor,at::Tensor,at::Tensor> _flash_attention_forward(const at::Tensor & query, const at::Tensor & key, const at::Tensor & value, const ::std::optional<at::Tensor> & cum_seq_q, const ::std::optional<at::Tensor> & cum_seq_k, int64_t max_q, int64_t max_k, double dropout_p, bool is_causal, bool return_debug_mask, ::std::optional<double> scale=::std::nullopt, ::std::optional<int64_t> window_size_left=::std::nullopt, ::std::optional<int64_t> window_size_right=::std::nullopt, const ::std::optional<at::Tensor> & seqused_k={}, const ::std::optional<at::Tensor> & alibi_slopes={}) {
     return at::_ops::_flash_attention_forward::call(query, key, value, cum_seq_q, cum_seq_k, max_q, max_k, dropout_p, is_causal, return_debug_mask, scale, window_size_left.has_value() ? ::std::make_optional(c10::SymInt(*window_size_left)) : ::std::nullopt, window_size_right.has_value() ? ::std::make_optional(c10::SymInt(*window_size_right)) : ::std::nullopt, seqused_k, alibi_slopes);
   }
@@ -38,7 +38,7 @@ inline ::std::tuple<at::Tensor,at::Tensor,at::Tensor,at::Tensor,at::Tensor> _fla
     return at::_ops::_flash_attention_forward::call(query, key, value, cum_seq_q, cum_seq_k, max_q, max_k, dropout_p, is_causal, return_debug_mask, scale, window_size_left, window_size_right, seqused_k, alibi_slopes);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   ::std::tuple<at::Tensor,at::Tensor,at::Tensor,at::Tensor,at::Tensor> _flash_attention_forward(const at::Tensor & query, const at::Tensor & key, const at::Tensor & value, const ::std::optional<at::Tensor> & cum_seq_q, const ::std::optional<at::Tensor> & cum_seq_k, c10::SymInt max_q, c10::SymInt max_k, double dropout_p, bool is_causal, bool return_debug_mask, ::std::optional<double> scale=::std::nullopt, ::std::optional<c10::SymInt> window_size_left=::std::nullopt, ::std::optional<c10::SymInt> window_size_right=::std::nullopt, const ::std::optional<at::Tensor> & seqused_k={}, const ::std::optional<at::Tensor> & alibi_slopes={}) {
     return at::_ops::_flash_attention_forward::call(query, key, value, cum_seq_q, cum_seq_k, max_q, max_k, dropout_p, is_causal, return_debug_mask, scale, window_size_left, window_size_right, seqused_k, alibi_slopes);
   }

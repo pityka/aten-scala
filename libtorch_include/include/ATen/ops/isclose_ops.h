@@ -18,9 +18,9 @@ struct TORCH_API isclose {
   using schema = at::Tensor (const at::Tensor &, const at::Tensor &, double, double, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::isclose")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "isclose(Tensor self, Tensor other, float rtol=1e-05, float atol=1e-08, bool equal_nan=False) -> Tensor")
+  static constexpr const char* name = "aten::isclose";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "isclose(Tensor self, Tensor other, float rtol=1e-05, float atol=1e-08, bool equal_nan=False) -> Tensor";
   static at::Tensor call(const at::Tensor & self, const at::Tensor & other, double rtol, double atol, bool equal_nan);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & other, double rtol, double atol, bool equal_nan);
 };

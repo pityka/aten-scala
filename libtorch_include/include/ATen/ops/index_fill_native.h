@@ -19,9 +19,11 @@ namespace native {
 TORCH_API at::Tensor index_fill(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Scalar & value);
 TORCH_API at::Tensor & index_fill_int_Scalar_out(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Scalar & value, at::Tensor & out);
 TORCH_API at::Tensor & index_fill_(at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Scalar & value);
+TORCH_API at::Tensor & index_fill_mps_(at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Scalar & value);
 TORCH_API at::Tensor index_fill(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & value);
 TORCH_API at::Tensor & index_fill_int_Tensor_out(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & value, at::Tensor & out);
 TORCH_API at::Tensor & index_fill_(at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & value);
+TORCH_API at::Tensor & index_fill_mps_(at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & value);
 TORCH_API at::Tensor & index_fill_(at::Tensor & self, at::Dimname dim, const at::Tensor & index, const at::Scalar & value);
 TORCH_API at::Tensor index_fill(const at::Tensor & self, at::Dimname dim, const at::Tensor & index, const at::Scalar & value);
 TORCH_API at::Tensor & index_fill_(at::Tensor & self, at::Dimname dim, const at::Tensor & index, const at::Tensor & value);

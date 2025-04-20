@@ -27,7 +27,7 @@ inline at::Tensor broadcast_to(const at::Tensor & self, at::IntArrayRef size) {
     return at::_ops::broadcast_to::call(self, c10::fromIntArrayRefSlow(size));
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor broadcast_to(const at::Tensor & self, at::IntArrayRef size) {
     return at::_ops::broadcast_to::call(self, c10::fromIntArrayRefSlow(size));
   }
@@ -38,7 +38,7 @@ inline at::Tensor broadcast_to_symint(const at::Tensor & self, c10::SymIntArrayR
     return at::_ops::broadcast_to::call(self, size);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor broadcast_to(const at::Tensor & self, c10::SymIntArrayRef size) {
     return at::_ops::broadcast_to::call(self, size);
   }

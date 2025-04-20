@@ -18,5 +18,7 @@ namespace at {
 namespace native {
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> linalg_lu_factor(const at::Tensor & A, bool pivot=true);
 TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> linalg_lu_factor_out(const at::Tensor & A, bool pivot, at::Tensor & LU, at::Tensor & pivots);
+TORCH_API ::std::tuple<at::Tensor,at::Tensor> linalg_lu_factor_mps(const at::Tensor & A, bool pivot=true);
+TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> linalg_lu_factor_out_mps(const at::Tensor & A, bool pivot, at::Tensor & LU, at::Tensor & pivots);
 } // namespace native
 } // namespace at

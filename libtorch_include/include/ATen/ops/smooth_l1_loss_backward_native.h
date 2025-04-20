@@ -18,5 +18,6 @@ namespace at {
 namespace native {
 TORCH_API at::Tensor smooth_l1_loss_backward(const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & target, int64_t reduction, double beta);
 TORCH_API at::Tensor & smooth_l1_loss_backward_out(const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & target, int64_t reduction, double beta, at::Tensor & grad_input);
+TORCH_API at::Tensor & smooth_l1_loss_backward_out_mps(const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & target, int64_t reduction, double beta, at::Tensor & grad_input);
 } // namespace native
 } // namespace at

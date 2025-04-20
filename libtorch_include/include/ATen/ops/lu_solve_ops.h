@@ -18,9 +18,9 @@ struct TORCH_API lu_solve_out {
   using schema = at::Tensor & (const at::Tensor &, const at::Tensor &, const at::Tensor &, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::lu_solve")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "lu_solve.out(Tensor self, Tensor LU_data, Tensor LU_pivots, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::lu_solve";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "lu_solve.out(Tensor self, Tensor LU_data, Tensor LU_pivots, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, const at::Tensor & LU_data, const at::Tensor & LU_pivots, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & LU_data, const at::Tensor & LU_pivots, at::Tensor & out);
 };
@@ -29,9 +29,9 @@ struct TORCH_API lu_solve {
   using schema = at::Tensor (const at::Tensor &, const at::Tensor &, const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::lu_solve")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "lu_solve(Tensor self, Tensor LU_data, Tensor LU_pivots) -> Tensor")
+  static constexpr const char* name = "aten::lu_solve";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "lu_solve(Tensor self, Tensor LU_data, Tensor LU_pivots) -> Tensor";
   static at::Tensor call(const at::Tensor & self, const at::Tensor & LU_data, const at::Tensor & LU_pivots);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & LU_data, const at::Tensor & LU_pivots);
 };

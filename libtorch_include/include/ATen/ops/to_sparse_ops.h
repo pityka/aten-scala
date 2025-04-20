@@ -18,9 +18,9 @@ struct TORCH_API to_sparse_sparse_dim {
   using schema = at::Tensor (const at::Tensor &, int64_t);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::to_sparse")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "sparse_dim")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "to_sparse.sparse_dim(Tensor self, int sparse_dim) -> Tensor")
+  static constexpr const char* name = "aten::to_sparse";
+  static constexpr const char* overload_name = "sparse_dim";
+  static constexpr const char* schema_str = "to_sparse.sparse_dim(Tensor self, int sparse_dim) -> Tensor";
   static at::Tensor call(const at::Tensor & self, int64_t sparse_dim);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t sparse_dim);
 };
@@ -29,9 +29,9 @@ struct TORCH_API to_sparse {
   using schema = at::Tensor (const at::Tensor &, ::std::optional<at::Layout>, at::OptionalIntArrayRef, ::std::optional<int64_t>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::to_sparse")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "to_sparse(Tensor self, *, Layout? layout=None, int[2]? blocksize=None, int? dense_dim=None) -> Tensor")
+  static constexpr const char* name = "aten::to_sparse";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "to_sparse(Tensor self, *, Layout? layout=None, int[2]? blocksize=None, int? dense_dim=None) -> Tensor";
   static at::Tensor call(const at::Tensor & self, ::std::optional<at::Layout> layout, at::OptionalIntArrayRef blocksize, ::std::optional<int64_t> dense_dim);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, ::std::optional<at::Layout> layout, at::OptionalIntArrayRef blocksize, ::std::optional<int64_t> dense_dim);
 };

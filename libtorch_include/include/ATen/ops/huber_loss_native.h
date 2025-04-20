@@ -18,5 +18,7 @@ namespace at {
 namespace native {
 TORCH_API at::Tensor huber_loss(const at::Tensor & self, const at::Tensor & target, int64_t reduction=at::Reduction::Mean, double delta=1.0);
 TORCH_API at::Tensor & huber_loss_out(const at::Tensor & self, const at::Tensor & target, int64_t reduction, double delta, at::Tensor & out);
+TORCH_API at::Tensor huber_loss_mps(const at::Tensor & self, const at::Tensor & target, int64_t reduction=at::Reduction::Mean, double delta=1.0);
+TORCH_API at::Tensor & huber_loss_out_mps(const at::Tensor & self, const at::Tensor & target, int64_t reduction, double delta, at::Tensor & out);
 } // namespace native
 } // namespace at

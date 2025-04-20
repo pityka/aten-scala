@@ -18,9 +18,9 @@ struct TORCH_API linalg_inv_ex {
   using schema = ::std::tuple<at::Tensor,at::Tensor> (const at::Tensor &, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::linalg_inv_ex")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "linalg_inv_ex(Tensor A, *, bool check_errors=False) -> (Tensor inverse, Tensor info)")
+  static constexpr const char* name = "aten::linalg_inv_ex";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "linalg_inv_ex(Tensor A, *, bool check_errors=False) -> (Tensor inverse, Tensor info)";
   static ::std::tuple<at::Tensor,at::Tensor> call(const at::Tensor & A, bool check_errors);
   static ::std::tuple<at::Tensor,at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & A, bool check_errors);
 };
@@ -29,9 +29,9 @@ struct TORCH_API linalg_inv_ex_inverse {
   using schema = ::std::tuple<at::Tensor &,at::Tensor &> (const at::Tensor &, bool, at::Tensor &, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::linalg_inv_ex")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "inverse")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "linalg_inv_ex.inverse(Tensor A, *, bool check_errors=False, Tensor(a!) inverse, Tensor(b!) info) -> (Tensor(a!) inverse, Tensor(b!) info)")
+  static constexpr const char* name = "aten::linalg_inv_ex";
+  static constexpr const char* overload_name = "inverse";
+  static constexpr const char* schema_str = "linalg_inv_ex.inverse(Tensor A, *, bool check_errors=False, Tensor(a!) inverse, Tensor(b!) info) -> (Tensor(a!) inverse, Tensor(b!) info)";
   static ::std::tuple<at::Tensor &,at::Tensor &> call(const at::Tensor & A, bool check_errors, at::Tensor & inverse, at::Tensor & info);
   static ::std::tuple<at::Tensor &,at::Tensor &> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & A, bool check_errors, at::Tensor & inverse, at::Tensor & info);
 };

@@ -20,5 +20,7 @@ TORCH_API at::Tensor binary_cross_entropy_cpu(const at::Tensor & self, const at:
 TORCH_API at::Tensor & binary_cross_entropy_out_cpu(const at::Tensor & self, const at::Tensor & target, const ::std::optional<at::Tensor> & weight, int64_t reduction, at::Tensor & out);
 TORCH_API at::Tensor binary_cross_entropy_cuda(const at::Tensor & self, const at::Tensor & target, const ::std::optional<at::Tensor> & weight={}, int64_t reduction=at::Reduction::Mean);
 TORCH_API at::Tensor & binary_cross_entropy_out_cuda(const at::Tensor & self, const at::Tensor & target, const ::std::optional<at::Tensor> & weight, int64_t reduction, at::Tensor & out);
+TORCH_API at::Tensor binary_cross_entropy_mps(const at::Tensor & self, const at::Tensor & target, const ::std::optional<at::Tensor> & weight={}, int64_t reduction=at::Reduction::Mean);
+TORCH_API at::Tensor & binary_cross_entropy_out_mps(const at::Tensor & self, const at::Tensor & target, const ::std::optional<at::Tensor> & weight, int64_t reduction, at::Tensor & out);
 } // namespace native
 } // namespace at

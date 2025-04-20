@@ -27,7 +27,7 @@ inline at::Tensor roll(const at::Tensor & self, at::IntArrayRef shifts, at::IntA
     return at::_ops::roll::call(self, c10::fromIntArrayRefSlow(shifts), dims);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor roll(const at::Tensor & self, at::IntArrayRef shifts, at::IntArrayRef dims={}) {
     return at::_ops::roll::call(self, c10::fromIntArrayRefSlow(shifts), dims);
   }
@@ -38,7 +38,7 @@ inline at::Tensor roll_symint(const at::Tensor & self, c10::SymIntArrayRef shift
     return at::_ops::roll::call(self, shifts, dims);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor roll(const at::Tensor & self, c10::SymIntArrayRef shifts, at::IntArrayRef dims={}) {
     return at::_ops::roll::call(self, shifts, dims);
   }
@@ -49,7 +49,7 @@ inline at::Tensor & roll_out(at::Tensor & out, const at::Tensor & self, at::IntA
     return at::_ops::roll_out::call(self, c10::fromIntArrayRefSlow(shifts), dims, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & roll_out(at::Tensor & out, const at::Tensor & self, at::IntArrayRef shifts, at::IntArrayRef dims={}) {
     return at::_ops::roll_out::call(self, c10::fromIntArrayRefSlow(shifts), dims, out);
   }
@@ -60,7 +60,7 @@ inline at::Tensor & roll_outf(const at::Tensor & self, at::IntArrayRef shifts, a
     return at::_ops::roll_out::call(self, c10::fromIntArrayRefSlow(shifts), dims, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & roll_outf(const at::Tensor & self, at::IntArrayRef shifts, at::IntArrayRef dims, at::Tensor & out) {
     return at::_ops::roll_out::call(self, c10::fromIntArrayRefSlow(shifts), dims, out);
   }
@@ -71,7 +71,7 @@ inline at::Tensor & roll_symint_out(at::Tensor & out, const at::Tensor & self, c
     return at::_ops::roll_out::call(self, shifts, dims, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & roll_out(at::Tensor & out, const at::Tensor & self, c10::SymIntArrayRef shifts, at::IntArrayRef dims={}) {
     return at::_ops::roll_out::call(self, shifts, dims, out);
   }
@@ -82,7 +82,7 @@ inline at::Tensor & roll_symint_outf(const at::Tensor & self, c10::SymIntArrayRe
     return at::_ops::roll_out::call(self, shifts, dims, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & roll_outf(const at::Tensor & self, c10::SymIntArrayRef shifts, at::IntArrayRef dims, at::Tensor & out) {
     return at::_ops::roll_out::call(self, shifts, dims, out);
   }

@@ -18,9 +18,9 @@ struct TORCH_API all_dim {
   using schema = at::Tensor (const at::Tensor &, int64_t, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::all")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "dim")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "all.dim(Tensor self, int dim, bool keepdim=False) -> Tensor")
+  static constexpr const char* name = "aten::all";
+  static constexpr const char* overload_name = "dim";
+  static constexpr const char* schema_str = "all.dim(Tensor self, int dim, bool keepdim=False) -> Tensor";
   static at::Tensor call(const at::Tensor & self, int64_t dim, bool keepdim);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t dim, bool keepdim);
 };
@@ -29,9 +29,9 @@ struct TORCH_API all_dims {
   using schema = at::Tensor (const at::Tensor &, at::OptionalIntArrayRef, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::all")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "dims")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "all.dims(Tensor self, int[]? dim=None, bool keepdim=False) -> Tensor")
+  static constexpr const char* name = "aten::all";
+  static constexpr const char* overload_name = "dims";
+  static constexpr const char* schema_str = "all.dims(Tensor self, int[]? dim=None, bool keepdim=False) -> Tensor";
   static at::Tensor call(const at::Tensor & self, at::OptionalIntArrayRef dim, bool keepdim);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::OptionalIntArrayRef dim, bool keepdim);
 };
@@ -40,9 +40,9 @@ struct TORCH_API all_out {
   using schema = at::Tensor & (const at::Tensor &, int64_t, bool, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::all")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "all.out(Tensor self, int dim, bool keepdim=False, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::all";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "all.out(Tensor self, int dim, bool keepdim=False, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, int64_t dim, bool keepdim, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t dim, bool keepdim, at::Tensor & out);
 };
@@ -51,9 +51,9 @@ struct TORCH_API all_dims_out {
   using schema = at::Tensor & (const at::Tensor &, at::OptionalIntArrayRef, bool, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::all")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "dims_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "all.dims_out(Tensor self, int[]? dim=None, bool keepdim=False, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::all";
+  static constexpr const char* overload_name = "dims_out";
+  static constexpr const char* schema_str = "all.dims_out(Tensor self, int[]? dim=None, bool keepdim=False, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, at::OptionalIntArrayRef dim, bool keepdim, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::OptionalIntArrayRef dim, bool keepdim, at::Tensor & out);
 };
@@ -62,9 +62,9 @@ struct TORCH_API all_dimname {
   using schema = at::Tensor (const at::Tensor &, at::Dimname, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::all")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "dimname")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "all.dimname(Tensor self, Dimname dim, bool keepdim=False) -> Tensor")
+  static constexpr const char* name = "aten::all";
+  static constexpr const char* overload_name = "dimname";
+  static constexpr const char* schema_str = "all.dimname(Tensor self, Dimname dim, bool keepdim=False) -> Tensor";
   static at::Tensor call(const at::Tensor & self, at::Dimname dim, bool keepdim);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::Dimname dim, bool keepdim);
 };
@@ -73,9 +73,9 @@ struct TORCH_API all_dimname_out {
   using schema = at::Tensor & (const at::Tensor &, at::Dimname, bool, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::all")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "dimname_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "all.dimname_out(Tensor self, Dimname dim, bool keepdim=False, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::all";
+  static constexpr const char* overload_name = "dimname_out";
+  static constexpr const char* schema_str = "all.dimname_out(Tensor self, Dimname dim, bool keepdim=False, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, at::Dimname dim, bool keepdim, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::Dimname dim, bool keepdim, at::Tensor & out);
 };
@@ -84,9 +84,9 @@ struct TORCH_API all {
   using schema = at::Tensor (const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::all")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "all(Tensor self) -> Tensor")
+  static constexpr const char* name = "aten::all";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "all(Tensor self) -> Tensor";
   static at::Tensor call(const at::Tensor & self);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self);
 };
@@ -95,9 +95,9 @@ struct TORCH_API all_all_out {
   using schema = at::Tensor & (const at::Tensor &, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::all")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "all_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "all.all_out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::all";
+  static constexpr const char* overload_name = "all_out";
+  static constexpr const char* schema_str = "all.all_out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::Tensor & out);
 };

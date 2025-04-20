@@ -18,9 +18,9 @@ struct TORCH_API leaky_relu_out {
   using schema = at::Tensor & (const at::Tensor &, const at::Scalar &, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::leaky_relu")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "leaky_relu.out(Tensor self, Scalar negative_slope=0.01, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::leaky_relu";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "leaky_relu.out(Tensor self, Scalar negative_slope=0.01, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, const at::Scalar & negative_slope, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Scalar & negative_slope, at::Tensor & out);
 };
@@ -29,9 +29,9 @@ struct TORCH_API leaky_relu {
   using schema = at::Tensor (const at::Tensor &, const at::Scalar &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::leaky_relu")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "leaky_relu(Tensor self, Scalar negative_slope=0.01) -> Tensor")
+  static constexpr const char* name = "aten::leaky_relu";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "leaky_relu(Tensor self, Scalar negative_slope=0.01) -> Tensor";
   static at::Tensor call(const at::Tensor & self, const at::Scalar & negative_slope);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Scalar & negative_slope);
 };
@@ -40,9 +40,9 @@ struct TORCH_API leaky_relu_ {
   using schema = at::Tensor & (at::Tensor &, const at::Scalar &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::leaky_relu_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "leaky_relu_(Tensor(a!) self, Scalar negative_slope=0.01) -> Tensor(a!)")
+  static constexpr const char* name = "aten::leaky_relu_";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "leaky_relu_(Tensor(a!) self, Scalar negative_slope=0.01) -> Tensor(a!)";
   static at::Tensor & call(at::Tensor & self, const at::Scalar & negative_slope);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::Tensor & self, const at::Scalar & negative_slope);
 };

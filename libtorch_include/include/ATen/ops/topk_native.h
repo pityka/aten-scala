@@ -22,6 +22,9 @@ void impl(const at::Tensor & self, int64_t k, int64_t dim, bool largest, bool so
 struct TORCH_API structured_topk_out_cuda : public at::meta::structured_topk {
 void impl(const at::Tensor & self, int64_t k, int64_t dim, bool largest, bool sorted, const at::Tensor & values, const at::Tensor & indices);
 };
+struct TORCH_API structured_topk_out_mps : public at::meta::structured_topk {
+void impl(const at::Tensor & self, int64_t k, int64_t dim, bool largest, bool sorted, const at::Tensor & values, const at::Tensor & indices);
+};
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> topk_quantized_cpu(const at::Tensor & self, int64_t k, int64_t dim=-1, bool largest=true, bool sorted=true);
 } // namespace native
 } // namespace at

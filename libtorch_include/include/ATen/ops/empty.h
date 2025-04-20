@@ -36,7 +36,7 @@ inline at::Tensor empty(at::IntArrayRef size, at::TensorOptions options={}, ::st
     return at::_ops::empty_memory_format::call(c10::fromIntArrayRefSlow(size), c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt(), c10::impl::check_tensor_options_and_extract_memory_format(options, memory_format));
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor empty(at::IntArrayRef size, at::TensorOptions options={}, ::std::optional<at::MemoryFormat> memory_format=::std::nullopt) {
     return at::_ops::empty_memory_format::call(c10::fromIntArrayRefSlow(size), c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt(), c10::impl::check_tensor_options_and_extract_memory_format(options, memory_format));
   }
@@ -47,7 +47,7 @@ inline at::Tensor empty(at::IntArrayRef size, ::std::optional<at::ScalarType> dt
     return at::_ops::empty_memory_format::call(c10::fromIntArrayRefSlow(size), dtype, layout, device, pin_memory, memory_format);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor empty(at::IntArrayRef size, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory, ::std::optional<at::MemoryFormat> memory_format) {
     return at::_ops::empty_memory_format::call(c10::fromIntArrayRefSlow(size), dtype, layout, device, pin_memory, memory_format);
   }
@@ -58,7 +58,7 @@ inline at::Tensor empty_symint(c10::SymIntArrayRef size, at::TensorOptions optio
     return at::_ops::empty_memory_format::call(size, c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt(), c10::impl::check_tensor_options_and_extract_memory_format(options, memory_format));
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor empty(c10::SymIntArrayRef size, at::TensorOptions options={}, ::std::optional<at::MemoryFormat> memory_format=::std::nullopt) {
     return at::_ops::empty_memory_format::call(size, c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt(), c10::impl::check_tensor_options_and_extract_memory_format(options, memory_format));
   }
@@ -69,7 +69,7 @@ inline at::Tensor empty_symint(c10::SymIntArrayRef size, ::std::optional<at::Sca
     return at::_ops::empty_memory_format::call(size, dtype, layout, device, pin_memory, memory_format);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor empty(c10::SymIntArrayRef size, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory, ::std::optional<at::MemoryFormat> memory_format) {
     return at::_ops::empty_memory_format::call(size, dtype, layout, device, pin_memory, memory_format);
   }
@@ -80,7 +80,7 @@ inline at::Tensor & empty_out(at::Tensor & out, at::IntArrayRef size, ::std::opt
     return at::_ops::empty_out::call(c10::fromIntArrayRefSlow(size), memory_format, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & empty_out(at::Tensor & out, at::IntArrayRef size, ::std::optional<at::MemoryFormat> memory_format=::std::nullopt) {
     return at::_ops::empty_out::call(c10::fromIntArrayRefSlow(size), memory_format, out);
   }
@@ -91,7 +91,7 @@ inline at::Tensor & empty_outf(at::IntArrayRef size, ::std::optional<at::MemoryF
     return at::_ops::empty_out::call(c10::fromIntArrayRefSlow(size), memory_format, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & empty_outf(at::IntArrayRef size, ::std::optional<at::MemoryFormat> memory_format, at::Tensor & out) {
     return at::_ops::empty_out::call(c10::fromIntArrayRefSlow(size), memory_format, out);
   }
@@ -102,7 +102,7 @@ inline at::Tensor & empty_symint_out(at::Tensor & out, c10::SymIntArrayRef size,
     return at::_ops::empty_out::call(size, memory_format, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & empty_out(at::Tensor & out, c10::SymIntArrayRef size, ::std::optional<at::MemoryFormat> memory_format=::std::nullopt) {
     return at::_ops::empty_out::call(size, memory_format, out);
   }
@@ -113,7 +113,7 @@ inline at::Tensor & empty_symint_outf(c10::SymIntArrayRef size, ::std::optional<
     return at::_ops::empty_out::call(size, memory_format, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & empty_outf(c10::SymIntArrayRef size, ::std::optional<at::MemoryFormat> memory_format, at::Tensor & out) {
     return at::_ops::empty_out::call(size, memory_format, out);
   }

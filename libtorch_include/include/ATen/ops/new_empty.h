@@ -23,28 +23,28 @@ namespace at {
 
 
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor new_empty(const at::Tensor & self, at::IntArrayRef size, at::TensorOptions options={}) {
     return at::_ops::new_empty::call(self, c10::fromIntArrayRefSlow(size), c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt());
   }
 }
 
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor new_empty(const at::Tensor & self, at::IntArrayRef size, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory) {
     return at::_ops::new_empty::call(self, c10::fromIntArrayRefSlow(size), dtype, layout, device, pin_memory);
   }
 }
 
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor new_empty(const at::Tensor & self, c10::SymIntArrayRef size, at::TensorOptions options={}) {
     return at::_ops::new_empty::call(self, size, c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt());
   }
 }
 
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor new_empty(const at::Tensor & self, c10::SymIntArrayRef size, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory) {
     return at::_ops::new_empty::call(self, size, dtype, layout, device, pin_memory);
   }
@@ -55,7 +55,7 @@ inline at::Tensor & new_empty_out(at::Tensor & out, const at::Tensor & self, at:
     return at::_ops::new_empty_out::call(self, c10::fromIntArrayRefSlow(size), out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & new_empty_out(at::Tensor & out, const at::Tensor & self, at::IntArrayRef size) {
     return at::_ops::new_empty_out::call(self, c10::fromIntArrayRefSlow(size), out);
   }
@@ -66,7 +66,7 @@ inline at::Tensor & new_empty_outf(const at::Tensor & self, at::IntArrayRef size
     return at::_ops::new_empty_out::call(self, c10::fromIntArrayRefSlow(size), out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & new_empty_outf(const at::Tensor & self, at::IntArrayRef size, at::Tensor & out) {
     return at::_ops::new_empty_out::call(self, c10::fromIntArrayRefSlow(size), out);
   }
@@ -77,7 +77,7 @@ inline at::Tensor & new_empty_symint_out(at::Tensor & out, const at::Tensor & se
     return at::_ops::new_empty_out::call(self, size, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & new_empty_out(at::Tensor & out, const at::Tensor & self, c10::SymIntArrayRef size) {
     return at::_ops::new_empty_out::call(self, size, out);
   }
@@ -88,7 +88,7 @@ inline at::Tensor & new_empty_symint_outf(const at::Tensor & self, c10::SymIntAr
     return at::_ops::new_empty_out::call(self, size, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & new_empty_outf(const at::Tensor & self, c10::SymIntArrayRef size, at::Tensor & out) {
     return at::_ops::new_empty_out::call(self, size, out);
   }

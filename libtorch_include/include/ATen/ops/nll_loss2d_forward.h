@@ -27,7 +27,7 @@ inline ::std::tuple<at::Tensor &,at::Tensor &> nll_loss2d_forward_out(at::Tensor
     return at::_ops::nll_loss2d_forward_output::call(self, target, weight, reduction, ignore_index, output, total_weight);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   ::std::tuple<at::Tensor &,at::Tensor &> nll_loss2d_forward_out(at::Tensor & output, at::Tensor & total_weight, const at::Tensor & self, const at::Tensor & target, const ::std::optional<at::Tensor> & weight, int64_t reduction, int64_t ignore_index) {
     return at::_ops::nll_loss2d_forward_output::call(self, target, weight, reduction, ignore_index, output, total_weight);
   }
@@ -38,7 +38,7 @@ inline ::std::tuple<at::Tensor &,at::Tensor &> nll_loss2d_forward_outf(const at:
     return at::_ops::nll_loss2d_forward_output::call(self, target, weight, reduction, ignore_index, output, total_weight);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   ::std::tuple<at::Tensor &,at::Tensor &> nll_loss2d_forward_outf(const at::Tensor & self, const at::Tensor & target, const ::std::optional<at::Tensor> & weight, int64_t reduction, int64_t ignore_index, at::Tensor & output, at::Tensor & total_weight) {
     return at::_ops::nll_loss2d_forward_output::call(self, target, weight, reduction, ignore_index, output, total_weight);
   }
@@ -49,7 +49,7 @@ inline ::std::tuple<at::Tensor &,at::Tensor &> nll_loss2d_forward_symint_out(at:
     return at::_ops::nll_loss2d_forward_output::call(self, target, weight, reduction, ignore_index, output, total_weight);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   ::std::tuple<at::Tensor &,at::Tensor &> nll_loss2d_forward_out(at::Tensor & output, at::Tensor & total_weight, const at::Tensor & self, const at::Tensor & target, const ::std::optional<at::Tensor> & weight, int64_t reduction, c10::SymInt ignore_index) {
     return at::_ops::nll_loss2d_forward_output::call(self, target, weight, reduction, ignore_index, output, total_weight);
   }
@@ -60,7 +60,7 @@ inline ::std::tuple<at::Tensor &,at::Tensor &> nll_loss2d_forward_symint_outf(co
     return at::_ops::nll_loss2d_forward_output::call(self, target, weight, reduction, ignore_index, output, total_weight);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   ::std::tuple<at::Tensor &,at::Tensor &> nll_loss2d_forward_outf(const at::Tensor & self, const at::Tensor & target, const ::std::optional<at::Tensor> & weight, int64_t reduction, c10::SymInt ignore_index, at::Tensor & output, at::Tensor & total_weight) {
     return at::_ops::nll_loss2d_forward_output::call(self, target, weight, reduction, ignore_index, output, total_weight);
   }
@@ -71,7 +71,7 @@ inline ::std::tuple<at::Tensor,at::Tensor> nll_loss2d_forward(const at::Tensor &
     return at::_ops::nll_loss2d_forward::call(self, target, weight, reduction, ignore_index);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   ::std::tuple<at::Tensor,at::Tensor> nll_loss2d_forward(const at::Tensor & self, const at::Tensor & target, const ::std::optional<at::Tensor> & weight, int64_t reduction, int64_t ignore_index) {
     return at::_ops::nll_loss2d_forward::call(self, target, weight, reduction, ignore_index);
   }
@@ -82,7 +82,7 @@ inline ::std::tuple<at::Tensor,at::Tensor> nll_loss2d_forward_symint(const at::T
     return at::_ops::nll_loss2d_forward::call(self, target, weight, reduction, ignore_index);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   ::std::tuple<at::Tensor,at::Tensor> nll_loss2d_forward(const at::Tensor & self, const at::Tensor & target, const ::std::optional<at::Tensor> & weight, int64_t reduction, c10::SymInt ignore_index) {
     return at::_ops::nll_loss2d_forward::call(self, target, weight, reduction, ignore_index);
   }

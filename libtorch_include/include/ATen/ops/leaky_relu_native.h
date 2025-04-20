@@ -19,6 +19,9 @@ namespace native {
 struct TORCH_API structured_leaky_relu_out : public at::meta::structured_leaky_relu {
 void impl(const at::Tensor & self, const at::Scalar & negative_slope, const at::Tensor & out);
 };
+struct TORCH_API structured_leaky_relu_out_mps : public at::meta::structured_leaky_relu {
+void impl(const at::Tensor & self, const at::Scalar & negative_slope, const at::Tensor & out);
+};
 TORCH_API at::Tensor leaky_relu_quantized_cpu(const at::Tensor & self, const at::Scalar & negative_slope=0.01);
 TORCH_API at::Tensor & leaky_relu_out_quantized_cpu(const at::Tensor & self, const at::Scalar & negative_slope, at::Tensor & out);
 TORCH_API at::Tensor & leaky_relu_quantized_cpu_(at::Tensor & self, const at::Scalar & negative_slope=0.01);

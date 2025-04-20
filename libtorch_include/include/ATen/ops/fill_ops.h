@@ -18,9 +18,9 @@ struct TORCH_API fill_Scalar {
   using schema = at::Tensor (const at::Tensor &, const at::Scalar &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::fill")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Scalar")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "fill.Scalar(Tensor self, Scalar value) -> Tensor")
+  static constexpr const char* name = "aten::fill";
+  static constexpr const char* overload_name = "Scalar";
+  static constexpr const char* schema_str = "fill.Scalar(Tensor self, Scalar value) -> Tensor";
   static at::Tensor call(const at::Tensor & self, const at::Scalar & value);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Scalar & value);
 };
@@ -29,9 +29,9 @@ struct TORCH_API fill_Tensor {
   using schema = at::Tensor (const at::Tensor &, const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::fill")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Tensor")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "fill.Tensor(Tensor self, Tensor value) -> Tensor")
+  static constexpr const char* name = "aten::fill";
+  static constexpr const char* overload_name = "Tensor";
+  static constexpr const char* schema_str = "fill.Tensor(Tensor self, Tensor value) -> Tensor";
   static at::Tensor call(const at::Tensor & self, const at::Tensor & value);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & value);
 };
@@ -40,9 +40,9 @@ struct TORCH_API fill__Scalar {
   using schema = at::Tensor & (at::Tensor &, const at::Scalar &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::fill_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Scalar")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "fill_.Scalar(Tensor(a!) self, Scalar value) -> Tensor(a!)")
+  static constexpr const char* name = "aten::fill_";
+  static constexpr const char* overload_name = "Scalar";
+  static constexpr const char* schema_str = "fill_.Scalar(Tensor(a!) self, Scalar value) -> Tensor(a!)";
   static at::Tensor & call(at::Tensor & self, const at::Scalar & value);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::Tensor & self, const at::Scalar & value);
 };
@@ -51,9 +51,9 @@ struct TORCH_API fill__Tensor {
   using schema = at::Tensor & (at::Tensor &, const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::fill_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Tensor")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "fill_.Tensor(Tensor(a!) self, Tensor value) -> Tensor(a!)")
+  static constexpr const char* name = "aten::fill_";
+  static constexpr const char* overload_name = "Tensor";
+  static constexpr const char* schema_str = "fill_.Tensor(Tensor(a!) self, Tensor value) -> Tensor(a!)";
   static at::Tensor & call(at::Tensor & self, const at::Tensor & value);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::Tensor & self, const at::Tensor & value);
 };
@@ -62,9 +62,9 @@ struct TORCH_API fill_Scalar_out {
   using schema = at::Tensor & (const at::Tensor &, const at::Scalar &, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::fill")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Scalar_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "fill.Scalar_out(Tensor self, Scalar value, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::fill";
+  static constexpr const char* overload_name = "Scalar_out";
+  static constexpr const char* schema_str = "fill.Scalar_out(Tensor self, Scalar value, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, const at::Scalar & value, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Scalar & value, at::Tensor & out);
 };
@@ -73,9 +73,9 @@ struct TORCH_API fill_Tensor_out {
   using schema = at::Tensor & (const at::Tensor &, const at::Tensor &, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::fill")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Tensor_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "fill.Tensor_out(Tensor self, Tensor value, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::fill";
+  static constexpr const char* overload_name = "Tensor_out";
+  static constexpr const char* schema_str = "fill.Tensor_out(Tensor self, Tensor value, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, const at::Tensor & value, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & value, at::Tensor & out);
 };

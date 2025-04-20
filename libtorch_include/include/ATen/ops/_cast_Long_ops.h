@@ -18,9 +18,9 @@ struct TORCH_API _cast_Long {
   using schema = at::Tensor (const at::Tensor &, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_cast_Long")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_cast_Long(Tensor self, bool non_blocking=False) -> Tensor")
+  static constexpr const char* name = "aten::_cast_Long";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "_cast_Long(Tensor self, bool non_blocking=False) -> Tensor";
   static at::Tensor call(const at::Tensor & self, bool non_blocking);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, bool non_blocking);
 };

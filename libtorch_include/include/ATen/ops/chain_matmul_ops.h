@@ -18,9 +18,9 @@ struct TORCH_API chain_matmul {
   using schema = at::Tensor (at::TensorList);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::chain_matmul")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "chain_matmul(Tensor[] matrices) -> Tensor")
+  static constexpr const char* name = "aten::chain_matmul";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "chain_matmul(Tensor[] matrices) -> Tensor";
   static at::Tensor call(at::TensorList matrices);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList matrices);
 };
@@ -29,9 +29,9 @@ struct TORCH_API chain_matmul_out {
   using schema = at::Tensor & (at::TensorList, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::chain_matmul")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "chain_matmul.out(Tensor[] matrices, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::chain_matmul";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "chain_matmul.out(Tensor[] matrices, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(at::TensorList matrices, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList matrices, at::Tensor & out);
 };

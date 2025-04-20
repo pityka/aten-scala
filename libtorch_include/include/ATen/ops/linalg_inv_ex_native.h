@@ -19,5 +19,8 @@ namespace native {
 struct TORCH_API structured_linalg_inv_ex_out : public at::meta::structured_linalg_inv_ex {
 void impl(const at::Tensor & A, bool check_errors, const at::Tensor & inverse, const at::Tensor & info);
 };
+struct TORCH_API structured_linalg_inv_ex_out_mps : public at::meta::structured_linalg_inv_ex {
+void impl(const at::Tensor & A, bool check_errors, const at::Tensor & inverse, const at::Tensor & info);
+};
 } // namespace native
 } // namespace at

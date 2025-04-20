@@ -17,7 +17,7 @@ namespace at {
 
 namespace meta {
 
-TORCH_API at::Tensor & rrelu_with_noise_(at::Tensor & self, const at::Tensor & noise, const at::Scalar & lower=0.125, const at::Scalar & upper=0.3333333333333333, bool training=false, ::std::optional<at::Generator> generator=::std::nullopt);
+TORCH_API at::Tensor & rrelu_with_noise_(at::Tensor & self, at::Tensor & noise, const at::Scalar & lower=0.125, const at::Scalar & upper=0.3333333333333333, bool training=false, ::std::optional<at::Generator> generator=::std::nullopt);
 
 } // namespace meta
 } // namespace at

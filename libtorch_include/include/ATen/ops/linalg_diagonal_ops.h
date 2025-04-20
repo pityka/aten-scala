@@ -18,9 +18,9 @@ struct TORCH_API linalg_diagonal {
   using schema = at::Tensor (const at::Tensor &, int64_t, int64_t, int64_t);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::linalg_diagonal")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "linalg_diagonal(Tensor(a) A, *, int offset=0, int dim1=-2, int dim2=-1) -> Tensor(a)")
+  static constexpr const char* name = "aten::linalg_diagonal";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "linalg_diagonal(Tensor(a) A, *, int offset=0, int dim1=-2, int dim2=-1) -> Tensor(a)";
   static at::Tensor call(const at::Tensor & A, int64_t offset, int64_t dim1, int64_t dim2);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & A, int64_t offset, int64_t dim1, int64_t dim2);
 };

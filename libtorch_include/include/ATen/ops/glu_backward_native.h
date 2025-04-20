@@ -20,5 +20,7 @@ TORCH_API at::Tensor glu_backward_cpu(const at::Tensor & grad_output, const at::
 TORCH_API at::Tensor & glu_backward_cpu_out(const at::Tensor & grad_output, const at::Tensor & self, int64_t dim, at::Tensor & grad_input);
 TORCH_API at::Tensor glu_backward_cuda(const at::Tensor & grad_output, const at::Tensor & self, int64_t dim);
 TORCH_API at::Tensor & glu_backward_cuda_out(const at::Tensor & grad_output, const at::Tensor & self, int64_t dim, at::Tensor & grad_input);
+TORCH_API at::Tensor glu_backward_mps(const at::Tensor & grad_output, const at::Tensor & self, int64_t dim);
+TORCH_API at::Tensor & glu_backward_mps_out(const at::Tensor & grad_output, const at::Tensor & self, int64_t dim, at::Tensor & grad_input);
 } // namespace native
 } // namespace at

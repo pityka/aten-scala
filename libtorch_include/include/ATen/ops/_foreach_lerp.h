@@ -42,6 +42,16 @@ inline void _foreach_lerp_(at::TensorList self, at::TensorList tensors1, const a
     return at::_ops::_foreach_lerp__Scalar::call(self, tensors1, weight);
 }
 
+// aten::_foreach_lerp.ScalarList(Tensor[] self, Tensor[] tensors1, Scalar[] weight) -> Tensor[]
+inline ::std::vector<at::Tensor> _foreach_lerp(at::TensorList self, at::TensorList tensors1, at::ArrayRef<at::Scalar> weight) {
+    return at::_ops::_foreach_lerp_ScalarList::call(self, tensors1, weight);
+}
+
+// aten::_foreach_lerp_.ScalarList(Tensor(a!)[] self, Tensor[] tensors1, Scalar[] weight) -> ()
+inline void _foreach_lerp_(at::TensorList self, at::TensorList tensors1, at::ArrayRef<at::Scalar> weight) {
+    return at::_ops::_foreach_lerp__ScalarList::call(self, tensors1, weight);
+}
+
 // aten::_foreach_lerp.List_out(Tensor[] self, Tensor[] tensors1, Tensor[] weights, *, Tensor(a!)[] out) -> ()
 inline void _foreach_lerp_out(at::TensorList out, at::TensorList self, at::TensorList tensors1, at::TensorList weights) {
     return at::_ops::_foreach_lerp_List_out::call(self, tensors1, weights, out);
@@ -58,6 +68,15 @@ inline void _foreach_lerp_out(at::TensorList out, at::TensorList self, at::Tenso
 // aten::_foreach_lerp.Scalar_out(Tensor[] self, Tensor[] tensors1, Scalar weight, *, Tensor(a!)[] out) -> ()
 inline void _foreach_lerp_outf(at::TensorList self, at::TensorList tensors1, const at::Scalar & weight, at::TensorList out) {
     return at::_ops::_foreach_lerp_Scalar_out::call(self, tensors1, weight, out);
+}
+
+// aten::_foreach_lerp.ScalarList_out(Tensor[] self, Tensor[] tensors1, Scalar[] weight, *, Tensor(a!)[] out) -> ()
+inline void _foreach_lerp_out(at::TensorList out, at::TensorList self, at::TensorList tensors1, at::ArrayRef<at::Scalar> weight) {
+    return at::_ops::_foreach_lerp_ScalarList_out::call(self, tensors1, weight, out);
+}
+// aten::_foreach_lerp.ScalarList_out(Tensor[] self, Tensor[] tensors1, Scalar[] weight, *, Tensor(a!)[] out) -> ()
+inline void _foreach_lerp_outf(at::TensorList self, at::TensorList tensors1, at::ArrayRef<at::Scalar> weight, at::TensorList out) {
+    return at::_ops::_foreach_lerp_ScalarList_out::call(self, tensors1, weight, out);
 }
 
 }

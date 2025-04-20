@@ -19,6 +19,7 @@ namespace native {
 TORCH_API at::Tensor adaptive_avg_pool2d_symint(const at::Tensor & self, c10::SymIntArrayRef output_size);
 TORCH_API at::Tensor & adaptive_avg_pool2d_out_cpu(const at::Tensor & self, at::IntArrayRef output_size, at::Tensor & out);
 TORCH_API at::Tensor & adaptive_avg_pool2d_out_cuda(const at::Tensor & self, at::IntArrayRef output_size, at::Tensor & out);
+TORCH_API at::Tensor & adaptive_avg_pool2d_out_mps(const at::Tensor & self, at::IntArrayRef output_size, at::Tensor & out);
 TORCH_API at::Tensor & mkldnn_adaptive_avg_pool2d_out_stub(const at::Tensor & self, at::IntArrayRef output_size, at::Tensor & out);
 } // namespace native
 } // namespace at

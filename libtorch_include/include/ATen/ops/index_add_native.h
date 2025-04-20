@@ -22,6 +22,9 @@ void impl(const at::Tensor & self, int64_t dim, const at::Tensor & index, const 
 struct TORCH_API structured_index_add_cuda_out : public at::meta::structured_index_add {
 void impl(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & source, const at::Scalar & alpha, const at::Tensor & out);
 };
+struct TORCH_API structured_index_add_mps_out : public at::meta::structured_index_add {
+void impl(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & source, const at::Scalar & alpha, const at::Tensor & out);
+};
 TORCH_API at::Tensor index_add(const at::Tensor & self, at::Dimname dim, const at::Tensor & index, const at::Tensor & source, const at::Scalar & alpha=1);
 } // namespace native
 } // namespace at

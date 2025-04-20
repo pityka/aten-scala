@@ -18,9 +18,9 @@ struct TORCH_API rename_ {
   using schema = at::Tensor & (at::Tensor &, ::std::optional<at::DimnameList>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::rename_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "rename_(Tensor(a!) self, Dimname[]? names) -> Tensor(a!)")
+  static constexpr const char* name = "aten::rename_";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "rename_(Tensor(a!) self, Dimname[]? names) -> Tensor(a!)";
   static at::Tensor & call(at::Tensor & self, ::std::optional<at::DimnameList> names);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::Tensor & self, ::std::optional<at::DimnameList> names);
 };
@@ -29,9 +29,9 @@ struct TORCH_API rename {
   using schema = at::Tensor (const at::Tensor &, ::std::optional<at::DimnameList>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::rename")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "rename(Tensor(a) self, Dimname[]? names) -> Tensor(a)")
+  static constexpr const char* name = "aten::rename";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "rename(Tensor(a) self, Dimname[]? names) -> Tensor(a)";
   static at::Tensor call(const at::Tensor & self, ::std::optional<at::DimnameList> names);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, ::std::optional<at::DimnameList> names);
 };

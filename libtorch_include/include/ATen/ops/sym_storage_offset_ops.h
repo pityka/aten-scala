@@ -18,9 +18,9 @@ struct TORCH_API sym_storage_offset {
   using schema = c10::SymInt (const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::sym_storage_offset")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "sym_storage_offset(Tensor self) -> SymInt")
+  static constexpr const char* name = "aten::sym_storage_offset";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "sym_storage_offset(Tensor self) -> SymInt";
   static c10::SymInt call(const at::Tensor & self);
   static c10::SymInt redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self);
 };

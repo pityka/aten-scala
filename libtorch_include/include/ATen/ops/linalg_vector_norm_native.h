@@ -19,5 +19,8 @@ namespace native {
 struct TORCH_API structured_linalg_vector_norm_out : public at::meta::structured_linalg_vector_norm {
 void impl(const at::Tensor & self, const at::Scalar & ord, at::OptionalIntArrayRef dim, bool keepdim, ::std::optional<at::ScalarType> dtype, const at::Tensor & out);
 };
+struct TORCH_API structured_linalg_vector_norm_out_mps : public at::meta::structured_linalg_vector_norm {
+void impl(const at::Tensor & self, const at::Scalar & ord, at::OptionalIntArrayRef dim, bool keepdim, ::std::optional<at::ScalarType> dtype, const at::Tensor & out);
+};
 } // namespace native
 } // namespace at

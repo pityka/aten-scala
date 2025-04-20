@@ -18,9 +18,9 @@ struct TORCH_API dequantize_self {
   using schema = at::Tensor (const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::dequantize")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "self")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "dequantize.self(Tensor self) -> Tensor")
+  static constexpr const char* name = "aten::dequantize";
+  static constexpr const char* overload_name = "self";
+  static constexpr const char* schema_str = "dequantize.self(Tensor self) -> Tensor";
   static at::Tensor call(const at::Tensor & self);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self);
 };
@@ -29,9 +29,9 @@ struct TORCH_API dequantize_tensors {
   using schema = ::std::vector<at::Tensor> (at::TensorList);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::dequantize")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "tensors")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "dequantize.tensors(Tensor[] tensors) -> Tensor[]")
+  static constexpr const char* name = "aten::dequantize";
+  static constexpr const char* overload_name = "tensors";
+  static constexpr const char* schema_str = "dequantize.tensors(Tensor[] tensors) -> Tensor[]";
   static ::std::vector<at::Tensor> call(at::TensorList tensors);
   static ::std::vector<at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList tensors);
 };
@@ -40,9 +40,9 @@ struct TORCH_API dequantize_self_out {
   using schema = at::Tensor & (const at::Tensor &, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::dequantize")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "self_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "dequantize.self_out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::dequantize";
+  static constexpr const char* overload_name = "self_out";
+  static constexpr const char* schema_str = "dequantize.self_out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::Tensor & out);
 };
@@ -51,9 +51,9 @@ struct TORCH_API dequantize_tensors_out {
   using schema = void (at::TensorList, at::TensorList);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::dequantize")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "tensors_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "dequantize.tensors_out(Tensor[] tensors, *, Tensor(a!)[] out) -> ()")
+  static constexpr const char* name = "aten::dequantize";
+  static constexpr const char* overload_name = "tensors_out";
+  static constexpr const char* schema_str = "dequantize.tensors_out(Tensor[] tensors, *, Tensor(a!)[] out) -> ()";
   static void call(at::TensorList tensors, at::TensorList out);
   static void redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList tensors, at::TensorList out);
 };

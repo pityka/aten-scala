@@ -20,5 +20,7 @@ TORCH_API at::Tensor _fft_r2c_mkl(const at::Tensor & self, at::IntArrayRef dim, 
 TORCH_API at::Tensor & _fft_r2c_mkl_out(const at::Tensor & self, at::IntArrayRef dim, int64_t normalization, bool onesided, at::Tensor & out);
 TORCH_API at::Tensor _fft_r2c_cufft(const at::Tensor & self, at::IntArrayRef dim, int64_t normalization, bool onesided);
 TORCH_API at::Tensor & _fft_r2c_cufft_out(const at::Tensor & self, at::IntArrayRef dim, int64_t normalization, bool onesided, at::Tensor & out);
+TORCH_API at::Tensor _fft_r2c_mps(const at::Tensor & self, at::IntArrayRef dim, int64_t normalization, bool onesided);
+TORCH_API at::Tensor & _fft_r2c_mps_out(const at::Tensor & self, at::IntArrayRef dim, int64_t normalization, bool onesided, at::Tensor & out);
 } // namespace native
 } // namespace at

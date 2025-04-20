@@ -20,5 +20,7 @@ TORCH_API at::Tensor _fft_c2r_mkl(const at::Tensor & self, at::IntArrayRef dim, 
 TORCH_API at::Tensor & _fft_c2r_mkl_out(const at::Tensor & self, at::IntArrayRef dim, int64_t normalization, int64_t last_dim_size, at::Tensor & out);
 TORCH_API at::Tensor _fft_c2r_cufft(const at::Tensor & self, at::IntArrayRef dim, int64_t normalization, int64_t last_dim_size);
 TORCH_API at::Tensor & _fft_c2r_cufft_out(const at::Tensor & self, at::IntArrayRef dim, int64_t normalization, int64_t last_dim_size, at::Tensor & out);
+TORCH_API at::Tensor _fft_c2r_mps(const at::Tensor & self, at::IntArrayRef dim, int64_t normalization, int64_t last_dim_size);
+TORCH_API at::Tensor & _fft_c2r_mps_out(const at::Tensor & self, at::IntArrayRef dim, int64_t normalization, int64_t last_dim_size, at::Tensor & out);
 } // namespace native
 } // namespace at

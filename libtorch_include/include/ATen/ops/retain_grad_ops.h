@@ -18,9 +18,9 @@ struct TORCH_API retain_grad {
   using schema = void (at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::retain_grad")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "retain_grad(Tensor(a!) self) -> ()")
+  static constexpr const char* name = "aten::retain_grad";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "retain_grad(Tensor(a!) self) -> ()";
   static void call(at::Tensor & self);
   static void redispatch(c10::DispatchKeySet dispatchKeySet, at::Tensor & self);
 };

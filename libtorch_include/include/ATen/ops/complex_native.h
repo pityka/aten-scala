@@ -18,5 +18,6 @@ namespace at {
 namespace native {
 TORCH_API at::Tensor complex(const at::Tensor & real, const at::Tensor & imag);
 TORCH_API at::Tensor & complex_out(const at::Tensor & real, const at::Tensor & imag, at::Tensor & out);
+TORCH_API at::Tensor & complex_out_mps(const at::Tensor & real, const at::Tensor & imag, at::Tensor & out);
 } // namespace native
 } // namespace at

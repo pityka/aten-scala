@@ -18,9 +18,9 @@ struct TORCH_API poisson_nll_loss {
   using schema = at::Tensor (const at::Tensor &, const at::Tensor &, bool, bool, double, int64_t);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::poisson_nll_loss")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "poisson_nll_loss(Tensor input, Tensor target, bool log_input, bool full, float eps, int reduction) -> Tensor")
+  static constexpr const char* name = "aten::poisson_nll_loss";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "poisson_nll_loss(Tensor input, Tensor target, bool log_input, bool full, float eps, int reduction) -> Tensor";
   static at::Tensor call(const at::Tensor & input, const at::Tensor & target, bool log_input, bool full, double eps, int64_t reduction);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & input, const at::Tensor & target, bool log_input, bool full, double eps, int64_t reduction);
 };

@@ -27,7 +27,7 @@ inline at::Tensor & col2im_out(at::Tensor & out, const at::Tensor & self, at::In
     return at::_ops::col2im_out::call(self, c10::fromIntArrayRefSlow(output_size), kernel_size, dilation, padding, stride, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & col2im_out(at::Tensor & out, const at::Tensor & self, at::IntArrayRef output_size, at::IntArrayRef kernel_size, at::IntArrayRef dilation, at::IntArrayRef padding, at::IntArrayRef stride) {
     return at::_ops::col2im_out::call(self, c10::fromIntArrayRefSlow(output_size), kernel_size, dilation, padding, stride, out);
   }
@@ -38,7 +38,7 @@ inline at::Tensor & col2im_outf(const at::Tensor & self, at::IntArrayRef output_
     return at::_ops::col2im_out::call(self, c10::fromIntArrayRefSlow(output_size), kernel_size, dilation, padding, stride, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & col2im_outf(const at::Tensor & self, at::IntArrayRef output_size, at::IntArrayRef kernel_size, at::IntArrayRef dilation, at::IntArrayRef padding, at::IntArrayRef stride, at::Tensor & out) {
     return at::_ops::col2im_out::call(self, c10::fromIntArrayRefSlow(output_size), kernel_size, dilation, padding, stride, out);
   }
@@ -49,7 +49,7 @@ inline at::Tensor & col2im_symint_out(at::Tensor & out, const at::Tensor & self,
     return at::_ops::col2im_out::call(self, output_size, kernel_size, dilation, padding, stride, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & col2im_out(at::Tensor & out, const at::Tensor & self, c10::SymIntArrayRef output_size, at::IntArrayRef kernel_size, at::IntArrayRef dilation, at::IntArrayRef padding, at::IntArrayRef stride) {
     return at::_ops::col2im_out::call(self, output_size, kernel_size, dilation, padding, stride, out);
   }
@@ -60,7 +60,7 @@ inline at::Tensor & col2im_symint_outf(const at::Tensor & self, c10::SymIntArray
     return at::_ops::col2im_out::call(self, output_size, kernel_size, dilation, padding, stride, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & col2im_outf(const at::Tensor & self, c10::SymIntArrayRef output_size, at::IntArrayRef kernel_size, at::IntArrayRef dilation, at::IntArrayRef padding, at::IntArrayRef stride, at::Tensor & out) {
     return at::_ops::col2im_out::call(self, output_size, kernel_size, dilation, padding, stride, out);
   }
@@ -71,7 +71,7 @@ inline at::Tensor col2im(const at::Tensor & self, at::IntArrayRef output_size, a
     return at::_ops::col2im::call(self, c10::fromIntArrayRefSlow(output_size), kernel_size, dilation, padding, stride);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor col2im(const at::Tensor & self, at::IntArrayRef output_size, at::IntArrayRef kernel_size, at::IntArrayRef dilation, at::IntArrayRef padding, at::IntArrayRef stride) {
     return at::_ops::col2im::call(self, c10::fromIntArrayRefSlow(output_size), kernel_size, dilation, padding, stride);
   }
@@ -82,7 +82,7 @@ inline at::Tensor col2im_symint(const at::Tensor & self, c10::SymIntArrayRef out
     return at::_ops::col2im::call(self, output_size, kernel_size, dilation, padding, stride);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor col2im(const at::Tensor & self, c10::SymIntArrayRef output_size, at::IntArrayRef kernel_size, at::IntArrayRef dilation, at::IntArrayRef padding, at::IntArrayRef stride) {
     return at::_ops::col2im::call(self, output_size, kernel_size, dilation, padding, stride);
   }

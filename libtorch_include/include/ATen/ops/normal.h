@@ -74,7 +74,7 @@ inline at::Tensor normal(double mean, double std, at::IntArrayRef size, ::std::o
     return at::_ops::normal_float_float::call(mean, std, c10::fromIntArrayRefSlow(size), generator, c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt());
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor normal(double mean, double std, at::IntArrayRef size, ::std::optional<at::Generator> generator=::std::nullopt, at::TensorOptions options={}) {
     return at::_ops::normal_float_float::call(mean, std, c10::fromIntArrayRefSlow(size), generator, c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt());
   }
@@ -85,7 +85,7 @@ inline at::Tensor normal(double mean, double std, at::IntArrayRef size, ::std::o
     return at::_ops::normal_float_float::call(mean, std, c10::fromIntArrayRefSlow(size), generator, dtype, layout, device, pin_memory);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor normal(double mean, double std, at::IntArrayRef size, ::std::optional<at::Generator> generator, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory) {
     return at::_ops::normal_float_float::call(mean, std, c10::fromIntArrayRefSlow(size), generator, dtype, layout, device, pin_memory);
   }
@@ -96,7 +96,7 @@ inline at::Tensor normal_symint(double mean, double std, c10::SymIntArrayRef siz
     return at::_ops::normal_float_float::call(mean, std, size, generator, c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt());
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor normal(double mean, double std, c10::SymIntArrayRef size, ::std::optional<at::Generator> generator=::std::nullopt, at::TensorOptions options={}) {
     return at::_ops::normal_float_float::call(mean, std, size, generator, c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt());
   }
@@ -107,7 +107,7 @@ inline at::Tensor normal_symint(double mean, double std, c10::SymIntArrayRef siz
     return at::_ops::normal_float_float::call(mean, std, size, generator, dtype, layout, device, pin_memory);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor normal(double mean, double std, c10::SymIntArrayRef size, ::std::optional<at::Generator> generator, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory) {
     return at::_ops::normal_float_float::call(mean, std, size, generator, dtype, layout, device, pin_memory);
   }
@@ -118,7 +118,7 @@ inline at::Tensor & normal_out(at::Tensor & out, double mean, double std, at::In
     return at::_ops::normal_float_float_out::call(mean, std, c10::fromIntArrayRefSlow(size), generator, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & normal_out(at::Tensor & out, double mean, double std, at::IntArrayRef size, ::std::optional<at::Generator> generator=::std::nullopt) {
     return at::_ops::normal_float_float_out::call(mean, std, c10::fromIntArrayRefSlow(size), generator, out);
   }
@@ -129,7 +129,7 @@ inline at::Tensor & normal_outf(double mean, double std, at::IntArrayRef size, :
     return at::_ops::normal_float_float_out::call(mean, std, c10::fromIntArrayRefSlow(size), generator, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & normal_outf(double mean, double std, at::IntArrayRef size, ::std::optional<at::Generator> generator, at::Tensor & out) {
     return at::_ops::normal_float_float_out::call(mean, std, c10::fromIntArrayRefSlow(size), generator, out);
   }
@@ -140,7 +140,7 @@ inline at::Tensor & normal_symint_out(at::Tensor & out, double mean, double std,
     return at::_ops::normal_float_float_out::call(mean, std, size, generator, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & normal_out(at::Tensor & out, double mean, double std, c10::SymIntArrayRef size, ::std::optional<at::Generator> generator=::std::nullopt) {
     return at::_ops::normal_float_float_out::call(mean, std, size, generator, out);
   }
@@ -151,7 +151,7 @@ inline at::Tensor & normal_symint_outf(double mean, double std, c10::SymIntArray
     return at::_ops::normal_float_float_out::call(mean, std, size, generator, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & normal_outf(double mean, double std, c10::SymIntArrayRef size, ::std::optional<at::Generator> generator, at::Tensor & out) {
     return at::_ops::normal_float_float_out::call(mean, std, size, generator, out);
   }

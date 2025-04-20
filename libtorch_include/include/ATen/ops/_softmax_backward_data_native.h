@@ -23,5 +23,8 @@ struct TORCH_API structured_softmax_backward_cuda_out : public at::meta::structu
 void impl(const at::Tensor & grad_output, const at::Tensor & output, int64_t dim, at::ScalarType input_dtype, const at::Tensor & grad_input);
 };
 TORCH_API at::Tensor nested_softmax_backward(const at::Tensor & grad_output, const at::Tensor & output, int64_t dim, at::ScalarType input_dtype);
+struct TORCH_API structured_softmax_backward_mps_out : public at::meta::structured__softmax_backward_data {
+void impl(const at::Tensor & grad_output, const at::Tensor & output, int64_t dim, at::ScalarType input_dtype, const at::Tensor & grad_input);
+};
 } // namespace native
 } // namespace at

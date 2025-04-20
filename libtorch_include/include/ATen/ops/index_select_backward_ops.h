@@ -18,9 +18,9 @@ struct TORCH_API index_select_backward {
   using schema = at::Tensor (const at::Tensor &, c10::SymIntArrayRef, int64_t, const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::index_select_backward")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "index_select_backward(Tensor grad, SymInt[] self_sizes, int dim, Tensor index) -> Tensor")
+  static constexpr const char* name = "aten::index_select_backward";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "index_select_backward(Tensor grad, SymInt[] self_sizes, int dim, Tensor index) -> Tensor";
   static at::Tensor call(const at::Tensor & grad, c10::SymIntArrayRef self_sizes, int64_t dim, const at::Tensor & index);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & grad, c10::SymIntArrayRef self_sizes, int64_t dim, const at::Tensor & index);
 };

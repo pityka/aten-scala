@@ -22,5 +22,8 @@ void impl(const at::Tensor & self, int64_t dim, bool half_to_float, const at::Te
 struct TORCH_API structured_log_softmax_cuda_out : public at::meta::structured__log_softmax {
 void impl(const at::Tensor & self, int64_t dim, bool half_to_float, const at::Tensor & out);
 };
+struct TORCH_API structured_log_softmax_mps_out : public at::meta::structured__log_softmax {
+void impl(const at::Tensor & self, int64_t dim, bool half_to_float, const at::Tensor & out);
+};
 } // namespace native
 } // namespace at

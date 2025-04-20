@@ -18,9 +18,9 @@ struct TORCH_API sym_constrain_range_for_size {
   using schema = void (const at::Scalar &, ::std::optional<int64_t>, ::std::optional<int64_t>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::sym_constrain_range_for_size")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "sym_constrain_range_for_size(Scalar size, *, int? min=None, int? max=None) -> ()")
+  static constexpr const char* name = "aten::sym_constrain_range_for_size";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "sym_constrain_range_for_size(Scalar size, *, int? min=None, int? max=None) -> ()";
   static void call(const at::Scalar & size, ::std::optional<int64_t> min, ::std::optional<int64_t> max);
   static void redispatch(c10::DispatchKeySet dispatchKeySet, const at::Scalar & size, ::std::optional<int64_t> min, ::std::optional<int64_t> max);
 };

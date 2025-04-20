@@ -19,6 +19,9 @@ namespace native {
 struct TORCH_API structured_polygamma_out : public at::meta::structured_polygamma {
 void impl(int64_t n, const at::Tensor & self, const at::Tensor & out);
 };
+struct TORCH_API structured_polygamma_out_mps : public at::meta::structured_polygamma {
+void impl(int64_t n, const at::Tensor & self, const at::Tensor & out);
+};
 TORCH_API at::Tensor & polygamma_(at::Tensor & self, int64_t n);
 } // namespace native
 } // namespace at

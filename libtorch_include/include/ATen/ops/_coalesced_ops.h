@@ -18,9 +18,9 @@ struct TORCH_API _coalesced_ {
   using schema = at::Tensor & (at::Tensor &, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_coalesced_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_coalesced_(Tensor(a!) self, bool coalesced) -> Tensor(a!)")
+  static constexpr const char* name = "aten::_coalesced_";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "_coalesced_(Tensor(a!) self, bool coalesced) -> Tensor(a!)";
   static at::Tensor & call(at::Tensor & self, bool coalesced);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::Tensor & self, bool coalesced);
 };
@@ -29,9 +29,9 @@ struct TORCH_API _coalesced_out {
   using schema = at::Tensor & (const at::Tensor &, bool, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_coalesced")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_coalesced.out(Tensor self, bool coalesced, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::_coalesced";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "_coalesced.out(Tensor self, bool coalesced, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, bool coalesced, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, bool coalesced, at::Tensor & out);
 };
@@ -40,9 +40,9 @@ struct TORCH_API _coalesced {
   using schema = at::Tensor (const at::Tensor &, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_coalesced")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_coalesced(Tensor self, bool coalesced) -> Tensor")
+  static constexpr const char* name = "aten::_coalesced";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "_coalesced(Tensor self, bool coalesced) -> Tensor";
   static at::Tensor call(const at::Tensor & self, bool coalesced);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, bool coalesced);
 };

@@ -18,9 +18,9 @@ struct TORCH_API vstack {
   using schema = at::Tensor (at::TensorList);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::vstack")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "vstack(Tensor[] tensors) -> Tensor")
+  static constexpr const char* name = "aten::vstack";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "vstack(Tensor[] tensors) -> Tensor";
   static at::Tensor call(at::TensorList tensors);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList tensors);
 };
@@ -29,9 +29,9 @@ struct TORCH_API vstack_out {
   using schema = at::Tensor & (at::TensorList, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::vstack")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "vstack.out(Tensor[] tensors, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::vstack";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "vstack.out(Tensor[] tensors, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(at::TensorList tensors, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList tensors, at::Tensor & out);
 };

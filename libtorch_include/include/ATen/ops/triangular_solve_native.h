@@ -21,5 +21,8 @@ void impl(const at::Tensor & self, const at::Tensor & A, bool upper, bool transp
 };
 TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> triangular_solve_out_sparse_csr_cpu(const at::Tensor & self, const at::Tensor & A, bool upper, bool transpose, bool unitriangular, at::Tensor & X, at::Tensor & M);
 TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> triangular_solve_out_sparse_csr_cuda(const at::Tensor & self, const at::Tensor & A, bool upper, bool transpose, bool unitriangular, at::Tensor & X, at::Tensor & M);
+struct TORCH_API structured_triangular_solve_mps_out : public at::meta::structured_triangular_solve {
+void impl(const at::Tensor & self, const at::Tensor & A, bool upper, bool transpose, bool unitriangular, const at::Tensor & X, const at::Tensor & M);
+};
 } // namespace native
 } // namespace at

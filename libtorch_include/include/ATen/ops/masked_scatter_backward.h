@@ -27,7 +27,7 @@ inline at::Tensor masked_scatter_backward(const at::Tensor & grad_output, const 
     return at::_ops::masked_scatter_backward::call(grad_output, mask, c10::fromIntArrayRefSlow(sizes));
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor masked_scatter_backward(const at::Tensor & grad_output, const at::Tensor & mask, at::IntArrayRef sizes) {
     return at::_ops::masked_scatter_backward::call(grad_output, mask, c10::fromIntArrayRefSlow(sizes));
   }
@@ -38,7 +38,7 @@ inline at::Tensor masked_scatter_backward_symint(const at::Tensor & grad_output,
     return at::_ops::masked_scatter_backward::call(grad_output, mask, sizes);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor masked_scatter_backward(const at::Tensor & grad_output, const at::Tensor & mask, c10::SymIntArrayRef sizes) {
     return at::_ops::masked_scatter_backward::call(grad_output, mask, sizes);
   }

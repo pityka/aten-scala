@@ -18,9 +18,9 @@ struct TORCH_API q_scale {
   using schema = double (const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::q_scale")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "q_scale(Tensor self) -> float")
+  static constexpr const char* name = "aten::q_scale";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "q_scale(Tensor self) -> float";
   static double call(const at::Tensor & self);
   static double redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self);
 };

@@ -18,9 +18,9 @@ struct TORCH_API linalg_ldl_solve {
   using schema = at::Tensor (const at::Tensor &, const at::Tensor &, const at::Tensor &, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::linalg_ldl_solve")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "linalg_ldl_solve(Tensor LD, Tensor pivots, Tensor B, *, bool hermitian=False) -> Tensor")
+  static constexpr const char* name = "aten::linalg_ldl_solve";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "linalg_ldl_solve(Tensor LD, Tensor pivots, Tensor B, *, bool hermitian=False) -> Tensor";
   static at::Tensor call(const at::Tensor & LD, const at::Tensor & pivots, const at::Tensor & B, bool hermitian);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & LD, const at::Tensor & pivots, const at::Tensor & B, bool hermitian);
 };
@@ -29,9 +29,9 @@ struct TORCH_API linalg_ldl_solve_out {
   using schema = at::Tensor & (const at::Tensor &, const at::Tensor &, const at::Tensor &, bool, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::linalg_ldl_solve")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "linalg_ldl_solve.out(Tensor LD, Tensor pivots, Tensor B, *, bool hermitian=False, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::linalg_ldl_solve";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "linalg_ldl_solve.out(Tensor LD, Tensor pivots, Tensor B, *, bool hermitian=False, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & LD, const at::Tensor & pivots, const at::Tensor & B, bool hermitian, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & LD, const at::Tensor & pivots, const at::Tensor & B, bool hermitian, at::Tensor & out);
 };

@@ -19,5 +19,8 @@ namespace native {
 struct TORCH_API structured_amin_out : public at::meta::structured_amin {
 void impl(const at::Tensor & self, at::IntArrayRef dim, bool keepdim, const at::Tensor & out);
 };
+struct TORCH_API structured_amin_out_mps : public at::meta::structured_amin {
+void impl(const at::Tensor & self, at::IntArrayRef dim, bool keepdim, const at::Tensor & out);
+};
 } // namespace native
 } // namespace at

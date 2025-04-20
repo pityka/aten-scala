@@ -19,6 +19,9 @@ namespace native {
 struct TORCH_API structured_xlogy_out : public at::meta::structured_xlogy_Tensor {
 void impl(const at::Tensor & self, const at::Tensor & other, const at::Tensor & out);
 };
+struct TORCH_API structured_xlogy_out_mps : public at::meta::structured_xlogy_Tensor {
+void impl(const at::Tensor & self, const at::Tensor & other, const at::Tensor & out);
+};
 TORCH_API at::Tensor xlogy(const at::Scalar & self, const at::Tensor & other);
 TORCH_API at::Tensor & xlogy_out(const at::Scalar & self, const at::Tensor & other, at::Tensor & out);
 TORCH_API at::Tensor xlogy(const at::Tensor & self, const at::Scalar & other);

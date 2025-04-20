@@ -18,9 +18,9 @@ struct TORCH_API polygamma_out {
   using schema = at::Tensor & (int64_t, const at::Tensor &, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::polygamma")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "polygamma.out(int n, Tensor self, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::polygamma";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "polygamma.out(int n, Tensor self, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(int64_t n, const at::Tensor & self, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, int64_t n, const at::Tensor & self, at::Tensor & out);
 };
@@ -29,9 +29,9 @@ struct TORCH_API polygamma {
   using schema = at::Tensor (int64_t, const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::polygamma")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "polygamma(int n, Tensor self) -> Tensor")
+  static constexpr const char* name = "aten::polygamma";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "polygamma(int n, Tensor self) -> Tensor";
   static at::Tensor call(int64_t n, const at::Tensor & self);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, int64_t n, const at::Tensor & self);
 };
@@ -40,9 +40,9 @@ struct TORCH_API polygamma_ {
   using schema = at::Tensor & (at::Tensor &, int64_t);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::polygamma_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "polygamma_(Tensor(a!) self, int n) -> Tensor(a!)")
+  static constexpr const char* name = "aten::polygamma_";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "polygamma_(Tensor(a!) self, int n) -> Tensor(a!)";
   static at::Tensor & call(at::Tensor & self, int64_t n);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::Tensor & self, int64_t n);
 };

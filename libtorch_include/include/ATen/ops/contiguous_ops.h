@@ -18,9 +18,9 @@ struct TORCH_API contiguous {
   using schema = at::Tensor (const at::Tensor &, at::MemoryFormat);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::contiguous")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "contiguous(Tensor(a) self, *, MemoryFormat memory_format=contiguous_format) -> Tensor(a)")
+  static constexpr const char* name = "aten::contiguous";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "contiguous(Tensor(a) self, *, MemoryFormat memory_format=contiguous_format) -> Tensor(a)";
   static at::Tensor call(const at::Tensor & self, at::MemoryFormat memory_format);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::MemoryFormat memory_format);
 };

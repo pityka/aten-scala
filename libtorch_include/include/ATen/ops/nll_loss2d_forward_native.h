@@ -20,5 +20,7 @@ TORCH_API ::std::tuple<at::Tensor,at::Tensor> nll_loss2d_forward_cpu(const at::T
 TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> nll_loss2d_forward_out_cpu(const at::Tensor & self, const at::Tensor & target, const ::std::optional<at::Tensor> & weight, int64_t reduction, int64_t ignore_index, at::Tensor & output, at::Tensor & total_weight);
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> nll_loss2d_forward_cuda(const at::Tensor & self, const at::Tensor & target, const ::std::optional<at::Tensor> & weight, int64_t reduction, int64_t ignore_index);
 TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> nll_loss2d_forward_out_cuda(const at::Tensor & self, const at::Tensor & target, const ::std::optional<at::Tensor> & weight, int64_t reduction, int64_t ignore_index, at::Tensor & output, at::Tensor & total_weight);
+TORCH_API ::std::tuple<at::Tensor,at::Tensor> nll_loss2d_forward_mps(const at::Tensor & self, const at::Tensor & target, const ::std::optional<at::Tensor> & weight, int64_t reduction, int64_t ignore_index);
+TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> nll_loss2d_forward_out_mps(const at::Tensor & self, const at::Tensor & target, const ::std::optional<at::Tensor> & weight, int64_t reduction, int64_t ignore_index, at::Tensor & output, at::Tensor & total_weight);
 } // namespace native
 } // namespace at

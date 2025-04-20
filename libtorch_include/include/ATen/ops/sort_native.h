@@ -21,6 +21,9 @@ TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> sort_out(const at::Tensor & se
 struct TORCH_API structured_sort_stable_out : public at::meta::structured_sort_stable {
 void impl(const at::Tensor & self, ::std::optional<bool> stable, int64_t dim, bool descending, const at::Tensor & values, const at::Tensor & indices);
 };
+struct TORCH_API structured_sort_stable_out_mps : public at::meta::structured_sort_stable {
+void impl(const at::Tensor & self, ::std::optional<bool> stable, int64_t dim, bool descending, const at::Tensor & values, const at::Tensor & indices);
+};
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> sort_quantized_cpu_stable(const at::Tensor & self, ::std::optional<bool> stable, int64_t dim=-1, bool descending=false);
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> sort(const at::Tensor & self, at::Dimname dim, bool descending=false);
 TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> sort_out(const at::Tensor & self, at::Dimname dim, bool descending, at::Tensor & values, at::Tensor & indices);

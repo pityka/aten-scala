@@ -27,7 +27,7 @@ inline at::Tensor & nll_loss_backward_out(at::Tensor & grad_input, const at::Ten
     return at::_ops::nll_loss_backward_grad_input::call(grad_output, self, target, weight, reduction, ignore_index, total_weight, grad_input);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & nll_loss_backward_out(at::Tensor & grad_input, const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & target, const ::std::optional<at::Tensor> & weight, int64_t reduction, int64_t ignore_index, const at::Tensor & total_weight) {
     return at::_ops::nll_loss_backward_grad_input::call(grad_output, self, target, weight, reduction, ignore_index, total_weight, grad_input);
   }
@@ -38,7 +38,7 @@ inline at::Tensor & nll_loss_backward_outf(const at::Tensor & grad_output, const
     return at::_ops::nll_loss_backward_grad_input::call(grad_output, self, target, weight, reduction, ignore_index, total_weight, grad_input);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & nll_loss_backward_outf(const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & target, const ::std::optional<at::Tensor> & weight, int64_t reduction, int64_t ignore_index, const at::Tensor & total_weight, at::Tensor & grad_input) {
     return at::_ops::nll_loss_backward_grad_input::call(grad_output, self, target, weight, reduction, ignore_index, total_weight, grad_input);
   }
@@ -49,7 +49,7 @@ inline at::Tensor & nll_loss_backward_symint_out(at::Tensor & grad_input, const 
     return at::_ops::nll_loss_backward_grad_input::call(grad_output, self, target, weight, reduction, ignore_index, total_weight, grad_input);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & nll_loss_backward_out(at::Tensor & grad_input, const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & target, const ::std::optional<at::Tensor> & weight, int64_t reduction, c10::SymInt ignore_index, const at::Tensor & total_weight) {
     return at::_ops::nll_loss_backward_grad_input::call(grad_output, self, target, weight, reduction, ignore_index, total_weight, grad_input);
   }
@@ -60,7 +60,7 @@ inline at::Tensor & nll_loss_backward_symint_outf(const at::Tensor & grad_output
     return at::_ops::nll_loss_backward_grad_input::call(grad_output, self, target, weight, reduction, ignore_index, total_weight, grad_input);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & nll_loss_backward_outf(const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & target, const ::std::optional<at::Tensor> & weight, int64_t reduction, c10::SymInt ignore_index, const at::Tensor & total_weight, at::Tensor & grad_input) {
     return at::_ops::nll_loss_backward_grad_input::call(grad_output, self, target, weight, reduction, ignore_index, total_weight, grad_input);
   }
@@ -71,7 +71,7 @@ inline at::Tensor nll_loss_backward(const at::Tensor & grad_output, const at::Te
     return at::_ops::nll_loss_backward::call(grad_output, self, target, weight, reduction, ignore_index, total_weight);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor nll_loss_backward(const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & target, const ::std::optional<at::Tensor> & weight, int64_t reduction, int64_t ignore_index, const at::Tensor & total_weight) {
     return at::_ops::nll_loss_backward::call(grad_output, self, target, weight, reduction, ignore_index, total_weight);
   }
@@ -82,7 +82,7 @@ inline at::Tensor nll_loss_backward_symint(const at::Tensor & grad_output, const
     return at::_ops::nll_loss_backward::call(grad_output, self, target, weight, reduction, ignore_index, total_weight);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor nll_loss_backward(const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & target, const ::std::optional<at::Tensor> & weight, int64_t reduction, c10::SymInt ignore_index, const at::Tensor & total_weight) {
     return at::_ops::nll_loss_backward::call(grad_output, self, target, weight, reduction, ignore_index, total_weight);
   }

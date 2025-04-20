@@ -18,9 +18,9 @@ struct TORCH_API margin_ranking_loss {
   using schema = at::Tensor (const at::Tensor &, const at::Tensor &, const at::Tensor &, double, int64_t);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::margin_ranking_loss")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "margin_ranking_loss(Tensor input1, Tensor input2, Tensor target, float margin=0.0, int reduction=Mean) -> Tensor")
+  static constexpr const char* name = "aten::margin_ranking_loss";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "margin_ranking_loss(Tensor input1, Tensor input2, Tensor target, float margin=0.0, int reduction=Mean) -> Tensor";
   static at::Tensor call(const at::Tensor & input1, const at::Tensor & input2, const at::Tensor & target, double margin, int64_t reduction);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & input1, const at::Tensor & input2, const at::Tensor & target, double margin, int64_t reduction);
 };

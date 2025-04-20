@@ -27,7 +27,7 @@ inline at::Tensor mkldnn_reorder_conv3d_weight(const at::Tensor & self, at::IntA
     return at::_ops::mkldnn_reorder_conv3d_weight::call(self, c10::fromIntArrayRefSlow(padding), c10::fromIntArrayRefSlow(stride), c10::fromIntArrayRefSlow(dilation), groups, input_size.has_value() ? ::std::make_optional(c10::fromIntArrayRefSlow(*input_size)) : ::std::nullopt);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor mkldnn_reorder_conv3d_weight(const at::Tensor & self, at::IntArrayRef padding=0, at::IntArrayRef stride=1, at::IntArrayRef dilation=1, int64_t groups=1, at::OptionalIntArrayRef input_size=::std::nullopt) {
     return at::_ops::mkldnn_reorder_conv3d_weight::call(self, c10::fromIntArrayRefSlow(padding), c10::fromIntArrayRefSlow(stride), c10::fromIntArrayRefSlow(dilation), groups, input_size.has_value() ? ::std::make_optional(c10::fromIntArrayRefSlow(*input_size)) : ::std::nullopt);
   }
@@ -38,7 +38,7 @@ inline at::Tensor mkldnn_reorder_conv3d_weight_symint(const at::Tensor & self, c
     return at::_ops::mkldnn_reorder_conv3d_weight::call(self, padding, stride, dilation, groups, input_size);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor mkldnn_reorder_conv3d_weight(const at::Tensor & self, c10::SymIntArrayRef padding=c10::SymInt(0), c10::SymIntArrayRef stride=c10::SymInt(1), c10::SymIntArrayRef dilation=c10::SymInt(1), c10::SymInt groups=1, at::OptionalSymIntArrayRef input_size=::std::nullopt) {
     return at::_ops::mkldnn_reorder_conv3d_weight::call(self, padding, stride, dilation, groups, input_size);
   }
@@ -49,7 +49,7 @@ inline at::Tensor & mkldnn_reorder_conv3d_weight_out(at::Tensor & out, const at:
     return at::_ops::mkldnn_reorder_conv3d_weight_out::call(self, c10::fromIntArrayRefSlow(padding), c10::fromIntArrayRefSlow(stride), c10::fromIntArrayRefSlow(dilation), groups, input_size.has_value() ? ::std::make_optional(c10::fromIntArrayRefSlow(*input_size)) : ::std::nullopt, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & mkldnn_reorder_conv3d_weight_out(at::Tensor & out, const at::Tensor & self, at::IntArrayRef padding=0, at::IntArrayRef stride=1, at::IntArrayRef dilation=1, int64_t groups=1, at::OptionalIntArrayRef input_size=::std::nullopt) {
     return at::_ops::mkldnn_reorder_conv3d_weight_out::call(self, c10::fromIntArrayRefSlow(padding), c10::fromIntArrayRefSlow(stride), c10::fromIntArrayRefSlow(dilation), groups, input_size.has_value() ? ::std::make_optional(c10::fromIntArrayRefSlow(*input_size)) : ::std::nullopt, out);
   }
@@ -60,7 +60,7 @@ inline at::Tensor & mkldnn_reorder_conv3d_weight_outf(const at::Tensor & self, a
     return at::_ops::mkldnn_reorder_conv3d_weight_out::call(self, c10::fromIntArrayRefSlow(padding), c10::fromIntArrayRefSlow(stride), c10::fromIntArrayRefSlow(dilation), groups, input_size.has_value() ? ::std::make_optional(c10::fromIntArrayRefSlow(*input_size)) : ::std::nullopt, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & mkldnn_reorder_conv3d_weight_outf(const at::Tensor & self, at::IntArrayRef padding, at::IntArrayRef stride, at::IntArrayRef dilation, int64_t groups, at::OptionalIntArrayRef input_size, at::Tensor & out) {
     return at::_ops::mkldnn_reorder_conv3d_weight_out::call(self, c10::fromIntArrayRefSlow(padding), c10::fromIntArrayRefSlow(stride), c10::fromIntArrayRefSlow(dilation), groups, input_size.has_value() ? ::std::make_optional(c10::fromIntArrayRefSlow(*input_size)) : ::std::nullopt, out);
   }
@@ -71,7 +71,7 @@ inline at::Tensor & mkldnn_reorder_conv3d_weight_symint_out(at::Tensor & out, co
     return at::_ops::mkldnn_reorder_conv3d_weight_out::call(self, padding, stride, dilation, groups, input_size, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & mkldnn_reorder_conv3d_weight_out(at::Tensor & out, const at::Tensor & self, c10::SymIntArrayRef padding=c10::SymInt(0), c10::SymIntArrayRef stride=c10::SymInt(1), c10::SymIntArrayRef dilation=c10::SymInt(1), c10::SymInt groups=1, at::OptionalSymIntArrayRef input_size=::std::nullopt) {
     return at::_ops::mkldnn_reorder_conv3d_weight_out::call(self, padding, stride, dilation, groups, input_size, out);
   }
@@ -82,7 +82,7 @@ inline at::Tensor & mkldnn_reorder_conv3d_weight_symint_outf(const at::Tensor & 
     return at::_ops::mkldnn_reorder_conv3d_weight_out::call(self, padding, stride, dilation, groups, input_size, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & mkldnn_reorder_conv3d_weight_outf(const at::Tensor & self, c10::SymIntArrayRef padding, c10::SymIntArrayRef stride, c10::SymIntArrayRef dilation, c10::SymInt groups, at::OptionalSymIntArrayRef input_size, at::Tensor & out) {
     return at::_ops::mkldnn_reorder_conv3d_weight_out::call(self, padding, stride, dilation, groups, input_size, out);
   }

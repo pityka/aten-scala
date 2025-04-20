@@ -25,5 +25,8 @@ TORCH_API at::Tensor & expm1_sparse_(at::Tensor & self);
 TORCH_API at::Tensor expm1_sparse_csr(const at::Tensor & self);
 TORCH_API at::Tensor & expm1_sparse_csr_out(const at::Tensor & self, at::Tensor & out);
 TORCH_API at::Tensor & expm1_sparse_csr_(at::Tensor & self);
+struct TORCH_API structured_expm1_out_mps : public at::meta::structured_expm1 {
+void impl(const at::Tensor & self, const at::Tensor & out);
+};
 } // namespace native
 } // namespace at

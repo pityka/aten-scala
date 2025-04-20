@@ -18,9 +18,9 @@ struct TORCH_API frexp_Tensor {
   using schema = ::std::tuple<at::Tensor,at::Tensor> (const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::frexp")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Tensor")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "frexp.Tensor(Tensor self) -> (Tensor mantissa, Tensor exponent)")
+  static constexpr const char* name = "aten::frexp";
+  static constexpr const char* overload_name = "Tensor";
+  static constexpr const char* schema_str = "frexp.Tensor(Tensor self) -> (Tensor mantissa, Tensor exponent)";
   static ::std::tuple<at::Tensor,at::Tensor> call(const at::Tensor & self);
   static ::std::tuple<at::Tensor,at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self);
 };
@@ -29,9 +29,9 @@ struct TORCH_API frexp_Tensor_out {
   using schema = ::std::tuple<at::Tensor &,at::Tensor &> (const at::Tensor &, at::Tensor &, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::frexp")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Tensor_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "frexp.Tensor_out(Tensor self, *, Tensor(a!) mantissa, Tensor(b!) exponent) -> (Tensor(a!) mantissa, Tensor(b!) exponent)")
+  static constexpr const char* name = "aten::frexp";
+  static constexpr const char* overload_name = "Tensor_out";
+  static constexpr const char* schema_str = "frexp.Tensor_out(Tensor self, *, Tensor(a!) mantissa, Tensor(b!) exponent) -> (Tensor(a!) mantissa, Tensor(b!) exponent)";
   static ::std::tuple<at::Tensor &,at::Tensor &> call(const at::Tensor & self, at::Tensor & mantissa, at::Tensor & exponent);
   static ::std::tuple<at::Tensor &,at::Tensor &> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::Tensor & mantissa, at::Tensor & exponent);
 };

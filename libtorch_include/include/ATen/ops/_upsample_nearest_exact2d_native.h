@@ -23,6 +23,9 @@ void impl(const at::Tensor & self, at::ArrayRef<int64_t> output_size, ::std::opt
 struct TORCH_API structured__upsample_nearest_exact2d_out_cuda : public at::meta::structured__upsample_nearest_exact2d {
 void impl(const at::Tensor & self, at::ArrayRef<int64_t> output_size, ::std::optional<double> scales_h, ::std::optional<double> scales_w, const at::Tensor & out);
 };
+struct TORCH_API structured__upsample_nearest_exact2d_out_mps : public at::meta::structured__upsample_nearest_exact2d {
+void impl(const at::Tensor & self, at::ArrayRef<int64_t> output_size, ::std::optional<double> scales_h, ::std::optional<double> scales_w, const at::Tensor & out);
+};
 TORCH_API at::Tensor _upsample_nearest_exact2d_quantized_cpu(const at::Tensor & self, at::IntArrayRef output_size, ::std::optional<double> scales_h=::std::nullopt, ::std::optional<double> scales_w=::std::nullopt);
 } // namespace native
 } // namespace at

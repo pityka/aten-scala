@@ -18,9 +18,9 @@ struct TORCH_API diagonal_copy {
   using schema = at::Tensor (const at::Tensor &, int64_t, int64_t, int64_t);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::diagonal_copy")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "diagonal_copy(Tensor self, int offset=0, int dim1=0, int dim2=1) -> Tensor")
+  static constexpr const char* name = "aten::diagonal_copy";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "diagonal_copy(Tensor self, int offset=0, int dim1=0, int dim2=1) -> Tensor";
   static at::Tensor call(const at::Tensor & self, int64_t offset, int64_t dim1, int64_t dim2);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t offset, int64_t dim1, int64_t dim2);
 };
@@ -29,9 +29,9 @@ struct TORCH_API diagonal_copy_out {
   using schema = at::Tensor & (const at::Tensor &, int64_t, int64_t, int64_t, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::diagonal_copy")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "diagonal_copy.out(Tensor self, int offset=0, int dim1=0, int dim2=1, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::diagonal_copy";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "diagonal_copy.out(Tensor self, int offset=0, int dim1=0, int dim2=1, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, int64_t offset, int64_t dim1, int64_t dim2, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t offset, int64_t dim1, int64_t dim2, at::Tensor & out);
 };

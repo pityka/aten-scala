@@ -27,7 +27,7 @@ inline at::Tensor & slow_conv3d_forward_out(at::Tensor & output, const at::Tenso
     return at::_ops::slow_conv3d_forward_output::call(self, weight, c10::fromIntArrayRefSlow(kernel_size), bias, c10::fromIntArrayRefSlow(stride), c10::fromIntArrayRefSlow(padding), output);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & slow_conv3d_forward_out(at::Tensor & output, const at::Tensor & self, const at::Tensor & weight, at::IntArrayRef kernel_size, const ::std::optional<at::Tensor> & bias, at::IntArrayRef stride, at::IntArrayRef padding) {
     return at::_ops::slow_conv3d_forward_output::call(self, weight, c10::fromIntArrayRefSlow(kernel_size), bias, c10::fromIntArrayRefSlow(stride), c10::fromIntArrayRefSlow(padding), output);
   }
@@ -38,7 +38,7 @@ inline at::Tensor & slow_conv3d_forward_outf(const at::Tensor & self, const at::
     return at::_ops::slow_conv3d_forward_output::call(self, weight, c10::fromIntArrayRefSlow(kernel_size), bias, c10::fromIntArrayRefSlow(stride), c10::fromIntArrayRefSlow(padding), output);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & slow_conv3d_forward_outf(const at::Tensor & self, const at::Tensor & weight, at::IntArrayRef kernel_size, const ::std::optional<at::Tensor> & bias, at::IntArrayRef stride, at::IntArrayRef padding, at::Tensor & output) {
     return at::_ops::slow_conv3d_forward_output::call(self, weight, c10::fromIntArrayRefSlow(kernel_size), bias, c10::fromIntArrayRefSlow(stride), c10::fromIntArrayRefSlow(padding), output);
   }
@@ -49,7 +49,7 @@ inline at::Tensor & slow_conv3d_forward_symint_out(at::Tensor & output, const at
     return at::_ops::slow_conv3d_forward_output::call(self, weight, kernel_size, bias, stride, padding, output);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & slow_conv3d_forward_out(at::Tensor & output, const at::Tensor & self, const at::Tensor & weight, c10::SymIntArrayRef kernel_size, const ::std::optional<at::Tensor> & bias, c10::SymIntArrayRef stride, c10::SymIntArrayRef padding) {
     return at::_ops::slow_conv3d_forward_output::call(self, weight, kernel_size, bias, stride, padding, output);
   }
@@ -60,7 +60,7 @@ inline at::Tensor & slow_conv3d_forward_symint_outf(const at::Tensor & self, con
     return at::_ops::slow_conv3d_forward_output::call(self, weight, kernel_size, bias, stride, padding, output);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & slow_conv3d_forward_outf(const at::Tensor & self, const at::Tensor & weight, c10::SymIntArrayRef kernel_size, const ::std::optional<at::Tensor> & bias, c10::SymIntArrayRef stride, c10::SymIntArrayRef padding, at::Tensor & output) {
     return at::_ops::slow_conv3d_forward_output::call(self, weight, kernel_size, bias, stride, padding, output);
   }
@@ -71,7 +71,7 @@ inline at::Tensor slow_conv3d_forward(const at::Tensor & self, const at::Tensor 
     return at::_ops::slow_conv3d_forward::call(self, weight, c10::fromIntArrayRefSlow(kernel_size), bias, c10::fromIntArrayRefSlow(stride), c10::fromIntArrayRefSlow(padding));
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor slow_conv3d_forward(const at::Tensor & self, const at::Tensor & weight, at::IntArrayRef kernel_size, const ::std::optional<at::Tensor> & bias, at::IntArrayRef stride, at::IntArrayRef padding) {
     return at::_ops::slow_conv3d_forward::call(self, weight, c10::fromIntArrayRefSlow(kernel_size), bias, c10::fromIntArrayRefSlow(stride), c10::fromIntArrayRefSlow(padding));
   }
@@ -82,7 +82,7 @@ inline at::Tensor slow_conv3d_forward_symint(const at::Tensor & self, const at::
     return at::_ops::slow_conv3d_forward::call(self, weight, kernel_size, bias, stride, padding);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor slow_conv3d_forward(const at::Tensor & self, const at::Tensor & weight, c10::SymIntArrayRef kernel_size, const ::std::optional<at::Tensor> & bias, c10::SymIntArrayRef stride, c10::SymIntArrayRef padding) {
     return at::_ops::slow_conv3d_forward::call(self, weight, kernel_size, bias, stride, padding);
   }

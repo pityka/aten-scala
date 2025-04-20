@@ -20,5 +20,7 @@ TORCH_API ::std::tuple<at::Tensor,at::Tensor> log_sigmoid_forward_cpu(const at::
 TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> log_sigmoid_forward_out_cpu(const at::Tensor & self, at::Tensor & output, at::Tensor & buffer);
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> log_sigmoid_forward_cuda(const at::Tensor & self);
 TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> log_sigmoid_forward_out_cuda(const at::Tensor & self, at::Tensor & output, at::Tensor & buffer);
+TORCH_API ::std::tuple<at::Tensor,at::Tensor> log_sigmoid_forward_mps(const at::Tensor & self);
+TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> log_sigmoid_forward_out_mps(const at::Tensor & self, at::Tensor & output, at::Tensor & buffer);
 } // namespace native
 } // namespace at

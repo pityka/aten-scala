@@ -18,9 +18,9 @@ struct TORCH_API heaviside_out {
   using schema = at::Tensor & (const at::Tensor &, const at::Tensor &, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::heaviside")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "heaviside.out(Tensor self, Tensor values, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::heaviside";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "heaviside.out(Tensor self, Tensor values, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, const at::Tensor & values, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & values, at::Tensor & out);
 };
@@ -29,9 +29,9 @@ struct TORCH_API heaviside {
   using schema = at::Tensor (const at::Tensor &, const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::heaviside")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "heaviside(Tensor self, Tensor values) -> Tensor")
+  static constexpr const char* name = "aten::heaviside";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "heaviside(Tensor self, Tensor values) -> Tensor";
   static at::Tensor call(const at::Tensor & self, const at::Tensor & values);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & values);
 };
@@ -40,9 +40,9 @@ struct TORCH_API heaviside_ {
   using schema = at::Tensor & (at::Tensor &, const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::heaviside_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "heaviside_(Tensor(a!) self, Tensor values) -> Tensor(a!)")
+  static constexpr const char* name = "aten::heaviside_";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "heaviside_(Tensor(a!) self, Tensor values) -> Tensor(a!)";
   static at::Tensor & call(at::Tensor & self, const at::Tensor & values);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::Tensor & self, const at::Tensor & values);
 };

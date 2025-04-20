@@ -27,7 +27,7 @@ inline at::Tensor miopen_convolution_relu(const at::Tensor & self, const at::Ten
     return at::_ops::miopen_convolution_relu::call(self, weight, bias, c10::fromIntArrayRefSlow(stride), c10::fromIntArrayRefSlow(padding), c10::fromIntArrayRefSlow(dilation), groups);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor miopen_convolution_relu(const at::Tensor & self, const at::Tensor & weight, const ::std::optional<at::Tensor> & bias, at::IntArrayRef stride, at::IntArrayRef padding, at::IntArrayRef dilation, int64_t groups) {
     return at::_ops::miopen_convolution_relu::call(self, weight, bias, c10::fromIntArrayRefSlow(stride), c10::fromIntArrayRefSlow(padding), c10::fromIntArrayRefSlow(dilation), groups);
   }
@@ -38,7 +38,7 @@ inline at::Tensor miopen_convolution_relu_symint(const at::Tensor & self, const 
     return at::_ops::miopen_convolution_relu::call(self, weight, bias, stride, padding, dilation, groups);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor miopen_convolution_relu(const at::Tensor & self, const at::Tensor & weight, const ::std::optional<at::Tensor> & bias, c10::SymIntArrayRef stride, c10::SymIntArrayRef padding, c10::SymIntArrayRef dilation, c10::SymInt groups) {
     return at::_ops::miopen_convolution_relu::call(self, weight, bias, stride, padding, dilation, groups);
   }

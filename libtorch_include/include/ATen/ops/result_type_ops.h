@@ -18,9 +18,9 @@ struct TORCH_API result_type_Tensor {
   using schema = at::ScalarType (const at::Tensor &, const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::result_type")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Tensor")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "result_type.Tensor(Tensor tensor, Tensor other) -> ScalarType")
+  static constexpr const char* name = "aten::result_type";
+  static constexpr const char* overload_name = "Tensor";
+  static constexpr const char* schema_str = "result_type.Tensor(Tensor tensor, Tensor other) -> ScalarType";
   static at::ScalarType call(const at::Tensor & tensor, const at::Tensor & other);
   static at::ScalarType redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & tensor, const at::Tensor & other);
 };
@@ -29,9 +29,9 @@ struct TORCH_API result_type_Scalar {
   using schema = at::ScalarType (const at::Tensor &, const at::Scalar &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::result_type")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Scalar")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "result_type.Scalar(Tensor tensor, Scalar other) -> ScalarType")
+  static constexpr const char* name = "aten::result_type";
+  static constexpr const char* overload_name = "Scalar";
+  static constexpr const char* schema_str = "result_type.Scalar(Tensor tensor, Scalar other) -> ScalarType";
   static at::ScalarType call(const at::Tensor & tensor, const at::Scalar & other);
   static at::ScalarType redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & tensor, const at::Scalar & other);
 };
@@ -40,9 +40,9 @@ struct TORCH_API result_type_Scalar_Tensor {
   using schema = at::ScalarType (const at::Scalar &, const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::result_type")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Scalar_Tensor")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "result_type.Scalar_Tensor(Scalar scalar, Tensor tensor) -> ScalarType")
+  static constexpr const char* name = "aten::result_type";
+  static constexpr const char* overload_name = "Scalar_Tensor";
+  static constexpr const char* schema_str = "result_type.Scalar_Tensor(Scalar scalar, Tensor tensor) -> ScalarType";
   static at::ScalarType call(const at::Scalar & scalar, const at::Tensor & tensor);
   static at::ScalarType redispatch(c10::DispatchKeySet dispatchKeySet, const at::Scalar & scalar, const at::Tensor & tensor);
 };
@@ -51,9 +51,9 @@ struct TORCH_API result_type_Scalar_Scalar {
   using schema = at::ScalarType (const at::Scalar &, const at::Scalar &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::result_type")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Scalar_Scalar")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "result_type.Scalar_Scalar(Scalar scalar1, Scalar scalar2) -> ScalarType")
+  static constexpr const char* name = "aten::result_type";
+  static constexpr const char* overload_name = "Scalar_Scalar";
+  static constexpr const char* schema_str = "result_type.Scalar_Scalar(Scalar scalar1, Scalar scalar2) -> ScalarType";
   static at::ScalarType call(const at::Scalar & scalar1, const at::Scalar & scalar2);
   static at::ScalarType redispatch(c10::DispatchKeySet dispatchKeySet, const at::Scalar & scalar1, const at::Scalar & scalar2);
 };

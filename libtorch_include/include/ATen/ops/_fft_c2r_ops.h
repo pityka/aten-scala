@@ -18,9 +18,9 @@ struct TORCH_API _fft_c2r {
   using schema = at::Tensor (const at::Tensor &, at::IntArrayRef, int64_t, c10::SymInt);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_fft_c2r")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_fft_c2r(Tensor self, int[] dim, int normalization, SymInt last_dim_size) -> Tensor")
+  static constexpr const char* name = "aten::_fft_c2r";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "_fft_c2r(Tensor self, int[] dim, int normalization, SymInt last_dim_size) -> Tensor";
   static at::Tensor call(const at::Tensor & self, at::IntArrayRef dim, int64_t normalization, c10::SymInt last_dim_size);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::IntArrayRef dim, int64_t normalization, c10::SymInt last_dim_size);
 };
@@ -29,9 +29,9 @@ struct TORCH_API _fft_c2r_out {
   using schema = at::Tensor & (const at::Tensor &, at::IntArrayRef, int64_t, c10::SymInt, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_fft_c2r")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_fft_c2r.out(Tensor self, int[] dim, int normalization, SymInt last_dim_size, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::_fft_c2r";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "_fft_c2r.out(Tensor self, int[] dim, int normalization, SymInt last_dim_size, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, at::IntArrayRef dim, int64_t normalization, c10::SymInt last_dim_size, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::IntArrayRef dim, int64_t normalization, c10::SymInt last_dim_size, at::Tensor & out);
 };

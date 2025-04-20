@@ -18,9 +18,9 @@ struct TORCH_API huber_loss_out {
   using schema = at::Tensor & (const at::Tensor &, const at::Tensor &, int64_t, double, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::huber_loss")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "huber_loss.out(Tensor self, Tensor target, int reduction=Mean, float delta=1.0, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::huber_loss";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "huber_loss.out(Tensor self, Tensor target, int reduction=Mean, float delta=1.0, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, const at::Tensor & target, int64_t reduction, double delta, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & target, int64_t reduction, double delta, at::Tensor & out);
 };
@@ -29,9 +29,9 @@ struct TORCH_API huber_loss {
   using schema = at::Tensor (const at::Tensor &, const at::Tensor &, int64_t, double);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::huber_loss")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "huber_loss(Tensor self, Tensor target, int reduction=Mean, float delta=1.0) -> Tensor")
+  static constexpr const char* name = "aten::huber_loss";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "huber_loss(Tensor self, Tensor target, int reduction=Mean, float delta=1.0) -> Tensor";
   static at::Tensor call(const at::Tensor & self, const at::Tensor & target, int64_t reduction, double delta);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & target, int64_t reduction, double delta);
 };

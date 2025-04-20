@@ -26,5 +26,10 @@ TORCH_API void _foreach_lerp_Scalar_out(at::TensorList self, at::TensorList tens
 TORCH_API void foreach_tensor_lerp_list_kernel_slow_(at::TensorList self, at::TensorList tensors1, const at::Scalar & weight);
 TORCH_API ::std::vector<at::Tensor> foreach_tensor_lerp_list_cuda(at::TensorList self, at::TensorList tensors1, const at::Scalar & weight);
 TORCH_API void foreach_tensor_lerp_list_cuda_(at::TensorList self, at::TensorList tensors1, const at::Scalar & weight);
+TORCH_API ::std::vector<at::Tensor> foreach_tensor_lerp_scalarlist_kernel_slow(at::TensorList self, at::TensorList tensors1, at::ArrayRef<at::Scalar> weight);
+TORCH_API void _foreach_lerp_ScalarList_out(at::TensorList self, at::TensorList tensors1, at::ArrayRef<at::Scalar> weight, at::TensorList out);
+TORCH_API void foreach_tensor_lerp_scalarlist_kernel_slow_(at::TensorList self, at::TensorList tensors1, at::ArrayRef<at::Scalar> weight);
+TORCH_API ::std::vector<at::Tensor> foreach_tensor_lerp_scalarlist_cuda(at::TensorList self, at::TensorList tensors1, at::ArrayRef<at::Scalar> weight);
+TORCH_API void foreach_tensor_lerp_scalarlist_cuda_(at::TensorList self, at::TensorList tensors1, at::ArrayRef<at::Scalar> weight);
 } // namespace native
 } // namespace at

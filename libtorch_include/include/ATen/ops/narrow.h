@@ -27,7 +27,7 @@ inline at::Tensor narrow(const at::Tensor & self, int64_t dim, int64_t start, in
     return at::_ops::narrow::call(self, dim, start, length);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor narrow(const at::Tensor & self, int64_t dim, int64_t start, int64_t length) {
     return at::_ops::narrow::call(self, dim, start, length);
   }
@@ -38,7 +38,7 @@ inline at::Tensor narrow_symint(const at::Tensor & self, int64_t dim, c10::SymIn
     return at::_ops::narrow::call(self, dim, start, length);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor narrow(const at::Tensor & self, int64_t dim, c10::SymInt start, c10::SymInt length) {
     return at::_ops::narrow::call(self, dim, start, length);
   }
@@ -49,7 +49,7 @@ inline at::Tensor narrow(const at::Tensor & self, int64_t dim, const at::Tensor 
     return at::_ops::narrow_Tensor::call(self, dim, start, length);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor narrow(const at::Tensor & self, int64_t dim, const at::Tensor & start, int64_t length) {
     return at::_ops::narrow_Tensor::call(self, dim, start, length);
   }
@@ -60,7 +60,7 @@ inline at::Tensor narrow_symint(const at::Tensor & self, int64_t dim, const at::
     return at::_ops::narrow_Tensor::call(self, dim, start, length);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor narrow(const at::Tensor & self, int64_t dim, const at::Tensor & start, c10::SymInt length) {
     return at::_ops::narrow_Tensor::call(self, dim, start, length);
   }

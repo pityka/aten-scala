@@ -19,5 +19,6 @@ namespace native {
 TORCH_API at::Tensor & grid_sampler_2d_out(const at::Tensor & input, const at::Tensor & grid, int64_t interpolation_mode, int64_t padding_mode, bool align_corners, at::Tensor & out);
 TORCH_API at::Tensor grid_sampler_2d_cpu(const at::Tensor & input, const at::Tensor & grid, int64_t interpolation_mode, int64_t padding_mode, bool align_corners);
 TORCH_API at::Tensor grid_sampler_2d_cuda(const at::Tensor & input, const at::Tensor & grid, int64_t interpolation_mode, int64_t padding_mode, bool align_corners);
+TORCH_API at::Tensor grid_sampler_2d_mps(const at::Tensor & input, const at::Tensor & grid, int64_t interpolation_mode, int64_t padding_mode, bool align_corners);
 } // namespace native
 } // namespace at

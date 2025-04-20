@@ -20,5 +20,7 @@ TORCH_API at::Tensor nll_loss2d_backward_cpu(const at::Tensor & grad_output, con
 TORCH_API at::Tensor & nll_loss2d_backward_out_cpu(const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & target, const ::std::optional<at::Tensor> & weight, int64_t reduction, int64_t ignore_index, const at::Tensor & total_weight, at::Tensor & grad_input);
 TORCH_API at::Tensor nll_loss2d_backward_cuda(const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & target, const ::std::optional<at::Tensor> & weight, int64_t reduction, int64_t ignore_index, const at::Tensor & total_weight);
 TORCH_API at::Tensor & nll_loss2d_backward_out_cuda(const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & target, const ::std::optional<at::Tensor> & weight, int64_t reduction, int64_t ignore_index, const at::Tensor & total_weight, at::Tensor & grad_input);
+TORCH_API at::Tensor nll_loss2d_backward_mps(const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & target, const ::std::optional<at::Tensor> & weight, int64_t reduction, int64_t ignore_index, const at::Tensor & total_weight);
+TORCH_API at::Tensor & nll_loss2d_backward_out_mps(const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & target, const ::std::optional<at::Tensor> & weight, int64_t reduction, int64_t ignore_index, const at::Tensor & total_weight, at::Tensor & grad_input);
 } // namespace native
 } // namespace at

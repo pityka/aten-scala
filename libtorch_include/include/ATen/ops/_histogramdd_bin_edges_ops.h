@@ -18,9 +18,9 @@ struct TORCH_API _histogramdd_bin_edges {
   using schema = ::std::vector<at::Tensor> (const at::Tensor &, at::IntArrayRef, ::std::optional<at::ArrayRef<double>>, const ::std::optional<at::Tensor> &, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_histogramdd_bin_edges")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_histogramdd_bin_edges(Tensor self, int[] bins, *, float[]? range=None, Tensor? weight=None, bool density=False) -> Tensor[]")
+  static constexpr const char* name = "aten::_histogramdd_bin_edges";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "_histogramdd_bin_edges(Tensor self, int[] bins, *, float[]? range=None, Tensor? weight=None, bool density=False) -> Tensor[]";
   static ::std::vector<at::Tensor> call(const at::Tensor & self, at::IntArrayRef bins, ::std::optional<at::ArrayRef<double>> range, const ::std::optional<at::Tensor> & weight, bool density);
   static ::std::vector<at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::IntArrayRef bins, ::std::optional<at::ArrayRef<double>> range, const ::std::optional<at::Tensor> & weight, bool density);
 };
@@ -29,9 +29,9 @@ struct TORCH_API _histogramdd_bin_edges_out {
   using schema = void (const at::Tensor &, at::IntArrayRef, ::std::optional<at::ArrayRef<double>>, const ::std::optional<at::Tensor> &, bool, at::TensorList);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_histogramdd_bin_edges")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_histogramdd_bin_edges.out(Tensor self, int[] bins, *, float[]? range=None, Tensor? weight=None, bool density=False, Tensor(a!)[] out) -> ()")
+  static constexpr const char* name = "aten::_histogramdd_bin_edges";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "_histogramdd_bin_edges.out(Tensor self, int[] bins, *, float[]? range=None, Tensor? weight=None, bool density=False, Tensor(a!)[] out) -> ()";
   static void call(const at::Tensor & self, at::IntArrayRef bins, ::std::optional<at::ArrayRef<double>> range, const ::std::optional<at::Tensor> & weight, bool density, at::TensorList out);
   static void redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::IntArrayRef bins, ::std::optional<at::ArrayRef<double>> range, const ::std::optional<at::Tensor> & weight, bool density, at::TensorList out);
 };

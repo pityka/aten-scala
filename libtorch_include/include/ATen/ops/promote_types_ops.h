@@ -18,9 +18,9 @@ struct TORCH_API promote_types {
   using schema = at::ScalarType (at::ScalarType, at::ScalarType);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::promote_types")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "promote_types(ScalarType type1, ScalarType type2) -> ScalarType")
+  static constexpr const char* name = "aten::promote_types";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "promote_types(ScalarType type1, ScalarType type2) -> ScalarType";
   static at::ScalarType call(at::ScalarType type1, at::ScalarType type2);
   static at::ScalarType redispatch(c10::DispatchKeySet dispatchKeySet, at::ScalarType type1, at::ScalarType type2);
 };

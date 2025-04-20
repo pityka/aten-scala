@@ -27,7 +27,7 @@ inline at::Tensor & nll_loss_out(at::Tensor & out, const at::Tensor & self, cons
     return at::_ops::nll_loss_out::call(self, target, weight, reduction, ignore_index, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & nll_loss_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & target, const ::std::optional<at::Tensor> & weight={}, int64_t reduction=at::Reduction::Mean, int64_t ignore_index=-100) {
     return at::_ops::nll_loss_out::call(self, target, weight, reduction, ignore_index, out);
   }
@@ -38,7 +38,7 @@ inline at::Tensor & nll_loss_outf(const at::Tensor & self, const at::Tensor & ta
     return at::_ops::nll_loss_out::call(self, target, weight, reduction, ignore_index, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & nll_loss_outf(const at::Tensor & self, const at::Tensor & target, const ::std::optional<at::Tensor> & weight, int64_t reduction, int64_t ignore_index, at::Tensor & out) {
     return at::_ops::nll_loss_out::call(self, target, weight, reduction, ignore_index, out);
   }
@@ -49,7 +49,7 @@ inline at::Tensor & nll_loss_symint_out(at::Tensor & out, const at::Tensor & sel
     return at::_ops::nll_loss_out::call(self, target, weight, reduction, ignore_index, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & nll_loss_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & target, const ::std::optional<at::Tensor> & weight={}, int64_t reduction=at::Reduction::Mean, c10::SymInt ignore_index=-100) {
     return at::_ops::nll_loss_out::call(self, target, weight, reduction, ignore_index, out);
   }
@@ -60,7 +60,7 @@ inline at::Tensor & nll_loss_symint_outf(const at::Tensor & self, const at::Tens
     return at::_ops::nll_loss_out::call(self, target, weight, reduction, ignore_index, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & nll_loss_outf(const at::Tensor & self, const at::Tensor & target, const ::std::optional<at::Tensor> & weight, int64_t reduction, c10::SymInt ignore_index, at::Tensor & out) {
     return at::_ops::nll_loss_out::call(self, target, weight, reduction, ignore_index, out);
   }
@@ -71,7 +71,7 @@ inline at::Tensor nll_loss(const at::Tensor & self, const at::Tensor & target, c
     return at::_ops::nll_loss::call(self, target, weight, reduction, ignore_index);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor nll_loss(const at::Tensor & self, const at::Tensor & target, const ::std::optional<at::Tensor> & weight={}, int64_t reduction=at::Reduction::Mean, int64_t ignore_index=-100) {
     return at::_ops::nll_loss::call(self, target, weight, reduction, ignore_index);
   }
@@ -82,7 +82,7 @@ inline at::Tensor nll_loss_symint(const at::Tensor & self, const at::Tensor & ta
     return at::_ops::nll_loss::call(self, target, weight, reduction, ignore_index);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor nll_loss(const at::Tensor & self, const at::Tensor & target, const ::std::optional<at::Tensor> & weight={}, int64_t reduction=at::Reduction::Mean, c10::SymInt ignore_index=-100) {
     return at::_ops::nll_loss::call(self, target, weight, reduction, ignore_index);
   }

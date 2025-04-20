@@ -18,9 +18,9 @@ struct TORCH_API special_shifted_chebyshev_polynomial_u {
   using schema = at::Tensor (const at::Tensor &, const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::special_shifted_chebyshev_polynomial_u")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "special_shifted_chebyshev_polynomial_u(Tensor x, Tensor n) -> Tensor")
+  static constexpr const char* name = "aten::special_shifted_chebyshev_polynomial_u";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "special_shifted_chebyshev_polynomial_u(Tensor x, Tensor n) -> Tensor";
   static at::Tensor call(const at::Tensor & x, const at::Tensor & n);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & x, const at::Tensor & n);
 };
@@ -29,9 +29,9 @@ struct TORCH_API special_shifted_chebyshev_polynomial_u_x_scalar {
   using schema = at::Tensor (const at::Scalar &, const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::special_shifted_chebyshev_polynomial_u")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "x_scalar")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "special_shifted_chebyshev_polynomial_u.x_scalar(Scalar x, Tensor n) -> Tensor")
+  static constexpr const char* name = "aten::special_shifted_chebyshev_polynomial_u";
+  static constexpr const char* overload_name = "x_scalar";
+  static constexpr const char* schema_str = "special_shifted_chebyshev_polynomial_u.x_scalar(Scalar x, Tensor n) -> Tensor";
   static at::Tensor call(const at::Scalar & x, const at::Tensor & n);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Scalar & x, const at::Tensor & n);
 };
@@ -40,9 +40,9 @@ struct TORCH_API special_shifted_chebyshev_polynomial_u_n_scalar {
   using schema = at::Tensor (const at::Tensor &, const at::Scalar &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::special_shifted_chebyshev_polynomial_u")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "n_scalar")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "special_shifted_chebyshev_polynomial_u.n_scalar(Tensor x, Scalar n) -> Tensor")
+  static constexpr const char* name = "aten::special_shifted_chebyshev_polynomial_u";
+  static constexpr const char* overload_name = "n_scalar";
+  static constexpr const char* schema_str = "special_shifted_chebyshev_polynomial_u.n_scalar(Tensor x, Scalar n) -> Tensor";
   static at::Tensor call(const at::Tensor & x, const at::Scalar & n);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & x, const at::Scalar & n);
 };
@@ -51,9 +51,9 @@ struct TORCH_API special_shifted_chebyshev_polynomial_u_out {
   using schema = at::Tensor & (const at::Tensor &, const at::Tensor &, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::special_shifted_chebyshev_polynomial_u")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "special_shifted_chebyshev_polynomial_u.out(Tensor x, Tensor n, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::special_shifted_chebyshev_polynomial_u";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "special_shifted_chebyshev_polynomial_u.out(Tensor x, Tensor n, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & x, const at::Tensor & n, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & x, const at::Tensor & n, at::Tensor & out);
 };
@@ -62,9 +62,9 @@ struct TORCH_API special_shifted_chebyshev_polynomial_u_x_scalar_out {
   using schema = at::Tensor & (const at::Scalar &, const at::Tensor &, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::special_shifted_chebyshev_polynomial_u")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "x_scalar_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "special_shifted_chebyshev_polynomial_u.x_scalar_out(Scalar x, Tensor n, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::special_shifted_chebyshev_polynomial_u";
+  static constexpr const char* overload_name = "x_scalar_out";
+  static constexpr const char* schema_str = "special_shifted_chebyshev_polynomial_u.x_scalar_out(Scalar x, Tensor n, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Scalar & x, const at::Tensor & n, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Scalar & x, const at::Tensor & n, at::Tensor & out);
 };
@@ -73,9 +73,9 @@ struct TORCH_API special_shifted_chebyshev_polynomial_u_n_scalar_out {
   using schema = at::Tensor & (const at::Tensor &, const at::Scalar &, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::special_shifted_chebyshev_polynomial_u")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "n_scalar_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "special_shifted_chebyshev_polynomial_u.n_scalar_out(Tensor x, Scalar n, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::special_shifted_chebyshev_polynomial_u";
+  static constexpr const char* overload_name = "n_scalar_out";
+  static constexpr const char* schema_str = "special_shifted_chebyshev_polynomial_u.n_scalar_out(Tensor x, Scalar n, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & x, const at::Scalar & n, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & x, const at::Scalar & n, at::Tensor & out);
 };

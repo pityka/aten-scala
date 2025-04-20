@@ -18,9 +18,9 @@ struct TORCH_API adaptive_max_pool1d {
   using schema = ::std::tuple<at::Tensor,at::Tensor> (const at::Tensor &, at::IntArrayRef);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::adaptive_max_pool1d")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "adaptive_max_pool1d(Tensor self, int[1] output_size) -> (Tensor, Tensor)")
+  static constexpr const char* name = "aten::adaptive_max_pool1d";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "adaptive_max_pool1d(Tensor self, int[1] output_size) -> (Tensor, Tensor)";
   static ::std::tuple<at::Tensor,at::Tensor> call(const at::Tensor & self, at::IntArrayRef output_size);
   static ::std::tuple<at::Tensor,at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::IntArrayRef output_size);
 };

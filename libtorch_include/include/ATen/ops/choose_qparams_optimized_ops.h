@@ -18,9 +18,9 @@ struct TORCH_API choose_qparams_optimized {
   using schema = ::std::tuple<at::Tensor,at::Tensor> (const at::Tensor &, int64_t, int64_t, double, int64_t);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::choose_qparams_optimized")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "choose_qparams_optimized(Tensor input, int numel, int n_bins, float ratio, int bit_width) -> (Tensor, Tensor)")
+  static constexpr const char* name = "aten::choose_qparams_optimized";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "choose_qparams_optimized(Tensor input, int numel, int n_bins, float ratio, int bit_width) -> (Tensor, Tensor)";
   static ::std::tuple<at::Tensor,at::Tensor> call(const at::Tensor & input, int64_t numel, int64_t n_bins, double ratio, int64_t bit_width);
   static ::std::tuple<at::Tensor,at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & input, int64_t numel, int64_t n_bins, double ratio, int64_t bit_width);
 };

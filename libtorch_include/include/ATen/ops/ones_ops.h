@@ -18,9 +18,9 @@ struct TORCH_API ones_names {
   using schema = at::Tensor (at::IntArrayRef, ::std::optional<at::DimnameList>, ::std::optional<at::ScalarType>, ::std::optional<at::Layout>, ::std::optional<at::Device>, ::std::optional<bool>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::ones")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "names")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "ones.names(int[] size, *, Dimname[]? names, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor")
+  static constexpr const char* name = "aten::ones";
+  static constexpr const char* overload_name = "names";
+  static constexpr const char* schema_str = "ones.names(int[] size, *, Dimname[]? names, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor";
   static at::Tensor call(at::IntArrayRef size, ::std::optional<at::DimnameList> names, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, at::IntArrayRef size, ::std::optional<at::DimnameList> names, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory);
 };
@@ -29,9 +29,9 @@ struct TORCH_API ones {
   using schema = at::Tensor (c10::SymIntArrayRef, ::std::optional<at::ScalarType>, ::std::optional<at::Layout>, ::std::optional<at::Device>, ::std::optional<bool>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::ones")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "ones(SymInt[] size, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor")
+  static constexpr const char* name = "aten::ones";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "ones(SymInt[] size, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor";
   static at::Tensor call(c10::SymIntArrayRef size, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, c10::SymIntArrayRef size, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory);
 };
@@ -40,9 +40,9 @@ struct TORCH_API ones_out {
   using schema = at::Tensor & (c10::SymIntArrayRef, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::ones")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "ones.out(SymInt[] size, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::ones";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "ones.out(SymInt[] size, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(c10::SymIntArrayRef size, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, c10::SymIntArrayRef size, at::Tensor & out);
 };
@@ -51,9 +51,9 @@ struct TORCH_API ones_names_out {
   using schema = at::Tensor & (at::IntArrayRef, ::std::optional<at::DimnameList>, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::ones")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "names_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "ones.names_out(int[] size, *, Dimname[]? names, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::ones";
+  static constexpr const char* overload_name = "names_out";
+  static constexpr const char* schema_str = "ones.names_out(int[] size, *, Dimname[]? names, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(at::IntArrayRef size, ::std::optional<at::DimnameList> names, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::IntArrayRef size, ::std::optional<at::DimnameList> names, at::Tensor & out);
 };

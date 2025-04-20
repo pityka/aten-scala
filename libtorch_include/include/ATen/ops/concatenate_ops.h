@@ -18,9 +18,9 @@ struct TORCH_API concatenate {
   using schema = at::Tensor (at::TensorList, int64_t);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::concatenate")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "concatenate(Tensor[] tensors, int dim=0) -> Tensor")
+  static constexpr const char* name = "aten::concatenate";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "concatenate(Tensor[] tensors, int dim=0) -> Tensor";
   static at::Tensor call(at::TensorList tensors, int64_t dim);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList tensors, int64_t dim);
 };
@@ -29,9 +29,9 @@ struct TORCH_API concatenate_out {
   using schema = at::Tensor & (at::TensorList, int64_t, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::concatenate")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "concatenate.out(Tensor[] tensors, int dim=0, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::concatenate";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "concatenate.out(Tensor[] tensors, int dim=0, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(at::TensorList tensors, int64_t dim, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList tensors, int64_t dim, at::Tensor & out);
 };
@@ -40,9 +40,9 @@ struct TORCH_API concatenate_names {
   using schema = at::Tensor (at::TensorList, at::Dimname);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::concatenate")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "names")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "concatenate.names(Tensor[] tensors, Dimname dim) -> Tensor")
+  static constexpr const char* name = "aten::concatenate";
+  static constexpr const char* overload_name = "names";
+  static constexpr const char* schema_str = "concatenate.names(Tensor[] tensors, Dimname dim) -> Tensor";
   static at::Tensor call(at::TensorList tensors, at::Dimname dim);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList tensors, at::Dimname dim);
 };
@@ -51,9 +51,9 @@ struct TORCH_API concatenate_names_out {
   using schema = at::Tensor & (at::TensorList, at::Dimname, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::concatenate")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "names_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "concatenate.names_out(Tensor[] tensors, Dimname dim, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::concatenate";
+  static constexpr const char* overload_name = "names_out";
+  static constexpr const char* schema_str = "concatenate.names_out(Tensor[] tensors, Dimname dim, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(at::TensorList tensors, at::Dimname dim, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList tensors, at::Dimname dim, at::Tensor & out);
 };

@@ -18,9 +18,9 @@ struct TORCH_API triu_indices {
   using schema = at::Tensor (int64_t, int64_t, int64_t, ::std::optional<at::ScalarType>, ::std::optional<at::Layout>, ::std::optional<at::Device>, ::std::optional<bool>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::triu_indices")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "triu_indices(int row, int col, int offset=0, *, ScalarType? dtype=long, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor")
+  static constexpr const char* name = "aten::triu_indices";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "triu_indices(int row, int col, int offset=0, *, ScalarType? dtype=long, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor";
   static at::Tensor call(int64_t row, int64_t col, int64_t offset, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, int64_t row, int64_t col, int64_t offset, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory);
 };
@@ -29,9 +29,9 @@ struct TORCH_API triu_indices_out {
   using schema = at::Tensor & (int64_t, int64_t, int64_t, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::triu_indices")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "triu_indices.out(int row, int col, int offset=0, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::triu_indices";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "triu_indices.out(int row, int col, int offset=0, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(int64_t row, int64_t col, int64_t offset, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, int64_t row, int64_t col, int64_t offset, at::Tensor & out);
 };

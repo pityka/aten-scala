@@ -19,11 +19,15 @@ namespace native {
 struct TORCH_API structured_min_out : public at::meta::structured_min_dim {
 void impl(const at::Tensor & self, int64_t dim, bool keepdim, const at::Tensor & min, const at::Tensor & min_indices);
 };
+struct TORCH_API structured_min_out_mps : public at::meta::structured_min_dim {
+void impl(const at::Tensor & self, int64_t dim, bool keepdim, const at::Tensor & min, const at::Tensor & min_indices);
+};
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> qmin(const at::Tensor & self, int64_t dim, bool keepdim=false);
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> min(const at::Tensor & self, at::Dimname dim, bool keepdim=false);
 TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> min_out(const at::Tensor & self, at::Dimname dim, bool keepdim, at::Tensor & min, at::Tensor & min_indices);
 TORCH_API at::Tensor min(const at::Tensor & self);
 TORCH_API at::Tensor & min_unary_out(const at::Tensor & self, at::Tensor & out);
+TORCH_API at::Tensor min_mps(const at::Tensor & self);
 TORCH_API at::Tensor min_quantized_cpu(const at::Tensor & self);
 TORCH_API at::Tensor & min_quantized_unary_out(const at::Tensor & self, at::Tensor & out);
 TORCH_API at::Tensor min(const at::Tensor & self, const at::Tensor & other);

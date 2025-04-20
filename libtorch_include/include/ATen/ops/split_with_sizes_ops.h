@@ -18,9 +18,9 @@ struct TORCH_API split_with_sizes {
   using schema = ::std::vector<at::Tensor> (const at::Tensor &, c10::SymIntArrayRef, int64_t);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::split_with_sizes")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "split_with_sizes(Tensor(a -> *) self, SymInt[] split_sizes, int dim=0) -> Tensor(a)[]")
+  static constexpr const char* name = "aten::split_with_sizes";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "split_with_sizes(Tensor(a -> *) self, SymInt[] split_sizes, int dim=0) -> Tensor(a)[]";
   static ::std::vector<at::Tensor> call(const at::Tensor & self, c10::SymIntArrayRef split_sizes, int64_t dim);
   static ::std::vector<at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, c10::SymIntArrayRef split_sizes, int64_t dim);
 };

@@ -18,5 +18,6 @@ namespace at {
 namespace native {
 TORCH_API at::Tensor math_mish_backward(const at::Tensor & grad_output, const at::Tensor & self);
 TORCH_API at::Tensor mish_backward(const at::Tensor & grad_output, const at::Tensor & self);
+TORCH_API at::Tensor mish_backward_mps(const at::Tensor & grad_output, const at::Tensor & self);
 } // namespace native
 } // namespace at

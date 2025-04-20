@@ -27,4 +27,13 @@ inline at::Tensor adaptive_avg_pool1d(const at::Tensor & self, at::IntArrayRef o
     return at::_ops::adaptive_avg_pool1d::call(self, output_size);
 }
 
+// aten::adaptive_avg_pool1d.out(Tensor self, int[1] output_size, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & adaptive_avg_pool1d_out(at::Tensor & out, const at::Tensor & self, at::IntArrayRef output_size) {
+    return at::_ops::adaptive_avg_pool1d_out::call(self, output_size, out);
+}
+// aten::adaptive_avg_pool1d.out(Tensor self, int[1] output_size, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & adaptive_avg_pool1d_outf(const at::Tensor & self, at::IntArrayRef output_size, at::Tensor & out) {
+    return at::_ops::adaptive_avg_pool1d_out::call(self, output_size, out);
+}
+
 }

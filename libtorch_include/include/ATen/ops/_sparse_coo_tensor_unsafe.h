@@ -27,7 +27,7 @@ inline at::Tensor _sparse_coo_tensor_unsafe(const at::Tensor & indices, const at
     return at::_ops::_sparse_coo_tensor_unsafe::call(indices, values, c10::fromIntArrayRefSlow(size), c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt(), is_coalesced);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor _sparse_coo_tensor_unsafe(const at::Tensor & indices, const at::Tensor & values, at::IntArrayRef size, at::TensorOptions options={}, ::std::optional<bool> is_coalesced=::std::nullopt) {
     return at::_ops::_sparse_coo_tensor_unsafe::call(indices, values, c10::fromIntArrayRefSlow(size), c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt(), is_coalesced);
   }
@@ -38,7 +38,7 @@ inline at::Tensor _sparse_coo_tensor_unsafe(const at::Tensor & indices, const at
     return at::_ops::_sparse_coo_tensor_unsafe::call(indices, values, c10::fromIntArrayRefSlow(size), dtype, layout, device, pin_memory, is_coalesced);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor _sparse_coo_tensor_unsafe(const at::Tensor & indices, const at::Tensor & values, at::IntArrayRef size, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory, ::std::optional<bool> is_coalesced) {
     return at::_ops::_sparse_coo_tensor_unsafe::call(indices, values, c10::fromIntArrayRefSlow(size), dtype, layout, device, pin_memory, is_coalesced);
   }
@@ -49,7 +49,7 @@ inline at::Tensor _sparse_coo_tensor_unsafe_symint(const at::Tensor & indices, c
     return at::_ops::_sparse_coo_tensor_unsafe::call(indices, values, size, c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt(), is_coalesced);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor _sparse_coo_tensor_unsafe(const at::Tensor & indices, const at::Tensor & values, c10::SymIntArrayRef size, at::TensorOptions options={}, ::std::optional<bool> is_coalesced=::std::nullopt) {
     return at::_ops::_sparse_coo_tensor_unsafe::call(indices, values, size, c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt(), is_coalesced);
   }
@@ -60,7 +60,7 @@ inline at::Tensor _sparse_coo_tensor_unsafe_symint(const at::Tensor & indices, c
     return at::_ops::_sparse_coo_tensor_unsafe::call(indices, values, size, dtype, layout, device, pin_memory, is_coalesced);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor _sparse_coo_tensor_unsafe(const at::Tensor & indices, const at::Tensor & values, c10::SymIntArrayRef size, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory, ::std::optional<bool> is_coalesced) {
     return at::_ops::_sparse_coo_tensor_unsafe::call(indices, values, size, dtype, layout, device, pin_memory, is_coalesced);
   }

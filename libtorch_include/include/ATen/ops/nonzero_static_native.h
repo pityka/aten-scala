@@ -18,5 +18,7 @@ namespace at {
 namespace native {
 TORCH_API at::Tensor nonzero_static_cpu(const at::Tensor & self, int64_t size, int64_t fill_value=-1);
 TORCH_API at::Tensor & nonzero_static_out_cpu(const at::Tensor & self, int64_t size, int64_t fill_value, at::Tensor & out);
+TORCH_API at::Tensor nonzero_static_cuda(const at::Tensor & self, int64_t size, int64_t fill_value=-1);
+TORCH_API at::Tensor & nonzero_static_out_cuda(const at::Tensor & self, int64_t size, int64_t fill_value, at::Tensor & out);
 } // namespace native
 } // namespace at

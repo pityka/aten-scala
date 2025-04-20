@@ -20,5 +20,7 @@ TORCH_API at::Tensor binary_cross_entropy_backward_cpu(const at::Tensor & grad_o
 TORCH_API at::Tensor & binary_cross_entropy_backward_out_cpu(const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & target, const ::std::optional<at::Tensor> & weight, int64_t reduction, at::Tensor & grad_input);
 TORCH_API at::Tensor binary_cross_entropy_backward_cuda(const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & target, const ::std::optional<at::Tensor> & weight={}, int64_t reduction=at::Reduction::Mean);
 TORCH_API at::Tensor & binary_cross_entropy_backward_out_cuda(const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & target, const ::std::optional<at::Tensor> & weight, int64_t reduction, at::Tensor & grad_input);
+TORCH_API at::Tensor binary_cross_entropy_backward_mps(const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & target, const ::std::optional<at::Tensor> & weight={}, int64_t reduction=at::Reduction::Mean);
+TORCH_API at::Tensor & binary_cross_entropy_backward_out_mps(const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & target, const ::std::optional<at::Tensor> & weight, int64_t reduction, at::Tensor & grad_input);
 } // namespace native
 } // namespace at

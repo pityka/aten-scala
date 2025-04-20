@@ -18,9 +18,9 @@ struct TORCH_API linalg_pinv_atol_rtol_tensor {
   using schema = at::Tensor (const at::Tensor &, const ::std::optional<at::Tensor> &, const ::std::optional<at::Tensor> &, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::linalg_pinv")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "atol_rtol_tensor")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "linalg_pinv.atol_rtol_tensor(Tensor self, *, Tensor? atol=None, Tensor? rtol=None, bool hermitian=False) -> Tensor")
+  static constexpr const char* name = "aten::linalg_pinv";
+  static constexpr const char* overload_name = "atol_rtol_tensor";
+  static constexpr const char* schema_str = "linalg_pinv.atol_rtol_tensor(Tensor self, *, Tensor? atol=None, Tensor? rtol=None, bool hermitian=False) -> Tensor";
   static at::Tensor call(const at::Tensor & self, const ::std::optional<at::Tensor> & atol, const ::std::optional<at::Tensor> & rtol, bool hermitian);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const ::std::optional<at::Tensor> & atol, const ::std::optional<at::Tensor> & rtol, bool hermitian);
 };
@@ -29,9 +29,9 @@ struct TORCH_API linalg_pinv_atol_rtol_tensor_out {
   using schema = at::Tensor & (const at::Tensor &, const ::std::optional<at::Tensor> &, const ::std::optional<at::Tensor> &, bool, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::linalg_pinv")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "atol_rtol_tensor_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "linalg_pinv.atol_rtol_tensor_out(Tensor self, *, Tensor? atol=None, Tensor? rtol=None, bool hermitian=False, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::linalg_pinv";
+  static constexpr const char* overload_name = "atol_rtol_tensor_out";
+  static constexpr const char* schema_str = "linalg_pinv.atol_rtol_tensor_out(Tensor self, *, Tensor? atol=None, Tensor? rtol=None, bool hermitian=False, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, const ::std::optional<at::Tensor> & atol, const ::std::optional<at::Tensor> & rtol, bool hermitian, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const ::std::optional<at::Tensor> & atol, const ::std::optional<at::Tensor> & rtol, bool hermitian, at::Tensor & out);
 };
@@ -40,9 +40,9 @@ struct TORCH_API linalg_pinv_atol_rtol_float {
   using schema = at::Tensor (const at::Tensor &, ::std::optional<double>, ::std::optional<double>, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::linalg_pinv")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "atol_rtol_float")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "linalg_pinv.atol_rtol_float(Tensor self, *, float? atol=None, float? rtol=None, bool hermitian=False) -> Tensor")
+  static constexpr const char* name = "aten::linalg_pinv";
+  static constexpr const char* overload_name = "atol_rtol_float";
+  static constexpr const char* schema_str = "linalg_pinv.atol_rtol_float(Tensor self, *, float? atol=None, float? rtol=None, bool hermitian=False) -> Tensor";
   static at::Tensor call(const at::Tensor & self, ::std::optional<double> atol, ::std::optional<double> rtol, bool hermitian);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, ::std::optional<double> atol, ::std::optional<double> rtol, bool hermitian);
 };
@@ -51,9 +51,9 @@ struct TORCH_API linalg_pinv_atol_rtol_float_out {
   using schema = at::Tensor & (const at::Tensor &, ::std::optional<double>, ::std::optional<double>, bool, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::linalg_pinv")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "atol_rtol_float_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "linalg_pinv.atol_rtol_float_out(Tensor self, *, float? atol=None, float? rtol=None, bool hermitian=False, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::linalg_pinv";
+  static constexpr const char* overload_name = "atol_rtol_float_out";
+  static constexpr const char* schema_str = "linalg_pinv.atol_rtol_float_out(Tensor self, *, float? atol=None, float? rtol=None, bool hermitian=False, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, ::std::optional<double> atol, ::std::optional<double> rtol, bool hermitian, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, ::std::optional<double> atol, ::std::optional<double> rtol, bool hermitian, at::Tensor & out);
 };
@@ -62,9 +62,9 @@ struct TORCH_API linalg_pinv {
   using schema = at::Tensor (const at::Tensor &, double, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::linalg_pinv")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "linalg_pinv(Tensor self, float rcond, bool hermitian=False) -> Tensor")
+  static constexpr const char* name = "aten::linalg_pinv";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "linalg_pinv(Tensor self, float rcond, bool hermitian=False) -> Tensor";
   static at::Tensor call(const at::Tensor & self, double rcond, bool hermitian);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, double rcond, bool hermitian);
 };
@@ -73,9 +73,9 @@ struct TORCH_API linalg_pinv_rcond_tensor {
   using schema = at::Tensor (const at::Tensor &, const at::Tensor &, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::linalg_pinv")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "rcond_tensor")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "linalg_pinv.rcond_tensor(Tensor self, Tensor rcond, bool hermitian=False) -> Tensor")
+  static constexpr const char* name = "aten::linalg_pinv";
+  static constexpr const char* overload_name = "rcond_tensor";
+  static constexpr const char* schema_str = "linalg_pinv.rcond_tensor(Tensor self, Tensor rcond, bool hermitian=False) -> Tensor";
   static at::Tensor call(const at::Tensor & self, const at::Tensor & rcond, bool hermitian);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & rcond, bool hermitian);
 };
@@ -84,9 +84,9 @@ struct TORCH_API linalg_pinv_out {
   using schema = at::Tensor & (const at::Tensor &, double, bool, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::linalg_pinv")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "linalg_pinv.out(Tensor self, float rcond, bool hermitian=False, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::linalg_pinv";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "linalg_pinv.out(Tensor self, float rcond, bool hermitian=False, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, double rcond, bool hermitian, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, double rcond, bool hermitian, at::Tensor & out);
 };
@@ -95,9 +95,9 @@ struct TORCH_API linalg_pinv_out_rcond_tensor {
   using schema = at::Tensor & (const at::Tensor &, const at::Tensor &, bool, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::linalg_pinv")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out_rcond_tensor")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "linalg_pinv.out_rcond_tensor(Tensor self, Tensor rcond, bool hermitian=False, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::linalg_pinv";
+  static constexpr const char* overload_name = "out_rcond_tensor";
+  static constexpr const char* schema_str = "linalg_pinv.out_rcond_tensor(Tensor self, Tensor rcond, bool hermitian=False, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, const at::Tensor & rcond, bool hermitian, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & rcond, bool hermitian, at::Tensor & out);
 };

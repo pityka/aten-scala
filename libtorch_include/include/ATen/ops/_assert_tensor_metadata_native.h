@@ -16,6 +16,7 @@
 
 namespace at {
 namespace native {
-TORCH_API void _assert_tensor_metadata(const at::Tensor & a, at::OptionalIntArrayRef size=::std::nullopt, at::OptionalIntArrayRef stride=::std::nullopt, ::std::optional<at::ScalarType> dtype=::std::nullopt);
+TORCH_API void _assert_tensor_metadata(const at::Tensor & a, at::OptionalIntArrayRef size=::std::nullopt, at::OptionalIntArrayRef stride=::std::nullopt, ::std::optional<at::ScalarType> dtype=::std::nullopt, ::std::optional<at::Device> device=::std::nullopt, ::std::optional<at::Layout> layout=::std::nullopt);
+TORCH_API void _assert_tensor_metadata_meta_symint(const at::Tensor & a, at::OptionalSymIntArrayRef size=::std::nullopt, at::OptionalSymIntArrayRef stride=::std::nullopt, ::std::optional<at::ScalarType> dtype=::std::nullopt, ::std::optional<at::Device> device=::std::nullopt, ::std::optional<at::Layout> layout=::std::nullopt);
 } // namespace native
 } // namespace at

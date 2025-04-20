@@ -21,5 +21,8 @@ void impl(const at::Tensor & self, const at::Tensor & out);
 };
 TORCH_API at::Tensor NestedTensor_silu(const at::Tensor & self);
 TORCH_API at::Tensor & NestedTensor_silu_(at::Tensor & self);
+struct TORCH_API structured_silu_out_mps : public at::meta::structured_silu {
+void impl(const at::Tensor & self, const at::Tensor & out);
+};
 } // namespace native
 } // namespace at

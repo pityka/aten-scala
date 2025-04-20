@@ -18,9 +18,9 @@ struct TORCH_API expand_copy {
   using schema = at::Tensor (const at::Tensor &, c10::SymIntArrayRef, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::expand_copy")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "expand_copy(Tensor self, SymInt[] size, *, bool implicit=False) -> Tensor")
+  static constexpr const char* name = "aten::expand_copy";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "expand_copy(Tensor self, SymInt[] size, *, bool implicit=False) -> Tensor";
   static at::Tensor call(const at::Tensor & self, c10::SymIntArrayRef size, bool implicit);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, c10::SymIntArrayRef size, bool implicit);
 };
@@ -29,9 +29,9 @@ struct TORCH_API expand_copy_out {
   using schema = at::Tensor & (const at::Tensor &, c10::SymIntArrayRef, bool, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::expand_copy")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "expand_copy.out(Tensor self, SymInt[] size, *, bool implicit=False, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::expand_copy";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "expand_copy.out(Tensor self, SymInt[] size, *, bool implicit=False, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, c10::SymIntArrayRef size, bool implicit, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, c10::SymIntArrayRef size, bool implicit, at::Tensor & out);
 };

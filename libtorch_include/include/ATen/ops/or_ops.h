@@ -18,9 +18,9 @@ struct TORCH_API __or___Scalar {
   using schema = at::Tensor (const at::Tensor &, const at::Scalar &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::__or__")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Scalar")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "__or__.Scalar(Tensor self, Scalar other) -> Tensor")
+  static constexpr const char* name = "aten::__or__";
+  static constexpr const char* overload_name = "Scalar";
+  static constexpr const char* schema_str = "__or__.Scalar(Tensor self, Scalar other) -> Tensor";
   static at::Tensor call(const at::Tensor & self, const at::Scalar & other);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Scalar & other);
 };
@@ -29,9 +29,9 @@ struct TORCH_API __or___Tensor {
   using schema = at::Tensor (const at::Tensor &, const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::__or__")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Tensor")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "__or__.Tensor(Tensor self, Tensor other) -> Tensor")
+  static constexpr const char* name = "aten::__or__";
+  static constexpr const char* overload_name = "Tensor";
+  static constexpr const char* schema_str = "__or__.Tensor(Tensor self, Tensor other) -> Tensor";
   static at::Tensor call(const at::Tensor & self, const at::Tensor & other);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & other);
 };
@@ -40,9 +40,9 @@ struct TORCH_API __ior___Scalar {
   using schema = at::Tensor & (at::Tensor &, const at::Scalar &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::__ior__")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Scalar")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "__ior__.Scalar(Tensor(a!) self, Scalar other) -> Tensor(a!)")
+  static constexpr const char* name = "aten::__ior__";
+  static constexpr const char* overload_name = "Scalar";
+  static constexpr const char* schema_str = "__ior__.Scalar(Tensor(a!) self, Scalar other) -> Tensor(a!)";
   static at::Tensor & call(at::Tensor & self, const at::Scalar & other);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::Tensor & self, const at::Scalar & other);
 };
@@ -51,9 +51,9 @@ struct TORCH_API __ior___Tensor {
   using schema = at::Tensor & (at::Tensor &, const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::__ior__")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Tensor")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "__ior__.Tensor(Tensor(a!) self, Tensor other) -> Tensor(a!)")
+  static constexpr const char* name = "aten::__ior__";
+  static constexpr const char* overload_name = "Tensor";
+  static constexpr const char* schema_str = "__ior__.Tensor(Tensor(a!) self, Tensor other) -> Tensor(a!)";
   static at::Tensor & call(at::Tensor & self, const at::Tensor & other);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::Tensor & self, const at::Tensor & other);
 };

@@ -18,9 +18,9 @@ struct TORCH_API masked_scatter_backward {
   using schema = at::Tensor (const at::Tensor &, const at::Tensor &, c10::SymIntArrayRef);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::masked_scatter_backward")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "masked_scatter_backward(Tensor grad_output, Tensor mask, SymInt[] sizes) -> Tensor")
+  static constexpr const char* name = "aten::masked_scatter_backward";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "masked_scatter_backward(Tensor grad_output, Tensor mask, SymInt[] sizes) -> Tensor";
   static at::Tensor call(const at::Tensor & grad_output, const at::Tensor & mask, c10::SymIntArrayRef sizes);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & grad_output, const at::Tensor & mask, c10::SymIntArrayRef sizes);
 };

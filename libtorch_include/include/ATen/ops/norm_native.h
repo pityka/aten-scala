@@ -24,10 +24,16 @@ struct TORCH_API structured_norm_dtype_out : public at::meta::structured_norm_Sc
 void impl(const at::Tensor & self, at::OptionalScalarRef p, at::IntArrayRef dim, bool keepdim, at::ScalarType dtype, const at::Tensor & out);
 };
 TORCH_API at::Tensor sparse_dtype_norm(const at::Tensor & self, const ::std::optional<at::Scalar> & p, at::IntArrayRef dim, bool keepdim, at::ScalarType dtype);
+struct TORCH_API structured_norm_dtype_out_mps : public at::meta::structured_norm_ScalarOpt_dim_dtype {
+void impl(const at::Tensor & self, at::OptionalScalarRef p, at::IntArrayRef dim, bool keepdim, at::ScalarType dtype, const at::Tensor & out);
+};
 struct TORCH_API structured_norm_out : public at::meta::structured_norm_ScalarOpt_dim {
 void impl(const at::Tensor & self, at::OptionalScalarRef p, at::IntArrayRef dim, bool keepdim, const at::Tensor & out);
 };
 TORCH_API at::Tensor sparse_norm(const at::Tensor & self, const ::std::optional<at::Scalar> & p, at::IntArrayRef dim, bool keepdim=false);
+struct TORCH_API structured_norm_out_mps : public at::meta::structured_norm_ScalarOpt_dim {
+void impl(const at::Tensor & self, at::OptionalScalarRef p, at::IntArrayRef dim, bool keepdim, const at::Tensor & out);
+};
 TORCH_API at::Tensor norm(const at::Tensor & self, const ::std::optional<at::Scalar> & p, at::DimnameList dim, bool keepdim, at::ScalarType dtype);
 TORCH_API at::Tensor & norm_out(const at::Tensor & self, const ::std::optional<at::Scalar> & p, at::DimnameList dim, bool keepdim, at::ScalarType dtype, at::Tensor & out);
 TORCH_API at::Tensor norm(const at::Tensor & self, const ::std::optional<at::Scalar> & p, at::DimnameList dim, bool keepdim=false);

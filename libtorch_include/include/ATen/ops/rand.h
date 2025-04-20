@@ -27,7 +27,7 @@ inline at::Tensor rand(at::IntArrayRef size, ::std::optional<at::DimnameList> na
     return at::_ops::rand_names::call(c10::fromIntArrayRefSlow(size), names, c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt());
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor rand(at::IntArrayRef size, ::std::optional<at::DimnameList> names, at::TensorOptions options={}) {
     return at::_ops::rand_names::call(c10::fromIntArrayRefSlow(size), names, c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt());
   }
@@ -38,7 +38,7 @@ inline at::Tensor rand(at::IntArrayRef size, ::std::optional<at::DimnameList> na
     return at::_ops::rand_names::call(c10::fromIntArrayRefSlow(size), names, dtype, layout, device, pin_memory);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor rand(at::IntArrayRef size, ::std::optional<at::DimnameList> names, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory) {
     return at::_ops::rand_names::call(c10::fromIntArrayRefSlow(size), names, dtype, layout, device, pin_memory);
   }
@@ -49,7 +49,7 @@ inline at::Tensor rand_symint(c10::SymIntArrayRef size, ::std::optional<at::Dimn
     return at::_ops::rand_names::call(size, names, c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt());
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor rand(c10::SymIntArrayRef size, ::std::optional<at::DimnameList> names, at::TensorOptions options={}) {
     return at::_ops::rand_names::call(size, names, c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt());
   }
@@ -60,7 +60,7 @@ inline at::Tensor rand_symint(c10::SymIntArrayRef size, ::std::optional<at::Dimn
     return at::_ops::rand_names::call(size, names, dtype, layout, device, pin_memory);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor rand(c10::SymIntArrayRef size, ::std::optional<at::DimnameList> names, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory) {
     return at::_ops::rand_names::call(size, names, dtype, layout, device, pin_memory);
   }
@@ -71,7 +71,7 @@ inline at::Tensor rand(at::IntArrayRef size, ::std::optional<at::Generator> gene
     return at::_ops::rand_generator_with_names::call(c10::fromIntArrayRefSlow(size), generator, names, c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt());
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor rand(at::IntArrayRef size, ::std::optional<at::Generator> generator, ::std::optional<at::DimnameList> names, at::TensorOptions options={}) {
     return at::_ops::rand_generator_with_names::call(c10::fromIntArrayRefSlow(size), generator, names, c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt());
   }
@@ -82,7 +82,7 @@ inline at::Tensor rand(at::IntArrayRef size, ::std::optional<at::Generator> gene
     return at::_ops::rand_generator_with_names::call(c10::fromIntArrayRefSlow(size), generator, names, dtype, layout, device, pin_memory);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor rand(at::IntArrayRef size, ::std::optional<at::Generator> generator, ::std::optional<at::DimnameList> names, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory) {
     return at::_ops::rand_generator_with_names::call(c10::fromIntArrayRefSlow(size), generator, names, dtype, layout, device, pin_memory);
   }
@@ -93,7 +93,7 @@ inline at::Tensor rand_symint(c10::SymIntArrayRef size, ::std::optional<at::Gene
     return at::_ops::rand_generator_with_names::call(size, generator, names, c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt());
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor rand(c10::SymIntArrayRef size, ::std::optional<at::Generator> generator, ::std::optional<at::DimnameList> names, at::TensorOptions options={}) {
     return at::_ops::rand_generator_with_names::call(size, generator, names, c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt());
   }
@@ -104,7 +104,7 @@ inline at::Tensor rand_symint(c10::SymIntArrayRef size, ::std::optional<at::Gene
     return at::_ops::rand_generator_with_names::call(size, generator, names, dtype, layout, device, pin_memory);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor rand(c10::SymIntArrayRef size, ::std::optional<at::Generator> generator, ::std::optional<at::DimnameList> names, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory) {
     return at::_ops::rand_generator_with_names::call(size, generator, names, dtype, layout, device, pin_memory);
   }
@@ -115,7 +115,7 @@ inline at::Tensor rand(at::IntArrayRef size, at::TensorOptions options={}) {
     return at::_ops::rand::call(c10::fromIntArrayRefSlow(size), c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt());
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor rand(at::IntArrayRef size, at::TensorOptions options={}) {
     return at::_ops::rand::call(c10::fromIntArrayRefSlow(size), c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt());
   }
@@ -126,7 +126,7 @@ inline at::Tensor rand(at::IntArrayRef size, ::std::optional<at::ScalarType> dty
     return at::_ops::rand::call(c10::fromIntArrayRefSlow(size), dtype, layout, device, pin_memory);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor rand(at::IntArrayRef size, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory) {
     return at::_ops::rand::call(c10::fromIntArrayRefSlow(size), dtype, layout, device, pin_memory);
   }
@@ -137,7 +137,7 @@ inline at::Tensor rand_symint(c10::SymIntArrayRef size, at::TensorOptions option
     return at::_ops::rand::call(size, c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt());
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor rand(c10::SymIntArrayRef size, at::TensorOptions options={}) {
     return at::_ops::rand::call(size, c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt());
   }
@@ -148,7 +148,7 @@ inline at::Tensor rand_symint(c10::SymIntArrayRef size, ::std::optional<at::Scal
     return at::_ops::rand::call(size, dtype, layout, device, pin_memory);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor rand(c10::SymIntArrayRef size, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory) {
     return at::_ops::rand::call(size, dtype, layout, device, pin_memory);
   }
@@ -159,7 +159,7 @@ inline at::Tensor rand(at::IntArrayRef size, ::std::optional<at::Generator> gene
     return at::_ops::rand_generator::call(c10::fromIntArrayRefSlow(size), generator, c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt());
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor rand(at::IntArrayRef size, ::std::optional<at::Generator> generator, at::TensorOptions options={}) {
     return at::_ops::rand_generator::call(c10::fromIntArrayRefSlow(size), generator, c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt());
   }
@@ -170,7 +170,7 @@ inline at::Tensor rand(at::IntArrayRef size, ::std::optional<at::Generator> gene
     return at::_ops::rand_generator::call(c10::fromIntArrayRefSlow(size), generator, dtype, layout, device, pin_memory);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor rand(at::IntArrayRef size, ::std::optional<at::Generator> generator, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory) {
     return at::_ops::rand_generator::call(c10::fromIntArrayRefSlow(size), generator, dtype, layout, device, pin_memory);
   }
@@ -181,7 +181,7 @@ inline at::Tensor rand_symint(c10::SymIntArrayRef size, ::std::optional<at::Gene
     return at::_ops::rand_generator::call(size, generator, c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt());
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor rand(c10::SymIntArrayRef size, ::std::optional<at::Generator> generator, at::TensorOptions options={}) {
     return at::_ops::rand_generator::call(size, generator, c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt());
   }
@@ -192,7 +192,7 @@ inline at::Tensor rand_symint(c10::SymIntArrayRef size, ::std::optional<at::Gene
     return at::_ops::rand_generator::call(size, generator, dtype, layout, device, pin_memory);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor rand(c10::SymIntArrayRef size, ::std::optional<at::Generator> generator, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory) {
     return at::_ops::rand_generator::call(size, generator, dtype, layout, device, pin_memory);
   }
@@ -203,7 +203,7 @@ inline at::Tensor & rand_out(at::Tensor & out, at::IntArrayRef size) {
     return at::_ops::rand_out::call(c10::fromIntArrayRefSlow(size), out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & rand_out(at::Tensor & out, at::IntArrayRef size) {
     return at::_ops::rand_out::call(c10::fromIntArrayRefSlow(size), out);
   }
@@ -214,7 +214,7 @@ inline at::Tensor & rand_outf(at::IntArrayRef size, at::Tensor & out) {
     return at::_ops::rand_out::call(c10::fromIntArrayRefSlow(size), out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & rand_outf(at::IntArrayRef size, at::Tensor & out) {
     return at::_ops::rand_out::call(c10::fromIntArrayRefSlow(size), out);
   }
@@ -225,7 +225,7 @@ inline at::Tensor & rand_symint_out(at::Tensor & out, c10::SymIntArrayRef size) 
     return at::_ops::rand_out::call(size, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & rand_out(at::Tensor & out, c10::SymIntArrayRef size) {
     return at::_ops::rand_out::call(size, out);
   }
@@ -236,7 +236,7 @@ inline at::Tensor & rand_symint_outf(c10::SymIntArrayRef size, at::Tensor & out)
     return at::_ops::rand_out::call(size, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & rand_outf(c10::SymIntArrayRef size, at::Tensor & out) {
     return at::_ops::rand_out::call(size, out);
   }
@@ -247,7 +247,7 @@ inline at::Tensor & rand_out(at::Tensor & out, at::IntArrayRef size, ::std::opti
     return at::_ops::rand_generator_out::call(c10::fromIntArrayRefSlow(size), generator, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & rand_out(at::Tensor & out, at::IntArrayRef size, ::std::optional<at::Generator> generator) {
     return at::_ops::rand_generator_out::call(c10::fromIntArrayRefSlow(size), generator, out);
   }
@@ -258,7 +258,7 @@ inline at::Tensor & rand_outf(at::IntArrayRef size, ::std::optional<at::Generato
     return at::_ops::rand_generator_out::call(c10::fromIntArrayRefSlow(size), generator, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & rand_outf(at::IntArrayRef size, ::std::optional<at::Generator> generator, at::Tensor & out) {
     return at::_ops::rand_generator_out::call(c10::fromIntArrayRefSlow(size), generator, out);
   }
@@ -269,7 +269,7 @@ inline at::Tensor & rand_symint_out(at::Tensor & out, c10::SymIntArrayRef size, 
     return at::_ops::rand_generator_out::call(size, generator, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & rand_out(at::Tensor & out, c10::SymIntArrayRef size, ::std::optional<at::Generator> generator) {
     return at::_ops::rand_generator_out::call(size, generator, out);
   }
@@ -280,7 +280,7 @@ inline at::Tensor & rand_symint_outf(c10::SymIntArrayRef size, ::std::optional<a
     return at::_ops::rand_generator_out::call(size, generator, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & rand_outf(c10::SymIntArrayRef size, ::std::optional<at::Generator> generator, at::Tensor & out) {
     return at::_ops::rand_generator_out::call(size, generator, out);
   }
@@ -291,7 +291,7 @@ inline at::Tensor & rand_out(at::Tensor & out, at::IntArrayRef size, ::std::opti
     return at::_ops::rand_names_out::call(c10::fromIntArrayRefSlow(size), names, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & rand_out(at::Tensor & out, at::IntArrayRef size, ::std::optional<at::DimnameList> names) {
     return at::_ops::rand_names_out::call(c10::fromIntArrayRefSlow(size), names, out);
   }
@@ -302,7 +302,7 @@ inline at::Tensor & rand_outf(at::IntArrayRef size, ::std::optional<at::DimnameL
     return at::_ops::rand_names_out::call(c10::fromIntArrayRefSlow(size), names, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & rand_outf(at::IntArrayRef size, ::std::optional<at::DimnameList> names, at::Tensor & out) {
     return at::_ops::rand_names_out::call(c10::fromIntArrayRefSlow(size), names, out);
   }
@@ -313,7 +313,7 @@ inline at::Tensor & rand_symint_out(at::Tensor & out, c10::SymIntArrayRef size, 
     return at::_ops::rand_names_out::call(size, names, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & rand_out(at::Tensor & out, c10::SymIntArrayRef size, ::std::optional<at::DimnameList> names) {
     return at::_ops::rand_names_out::call(size, names, out);
   }
@@ -324,7 +324,7 @@ inline at::Tensor & rand_symint_outf(c10::SymIntArrayRef size, ::std::optional<a
     return at::_ops::rand_names_out::call(size, names, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & rand_outf(c10::SymIntArrayRef size, ::std::optional<at::DimnameList> names, at::Tensor & out) {
     return at::_ops::rand_names_out::call(size, names, out);
   }
@@ -335,7 +335,7 @@ inline at::Tensor & rand_out(at::Tensor & out, at::IntArrayRef size, ::std::opti
     return at::_ops::rand_generator_with_names_out::call(c10::fromIntArrayRefSlow(size), generator, names, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & rand_out(at::Tensor & out, at::IntArrayRef size, ::std::optional<at::Generator> generator, ::std::optional<at::DimnameList> names) {
     return at::_ops::rand_generator_with_names_out::call(c10::fromIntArrayRefSlow(size), generator, names, out);
   }
@@ -346,7 +346,7 @@ inline at::Tensor & rand_outf(at::IntArrayRef size, ::std::optional<at::Generato
     return at::_ops::rand_generator_with_names_out::call(c10::fromIntArrayRefSlow(size), generator, names, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & rand_outf(at::IntArrayRef size, ::std::optional<at::Generator> generator, ::std::optional<at::DimnameList> names, at::Tensor & out) {
     return at::_ops::rand_generator_with_names_out::call(c10::fromIntArrayRefSlow(size), generator, names, out);
   }
@@ -357,7 +357,7 @@ inline at::Tensor & rand_symint_out(at::Tensor & out, c10::SymIntArrayRef size, 
     return at::_ops::rand_generator_with_names_out::call(size, generator, names, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & rand_out(at::Tensor & out, c10::SymIntArrayRef size, ::std::optional<at::Generator> generator, ::std::optional<at::DimnameList> names) {
     return at::_ops::rand_generator_with_names_out::call(size, generator, names, out);
   }
@@ -368,7 +368,7 @@ inline at::Tensor & rand_symint_outf(c10::SymIntArrayRef size, ::std::optional<a
     return at::_ops::rand_generator_with_names_out::call(size, generator, names, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & rand_outf(c10::SymIntArrayRef size, ::std::optional<at::Generator> generator, ::std::optional<at::DimnameList> names, at::Tensor & out) {
     return at::_ops::rand_generator_with_names_out::call(size, generator, names, out);
   }

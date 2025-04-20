@@ -22,6 +22,9 @@ TORCH_API at::Tensor & remainder_(at::Tensor & self, const at::Scalar & other);
 struct TORCH_API structured_remainder_out : public at::meta::structured_remainder_Tensor {
 void impl(const at::Tensor & self, const at::Tensor & other, const at::Tensor & out);
 };
+struct TORCH_API structured_remainder_out_mps : public at::meta::structured_remainder_Tensor {
+void impl(const at::Tensor & self, const at::Tensor & other, const at::Tensor & out);
+};
 TORCH_API at::Tensor & remainder_Scalar_Tensor_out(const at::Scalar & self, const at::Tensor & other, at::Tensor & out);
 TORCH_API at::Tensor remainder(const at::Scalar & self, const at::Tensor & other);
 } // namespace native

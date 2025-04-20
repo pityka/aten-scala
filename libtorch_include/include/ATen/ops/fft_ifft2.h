@@ -27,7 +27,7 @@ inline at::Tensor fft_ifft2(const at::Tensor & self, at::OptionalIntArrayRef s=:
     return at::_ops::fft_ifft2::call(self, s.has_value() ? ::std::make_optional(c10::fromIntArrayRefSlow(*s)) : ::std::nullopt, dim, norm);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor fft_ifft2(const at::Tensor & self, at::OptionalIntArrayRef s=::std::nullopt, at::IntArrayRef dim={-2,-1}, ::std::optional<c10::string_view> norm=::std::nullopt) {
     return at::_ops::fft_ifft2::call(self, s.has_value() ? ::std::make_optional(c10::fromIntArrayRefSlow(*s)) : ::std::nullopt, dim, norm);
   }
@@ -38,7 +38,7 @@ inline at::Tensor fft_ifft2_symint(const at::Tensor & self, at::OptionalSymIntAr
     return at::_ops::fft_ifft2::call(self, s, dim, norm);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor fft_ifft2(const at::Tensor & self, at::OptionalSymIntArrayRef s=::std::nullopt, at::IntArrayRef dim={-2,-1}, ::std::optional<c10::string_view> norm=::std::nullopt) {
     return at::_ops::fft_ifft2::call(self, s, dim, norm);
   }
@@ -49,7 +49,7 @@ inline at::Tensor & fft_ifft2_out(at::Tensor & out, const at::Tensor & self, at:
     return at::_ops::fft_ifft2_out::call(self, s.has_value() ? ::std::make_optional(c10::fromIntArrayRefSlow(*s)) : ::std::nullopt, dim, norm, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & fft_ifft2_out(at::Tensor & out, const at::Tensor & self, at::OptionalIntArrayRef s=::std::nullopt, at::IntArrayRef dim={-2,-1}, ::std::optional<c10::string_view> norm=::std::nullopt) {
     return at::_ops::fft_ifft2_out::call(self, s.has_value() ? ::std::make_optional(c10::fromIntArrayRefSlow(*s)) : ::std::nullopt, dim, norm, out);
   }
@@ -60,7 +60,7 @@ inline at::Tensor & fft_ifft2_outf(const at::Tensor & self, at::OptionalIntArray
     return at::_ops::fft_ifft2_out::call(self, s.has_value() ? ::std::make_optional(c10::fromIntArrayRefSlow(*s)) : ::std::nullopt, dim, norm, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & fft_ifft2_outf(const at::Tensor & self, at::OptionalIntArrayRef s, at::IntArrayRef dim, ::std::optional<c10::string_view> norm, at::Tensor & out) {
     return at::_ops::fft_ifft2_out::call(self, s.has_value() ? ::std::make_optional(c10::fromIntArrayRefSlow(*s)) : ::std::nullopt, dim, norm, out);
   }
@@ -71,7 +71,7 @@ inline at::Tensor & fft_ifft2_symint_out(at::Tensor & out, const at::Tensor & se
     return at::_ops::fft_ifft2_out::call(self, s, dim, norm, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & fft_ifft2_out(at::Tensor & out, const at::Tensor & self, at::OptionalSymIntArrayRef s=::std::nullopt, at::IntArrayRef dim={-2,-1}, ::std::optional<c10::string_view> norm=::std::nullopt) {
     return at::_ops::fft_ifft2_out::call(self, s, dim, norm, out);
   }
@@ -82,7 +82,7 @@ inline at::Tensor & fft_ifft2_symint_outf(const at::Tensor & self, at::OptionalS
     return at::_ops::fft_ifft2_out::call(self, s, dim, norm, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & fft_ifft2_outf(const at::Tensor & self, at::OptionalSymIntArrayRef s, at::IntArrayRef dim, ::std::optional<c10::string_view> norm, at::Tensor & out) {
     return at::_ops::fft_ifft2_out::call(self, s, dim, norm, out);
   }

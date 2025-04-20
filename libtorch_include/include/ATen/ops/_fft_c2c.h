@@ -27,7 +27,7 @@ inline at::Tensor _fft_c2c(const at::Tensor & self, at::IntArrayRef dim, int64_t
     return at::_ops::_fft_c2c::call(self, c10::fromIntArrayRefSlow(dim), normalization, forward);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor _fft_c2c(const at::Tensor & self, at::IntArrayRef dim, int64_t normalization, bool forward) {
     return at::_ops::_fft_c2c::call(self, c10::fromIntArrayRefSlow(dim), normalization, forward);
   }
@@ -38,7 +38,7 @@ inline at::Tensor _fft_c2c_symint(const at::Tensor & self, c10::SymIntArrayRef d
     return at::_ops::_fft_c2c::call(self, dim, normalization, forward);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor _fft_c2c(const at::Tensor & self, c10::SymIntArrayRef dim, int64_t normalization, bool forward) {
     return at::_ops::_fft_c2c::call(self, dim, normalization, forward);
   }
@@ -49,7 +49,7 @@ inline at::Tensor & _fft_c2c_out(at::Tensor & out, const at::Tensor & self, at::
     return at::_ops::_fft_c2c_out::call(self, c10::fromIntArrayRefSlow(dim), normalization, forward, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & _fft_c2c_out(at::Tensor & out, const at::Tensor & self, at::IntArrayRef dim, int64_t normalization, bool forward) {
     return at::_ops::_fft_c2c_out::call(self, c10::fromIntArrayRefSlow(dim), normalization, forward, out);
   }
@@ -60,7 +60,7 @@ inline at::Tensor & _fft_c2c_outf(const at::Tensor & self, at::IntArrayRef dim, 
     return at::_ops::_fft_c2c_out::call(self, c10::fromIntArrayRefSlow(dim), normalization, forward, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & _fft_c2c_outf(const at::Tensor & self, at::IntArrayRef dim, int64_t normalization, bool forward, at::Tensor & out) {
     return at::_ops::_fft_c2c_out::call(self, c10::fromIntArrayRefSlow(dim), normalization, forward, out);
   }
@@ -71,7 +71,7 @@ inline at::Tensor & _fft_c2c_symint_out(at::Tensor & out, const at::Tensor & sel
     return at::_ops::_fft_c2c_out::call(self, dim, normalization, forward, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & _fft_c2c_out(at::Tensor & out, const at::Tensor & self, c10::SymIntArrayRef dim, int64_t normalization, bool forward) {
     return at::_ops::_fft_c2c_out::call(self, dim, normalization, forward, out);
   }
@@ -82,7 +82,7 @@ inline at::Tensor & _fft_c2c_symint_outf(const at::Tensor & self, c10::SymIntArr
     return at::_ops::_fft_c2c_out::call(self, dim, normalization, forward, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & _fft_c2c_outf(const at::Tensor & self, c10::SymIntArrayRef dim, int64_t normalization, bool forward, at::Tensor & out) {
     return at::_ops::_fft_c2c_out::call(self, dim, normalization, forward, out);
   }

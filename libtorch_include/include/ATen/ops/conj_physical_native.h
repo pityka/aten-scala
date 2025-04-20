@@ -22,5 +22,6 @@ TORCH_API at::Tensor & conj_physical_out(const at::Tensor & self, at::Tensor & o
 TORCH_API at::Tensor & conj_physical_out_sparse(const at::Tensor & self, at::Tensor & out);
 TORCH_API at::Tensor & conj_physical_sparse_csr_out(const at::Tensor & self, at::Tensor & out);
 TORCH_API at::Tensor & conj_physical_sparse_csr_(at::Tensor & self);
+TORCH_API at::Tensor & conj_physical_out_mps(const at::Tensor & self, at::Tensor & out);
 } // namespace native
 } // namespace at

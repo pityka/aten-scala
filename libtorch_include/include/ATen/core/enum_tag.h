@@ -11,6 +11,7 @@ namespace at {
         flexible_layout,
         generated,
         inplace_view,
+        maybe_aliasing_or_mutating,
         needs_fixed_stride_order,
         nondeterministic_bitwise,
         nondeterministic_seeded,

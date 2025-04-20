@@ -19,6 +19,9 @@ namespace native {
 struct TORCH_API structured_sigmoid_out : public at::meta::structured_sigmoid {
 void impl(const at::Tensor & self, const at::Tensor & out);
 };
+struct TORCH_API structured_sigmoid_out_mps : public at::meta::structured_sigmoid {
+void impl(const at::Tensor & self, const at::Tensor & out);
+};
 TORCH_API at::Tensor mkldnn_sigmoid(const at::Tensor & self);
 TORCH_API at::Tensor & mkldnn_sigmoid_(at::Tensor & self);
 TORCH_API at::Tensor sigmoid_quantized_cpu(const at::Tensor & self);

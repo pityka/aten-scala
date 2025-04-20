@@ -18,9 +18,9 @@ struct TORCH_API copy {
   using schema = at::Tensor (const at::Tensor &, const at::Tensor &, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::copy")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "copy(Tensor self, Tensor src, bool non_blocking=False) -> Tensor")
+  static constexpr const char* name = "aten::copy";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "copy(Tensor self, Tensor src, bool non_blocking=False) -> Tensor";
   static at::Tensor call(const at::Tensor & self, const at::Tensor & src, bool non_blocking);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & src, bool non_blocking);
 };
@@ -29,9 +29,9 @@ struct TORCH_API copy_ {
   using schema = at::Tensor & (at::Tensor &, const at::Tensor &, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::copy_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "copy_(Tensor(a!) self, Tensor src, bool non_blocking=False) -> Tensor(a!)")
+  static constexpr const char* name = "aten::copy_";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "copy_(Tensor(a!) self, Tensor src, bool non_blocking=False) -> Tensor(a!)";
   static at::Tensor & call(at::Tensor & self, const at::Tensor & src, bool non_blocking);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::Tensor & self, const at::Tensor & src, bool non_blocking);
 };
@@ -40,9 +40,9 @@ struct TORCH_API copy_out {
   using schema = at::Tensor & (const at::Tensor &, const at::Tensor &, bool, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::copy")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "copy.out(Tensor self, Tensor src, bool non_blocking=False, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::copy";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "copy.out(Tensor self, Tensor src, bool non_blocking=False, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, const at::Tensor & src, bool non_blocking, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & src, bool non_blocking, at::Tensor & out);
 };

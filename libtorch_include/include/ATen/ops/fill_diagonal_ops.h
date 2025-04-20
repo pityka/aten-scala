@@ -18,9 +18,9 @@ struct TORCH_API fill_diagonal_ {
   using schema = at::Tensor & (at::Tensor &, const at::Scalar &, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::fill_diagonal_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "fill_diagonal_(Tensor(a!) self, Scalar fill_value, bool wrap=False) -> Tensor(a!)")
+  static constexpr const char* name = "aten::fill_diagonal_";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "fill_diagonal_(Tensor(a!) self, Scalar fill_value, bool wrap=False) -> Tensor(a!)";
   static at::Tensor & call(at::Tensor & self, const at::Scalar & fill_value, bool wrap);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::Tensor & self, const at::Scalar & fill_value, bool wrap);
 };

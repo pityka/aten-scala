@@ -18,9 +18,9 @@ struct TORCH_API _sample_dirichlet {
   using schema = at::Tensor (const at::Tensor &, ::std::optional<at::Generator>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_sample_dirichlet")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_sample_dirichlet(Tensor self, Generator? generator=None) -> Tensor")
+  static constexpr const char* name = "aten::_sample_dirichlet";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "_sample_dirichlet(Tensor self, Generator? generator=None) -> Tensor";
   static at::Tensor call(const at::Tensor & self, ::std::optional<at::Generator> generator);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, ::std::optional<at::Generator> generator);
 };
@@ -29,9 +29,9 @@ struct TORCH_API _sample_dirichlet_out {
   using schema = at::Tensor & (const at::Tensor &, ::std::optional<at::Generator>, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_sample_dirichlet")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_sample_dirichlet.out(Tensor self, Generator? generator=None, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::_sample_dirichlet";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "_sample_dirichlet.out(Tensor self, Generator? generator=None, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, ::std::optional<at::Generator> generator, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, ::std::optional<at::Generator> generator, at::Tensor & out);
 };

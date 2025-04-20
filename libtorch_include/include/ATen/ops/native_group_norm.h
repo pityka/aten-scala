@@ -27,7 +27,7 @@ inline ::std::tuple<at::Tensor,at::Tensor,at::Tensor> native_group_norm(const at
     return at::_ops::native_group_norm::call(input, weight, bias, N, C, HxW, group, eps);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   ::std::tuple<at::Tensor,at::Tensor,at::Tensor> native_group_norm(const at::Tensor & input, const ::std::optional<at::Tensor> & weight, const ::std::optional<at::Tensor> & bias, int64_t N, int64_t C, int64_t HxW, int64_t group, double eps) {
     return at::_ops::native_group_norm::call(input, weight, bias, N, C, HxW, group, eps);
   }
@@ -38,7 +38,7 @@ inline ::std::tuple<at::Tensor,at::Tensor,at::Tensor> native_group_norm_symint(c
     return at::_ops::native_group_norm::call(input, weight, bias, N, C, HxW, group, eps);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   ::std::tuple<at::Tensor,at::Tensor,at::Tensor> native_group_norm(const at::Tensor & input, const ::std::optional<at::Tensor> & weight, const ::std::optional<at::Tensor> & bias, c10::SymInt N, c10::SymInt C, c10::SymInt HxW, int64_t group, double eps) {
     return at::_ops::native_group_norm::call(input, weight, bias, N, C, HxW, group, eps);
   }
@@ -49,7 +49,7 @@ inline ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> native_group_norm_ou
     return at::_ops::native_group_norm_out::call(input, weight, bias, N, C, HxW, group, eps, out0, out1, out2);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> native_group_norm_out(at::Tensor & out0, at::Tensor & out1, at::Tensor & out2, const at::Tensor & input, const ::std::optional<at::Tensor> & weight, const ::std::optional<at::Tensor> & bias, int64_t N, int64_t C, int64_t HxW, int64_t group, double eps) {
     return at::_ops::native_group_norm_out::call(input, weight, bias, N, C, HxW, group, eps, out0, out1, out2);
   }
@@ -60,7 +60,7 @@ inline ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> native_group_norm_ou
     return at::_ops::native_group_norm_out::call(input, weight, bias, N, C, HxW, group, eps, out0, out1, out2);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> native_group_norm_outf(const at::Tensor & input, const ::std::optional<at::Tensor> & weight, const ::std::optional<at::Tensor> & bias, int64_t N, int64_t C, int64_t HxW, int64_t group, double eps, at::Tensor & out0, at::Tensor & out1, at::Tensor & out2) {
     return at::_ops::native_group_norm_out::call(input, weight, bias, N, C, HxW, group, eps, out0, out1, out2);
   }
@@ -71,7 +71,7 @@ inline ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> native_group_norm_sy
     return at::_ops::native_group_norm_out::call(input, weight, bias, N, C, HxW, group, eps, out0, out1, out2);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> native_group_norm_out(at::Tensor & out0, at::Tensor & out1, at::Tensor & out2, const at::Tensor & input, const ::std::optional<at::Tensor> & weight, const ::std::optional<at::Tensor> & bias, c10::SymInt N, c10::SymInt C, c10::SymInt HxW, int64_t group, double eps) {
     return at::_ops::native_group_norm_out::call(input, weight, bias, N, C, HxW, group, eps, out0, out1, out2);
   }
@@ -82,7 +82,7 @@ inline ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> native_group_norm_sy
     return at::_ops::native_group_norm_out::call(input, weight, bias, N, C, HxW, group, eps, out0, out1, out2);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   ::std::tuple<at::Tensor &,at::Tensor &,at::Tensor &> native_group_norm_outf(const at::Tensor & input, const ::std::optional<at::Tensor> & weight, const ::std::optional<at::Tensor> & bias, c10::SymInt N, c10::SymInt C, c10::SymInt HxW, int64_t group, double eps, at::Tensor & out0, at::Tensor & out1, at::Tensor & out2) {
     return at::_ops::native_group_norm_out::call(input, weight, bias, N, C, HxW, group, eps, out0, out1, out2);
   }

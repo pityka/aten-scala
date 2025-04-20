@@ -20,6 +20,7 @@ TORCH_API at::Tensor & empty_strided_out_symint(c10::SymIntArrayRef size, c10::S
 TORCH_API at::Tensor empty_strided_cpu(at::IntArrayRef size, at::IntArrayRef stride, ::std::optional<at::ScalarType> dtype={}, ::std::optional<at::Layout> layout={}, ::std::optional<at::Device> device={}, ::std::optional<bool> pin_memory={});
 TORCH_API at::Tensor empty_strided_cuda(at::IntArrayRef size, at::IntArrayRef stride, ::std::optional<at::ScalarType> dtype={}, ::std::optional<at::Layout> layout={}, ::std::optional<at::Device> device={}, ::std::optional<bool> pin_memory={});
 TORCH_API at::Tensor empty_strided_meta_symint(c10::SymIntArrayRef size, c10::SymIntArrayRef stride, ::std::optional<at::ScalarType> dtype={}, ::std::optional<at::Layout> layout={}, ::std::optional<at::Device> device={}, ::std::optional<bool> pin_memory={});
+TORCH_API at::Tensor empty_strided_mps(at::IntArrayRef size, at::IntArrayRef stride, ::std::optional<at::ScalarType> dtype={}, ::std::optional<at::Layout> layout={}, ::std::optional<at::Device> device={}, ::std::optional<bool> pin_memory={});
 TORCH_API at::Tensor empty_strided_unknown_quantized(at::IntArrayRef size, at::IntArrayRef stride, ::std::optional<at::ScalarType> dtype={}, ::std::optional<at::Layout> layout={}, ::std::optional<at::Device> device={}, ::std::optional<bool> pin_memory={});
 } // namespace native
 } // namespace at

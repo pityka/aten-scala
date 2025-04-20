@@ -18,9 +18,9 @@ struct TORCH_API output_nr {
   using schema = int64_t (const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::output_nr")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "output_nr(Tensor self) -> int")
+  static constexpr const char* name = "aten::output_nr";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "output_nr(Tensor self) -> int";
   static int64_t call(const at::Tensor & self);
   static int64_t redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self);
 };

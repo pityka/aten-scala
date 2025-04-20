@@ -18,9 +18,9 @@ struct TORCH_API _foreach_ceil {
   using schema = ::std::vector<at::Tensor> (at::TensorList);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_foreach_ceil")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_foreach_ceil(Tensor[] self) -> Tensor[]")
+  static constexpr const char* name = "aten::_foreach_ceil";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "_foreach_ceil(Tensor[] self) -> Tensor[]";
   static ::std::vector<at::Tensor> call(at::TensorList self);
   static ::std::vector<at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList self);
 };
@@ -29,9 +29,9 @@ struct TORCH_API _foreach_ceil_ {
   using schema = void (at::TensorList);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_foreach_ceil_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_foreach_ceil_(Tensor(a!)[] self) -> ()")
+  static constexpr const char* name = "aten::_foreach_ceil_";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "_foreach_ceil_(Tensor(a!)[] self) -> ()";
   static void call(at::TensorList self);
   static void redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList self);
 };
@@ -40,9 +40,9 @@ struct TORCH_API _foreach_ceil_out {
   using schema = void (at::TensorList, at::TensorList);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_foreach_ceil")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_foreach_ceil.out(Tensor[] self, *, Tensor(a!)[] out) -> ()")
+  static constexpr const char* name = "aten::_foreach_ceil";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "_foreach_ceil.out(Tensor[] self, *, Tensor(a!)[] out) -> ()";
   static void call(at::TensorList self, at::TensorList out);
   static void redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList self, at::TensorList out);
 };

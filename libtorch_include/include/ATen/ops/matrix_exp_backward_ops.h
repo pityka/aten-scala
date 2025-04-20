@@ -18,9 +18,9 @@ struct TORCH_API matrix_exp_backward {
   using schema = at::Tensor (const at::Tensor &, const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::matrix_exp_backward")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "matrix_exp_backward(Tensor self, Tensor grad) -> Tensor")
+  static constexpr const char* name = "aten::matrix_exp_backward";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "matrix_exp_backward(Tensor self, Tensor grad) -> Tensor";
   static at::Tensor call(const at::Tensor & self, const at::Tensor & grad);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & grad);
 };

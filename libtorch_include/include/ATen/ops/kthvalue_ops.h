@@ -18,9 +18,9 @@ struct TORCH_API kthvalue {
   using schema = ::std::tuple<at::Tensor,at::Tensor> (const at::Tensor &, int64_t, int64_t, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::kthvalue")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "kthvalue(Tensor self, int k, int dim=-1, bool keepdim=False) -> (Tensor values, Tensor indices)")
+  static constexpr const char* name = "aten::kthvalue";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "kthvalue(Tensor self, int k, int dim=-1, bool keepdim=False) -> (Tensor values, Tensor indices)";
   static ::std::tuple<at::Tensor,at::Tensor> call(const at::Tensor & self, int64_t k, int64_t dim, bool keepdim);
   static ::std::tuple<at::Tensor,at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t k, int64_t dim, bool keepdim);
 };
@@ -29,9 +29,9 @@ struct TORCH_API kthvalue_values {
   using schema = ::std::tuple<at::Tensor &,at::Tensor &> (const at::Tensor &, int64_t, int64_t, bool, at::Tensor &, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::kthvalue")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "values")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "kthvalue.values(Tensor self, int k, int dim=-1, bool keepdim=False, *, Tensor(a!) values, Tensor(b!) indices) -> (Tensor(a!) values, Tensor(b!) indices)")
+  static constexpr const char* name = "aten::kthvalue";
+  static constexpr const char* overload_name = "values";
+  static constexpr const char* schema_str = "kthvalue.values(Tensor self, int k, int dim=-1, bool keepdim=False, *, Tensor(a!) values, Tensor(b!) indices) -> (Tensor(a!) values, Tensor(b!) indices)";
   static ::std::tuple<at::Tensor &,at::Tensor &> call(const at::Tensor & self, int64_t k, int64_t dim, bool keepdim, at::Tensor & values, at::Tensor & indices);
   static ::std::tuple<at::Tensor &,at::Tensor &> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t k, int64_t dim, bool keepdim, at::Tensor & values, at::Tensor & indices);
 };
@@ -40,9 +40,9 @@ struct TORCH_API kthvalue_dimname {
   using schema = ::std::tuple<at::Tensor,at::Tensor> (const at::Tensor &, int64_t, at::Dimname, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::kthvalue")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "dimname")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "kthvalue.dimname(Tensor self, int k, Dimname dim, bool keepdim=False) -> (Tensor values, Tensor indices)")
+  static constexpr const char* name = "aten::kthvalue";
+  static constexpr const char* overload_name = "dimname";
+  static constexpr const char* schema_str = "kthvalue.dimname(Tensor self, int k, Dimname dim, bool keepdim=False) -> (Tensor values, Tensor indices)";
   static ::std::tuple<at::Tensor,at::Tensor> call(const at::Tensor & self, int64_t k, at::Dimname dim, bool keepdim);
   static ::std::tuple<at::Tensor,at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t k, at::Dimname dim, bool keepdim);
 };
@@ -51,9 +51,9 @@ struct TORCH_API kthvalue_dimname_out {
   using schema = ::std::tuple<at::Tensor &,at::Tensor &> (const at::Tensor &, int64_t, at::Dimname, bool, at::Tensor &, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::kthvalue")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "dimname_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "kthvalue.dimname_out(Tensor self, int k, Dimname dim, bool keepdim=False, *, Tensor(a!) values, Tensor(b!) indices) -> (Tensor(a!) values, Tensor(b!) indices)")
+  static constexpr const char* name = "aten::kthvalue";
+  static constexpr const char* overload_name = "dimname_out";
+  static constexpr const char* schema_str = "kthvalue.dimname_out(Tensor self, int k, Dimname dim, bool keepdim=False, *, Tensor(a!) values, Tensor(b!) indices) -> (Tensor(a!) values, Tensor(b!) indices)";
   static ::std::tuple<at::Tensor &,at::Tensor &> call(const at::Tensor & self, int64_t k, at::Dimname dim, bool keepdim, at::Tensor & values, at::Tensor & indices);
   static ::std::tuple<at::Tensor &,at::Tensor &> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t k, at::Dimname dim, bool keepdim, at::Tensor & values, at::Tensor & indices);
 };

@@ -18,9 +18,9 @@ struct TORCH_API meshgrid {
   using schema = ::std::vector<at::Tensor> (at::TensorList);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::meshgrid")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "meshgrid(Tensor[] tensors) -> Tensor[]")
+  static constexpr const char* name = "aten::meshgrid";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "meshgrid(Tensor[] tensors) -> Tensor[]";
   static ::std::vector<at::Tensor> call(at::TensorList tensors);
   static ::std::vector<at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList tensors);
 };
@@ -29,9 +29,9 @@ struct TORCH_API meshgrid_indexing {
   using schema = ::std::vector<at::Tensor> (at::TensorList, c10::string_view);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::meshgrid")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "indexing")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "meshgrid.indexing(Tensor[] tensors, *, str indexing) -> Tensor[]")
+  static constexpr const char* name = "aten::meshgrid";
+  static constexpr const char* overload_name = "indexing";
+  static constexpr const char* schema_str = "meshgrid.indexing(Tensor[] tensors, *, str indexing) -> Tensor[]";
   static ::std::vector<at::Tensor> call(at::TensorList tensors, c10::string_view indexing);
   static ::std::vector<at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList tensors, c10::string_view indexing);
 };

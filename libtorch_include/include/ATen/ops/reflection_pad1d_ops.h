@@ -18,9 +18,9 @@ struct TORCH_API reflection_pad1d_out {
   using schema = at::Tensor & (const at::Tensor &, c10::SymIntArrayRef, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::reflection_pad1d")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "reflection_pad1d.out(Tensor self, SymInt[2] padding, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::reflection_pad1d";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "reflection_pad1d.out(Tensor self, SymInt[2] padding, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, c10::SymIntArrayRef padding, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, c10::SymIntArrayRef padding, at::Tensor & out);
 };
@@ -29,9 +29,9 @@ struct TORCH_API reflection_pad1d {
   using schema = at::Tensor (const at::Tensor &, c10::SymIntArrayRef);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::reflection_pad1d")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "reflection_pad1d(Tensor self, SymInt[2] padding) -> Tensor")
+  static constexpr const char* name = "aten::reflection_pad1d";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "reflection_pad1d(Tensor self, SymInt[2] padding) -> Tensor";
   static at::Tensor call(const at::Tensor & self, c10::SymIntArrayRef padding);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, c10::SymIntArrayRef padding);
 };

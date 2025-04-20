@@ -18,9 +18,9 @@ struct TORCH_API _triton_scaled_dot_attention {
   using schema = at::Tensor (const at::Tensor &, const at::Tensor &, const at::Tensor &, double);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_triton_scaled_dot_attention")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_triton_scaled_dot_attention(Tensor q, Tensor k, Tensor v, float dropout_p=0.0) -> Tensor")
+  static constexpr const char* name = "aten::_triton_scaled_dot_attention";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "_triton_scaled_dot_attention(Tensor q, Tensor k, Tensor v, float dropout_p=0.0) -> Tensor";
   static at::Tensor call(const at::Tensor & q, const at::Tensor & k, const at::Tensor & v, double dropout_p);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & q, const at::Tensor & k, const at::Tensor & v, double dropout_p);
 };
@@ -29,9 +29,9 @@ struct TORCH_API _triton_scaled_dot_attention_out {
   using schema = at::Tensor & (const at::Tensor &, const at::Tensor &, const at::Tensor &, double, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_triton_scaled_dot_attention")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_triton_scaled_dot_attention.out(Tensor q, Tensor k, Tensor v, float dropout_p=0.0, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::_triton_scaled_dot_attention";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "_triton_scaled_dot_attention.out(Tensor q, Tensor k, Tensor v, float dropout_p=0.0, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & q, const at::Tensor & k, const at::Tensor & v, double dropout_p, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & q, const at::Tensor & k, const at::Tensor & v, double dropout_p, at::Tensor & out);
 };

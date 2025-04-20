@@ -19,6 +19,7 @@
 #include <ATen/ops/_add_relu_meta_dispatch.h>
 #include <ATen/ops/_addmm_activation_meta_dispatch.h>
 #include <ATen/ops/_amp_update_scale_meta_dispatch.h>
+#include <ATen/ops/_assert_tensor_metadata_meta_dispatch.h>
 #include <ATen/ops/_coalesced_meta_dispatch.h>
 #include <ATen/ops/_convert_indices_from_coo_to_csr_meta_dispatch.h>
 #include <ATen/ops/_convert_indices_from_csr_to_coo_meta_dispatch.h>

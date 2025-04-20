@@ -18,9 +18,9 @@ struct TORCH_API _cufft_set_plan_cache_max_size {
   using schema = void (at::DeviceIndex, int64_t);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_cufft_set_plan_cache_max_size")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_cufft_set_plan_cache_max_size(DeviceIndex device_index, int max_size) -> ()")
+  static constexpr const char* name = "aten::_cufft_set_plan_cache_max_size";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "_cufft_set_plan_cache_max_size(DeviceIndex device_index, int max_size) -> ()";
   static void call(at::DeviceIndex device_index, int64_t max_size);
   static void redispatch(c10::DispatchKeySet dispatchKeySet, at::DeviceIndex device_index, int64_t max_size);
 };

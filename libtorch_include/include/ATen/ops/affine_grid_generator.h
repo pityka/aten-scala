@@ -27,7 +27,7 @@ inline at::Tensor affine_grid_generator(const at::Tensor & theta, at::IntArrayRe
     return at::_ops::affine_grid_generator::call(theta, c10::fromIntArrayRefSlow(size), align_corners);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor affine_grid_generator(const at::Tensor & theta, at::IntArrayRef size, bool align_corners) {
     return at::_ops::affine_grid_generator::call(theta, c10::fromIntArrayRefSlow(size), align_corners);
   }
@@ -38,7 +38,7 @@ inline at::Tensor affine_grid_generator_symint(const at::Tensor & theta, c10::Sy
     return at::_ops::affine_grid_generator::call(theta, size, align_corners);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor affine_grid_generator(const at::Tensor & theta, c10::SymIntArrayRef size, bool align_corners) {
     return at::_ops::affine_grid_generator::call(theta, size, align_corners);
   }
@@ -49,7 +49,7 @@ inline at::Tensor & affine_grid_generator_out(at::Tensor & out, const at::Tensor
     return at::_ops::affine_grid_generator_out::call(theta, c10::fromIntArrayRefSlow(size), align_corners, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & affine_grid_generator_out(at::Tensor & out, const at::Tensor & theta, at::IntArrayRef size, bool align_corners) {
     return at::_ops::affine_grid_generator_out::call(theta, c10::fromIntArrayRefSlow(size), align_corners, out);
   }
@@ -60,7 +60,7 @@ inline at::Tensor & affine_grid_generator_outf(const at::Tensor & theta, at::Int
     return at::_ops::affine_grid_generator_out::call(theta, c10::fromIntArrayRefSlow(size), align_corners, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & affine_grid_generator_outf(const at::Tensor & theta, at::IntArrayRef size, bool align_corners, at::Tensor & out) {
     return at::_ops::affine_grid_generator_out::call(theta, c10::fromIntArrayRefSlow(size), align_corners, out);
   }
@@ -71,7 +71,7 @@ inline at::Tensor & affine_grid_generator_symint_out(at::Tensor & out, const at:
     return at::_ops::affine_grid_generator_out::call(theta, size, align_corners, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & affine_grid_generator_out(at::Tensor & out, const at::Tensor & theta, c10::SymIntArrayRef size, bool align_corners) {
     return at::_ops::affine_grid_generator_out::call(theta, size, align_corners, out);
   }
@@ -82,7 +82,7 @@ inline at::Tensor & affine_grid_generator_symint_outf(const at::Tensor & theta, 
     return at::_ops::affine_grid_generator_out::call(theta, size, align_corners, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & affine_grid_generator_outf(const at::Tensor & theta, c10::SymIntArrayRef size, bool align_corners, at::Tensor & out) {
     return at::_ops::affine_grid_generator_out::call(theta, size, align_corners, out);
   }

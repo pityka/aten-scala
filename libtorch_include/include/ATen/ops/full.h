@@ -36,7 +36,7 @@ inline at::Tensor full(at::IntArrayRef size, const at::Scalar & fill_value, at::
     return at::_ops::full::call(c10::fromIntArrayRefSlow(size), fill_value, c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt());
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor full(at::IntArrayRef size, const at::Scalar & fill_value, at::TensorOptions options={}) {
     return at::_ops::full::call(c10::fromIntArrayRefSlow(size), fill_value, c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt());
   }
@@ -47,7 +47,7 @@ inline at::Tensor full(at::IntArrayRef size, const at::Scalar & fill_value, ::st
     return at::_ops::full::call(c10::fromIntArrayRefSlow(size), fill_value, dtype, layout, device, pin_memory);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor full(at::IntArrayRef size, const at::Scalar & fill_value, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory) {
     return at::_ops::full::call(c10::fromIntArrayRefSlow(size), fill_value, dtype, layout, device, pin_memory);
   }
@@ -58,7 +58,7 @@ inline at::Tensor full_symint(c10::SymIntArrayRef size, const at::Scalar & fill_
     return at::_ops::full::call(size, fill_value, c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt());
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor full(c10::SymIntArrayRef size, const at::Scalar & fill_value, at::TensorOptions options={}) {
     return at::_ops::full::call(size, fill_value, c10::optTypeMetaToScalarType(options.dtype_opt()), options.layout_opt(), options.device_opt(), options.pinned_memory_opt());
   }
@@ -69,7 +69,7 @@ inline at::Tensor full_symint(c10::SymIntArrayRef size, const at::Scalar & fill_
     return at::_ops::full::call(size, fill_value, dtype, layout, device, pin_memory);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor full(c10::SymIntArrayRef size, const at::Scalar & fill_value, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory) {
     return at::_ops::full::call(size, fill_value, dtype, layout, device, pin_memory);
   }
@@ -80,7 +80,7 @@ inline at::Tensor & full_out(at::Tensor & out, at::IntArrayRef size, const at::S
     return at::_ops::full_out::call(c10::fromIntArrayRefSlow(size), fill_value, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & full_out(at::Tensor & out, at::IntArrayRef size, const at::Scalar & fill_value) {
     return at::_ops::full_out::call(c10::fromIntArrayRefSlow(size), fill_value, out);
   }
@@ -91,7 +91,7 @@ inline at::Tensor & full_outf(at::IntArrayRef size, const at::Scalar & fill_valu
     return at::_ops::full_out::call(c10::fromIntArrayRefSlow(size), fill_value, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & full_outf(at::IntArrayRef size, const at::Scalar & fill_value, at::Tensor & out) {
     return at::_ops::full_out::call(c10::fromIntArrayRefSlow(size), fill_value, out);
   }
@@ -102,7 +102,7 @@ inline at::Tensor & full_symint_out(at::Tensor & out, c10::SymIntArrayRef size, 
     return at::_ops::full_out::call(size, fill_value, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & full_out(at::Tensor & out, c10::SymIntArrayRef size, const at::Scalar & fill_value) {
     return at::_ops::full_out::call(size, fill_value, out);
   }
@@ -113,7 +113,7 @@ inline at::Tensor & full_symint_outf(c10::SymIntArrayRef size, const at::Scalar 
     return at::_ops::full_out::call(size, fill_value, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & full_outf(c10::SymIntArrayRef size, const at::Scalar & fill_value, at::Tensor & out) {
     return at::_ops::full_out::call(size, fill_value, out);
   }

@@ -18,9 +18,9 @@ struct TORCH_API argmax {
   using schema = at::Tensor (const at::Tensor &, ::std::optional<int64_t>, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::argmax")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "argmax(Tensor self, int? dim=None, bool keepdim=False) -> Tensor")
+  static constexpr const char* name = "aten::argmax";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "argmax(Tensor self, int? dim=None, bool keepdim=False) -> Tensor";
   static at::Tensor call(const at::Tensor & self, ::std::optional<int64_t> dim, bool keepdim);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, ::std::optional<int64_t> dim, bool keepdim);
 };
@@ -29,9 +29,9 @@ struct TORCH_API argmax_out {
   using schema = at::Tensor & (const at::Tensor &, ::std::optional<int64_t>, bool, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::argmax")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "argmax.out(Tensor self, int? dim=None, bool keepdim=False, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::argmax";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "argmax.out(Tensor self, int? dim=None, bool keepdim=False, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, ::std::optional<int64_t> dim, bool keepdim, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, ::std::optional<int64_t> dim, bool keepdim, at::Tensor & out);
 };

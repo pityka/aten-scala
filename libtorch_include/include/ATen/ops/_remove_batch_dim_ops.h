@@ -15,14 +15,14 @@ namespace _ops {
 
 
 struct TORCH_API _remove_batch_dim {
-  using schema = at::Tensor (const at::Tensor &, int64_t, int64_t, int64_t);
+  using schema = at::Tensor (const at::Tensor &, int64_t, c10::SymInt, int64_t);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_remove_batch_dim")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_remove_batch_dim(Tensor self, int level, int batch_size, int out_dim) -> Tensor")
-  static at::Tensor call(const at::Tensor & self, int64_t level, int64_t batch_size, int64_t out_dim);
-  static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t level, int64_t batch_size, int64_t out_dim);
+  static constexpr const char* name = "aten::_remove_batch_dim";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "_remove_batch_dim(Tensor self, int level, SymInt batch_size, int out_dim) -> Tensor";
+  static at::Tensor call(const at::Tensor & self, int64_t level, c10::SymInt batch_size, int64_t out_dim);
+  static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t level, c10::SymInt batch_size, int64_t out_dim);
 };
 
 }} // namespace at::_ops

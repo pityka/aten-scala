@@ -18,9 +18,9 @@ struct TORCH_API lerp__Scalar {
   using schema = at::Tensor & (at::Tensor &, const at::Tensor &, const at::Scalar &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::lerp_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Scalar")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "lerp_.Scalar(Tensor(a!) self, Tensor end, Scalar weight) -> Tensor(a!)")
+  static constexpr const char* name = "aten::lerp_";
+  static constexpr const char* overload_name = "Scalar";
+  static constexpr const char* schema_str = "lerp_.Scalar(Tensor(a!) self, Tensor end, Scalar weight) -> Tensor(a!)";
   static at::Tensor & call(at::Tensor & self, const at::Tensor & end, const at::Scalar & weight);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::Tensor & self, const at::Tensor & end, const at::Scalar & weight);
 };
@@ -29,9 +29,9 @@ struct TORCH_API lerp__Tensor {
   using schema = at::Tensor & (at::Tensor &, const at::Tensor &, const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::lerp_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Tensor")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "lerp_.Tensor(Tensor(a!) self, Tensor end, Tensor weight) -> Tensor(a!)")
+  static constexpr const char* name = "aten::lerp_";
+  static constexpr const char* overload_name = "Tensor";
+  static constexpr const char* schema_str = "lerp_.Tensor(Tensor(a!) self, Tensor end, Tensor weight) -> Tensor(a!)";
   static at::Tensor & call(at::Tensor & self, const at::Tensor & end, const at::Tensor & weight);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::Tensor & self, const at::Tensor & end, const at::Tensor & weight);
 };
@@ -40,9 +40,9 @@ struct TORCH_API lerp_Scalar_out {
   using schema = at::Tensor & (const at::Tensor &, const at::Tensor &, const at::Scalar &, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::lerp")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Scalar_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "lerp.Scalar_out(Tensor self, Tensor end, Scalar weight, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::lerp";
+  static constexpr const char* overload_name = "Scalar_out";
+  static constexpr const char* schema_str = "lerp.Scalar_out(Tensor self, Tensor end, Scalar weight, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, const at::Tensor & end, const at::Scalar & weight, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & end, const at::Scalar & weight, at::Tensor & out);
 };
@@ -51,9 +51,9 @@ struct TORCH_API lerp_Tensor_out {
   using schema = at::Tensor & (const at::Tensor &, const at::Tensor &, const at::Tensor &, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::lerp")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Tensor_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "lerp.Tensor_out(Tensor self, Tensor end, Tensor weight, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::lerp";
+  static constexpr const char* overload_name = "Tensor_out";
+  static constexpr const char* schema_str = "lerp.Tensor_out(Tensor self, Tensor end, Tensor weight, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, const at::Tensor & end, const at::Tensor & weight, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & end, const at::Tensor & weight, at::Tensor & out);
 };
@@ -62,9 +62,9 @@ struct TORCH_API lerp_Scalar {
   using schema = at::Tensor (const at::Tensor &, const at::Tensor &, const at::Scalar &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::lerp")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Scalar")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "lerp.Scalar(Tensor self, Tensor end, Scalar weight) -> Tensor")
+  static constexpr const char* name = "aten::lerp";
+  static constexpr const char* overload_name = "Scalar";
+  static constexpr const char* schema_str = "lerp.Scalar(Tensor self, Tensor end, Scalar weight) -> Tensor";
   static at::Tensor call(const at::Tensor & self, const at::Tensor & end, const at::Scalar & weight);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & end, const at::Scalar & weight);
 };
@@ -73,9 +73,9 @@ struct TORCH_API lerp_Tensor {
   using schema = at::Tensor (const at::Tensor &, const at::Tensor &, const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::lerp")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Tensor")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "lerp.Tensor(Tensor self, Tensor end, Tensor weight) -> Tensor")
+  static constexpr const char* name = "aten::lerp";
+  static constexpr const char* overload_name = "Tensor";
+  static constexpr const char* schema_str = "lerp.Tensor(Tensor self, Tensor end, Tensor weight) -> Tensor";
   static at::Tensor call(const at::Tensor & self, const at::Tensor & end, const at::Tensor & weight);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & end, const at::Tensor & weight);
 };

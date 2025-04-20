@@ -24,6 +24,9 @@ void impl(const at::ITensorListRef & tensors, int64_t dim, int64_t valid, bool a
 };
 TORCH_API at::Tensor cat_nested(const at::ITensorListRef & tensors, int64_t dim=0);
 TORCH_API at::Tensor cat_sparse(const at::ITensorListRef & tensors, int64_t dim=0);
+struct TORCH_API structured_cat_out_mps : public at::meta::structured_cat {
+void impl(const at::ITensorListRef & tensors, int64_t dim, int64_t valid, bool all_contiguous, bool all_same_dtype, bool all_same_sizes_and_stride, at::MemoryFormat memory_format, const at::Tensor & out);
+};
 TORCH_API at::Tensor cat_quantized_cpu(const at::ITensorListRef & tensors, int64_t dim=0);
 TORCH_API at::Tensor & cat_out_quantized_cpu(const at::ITensorListRef & tensors, int64_t dim, at::Tensor & out);
 TORCH_API at::Tensor cat(at::TensorList tensors, at::Dimname dim);

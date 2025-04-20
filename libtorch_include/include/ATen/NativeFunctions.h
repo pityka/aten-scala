@@ -71,6 +71,7 @@
 #include <ATen/ops/_convert_indices_from_coo_to_csr_native.h>
 #include <ATen/ops/_convert_indices_from_csr_to_coo_native.h>
 #include <ATen/ops/_convert_weight_to_int4pack_native.h>
+#include <ATen/ops/_convert_weight_to_int4pack_for_cpu_native.h>
 #include <ATen/ops/_convolution_native.h>
 #include <ATen/ops/_convolution_double_backward_native.h>
 #include <ATen/ops/_convolution_mode_native.h>
@@ -156,6 +157,7 @@
 #include <ATen/ops/_foreach_pow_native.h>
 #include <ATen/ops/_foreach_reciprocal_native.h>
 #include <ATen/ops/_foreach_round_native.h>
+#include <ATen/ops/_foreach_rsqrt_native.h>
 #include <ATen/ops/_foreach_sigmoid_native.h>
 #include <ATen/ops/_foreach_sign_native.h>
 #include <ATen/ops/_foreach_sin_native.h>
@@ -230,6 +232,7 @@
 #include <ATen/ops/_nested_compute_contiguous_strides_offsets_native.h>
 #include <ATen/ops/_nested_from_padded_native.h>
 #include <ATen/ops/_nested_from_padded_and_nested_example_native.h>
+#include <ATen/ops/_nested_from_padded_tensor_native.h>
 #include <ATen/ops/_nested_get_jagged_dummy_native.h>
 #include <ATen/ops/_nested_get_lengths_native.h>
 #include <ATen/ops/_nested_get_max_seqlen_native.h>
@@ -402,6 +405,7 @@
 #include <ATen/ops/_values_copy_native.h>
 #include <ATen/ops/_version_native.h>
 #include <ATen/ops/_weight_int4pack_mm_native.h>
+#include <ATen/ops/_weight_int4pack_mm_for_cpu_native.h>
 #include <ATen/ops/_weight_int8pack_mm_native.h>
 #include <ATen/ops/_weight_norm_native.h>
 #include <ATen/ops/_weight_norm_differentiable_backward_native.h>

@@ -18,9 +18,9 @@ struct TORCH_API index_copy_out {
   using schema = at::Tensor & (const at::Tensor &, int64_t, const at::Tensor &, const at::Tensor &, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::index_copy")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "index_copy.out(Tensor self, int dim, Tensor index, Tensor source, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::index_copy";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "index_copy.out(Tensor self, int dim, Tensor index, Tensor source, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & source, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & source, at::Tensor & out);
 };
@@ -29,9 +29,9 @@ struct TORCH_API index_copy_ {
   using schema = at::Tensor & (at::Tensor &, int64_t, const at::Tensor &, const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::index_copy_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "index_copy_(Tensor(a!) self, int dim, Tensor index, Tensor source) -> Tensor(a!)")
+  static constexpr const char* name = "aten::index_copy_";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "index_copy_(Tensor(a!) self, int dim, Tensor index, Tensor source) -> Tensor(a!)";
   static at::Tensor & call(at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & source);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & source);
 };
@@ -40,9 +40,9 @@ struct TORCH_API index_copy {
   using schema = at::Tensor (const at::Tensor &, int64_t, const at::Tensor &, const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::index_copy")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "index_copy(Tensor self, int dim, Tensor index, Tensor source) -> Tensor")
+  static constexpr const char* name = "aten::index_copy";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "index_copy(Tensor self, int dim, Tensor index, Tensor source) -> Tensor";
   static at::Tensor call(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & source);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & source);
 };
@@ -51,9 +51,9 @@ struct TORCH_API index_copy__dimname {
   using schema = at::Tensor & (at::Tensor &, at::Dimname, const at::Tensor &, const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::index_copy_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "dimname")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "index_copy_.dimname(Tensor(a!) self, Dimname dim, Tensor index, Tensor source) -> Tensor(a!)")
+  static constexpr const char* name = "aten::index_copy_";
+  static constexpr const char* overload_name = "dimname";
+  static constexpr const char* schema_str = "index_copy_.dimname(Tensor(a!) self, Dimname dim, Tensor index, Tensor source) -> Tensor(a!)";
   static at::Tensor & call(at::Tensor & self, at::Dimname dim, const at::Tensor & index, const at::Tensor & source);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::Tensor & self, at::Dimname dim, const at::Tensor & index, const at::Tensor & source);
 };
@@ -62,9 +62,9 @@ struct TORCH_API index_copy_dimname {
   using schema = at::Tensor (const at::Tensor &, at::Dimname, const at::Tensor &, const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::index_copy")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "dimname")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "index_copy.dimname(Tensor self, Dimname dim, Tensor index, Tensor source) -> Tensor")
+  static constexpr const char* name = "aten::index_copy";
+  static constexpr const char* overload_name = "dimname";
+  static constexpr const char* schema_str = "index_copy.dimname(Tensor self, Dimname dim, Tensor index, Tensor source) -> Tensor";
   static at::Tensor call(const at::Tensor & self, at::Dimname dim, const at::Tensor & index, const at::Tensor & source);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::Dimname dim, const at::Tensor & index, const at::Tensor & source);
 };

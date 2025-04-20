@@ -18,9 +18,9 @@ struct TORCH_API _test_autograd_multiple_dispatch_fullcoverage {
   using schema = at::Tensor (const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_test_autograd_multiple_dispatch")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "fullcoverage")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_test_autograd_multiple_dispatch.fullcoverage(Tensor self) -> Tensor")
+  static constexpr const char* name = "aten::_test_autograd_multiple_dispatch";
+  static constexpr const char* overload_name = "fullcoverage";
+  static constexpr const char* schema_str = "_test_autograd_multiple_dispatch.fullcoverage(Tensor self) -> Tensor";
   static at::Tensor call(const at::Tensor & self);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self);
 };
@@ -29,9 +29,9 @@ struct TORCH_API _test_autograd_multiple_dispatch_ntonly {
   using schema = at::Tensor (const at::Tensor &, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_test_autograd_multiple_dispatch")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "ntonly")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_test_autograd_multiple_dispatch.ntonly(Tensor self, bool b) -> Tensor")
+  static constexpr const char* name = "aten::_test_autograd_multiple_dispatch";
+  static constexpr const char* overload_name = "ntonly";
+  static constexpr const char* schema_str = "_test_autograd_multiple_dispatch.ntonly(Tensor self, bool b) -> Tensor";
   static at::Tensor call(const at::Tensor & self, bool b);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, bool b);
 };
@@ -40,9 +40,9 @@ struct TORCH_API _test_autograd_multiple_dispatch_fullcoverage_out {
   using schema = at::Tensor & (const at::Tensor &, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_test_autograd_multiple_dispatch")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "fullcoverage_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_test_autograd_multiple_dispatch.fullcoverage_out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::_test_autograd_multiple_dispatch";
+  static constexpr const char* overload_name = "fullcoverage_out";
+  static constexpr const char* schema_str = "_test_autograd_multiple_dispatch.fullcoverage_out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::Tensor & out);
 };

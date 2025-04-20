@@ -18,9 +18,9 @@ struct TORCH_API _linalg_check_errors {
   using schema = void (const at::Tensor &, c10::string_view, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_linalg_check_errors")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_linalg_check_errors(Tensor info, str api_name, *, bool is_matrix) -> ()")
+  static constexpr const char* name = "aten::_linalg_check_errors";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "_linalg_check_errors(Tensor info, str api_name, *, bool is_matrix) -> ()";
   static void call(const at::Tensor & info, c10::string_view api_name, bool is_matrix);
   static void redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & info, c10::string_view api_name, bool is_matrix);
 };

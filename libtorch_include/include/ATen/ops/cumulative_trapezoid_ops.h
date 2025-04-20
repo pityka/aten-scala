@@ -18,9 +18,9 @@ struct TORCH_API cumulative_trapezoid_x {
   using schema = at::Tensor (const at::Tensor &, const at::Tensor &, int64_t);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::cumulative_trapezoid")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "x")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "cumulative_trapezoid.x(Tensor y, Tensor x, *, int dim=-1) -> Tensor")
+  static constexpr const char* name = "aten::cumulative_trapezoid";
+  static constexpr const char* overload_name = "x";
+  static constexpr const char* schema_str = "cumulative_trapezoid.x(Tensor y, Tensor x, *, int dim=-1) -> Tensor";
   static at::Tensor call(const at::Tensor & y, const at::Tensor & x, int64_t dim);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & y, const at::Tensor & x, int64_t dim);
 };
@@ -29,9 +29,9 @@ struct TORCH_API cumulative_trapezoid_dx {
   using schema = at::Tensor (const at::Tensor &, const at::Scalar &, int64_t);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::cumulative_trapezoid")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "dx")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "cumulative_trapezoid.dx(Tensor y, *, Scalar dx=1, int dim=-1) -> Tensor")
+  static constexpr const char* name = "aten::cumulative_trapezoid";
+  static constexpr const char* overload_name = "dx";
+  static constexpr const char* schema_str = "cumulative_trapezoid.dx(Tensor y, *, Scalar dx=1, int dim=-1) -> Tensor";
   static at::Tensor call(const at::Tensor & y, const at::Scalar & dx, int64_t dim);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & y, const at::Scalar & dx, int64_t dim);
 };

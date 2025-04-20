@@ -27,7 +27,7 @@ inline at::Tensor diagonal_backward(const at::Tensor & grad_output, at::IntArray
     return at::_ops::diagonal_backward::call(grad_output, c10::fromIntArrayRefSlow(input_sizes), offset, dim1, dim2);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor diagonal_backward(const at::Tensor & grad_output, at::IntArrayRef input_sizes, int64_t offset, int64_t dim1, int64_t dim2) {
     return at::_ops::diagonal_backward::call(grad_output, c10::fromIntArrayRefSlow(input_sizes), offset, dim1, dim2);
   }
@@ -38,7 +38,7 @@ inline at::Tensor diagonal_backward_symint(const at::Tensor & grad_output, c10::
     return at::_ops::diagonal_backward::call(grad_output, input_sizes, offset, dim1, dim2);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor diagonal_backward(const at::Tensor & grad_output, c10::SymIntArrayRef input_sizes, int64_t offset, int64_t dim1, int64_t dim2) {
     return at::_ops::diagonal_backward::call(grad_output, input_sizes, offset, dim1, dim2);
   }
@@ -49,7 +49,7 @@ inline at::Tensor & diagonal_backward_out(at::Tensor & out, const at::Tensor & g
     return at::_ops::diagonal_backward_out::call(grad_output, c10::fromIntArrayRefSlow(input_sizes), offset, dim1, dim2, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & diagonal_backward_out(at::Tensor & out, const at::Tensor & grad_output, at::IntArrayRef input_sizes, int64_t offset, int64_t dim1, int64_t dim2) {
     return at::_ops::diagonal_backward_out::call(grad_output, c10::fromIntArrayRefSlow(input_sizes), offset, dim1, dim2, out);
   }
@@ -60,7 +60,7 @@ inline at::Tensor & diagonal_backward_outf(const at::Tensor & grad_output, at::I
     return at::_ops::diagonal_backward_out::call(grad_output, c10::fromIntArrayRefSlow(input_sizes), offset, dim1, dim2, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & diagonal_backward_outf(const at::Tensor & grad_output, at::IntArrayRef input_sizes, int64_t offset, int64_t dim1, int64_t dim2, at::Tensor & out) {
     return at::_ops::diagonal_backward_out::call(grad_output, c10::fromIntArrayRefSlow(input_sizes), offset, dim1, dim2, out);
   }
@@ -71,7 +71,7 @@ inline at::Tensor & diagonal_backward_symint_out(at::Tensor & out, const at::Ten
     return at::_ops::diagonal_backward_out::call(grad_output, input_sizes, offset, dim1, dim2, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & diagonal_backward_out(at::Tensor & out, const at::Tensor & grad_output, c10::SymIntArrayRef input_sizes, int64_t offset, int64_t dim1, int64_t dim2) {
     return at::_ops::diagonal_backward_out::call(grad_output, input_sizes, offset, dim1, dim2, out);
   }
@@ -82,7 +82,7 @@ inline at::Tensor & diagonal_backward_symint_outf(const at::Tensor & grad_output
     return at::_ops::diagonal_backward_out::call(grad_output, input_sizes, offset, dim1, dim2, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & diagonal_backward_outf(const at::Tensor & grad_output, c10::SymIntArrayRef input_sizes, int64_t offset, int64_t dim1, int64_t dim2, at::Tensor & out) {
     return at::_ops::diagonal_backward_out::call(grad_output, input_sizes, offset, dim1, dim2, out);
   }

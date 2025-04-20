@@ -19,7 +19,13 @@ namespace native {
 struct TORCH_API structured_clamp_min_out : public at::meta::structured_clamp_min {
 void impl(const at::Tensor & self, const at::Scalar & min, const at::Tensor & out);
 };
+struct TORCH_API structured_clamp_min_out_mps : public at::meta::structured_clamp_min {
+void impl(const at::Tensor & self, const at::Scalar & min, const at::Tensor & out);
+};
 struct TORCH_API structured_clamp_min_Tensor_out : public at::meta::structured_clamp_min_Tensor {
+void impl(const at::Tensor & self, const at::Tensor & min, const at::Tensor & out);
+};
+struct TORCH_API structured_clamp_min_Tensor_out_mps : public at::meta::structured_clamp_min_Tensor {
 void impl(const at::Tensor & self, const at::Tensor & min, const at::Tensor & out);
 };
 } // namespace native

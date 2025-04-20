@@ -22,5 +22,6 @@ TORCH_API at::Tensor & nan_to_num_out(const at::Tensor & self, ::std::optional<d
 TORCH_API at::Tensor nan_to_num_sparse(const at::Tensor & self, ::std::optional<double> nan=::std::nullopt, ::std::optional<double> posinf=::std::nullopt, ::std::optional<double> neginf=::std::nullopt);
 TORCH_API at::Tensor & nan_to_num_sparse_out(const at::Tensor & self, ::std::optional<double> nan, ::std::optional<double> posinf, ::std::optional<double> neginf, at::Tensor & out);
 TORCH_API at::Tensor & nan_to_num_sparse_(at::Tensor & self, ::std::optional<double> nan=::std::nullopt, ::std::optional<double> posinf=::std::nullopt, ::std::optional<double> neginf=::std::nullopt);
+TORCH_API at::Tensor & nan_to_num_out_mps(const at::Tensor & self, ::std::optional<double> nan, ::std::optional<double> posinf, ::std::optional<double> neginf, at::Tensor & out);
 } // namespace native
 } // namespace at

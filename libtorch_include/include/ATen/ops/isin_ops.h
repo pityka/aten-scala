@@ -18,9 +18,9 @@ struct TORCH_API isin_Tensor_Tensor_out {
   using schema = at::Tensor & (const at::Tensor &, const at::Tensor &, bool, bool, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::isin")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Tensor_Tensor_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "isin.Tensor_Tensor_out(Tensor elements, Tensor test_elements, *, bool assume_unique=False, bool invert=False, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::isin";
+  static constexpr const char* overload_name = "Tensor_Tensor_out";
+  static constexpr const char* schema_str = "isin.Tensor_Tensor_out(Tensor elements, Tensor test_elements, *, bool assume_unique=False, bool invert=False, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & elements, const at::Tensor & test_elements, bool assume_unique, bool invert, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & elements, const at::Tensor & test_elements, bool assume_unique, bool invert, at::Tensor & out);
 };
@@ -29,9 +29,9 @@ struct TORCH_API isin_Tensor_Tensor {
   using schema = at::Tensor (const at::Tensor &, const at::Tensor &, bool, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::isin")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Tensor_Tensor")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "isin.Tensor_Tensor(Tensor elements, Tensor test_elements, *, bool assume_unique=False, bool invert=False) -> Tensor")
+  static constexpr const char* name = "aten::isin";
+  static constexpr const char* overload_name = "Tensor_Tensor";
+  static constexpr const char* schema_str = "isin.Tensor_Tensor(Tensor elements, Tensor test_elements, *, bool assume_unique=False, bool invert=False) -> Tensor";
   static at::Tensor call(const at::Tensor & elements, const at::Tensor & test_elements, bool assume_unique, bool invert);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & elements, const at::Tensor & test_elements, bool assume_unique, bool invert);
 };
@@ -40,9 +40,9 @@ struct TORCH_API isin_Tensor_Scalar_out {
   using schema = at::Tensor & (const at::Tensor &, const at::Scalar &, bool, bool, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::isin")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Tensor_Scalar_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "isin.Tensor_Scalar_out(Tensor elements, Scalar test_element, *, bool assume_unique=False, bool invert=False, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::isin";
+  static constexpr const char* overload_name = "Tensor_Scalar_out";
+  static constexpr const char* schema_str = "isin.Tensor_Scalar_out(Tensor elements, Scalar test_element, *, bool assume_unique=False, bool invert=False, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & elements, const at::Scalar & test_element, bool assume_unique, bool invert, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & elements, const at::Scalar & test_element, bool assume_unique, bool invert, at::Tensor & out);
 };
@@ -51,9 +51,9 @@ struct TORCH_API isin_Tensor_Scalar {
   using schema = at::Tensor (const at::Tensor &, const at::Scalar &, bool, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::isin")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Tensor_Scalar")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "isin.Tensor_Scalar(Tensor elements, Scalar test_element, *, bool assume_unique=False, bool invert=False) -> Tensor")
+  static constexpr const char* name = "aten::isin";
+  static constexpr const char* overload_name = "Tensor_Scalar";
+  static constexpr const char* schema_str = "isin.Tensor_Scalar(Tensor elements, Scalar test_element, *, bool assume_unique=False, bool invert=False) -> Tensor";
   static at::Tensor call(const at::Tensor & elements, const at::Scalar & test_element, bool assume_unique, bool invert);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & elements, const at::Scalar & test_element, bool assume_unique, bool invert);
 };
@@ -62,9 +62,9 @@ struct TORCH_API isin_Scalar_Tensor_out {
   using schema = at::Tensor & (const at::Scalar &, const at::Tensor &, bool, bool, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::isin")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Scalar_Tensor_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "isin.Scalar_Tensor_out(Scalar element, Tensor test_elements, *, bool assume_unique=False, bool invert=False, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::isin";
+  static constexpr const char* overload_name = "Scalar_Tensor_out";
+  static constexpr const char* schema_str = "isin.Scalar_Tensor_out(Scalar element, Tensor test_elements, *, bool assume_unique=False, bool invert=False, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Scalar & element, const at::Tensor & test_elements, bool assume_unique, bool invert, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Scalar & element, const at::Tensor & test_elements, bool assume_unique, bool invert, at::Tensor & out);
 };
@@ -73,9 +73,9 @@ struct TORCH_API isin_Scalar_Tensor {
   using schema = at::Tensor (const at::Scalar &, const at::Tensor &, bool, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::isin")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Scalar_Tensor")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "isin.Scalar_Tensor(Scalar element, Tensor test_elements, *, bool assume_unique=False, bool invert=False) -> Tensor")
+  static constexpr const char* name = "aten::isin";
+  static constexpr const char* overload_name = "Scalar_Tensor";
+  static constexpr const char* schema_str = "isin.Scalar_Tensor(Scalar element, Tensor test_elements, *, bool assume_unique=False, bool invert=False) -> Tensor";
   static at::Tensor call(const at::Scalar & element, const at::Tensor & test_elements, bool assume_unique, bool invert);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Scalar & element, const at::Tensor & test_elements, bool assume_unique, bool invert);
 };

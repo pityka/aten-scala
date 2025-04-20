@@ -18,9 +18,9 @@ struct TORCH_API reshape {
   using schema = at::Tensor (const at::Tensor &, c10::SymIntArrayRef);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::reshape")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "reshape(Tensor(a) self, SymInt[] shape) -> Tensor(a)")
+  static constexpr const char* name = "aten::reshape";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "reshape(Tensor(a) self, SymInt[] shape) -> Tensor(a)";
   static at::Tensor call(const at::Tensor & self, c10::SymIntArrayRef shape);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, c10::SymIntArrayRef shape);
 };

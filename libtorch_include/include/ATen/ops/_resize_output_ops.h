@@ -18,9 +18,9 @@ struct TORCH_API _resize_output_ {
   using schema = const at::Tensor & (const at::Tensor &, c10::SymIntArrayRef, at::Device);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_resize_output_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_resize_output_(Tensor(a!) self, SymInt[] size, Device device) -> Tensor(a!)")
+  static constexpr const char* name = "aten::_resize_output_";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "_resize_output_(Tensor(a!) self, SymInt[] size, Device device) -> Tensor(a!)";
   static const at::Tensor & call(const at::Tensor & self, c10::SymIntArrayRef size, at::Device device);
   static const at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, c10::SymIntArrayRef size, at::Device device);
 };
@@ -29,9 +29,9 @@ struct TORCH_API _resize_output_out {
   using schema = const at::Tensor & (const at::Tensor &, c10::SymIntArrayRef, at::Device, const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_resize_output")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_resize_output.out(Tensor self, SymInt[] size, Device device, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::_resize_output";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "_resize_output.out(Tensor self, SymInt[] size, Device device, *, Tensor(a!) out) -> Tensor(a!)";
   static const at::Tensor & call(const at::Tensor & self, c10::SymIntArrayRef size, at::Device device, const at::Tensor & out);
   static const at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, c10::SymIntArrayRef size, at::Device device, const at::Tensor & out);
 };
@@ -40,9 +40,9 @@ struct TORCH_API _resize_output {
   using schema = at::Tensor (const at::Tensor &, c10::SymIntArrayRef, at::Device);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_resize_output")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_resize_output(Tensor self, SymInt[] size, Device device) -> Tensor")
+  static constexpr const char* name = "aten::_resize_output";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "_resize_output(Tensor self, SymInt[] size, Device device) -> Tensor";
   static at::Tensor call(const at::Tensor & self, c10::SymIntArrayRef size, at::Device device);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, c10::SymIntArrayRef size, at::Device device);
 };

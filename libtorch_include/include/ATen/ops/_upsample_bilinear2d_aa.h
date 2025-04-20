@@ -27,7 +27,7 @@ inline at::Tensor _upsample_bilinear2d_aa(const at::Tensor & input, at::Optional
     return at::_ops::_upsample_bilinear2d_aa_vec::call(input, output_size.has_value() ? ::std::make_optional(c10::fromIntArrayRefSlow(*output_size)) : ::std::nullopt, align_corners, scale_factors);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor _upsample_bilinear2d_aa(const at::Tensor & input, at::OptionalIntArrayRef output_size, bool align_corners, ::std::optional<at::ArrayRef<double>> scale_factors) {
     return at::_ops::_upsample_bilinear2d_aa_vec::call(input, output_size.has_value() ? ::std::make_optional(c10::fromIntArrayRefSlow(*output_size)) : ::std::nullopt, align_corners, scale_factors);
   }
@@ -38,7 +38,7 @@ inline at::Tensor _upsample_bilinear2d_aa_symint(const at::Tensor & input, at::O
     return at::_ops::_upsample_bilinear2d_aa_vec::call(input, output_size, align_corners, scale_factors);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor _upsample_bilinear2d_aa(const at::Tensor & input, at::OptionalSymIntArrayRef output_size, bool align_corners, ::std::optional<at::ArrayRef<double>> scale_factors) {
     return at::_ops::_upsample_bilinear2d_aa_vec::call(input, output_size, align_corners, scale_factors);
   }
@@ -49,7 +49,7 @@ inline at::Tensor & _upsample_bilinear2d_aa_out(at::Tensor & out, const at::Tens
     return at::_ops::_upsample_bilinear2d_aa_out::call(self, c10::fromIntArrayRefSlow(output_size), align_corners, scales_h, scales_w, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & _upsample_bilinear2d_aa_out(at::Tensor & out, const at::Tensor & self, at::IntArrayRef output_size, bool align_corners, ::std::optional<double> scales_h=::std::nullopt, ::std::optional<double> scales_w=::std::nullopt) {
     return at::_ops::_upsample_bilinear2d_aa_out::call(self, c10::fromIntArrayRefSlow(output_size), align_corners, scales_h, scales_w, out);
   }
@@ -60,7 +60,7 @@ inline at::Tensor & _upsample_bilinear2d_aa_outf(const at::Tensor & self, at::In
     return at::_ops::_upsample_bilinear2d_aa_out::call(self, c10::fromIntArrayRefSlow(output_size), align_corners, scales_h, scales_w, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & _upsample_bilinear2d_aa_outf(const at::Tensor & self, at::IntArrayRef output_size, bool align_corners, ::std::optional<double> scales_h, ::std::optional<double> scales_w, at::Tensor & out) {
     return at::_ops::_upsample_bilinear2d_aa_out::call(self, c10::fromIntArrayRefSlow(output_size), align_corners, scales_h, scales_w, out);
   }
@@ -71,7 +71,7 @@ inline at::Tensor & _upsample_bilinear2d_aa_symint_out(at::Tensor & out, const a
     return at::_ops::_upsample_bilinear2d_aa_out::call(self, output_size, align_corners, scales_h, scales_w, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & _upsample_bilinear2d_aa_out(at::Tensor & out, const at::Tensor & self, c10::SymIntArrayRef output_size, bool align_corners, ::std::optional<double> scales_h=::std::nullopt, ::std::optional<double> scales_w=::std::nullopt) {
     return at::_ops::_upsample_bilinear2d_aa_out::call(self, output_size, align_corners, scales_h, scales_w, out);
   }
@@ -82,7 +82,7 @@ inline at::Tensor & _upsample_bilinear2d_aa_symint_outf(const at::Tensor & self,
     return at::_ops::_upsample_bilinear2d_aa_out::call(self, output_size, align_corners, scales_h, scales_w, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & _upsample_bilinear2d_aa_outf(const at::Tensor & self, c10::SymIntArrayRef output_size, bool align_corners, ::std::optional<double> scales_h, ::std::optional<double> scales_w, at::Tensor & out) {
     return at::_ops::_upsample_bilinear2d_aa_out::call(self, output_size, align_corners, scales_h, scales_w, out);
   }
@@ -93,7 +93,7 @@ inline at::Tensor _upsample_bilinear2d_aa(const at::Tensor & self, at::IntArrayR
     return at::_ops::_upsample_bilinear2d_aa::call(self, c10::fromIntArrayRefSlow(output_size), align_corners, scales_h, scales_w);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor _upsample_bilinear2d_aa(const at::Tensor & self, at::IntArrayRef output_size, bool align_corners, ::std::optional<double> scales_h=::std::nullopt, ::std::optional<double> scales_w=::std::nullopt) {
     return at::_ops::_upsample_bilinear2d_aa::call(self, c10::fromIntArrayRefSlow(output_size), align_corners, scales_h, scales_w);
   }
@@ -104,7 +104,7 @@ inline at::Tensor _upsample_bilinear2d_aa_symint(const at::Tensor & self, c10::S
     return at::_ops::_upsample_bilinear2d_aa::call(self, output_size, align_corners, scales_h, scales_w);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor _upsample_bilinear2d_aa(const at::Tensor & self, c10::SymIntArrayRef output_size, bool align_corners, ::std::optional<double> scales_h=::std::nullopt, ::std::optional<double> scales_w=::std::nullopt) {
     return at::_ops::_upsample_bilinear2d_aa::call(self, output_size, align_corners, scales_h, scales_w);
   }

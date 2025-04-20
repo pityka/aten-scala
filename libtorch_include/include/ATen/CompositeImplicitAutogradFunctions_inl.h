@@ -17,7 +17,6 @@
 #endif
 
 #include <ATen/ops/_add_batch_dim_compositeimplicitautograd_dispatch.h>
-#include <ATen/ops/_assert_tensor_metadata_compositeimplicitautograd_dispatch.h>
 #include <ATen/ops/_autocast_to_full_precision_compositeimplicitautograd_dispatch.h>
 #include <ATen/ops/_autocast_to_reduced_precision_compositeimplicitautograd_dispatch.h>
 #include <ATen/ops/_backward_compositeimplicitautograd_dispatch.h>

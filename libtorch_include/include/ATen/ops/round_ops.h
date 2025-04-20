@@ -18,9 +18,9 @@ struct TORCH_API round {
   using schema = at::Tensor (const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::round")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "round(Tensor self) -> Tensor")
+  static constexpr const char* name = "aten::round";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "round(Tensor self) -> Tensor";
   static at::Tensor call(const at::Tensor & self);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self);
 };
@@ -29,9 +29,9 @@ struct TORCH_API round_ {
   using schema = at::Tensor & (at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::round_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "round_(Tensor(a!) self) -> Tensor(a!)")
+  static constexpr const char* name = "aten::round_";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "round_(Tensor(a!) self) -> Tensor(a!)";
   static at::Tensor & call(at::Tensor & self);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::Tensor & self);
 };
@@ -40,9 +40,9 @@ struct TORCH_API round_out {
   using schema = at::Tensor & (const at::Tensor &, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::round")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "round.out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::round";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "round.out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::Tensor & out);
 };
@@ -51,9 +51,9 @@ struct TORCH_API round_decimals {
   using schema = at::Tensor (const at::Tensor &, int64_t);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::round")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "decimals")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "round.decimals(Tensor self, *, int decimals) -> Tensor")
+  static constexpr const char* name = "aten::round";
+  static constexpr const char* overload_name = "decimals";
+  static constexpr const char* schema_str = "round.decimals(Tensor self, *, int decimals) -> Tensor";
   static at::Tensor call(const at::Tensor & self, int64_t decimals);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t decimals);
 };
@@ -62,9 +62,9 @@ struct TORCH_API round__decimals {
   using schema = at::Tensor & (at::Tensor &, int64_t);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::round_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "decimals")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "round_.decimals(Tensor(a!) self, *, int decimals) -> Tensor(a!)")
+  static constexpr const char* name = "aten::round_";
+  static constexpr const char* overload_name = "decimals";
+  static constexpr const char* schema_str = "round_.decimals(Tensor(a!) self, *, int decimals) -> Tensor(a!)";
   static at::Tensor & call(at::Tensor & self, int64_t decimals);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::Tensor & self, int64_t decimals);
 };
@@ -73,9 +73,9 @@ struct TORCH_API round_decimals_out {
   using schema = at::Tensor & (const at::Tensor &, int64_t, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::round")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "decimals_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "round.decimals_out(Tensor self, *, int decimals, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::round";
+  static constexpr const char* overload_name = "decimals_out";
+  static constexpr const char* schema_str = "round.decimals_out(Tensor self, *, int decimals, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, int64_t decimals, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t decimals, at::Tensor & out);
 };

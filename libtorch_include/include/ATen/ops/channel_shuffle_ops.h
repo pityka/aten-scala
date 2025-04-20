@@ -18,9 +18,9 @@ struct TORCH_API channel_shuffle {
   using schema = at::Tensor (const at::Tensor &, c10::SymInt);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::channel_shuffle")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "channel_shuffle(Tensor self, SymInt groups) -> Tensor")
+  static constexpr const char* name = "aten::channel_shuffle";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "channel_shuffle(Tensor self, SymInt groups) -> Tensor";
   static at::Tensor call(const at::Tensor & self, c10::SymInt groups);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, c10::SymInt groups);
 };
@@ -29,9 +29,9 @@ struct TORCH_API channel_shuffle_out {
   using schema = at::Tensor & (const at::Tensor &, c10::SymInt, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::channel_shuffle")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "channel_shuffle.out(Tensor self, SymInt groups, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::channel_shuffle";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "channel_shuffle.out(Tensor self, SymInt groups, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, c10::SymInt groups, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, c10::SymInt groups, at::Tensor & out);
 };

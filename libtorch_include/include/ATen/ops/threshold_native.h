@@ -19,6 +19,9 @@ namespace native {
 struct TORCH_API structured_threshold_out : public at::meta::structured_threshold {
 void impl(const at::Tensor & self, const at::Scalar & threshold, const at::Scalar & value, const at::Tensor & out);
 };
+struct TORCH_API structured_threshold_out_mps : public at::meta::structured_threshold {
+void impl(const at::Tensor & self, const at::Scalar & threshold, const at::Scalar & value, const at::Tensor & out);
+};
 TORCH_API at::Tensor threshold_quantized_cpu(const at::Tensor & self, const at::Scalar & threshold, const at::Scalar & value);
 } // namespace native
 } // namespace at

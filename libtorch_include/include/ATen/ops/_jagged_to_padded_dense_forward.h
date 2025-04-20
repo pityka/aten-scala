@@ -27,7 +27,7 @@ inline at::Tensor _jagged_to_padded_dense_forward(const at::Tensor & values, at:
     return at::_ops::_jagged_to_padded_dense_forward::call(values, offsets, c10::fromIntArrayRefSlow(max_lengths), padding_value);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor _jagged_to_padded_dense_forward(const at::Tensor & values, at::TensorList offsets, at::IntArrayRef max_lengths, double padding_value=0.0) {
     return at::_ops::_jagged_to_padded_dense_forward::call(values, offsets, c10::fromIntArrayRefSlow(max_lengths), padding_value);
   }
@@ -38,7 +38,7 @@ inline at::Tensor _jagged_to_padded_dense_forward_symint(const at::Tensor & valu
     return at::_ops::_jagged_to_padded_dense_forward::call(values, offsets, max_lengths, padding_value);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor _jagged_to_padded_dense_forward(const at::Tensor & values, at::TensorList offsets, c10::SymIntArrayRef max_lengths, double padding_value=0.0) {
     return at::_ops::_jagged_to_padded_dense_forward::call(values, offsets, max_lengths, padding_value);
   }

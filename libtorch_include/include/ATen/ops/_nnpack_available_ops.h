@@ -18,9 +18,9 @@ struct TORCH_API _nnpack_available {
   using schema = bool ();
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_nnpack_available")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_nnpack_available() -> bool")
+  static constexpr const char* name = "aten::_nnpack_available";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "_nnpack_available() -> bool";
   static bool call();
   static bool redispatch(c10::DispatchKeySet dispatchKeySet);
 };

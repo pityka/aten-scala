@@ -18,5 +18,6 @@ namespace at {
 namespace native {
 TORCH_API at::Tensor permute(const at::Tensor & self, at::IntArrayRef dims);
 TORCH_API at::Tensor permute_sparse_coo(const at::Tensor & self, at::IntArrayRef dims);
+TORCH_API at::Tensor permute_mps(const at::Tensor & self, at::IntArrayRef dims);
 } // namespace native
 } // namespace at

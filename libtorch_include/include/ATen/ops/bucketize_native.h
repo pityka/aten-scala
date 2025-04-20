@@ -20,8 +20,11 @@ TORCH_API at::Tensor bucketize_cpu(const at::Tensor & self, const at::Tensor & b
 TORCH_API at::Tensor & bucketize_out_cpu(const at::Tensor & self, const at::Tensor & boundaries, bool out_int32, bool right, at::Tensor & out);
 TORCH_API at::Tensor bucketize_cuda(const at::Tensor & self, const at::Tensor & boundaries, bool out_int32=false, bool right=false);
 TORCH_API at::Tensor & bucketize_out_cuda(const at::Tensor & self, const at::Tensor & boundaries, bool out_int32, bool right, at::Tensor & out);
+TORCH_API at::Tensor bucketize_mps(const at::Tensor & self, const at::Tensor & boundaries, bool out_int32=false, bool right=false);
+TORCH_API at::Tensor & bucketize_out_mps(const at::Tensor & self, const at::Tensor & boundaries, bool out_int32, bool right, at::Tensor & out);
 TORCH_API at::Tensor & bucketize_Scalar_out(const at::Scalar & self, const at::Tensor & boundaries, bool out_int32, bool right, at::Tensor & out);
 TORCH_API at::Tensor bucketize_cpu(const at::Scalar & self, const at::Tensor & boundaries, bool out_int32=false, bool right=false);
 TORCH_API at::Tensor bucketize_cuda(const at::Scalar & self, const at::Tensor & boundaries, bool out_int32=false, bool right=false);
+TORCH_API at::Tensor bucketize_mps(const at::Scalar & self, const at::Tensor & boundaries, bool out_int32=false, bool right=false);
 } // namespace native
 } // namespace at

@@ -33,7 +33,7 @@
 #include <ATen/ops/_compute_linear_combination_cpu_dispatch.h>
 #include <ATen/ops/_convert_indices_from_coo_to_csr_cpu_dispatch.h>
 #include <ATen/ops/_convert_indices_from_csr_to_coo_cpu_dispatch.h>
-#include <ATen/ops/_convert_weight_to_int4pack_cpu_dispatch.h>
+#include <ATen/ops/_convert_weight_to_int4pack_for_cpu_cpu_dispatch.h>
 #include <ATen/ops/_ctc_loss_cpu_dispatch.h>
 #include <ATen/ops/_ctc_loss_backward_cpu_dispatch.h>
 #include <ATen/ops/_cummax_helper_cpu_dispatch.h>
@@ -133,7 +133,7 @@
 #include <ATen/ops/_upsample_nearest_exact3d_cpu_dispatch.h>
 #include <ATen/ops/_upsample_nearest_exact3d_backward_cpu_dispatch.h>
 #include <ATen/ops/_validate_compressed_sparse_indices_cpu_dispatch.h>
-#include <ATen/ops/_weight_int4pack_mm_cpu_dispatch.h>
+#include <ATen/ops/_weight_int4pack_mm_for_cpu_cpu_dispatch.h>
 #include <ATen/ops/_weight_int8pack_mm_cpu_dispatch.h>
 #include <ATen/ops/_weight_norm_interface_cpu_dispatch.h>
 #include <ATen/ops/_weight_norm_interface_backward_cpu_dispatch.h>

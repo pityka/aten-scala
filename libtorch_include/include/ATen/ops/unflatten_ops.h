@@ -18,9 +18,9 @@ struct TORCH_API unflatten_int {
   using schema = at::Tensor (const at::Tensor &, int64_t, c10::SymIntArrayRef);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::unflatten")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "int")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "unflatten.int(Tensor(a) self, int dim, SymInt[] sizes) -> Tensor(a)")
+  static constexpr const char* name = "aten::unflatten";
+  static constexpr const char* overload_name = "int";
+  static constexpr const char* schema_str = "unflatten.int(Tensor(a) self, int dim, SymInt[] sizes) -> Tensor(a)";
   static at::Tensor call(const at::Tensor & self, int64_t dim, c10::SymIntArrayRef sizes);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t dim, c10::SymIntArrayRef sizes);
 };
@@ -29,9 +29,9 @@ struct TORCH_API unflatten_Dimname {
   using schema = at::Tensor (const at::Tensor &, at::Dimname, c10::SymIntArrayRef, at::DimnameList);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::unflatten")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Dimname")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "unflatten.Dimname(Tensor(a) self, Dimname dim, SymInt[] sizes, Dimname[] names) -> Tensor(a)")
+  static constexpr const char* name = "aten::unflatten";
+  static constexpr const char* overload_name = "Dimname";
+  static constexpr const char* schema_str = "unflatten.Dimname(Tensor(a) self, Dimname dim, SymInt[] sizes, Dimname[] names) -> Tensor(a)";
   static at::Tensor call(const at::Tensor & self, at::Dimname dim, c10::SymIntArrayRef sizes, at::DimnameList names);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::Dimname dim, c10::SymIntArrayRef sizes, at::DimnameList names);
 };

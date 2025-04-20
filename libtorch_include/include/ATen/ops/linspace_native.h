@@ -19,6 +19,7 @@ namespace native {
 TORCH_API at::Tensor linspace(const at::Scalar & start, const at::Scalar & end, int64_t steps, ::std::optional<at::ScalarType> dtype={}, ::std::optional<at::Layout> layout={}, ::std::optional<at::Device> device={}, ::std::optional<bool> pin_memory={});
 TORCH_API at::Tensor & linspace_out(const at::Scalar & start, const at::Scalar & end, int64_t steps, at::Tensor & out);
 TORCH_API at::Tensor & linspace_cuda_out(const at::Scalar & start, const at::Scalar & end, int64_t steps, at::Tensor & out);
+TORCH_API at::Tensor & linspace_out_mps(const at::Scalar & start, const at::Scalar & end, int64_t steps, at::Tensor & out);
 TORCH_API at::Tensor linspace(const at::Tensor & start, const at::Tensor & end, int64_t steps, ::std::optional<at::ScalarType> dtype={}, ::std::optional<at::Layout> layout={}, ::std::optional<at::Device> device={}, ::std::optional<bool> pin_memory={});
 TORCH_API at::Tensor & linspace_out(const at::Tensor & start, const at::Tensor & end, int64_t steps, at::Tensor & out);
 TORCH_API at::Tensor linspace(const at::Tensor & start, const at::Scalar & end, int64_t steps, ::std::optional<at::ScalarType> dtype={}, ::std::optional<at::Layout> layout={}, ::std::optional<at::Device> device={}, ::std::optional<bool> pin_memory={});

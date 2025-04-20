@@ -18,9 +18,9 @@ struct TORCH_API _padded_dense_to_jagged_forward {
   using schema = at::Tensor (const at::Tensor &, at::TensorList, ::std::optional<c10::SymInt>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_padded_dense_to_jagged_forward")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_padded_dense_to_jagged_forward(Tensor dense, Tensor[] offsets, SymInt? total_L=None) -> Tensor")
+  static constexpr const char* name = "aten::_padded_dense_to_jagged_forward";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "_padded_dense_to_jagged_forward(Tensor dense, Tensor[] offsets, SymInt? total_L=None) -> Tensor";
   static at::Tensor call(const at::Tensor & dense, at::TensorList offsets, ::std::optional<c10::SymInt> total_L);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & dense, at::TensorList offsets, ::std::optional<c10::SymInt> total_L);
 };

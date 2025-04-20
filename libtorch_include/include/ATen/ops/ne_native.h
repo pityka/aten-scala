@@ -19,9 +19,15 @@ namespace native {
 struct TORCH_API structured_ne_Scalar_out : public at::meta::structured_ne_Scalar {
 void impl(const at::Tensor & self, const at::Scalar & other, const at::Tensor & out);
 };
+struct TORCH_API structured_ne_scalar_out_mps : public at::meta::structured_ne_Scalar {
+void impl(const at::Tensor & self, const at::Scalar & other, const at::Tensor & out);
+};
 TORCH_API at::Tensor ne_quantized_cpu(const at::Tensor & self, const at::Scalar & other);
 TORCH_API at::Tensor & ne_out_quantized_cpu(const at::Tensor & self, const at::Scalar & other, at::Tensor & out);
 struct TORCH_API structured_ne_Tensor_out : public at::meta::structured_ne_Tensor {
+void impl(const at::Tensor & self, const at::Tensor & other, const at::Tensor & out);
+};
+struct TORCH_API structured_ne_tensor_out_mps : public at::meta::structured_ne_Tensor {
 void impl(const at::Tensor & self, const at::Tensor & other, const at::Tensor & out);
 };
 TORCH_API at::Tensor ne_quantized_cpu(const at::Tensor & self, const at::Tensor & other);

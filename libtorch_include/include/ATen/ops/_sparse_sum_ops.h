@@ -18,9 +18,9 @@ struct TORCH_API _sparse_sum {
   using schema = at::Tensor (const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_sparse_sum")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_sparse_sum(Tensor self) -> Tensor")
+  static constexpr const char* name = "aten::_sparse_sum";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "_sparse_sum(Tensor self) -> Tensor";
   static at::Tensor call(const at::Tensor & self);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self);
 };
@@ -29,9 +29,9 @@ struct TORCH_API _sparse_sum_dtype {
   using schema = at::Tensor (const at::Tensor &, at::ScalarType);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_sparse_sum")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "dtype")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_sparse_sum.dtype(Tensor self, *, ScalarType dtype) -> Tensor")
+  static constexpr const char* name = "aten::_sparse_sum";
+  static constexpr const char* overload_name = "dtype";
+  static constexpr const char* schema_str = "_sparse_sum.dtype(Tensor self, *, ScalarType dtype) -> Tensor";
   static at::Tensor call(const at::Tensor & self, at::ScalarType dtype);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::ScalarType dtype);
 };
@@ -40,9 +40,9 @@ struct TORCH_API _sparse_sum_dim {
   using schema = at::Tensor (const at::Tensor &, at::IntArrayRef);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_sparse_sum")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "dim")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_sparse_sum.dim(Tensor self, int[1] dim) -> Tensor")
+  static constexpr const char* name = "aten::_sparse_sum";
+  static constexpr const char* overload_name = "dim";
+  static constexpr const char* schema_str = "_sparse_sum.dim(Tensor self, int[1] dim) -> Tensor";
   static at::Tensor call(const at::Tensor & self, at::IntArrayRef dim);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::IntArrayRef dim);
 };
@@ -51,9 +51,9 @@ struct TORCH_API _sparse_sum_dim_dtype {
   using schema = at::Tensor (const at::Tensor &, at::IntArrayRef, at::ScalarType);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_sparse_sum")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "dim_dtype")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_sparse_sum.dim_dtype(Tensor self, int[1] dim, *, ScalarType dtype) -> Tensor")
+  static constexpr const char* name = "aten::_sparse_sum";
+  static constexpr const char* overload_name = "dim_dtype";
+  static constexpr const char* schema_str = "_sparse_sum.dim_dtype(Tensor self, int[1] dim, *, ScalarType dtype) -> Tensor";
   static at::Tensor call(const at::Tensor & self, at::IntArrayRef dim, at::ScalarType dtype);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::IntArrayRef dim, at::ScalarType dtype);
 };
@@ -62,9 +62,9 @@ struct TORCH_API _sparse_sum_dim_out {
   using schema = at::Tensor & (const at::Tensor &, at::IntArrayRef, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_sparse_sum")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "dim_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_sparse_sum.dim_out(Tensor self, int[1] dim, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::_sparse_sum";
+  static constexpr const char* overload_name = "dim_out";
+  static constexpr const char* schema_str = "_sparse_sum.dim_out(Tensor self, int[1] dim, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, at::IntArrayRef dim, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::IntArrayRef dim, at::Tensor & out);
 };

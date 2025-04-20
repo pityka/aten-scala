@@ -18,9 +18,9 @@ struct TORCH_API linalg_eigvalsh {
   using schema = at::Tensor (const at::Tensor &, c10::string_view);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::linalg_eigvalsh")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "linalg_eigvalsh(Tensor self, str UPLO=\"L\") -> Tensor")
+  static constexpr const char* name = "aten::linalg_eigvalsh";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "linalg_eigvalsh(Tensor self, str UPLO=\"L\") -> Tensor";
   static at::Tensor call(const at::Tensor & self, c10::string_view UPLO);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, c10::string_view UPLO);
 };
@@ -29,9 +29,9 @@ struct TORCH_API linalg_eigvalsh_out {
   using schema = at::Tensor & (const at::Tensor &, c10::string_view, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::linalg_eigvalsh")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "linalg_eigvalsh.out(Tensor self, str UPLO=\"L\", *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::linalg_eigvalsh";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "linalg_eigvalsh.out(Tensor self, str UPLO=\"L\", *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, c10::string_view UPLO, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, c10::string_view UPLO, at::Tensor & out);
 };

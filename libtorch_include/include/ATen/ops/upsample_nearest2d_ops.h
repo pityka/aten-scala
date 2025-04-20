@@ -18,9 +18,9 @@ struct TORCH_API upsample_nearest2d_vec {
   using schema = at::Tensor (const at::Tensor &, at::OptionalSymIntArrayRef, ::std::optional<at::ArrayRef<double>>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::upsample_nearest2d")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "vec")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "upsample_nearest2d.vec(Tensor input, SymInt[]? output_size, float[]? scale_factors) -> Tensor")
+  static constexpr const char* name = "aten::upsample_nearest2d";
+  static constexpr const char* overload_name = "vec";
+  static constexpr const char* schema_str = "upsample_nearest2d.vec(Tensor input, SymInt[]? output_size, float[]? scale_factors) -> Tensor";
   static at::Tensor call(const at::Tensor & input, at::OptionalSymIntArrayRef output_size, ::std::optional<at::ArrayRef<double>> scale_factors);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & input, at::OptionalSymIntArrayRef output_size, ::std::optional<at::ArrayRef<double>> scale_factors);
 };
@@ -29,9 +29,9 @@ struct TORCH_API upsample_nearest2d_out {
   using schema = at::Tensor & (const at::Tensor &, c10::SymIntArrayRef, ::std::optional<double>, ::std::optional<double>, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::upsample_nearest2d")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "upsample_nearest2d.out(Tensor self, SymInt[2] output_size, float? scales_h=None, float? scales_w=None, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::upsample_nearest2d";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "upsample_nearest2d.out(Tensor self, SymInt[2] output_size, float? scales_h=None, float? scales_w=None, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, c10::SymIntArrayRef output_size, ::std::optional<double> scales_h, ::std::optional<double> scales_w, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, c10::SymIntArrayRef output_size, ::std::optional<double> scales_h, ::std::optional<double> scales_w, at::Tensor & out);
 };
@@ -40,11 +40,22 @@ struct TORCH_API upsample_nearest2d {
   using schema = at::Tensor (const at::Tensor &, c10::SymIntArrayRef, ::std::optional<double>, ::std::optional<double>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::upsample_nearest2d")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "upsample_nearest2d(Tensor self, SymInt[2] output_size, float? scales_h=None, float? scales_w=None) -> Tensor")
+  static constexpr const char* name = "aten::upsample_nearest2d";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "upsample_nearest2d(Tensor self, SymInt[2] output_size, float? scales_h=None, float? scales_w=None) -> Tensor";
   static at::Tensor call(const at::Tensor & self, c10::SymIntArrayRef output_size, ::std::optional<double> scales_h, ::std::optional<double> scales_w);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, c10::SymIntArrayRef output_size, ::std::optional<double> scales_h, ::std::optional<double> scales_w);
+};
+
+struct TORCH_API upsample_nearest2d_vec_out {
+  using schema = at::Tensor & (const at::Tensor &, at::OptionalSymIntArrayRef, ::std::optional<at::ArrayRef<double>>, at::Tensor &);
+  using ptr_schema = schema*;
+  // See Note [static constexpr char* members for windows NVCC]
+  static constexpr const char* name = "aten::upsample_nearest2d";
+  static constexpr const char* overload_name = "vec_out";
+  static constexpr const char* schema_str = "upsample_nearest2d.vec_out(Tensor input, SymInt[]? output_size, float[]? scale_factors, *, Tensor(a!) out) -> Tensor(a!)";
+  static at::Tensor & call(const at::Tensor & input, at::OptionalSymIntArrayRef output_size, ::std::optional<at::ArrayRef<double>> scale_factors, at::Tensor & out);
+  static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & input, at::OptionalSymIntArrayRef output_size, ::std::optional<at::ArrayRef<double>> scale_factors, at::Tensor & out);
 };
 
 }} // namespace at::_ops

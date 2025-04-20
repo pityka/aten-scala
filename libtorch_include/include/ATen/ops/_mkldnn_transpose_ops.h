@@ -18,9 +18,9 @@ struct TORCH_API _mkldnn_transpose {
   using schema = at::Tensor (const at::Tensor &, int64_t, int64_t);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_mkldnn_transpose")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_mkldnn_transpose(Tensor self, int dim0, int dim1) -> Tensor")
+  static constexpr const char* name = "aten::_mkldnn_transpose";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "_mkldnn_transpose(Tensor self, int dim0, int dim1) -> Tensor";
   static at::Tensor call(const at::Tensor & self, int64_t dim0, int64_t dim1);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t dim0, int64_t dim1);
 };
@@ -29,9 +29,9 @@ struct TORCH_API _mkldnn_transpose_ {
   using schema = at::Tensor & (at::Tensor &, int64_t, int64_t);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_mkldnn_transpose_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_mkldnn_transpose_(Tensor(a!) self, int dim0, int dim1) -> Tensor(a!)")
+  static constexpr const char* name = "aten::_mkldnn_transpose_";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "_mkldnn_transpose_(Tensor(a!) self, int dim0, int dim1) -> Tensor(a!)";
   static at::Tensor & call(at::Tensor & self, int64_t dim0, int64_t dim1);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::Tensor & self, int64_t dim0, int64_t dim1);
 };
@@ -40,9 +40,9 @@ struct TORCH_API _mkldnn_transpose_out {
   using schema = at::Tensor & (const at::Tensor &, int64_t, int64_t, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_mkldnn_transpose")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_mkldnn_transpose.out(Tensor self, int dim0, int dim1, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::_mkldnn_transpose";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "_mkldnn_transpose.out(Tensor self, int dim0, int dim1, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, int64_t dim0, int64_t dim1, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t dim0, int64_t dim1, at::Tensor & out);
 };

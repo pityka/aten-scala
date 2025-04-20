@@ -27,7 +27,7 @@ inline ::std::tuple<at::Tensor,at::Tensor,at::Tensor,at::Tensor,c10::SymInt,c10:
     return at::_ops::_efficient_attention_forward::call(query, key, value, bias, cu_seqlens_q, cu_seqlens_k, max_seqlen_q.has_value() ? ::std::make_optional(c10::SymInt(*max_seqlen_q)) : ::std::nullopt, max_seqlen_k.has_value() ? ::std::make_optional(c10::SymInt(*max_seqlen_k)) : ::std::nullopt, dropout_p, custom_mask_type, compute_log_sumexp, scale, seqlen_k, window_size);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   ::std::tuple<at::Tensor,at::Tensor,at::Tensor,at::Tensor,c10::SymInt,c10::SymInt> _efficient_attention_forward(const at::Tensor & query, const at::Tensor & key, const at::Tensor & value, const ::std::optional<at::Tensor> & bias, const ::std::optional<at::Tensor> & cu_seqlens_q, const ::std::optional<at::Tensor> & cu_seqlens_k, ::std::optional<int64_t> max_seqlen_q, ::std::optional<int64_t> max_seqlen_k, double dropout_p, int64_t custom_mask_type, bool compute_log_sumexp=false, ::std::optional<double> scale=::std::nullopt, const ::std::optional<at::Tensor> & seqlen_k={}, ::std::optional<int64_t> window_size=::std::nullopt) {
     return at::_ops::_efficient_attention_forward::call(query, key, value, bias, cu_seqlens_q, cu_seqlens_k, max_seqlen_q.has_value() ? ::std::make_optional(c10::SymInt(*max_seqlen_q)) : ::std::nullopt, max_seqlen_k.has_value() ? ::std::make_optional(c10::SymInt(*max_seqlen_k)) : ::std::nullopt, dropout_p, custom_mask_type, compute_log_sumexp, scale, seqlen_k, window_size);
   }
@@ -38,7 +38,7 @@ inline ::std::tuple<at::Tensor,at::Tensor,at::Tensor,at::Tensor,c10::SymInt,c10:
     return at::_ops::_efficient_attention_forward::call(query, key, value, bias, cu_seqlens_q, cu_seqlens_k, max_seqlen_q, max_seqlen_k, dropout_p, custom_mask_type, compute_log_sumexp, scale, seqlen_k, window_size);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   ::std::tuple<at::Tensor,at::Tensor,at::Tensor,at::Tensor,c10::SymInt,c10::SymInt> _efficient_attention_forward(const at::Tensor & query, const at::Tensor & key, const at::Tensor & value, const ::std::optional<at::Tensor> & bias, const ::std::optional<at::Tensor> & cu_seqlens_q, const ::std::optional<at::Tensor> & cu_seqlens_k, ::std::optional<c10::SymInt> max_seqlen_q, ::std::optional<c10::SymInt> max_seqlen_k, double dropout_p, int64_t custom_mask_type, bool compute_log_sumexp=false, ::std::optional<double> scale=::std::nullopt, const ::std::optional<at::Tensor> & seqlen_k={}, ::std::optional<int64_t> window_size=::std::nullopt) {
     return at::_ops::_efficient_attention_forward::call(query, key, value, bias, cu_seqlens_q, cu_seqlens_k, max_seqlen_q, max_seqlen_k, dropout_p, custom_mask_type, compute_log_sumexp, scale, seqlen_k, window_size);
   }

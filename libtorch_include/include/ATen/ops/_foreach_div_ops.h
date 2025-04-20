@@ -18,9 +18,9 @@ struct TORCH_API _foreach_div_Scalar {
   using schema = ::std::vector<at::Tensor> (at::TensorList, const at::Scalar &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_foreach_div")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Scalar")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_foreach_div.Scalar(Tensor[] self, Scalar scalar) -> Tensor[]")
+  static constexpr const char* name = "aten::_foreach_div";
+  static constexpr const char* overload_name = "Scalar";
+  static constexpr const char* schema_str = "_foreach_div.Scalar(Tensor[] self, Scalar scalar) -> Tensor[]";
   static ::std::vector<at::Tensor> call(at::TensorList self, const at::Scalar & scalar);
   static ::std::vector<at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList self, const at::Scalar & scalar);
 };
@@ -29,9 +29,9 @@ struct TORCH_API _foreach_div__Scalar {
   using schema = void (at::TensorList, const at::Scalar &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_foreach_div_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Scalar")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_foreach_div_.Scalar(Tensor(a!)[] self, Scalar scalar) -> ()")
+  static constexpr const char* name = "aten::_foreach_div_";
+  static constexpr const char* overload_name = "Scalar";
+  static constexpr const char* schema_str = "_foreach_div_.Scalar(Tensor(a!)[] self, Scalar scalar) -> ()";
   static void call(at::TensorList self, const at::Scalar & scalar);
   static void redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList self, const at::Scalar & scalar);
 };
@@ -40,9 +40,9 @@ struct TORCH_API _foreach_div_List {
   using schema = ::std::vector<at::Tensor> (at::TensorList, at::TensorList);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_foreach_div")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "List")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_foreach_div.List(Tensor[] self, Tensor[] other) -> Tensor[]")
+  static constexpr const char* name = "aten::_foreach_div";
+  static constexpr const char* overload_name = "List";
+  static constexpr const char* schema_str = "_foreach_div.List(Tensor[] self, Tensor[] other) -> Tensor[]";
   static ::std::vector<at::Tensor> call(at::TensorList self, at::TensorList other);
   static ::std::vector<at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList self, at::TensorList other);
 };
@@ -51,9 +51,9 @@ struct TORCH_API _foreach_div__List {
   using schema = void (at::TensorList, at::TensorList);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_foreach_div_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "List")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_foreach_div_.List(Tensor(a!)[] self, Tensor[] other) -> ()")
+  static constexpr const char* name = "aten::_foreach_div_";
+  static constexpr const char* overload_name = "List";
+  static constexpr const char* schema_str = "_foreach_div_.List(Tensor(a!)[] self, Tensor[] other) -> ()";
   static void call(at::TensorList self, at::TensorList other);
   static void redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList self, at::TensorList other);
 };
@@ -62,9 +62,9 @@ struct TORCH_API _foreach_div_ScalarList {
   using schema = ::std::vector<at::Tensor> (at::TensorList, at::ArrayRef<at::Scalar>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_foreach_div")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "ScalarList")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_foreach_div.ScalarList(Tensor[] self, Scalar[] scalars) -> Tensor[]")
+  static constexpr const char* name = "aten::_foreach_div";
+  static constexpr const char* overload_name = "ScalarList";
+  static constexpr const char* schema_str = "_foreach_div.ScalarList(Tensor[] self, Scalar[] scalars) -> Tensor[]";
   static ::std::vector<at::Tensor> call(at::TensorList self, at::ArrayRef<at::Scalar> scalars);
   static ::std::vector<at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList self, at::ArrayRef<at::Scalar> scalars);
 };
@@ -73,9 +73,9 @@ struct TORCH_API _foreach_div__ScalarList {
   using schema = void (at::TensorList, at::ArrayRef<at::Scalar>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_foreach_div_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "ScalarList")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_foreach_div_.ScalarList(Tensor(a!)[] self, Scalar[] scalars) -> ()")
+  static constexpr const char* name = "aten::_foreach_div_";
+  static constexpr const char* overload_name = "ScalarList";
+  static constexpr const char* schema_str = "_foreach_div_.ScalarList(Tensor(a!)[] self, Scalar[] scalars) -> ()";
   static void call(at::TensorList self, at::ArrayRef<at::Scalar> scalars);
   static void redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList self, at::ArrayRef<at::Scalar> scalars);
 };
@@ -84,9 +84,9 @@ struct TORCH_API _foreach_div_Tensor {
   using schema = ::std::vector<at::Tensor> (at::TensorList, const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_foreach_div")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Tensor")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_foreach_div.Tensor(Tensor[] self, Tensor other) -> Tensor[]")
+  static constexpr const char* name = "aten::_foreach_div";
+  static constexpr const char* overload_name = "Tensor";
+  static constexpr const char* schema_str = "_foreach_div.Tensor(Tensor[] self, Tensor other) -> Tensor[]";
   static ::std::vector<at::Tensor> call(at::TensorList self, const at::Tensor & other);
   static ::std::vector<at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList self, const at::Tensor & other);
 };
@@ -95,9 +95,9 @@ struct TORCH_API _foreach_div__Tensor {
   using schema = void (at::TensorList, const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_foreach_div_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Tensor")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_foreach_div_.Tensor(Tensor(a!)[] self, Tensor other) -> ()")
+  static constexpr const char* name = "aten::_foreach_div_";
+  static constexpr const char* overload_name = "Tensor";
+  static constexpr const char* schema_str = "_foreach_div_.Tensor(Tensor(a!)[] self, Tensor other) -> ()";
   static void call(at::TensorList self, const at::Tensor & other);
   static void redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList self, const at::Tensor & other);
 };
@@ -106,9 +106,9 @@ struct TORCH_API _foreach_div_Scalar_out {
   using schema = void (at::TensorList, const at::Scalar &, at::TensorList);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_foreach_div")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Scalar_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_foreach_div.Scalar_out(Tensor[] self, Scalar scalar, *, Tensor(a!)[] out) -> ()")
+  static constexpr const char* name = "aten::_foreach_div";
+  static constexpr const char* overload_name = "Scalar_out";
+  static constexpr const char* schema_str = "_foreach_div.Scalar_out(Tensor[] self, Scalar scalar, *, Tensor(a!)[] out) -> ()";
   static void call(at::TensorList self, const at::Scalar & scalar, at::TensorList out);
   static void redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList self, const at::Scalar & scalar, at::TensorList out);
 };
@@ -117,9 +117,9 @@ struct TORCH_API _foreach_div_List_out {
   using schema = void (at::TensorList, at::TensorList, at::TensorList);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_foreach_div")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "List_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_foreach_div.List_out(Tensor[] self, Tensor[] other, *, Tensor(a!)[] out) -> ()")
+  static constexpr const char* name = "aten::_foreach_div";
+  static constexpr const char* overload_name = "List_out";
+  static constexpr const char* schema_str = "_foreach_div.List_out(Tensor[] self, Tensor[] other, *, Tensor(a!)[] out) -> ()";
   static void call(at::TensorList self, at::TensorList other, at::TensorList out);
   static void redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList self, at::TensorList other, at::TensorList out);
 };
@@ -128,9 +128,9 @@ struct TORCH_API _foreach_div_ScalarList_out {
   using schema = void (at::TensorList, at::ArrayRef<at::Scalar>, at::TensorList);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_foreach_div")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "ScalarList_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_foreach_div.ScalarList_out(Tensor[] self, Scalar[] scalars, *, Tensor(a!)[] out) -> ()")
+  static constexpr const char* name = "aten::_foreach_div";
+  static constexpr const char* overload_name = "ScalarList_out";
+  static constexpr const char* schema_str = "_foreach_div.ScalarList_out(Tensor[] self, Scalar[] scalars, *, Tensor(a!)[] out) -> ()";
   static void call(at::TensorList self, at::ArrayRef<at::Scalar> scalars, at::TensorList out);
   static void redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList self, at::ArrayRef<at::Scalar> scalars, at::TensorList out);
 };
@@ -139,9 +139,9 @@ struct TORCH_API _foreach_div_Tensor_out {
   using schema = void (at::TensorList, const at::Tensor &, at::TensorList);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_foreach_div")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Tensor_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_foreach_div.Tensor_out(Tensor[] self, Tensor other, *, Tensor(a!)[] out) -> ()")
+  static constexpr const char* name = "aten::_foreach_div";
+  static constexpr const char* overload_name = "Tensor_out";
+  static constexpr const char* schema_str = "_foreach_div.Tensor_out(Tensor[] self, Tensor other, *, Tensor(a!)[] out) -> ()";
   static void call(at::TensorList self, const at::Tensor & other, at::TensorList out);
   static void redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList self, const at::Tensor & other, at::TensorList out);
 };

@@ -18,9 +18,9 @@ struct TORCH_API _chunk_cat {
   using schema = at::Tensor (at::TensorList, int64_t, int64_t);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_chunk_cat")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_chunk_cat(Tensor[] tensors, int dim, int num_chunks) -> Tensor")
+  static constexpr const char* name = "aten::_chunk_cat";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "_chunk_cat(Tensor[] tensors, int dim, int num_chunks) -> Tensor";
   static at::Tensor call(at::TensorList tensors, int64_t dim, int64_t num_chunks);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList tensors, int64_t dim, int64_t num_chunks);
 };
@@ -29,9 +29,9 @@ struct TORCH_API _chunk_cat_out {
   using schema = at::Tensor & (at::TensorList, int64_t, int64_t, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_chunk_cat")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_chunk_cat.out(Tensor[] tensors, int dim, int num_chunks, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::_chunk_cat";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "_chunk_cat.out(Tensor[] tensors, int dim, int num_chunks, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(at::TensorList tensors, int64_t dim, int64_t num_chunks, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList tensors, int64_t dim, int64_t num_chunks, at::Tensor & out);
 };

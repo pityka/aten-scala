@@ -20,5 +20,7 @@ TORCH_API at::Tensor replication_pad3d_backward_cpu(const at::Tensor & grad_outp
 TORCH_API at::Tensor & replication_pad3d_backward_out_cpu(const at::Tensor & grad_output, const at::Tensor & self, at::IntArrayRef padding, at::Tensor & grad_input);
 TORCH_API at::Tensor replication_pad3d_backward_cuda(const at::Tensor & grad_output, const at::Tensor & self, at::IntArrayRef padding);
 TORCH_API at::Tensor & replication_pad3d_backward_out_cuda(const at::Tensor & grad_output, const at::Tensor & self, at::IntArrayRef padding, at::Tensor & grad_input);
+TORCH_API at::Tensor replication_pad3d_backward_mps(const at::Tensor & grad_output, const at::Tensor & self, at::IntArrayRef padding);
+TORCH_API at::Tensor & replication_pad3d_backward_out_mps(const at::Tensor & grad_output, const at::Tensor & self, at::IntArrayRef padding, at::Tensor & grad_input);
 } // namespace native
 } // namespace at

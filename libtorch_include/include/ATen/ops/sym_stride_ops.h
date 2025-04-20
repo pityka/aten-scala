@@ -18,9 +18,9 @@ struct TORCH_API sym_stride_int {
   using schema = c10::SymInt (const at::Tensor &, int64_t);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::sym_stride")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "int")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "sym_stride.int(Tensor self, int dim) -> SymInt")
+  static constexpr const char* name = "aten::sym_stride";
+  static constexpr const char* overload_name = "int";
+  static constexpr const char* schema_str = "sym_stride.int(Tensor self, int dim) -> SymInt";
   static c10::SymInt call(const at::Tensor & self, int64_t dim);
   static c10::SymInt redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t dim);
 };

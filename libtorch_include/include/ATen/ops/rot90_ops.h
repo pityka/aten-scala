@@ -18,9 +18,9 @@ struct TORCH_API rot90 {
   using schema = at::Tensor (const at::Tensor &, int64_t, at::IntArrayRef);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::rot90")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "rot90(Tensor self, int k=1, int[] dims=[0,1]) -> Tensor")
+  static constexpr const char* name = "aten::rot90";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "rot90(Tensor self, int k=1, int[] dims=[0,1]) -> Tensor";
   static at::Tensor call(const at::Tensor & self, int64_t k, at::IntArrayRef dims);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t k, at::IntArrayRef dims);
 };
@@ -29,9 +29,9 @@ struct TORCH_API rot90_out {
   using schema = at::Tensor & (const at::Tensor &, int64_t, at::IntArrayRef, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::rot90")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "rot90.out(Tensor self, int k=1, int[] dims=[0,1], *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::rot90";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "rot90.out(Tensor self, int k=1, int[] dims=[0,1], *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, int64_t k, at::IntArrayRef dims, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t k, at::IntArrayRef dims, at::Tensor & out);
 };

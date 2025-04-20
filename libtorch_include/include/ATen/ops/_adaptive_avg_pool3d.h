@@ -27,7 +27,7 @@ inline at::Tensor _adaptive_avg_pool3d(const at::Tensor & self, at::IntArrayRef 
     return at::_ops::_adaptive_avg_pool3d::call(self, c10::fromIntArrayRefSlow(output_size));
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor _adaptive_avg_pool3d(const at::Tensor & self, at::IntArrayRef output_size) {
     return at::_ops::_adaptive_avg_pool3d::call(self, c10::fromIntArrayRefSlow(output_size));
   }
@@ -38,7 +38,7 @@ inline at::Tensor _adaptive_avg_pool3d_symint(const at::Tensor & self, c10::SymI
     return at::_ops::_adaptive_avg_pool3d::call(self, output_size);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor _adaptive_avg_pool3d(const at::Tensor & self, c10::SymIntArrayRef output_size) {
     return at::_ops::_adaptive_avg_pool3d::call(self, output_size);
   }
@@ -49,7 +49,7 @@ inline at::Tensor & _adaptive_avg_pool3d_out(at::Tensor & out, const at::Tensor 
     return at::_ops::_adaptive_avg_pool3d_out::call(self, c10::fromIntArrayRefSlow(output_size), out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & _adaptive_avg_pool3d_out(at::Tensor & out, const at::Tensor & self, at::IntArrayRef output_size) {
     return at::_ops::_adaptive_avg_pool3d_out::call(self, c10::fromIntArrayRefSlow(output_size), out);
   }
@@ -60,7 +60,7 @@ inline at::Tensor & _adaptive_avg_pool3d_outf(const at::Tensor & self, at::IntAr
     return at::_ops::_adaptive_avg_pool3d_out::call(self, c10::fromIntArrayRefSlow(output_size), out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & _adaptive_avg_pool3d_outf(const at::Tensor & self, at::IntArrayRef output_size, at::Tensor & out) {
     return at::_ops::_adaptive_avg_pool3d_out::call(self, c10::fromIntArrayRefSlow(output_size), out);
   }
@@ -71,7 +71,7 @@ inline at::Tensor & _adaptive_avg_pool3d_symint_out(at::Tensor & out, const at::
     return at::_ops::_adaptive_avg_pool3d_out::call(self, output_size, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & _adaptive_avg_pool3d_out(at::Tensor & out, const at::Tensor & self, c10::SymIntArrayRef output_size) {
     return at::_ops::_adaptive_avg_pool3d_out::call(self, output_size, out);
   }
@@ -82,7 +82,7 @@ inline at::Tensor & _adaptive_avg_pool3d_symint_outf(const at::Tensor & self, c1
     return at::_ops::_adaptive_avg_pool3d_out::call(self, output_size, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & _adaptive_avg_pool3d_outf(const at::Tensor & self, c10::SymIntArrayRef output_size, at::Tensor & out) {
     return at::_ops::_adaptive_avg_pool3d_out::call(self, output_size, out);
   }

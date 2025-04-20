@@ -17,6 +17,7 @@
 namespace at {
 namespace native {
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> _prelu_kernel_backward(const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & weight);
+TORCH_API ::std::tuple<at::Tensor,at::Tensor> prelu_backward_mps(const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & weight);
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> mkldnn_prelu_backward(const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & weight);
 } // namespace native
 } // namespace at

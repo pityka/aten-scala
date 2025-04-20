@@ -24,6 +24,7 @@ TORCH_API at::Tensor & set_source_Storage_storage_offset_out_symint(const at::Te
 TORCH_API at::Tensor & set_storage_cpu_(at::Tensor & self, at::Storage source, int64_t storage_offset, at::IntArrayRef size, at::IntArrayRef stride={});
 TORCH_API at::Tensor & set_storage_cuda_(at::Tensor & self, at::Storage source, int64_t storage_offset, at::IntArrayRef size, at::IntArrayRef stride={});
 TORCH_API at::Tensor & set_storage_meta__symint(at::Tensor & self, at::Storage source, c10::SymInt storage_offset, c10::SymIntArrayRef size, c10::SymIntArrayRef stride={});
+TORCH_API at::Tensor & set_storage_mps_(at::Tensor & self, at::Storage source, int64_t storage_offset, at::IntArrayRef size, at::IntArrayRef stride={});
 TORCH_API at::Tensor & set_storage_quantized_(at::Tensor & self, at::Storage source, int64_t storage_offset, at::IntArrayRef size, at::IntArrayRef stride={});
 TORCH_API at::Tensor & set__symint(at::Tensor & self, const at::Tensor & source, c10::SymInt storage_offset, c10::SymIntArrayRef size, c10::SymIntArrayRef stride={});
 TORCH_API at::Tensor set(const at::Tensor & self, const at::Tensor & source);
@@ -34,5 +35,6 @@ TORCH_API at::Tensor & set_out(const at::Tensor & self, at::Tensor & out);
 TORCH_API at::Tensor & set_cpu_(at::Tensor & self);
 TORCH_API at::Tensor & set_cuda_(at::Tensor & self);
 TORCH_API at::Tensor & set_meta_(at::Tensor & self);
+TORCH_API at::Tensor & set_mps_(at::Tensor & self);
 } // namespace native
 } // namespace at

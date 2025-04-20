@@ -102,6 +102,7 @@
 #include <ATen/ops/_foreach_pow_cuda_dispatch.h>
 #include <ATen/ops/_foreach_reciprocal_cuda_dispatch.h>
 #include <ATen/ops/_foreach_round_cuda_dispatch.h>
+#include <ATen/ops/_foreach_rsqrt_cuda_dispatch.h>
 #include <ATen/ops/_foreach_sigmoid_cuda_dispatch.h>
 #include <ATen/ops/_foreach_sign_cuda_dispatch.h>
 #include <ATen/ops/_foreach_sin_cuda_dispatch.h>
@@ -468,6 +469,7 @@
 #include <ATen/ops/nll_loss_backward_cuda_dispatch.h>
 #include <ATen/ops/nll_loss_forward_cuda_dispatch.h>
 #include <ATen/ops/nonzero_cuda_dispatch.h>
+#include <ATen/ops/nonzero_static_cuda_dispatch.h>
 #include <ATen/ops/norm_cuda_dispatch.h>
 #include <ATen/ops/normal_cuda_dispatch.h>
 #include <ATen/ops/ormqr_cuda_dispatch.h>

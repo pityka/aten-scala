@@ -18,6 +18,7 @@ namespace at {
 namespace native {
 TORCH_API at::Tensor isinf(const at::Tensor & self);
 TORCH_API at::Tensor & isinf_out(const at::Tensor & self, at::Tensor & out);
+TORCH_API at::Tensor NestedTensor_isinf(const at::Tensor & self);
 TORCH_API at::Tensor isinf_sparse(const at::Tensor & self);
 TORCH_API at::Tensor isinf_sparse_csr(const at::Tensor & self);
 TORCH_API at::Tensor isinf_sparse_meta(const at::Tensor & self);

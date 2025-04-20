@@ -24,6 +24,9 @@ void impl(const at::Tensor & self, c10::string_view approximate, const at::Tenso
 };
 TORCH_API at::Tensor NestedTensor_gelu(const at::Tensor & self, c10::string_view approximate="none");
 TORCH_API at::Tensor & NestedTensor_gelu_(at::Tensor & self, c10::string_view approximate="none");
+struct TORCH_API structured_gelu_out_mps : public at::meta::structured_gelu {
+void impl(const at::Tensor & self, c10::string_view approximate, const at::Tensor & out);
+};
 TORCH_API at::Tensor mkldnn_gelu(const at::Tensor & self, c10::string_view approximate="none");
 TORCH_API at::Tensor gelu_quantized_cpu(const at::Tensor & self, c10::string_view approximate="none");
 TORCH_API at::Tensor & gelu_quantized_cpu_(at::Tensor & self, c10::string_view approximate="none");

@@ -18,9 +18,9 @@ struct TORCH_API fft_irfft {
   using schema = at::Tensor (const at::Tensor &, ::std::optional<c10::SymInt>, int64_t, ::std::optional<c10::string_view>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::fft_irfft")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "fft_irfft(Tensor self, SymInt? n=None, int dim=-1, str? norm=None) -> Tensor")
+  static constexpr const char* name = "aten::fft_irfft";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "fft_irfft(Tensor self, SymInt? n=None, int dim=-1, str? norm=None) -> Tensor";
   static at::Tensor call(const at::Tensor & self, ::std::optional<c10::SymInt> n, int64_t dim, ::std::optional<c10::string_view> norm);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, ::std::optional<c10::SymInt> n, int64_t dim, ::std::optional<c10::string_view> norm);
 };
@@ -29,9 +29,9 @@ struct TORCH_API fft_irfft_out {
   using schema = at::Tensor & (const at::Tensor &, ::std::optional<c10::SymInt>, int64_t, ::std::optional<c10::string_view>, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::fft_irfft")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "fft_irfft.out(Tensor self, SymInt? n=None, int dim=-1, str? norm=None, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::fft_irfft";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "fft_irfft.out(Tensor self, SymInt? n=None, int dim=-1, str? norm=None, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, ::std::optional<c10::SymInt> n, int64_t dim, ::std::optional<c10::string_view> norm, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, ::std::optional<c10::SymInt> n, int64_t dim, ::std::optional<c10::string_view> norm, at::Tensor & out);
 };

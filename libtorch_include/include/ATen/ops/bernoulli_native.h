@@ -18,11 +18,14 @@ namespace at {
 namespace native {
 TORCH_API at::Tensor bernoulli(const at::Tensor & self, ::std::optional<at::Generator> generator=::std::nullopt);
 TORCH_API at::Tensor & bernoulli_out(const at::Tensor & self, ::std::optional<at::Generator> generator, at::Tensor & out);
+TORCH_API at::Tensor & bernoulli_out_mps(const at::Tensor & self, ::std::optional<at::Generator> generator, at::Tensor & out);
 TORCH_API at::Tensor bernoulli(const at::Tensor & self, const at::Tensor & p, ::std::optional<at::Generator> generator=::std::nullopt);
 TORCH_API at::Tensor & bernoulli_Tensor_out(const at::Tensor & self, const at::Tensor & p, ::std::optional<at::Generator> generator, at::Tensor & out);
 TORCH_API at::Tensor & bernoulli_(at::Tensor & self, const at::Tensor & p, ::std::optional<at::Generator> generator=::std::nullopt);
+TORCH_API at::Tensor & bernoulli_mps_(at::Tensor & self, const at::Tensor & p, ::std::optional<at::Generator> generator=::std::nullopt);
 TORCH_API at::Tensor & bernoulli_float_out(const at::Tensor & self, double p, ::std::optional<at::Generator> generator, at::Tensor & out);
 TORCH_API at::Tensor & bernoulli_(at::Tensor & self, double p=0.5, ::std::optional<at::Generator> generator=::std::nullopt);
+TORCH_API at::Tensor & bernoulli_mps_(at::Tensor & self, double p=0.5, ::std::optional<at::Generator> generator=::std::nullopt);
 TORCH_API at::Tensor bernoulli(const at::Tensor & self, double p, ::std::optional<at::Generator> generator=::std::nullopt);
 } // namespace native
 } // namespace at

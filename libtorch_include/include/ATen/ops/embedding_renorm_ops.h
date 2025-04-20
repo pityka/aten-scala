@@ -18,9 +18,9 @@ struct TORCH_API embedding_renorm_ {
   using schema = at::Tensor & (at::Tensor &, const at::Tensor &, double, double);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::embedding_renorm_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "embedding_renorm_(Tensor(a!) self, Tensor indices, float max_norm, float norm_type) -> Tensor(a!)")
+  static constexpr const char* name = "aten::embedding_renorm_";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "embedding_renorm_(Tensor(a!) self, Tensor indices, float max_norm, float norm_type) -> Tensor(a!)";
   static at::Tensor & call(at::Tensor & self, const at::Tensor & indices, double max_norm, double norm_type);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::Tensor & self, const at::Tensor & indices, double max_norm, double norm_type);
 };
@@ -29,9 +29,9 @@ struct TORCH_API embedding_renorm_out {
   using schema = at::Tensor & (const at::Tensor &, const at::Tensor &, double, double, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::embedding_renorm")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "embedding_renorm.out(Tensor self, Tensor indices, float max_norm, float norm_type, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::embedding_renorm";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "embedding_renorm.out(Tensor self, Tensor indices, float max_norm, float norm_type, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, const at::Tensor & indices, double max_norm, double norm_type, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & indices, double max_norm, double norm_type, at::Tensor & out);
 };
@@ -40,9 +40,9 @@ struct TORCH_API embedding_renorm {
   using schema = at::Tensor (const at::Tensor &, const at::Tensor &, double, double);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::embedding_renorm")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "embedding_renorm(Tensor self, Tensor indices, float max_norm, float norm_type) -> Tensor")
+  static constexpr const char* name = "aten::embedding_renorm";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "embedding_renorm(Tensor self, Tensor indices, float max_norm, float norm_type) -> Tensor";
   static at::Tensor call(const at::Tensor & self, const at::Tensor & indices, double max_norm, double norm_type);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & indices, double max_norm, double norm_type);
 };

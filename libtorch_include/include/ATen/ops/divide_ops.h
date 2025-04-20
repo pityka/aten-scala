@@ -18,9 +18,9 @@ struct TORCH_API divide_Tensor {
   using schema = at::Tensor (const at::Tensor &, const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::divide")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Tensor")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "divide.Tensor(Tensor self, Tensor other) -> Tensor")
+  static constexpr const char* name = "aten::divide";
+  static constexpr const char* overload_name = "Tensor";
+  static constexpr const char* schema_str = "divide.Tensor(Tensor self, Tensor other) -> Tensor";
   static at::Tensor call(const at::Tensor & self, const at::Tensor & other);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & other);
 };
@@ -29,9 +29,9 @@ struct TORCH_API divide__Tensor {
   using schema = at::Tensor & (at::Tensor &, const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::divide_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Tensor")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "divide_.Tensor(Tensor(a!) self, Tensor other) -> Tensor(a!)")
+  static constexpr const char* name = "aten::divide_";
+  static constexpr const char* overload_name = "Tensor";
+  static constexpr const char* schema_str = "divide_.Tensor(Tensor(a!) self, Tensor other) -> Tensor(a!)";
   static at::Tensor & call(at::Tensor & self, const at::Tensor & other);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::Tensor & self, const at::Tensor & other);
 };
@@ -40,9 +40,9 @@ struct TORCH_API divide_out {
   using schema = at::Tensor & (const at::Tensor &, const at::Tensor &, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::divide")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "divide.out(Tensor self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::divide";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "divide.out(Tensor self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, const at::Tensor & other, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & other, at::Tensor & out);
 };
@@ -51,9 +51,9 @@ struct TORCH_API divide_Scalar {
   using schema = at::Tensor (const at::Tensor &, const at::Scalar &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::divide")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Scalar")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "divide.Scalar(Tensor self, Scalar other) -> Tensor")
+  static constexpr const char* name = "aten::divide";
+  static constexpr const char* overload_name = "Scalar";
+  static constexpr const char* schema_str = "divide.Scalar(Tensor self, Scalar other) -> Tensor";
   static at::Tensor call(const at::Tensor & self, const at::Scalar & other);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Scalar & other);
 };
@@ -62,9 +62,9 @@ struct TORCH_API divide__Scalar {
   using schema = at::Tensor & (at::Tensor &, const at::Scalar &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::divide_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Scalar")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "divide_.Scalar(Tensor(a!) self, Scalar other) -> Tensor(a!)")
+  static constexpr const char* name = "aten::divide_";
+  static constexpr const char* overload_name = "Scalar";
+  static constexpr const char* schema_str = "divide_.Scalar(Tensor(a!) self, Scalar other) -> Tensor(a!)";
   static at::Tensor & call(at::Tensor & self, const at::Scalar & other);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::Tensor & self, const at::Scalar & other);
 };
@@ -73,9 +73,9 @@ struct TORCH_API divide_Tensor_mode {
   using schema = at::Tensor (const at::Tensor &, const at::Tensor &, ::std::optional<c10::string_view>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::divide")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Tensor_mode")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "divide.Tensor_mode(Tensor self, Tensor other, *, str? rounding_mode) -> Tensor")
+  static constexpr const char* name = "aten::divide";
+  static constexpr const char* overload_name = "Tensor_mode";
+  static constexpr const char* schema_str = "divide.Tensor_mode(Tensor self, Tensor other, *, str? rounding_mode) -> Tensor";
   static at::Tensor call(const at::Tensor & self, const at::Tensor & other, ::std::optional<c10::string_view> rounding_mode);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & other, ::std::optional<c10::string_view> rounding_mode);
 };
@@ -84,9 +84,9 @@ struct TORCH_API divide__Tensor_mode {
   using schema = at::Tensor & (at::Tensor &, const at::Tensor &, ::std::optional<c10::string_view>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::divide_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Tensor_mode")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "divide_.Tensor_mode(Tensor(a!) self, Tensor other, *, str? rounding_mode) -> Tensor(a!)")
+  static constexpr const char* name = "aten::divide_";
+  static constexpr const char* overload_name = "Tensor_mode";
+  static constexpr const char* schema_str = "divide_.Tensor_mode(Tensor(a!) self, Tensor other, *, str? rounding_mode) -> Tensor(a!)";
   static at::Tensor & call(at::Tensor & self, const at::Tensor & other, ::std::optional<c10::string_view> rounding_mode);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::Tensor & self, const at::Tensor & other, ::std::optional<c10::string_view> rounding_mode);
 };
@@ -95,9 +95,9 @@ struct TORCH_API divide_out_mode {
   using schema = at::Tensor & (const at::Tensor &, const at::Tensor &, ::std::optional<c10::string_view>, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::divide")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out_mode")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "divide.out_mode(Tensor self, Tensor other, *, str? rounding_mode, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::divide";
+  static constexpr const char* overload_name = "out_mode";
+  static constexpr const char* schema_str = "divide.out_mode(Tensor self, Tensor other, *, str? rounding_mode, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, const at::Tensor & other, ::std::optional<c10::string_view> rounding_mode, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & other, ::std::optional<c10::string_view> rounding_mode, at::Tensor & out);
 };
@@ -106,9 +106,9 @@ struct TORCH_API divide_Scalar_mode {
   using schema = at::Tensor (const at::Tensor &, const at::Scalar &, ::std::optional<c10::string_view>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::divide")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Scalar_mode")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "divide.Scalar_mode(Tensor self, Scalar other, *, str? rounding_mode) -> Tensor")
+  static constexpr const char* name = "aten::divide";
+  static constexpr const char* overload_name = "Scalar_mode";
+  static constexpr const char* schema_str = "divide.Scalar_mode(Tensor self, Scalar other, *, str? rounding_mode) -> Tensor";
   static at::Tensor call(const at::Tensor & self, const at::Scalar & other, ::std::optional<c10::string_view> rounding_mode);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Scalar & other, ::std::optional<c10::string_view> rounding_mode);
 };
@@ -117,9 +117,9 @@ struct TORCH_API divide__Scalar_mode {
   using schema = at::Tensor & (at::Tensor &, const at::Scalar &, ::std::optional<c10::string_view>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::divide_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Scalar_mode")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "divide_.Scalar_mode(Tensor(a!) self, Scalar other, *, str? rounding_mode) -> Tensor(a!)")
+  static constexpr const char* name = "aten::divide_";
+  static constexpr const char* overload_name = "Scalar_mode";
+  static constexpr const char* schema_str = "divide_.Scalar_mode(Tensor(a!) self, Scalar other, *, str? rounding_mode) -> Tensor(a!)";
   static at::Tensor & call(at::Tensor & self, const at::Scalar & other, ::std::optional<c10::string_view> rounding_mode);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::Tensor & self, const at::Scalar & other, ::std::optional<c10::string_view> rounding_mode);
 };

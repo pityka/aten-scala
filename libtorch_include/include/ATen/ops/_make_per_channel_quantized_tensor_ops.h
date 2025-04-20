@@ -18,9 +18,9 @@ struct TORCH_API _make_per_channel_quantized_tensor {
   using schema = at::Tensor (const at::Tensor &, const at::Tensor &, const at::Tensor &, int64_t);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_make_per_channel_quantized_tensor")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_make_per_channel_quantized_tensor(Tensor self, Tensor scale, Tensor zero_point, int axis) -> Tensor")
+  static constexpr const char* name = "aten::_make_per_channel_quantized_tensor";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "_make_per_channel_quantized_tensor(Tensor self, Tensor scale, Tensor zero_point, int axis) -> Tensor";
   static at::Tensor call(const at::Tensor & self, const at::Tensor & scale, const at::Tensor & zero_point, int64_t axis);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & scale, const at::Tensor & zero_point, int64_t axis);
 };
@@ -29,9 +29,9 @@ struct TORCH_API _make_per_channel_quantized_tensor_out {
   using schema = at::Tensor & (const at::Tensor &, const at::Tensor &, const at::Tensor &, int64_t, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_make_per_channel_quantized_tensor")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_make_per_channel_quantized_tensor.out(Tensor self, Tensor scale, Tensor zero_point, int axis, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::_make_per_channel_quantized_tensor";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "_make_per_channel_quantized_tensor.out(Tensor self, Tensor scale, Tensor zero_point, int axis, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, const at::Tensor & scale, const at::Tensor & zero_point, int64_t axis, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & scale, const at::Tensor & zero_point, int64_t axis, at::Tensor & out);
 };

@@ -19,7 +19,13 @@ namespace native {
 struct TORCH_API structured_lerp_Scalar : public at::meta::structured_lerp_Scalar {
 void impl(const at::Tensor & self, const at::Tensor & end, const at::Scalar & weight, const at::Tensor & out);
 };
+struct TORCH_API structured_lerp_Scalar_mps : public at::meta::structured_lerp_Scalar {
+void impl(const at::Tensor & self, const at::Tensor & end, const at::Scalar & weight, const at::Tensor & out);
+};
 struct TORCH_API structured_lerp_Tensor : public at::meta::structured_lerp_Tensor {
+void impl(const at::Tensor & self, const at::Tensor & end, const at::Tensor & weight, const at::Tensor & out);
+};
+struct TORCH_API structured_lerp_Tensor_mps : public at::meta::structured_lerp_Tensor {
 void impl(const at::Tensor & self, const at::Tensor & end, const at::Tensor & weight, const at::Tensor & out);
 };
 } // namespace native

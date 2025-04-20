@@ -18,9 +18,9 @@ struct TORCH_API log_sigmoid_forward_output {
   using schema = ::std::tuple<at::Tensor &,at::Tensor &> (const at::Tensor &, at::Tensor &, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::log_sigmoid_forward")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "output")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "log_sigmoid_forward.output(Tensor self, *, Tensor(a!) output, Tensor(b!) buffer) -> (Tensor(a!), Tensor(b!))")
+  static constexpr const char* name = "aten::log_sigmoid_forward";
+  static constexpr const char* overload_name = "output";
+  static constexpr const char* schema_str = "log_sigmoid_forward.output(Tensor self, *, Tensor(a!) output, Tensor(b!) buffer) -> (Tensor(a!), Tensor(b!))";
   static ::std::tuple<at::Tensor &,at::Tensor &> call(const at::Tensor & self, at::Tensor & output, at::Tensor & buffer);
   static ::std::tuple<at::Tensor &,at::Tensor &> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::Tensor & output, at::Tensor & buffer);
 };
@@ -29,9 +29,9 @@ struct TORCH_API log_sigmoid_forward {
   using schema = ::std::tuple<at::Tensor,at::Tensor> (const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::log_sigmoid_forward")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "log_sigmoid_forward(Tensor self) -> (Tensor output, Tensor buffer)")
+  static constexpr const char* name = "aten::log_sigmoid_forward";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "log_sigmoid_forward(Tensor self) -> (Tensor output, Tensor buffer)";
   static ::std::tuple<at::Tensor,at::Tensor> call(const at::Tensor & self);
   static ::std::tuple<at::Tensor,at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self);
 };

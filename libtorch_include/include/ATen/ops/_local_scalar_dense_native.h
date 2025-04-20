@@ -18,5 +18,6 @@ namespace at {
 namespace native {
 TORCH_API at::Scalar _local_scalar_dense_cpu(const at::Tensor & self);
 TORCH_API at::Scalar _local_scalar_dense_cuda(const at::Tensor & self);
+TORCH_API at::Scalar _local_scalar_dense_mps(const at::Tensor & self);
 } // namespace native
 } // namespace at

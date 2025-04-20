@@ -4056,6 +4056,26 @@ struct TORCH_API MeanBackward0 : public TraceableFunction {
 
 };
 #ifdef _WIN32
+struct MeanBackwardAutogradNestedTensor0 : public TraceableFunction {
+  TORCH_API MeanBackwardAutogradNestedTensor0() = default;
+#else
+struct TORCH_API MeanBackwardAutogradNestedTensor0 : public TraceableFunction {
+#endif
+  using TraceableFunction::TraceableFunction;
+  variable_list apply(variable_list&& grads) override;
+  std::string name() const override { return "MeanBackwardAutogradNestedTensor0"; }
+  void release_variables() override {
+    std::lock_guard<std::mutex> lock(mutex_);
+    self_.reset_data();
+  }
+
+  void compiled_args(CompiledNodeArgs& args) override;
+  variable_list apply_with_saved(const variable_list& inputs, SwapSavedVariables& saved) override;
+  SavedVariable self_;
+  c10::SymInt self_sym_numel;
+
+};
+#ifdef _WIN32
 struct MeanBackward1 : public TraceableFunction {
   TORCH_API MeanBackward1() = default;
 #else
@@ -6638,6 +6658,25 @@ struct TORCH_API SumBackward0 : public TraceableFunction {
 
 };
 #ifdef _WIN32
+struct SumBackwardAutogradNestedTensor0 : public TraceableFunction {
+  TORCH_API SumBackwardAutogradNestedTensor0() = default;
+#else
+struct TORCH_API SumBackwardAutogradNestedTensor0 : public TraceableFunction {
+#endif
+  using TraceableFunction::TraceableFunction;
+  variable_list apply(variable_list&& grads) override;
+  std::string name() const override { return "SumBackwardAutogradNestedTensor0"; }
+  void release_variables() override {
+    std::lock_guard<std::mutex> lock(mutex_);
+    self_.reset_data();
+  }
+
+  void compiled_args(CompiledNodeArgs& args) override;
+  variable_list apply_with_saved(const variable_list& inputs, SwapSavedVariables& saved) override;
+  SavedVariable self_;
+
+};
+#ifdef _WIN32
 struct SumBackward1 : public TraceableFunction {
   TORCH_API SumBackward1() = default;
 #else
@@ -6659,14 +6698,14 @@ struct TORCH_API SumBackward1 : public TraceableFunction {
 
 };
 #ifdef _WIN32
-struct SumBackwardAutogradNestedTensor0 : public TraceableFunction {
-  TORCH_API SumBackwardAutogradNestedTensor0() = default;
+struct SumBackwardAutogradNestedTensor1 : public TraceableFunction {
+  TORCH_API SumBackwardAutogradNestedTensor1() = default;
 #else
-struct TORCH_API SumBackwardAutogradNestedTensor0 : public TraceableFunction {
+struct TORCH_API SumBackwardAutogradNestedTensor1 : public TraceableFunction {
 #endif
   using TraceableFunction::TraceableFunction;
   variable_list apply(variable_list&& grads) override;
-  std::string name() const override { return "SumBackwardAutogradNestedTensor0"; }
+  std::string name() const override { return "SumBackwardAutogradNestedTensor1"; }
   void release_variables() override {
     std::lock_guard<std::mutex> lock(mutex_);
     self_.reset_data();
@@ -8799,6 +8838,30 @@ struct TORCH_API RreluWithNoiseBackward1 : public TraceableFunction {
   bool training;
   at::Scalar upper;
   SavedVariable result_;
+
+};
+#ifdef _WIN32
+struct RreluWithNoiseFunctionalBackward0 : public TraceableFunction {
+  TORCH_API RreluWithNoiseFunctionalBackward0() = default;
+#else
+struct TORCH_API RreluWithNoiseFunctionalBackward0 : public TraceableFunction {
+#endif
+  using TraceableFunction::TraceableFunction;
+  variable_list apply(variable_list&& grads) override;
+  std::string name() const override { return "RreluWithNoiseFunctionalBackward0"; }
+  void release_variables() override {
+    std::lock_guard<std::mutex> lock(mutex_);
+    noise_.reset_data();
+    self_.reset_data();
+  }
+
+  void compiled_args(CompiledNodeArgs& args) override;
+  variable_list apply_with_saved(const variable_list& inputs, SwapSavedVariables& saved) override;
+  at::Scalar lower;
+  SavedVariable noise_;
+  SavedVariable self_;
+  bool training;
+  at::Scalar upper;
 
 };
 #ifdef _WIN32
@@ -12095,6 +12158,26 @@ struct TORCH_API ToPaddedTensorBackward0 : public TraceableFunction {
   void compiled_args(CompiledNodeArgs& args) override;
   variable_list apply_with_saved(const variable_list& inputs, SwapSavedVariables& saved) override;
   SavedVariable self_;
+  at::Layout self_layout;
+
+};
+#ifdef _WIN32
+struct NestedFromPaddedTensorBackward0 : public TraceableFunction {
+  TORCH_API NestedFromPaddedTensorBackward0() = default;
+#else
+struct TORCH_API NestedFromPaddedTensorBackward0 : public TraceableFunction {
+#endif
+  using TraceableFunction::TraceableFunction;
+  variable_list apply(variable_list&& grads) override;
+  std::string name() const override { return "NestedFromPaddedTensorBackward0"; }
+  void release_variables() override {
+
+
+  }
+
+  void compiled_args(CompiledNodeArgs& args) override;
+  variable_list apply_with_saved(const variable_list& inputs, SwapSavedVariables& saved) override;
+  std::vector<c10::SymInt> padded_sym_sizes;
 
 };
 #ifdef _WIN32
@@ -14600,6 +14683,27 @@ struct TORCH_API ForeachLerpBackward0Scalar : public TraceableFunction {
   size_t tensors1_size_;
 };
 #ifdef _WIN32
+struct ForeachLerpBackward0ScalarList : public TraceableFunction {
+  TORCH_API ForeachLerpBackward0ScalarList() = default;
+#else
+struct TORCH_API ForeachLerpBackward0ScalarList : public TraceableFunction {
+#endif
+  using TraceableFunction::TraceableFunction;
+  variable_list apply(variable_list&& grads) override;
+  std::string name() const override { return "ForeachLerpBackward0ScalarList"; }
+  void release_variables() override {
+    std::lock_guard<std::mutex> lock(mutex_);
+    weight.clear();
+  }
+
+  void compiled_args(CompiledNodeArgs& args) override;
+  variable_list apply_with_saved(const variable_list& inputs, SwapSavedVariables& saved) override;
+  std::vector<at::Scalar> weight;
+  bool weight_released_ = false;
+  size_t self_size_;
+  size_t tensors1_size_;
+};
+#ifdef _WIN32
 struct ForeachLgammaBackward0 : public TraceableFunction {
   TORCH_API ForeachLgammaBackward0() = default;
 #else
@@ -14955,6 +15059,27 @@ struct TORCH_API ForeachRoundBackward0 : public TraceableFunction {
   void compiled_args(CompiledNodeArgs& args) override;
   variable_list apply_with_saved(const variable_list& inputs, SwapSavedVariables& saved) override;
 
+  size_t self_size_;
+};
+#ifdef _WIN32
+struct ForeachRsqrtBackward0 : public TraceableFunction {
+  TORCH_API ForeachRsqrtBackward0() = default;
+#else
+struct TORCH_API ForeachRsqrtBackward0 : public TraceableFunction {
+#endif
+  using TraceableFunction::TraceableFunction;
+  variable_list apply(variable_list&& grads) override;
+  std::string name() const override { return "ForeachRsqrtBackward0"; }
+  void release_variables() override {
+    std::lock_guard<std::mutex> lock(mutex_);
+    result_.clear();
+    result_released_ = true;
+  }
+
+  void compiled_args(CompiledNodeArgs& args) override;
+  variable_list apply_with_saved(const variable_list& inputs, SwapSavedVariables& saved) override;
+  std::vector<SavedVariable> result_;
+  bool result_released_ = false;
   size_t self_size_;
 };
 #ifdef _WIN32

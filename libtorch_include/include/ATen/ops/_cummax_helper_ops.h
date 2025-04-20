@@ -18,9 +18,9 @@ struct TORCH_API _cummax_helper {
   using schema = void (const at::Tensor &, at::Tensor &, at::Tensor &, int64_t);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_cummax_helper")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_cummax_helper(Tensor self, Tensor(a!) values, Tensor(b!) indices, int dim) -> ()")
+  static constexpr const char* name = "aten::_cummax_helper";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "_cummax_helper(Tensor self, Tensor(a!) values, Tensor(b!) indices, int dim) -> ()";
   static void call(const at::Tensor & self, at::Tensor & values, at::Tensor & indices, int64_t dim);
   static void redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::Tensor & values, at::Tensor & indices, int64_t dim);
 };

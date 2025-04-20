@@ -27,7 +27,7 @@ inline at::Tensor cudnn_convolution_transpose(const at::Tensor & self, const at:
     return at::_ops::cudnn_convolution_transpose::call(self, weight, c10::fromIntArrayRefSlow(padding), c10::fromIntArrayRefSlow(output_padding), c10::fromIntArrayRefSlow(stride), c10::fromIntArrayRefSlow(dilation), groups, benchmark, deterministic, allow_tf32);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor cudnn_convolution_transpose(const at::Tensor & self, const at::Tensor & weight, at::IntArrayRef padding, at::IntArrayRef output_padding, at::IntArrayRef stride, at::IntArrayRef dilation, int64_t groups, bool benchmark, bool deterministic, bool allow_tf32) {
     return at::_ops::cudnn_convolution_transpose::call(self, weight, c10::fromIntArrayRefSlow(padding), c10::fromIntArrayRefSlow(output_padding), c10::fromIntArrayRefSlow(stride), c10::fromIntArrayRefSlow(dilation), groups, benchmark, deterministic, allow_tf32);
   }
@@ -38,7 +38,7 @@ inline at::Tensor cudnn_convolution_transpose_symint(const at::Tensor & self, co
     return at::_ops::cudnn_convolution_transpose::call(self, weight, padding, output_padding, stride, dilation, groups, benchmark, deterministic, allow_tf32);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor cudnn_convolution_transpose(const at::Tensor & self, const at::Tensor & weight, c10::SymIntArrayRef padding, c10::SymIntArrayRef output_padding, c10::SymIntArrayRef stride, c10::SymIntArrayRef dilation, c10::SymInt groups, bool benchmark, bool deterministic, bool allow_tf32) {
     return at::_ops::cudnn_convolution_transpose::call(self, weight, padding, output_padding, stride, dilation, groups, benchmark, deterministic, allow_tf32);
   }
@@ -49,7 +49,7 @@ inline at::Tensor & cudnn_convolution_transpose_out(at::Tensor & out, const at::
     return at::_ops::cudnn_convolution_transpose_out::call(self, weight, c10::fromIntArrayRefSlow(padding), c10::fromIntArrayRefSlow(output_padding), c10::fromIntArrayRefSlow(stride), c10::fromIntArrayRefSlow(dilation), groups, benchmark, deterministic, allow_tf32, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & cudnn_convolution_transpose_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & weight, at::IntArrayRef padding, at::IntArrayRef output_padding, at::IntArrayRef stride, at::IntArrayRef dilation, int64_t groups, bool benchmark, bool deterministic, bool allow_tf32) {
     return at::_ops::cudnn_convolution_transpose_out::call(self, weight, c10::fromIntArrayRefSlow(padding), c10::fromIntArrayRefSlow(output_padding), c10::fromIntArrayRefSlow(stride), c10::fromIntArrayRefSlow(dilation), groups, benchmark, deterministic, allow_tf32, out);
   }
@@ -60,7 +60,7 @@ inline at::Tensor & cudnn_convolution_transpose_outf(const at::Tensor & self, co
     return at::_ops::cudnn_convolution_transpose_out::call(self, weight, c10::fromIntArrayRefSlow(padding), c10::fromIntArrayRefSlow(output_padding), c10::fromIntArrayRefSlow(stride), c10::fromIntArrayRefSlow(dilation), groups, benchmark, deterministic, allow_tf32, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & cudnn_convolution_transpose_outf(const at::Tensor & self, const at::Tensor & weight, at::IntArrayRef padding, at::IntArrayRef output_padding, at::IntArrayRef stride, at::IntArrayRef dilation, int64_t groups, bool benchmark, bool deterministic, bool allow_tf32, at::Tensor & out) {
     return at::_ops::cudnn_convolution_transpose_out::call(self, weight, c10::fromIntArrayRefSlow(padding), c10::fromIntArrayRefSlow(output_padding), c10::fromIntArrayRefSlow(stride), c10::fromIntArrayRefSlow(dilation), groups, benchmark, deterministic, allow_tf32, out);
   }
@@ -71,7 +71,7 @@ inline at::Tensor & cudnn_convolution_transpose_symint_out(at::Tensor & out, con
     return at::_ops::cudnn_convolution_transpose_out::call(self, weight, padding, output_padding, stride, dilation, groups, benchmark, deterministic, allow_tf32, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & cudnn_convolution_transpose_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & weight, c10::SymIntArrayRef padding, c10::SymIntArrayRef output_padding, c10::SymIntArrayRef stride, c10::SymIntArrayRef dilation, c10::SymInt groups, bool benchmark, bool deterministic, bool allow_tf32) {
     return at::_ops::cudnn_convolution_transpose_out::call(self, weight, padding, output_padding, stride, dilation, groups, benchmark, deterministic, allow_tf32, out);
   }
@@ -82,7 +82,7 @@ inline at::Tensor & cudnn_convolution_transpose_symint_outf(const at::Tensor & s
     return at::_ops::cudnn_convolution_transpose_out::call(self, weight, padding, output_padding, stride, dilation, groups, benchmark, deterministic, allow_tf32, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & cudnn_convolution_transpose_outf(const at::Tensor & self, const at::Tensor & weight, c10::SymIntArrayRef padding, c10::SymIntArrayRef output_padding, c10::SymIntArrayRef stride, c10::SymIntArrayRef dilation, c10::SymInt groups, bool benchmark, bool deterministic, bool allow_tf32, at::Tensor & out) {
     return at::_ops::cudnn_convolution_transpose_out::call(self, weight, padding, output_padding, stride, dilation, groups, benchmark, deterministic, allow_tf32, out);
   }

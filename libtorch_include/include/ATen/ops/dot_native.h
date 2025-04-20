@@ -19,5 +19,6 @@ namespace native {
 TORCH_API at::Tensor & dot_out(const at::Tensor & self, const at::Tensor & tensor, at::Tensor & out);
 TORCH_API at::Tensor dot(const at::Tensor & self, const at::Tensor & tensor);
 TORCH_API at::Tensor dot_cuda(const at::Tensor & self, const at::Tensor & tensor);
+TORCH_API at::Tensor dot_mps(const at::Tensor & self, const at::Tensor & tensor);
 } // namespace native
 } // namespace at

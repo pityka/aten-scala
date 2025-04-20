@@ -17,10 +17,14 @@
 namespace at {
 namespace native {
 TORCH_API at::Tensor upsample_bilinear2d(const at::Tensor & input, at::OptionalIntArrayRef output_size, bool align_corners, ::std::optional<at::ArrayRef<double>> scale_factors);
+TORCH_API at::Tensor & upsample_bilinear2d_vec_out_symint(const at::Tensor & input, at::OptionalSymIntArrayRef output_size, bool align_corners, ::std::optional<at::ArrayRef<double>> scale_factors, at::Tensor & out);
 struct TORCH_API structured_upsample_bilinear2d_out_cpu : public at::meta::structured_upsample_bilinear2d {
 void impl(const at::Tensor & self, at::ArrayRef<int64_t> output_size, bool align_corners, ::std::optional<double> scales_h, ::std::optional<double> scales_w, const at::Tensor & out);
 };
 struct TORCH_API structured_upsample_bilinear2d_out_cuda : public at::meta::structured_upsample_bilinear2d {
+void impl(const at::Tensor & self, at::ArrayRef<int64_t> output_size, bool align_corners, ::std::optional<double> scales_h, ::std::optional<double> scales_w, const at::Tensor & out);
+};
+struct TORCH_API structured_upsample_bilinear2d_out_mps : public at::meta::structured_upsample_bilinear2d {
 void impl(const at::Tensor & self, at::ArrayRef<int64_t> output_size, bool align_corners, ::std::optional<double> scales_h, ::std::optional<double> scales_w, const at::Tensor & out);
 };
 TORCH_API at::Tensor upsample_bilinear2d_quantized_cpu(const at::Tensor & self, at::IntArrayRef output_size, bool align_corners, ::std::optional<double> scales_h=::std::nullopt, ::std::optional<double> scales_w=::std::nullopt);

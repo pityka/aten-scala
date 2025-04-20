@@ -28,6 +28,9 @@ TORCH_API at::Tensor & mul_out_sparse_cuda(const at::Tensor & self, const at::Te
 TORCH_API at::Tensor mul_sparse_csr(const at::Tensor & self, const at::Tensor & other);
 TORCH_API at::Tensor & mul_out_sparse_csr(const at::Tensor & self, const at::Tensor & other, at::Tensor & out);
 TORCH_API at::Tensor & mul_sparse_csr_(at::Tensor & self, const at::Tensor & other);
+struct TORCH_API structured_mul_out_mps : public at::meta::structured_mul_Tensor {
+void impl(const at::Tensor & self, const at::Tensor & other, const at::Tensor & out);
+};
 TORCH_API at::Tensor mkldnn_mul(const at::Tensor & self, const at::Tensor & other);
 TORCH_API at::Tensor & mkldnn_mul_out(const at::Tensor & self, const at::Tensor & other, at::Tensor & out);
 TORCH_API at::Tensor & mkldnn_mul_(at::Tensor & self, const at::Tensor & other);

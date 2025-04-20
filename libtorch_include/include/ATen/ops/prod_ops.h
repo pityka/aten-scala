@@ -18,9 +18,9 @@ struct TORCH_API prod {
   using schema = at::Tensor (const at::Tensor &, ::std::optional<at::ScalarType>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::prod")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "prod(Tensor self, *, ScalarType? dtype=None) -> Tensor")
+  static constexpr const char* name = "aten::prod";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "prod(Tensor self, *, ScalarType? dtype=None) -> Tensor";
   static at::Tensor call(const at::Tensor & self, ::std::optional<at::ScalarType> dtype);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, ::std::optional<at::ScalarType> dtype);
 };
@@ -29,9 +29,9 @@ struct TORCH_API prod_dim_int {
   using schema = at::Tensor (const at::Tensor &, int64_t, bool, ::std::optional<at::ScalarType>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::prod")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "dim_int")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "prod.dim_int(Tensor self, int dim, bool keepdim=False, *, ScalarType? dtype=None) -> Tensor")
+  static constexpr const char* name = "aten::prod";
+  static constexpr const char* overload_name = "dim_int";
+  static constexpr const char* schema_str = "prod.dim_int(Tensor self, int dim, bool keepdim=False, *, ScalarType? dtype=None) -> Tensor";
   static at::Tensor call(const at::Tensor & self, int64_t dim, bool keepdim, ::std::optional<at::ScalarType> dtype);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t dim, bool keepdim, ::std::optional<at::ScalarType> dtype);
 };
@@ -40,9 +40,9 @@ struct TORCH_API prod_int_out {
   using schema = at::Tensor & (const at::Tensor &, int64_t, bool, ::std::optional<at::ScalarType>, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::prod")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "int_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "prod.int_out(Tensor self, int dim, bool keepdim=False, *, ScalarType? dtype=None, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::prod";
+  static constexpr const char* overload_name = "int_out";
+  static constexpr const char* schema_str = "prod.int_out(Tensor self, int dim, bool keepdim=False, *, ScalarType? dtype=None, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, int64_t dim, bool keepdim, ::std::optional<at::ScalarType> dtype, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t dim, bool keepdim, ::std::optional<at::ScalarType> dtype, at::Tensor & out);
 };
@@ -51,9 +51,9 @@ struct TORCH_API prod_dim_Dimname {
   using schema = at::Tensor (const at::Tensor &, at::Dimname, bool, ::std::optional<at::ScalarType>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::prod")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "dim_Dimname")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "prod.dim_Dimname(Tensor self, Dimname dim, bool keepdim=False, *, ScalarType? dtype=None) -> Tensor")
+  static constexpr const char* name = "aten::prod";
+  static constexpr const char* overload_name = "dim_Dimname";
+  static constexpr const char* schema_str = "prod.dim_Dimname(Tensor self, Dimname dim, bool keepdim=False, *, ScalarType? dtype=None) -> Tensor";
   static at::Tensor call(const at::Tensor & self, at::Dimname dim, bool keepdim, ::std::optional<at::ScalarType> dtype);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::Dimname dim, bool keepdim, ::std::optional<at::ScalarType> dtype);
 };
@@ -62,9 +62,9 @@ struct TORCH_API prod_Dimname_out {
   using schema = at::Tensor & (const at::Tensor &, at::Dimname, bool, ::std::optional<at::ScalarType>, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::prod")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Dimname_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "prod.Dimname_out(Tensor self, Dimname dim, bool keepdim=False, *, ScalarType? dtype=None, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::prod";
+  static constexpr const char* overload_name = "Dimname_out";
+  static constexpr const char* schema_str = "prod.Dimname_out(Tensor self, Dimname dim, bool keepdim=False, *, ScalarType? dtype=None, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, at::Dimname dim, bool keepdim, ::std::optional<at::ScalarType> dtype, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::Dimname dim, bool keepdim, ::std::optional<at::ScalarType> dtype, at::Tensor & out);
 };
@@ -73,9 +73,9 @@ struct TORCH_API prod_out {
   using schema = at::Tensor & (const at::Tensor &, ::std::optional<at::ScalarType>, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::prod")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "prod.out(Tensor self, *, ScalarType? dtype=None, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::prod";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "prod.out(Tensor self, *, ScalarType? dtype=None, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, ::std::optional<at::ScalarType> dtype, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, ::std::optional<at::ScalarType> dtype, at::Tensor & out);
 };

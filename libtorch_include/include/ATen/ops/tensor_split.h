@@ -27,7 +27,7 @@ inline ::std::vector<at::Tensor> tensor_split(const at::Tensor & self, int64_t s
     return at::_ops::tensor_split_sections::call(self, sections, dim);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   ::std::vector<at::Tensor> tensor_split(const at::Tensor & self, int64_t sections, int64_t dim=0) {
     return at::_ops::tensor_split_sections::call(self, sections, dim);
   }
@@ -38,7 +38,7 @@ inline ::std::vector<at::Tensor> tensor_split_symint(const at::Tensor & self, c1
     return at::_ops::tensor_split_sections::call(self, sections, dim);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   ::std::vector<at::Tensor> tensor_split(const at::Tensor & self, c10::SymInt sections, int64_t dim=0) {
     return at::_ops::tensor_split_sections::call(self, sections, dim);
   }
@@ -49,7 +49,7 @@ inline ::std::vector<at::Tensor> tensor_split(const at::Tensor & self, at::IntAr
     return at::_ops::tensor_split_indices::call(self, c10::fromIntArrayRefSlow(indices), dim);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   ::std::vector<at::Tensor> tensor_split(const at::Tensor & self, at::IntArrayRef indices, int64_t dim=0) {
     return at::_ops::tensor_split_indices::call(self, c10::fromIntArrayRefSlow(indices), dim);
   }
@@ -60,7 +60,7 @@ inline ::std::vector<at::Tensor> tensor_split_symint(const at::Tensor & self, c1
     return at::_ops::tensor_split_indices::call(self, indices, dim);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   ::std::vector<at::Tensor> tensor_split(const at::Tensor & self, c10::SymIntArrayRef indices, int64_t dim=0) {
     return at::_ops::tensor_split_indices::call(self, indices, dim);
   }

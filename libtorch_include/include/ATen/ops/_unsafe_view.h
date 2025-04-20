@@ -27,7 +27,7 @@ inline at::Tensor _unsafe_view(const at::Tensor & self, at::IntArrayRef size) {
     return at::_ops::_unsafe_view::call(self, c10::fromIntArrayRefSlow(size));
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor _unsafe_view(const at::Tensor & self, at::IntArrayRef size) {
     return at::_ops::_unsafe_view::call(self, c10::fromIntArrayRefSlow(size));
   }
@@ -38,7 +38,7 @@ inline at::Tensor _unsafe_view_symint(const at::Tensor & self, c10::SymIntArrayR
     return at::_ops::_unsafe_view::call(self, size);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor _unsafe_view(const at::Tensor & self, c10::SymIntArrayRef size) {
     return at::_ops::_unsafe_view::call(self, size);
   }
@@ -49,7 +49,7 @@ inline at::Tensor & _unsafe_view_out(at::Tensor & out, const at::Tensor & self, 
     return at::_ops::_unsafe_view_out::call(self, c10::fromIntArrayRefSlow(size), out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & _unsafe_view_out(at::Tensor & out, const at::Tensor & self, at::IntArrayRef size) {
     return at::_ops::_unsafe_view_out::call(self, c10::fromIntArrayRefSlow(size), out);
   }
@@ -60,7 +60,7 @@ inline at::Tensor & _unsafe_view_outf(const at::Tensor & self, at::IntArrayRef s
     return at::_ops::_unsafe_view_out::call(self, c10::fromIntArrayRefSlow(size), out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & _unsafe_view_outf(const at::Tensor & self, at::IntArrayRef size, at::Tensor & out) {
     return at::_ops::_unsafe_view_out::call(self, c10::fromIntArrayRefSlow(size), out);
   }
@@ -71,7 +71,7 @@ inline at::Tensor & _unsafe_view_symint_out(at::Tensor & out, const at::Tensor &
     return at::_ops::_unsafe_view_out::call(self, size, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & _unsafe_view_out(at::Tensor & out, const at::Tensor & self, c10::SymIntArrayRef size) {
     return at::_ops::_unsafe_view_out::call(self, size, out);
   }
@@ -82,7 +82,7 @@ inline at::Tensor & _unsafe_view_symint_outf(const at::Tensor & self, c10::SymIn
     return at::_ops::_unsafe_view_out::call(self, size, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & _unsafe_view_outf(const at::Tensor & self, c10::SymIntArrayRef size, at::Tensor & out) {
     return at::_ops::_unsafe_view_out::call(self, size, out);
   }

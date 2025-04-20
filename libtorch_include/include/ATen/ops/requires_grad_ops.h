@@ -18,9 +18,9 @@ struct TORCH_API requires_grad_ {
   using schema = at::Tensor & (at::Tensor &, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::requires_grad_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "requires_grad_(Tensor(a!) self, bool requires_grad=True) -> Tensor(a!)")
+  static constexpr const char* name = "aten::requires_grad_";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "requires_grad_(Tensor(a!) self, bool requires_grad=True) -> Tensor(a!)";
   static at::Tensor & call(at::Tensor & self, bool requires_grad);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::Tensor & self, bool requires_grad);
 };

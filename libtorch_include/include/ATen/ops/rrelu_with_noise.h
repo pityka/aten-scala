@@ -22,23 +22,28 @@
 namespace at {
 
 
-// aten::rrelu_with_noise.out(Tensor self, Tensor noise, Scalar lower=0.125, Scalar upper=0.3333333333333333, bool training=False, Generator? generator=None, *, Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & rrelu_with_noise_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & noise, const at::Scalar & lower=0.125, const at::Scalar & upper=0.3333333333333333, bool training=false, ::std::optional<at::Generator> generator=::std::nullopt) {
+// aten::rrelu_with_noise.out(Tensor self, Tensor(b!) noise, Scalar lower=0.125, Scalar upper=0.3333333333333333, bool training=False, Generator? generator=None, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & rrelu_with_noise_out(at::Tensor & out, const at::Tensor & self, at::Tensor & noise, const at::Scalar & lower=0.125, const at::Scalar & upper=0.3333333333333333, bool training=false, ::std::optional<at::Generator> generator=::std::nullopt) {
     return at::_ops::rrelu_with_noise_out::call(self, noise, lower, upper, training, generator, out);
 }
-// aten::rrelu_with_noise.out(Tensor self, Tensor noise, Scalar lower=0.125, Scalar upper=0.3333333333333333, bool training=False, Generator? generator=None, *, Tensor(a!) out) -> Tensor(a!)
-inline at::Tensor & rrelu_with_noise_outf(const at::Tensor & self, const at::Tensor & noise, const at::Scalar & lower, const at::Scalar & upper, bool training, ::std::optional<at::Generator> generator, at::Tensor & out) {
+// aten::rrelu_with_noise.out(Tensor self, Tensor(b!) noise, Scalar lower=0.125, Scalar upper=0.3333333333333333, bool training=False, Generator? generator=None, *, Tensor(a!) out) -> Tensor(a!)
+inline at::Tensor & rrelu_with_noise_outf(const at::Tensor & self, at::Tensor & noise, const at::Scalar & lower, const at::Scalar & upper, bool training, ::std::optional<at::Generator> generator, at::Tensor & out) {
     return at::_ops::rrelu_with_noise_out::call(self, noise, lower, upper, training, generator, out);
 }
 
-// aten::rrelu_with_noise(Tensor self, Tensor noise, Scalar lower=0.125, Scalar upper=0.3333333333333333, bool training=False, Generator? generator=None) -> Tensor
-inline at::Tensor rrelu_with_noise(const at::Tensor & self, const at::Tensor & noise, const at::Scalar & lower=0.125, const at::Scalar & upper=0.3333333333333333, bool training=false, ::std::optional<at::Generator> generator=::std::nullopt) {
+// aten::rrelu_with_noise(Tensor self, Tensor(b!) noise, Scalar lower=0.125, Scalar upper=0.3333333333333333, bool training=False, Generator? generator=None) -> Tensor
+inline at::Tensor rrelu_with_noise(const at::Tensor & self, at::Tensor & noise, const at::Scalar & lower=0.125, const at::Scalar & upper=0.3333333333333333, bool training=false, ::std::optional<at::Generator> generator=::std::nullopt) {
     return at::_ops::rrelu_with_noise::call(self, noise, lower, upper, training, generator);
 }
 
-// aten::rrelu_with_noise_(Tensor(a!) self, Tensor noise, Scalar lower=0.125, Scalar upper=0.3333333333333333, bool training=False, Generator? generator=None) -> Tensor(a!)
-inline at::Tensor & rrelu_with_noise_(at::Tensor & self, const at::Tensor & noise, const at::Scalar & lower=0.125, const at::Scalar & upper=0.3333333333333333, bool training=false, ::std::optional<at::Generator> generator=::std::nullopt) {
+// aten::rrelu_with_noise_(Tensor(a!) self, Tensor(b!) noise, Scalar lower=0.125, Scalar upper=0.3333333333333333, bool training=False, Generator? generator=None) -> Tensor(a!)
+inline at::Tensor & rrelu_with_noise_(at::Tensor & self, at::Tensor & noise, const at::Scalar & lower=0.125, const at::Scalar & upper=0.3333333333333333, bool training=false, ::std::optional<at::Generator> generator=::std::nullopt) {
     return at::_ops::rrelu_with_noise_::call(self, noise, lower, upper, training, generator);
+}
+
+// aten::rrelu_with_noise_functional(Tensor self, Tensor noise, Scalar lower=0.125, Scalar upper=0.3333333333333333, bool training=False, Generator? generator=None) -> (Tensor, Tensor noise_out)
+inline ::std::tuple<at::Tensor,at::Tensor> rrelu_with_noise_functional(const at::Tensor & self, const at::Tensor & noise, const at::Scalar & lower=0.125, const at::Scalar & upper=0.3333333333333333, bool training=false, ::std::optional<at::Generator> generator=::std::nullopt) {
+    return at::_ops::rrelu_with_noise_functional::call(self, noise, lower, upper, training, generator);
 }
 
 }

@@ -18,9 +18,9 @@ struct TORCH_API unbind_int {
   using schema = ::std::vector<at::Tensor> (const at::Tensor &, int64_t);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::unbind")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "int")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "unbind.int(Tensor(a -> *) self, int dim=0) -> Tensor(a)[]")
+  static constexpr const char* name = "aten::unbind";
+  static constexpr const char* overload_name = "int";
+  static constexpr const char* schema_str = "unbind.int(Tensor(a -> *) self, int dim=0) -> Tensor(a)[]";
   static ::std::vector<at::Tensor> call(const at::Tensor & self, int64_t dim);
   static ::std::vector<at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t dim);
 };
@@ -29,9 +29,9 @@ struct TORCH_API unbind_Dimname {
   using schema = ::std::vector<at::Tensor> (const at::Tensor &, at::Dimname);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::unbind")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "Dimname")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "unbind.Dimname(Tensor(a -> *) self, Dimname dim) -> Tensor(a)[]")
+  static constexpr const char* name = "aten::unbind";
+  static constexpr const char* overload_name = "Dimname";
+  static constexpr const char* schema_str = "unbind.Dimname(Tensor(a -> *) self, Dimname dim) -> Tensor(a)[]";
   static ::std::vector<at::Tensor> call(const at::Tensor & self, at::Dimname dim);
   static ::std::vector<at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::Dimname dim);
 };

@@ -19,11 +19,15 @@ namespace native {
 struct TORCH_API structured_sqrt_out : public at::meta::structured_sqrt {
 void impl(const at::Tensor & self, const at::Tensor & out);
 };
+TORCH_API at::Tensor NestedTensor_sqrt(const at::Tensor & self);
 TORCH_API at::Tensor sqrt_sparse(const at::Tensor & self);
 TORCH_API at::Tensor & sqrt_sparse_out(const at::Tensor & self, at::Tensor & out);
 TORCH_API at::Tensor & sqrt_sparse_(at::Tensor & self);
 TORCH_API at::Tensor sqrt_sparse_csr(const at::Tensor & self);
 TORCH_API at::Tensor & sqrt_sparse_csr_out(const at::Tensor & self, at::Tensor & out);
 TORCH_API at::Tensor & sqrt_sparse_csr_(at::Tensor & self);
+struct TORCH_API structured_sqrt_out_mps : public at::meta::structured_sqrt {
+void impl(const at::Tensor & self, const at::Tensor & out);
+};
 } // namespace native
 } // namespace at

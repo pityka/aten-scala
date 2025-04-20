@@ -27,7 +27,7 @@ inline at::Tensor fft_fft(const at::Tensor & self, ::std::optional<int64_t> n=::
     return at::_ops::fft_fft::call(self, n.has_value() ? ::std::make_optional(c10::SymInt(*n)) : ::std::nullopt, dim, norm);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor fft_fft(const at::Tensor & self, ::std::optional<int64_t> n=::std::nullopt, int64_t dim=-1, ::std::optional<c10::string_view> norm=::std::nullopt) {
     return at::_ops::fft_fft::call(self, n.has_value() ? ::std::make_optional(c10::SymInt(*n)) : ::std::nullopt, dim, norm);
   }
@@ -38,7 +38,7 @@ inline at::Tensor fft_fft_symint(const at::Tensor & self, ::std::optional<c10::S
     return at::_ops::fft_fft::call(self, n, dim, norm);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor fft_fft(const at::Tensor & self, ::std::optional<c10::SymInt> n=::std::nullopt, int64_t dim=-1, ::std::optional<c10::string_view> norm=::std::nullopt) {
     return at::_ops::fft_fft::call(self, n, dim, norm);
   }
@@ -49,7 +49,7 @@ inline at::Tensor & fft_fft_out(at::Tensor & out, const at::Tensor & self, ::std
     return at::_ops::fft_fft_out::call(self, n.has_value() ? ::std::make_optional(c10::SymInt(*n)) : ::std::nullopt, dim, norm, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & fft_fft_out(at::Tensor & out, const at::Tensor & self, ::std::optional<int64_t> n=::std::nullopt, int64_t dim=-1, ::std::optional<c10::string_view> norm=::std::nullopt) {
     return at::_ops::fft_fft_out::call(self, n.has_value() ? ::std::make_optional(c10::SymInt(*n)) : ::std::nullopt, dim, norm, out);
   }
@@ -60,7 +60,7 @@ inline at::Tensor & fft_fft_outf(const at::Tensor & self, ::std::optional<int64_
     return at::_ops::fft_fft_out::call(self, n.has_value() ? ::std::make_optional(c10::SymInt(*n)) : ::std::nullopt, dim, norm, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & fft_fft_outf(const at::Tensor & self, ::std::optional<int64_t> n, int64_t dim, ::std::optional<c10::string_view> norm, at::Tensor & out) {
     return at::_ops::fft_fft_out::call(self, n.has_value() ? ::std::make_optional(c10::SymInt(*n)) : ::std::nullopt, dim, norm, out);
   }
@@ -71,7 +71,7 @@ inline at::Tensor & fft_fft_symint_out(at::Tensor & out, const at::Tensor & self
     return at::_ops::fft_fft_out::call(self, n, dim, norm, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & fft_fft_out(at::Tensor & out, const at::Tensor & self, ::std::optional<c10::SymInt> n=::std::nullopt, int64_t dim=-1, ::std::optional<c10::string_view> norm=::std::nullopt) {
     return at::_ops::fft_fft_out::call(self, n, dim, norm, out);
   }
@@ -82,7 +82,7 @@ inline at::Tensor & fft_fft_symint_outf(const at::Tensor & self, ::std::optional
     return at::_ops::fft_fft_out::call(self, n, dim, norm, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & fft_fft_outf(const at::Tensor & self, ::std::optional<c10::SymInt> n, int64_t dim, ::std::optional<c10::string_view> norm, at::Tensor & out) {
     return at::_ops::fft_fft_out::call(self, n, dim, norm, out);
   }

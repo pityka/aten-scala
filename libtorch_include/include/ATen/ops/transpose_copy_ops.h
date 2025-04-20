@@ -18,9 +18,9 @@ struct TORCH_API transpose_copy_int {
   using schema = at::Tensor (const at::Tensor &, int64_t, int64_t);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::transpose_copy")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "int")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "transpose_copy.int(Tensor self, int dim0, int dim1) -> Tensor")
+  static constexpr const char* name = "aten::transpose_copy";
+  static constexpr const char* overload_name = "int";
+  static constexpr const char* schema_str = "transpose_copy.int(Tensor self, int dim0, int dim1) -> Tensor";
   static at::Tensor call(const at::Tensor & self, int64_t dim0, int64_t dim1);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t dim0, int64_t dim1);
 };
@@ -29,9 +29,9 @@ struct TORCH_API transpose_copy_int_out {
   using schema = at::Tensor & (const at::Tensor &, int64_t, int64_t, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::transpose_copy")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "int_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "transpose_copy.int_out(Tensor self, int dim0, int dim1, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::transpose_copy";
+  static constexpr const char* overload_name = "int_out";
+  static constexpr const char* schema_str = "transpose_copy.int_out(Tensor self, int dim0, int dim1, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, int64_t dim0, int64_t dim1, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t dim0, int64_t dim1, at::Tensor & out);
 };

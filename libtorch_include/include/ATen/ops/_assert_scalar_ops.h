@@ -18,9 +18,9 @@ struct TORCH_API _assert_scalar {
   using schema = void (const at::Scalar &, c10::string_view);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_assert_scalar")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_assert_scalar(Scalar self, str assert_msg) -> ()")
+  static constexpr const char* name = "aten::_assert_scalar";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "_assert_scalar(Scalar self, str assert_msg) -> ()";
   static void call(const at::Scalar & self, c10::string_view assert_msg);
   static void redispatch(c10::DispatchKeySet dispatchKeySet, const at::Scalar & self, c10::string_view assert_msg);
 };

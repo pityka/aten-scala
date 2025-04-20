@@ -32,6 +32,9 @@ TORCH_API at::Tensor add_sparse_csr(const at::Tensor & self, const at::Tensor & 
 TORCH_API at::Tensor & add_out_sparse_compressed_cpu(const at::Tensor & self, const at::Tensor & other, const at::Scalar & alpha, at::Tensor & out);
 TORCH_API at::Tensor & add_sparse_csr_(at::Tensor & self, const at::Tensor & other, const at::Scalar & alpha=1);
 TORCH_API at::Tensor & add_out_sparse_compressed_cuda(const at::Tensor & self, const at::Tensor & other, const at::Scalar & alpha, at::Tensor & out);
+struct TORCH_API structured_add_out_mps : public at::meta::structured_add_Tensor {
+void impl(const at::Tensor & self, const at::Tensor & other, const at::Scalar & alpha, const at::Tensor & out);
+};
 TORCH_API at::Tensor mkldnn_add(const at::Tensor & self, const at::Tensor & other, const at::Scalar & alpha=1);
 TORCH_API at::Tensor & mkldnn_add_out(const at::Tensor & self, const at::Tensor & other, const at::Scalar & alpha, at::Tensor & out);
 TORCH_API at::Tensor & mkldnn_add_(at::Tensor & self, const at::Tensor & other, const at::Scalar & alpha=1);

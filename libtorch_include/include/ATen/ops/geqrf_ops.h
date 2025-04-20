@@ -18,9 +18,9 @@ struct TORCH_API geqrf_a {
   using schema = ::std::tuple<at::Tensor &,at::Tensor &> (const at::Tensor &, at::Tensor &, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::geqrf")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "a")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "geqrf.a(Tensor self, *, Tensor(a!) a, Tensor(b!) tau) -> (Tensor(a!) a, Tensor(b!) tau)")
+  static constexpr const char* name = "aten::geqrf";
+  static constexpr const char* overload_name = "a";
+  static constexpr const char* schema_str = "geqrf.a(Tensor self, *, Tensor(a!) a, Tensor(b!) tau) -> (Tensor(a!) a, Tensor(b!) tau)";
   static ::std::tuple<at::Tensor &,at::Tensor &> call(const at::Tensor & self, at::Tensor & a, at::Tensor & tau);
   static ::std::tuple<at::Tensor &,at::Tensor &> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::Tensor & a, at::Tensor & tau);
 };
@@ -29,9 +29,9 @@ struct TORCH_API geqrf {
   using schema = ::std::tuple<at::Tensor,at::Tensor> (const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::geqrf")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "geqrf(Tensor self) -> (Tensor a, Tensor tau)")
+  static constexpr const char* name = "aten::geqrf";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "geqrf(Tensor self) -> (Tensor a, Tensor tau)";
   static ::std::tuple<at::Tensor,at::Tensor> call(const at::Tensor & self);
   static ::std::tuple<at::Tensor,at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self);
 };

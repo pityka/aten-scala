@@ -18,9 +18,9 @@ struct TORCH_API soft_margin_loss_out {
   using schema = at::Tensor & (const at::Tensor &, const at::Tensor &, int64_t, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::soft_margin_loss")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "soft_margin_loss.out(Tensor self, Tensor target, int reduction=Mean, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::soft_margin_loss";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "soft_margin_loss.out(Tensor self, Tensor target, int reduction=Mean, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, const at::Tensor & target, int64_t reduction, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & target, int64_t reduction, at::Tensor & out);
 };
@@ -29,9 +29,9 @@ struct TORCH_API soft_margin_loss {
   using schema = at::Tensor (const at::Tensor &, const at::Tensor &, int64_t);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::soft_margin_loss")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "soft_margin_loss(Tensor self, Tensor target, int reduction=Mean) -> Tensor")
+  static constexpr const char* name = "aten::soft_margin_loss";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "soft_margin_loss(Tensor self, Tensor target, int reduction=Mean) -> Tensor";
   static at::Tensor call(const at::Tensor & self, const at::Tensor & target, int64_t reduction);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & target, int64_t reduction);
 };

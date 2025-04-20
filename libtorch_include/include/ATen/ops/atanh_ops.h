@@ -18,9 +18,9 @@ struct TORCH_API atanh {
   using schema = at::Tensor (const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::atanh")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "atanh(Tensor self) -> Tensor")
+  static constexpr const char* name = "aten::atanh";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "atanh(Tensor self) -> Tensor";
   static at::Tensor call(const at::Tensor & self);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self);
 };
@@ -29,9 +29,9 @@ struct TORCH_API atanh_ {
   using schema = at::Tensor & (at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::atanh_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "atanh_(Tensor(a!) self) -> Tensor(a!)")
+  static constexpr const char* name = "aten::atanh_";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "atanh_(Tensor(a!) self) -> Tensor(a!)";
   static at::Tensor & call(at::Tensor & self);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::Tensor & self);
 };
@@ -40,9 +40,9 @@ struct TORCH_API atanh_out {
   using schema = at::Tensor & (const at::Tensor &, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::atanh")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "atanh.out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::atanh";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "atanh.out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::Tensor & out);
 };

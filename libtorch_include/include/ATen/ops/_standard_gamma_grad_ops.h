@@ -18,9 +18,9 @@ struct TORCH_API _standard_gamma_grad {
   using schema = at::Tensor (const at::Tensor &, const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_standard_gamma_grad")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_standard_gamma_grad(Tensor self, Tensor output) -> Tensor")
+  static constexpr const char* name = "aten::_standard_gamma_grad";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "_standard_gamma_grad(Tensor self, Tensor output) -> Tensor";
   static at::Tensor call(const at::Tensor & self, const at::Tensor & output);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & output);
 };
@@ -29,9 +29,9 @@ struct TORCH_API _standard_gamma_grad_out {
   using schema = at::Tensor & (const at::Tensor &, const at::Tensor &, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_standard_gamma_grad")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_standard_gamma_grad.out(Tensor self, Tensor output, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::_standard_gamma_grad";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "_standard_gamma_grad.out(Tensor self, Tensor output, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, const at::Tensor & output, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & output, at::Tensor & out);
 };

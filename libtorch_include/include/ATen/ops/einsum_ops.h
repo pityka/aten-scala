@@ -18,9 +18,9 @@ struct TORCH_API einsum {
   using schema = at::Tensor (c10::string_view, at::TensorList, at::OptionalIntArrayRef);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::einsum")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "einsum(str equation, Tensor[] tensors, *, int[]? path=None) -> Tensor")
+  static constexpr const char* name = "aten::einsum";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "einsum(str equation, Tensor[] tensors, *, int[]? path=None) -> Tensor";
   static at::Tensor call(c10::string_view equation, at::TensorList tensors, at::OptionalIntArrayRef path);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, c10::string_view equation, at::TensorList tensors, at::OptionalIntArrayRef path);
 };

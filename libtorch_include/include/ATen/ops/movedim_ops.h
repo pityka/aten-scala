@@ -18,9 +18,9 @@ struct TORCH_API movedim_intlist {
   using schema = at::Tensor (const at::Tensor &, at::IntArrayRef, at::IntArrayRef);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::movedim")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "intlist")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "movedim.intlist(Tensor(a) self, int[] source, int[] destination) -> Tensor(a)")
+  static constexpr const char* name = "aten::movedim";
+  static constexpr const char* overload_name = "intlist";
+  static constexpr const char* schema_str = "movedim.intlist(Tensor(a) self, int[] source, int[] destination) -> Tensor(a)";
   static at::Tensor call(const at::Tensor & self, at::IntArrayRef source, at::IntArrayRef destination);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::IntArrayRef source, at::IntArrayRef destination);
 };
@@ -29,9 +29,9 @@ struct TORCH_API movedim_int {
   using schema = at::Tensor (const at::Tensor &, int64_t, int64_t);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::movedim")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "int")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "movedim.int(Tensor(a) self, int source, int destination) -> Tensor(a)")
+  static constexpr const char* name = "aten::movedim";
+  static constexpr const char* overload_name = "int";
+  static constexpr const char* schema_str = "movedim.int(Tensor(a) self, int source, int destination) -> Tensor(a)";
   static at::Tensor call(const at::Tensor & self, int64_t source, int64_t destination);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t source, int64_t destination);
 };

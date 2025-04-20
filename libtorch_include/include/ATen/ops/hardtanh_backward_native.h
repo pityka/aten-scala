@@ -18,5 +18,7 @@ namespace at {
 namespace native {
 TORCH_API at::Tensor hardtanh_backward(const at::Tensor & grad_output, const at::Tensor & self, const at::Scalar & min_val, const at::Scalar & max_val);
 TORCH_API at::Tensor & hardtanh_backward_out(const at::Tensor & grad_output, const at::Tensor & self, const at::Scalar & min_val, const at::Scalar & max_val, at::Tensor & grad_input);
+TORCH_API at::Tensor hardtanh_backward_mps(const at::Tensor & grad_output, const at::Tensor & self, const at::Scalar & min_val, const at::Scalar & max_val);
+TORCH_API at::Tensor & hardtanh_backward_out_mps(const at::Tensor & grad_output, const at::Tensor & self, const at::Scalar & min_val, const at::Scalar & max_val, at::Tensor & grad_input);
 } // namespace native
 } // namespace at

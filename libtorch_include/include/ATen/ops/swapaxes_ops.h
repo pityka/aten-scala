@@ -18,9 +18,9 @@ struct TORCH_API swapaxes {
   using schema = at::Tensor (const at::Tensor &, int64_t, int64_t);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::swapaxes")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "swapaxes(Tensor(a) self, int axis0, int axis1) -> Tensor(a)")
+  static constexpr const char* name = "aten::swapaxes";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "swapaxes(Tensor(a) self, int axis0, int axis1) -> Tensor(a)";
   static at::Tensor call(const at::Tensor & self, int64_t axis0, int64_t axis1);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t axis0, int64_t axis1);
 };
@@ -29,9 +29,9 @@ struct TORCH_API swapaxes_ {
   using schema = at::Tensor & (at::Tensor &, int64_t, int64_t);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::swapaxes_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "swapaxes_(Tensor(a!) self, int axis0, int axis1) -> Tensor(a!)")
+  static constexpr const char* name = "aten::swapaxes_";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "swapaxes_(Tensor(a!) self, int axis0, int axis1) -> Tensor(a!)";
   static at::Tensor & call(at::Tensor & self, int64_t axis0, int64_t axis1);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::Tensor & self, int64_t axis0, int64_t axis1);
 };

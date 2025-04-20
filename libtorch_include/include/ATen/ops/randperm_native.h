@@ -21,5 +21,6 @@ TORCH_API at::Tensor & randperm_out(int64_t n, at::Tensor & out);
 TORCH_API at::Tensor randperm(int64_t n, ::std::optional<at::Generator> generator, ::std::optional<at::ScalarType> dtype={}, ::std::optional<at::Layout> layout={}, ::std::optional<at::Device> device={}, ::std::optional<bool> pin_memory={});
 TORCH_API at::Tensor & randperm_out_cpu(int64_t n, ::std::optional<at::Generator> generator, at::Tensor & out);
 TORCH_API at::Tensor & randperm_out_cuda(int64_t n, ::std::optional<at::Generator> generator, at::Tensor & out);
+TORCH_API at::Tensor & randperm_out_mps(int64_t n, ::std::optional<at::Generator> generator, at::Tensor & out);
 } // namespace native
 } // namespace at

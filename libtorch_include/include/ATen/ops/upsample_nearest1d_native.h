@@ -23,5 +23,8 @@ void impl(const at::Tensor & self, at::ArrayRef<int64_t> output_size, ::std::opt
 struct TORCH_API structured_upsample_nearest1d_out_cuda : public at::meta::structured_upsample_nearest1d {
 void impl(const at::Tensor & self, at::ArrayRef<int64_t> output_size, ::std::optional<double> scales, const at::Tensor & out);
 };
+struct TORCH_API structured_upsample_nearest1d_out_mps : public at::meta::structured_upsample_nearest1d {
+void impl(const at::Tensor & self, at::ArrayRef<int64_t> output_size, ::std::optional<double> scales, const at::Tensor & out);
+};
 } // namespace native
 } // namespace at

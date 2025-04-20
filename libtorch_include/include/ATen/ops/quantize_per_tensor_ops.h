@@ -18,9 +18,9 @@ struct TORCH_API quantize_per_tensor {
   using schema = at::Tensor (const at::Tensor &, double, int64_t, at::ScalarType);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::quantize_per_tensor")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "quantize_per_tensor(Tensor self, float scale, int zero_point, ScalarType dtype) -> Tensor")
+  static constexpr const char* name = "aten::quantize_per_tensor";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "quantize_per_tensor(Tensor self, float scale, int zero_point, ScalarType dtype) -> Tensor";
   static at::Tensor call(const at::Tensor & self, double scale, int64_t zero_point, at::ScalarType dtype);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, double scale, int64_t zero_point, at::ScalarType dtype);
 };
@@ -29,9 +29,9 @@ struct TORCH_API quantize_per_tensor_tensor_qparams {
   using schema = at::Tensor (const at::Tensor &, const at::Tensor &, const at::Tensor &, at::ScalarType);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::quantize_per_tensor")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "tensor_qparams")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "quantize_per_tensor.tensor_qparams(Tensor self, Tensor scale, Tensor zero_point, ScalarType dtype) -> Tensor")
+  static constexpr const char* name = "aten::quantize_per_tensor";
+  static constexpr const char* overload_name = "tensor_qparams";
+  static constexpr const char* schema_str = "quantize_per_tensor.tensor_qparams(Tensor self, Tensor scale, Tensor zero_point, ScalarType dtype) -> Tensor";
   static at::Tensor call(const at::Tensor & self, const at::Tensor & scale, const at::Tensor & zero_point, at::ScalarType dtype);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & scale, const at::Tensor & zero_point, at::ScalarType dtype);
 };
@@ -40,9 +40,9 @@ struct TORCH_API quantize_per_tensor_tensors {
   using schema = ::std::vector<at::Tensor> (at::TensorList, const at::Tensor &, const at::Tensor &, at::ScalarType);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::quantize_per_tensor")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "tensors")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "quantize_per_tensor.tensors(Tensor[] tensors, Tensor scales, Tensor zero_points, ScalarType dtype) -> Tensor[]")
+  static constexpr const char* name = "aten::quantize_per_tensor";
+  static constexpr const char* overload_name = "tensors";
+  static constexpr const char* schema_str = "quantize_per_tensor.tensors(Tensor[] tensors, Tensor scales, Tensor zero_points, ScalarType dtype) -> Tensor[]";
   static ::std::vector<at::Tensor> call(at::TensorList tensors, const at::Tensor & scales, const at::Tensor & zero_points, at::ScalarType dtype);
   static ::std::vector<at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList tensors, const at::Tensor & scales, const at::Tensor & zero_points, at::ScalarType dtype);
 };
@@ -51,9 +51,9 @@ struct TORCH_API quantize_per_tensor_out {
   using schema = at::Tensor & (const at::Tensor &, double, int64_t, at::ScalarType, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::quantize_per_tensor")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "quantize_per_tensor.out(Tensor self, float scale, int zero_point, ScalarType dtype, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::quantize_per_tensor";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "quantize_per_tensor.out(Tensor self, float scale, int zero_point, ScalarType dtype, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, double scale, int64_t zero_point, at::ScalarType dtype, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, double scale, int64_t zero_point, at::ScalarType dtype, at::Tensor & out);
 };
@@ -62,9 +62,9 @@ struct TORCH_API quantize_per_tensor_tensor_qparams_out {
   using schema = at::Tensor & (const at::Tensor &, const at::Tensor &, const at::Tensor &, at::ScalarType, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::quantize_per_tensor")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "tensor_qparams_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "quantize_per_tensor.tensor_qparams_out(Tensor self, Tensor scale, Tensor zero_point, ScalarType dtype, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::quantize_per_tensor";
+  static constexpr const char* overload_name = "tensor_qparams_out";
+  static constexpr const char* schema_str = "quantize_per_tensor.tensor_qparams_out(Tensor self, Tensor scale, Tensor zero_point, ScalarType dtype, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, const at::Tensor & scale, const at::Tensor & zero_point, at::ScalarType dtype, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & scale, const at::Tensor & zero_point, at::ScalarType dtype, at::Tensor & out);
 };
@@ -73,9 +73,9 @@ struct TORCH_API quantize_per_tensor_tensors_out {
   using schema = void (at::TensorList, const at::Tensor &, const at::Tensor &, at::ScalarType, at::TensorList);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::quantize_per_tensor")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "tensors_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "quantize_per_tensor.tensors_out(Tensor[] tensors, Tensor scales, Tensor zero_points, ScalarType dtype, *, Tensor(a!)[] out) -> ()")
+  static constexpr const char* name = "aten::quantize_per_tensor";
+  static constexpr const char* overload_name = "tensors_out";
+  static constexpr const char* schema_str = "quantize_per_tensor.tensors_out(Tensor[] tensors, Tensor scales, Tensor zero_points, ScalarType dtype, *, Tensor(a!)[] out) -> ()";
   static void call(at::TensorList tensors, const at::Tensor & scales, const at::Tensor & zero_points, at::ScalarType dtype, at::TensorList out);
   static void redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList tensors, const at::Tensor & scales, const at::Tensor & zero_points, at::ScalarType dtype, at::TensorList out);
 };

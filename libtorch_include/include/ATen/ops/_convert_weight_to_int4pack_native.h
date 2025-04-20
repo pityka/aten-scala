@@ -16,7 +16,7 @@
 
 namespace at {
 namespace native {
-TORCH_API at::Tensor _convert_weight_to_int4pack_cpu(const at::Tensor & self, int64_t innerKTiles);
 TORCH_API at::Tensor _convert_weight_to_int4pack_cuda(const at::Tensor & self, int64_t innerKTiles);
+TORCH_API at::Tensor _convert_weight_to_int4pack_mps(const at::Tensor & self, int64_t innerKTiles);
 } // namespace native
 } // namespace at

@@ -18,9 +18,9 @@ struct TORCH_API scatter_src {
   using schema = at::Tensor (const at::Tensor &, int64_t, const at::Tensor &, const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::scatter")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "src")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "scatter.src(Tensor self, int dim, Tensor index, Tensor src) -> Tensor")
+  static constexpr const char* name = "aten::scatter";
+  static constexpr const char* overload_name = "src";
+  static constexpr const char* schema_str = "scatter.src(Tensor self, int dim, Tensor index, Tensor src) -> Tensor";
   static at::Tensor call(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & src);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & src);
 };
@@ -29,9 +29,9 @@ struct TORCH_API scatter__src {
   using schema = at::Tensor & (at::Tensor &, int64_t, const at::Tensor &, const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::scatter_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "src")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "scatter_.src(Tensor(a!) self, int dim, Tensor index, Tensor src) -> Tensor(a!)")
+  static constexpr const char* name = "aten::scatter_";
+  static constexpr const char* overload_name = "src";
+  static constexpr const char* schema_str = "scatter_.src(Tensor(a!) self, int dim, Tensor index, Tensor src) -> Tensor(a!)";
   static at::Tensor & call(at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & src);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & src);
 };
@@ -40,9 +40,9 @@ struct TORCH_API scatter_src_out {
   using schema = at::Tensor & (const at::Tensor &, int64_t, const at::Tensor &, const at::Tensor &, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::scatter")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "src_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "scatter.src_out(Tensor self, int dim, Tensor index, Tensor src, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::scatter";
+  static constexpr const char* overload_name = "src_out";
+  static constexpr const char* schema_str = "scatter.src_out(Tensor self, int dim, Tensor index, Tensor src, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & src, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & src, at::Tensor & out);
 };
@@ -51,9 +51,9 @@ struct TORCH_API scatter_value {
   using schema = at::Tensor (const at::Tensor &, int64_t, const at::Tensor &, const at::Scalar &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::scatter")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "value")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "scatter.value(Tensor self, int dim, Tensor index, Scalar value) -> Tensor")
+  static constexpr const char* name = "aten::scatter";
+  static constexpr const char* overload_name = "value";
+  static constexpr const char* schema_str = "scatter.value(Tensor self, int dim, Tensor index, Scalar value) -> Tensor";
   static at::Tensor call(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Scalar & value);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Scalar & value);
 };
@@ -62,9 +62,9 @@ struct TORCH_API scatter__value {
   using schema = at::Tensor & (at::Tensor &, int64_t, const at::Tensor &, const at::Scalar &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::scatter_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "value")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "scatter_.value(Tensor(a!) self, int dim, Tensor index, Scalar value) -> Tensor(a!)")
+  static constexpr const char* name = "aten::scatter_";
+  static constexpr const char* overload_name = "value";
+  static constexpr const char* schema_str = "scatter_.value(Tensor(a!) self, int dim, Tensor index, Scalar value) -> Tensor(a!)";
   static at::Tensor & call(at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Scalar & value);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Scalar & value);
 };
@@ -73,9 +73,9 @@ struct TORCH_API scatter_value_out {
   using schema = at::Tensor & (const at::Tensor &, int64_t, const at::Tensor &, const at::Scalar &, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::scatter")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "value_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "scatter.value_out(Tensor self, int dim, Tensor index, Scalar value, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::scatter";
+  static constexpr const char* overload_name = "value_out";
+  static constexpr const char* schema_str = "scatter.value_out(Tensor self, int dim, Tensor index, Scalar value, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Scalar & value, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Scalar & value, at::Tensor & out);
 };
@@ -84,9 +84,9 @@ struct TORCH_API scatter_reduce {
   using schema = at::Tensor (const at::Tensor &, int64_t, const at::Tensor &, const at::Tensor &, c10::string_view);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::scatter")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "reduce")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "scatter.reduce(Tensor self, int dim, Tensor index, Tensor src, *, str reduce) -> Tensor")
+  static constexpr const char* name = "aten::scatter";
+  static constexpr const char* overload_name = "reduce";
+  static constexpr const char* schema_str = "scatter.reduce(Tensor self, int dim, Tensor index, Tensor src, *, str reduce) -> Tensor";
   static at::Tensor call(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & src, c10::string_view reduce);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & src, c10::string_view reduce);
 };
@@ -95,9 +95,9 @@ struct TORCH_API scatter__reduce {
   using schema = at::Tensor & (at::Tensor &, int64_t, const at::Tensor &, const at::Tensor &, c10::string_view);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::scatter_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "reduce")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "scatter_.reduce(Tensor(a!) self, int dim, Tensor index, Tensor src, *, str reduce) -> Tensor(a!)")
+  static constexpr const char* name = "aten::scatter_";
+  static constexpr const char* overload_name = "reduce";
+  static constexpr const char* schema_str = "scatter_.reduce(Tensor(a!) self, int dim, Tensor index, Tensor src, *, str reduce) -> Tensor(a!)";
   static at::Tensor & call(at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & src, c10::string_view reduce);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & src, c10::string_view reduce);
 };
@@ -106,9 +106,9 @@ struct TORCH_API scatter_reduce_out {
   using schema = at::Tensor & (const at::Tensor &, int64_t, const at::Tensor &, const at::Tensor &, c10::string_view, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::scatter")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "reduce_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "scatter.reduce_out(Tensor self, int dim, Tensor index, Tensor src, *, str reduce, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::scatter";
+  static constexpr const char* overload_name = "reduce_out";
+  static constexpr const char* schema_str = "scatter.reduce_out(Tensor self, int dim, Tensor index, Tensor src, *, str reduce, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & src, c10::string_view reduce, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Tensor & src, c10::string_view reduce, at::Tensor & out);
 };
@@ -117,9 +117,9 @@ struct TORCH_API scatter_value_reduce {
   using schema = at::Tensor (const at::Tensor &, int64_t, const at::Tensor &, const at::Scalar &, c10::string_view);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::scatter")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "value_reduce")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "scatter.value_reduce(Tensor self, int dim, Tensor index, Scalar value, *, str reduce) -> Tensor")
+  static constexpr const char* name = "aten::scatter";
+  static constexpr const char* overload_name = "value_reduce";
+  static constexpr const char* schema_str = "scatter.value_reduce(Tensor self, int dim, Tensor index, Scalar value, *, str reduce) -> Tensor";
   static at::Tensor call(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Scalar & value, c10::string_view reduce);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Scalar & value, c10::string_view reduce);
 };
@@ -128,9 +128,9 @@ struct TORCH_API scatter__value_reduce {
   using schema = at::Tensor & (at::Tensor &, int64_t, const at::Tensor &, const at::Scalar &, c10::string_view);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::scatter_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "value_reduce")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "scatter_.value_reduce(Tensor(a!) self, int dim, Tensor index, Scalar value, *, str reduce) -> Tensor(a!)")
+  static constexpr const char* name = "aten::scatter_";
+  static constexpr const char* overload_name = "value_reduce";
+  static constexpr const char* schema_str = "scatter_.value_reduce(Tensor(a!) self, int dim, Tensor index, Scalar value, *, str reduce) -> Tensor(a!)";
   static at::Tensor & call(at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Scalar & value, c10::string_view reduce);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Scalar & value, c10::string_view reduce);
 };
@@ -139,9 +139,9 @@ struct TORCH_API scatter_value_reduce_out {
   using schema = at::Tensor & (const at::Tensor &, int64_t, const at::Tensor &, const at::Scalar &, c10::string_view, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::scatter")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "value_reduce_out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "scatter.value_reduce_out(Tensor self, int dim, Tensor index, Scalar value, *, str reduce, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::scatter";
+  static constexpr const char* overload_name = "value_reduce_out";
+  static constexpr const char* schema_str = "scatter.value_reduce_out(Tensor self, int dim, Tensor index, Scalar value, *, str reduce, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Scalar & value, c10::string_view reduce, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t dim, const at::Tensor & index, const at::Scalar & value, c10::string_view reduce, at::Tensor & out);
 };
@@ -150,9 +150,9 @@ struct TORCH_API scatter_dimname_src {
   using schema = at::Tensor (const at::Tensor &, at::Dimname, const at::Tensor &, const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::scatter")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "dimname_src")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "scatter.dimname_src(Tensor self, Dimname dim, Tensor index, Tensor src) -> Tensor")
+  static constexpr const char* name = "aten::scatter";
+  static constexpr const char* overload_name = "dimname_src";
+  static constexpr const char* schema_str = "scatter.dimname_src(Tensor self, Dimname dim, Tensor index, Tensor src) -> Tensor";
   static at::Tensor call(const at::Tensor & self, at::Dimname dim, const at::Tensor & index, const at::Tensor & src);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::Dimname dim, const at::Tensor & index, const at::Tensor & src);
 };
@@ -161,9 +161,9 @@ struct TORCH_API scatter_dimname_value {
   using schema = at::Tensor (const at::Tensor &, at::Dimname, const at::Tensor &, const at::Scalar &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::scatter")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "dimname_value")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "scatter.dimname_value(Tensor self, Dimname dim, Tensor index, Scalar value) -> Tensor")
+  static constexpr const char* name = "aten::scatter";
+  static constexpr const char* overload_name = "dimname_value";
+  static constexpr const char* schema_str = "scatter.dimname_value(Tensor self, Dimname dim, Tensor index, Scalar value) -> Tensor";
   static at::Tensor call(const at::Tensor & self, at::Dimname dim, const at::Tensor & index, const at::Scalar & value);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::Dimname dim, const at::Tensor & index, const at::Scalar & value);
 };

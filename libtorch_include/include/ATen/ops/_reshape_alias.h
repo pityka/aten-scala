@@ -27,7 +27,7 @@ inline at::Tensor _reshape_alias(const at::Tensor & self, at::IntArrayRef size, 
     return at::_ops::_reshape_alias::call(self, c10::fromIntArrayRefSlow(size), c10::fromIntArrayRefSlow(stride));
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor _reshape_alias(const at::Tensor & self, at::IntArrayRef size, at::IntArrayRef stride) {
     return at::_ops::_reshape_alias::call(self, c10::fromIntArrayRefSlow(size), c10::fromIntArrayRefSlow(stride));
   }
@@ -38,7 +38,7 @@ inline at::Tensor _reshape_alias_symint(const at::Tensor & self, c10::SymIntArra
     return at::_ops::_reshape_alias::call(self, size, stride);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor _reshape_alias(const at::Tensor & self, c10::SymIntArrayRef size, c10::SymIntArrayRef stride) {
     return at::_ops::_reshape_alias::call(self, size, stride);
   }

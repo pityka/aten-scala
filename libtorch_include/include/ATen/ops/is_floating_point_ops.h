@@ -18,9 +18,9 @@ struct TORCH_API is_floating_point {
   using schema = bool (const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::is_floating_point")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "is_floating_point(Tensor self) -> bool")
+  static constexpr const char* name = "aten::is_floating_point";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "is_floating_point(Tensor self) -> bool";
   static bool call(const at::Tensor & self);
   static bool redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self);
 };

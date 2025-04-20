@@ -18,9 +18,9 @@ struct TORCH_API linalg_vecdot {
   using schema = at::Tensor (const at::Tensor &, const at::Tensor &, int64_t);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::linalg_vecdot")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "linalg_vecdot(Tensor x, Tensor y, *, int dim=-1) -> Tensor")
+  static constexpr const char* name = "aten::linalg_vecdot";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "linalg_vecdot(Tensor x, Tensor y, *, int dim=-1) -> Tensor";
   static at::Tensor call(const at::Tensor & x, const at::Tensor & y, int64_t dim);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & x, const at::Tensor & y, int64_t dim);
 };
@@ -29,9 +29,9 @@ struct TORCH_API linalg_vecdot_out {
   using schema = at::Tensor & (const at::Tensor &, const at::Tensor &, int64_t, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::linalg_vecdot")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "linalg_vecdot.out(Tensor x, Tensor y, *, int dim=-1, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::linalg_vecdot";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "linalg_vecdot.out(Tensor x, Tensor y, *, int dim=-1, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & x, const at::Tensor & y, int64_t dim, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & x, const at::Tensor & y, int64_t dim, at::Tensor & out);
 };

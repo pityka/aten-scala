@@ -18,9 +18,9 @@ struct TORCH_API special_polygamma {
   using schema = at::Tensor (int64_t, const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::special_polygamma")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "special_polygamma(int n, Tensor self) -> Tensor")
+  static constexpr const char* name = "aten::special_polygamma";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "special_polygamma(int n, Tensor self) -> Tensor";
   static at::Tensor call(int64_t n, const at::Tensor & self);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, int64_t n, const at::Tensor & self);
 };
@@ -29,9 +29,9 @@ struct TORCH_API special_polygamma_out {
   using schema = at::Tensor & (int64_t, const at::Tensor &, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::special_polygamma")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "special_polygamma.out(int n, Tensor self, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::special_polygamma";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "special_polygamma.out(int n, Tensor self, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(int64_t n, const at::Tensor & self, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, int64_t n, const at::Tensor & self, at::Tensor & out);
 };

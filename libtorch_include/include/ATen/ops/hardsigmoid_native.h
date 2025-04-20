@@ -19,6 +19,9 @@ namespace native {
 struct TORCH_API structured_hardsigmoid_out : public at::meta::structured_hardsigmoid {
 void impl(const at::Tensor & self, const at::Tensor & out);
 };
+struct TORCH_API structured_hardsigmoid_out_mps : public at::meta::structured_hardsigmoid {
+void impl(const at::Tensor & self, const at::Tensor & out);
+};
 TORCH_API at::Tensor hardsigmoid_quantized_cpu(const at::Tensor & self);
 TORCH_API at::Tensor & hardsigmoid_out_quantized_cpu(const at::Tensor & self, at::Tensor & out);
 } // namespace native

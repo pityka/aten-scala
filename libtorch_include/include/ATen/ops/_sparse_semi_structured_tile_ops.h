@@ -18,9 +18,9 @@ struct TORCH_API _sparse_semi_structured_tile {
   using schema = ::std::tuple<at::Tensor,at::Tensor,at::Tensor,at::Tensor,at::Tensor> (const at::Tensor &, c10::string_view, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_sparse_semi_structured_tile")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_sparse_semi_structured_tile(Tensor input, str algorithm=\"\", bool use_cutlass=True) -> (Tensor, Tensor, Tensor, Tensor, Tensor)")
+  static constexpr const char* name = "aten::_sparse_semi_structured_tile";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "_sparse_semi_structured_tile(Tensor input, str algorithm=\"\", bool use_cutlass=True) -> (Tensor, Tensor, Tensor, Tensor, Tensor)";
   static ::std::tuple<at::Tensor,at::Tensor,at::Tensor,at::Tensor,at::Tensor> call(const at::Tensor & input, c10::string_view algorithm, bool use_cutlass);
   static ::std::tuple<at::Tensor,at::Tensor,at::Tensor,at::Tensor,at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & input, c10::string_view algorithm, bool use_cutlass);
 };

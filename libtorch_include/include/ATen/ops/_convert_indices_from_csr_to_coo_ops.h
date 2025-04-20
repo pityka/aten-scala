@@ -18,9 +18,9 @@ struct TORCH_API _convert_indices_from_csr_to_coo {
   using schema = at::Tensor (const at::Tensor &, const at::Tensor &, bool, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_convert_indices_from_csr_to_coo")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_convert_indices_from_csr_to_coo(Tensor crow_indices, Tensor col_indices, *, bool out_int32=False, bool transpose=False) -> Tensor")
+  static constexpr const char* name = "aten::_convert_indices_from_csr_to_coo";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "_convert_indices_from_csr_to_coo(Tensor crow_indices, Tensor col_indices, *, bool out_int32=False, bool transpose=False) -> Tensor";
   static at::Tensor call(const at::Tensor & crow_indices, const at::Tensor & col_indices, bool out_int32, bool transpose);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & crow_indices, const at::Tensor & col_indices, bool out_int32, bool transpose);
 };
@@ -29,9 +29,9 @@ struct TORCH_API _convert_indices_from_csr_to_coo_out {
   using schema = at::Tensor & (const at::Tensor &, const at::Tensor &, bool, bool, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_convert_indices_from_csr_to_coo")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_convert_indices_from_csr_to_coo.out(Tensor crow_indices, Tensor col_indices, *, bool out_int32=False, bool transpose=False, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::_convert_indices_from_csr_to_coo";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "_convert_indices_from_csr_to_coo.out(Tensor crow_indices, Tensor col_indices, *, bool out_int32=False, bool transpose=False, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & crow_indices, const at::Tensor & col_indices, bool out_int32, bool transpose, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & crow_indices, const at::Tensor & col_indices, bool out_int32, bool transpose, at::Tensor & out);
 };

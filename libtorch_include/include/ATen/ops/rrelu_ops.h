@@ -18,9 +18,9 @@ struct TORCH_API rrelu {
   using schema = at::Tensor (const at::Tensor &, const at::Scalar &, const at::Scalar &, bool, ::std::optional<at::Generator>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::rrelu")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "rrelu(Tensor self, Scalar lower=0.125, Scalar upper=0.3333333333333333, bool training=False, Generator? generator=None) -> Tensor")
+  static constexpr const char* name = "aten::rrelu";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "rrelu(Tensor self, Scalar lower=0.125, Scalar upper=0.3333333333333333, bool training=False, Generator? generator=None) -> Tensor";
   static at::Tensor call(const at::Tensor & self, const at::Scalar & lower, const at::Scalar & upper, bool training, ::std::optional<at::Generator> generator);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Scalar & lower, const at::Scalar & upper, bool training, ::std::optional<at::Generator> generator);
 };
@@ -29,9 +29,9 @@ struct TORCH_API rrelu_ {
   using schema = at::Tensor & (at::Tensor &, const at::Scalar &, const at::Scalar &, bool, ::std::optional<at::Generator>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::rrelu_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "rrelu_(Tensor(a!) self, Scalar lower=0.125, Scalar upper=0.3333333333333333, bool training=False, Generator? generator=None) -> Tensor(a!)")
+  static constexpr const char* name = "aten::rrelu_";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "rrelu_(Tensor(a!) self, Scalar lower=0.125, Scalar upper=0.3333333333333333, bool training=False, Generator? generator=None) -> Tensor(a!)";
   static at::Tensor & call(at::Tensor & self, const at::Scalar & lower, const at::Scalar & upper, bool training, ::std::optional<at::Generator> generator);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::Tensor & self, const at::Scalar & lower, const at::Scalar & upper, bool training, ::std::optional<at::Generator> generator);
 };

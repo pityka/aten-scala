@@ -18,9 +18,9 @@ struct TORCH_API cdist {
   using schema = at::Tensor (const at::Tensor &, const at::Tensor &, double, ::std::optional<int64_t>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::cdist")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "cdist(Tensor x1, Tensor x2, float p=2, int? compute_mode=None) -> Tensor")
+  static constexpr const char* name = "aten::cdist";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "cdist(Tensor x1, Tensor x2, float p=2, int? compute_mode=None) -> Tensor";
   static at::Tensor call(const at::Tensor & x1, const at::Tensor & x2, double p, ::std::optional<int64_t> compute_mode);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & x1, const at::Tensor & x2, double p, ::std::optional<int64_t> compute_mode);
 };

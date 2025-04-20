@@ -27,7 +27,7 @@ inline at::Tensor & _upsample_bilinear2d_aa_backward_out(at::Tensor & grad_input
     return at::_ops::_upsample_bilinear2d_aa_backward_grad_input::call(grad_output, c10::fromIntArrayRefSlow(output_size), c10::fromIntArrayRefSlow(input_size), align_corners, scales_h, scales_w, grad_input);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & _upsample_bilinear2d_aa_backward_out(at::Tensor & grad_input, const at::Tensor & grad_output, at::IntArrayRef output_size, at::IntArrayRef input_size, bool align_corners, ::std::optional<double> scales_h=::std::nullopt, ::std::optional<double> scales_w=::std::nullopt) {
     return at::_ops::_upsample_bilinear2d_aa_backward_grad_input::call(grad_output, c10::fromIntArrayRefSlow(output_size), c10::fromIntArrayRefSlow(input_size), align_corners, scales_h, scales_w, grad_input);
   }
@@ -38,7 +38,7 @@ inline at::Tensor & _upsample_bilinear2d_aa_backward_outf(const at::Tensor & gra
     return at::_ops::_upsample_bilinear2d_aa_backward_grad_input::call(grad_output, c10::fromIntArrayRefSlow(output_size), c10::fromIntArrayRefSlow(input_size), align_corners, scales_h, scales_w, grad_input);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & _upsample_bilinear2d_aa_backward_outf(const at::Tensor & grad_output, at::IntArrayRef output_size, at::IntArrayRef input_size, bool align_corners, ::std::optional<double> scales_h, ::std::optional<double> scales_w, at::Tensor & grad_input) {
     return at::_ops::_upsample_bilinear2d_aa_backward_grad_input::call(grad_output, c10::fromIntArrayRefSlow(output_size), c10::fromIntArrayRefSlow(input_size), align_corners, scales_h, scales_w, grad_input);
   }
@@ -49,7 +49,7 @@ inline at::Tensor & _upsample_bilinear2d_aa_backward_symint_out(at::Tensor & gra
     return at::_ops::_upsample_bilinear2d_aa_backward_grad_input::call(grad_output, output_size, input_size, align_corners, scales_h, scales_w, grad_input);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & _upsample_bilinear2d_aa_backward_out(at::Tensor & grad_input, const at::Tensor & grad_output, c10::SymIntArrayRef output_size, c10::SymIntArrayRef input_size, bool align_corners, ::std::optional<double> scales_h=::std::nullopt, ::std::optional<double> scales_w=::std::nullopt) {
     return at::_ops::_upsample_bilinear2d_aa_backward_grad_input::call(grad_output, output_size, input_size, align_corners, scales_h, scales_w, grad_input);
   }
@@ -60,7 +60,7 @@ inline at::Tensor & _upsample_bilinear2d_aa_backward_symint_outf(const at::Tenso
     return at::_ops::_upsample_bilinear2d_aa_backward_grad_input::call(grad_output, output_size, input_size, align_corners, scales_h, scales_w, grad_input);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & _upsample_bilinear2d_aa_backward_outf(const at::Tensor & grad_output, c10::SymIntArrayRef output_size, c10::SymIntArrayRef input_size, bool align_corners, ::std::optional<double> scales_h, ::std::optional<double> scales_w, at::Tensor & grad_input) {
     return at::_ops::_upsample_bilinear2d_aa_backward_grad_input::call(grad_output, output_size, input_size, align_corners, scales_h, scales_w, grad_input);
   }
@@ -71,7 +71,7 @@ inline at::Tensor _upsample_bilinear2d_aa_backward(const at::Tensor & grad_outpu
     return at::_ops::_upsample_bilinear2d_aa_backward::call(grad_output, c10::fromIntArrayRefSlow(output_size), c10::fromIntArrayRefSlow(input_size), align_corners, scales_h, scales_w);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor _upsample_bilinear2d_aa_backward(const at::Tensor & grad_output, at::IntArrayRef output_size, at::IntArrayRef input_size, bool align_corners, ::std::optional<double> scales_h=::std::nullopt, ::std::optional<double> scales_w=::std::nullopt) {
     return at::_ops::_upsample_bilinear2d_aa_backward::call(grad_output, c10::fromIntArrayRefSlow(output_size), c10::fromIntArrayRefSlow(input_size), align_corners, scales_h, scales_w);
   }
@@ -82,7 +82,7 @@ inline at::Tensor _upsample_bilinear2d_aa_backward_symint(const at::Tensor & gra
     return at::_ops::_upsample_bilinear2d_aa_backward::call(grad_output, output_size, input_size, align_corners, scales_h, scales_w);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor _upsample_bilinear2d_aa_backward(const at::Tensor & grad_output, c10::SymIntArrayRef output_size, c10::SymIntArrayRef input_size, bool align_corners, ::std::optional<double> scales_h=::std::nullopt, ::std::optional<double> scales_w=::std::nullopt) {
     return at::_ops::_upsample_bilinear2d_aa_backward::call(grad_output, output_size, input_size, align_corners, scales_h, scales_w);
   }

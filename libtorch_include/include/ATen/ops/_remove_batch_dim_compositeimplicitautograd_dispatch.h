@@ -18,6 +18,7 @@ namespace at {
 namespace compositeimplicitautograd {
 
 TORCH_API at::Tensor _remove_batch_dim(const at::Tensor & self, int64_t level, int64_t batch_size, int64_t out_dim);
+TORCH_API at::Tensor _remove_batch_dim_symint(const at::Tensor & self, int64_t level, c10::SymInt batch_size, int64_t out_dim);
 
 } // namespace compositeimplicitautograd
 } // namespace at

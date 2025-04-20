@@ -18,9 +18,9 @@ struct TORCH_API fbgemm_linear_quantize_weight {
   using schema = ::std::tuple<at::Tensor,at::Tensor,double,int64_t> (const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::fbgemm_linear_quantize_weight")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "fbgemm_linear_quantize_weight(Tensor input) -> (Tensor, Tensor, float, int)")
+  static constexpr const char* name = "aten::fbgemm_linear_quantize_weight";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "fbgemm_linear_quantize_weight(Tensor input) -> (Tensor, Tensor, float, int)";
   static ::std::tuple<at::Tensor,at::Tensor,double,int64_t> call(const at::Tensor & input);
   static ::std::tuple<at::Tensor,at::Tensor,double,int64_t> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & input);
 };

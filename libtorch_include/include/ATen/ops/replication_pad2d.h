@@ -27,7 +27,7 @@ inline at::Tensor & replication_pad2d_out(at::Tensor & out, const at::Tensor & s
     return at::_ops::replication_pad2d_out::call(self, c10::fromIntArrayRefSlow(padding), out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & replication_pad2d_out(at::Tensor & out, const at::Tensor & self, at::IntArrayRef padding) {
     return at::_ops::replication_pad2d_out::call(self, c10::fromIntArrayRefSlow(padding), out);
   }
@@ -38,7 +38,7 @@ inline at::Tensor & replication_pad2d_outf(const at::Tensor & self, at::IntArray
     return at::_ops::replication_pad2d_out::call(self, c10::fromIntArrayRefSlow(padding), out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & replication_pad2d_outf(const at::Tensor & self, at::IntArrayRef padding, at::Tensor & out) {
     return at::_ops::replication_pad2d_out::call(self, c10::fromIntArrayRefSlow(padding), out);
   }
@@ -49,7 +49,7 @@ inline at::Tensor & replication_pad2d_symint_out(at::Tensor & out, const at::Ten
     return at::_ops::replication_pad2d_out::call(self, padding, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & replication_pad2d_out(at::Tensor & out, const at::Tensor & self, c10::SymIntArrayRef padding) {
     return at::_ops::replication_pad2d_out::call(self, padding, out);
   }
@@ -60,7 +60,7 @@ inline at::Tensor & replication_pad2d_symint_outf(const at::Tensor & self, c10::
     return at::_ops::replication_pad2d_out::call(self, padding, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & replication_pad2d_outf(const at::Tensor & self, c10::SymIntArrayRef padding, at::Tensor & out) {
     return at::_ops::replication_pad2d_out::call(self, padding, out);
   }
@@ -71,7 +71,7 @@ inline at::Tensor replication_pad2d(const at::Tensor & self, at::IntArrayRef pad
     return at::_ops::replication_pad2d::call(self, c10::fromIntArrayRefSlow(padding));
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor replication_pad2d(const at::Tensor & self, at::IntArrayRef padding) {
     return at::_ops::replication_pad2d::call(self, c10::fromIntArrayRefSlow(padding));
   }
@@ -82,7 +82,7 @@ inline at::Tensor replication_pad2d_symint(const at::Tensor & self, c10::SymIntA
     return at::_ops::replication_pad2d::call(self, padding);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor replication_pad2d(const at::Tensor & self, c10::SymIntArrayRef padding) {
     return at::_ops::replication_pad2d::call(self, padding);
   }

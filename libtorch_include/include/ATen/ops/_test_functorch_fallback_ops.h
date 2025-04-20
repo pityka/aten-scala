@@ -18,9 +18,9 @@ struct TORCH_API _test_functorch_fallback {
   using schema = at::Tensor (const at::Tensor &, const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_test_functorch_fallback")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_test_functorch_fallback(Tensor self, Tensor other) -> Tensor")
+  static constexpr const char* name = "aten::_test_functorch_fallback";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "_test_functorch_fallback(Tensor self, Tensor other) -> Tensor";
   static at::Tensor call(const at::Tensor & self, const at::Tensor & other);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & other);
 };
@@ -29,9 +29,9 @@ struct TORCH_API _test_functorch_fallback_out {
   using schema = at::Tensor & (const at::Tensor &, const at::Tensor &, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_test_functorch_fallback")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_test_functorch_fallback.out(Tensor self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::_test_functorch_fallback";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "_test_functorch_fallback.out(Tensor self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, const at::Tensor & other, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & other, at::Tensor & out);
 };

@@ -27,7 +27,7 @@ inline at::Tensor conv1d(const at::Tensor & input, const at::Tensor & weight, co
     return at::_ops::conv1d::call(input, weight, bias, c10::fromIntArrayRefSlow(stride), c10::fromIntArrayRefSlow(padding), c10::fromIntArrayRefSlow(dilation), groups);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor conv1d(const at::Tensor & input, const at::Tensor & weight, const ::std::optional<at::Tensor> & bias={}, at::IntArrayRef stride=1, at::IntArrayRef padding=0, at::IntArrayRef dilation=1, int64_t groups=1) {
     return at::_ops::conv1d::call(input, weight, bias, c10::fromIntArrayRefSlow(stride), c10::fromIntArrayRefSlow(padding), c10::fromIntArrayRefSlow(dilation), groups);
   }
@@ -38,7 +38,7 @@ inline at::Tensor conv1d_symint(const at::Tensor & input, const at::Tensor & wei
     return at::_ops::conv1d::call(input, weight, bias, stride, padding, dilation, groups);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor conv1d(const at::Tensor & input, const at::Tensor & weight, const ::std::optional<at::Tensor> & bias={}, c10::SymIntArrayRef stride=c10::SymInt(1), c10::SymIntArrayRef padding=c10::SymInt(0), c10::SymIntArrayRef dilation=c10::SymInt(1), c10::SymInt groups=1) {
     return at::_ops::conv1d::call(input, weight, bias, stride, padding, dilation, groups);
   }
@@ -49,7 +49,7 @@ inline at::Tensor conv1d(const at::Tensor & input, const at::Tensor & weight, co
     return at::_ops::conv1d_padding::call(input, weight, bias, c10::fromIntArrayRefSlow(stride), padding, c10::fromIntArrayRefSlow(dilation), groups);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor conv1d(const at::Tensor & input, const at::Tensor & weight, const ::std::optional<at::Tensor> & bias, at::IntArrayRef stride, c10::string_view padding, at::IntArrayRef dilation=1, int64_t groups=1) {
     return at::_ops::conv1d_padding::call(input, weight, bias, c10::fromIntArrayRefSlow(stride), padding, c10::fromIntArrayRefSlow(dilation), groups);
   }
@@ -60,7 +60,7 @@ inline at::Tensor conv1d_symint(const at::Tensor & input, const at::Tensor & wei
     return at::_ops::conv1d_padding::call(input, weight, bias, stride, padding, dilation, groups);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor conv1d(const at::Tensor & input, const at::Tensor & weight, const ::std::optional<at::Tensor> & bias, c10::SymIntArrayRef stride, c10::string_view padding, c10::SymIntArrayRef dilation=c10::SymInt(1), c10::SymInt groups=1) {
     return at::_ops::conv1d_padding::call(input, weight, bias, stride, padding, dilation, groups);
   }

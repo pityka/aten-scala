@@ -18,9 +18,9 @@ struct TORCH_API hardtanh_out {
   using schema = at::Tensor & (const at::Tensor &, const at::Scalar &, const at::Scalar &, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::hardtanh")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "hardtanh.out(Tensor self, Scalar min_val=-1, Scalar max_val=1, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::hardtanh";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "hardtanh.out(Tensor self, Scalar min_val=-1, Scalar max_val=1, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, const at::Scalar & min_val, const at::Scalar & max_val, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Scalar & min_val, const at::Scalar & max_val, at::Tensor & out);
 };
@@ -29,9 +29,9 @@ struct TORCH_API hardtanh {
   using schema = at::Tensor (const at::Tensor &, const at::Scalar &, const at::Scalar &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::hardtanh")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "hardtanh(Tensor self, Scalar min_val=-1, Scalar max_val=1) -> Tensor")
+  static constexpr const char* name = "aten::hardtanh";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "hardtanh(Tensor self, Scalar min_val=-1, Scalar max_val=1) -> Tensor";
   static at::Tensor call(const at::Tensor & self, const at::Scalar & min_val, const at::Scalar & max_val);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Scalar & min_val, const at::Scalar & max_val);
 };
@@ -40,9 +40,9 @@ struct TORCH_API hardtanh_ {
   using schema = at::Tensor & (at::Tensor &, const at::Scalar &, const at::Scalar &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::hardtanh_")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "hardtanh_(Tensor(a!) self, Scalar min_val=-1, Scalar max_val=1) -> Tensor(a!)")
+  static constexpr const char* name = "aten::hardtanh_";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "hardtanh_(Tensor(a!) self, Scalar min_val=-1, Scalar max_val=1) -> Tensor(a!)";
   static at::Tensor & call(at::Tensor & self, const at::Scalar & min_val, const at::Scalar & max_val);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, at::Tensor & self, const at::Scalar & min_val, const at::Scalar & max_val);
 };

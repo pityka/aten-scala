@@ -27,7 +27,7 @@ inline at::Tensor as_strided_copy(const at::Tensor & self, at::IntArrayRef size,
     return at::_ops::as_strided_copy::call(self, c10::fromIntArrayRefSlow(size), c10::fromIntArrayRefSlow(stride), storage_offset.has_value() ? ::std::make_optional(c10::SymInt(*storage_offset)) : ::std::nullopt);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor as_strided_copy(const at::Tensor & self, at::IntArrayRef size, at::IntArrayRef stride, ::std::optional<int64_t> storage_offset=::std::nullopt) {
     return at::_ops::as_strided_copy::call(self, c10::fromIntArrayRefSlow(size), c10::fromIntArrayRefSlow(stride), storage_offset.has_value() ? ::std::make_optional(c10::SymInt(*storage_offset)) : ::std::nullopt);
   }
@@ -38,7 +38,7 @@ inline at::Tensor as_strided_copy_symint(const at::Tensor & self, c10::SymIntArr
     return at::_ops::as_strided_copy::call(self, size, stride, storage_offset);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor as_strided_copy(const at::Tensor & self, c10::SymIntArrayRef size, c10::SymIntArrayRef stride, ::std::optional<c10::SymInt> storage_offset=::std::nullopt) {
     return at::_ops::as_strided_copy::call(self, size, stride, storage_offset);
   }
@@ -49,7 +49,7 @@ inline at::Tensor & as_strided_copy_out(at::Tensor & out, const at::Tensor & sel
     return at::_ops::as_strided_copy_out::call(self, c10::fromIntArrayRefSlow(size), c10::fromIntArrayRefSlow(stride), storage_offset.has_value() ? ::std::make_optional(c10::SymInt(*storage_offset)) : ::std::nullopt, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & as_strided_copy_out(at::Tensor & out, const at::Tensor & self, at::IntArrayRef size, at::IntArrayRef stride, ::std::optional<int64_t> storage_offset=::std::nullopt) {
     return at::_ops::as_strided_copy_out::call(self, c10::fromIntArrayRefSlow(size), c10::fromIntArrayRefSlow(stride), storage_offset.has_value() ? ::std::make_optional(c10::SymInt(*storage_offset)) : ::std::nullopt, out);
   }
@@ -60,7 +60,7 @@ inline at::Tensor & as_strided_copy_outf(const at::Tensor & self, at::IntArrayRe
     return at::_ops::as_strided_copy_out::call(self, c10::fromIntArrayRefSlow(size), c10::fromIntArrayRefSlow(stride), storage_offset.has_value() ? ::std::make_optional(c10::SymInt(*storage_offset)) : ::std::nullopt, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, int64_t>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, int64_t>>>
   at::Tensor & as_strided_copy_outf(const at::Tensor & self, at::IntArrayRef size, at::IntArrayRef stride, ::std::optional<int64_t> storage_offset, at::Tensor & out) {
     return at::_ops::as_strided_copy_out::call(self, c10::fromIntArrayRefSlow(size), c10::fromIntArrayRefSlow(stride), storage_offset.has_value() ? ::std::make_optional(c10::SymInt(*storage_offset)) : ::std::nullopt, out);
   }
@@ -71,7 +71,7 @@ inline at::Tensor & as_strided_copy_symint_out(at::Tensor & out, const at::Tenso
     return at::_ops::as_strided_copy_out::call(self, size, stride, storage_offset, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & as_strided_copy_out(at::Tensor & out, const at::Tensor & self, c10::SymIntArrayRef size, c10::SymIntArrayRef stride, ::std::optional<c10::SymInt> storage_offset=::std::nullopt) {
     return at::_ops::as_strided_copy_out::call(self, size, stride, storage_offset, out);
   }
@@ -82,7 +82,7 @@ inline at::Tensor & as_strided_copy_symint_outf(const at::Tensor & self, c10::Sy
     return at::_ops::as_strided_copy_out::call(self, size, stride, storage_offset, out);
 }
 namespace symint {
-  template <typename T, typename = std::enable_if_t<std::is_same<T, c10::SymInt>::value>>
+  template <typename T, typename = std::enable_if_t<std::is_same_v<T, c10::SymInt>>>
   at::Tensor & as_strided_copy_outf(const at::Tensor & self, c10::SymIntArrayRef size, c10::SymIntArrayRef stride, ::std::optional<c10::SymInt> storage_offset, at::Tensor & out) {
     return at::_ops::as_strided_copy_out::call(self, size, stride, storage_offset, out);
   }

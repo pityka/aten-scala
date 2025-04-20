@@ -20,9 +20,13 @@ TORCH_API at::Tensor searchsorted_cpu(const at::Tensor & sorted_sequence, const 
 TORCH_API at::Tensor & searchsorted_out_cpu(const at::Tensor & sorted_sequence, const at::Tensor & self, bool out_int32, bool right, ::std::optional<c10::string_view> side, const ::std::optional<at::Tensor> & sorter, at::Tensor & out);
 TORCH_API at::Tensor searchsorted_cuda(const at::Tensor & sorted_sequence, const at::Tensor & self, bool out_int32=false, bool right=false, ::std::optional<c10::string_view> side=::std::nullopt, const ::std::optional<at::Tensor> & sorter={});
 TORCH_API at::Tensor & searchsorted_out_cuda(const at::Tensor & sorted_sequence, const at::Tensor & self, bool out_int32, bool right, ::std::optional<c10::string_view> side, const ::std::optional<at::Tensor> & sorter, at::Tensor & out);
+TORCH_API at::Tensor searchsorted_mps(const at::Tensor & sorted_sequence, const at::Tensor & self, bool out_int32=false, bool right=false, ::std::optional<c10::string_view> side=::std::nullopt, const ::std::optional<at::Tensor> & sorter={});
+TORCH_API at::Tensor & searchsorted_out_mps(const at::Tensor & sorted_sequence, const at::Tensor & self, bool out_int32, bool right, ::std::optional<c10::string_view> side, const ::std::optional<at::Tensor> & sorter, at::Tensor & out);
 TORCH_API at::Tensor searchsorted_cpu(const at::Tensor & sorted_sequence, const at::Scalar & self, bool out_int32=false, bool right=false, ::std::optional<c10::string_view> side=::std::nullopt, const ::std::optional<at::Tensor> & sorter={});
 TORCH_API at::Tensor & searchsorted_out_cpu(const at::Tensor & sorted_sequence, const at::Scalar & self, bool out_int32, bool right, ::std::optional<c10::string_view> side, const ::std::optional<at::Tensor> & sorter, at::Tensor & out);
 TORCH_API at::Tensor searchsorted_cuda(const at::Tensor & sorted_sequence, const at::Scalar & self, bool out_int32=false, bool right=false, ::std::optional<c10::string_view> side=::std::nullopt, const ::std::optional<at::Tensor> & sorter={});
 TORCH_API at::Tensor & searchsorted_out_cuda(const at::Tensor & sorted_sequence, const at::Scalar & self, bool out_int32, bool right, ::std::optional<c10::string_view> side, const ::std::optional<at::Tensor> & sorter, at::Tensor & out);
+TORCH_API at::Tensor searchsorted_mps(const at::Tensor & sorted_sequence, const at::Scalar & self, bool out_int32=false, bool right=false, ::std::optional<c10::string_view> side=::std::nullopt, const ::std::optional<at::Tensor> & sorter={});
+TORCH_API at::Tensor & searchsorted_out_mps(const at::Tensor & sorted_sequence, const at::Scalar & self, bool out_int32, bool right, ::std::optional<c10::string_view> side, const ::std::optional<at::Tensor> & sorter, at::Tensor & out);
 } // namespace native
 } // namespace at

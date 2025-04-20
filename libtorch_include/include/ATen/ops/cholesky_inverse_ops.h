@@ -18,9 +18,9 @@ struct TORCH_API cholesky_inverse {
   using schema = at::Tensor (const at::Tensor &, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::cholesky_inverse")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "cholesky_inverse(Tensor self, bool upper=False) -> Tensor")
+  static constexpr const char* name = "aten::cholesky_inverse";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "cholesky_inverse(Tensor self, bool upper=False) -> Tensor";
   static at::Tensor call(const at::Tensor & self, bool upper);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, bool upper);
 };
@@ -29,9 +29,9 @@ struct TORCH_API cholesky_inverse_out {
   using schema = at::Tensor & (const at::Tensor &, bool, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::cholesky_inverse")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "cholesky_inverse.out(Tensor self, bool upper=False, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::cholesky_inverse";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "cholesky_inverse.out(Tensor self, bool upper=False, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, bool upper, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, bool upper, at::Tensor & out);
 };

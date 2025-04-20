@@ -17,10 +17,10 @@ namespace at {
 
 namespace cuda {
 
-TORCH_API at::Tensor rrelu_with_noise(const at::Tensor & self, const at::Tensor & noise, const at::Scalar & lower=0.125, const at::Scalar & upper=0.3333333333333333, bool training=false, ::std::optional<at::Generator> generator=::std::nullopt);
-TORCH_API at::Tensor & rrelu_with_noise_out(at::Tensor & out, const at::Tensor & self, const at::Tensor & noise, const at::Scalar & lower=0.125, const at::Scalar & upper=0.3333333333333333, bool training=false, ::std::optional<at::Generator> generator=::std::nullopt);
-TORCH_API at::Tensor & rrelu_with_noise_outf(const at::Tensor & self, const at::Tensor & noise, const at::Scalar & lower, const at::Scalar & upper, bool training, ::std::optional<at::Generator> generator, at::Tensor & out);
-TORCH_API at::Tensor & rrelu_with_noise_(at::Tensor & self, const at::Tensor & noise, const at::Scalar & lower=0.125, const at::Scalar & upper=0.3333333333333333, bool training=false, ::std::optional<at::Generator> generator=::std::nullopt);
+TORCH_API at::Tensor & rrelu_with_noise_out(at::Tensor & out, const at::Tensor & self, at::Tensor & noise, const at::Scalar & lower=0.125, const at::Scalar & upper=0.3333333333333333, bool training=false, ::std::optional<at::Generator> generator=::std::nullopt);
+TORCH_API at::Tensor & rrelu_with_noise_outf(const at::Tensor & self, at::Tensor & noise, const at::Scalar & lower, const at::Scalar & upper, bool training, ::std::optional<at::Generator> generator, at::Tensor & out);
+TORCH_API at::Tensor & rrelu_with_noise_(at::Tensor & self, at::Tensor & noise, const at::Scalar & lower=0.125, const at::Scalar & upper=0.3333333333333333, bool training=false, ::std::optional<at::Generator> generator=::std::nullopt);
+TORCH_API at::Tensor rrelu_with_noise(const at::Tensor & self, at::Tensor & noise, const at::Scalar & lower=0.125, const at::Scalar & upper=0.3333333333333333, bool training=false, ::std::optional<at::Generator> generator=::std::nullopt);
 
 } // namespace cuda
 } // namespace at

@@ -18,9 +18,9 @@ struct TORCH_API flatten_dense_tensors {
   using schema = at::Tensor (at::TensorList);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::flatten_dense_tensors")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "flatten_dense_tensors(Tensor[] tensors) -> Tensor")
+  static constexpr const char* name = "aten::flatten_dense_tensors";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "flatten_dense_tensors(Tensor[] tensors) -> Tensor";
   static at::Tensor call(at::TensorList tensors);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, at::TensorList tensors);
 };

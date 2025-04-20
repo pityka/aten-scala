@@ -23,5 +23,8 @@ void impl(const at::Tensor & self, at::ArrayRef<int64_t> output_size, bool align
 struct TORCH_API structured_upsample_bicubic2d_out_cuda : public at::meta::structured_upsample_bicubic2d {
 void impl(const at::Tensor & self, at::ArrayRef<int64_t> output_size, bool align_corners, ::std::optional<double> scales_h, ::std::optional<double> scales_w, const at::Tensor & out);
 };
+struct TORCH_API structured_upsample_bicubic2d_out_mps : public at::meta::structured_upsample_bicubic2d {
+void impl(const at::Tensor & self, at::ArrayRef<int64_t> output_size, bool align_corners, ::std::optional<double> scales_h, ::std::optional<double> scales_w, const at::Tensor & out);
+};
 } // namespace native
 } // namespace at

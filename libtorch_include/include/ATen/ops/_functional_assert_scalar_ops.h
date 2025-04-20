@@ -18,9 +18,9 @@ struct TORCH_API _functional_assert_scalar {
   using schema = at::Tensor (const at::Scalar &, c10::string_view, const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_functional_assert_scalar")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_functional_assert_scalar(Scalar self, str assert_msg, Tensor dep_token) -> Tensor")
+  static constexpr const char* name = "aten::_functional_assert_scalar";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "_functional_assert_scalar(Scalar self, str assert_msg, Tensor dep_token) -> Tensor";
   static at::Tensor call(const at::Scalar & self, c10::string_view assert_msg, const at::Tensor & dep_token);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Scalar & self, c10::string_view assert_msg, const at::Tensor & dep_token);
 };

@@ -22,6 +22,8 @@ TORCH_API at::Tensor index_select_cuda(const at::Tensor & self, int64_t dim, con
 TORCH_API at::Tensor & index_select_out_cuda(const at::Tensor & self, int64_t dim, const at::Tensor & index, at::Tensor & out);
 TORCH_API at::Tensor index_select_sparse_cpu(const at::Tensor & self, int64_t dim, const at::Tensor & index);
 TORCH_API at::Tensor index_select_sparse_cuda(const at::Tensor & self, int64_t dim, const at::Tensor & index);
+TORCH_API at::Tensor index_select_mps(const at::Tensor & self, int64_t dim, const at::Tensor & index);
+TORCH_API at::Tensor & index_select_out_mps(const at::Tensor & self, int64_t dim, const at::Tensor & index, at::Tensor & out);
 TORCH_API at::Tensor index_select_quantized_cpu_(const at::Tensor & self, int64_t dim, const at::Tensor & index);
 TORCH_API at::Tensor index_select_quantized_cuda(const at::Tensor & self, int64_t dim, const at::Tensor & index);
 TORCH_API at::Tensor index_select(const at::Tensor & self, at::Dimname dim, const at::Tensor & index);

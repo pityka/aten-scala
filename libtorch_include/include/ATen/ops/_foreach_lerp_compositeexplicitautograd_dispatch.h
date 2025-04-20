@@ -25,6 +25,10 @@ TORCH_API ::std::vector<at::Tensor> _foreach_lerp(at::TensorList self, at::Tenso
 TORCH_API void _foreach_lerp_out(at::TensorList out, at::TensorList self, at::TensorList tensors1, const at::Scalar & weight);
 TORCH_API void _foreach_lerp_outf(at::TensorList self, at::TensorList tensors1, const at::Scalar & weight, at::TensorList out);
 TORCH_API void _foreach_lerp_(at::TensorList self, at::TensorList tensors1, const at::Scalar & weight);
+TORCH_API ::std::vector<at::Tensor> _foreach_lerp(at::TensorList self, at::TensorList tensors1, at::ArrayRef<at::Scalar> weight);
+TORCH_API void _foreach_lerp_out(at::TensorList out, at::TensorList self, at::TensorList tensors1, at::ArrayRef<at::Scalar> weight);
+TORCH_API void _foreach_lerp_outf(at::TensorList self, at::TensorList tensors1, at::ArrayRef<at::Scalar> weight, at::TensorList out);
+TORCH_API void _foreach_lerp_(at::TensorList self, at::TensorList tensors1, at::ArrayRef<at::Scalar> weight);
 
 } // namespace compositeexplicitautograd
 } // namespace at

@@ -18,9 +18,9 @@ struct TORCH_API topk_values {
   using schema = ::std::tuple<at::Tensor &,at::Tensor &> (const at::Tensor &, c10::SymInt, int64_t, bool, bool, at::Tensor &, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::topk")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "values")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "topk.values(Tensor self, SymInt k, int dim=-1, bool largest=True, bool sorted=True, *, Tensor(a!) values, Tensor(b!) indices) -> (Tensor(a!) values, Tensor(b!) indices)")
+  static constexpr const char* name = "aten::topk";
+  static constexpr const char* overload_name = "values";
+  static constexpr const char* schema_str = "topk.values(Tensor self, SymInt k, int dim=-1, bool largest=True, bool sorted=True, *, Tensor(a!) values, Tensor(b!) indices) -> (Tensor(a!) values, Tensor(b!) indices)";
   static ::std::tuple<at::Tensor &,at::Tensor &> call(const at::Tensor & self, c10::SymInt k, int64_t dim, bool largest, bool sorted, at::Tensor & values, at::Tensor & indices);
   static ::std::tuple<at::Tensor &,at::Tensor &> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, c10::SymInt k, int64_t dim, bool largest, bool sorted, at::Tensor & values, at::Tensor & indices);
 };
@@ -29,9 +29,9 @@ struct TORCH_API topk {
   using schema = ::std::tuple<at::Tensor,at::Tensor> (const at::Tensor &, c10::SymInt, int64_t, bool, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::topk")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "topk(Tensor self, SymInt k, int dim=-1, bool largest=True, bool sorted=True) -> (Tensor values, Tensor indices)")
+  static constexpr const char* name = "aten::topk";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "topk(Tensor self, SymInt k, int dim=-1, bool largest=True, bool sorted=True) -> (Tensor values, Tensor indices)";
   static ::std::tuple<at::Tensor,at::Tensor> call(const at::Tensor & self, c10::SymInt k, int64_t dim, bool largest, bool sorted);
   static ::std::tuple<at::Tensor,at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, c10::SymInt k, int64_t dim, bool largest, bool sorted);
 };

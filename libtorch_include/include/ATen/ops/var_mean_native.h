@@ -20,6 +20,7 @@ TORCH_API ::std::tuple<at::Tensor,at::Tensor> var_mean(const at::Tensor & self, 
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> var_mean(const at::Tensor & self, at::OptionalIntArrayRef dim, bool unbiased=true, bool keepdim=false);
 TORCH_API ::std::tuple<at::Tensor &,at::Tensor &> var_mean_correction_out(const at::Tensor & self, at::OptionalIntArrayRef dim, const ::std::optional<at::Scalar> & correction, bool keepdim, at::Tensor & out0, at::Tensor & out1);
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> var_mean(const at::Tensor & self, at::OptionalIntArrayRef dim=::std::nullopt, const ::std::optional<at::Scalar> & correction=::std::nullopt, bool keepdim=false);
+TORCH_API ::std::tuple<at::Tensor,at::Tensor> var_mean_mps(const at::Tensor & self, at::OptionalIntArrayRef dim=::std::nullopt, const ::std::optional<at::Scalar> & correction=::std::nullopt, bool keepdim=false);
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> var_mean(const at::Tensor & self, at::DimnameList dim, bool unbiased=true, bool keepdim=false);
 TORCH_API ::std::tuple<at::Tensor,at::Tensor> var_mean(const at::Tensor & self, at::DimnameList dim, const ::std::optional<at::Scalar> & correction=::std::nullopt, bool keepdim=false);
 } // namespace native

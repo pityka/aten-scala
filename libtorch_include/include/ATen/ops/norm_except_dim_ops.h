@@ -18,9 +18,9 @@ struct TORCH_API norm_except_dim {
   using schema = at::Tensor (const at::Tensor &, int64_t, int64_t);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::norm_except_dim")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "norm_except_dim(Tensor v, int pow=2, int dim=0) -> Tensor")
+  static constexpr const char* name = "aten::norm_except_dim";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "norm_except_dim(Tensor v, int pow=2, int dim=0) -> Tensor";
   static at::Tensor call(const at::Tensor & v, int64_t pow, int64_t dim);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & v, int64_t pow, int64_t dim);
 };

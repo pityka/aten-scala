@@ -18,9 +18,9 @@ struct TORCH_API chunk {
   using schema = ::std::vector<at::Tensor> (const at::Tensor &, int64_t, int64_t);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::chunk")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "chunk(Tensor(a -> *) self, int chunks, int dim=0) -> Tensor(a)[]")
+  static constexpr const char* name = "aten::chunk";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "chunk(Tensor(a -> *) self, int chunks, int dim=0) -> Tensor(a)[]";
   static ::std::vector<at::Tensor> call(const at::Tensor & self, int64_t chunks, int64_t dim);
   static ::std::vector<at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t chunks, int64_t dim);
 };

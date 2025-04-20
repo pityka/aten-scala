@@ -18,9 +18,9 @@ struct TORCH_API _cudnn_init_dropout_state {
   using schema = at::Tensor (double, bool, int64_t, ::std::optional<at::ScalarType>, ::std::optional<at::Layout>, ::std::optional<at::Device>, ::std::optional<bool>);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_cudnn_init_dropout_state")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_cudnn_init_dropout_state(float dropout, bool train, int dropout_seed, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=False) -> Tensor")
+  static constexpr const char* name = "aten::_cudnn_init_dropout_state";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "_cudnn_init_dropout_state(float dropout, bool train, int dropout_seed, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=False) -> Tensor";
   static at::Tensor call(double dropout, bool train, int64_t dropout_seed, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, double dropout, bool train, int64_t dropout_seed, ::std::optional<at::ScalarType> dtype, ::std::optional<at::Layout> layout, ::std::optional<at::Device> device, ::std::optional<bool> pin_memory);
 };
@@ -29,9 +29,9 @@ struct TORCH_API _cudnn_init_dropout_state_out {
   using schema = at::Tensor & (double, bool, int64_t, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_cudnn_init_dropout_state")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_cudnn_init_dropout_state.out(float dropout, bool train, int dropout_seed, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::_cudnn_init_dropout_state";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "_cudnn_init_dropout_state.out(float dropout, bool train, int dropout_seed, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(double dropout, bool train, int64_t dropout_seed, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, double dropout, bool train, int64_t dropout_seed, at::Tensor & out);
 };

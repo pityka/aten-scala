@@ -18,9 +18,9 @@ struct TORCH_API frobenius_norm_dim {
   using schema = at::Tensor (const at::Tensor &, at::IntArrayRef, bool);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::frobenius_norm")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "dim")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "frobenius_norm.dim(Tensor self, int[1] dim, bool keepdim=False) -> Tensor")
+  static constexpr const char* name = "aten::frobenius_norm";
+  static constexpr const char* overload_name = "dim";
+  static constexpr const char* schema_str = "frobenius_norm.dim(Tensor self, int[1] dim, bool keepdim=False) -> Tensor";
   static at::Tensor call(const at::Tensor & self, at::IntArrayRef dim, bool keepdim);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::IntArrayRef dim, bool keepdim);
 };
@@ -29,9 +29,9 @@ struct TORCH_API frobenius_norm_out {
   using schema = at::Tensor & (const at::Tensor &, at::IntArrayRef, bool, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::frobenius_norm")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "frobenius_norm.out(Tensor self, int[1] dim, bool keepdim=False, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::frobenius_norm";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "frobenius_norm.out(Tensor self, int[1] dim, bool keepdim=False, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, at::IntArrayRef dim, bool keepdim, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::IntArrayRef dim, bool keepdim, at::Tensor & out);
 };

@@ -18,9 +18,9 @@ struct TORCH_API _functional_sym_constrain_range_for_size {
   using schema = at::Tensor (const at::Scalar &, ::std::optional<int64_t>, ::std::optional<int64_t>, const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::_functional_sym_constrain_range_for_size")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "_functional_sym_constrain_range_for_size(Scalar size, int? min, int? max, Tensor dep_token) -> Tensor")
+  static constexpr const char* name = "aten::_functional_sym_constrain_range_for_size";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "_functional_sym_constrain_range_for_size(Scalar size, int? min, int? max, Tensor dep_token) -> Tensor";
   static at::Tensor call(const at::Scalar & size, ::std::optional<int64_t> min, ::std::optional<int64_t> max, const at::Tensor & dep_token);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Scalar & size, ::std::optional<int64_t> min, ::std::optional<int64_t> max, const at::Tensor & dep_token);
 };

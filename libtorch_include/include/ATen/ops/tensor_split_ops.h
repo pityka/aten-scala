@@ -18,9 +18,9 @@ struct TORCH_API tensor_split_sections {
   using schema = ::std::vector<at::Tensor> (const at::Tensor &, c10::SymInt, int64_t);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::tensor_split")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "sections")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "tensor_split.sections(Tensor(a -> *) self, SymInt sections, int dim=0) -> Tensor(a)[]")
+  static constexpr const char* name = "aten::tensor_split";
+  static constexpr const char* overload_name = "sections";
+  static constexpr const char* schema_str = "tensor_split.sections(Tensor(a -> *) self, SymInt sections, int dim=0) -> Tensor(a)[]";
   static ::std::vector<at::Tensor> call(const at::Tensor & self, c10::SymInt sections, int64_t dim);
   static ::std::vector<at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, c10::SymInt sections, int64_t dim);
 };
@@ -29,9 +29,9 @@ struct TORCH_API tensor_split_indices {
   using schema = ::std::vector<at::Tensor> (const at::Tensor &, c10::SymIntArrayRef, int64_t);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::tensor_split")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "indices")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "tensor_split.indices(Tensor(a -> *) self, SymInt[] indices, int dim=0) -> Tensor(a)[]")
+  static constexpr const char* name = "aten::tensor_split";
+  static constexpr const char* overload_name = "indices";
+  static constexpr const char* schema_str = "tensor_split.indices(Tensor(a -> *) self, SymInt[] indices, int dim=0) -> Tensor(a)[]";
   static ::std::vector<at::Tensor> call(const at::Tensor & self, c10::SymIntArrayRef indices, int64_t dim);
   static ::std::vector<at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, c10::SymIntArrayRef indices, int64_t dim);
 };
@@ -40,9 +40,9 @@ struct TORCH_API tensor_split_tensor_indices_or_sections {
   using schema = ::std::vector<at::Tensor> (const at::Tensor &, const at::Tensor &, int64_t);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::tensor_split")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "tensor_indices_or_sections")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "tensor_split.tensor_indices_or_sections(Tensor(a -> *) self, Tensor tensor_indices_or_sections, int dim=0) -> Tensor(a)[]")
+  static constexpr const char* name = "aten::tensor_split";
+  static constexpr const char* overload_name = "tensor_indices_or_sections";
+  static constexpr const char* schema_str = "tensor_split.tensor_indices_or_sections(Tensor(a -> *) self, Tensor tensor_indices_or_sections, int dim=0) -> Tensor(a)[]";
   static ::std::vector<at::Tensor> call(const at::Tensor & self, const at::Tensor & tensor_indices_or_sections, int64_t dim);
   static ::std::vector<at::Tensor> redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & tensor_indices_or_sections, int64_t dim);
 };

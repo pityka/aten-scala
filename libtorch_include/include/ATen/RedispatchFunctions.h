@@ -192,14 +192,14 @@ namespace redispatch {
         return at::_ops::_functional_assert_async_msg::redispatch(dispatchKeySet, self, assert_msg, dep_token);
     }
     
-    // aten::_assert_tensor_metadata(Tensor a, SymInt[]? size=None, SymInt[]? stride=None, ScalarType? dtype=None) -> ()
-    inline void _assert_tensor_metadata(c10::DispatchKeySet dispatchKeySet, const at::Tensor & a, at::OptionalIntArrayRef size=::std::nullopt, at::OptionalIntArrayRef stride=::std::nullopt, ::std::optional<at::ScalarType> dtype=::std::nullopt) {
-        return at::_ops::_assert_tensor_metadata::redispatch(dispatchKeySet, a, size.has_value() ? ::std::make_optional(c10::fromIntArrayRefSlow(*size)) : ::std::nullopt, stride.has_value() ? ::std::make_optional(c10::fromIntArrayRefSlow(*stride)) : ::std::nullopt, dtype);
+    // aten::_assert_tensor_metadata(Tensor a, SymInt[]? size=None, SymInt[]? stride=None, ScalarType? dtype=None, *, Device? device=None, Layout? layout=None) -> ()
+    inline void _assert_tensor_metadata(c10::DispatchKeySet dispatchKeySet, const at::Tensor & a, at::OptionalIntArrayRef size=::std::nullopt, at::OptionalIntArrayRef stride=::std::nullopt, ::std::optional<at::ScalarType> dtype=::std::nullopt, ::std::optional<at::Device> device=::std::nullopt, ::std::optional<at::Layout> layout=::std::nullopt) {
+        return at::_ops::_assert_tensor_metadata::redispatch(dispatchKeySet, a, size.has_value() ? ::std::make_optional(c10::fromIntArrayRefSlow(*size)) : ::std::nullopt, stride.has_value() ? ::std::make_optional(c10::fromIntArrayRefSlow(*stride)) : ::std::nullopt, dtype, device, layout);
     }
     
-    // aten::_assert_tensor_metadata(Tensor a, SymInt[]? size=None, SymInt[]? stride=None, ScalarType? dtype=None) -> ()
-    inline void _assert_tensor_metadata_symint(c10::DispatchKeySet dispatchKeySet, const at::Tensor & a, at::OptionalSymIntArrayRef size=::std::nullopt, at::OptionalSymIntArrayRef stride=::std::nullopt, ::std::optional<at::ScalarType> dtype=::std::nullopt) {
-        return at::_ops::_assert_tensor_metadata::redispatch(dispatchKeySet, a, size, stride, dtype);
+    // aten::_assert_tensor_metadata(Tensor a, SymInt[]? size=None, SymInt[]? stride=None, ScalarType? dtype=None, *, Device? device=None, Layout? layout=None) -> ()
+    inline void _assert_tensor_metadata_symint(c10::DispatchKeySet dispatchKeySet, const at::Tensor & a, at::OptionalSymIntArrayRef size=::std::nullopt, at::OptionalSymIntArrayRef stride=::std::nullopt, ::std::optional<at::ScalarType> dtype=::std::nullopt, ::std::optional<at::Device> device=::std::nullopt, ::std::optional<at::Layout> layout=::std::nullopt) {
+        return at::_ops::_assert_tensor_metadata::redispatch(dispatchKeySet, a, size, stride, dtype, device, layout);
     }
     
     // aten::_print(str s) -> ()
@@ -4087,8 +4087,13 @@ namespace redispatch {
         return at::_ops::native_layer_norm_backward::redispatch(dispatchKeySet, grad_out, input, normalized_shape, mean, rstd, weight, bias, output_mask);
     }
     
-    // aten::rms_norm(Tensor input, int[] normalized_shape, Tensor? weight=None, float? eps=None) -> Tensor
+    // aten::rms_norm(Tensor input, SymInt[] normalized_shape, Tensor? weight=None, float? eps=None) -> Tensor
     inline at::Tensor rms_norm(c10::DispatchKeySet dispatchKeySet, const at::Tensor & input, at::IntArrayRef normalized_shape, const ::std::optional<at::Tensor> & weight={}, ::std::optional<double> eps=::std::nullopt) {
+        return at::_ops::rms_norm::redispatch(dispatchKeySet, input, c10::fromIntArrayRefSlow(normalized_shape), weight, eps);
+    }
+    
+    // aten::rms_norm(Tensor input, SymInt[] normalized_shape, Tensor? weight=None, float? eps=None) -> Tensor
+    inline at::Tensor rms_norm_symint(c10::DispatchKeySet dispatchKeySet, const at::Tensor & input, c10::SymIntArrayRef normalized_shape, const ::std::optional<at::Tensor> & weight={}, ::std::optional<double> eps=::std::nullopt) {
         return at::_ops::rms_norm::redispatch(dispatchKeySet, input, normalized_shape, weight, eps);
     }
     
@@ -4157,9 +4162,9 @@ namespace redispatch {
         return at::_ops::_cslt_compress::redispatch(dispatchKeySet, input);
     }
     
-    // aten::_cslt_sparse_mm(Tensor compressed_A, Tensor dense_B, Tensor? bias=None, Tensor? alpha=None, ScalarType? out_dtype=None, bool transpose_result=False, int alg_id=0) -> Tensor
-    inline at::Tensor _cslt_sparse_mm(c10::DispatchKeySet dispatchKeySet, const at::Tensor & compressed_A, const at::Tensor & dense_B, const ::std::optional<at::Tensor> & bias={}, const ::std::optional<at::Tensor> & alpha={}, ::std::optional<at::ScalarType> out_dtype=::std::nullopt, bool transpose_result=false, int64_t alg_id=0) {
-        return at::_ops::_cslt_sparse_mm::redispatch(dispatchKeySet, compressed_A, dense_B, bias, alpha, out_dtype, transpose_result, alg_id);
+    // aten::_cslt_sparse_mm(Tensor compressed_A, Tensor dense_B, Tensor? bias=None, Tensor? alpha=None, ScalarType? out_dtype=None, bool transpose_result=False, int alg_id=0, int split_k=1, bool split_k_one_kernel=True) -> Tensor
+    inline at::Tensor _cslt_sparse_mm(c10::DispatchKeySet dispatchKeySet, const at::Tensor & compressed_A, const at::Tensor & dense_B, const ::std::optional<at::Tensor> & bias={}, const ::std::optional<at::Tensor> & alpha={}, ::std::optional<at::ScalarType> out_dtype=::std::nullopt, bool transpose_result=false, int64_t alg_id=0, int64_t split_k=1, bool split_k_one_kernel=true) {
+        return at::_ops::_cslt_sparse_mm::redispatch(dispatchKeySet, compressed_A, dense_B, bias, alpha, out_dtype, transpose_result, alg_id, split_k, split_k_one_kernel);
     }
     
     // aten::_cslt_sparse_mm_search(Tensor compressed_A, Tensor dense_B, Tensor? bias=None, Tensor? alpha=None, ScalarType? out_dtype=None, bool transpose_result=False) -> int
@@ -5250,6 +5255,16 @@ namespace redispatch {
     // aten::_weight_int4pack_mm(Tensor self, Tensor mat2, int qGroupSize, Tensor qScaleAndZeros) -> Tensor
     inline at::Tensor _weight_int4pack_mm(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & mat2, int64_t qGroupSize, const at::Tensor & qScaleAndZeros) {
         return at::_ops::_weight_int4pack_mm::redispatch(dispatchKeySet, self, mat2, qGroupSize, qScaleAndZeros);
+    }
+    
+    // aten::_convert_weight_to_int4pack_for_cpu(Tensor self, int innerKTiles) -> Tensor
+    inline at::Tensor _convert_weight_to_int4pack_for_cpu(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t innerKTiles) {
+        return at::_ops::_convert_weight_to_int4pack_for_cpu::redispatch(dispatchKeySet, self, innerKTiles);
+    }
+    
+    // aten::_weight_int4pack_mm_for_cpu(Tensor self, Tensor mat2, int qGroupSize, Tensor qScaleAndZeros) -> Tensor
+    inline at::Tensor _weight_int4pack_mm_for_cpu(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & mat2, int64_t qGroupSize, const at::Tensor & qScaleAndZeros) {
+        return at::_ops::_weight_int4pack_mm_for_cpu::redispatch(dispatchKeySet, self, mat2, qGroupSize, qScaleAndZeros);
     }
     
     // aten::_weight_int8pack_mm(Tensor self, Tensor mat2, Tensor scales) -> Tensor
@@ -12927,6 +12942,16 @@ namespace redispatch {
         return at::_ops::_foreach_lerp__Scalar::redispatch(dispatchKeySet, self, tensors1, weight);
     }
     
+    // aten::_foreach_lerp.ScalarList(Tensor[] self, Tensor[] tensors1, Scalar[] weight) -> Tensor[]
+    inline ::std::vector<at::Tensor> _foreach_lerp(c10::DispatchKeySet dispatchKeySet, at::TensorList self, at::TensorList tensors1, at::ArrayRef<at::Scalar> weight) {
+        return at::_ops::_foreach_lerp_ScalarList::redispatch(dispatchKeySet, self, tensors1, weight);
+    }
+    
+    // aten::_foreach_lerp_.ScalarList(Tensor(a!)[] self, Tensor[] tensors1, Scalar[] weight) -> ()
+    inline void _foreach_lerp_(c10::DispatchKeySet dispatchKeySet, at::TensorList self, at::TensorList tensors1, at::ArrayRef<at::Scalar> weight) {
+        return at::_ops::_foreach_lerp__ScalarList::redispatch(dispatchKeySet, self, tensors1, weight);
+    }
+    
     // aten::_foreach_lgamma(Tensor[] self) -> Tensor[]
     inline ::std::vector<at::Tensor> _foreach_lgamma(c10::DispatchKeySet dispatchKeySet, at::TensorList self) {
         return at::_ops::_foreach_lgamma::redispatch(dispatchKeySet, self);
@@ -13050,6 +13075,16 @@ namespace redispatch {
     // aten::_foreach_round_(Tensor(a!)[] self) -> ()
     inline void _foreach_round_(c10::DispatchKeySet dispatchKeySet, at::TensorList self) {
         return at::_ops::_foreach_round_::redispatch(dispatchKeySet, self);
+    }
+    
+    // aten::_foreach_rsqrt(Tensor[] self) -> Tensor[]
+    inline ::std::vector<at::Tensor> _foreach_rsqrt(c10::DispatchKeySet dispatchKeySet, at::TensorList self) {
+        return at::_ops::_foreach_rsqrt::redispatch(dispatchKeySet, self);
+    }
+    
+    // aten::_foreach_rsqrt_(Tensor(a!)[] self) -> ()
+    inline void _foreach_rsqrt_(c10::DispatchKeySet dispatchKeySet, at::TensorList self) {
+        return at::_ops::_foreach_rsqrt_::redispatch(dispatchKeySet, self);
     }
     
     // aten::_foreach_sigmoid(Tensor[] self) -> Tensor[]
@@ -13867,18 +13902,18 @@ namespace redispatch {
         return at::_ops::log_sigmoid_backward::redispatch(dispatchKeySet, grad_output, self, buffer);
     }
     
-    // aten::rrelu_with_noise.out(Tensor self, Tensor noise, Scalar lower=0.125, Scalar upper=0.3333333333333333, bool training=False, Generator? generator=None, *, Tensor(a!) out) -> Tensor(a!)
-    inline at::Tensor & rrelu_with_noise_out(c10::DispatchKeySet dispatchKeySet, at::Tensor & out, const at::Tensor & self, const at::Tensor & noise, const at::Scalar & lower=0.125, const at::Scalar & upper=0.3333333333333333, bool training=false, ::std::optional<at::Generator> generator=::std::nullopt) {
+    // aten::rrelu_with_noise.out(Tensor self, Tensor(b!) noise, Scalar lower=0.125, Scalar upper=0.3333333333333333, bool training=False, Generator? generator=None, *, Tensor(a!) out) -> Tensor(a!)
+    inline at::Tensor & rrelu_with_noise_out(c10::DispatchKeySet dispatchKeySet, at::Tensor & out, const at::Tensor & self, at::Tensor & noise, const at::Scalar & lower=0.125, const at::Scalar & upper=0.3333333333333333, bool training=false, ::std::optional<at::Generator> generator=::std::nullopt) {
         return at::_ops::rrelu_with_noise_out::redispatch(dispatchKeySet, self, noise, lower, upper, training, generator, out);
     }
     
-    // aten::rrelu_with_noise.out(Tensor self, Tensor noise, Scalar lower=0.125, Scalar upper=0.3333333333333333, bool training=False, Generator? generator=None, *, Tensor(a!) out) -> Tensor(a!)
-    inline at::Tensor & rrelu_with_noise_outf(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & noise, const at::Scalar & lower, const at::Scalar & upper, bool training, ::std::optional<at::Generator> generator, at::Tensor & out) {
+    // aten::rrelu_with_noise.out(Tensor self, Tensor(b!) noise, Scalar lower=0.125, Scalar upper=0.3333333333333333, bool training=False, Generator? generator=None, *, Tensor(a!) out) -> Tensor(a!)
+    inline at::Tensor & rrelu_with_noise_outf(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::Tensor & noise, const at::Scalar & lower, const at::Scalar & upper, bool training, ::std::optional<at::Generator> generator, at::Tensor & out) {
         return at::_ops::rrelu_with_noise_out::redispatch(dispatchKeySet, self, noise, lower, upper, training, generator, out);
     }
     
-    // aten::rrelu_with_noise(Tensor self, Tensor noise, Scalar lower=0.125, Scalar upper=0.3333333333333333, bool training=False, Generator? generator=None) -> Tensor
-    inline at::Tensor rrelu_with_noise(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & noise, const at::Scalar & lower=0.125, const at::Scalar & upper=0.3333333333333333, bool training=false, ::std::optional<at::Generator> generator=::std::nullopt) {
+    // aten::rrelu_with_noise(Tensor self, Tensor(b!) noise, Scalar lower=0.125, Scalar upper=0.3333333333333333, bool training=False, Generator? generator=None) -> Tensor
+    inline at::Tensor rrelu_with_noise(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::Tensor & noise, const at::Scalar & lower=0.125, const at::Scalar & upper=0.3333333333333333, bool training=false, ::std::optional<at::Generator> generator=::std::nullopt) {
         return at::_ops::rrelu_with_noise::redispatch(dispatchKeySet, self, noise, lower, upper, training, generator);
     }
     
@@ -13887,8 +13922,8 @@ namespace redispatch {
         return at::_ops::rrelu_with_noise_backward::redispatch(dispatchKeySet, grad_output, self, noise, lower, upper, training, self_is_result);
     }
     
-    // aten::rrelu_with_noise_(Tensor(a!) self, Tensor noise, Scalar lower=0.125, Scalar upper=0.3333333333333333, bool training=False, Generator? generator=None) -> Tensor(a!)
-    inline at::Tensor & rrelu_with_noise_(c10::DispatchKeySet dispatchKeySet, at::Tensor & self, const at::Tensor & noise, const at::Scalar & lower=0.125, const at::Scalar & upper=0.3333333333333333, bool training=false, ::std::optional<at::Generator> generator=::std::nullopt) {
+    // aten::rrelu_with_noise_(Tensor(a!) self, Tensor(b!) noise, Scalar lower=0.125, Scalar upper=0.3333333333333333, bool training=False, Generator? generator=None) -> Tensor(a!)
+    inline at::Tensor & rrelu_with_noise_(c10::DispatchKeySet dispatchKeySet, at::Tensor & self, at::Tensor & noise, const at::Scalar & lower=0.125, const at::Scalar & upper=0.3333333333333333, bool training=false, ::std::optional<at::Generator> generator=::std::nullopt) {
         return at::_ops::rrelu_with_noise_::redispatch(dispatchKeySet, self, noise, lower, upper, training, generator);
     }
     
@@ -16027,8 +16062,13 @@ namespace redispatch {
         return at::_ops::_add_batch_dim::redispatch(dispatchKeySet, self, batch_dim, level);
     }
     
-    // aten::_remove_batch_dim(Tensor self, int level, int batch_size, int out_dim) -> Tensor
+    // aten::_remove_batch_dim(Tensor self, int level, SymInt batch_size, int out_dim) -> Tensor
     inline at::Tensor _remove_batch_dim(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t level, int64_t batch_size, int64_t out_dim) {
+        return at::_ops::_remove_batch_dim::redispatch(dispatchKeySet, self, level, batch_size, out_dim);
+    }
+    
+    // aten::_remove_batch_dim(Tensor self, int level, SymInt batch_size, int out_dim) -> Tensor
+    inline at::Tensor _remove_batch_dim_symint(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, int64_t level, c10::SymInt batch_size, int64_t out_dim) {
         return at::_ops::_remove_batch_dim::redispatch(dispatchKeySet, self, level, batch_size, out_dim);
     }
     
@@ -18437,6 +18477,16 @@ namespace redispatch {
         return at::_ops::_padded_dense_to_jagged_forward::redispatch(dispatchKeySet, dense, offsets, total_L);
     }
     
+    // aten::_nested_from_padded_tensor(Tensor padded, Tensor offsets, Tensor dummy, int ragged_idx=1, Tensor? min_seqlen=None, Tensor? max_seqlen=None, SymInt? sum_S=None) -> Tensor
+    inline at::Tensor _nested_from_padded_tensor(c10::DispatchKeySet dispatchKeySet, const at::Tensor & padded, const at::Tensor & offsets, const at::Tensor & dummy, int64_t ragged_idx=1, const ::std::optional<at::Tensor> & min_seqlen={}, const ::std::optional<at::Tensor> & max_seqlen={}, ::std::optional<int64_t> sum_S=::std::nullopt) {
+        return at::_ops::_nested_from_padded_tensor::redispatch(dispatchKeySet, padded, offsets, dummy, ragged_idx, min_seqlen, max_seqlen, sum_S.has_value() ? ::std::make_optional(c10::SymInt(*sum_S)) : ::std::nullopt);
+    }
+    
+    // aten::_nested_from_padded_tensor(Tensor padded, Tensor offsets, Tensor dummy, int ragged_idx=1, Tensor? min_seqlen=None, Tensor? max_seqlen=None, SymInt? sum_S=None) -> Tensor
+    inline at::Tensor _nested_from_padded_tensor_symint(c10::DispatchKeySet dispatchKeySet, const at::Tensor & padded, const at::Tensor & offsets, const at::Tensor & dummy, int64_t ragged_idx=1, const ::std::optional<at::Tensor> & min_seqlen={}, const ::std::optional<at::Tensor> & max_seqlen={}, ::std::optional<c10::SymInt> sum_S=::std::nullopt) {
+        return at::_ops::_nested_from_padded_tensor::redispatch(dispatchKeySet, padded, offsets, dummy, ragged_idx, min_seqlen, max_seqlen, sum_S);
+    }
+    
     // aten::_nested_tensor_softmax_with_shape(Tensor self, Tensor query) -> Tensor
     inline at::Tensor _nested_tensor_softmax_with_shape(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & query) {
         return at::_ops::_nested_tensor_softmax_with_shape::redispatch(dispatchKeySet, self, query);
@@ -19500,6 +19550,26 @@ namespace redispatch {
     // aten::_conj_physical.out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)
     inline at::Tensor & _conj_physical_outf(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::Tensor & out) {
         return at::_ops::_conj_physical_out::redispatch(dispatchKeySet, self, out);
+    }
+    
+    // aten::avg_pool1d.out(Tensor self, int[1] kernel_size, int[1] stride=[], int[1] padding=0, bool ceil_mode=False, bool count_include_pad=True, *, Tensor(a!) out) -> Tensor(a!)
+    inline at::Tensor & avg_pool1d_out(c10::DispatchKeySet dispatchKeySet, at::Tensor & out, const at::Tensor & self, at::IntArrayRef kernel_size, at::IntArrayRef stride={}, at::IntArrayRef padding=0, bool ceil_mode=false, bool count_include_pad=true) {
+        return at::_ops::avg_pool1d_out::redispatch(dispatchKeySet, self, kernel_size, stride, padding, ceil_mode, count_include_pad, out);
+    }
+    
+    // aten::avg_pool1d.out(Tensor self, int[1] kernel_size, int[1] stride=[], int[1] padding=0, bool ceil_mode=False, bool count_include_pad=True, *, Tensor(a!) out) -> Tensor(a!)
+    inline at::Tensor & avg_pool1d_outf(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::IntArrayRef kernel_size, at::IntArrayRef stride, at::IntArrayRef padding, bool ceil_mode, bool count_include_pad, at::Tensor & out) {
+        return at::_ops::avg_pool1d_out::redispatch(dispatchKeySet, self, kernel_size, stride, padding, ceil_mode, count_include_pad, out);
+    }
+    
+    // aten::adaptive_avg_pool1d.out(Tensor self, int[1] output_size, *, Tensor(a!) out) -> Tensor(a!)
+    inline at::Tensor & adaptive_avg_pool1d_out(c10::DispatchKeySet dispatchKeySet, at::Tensor & out, const at::Tensor & self, at::IntArrayRef output_size) {
+        return at::_ops::adaptive_avg_pool1d_out::redispatch(dispatchKeySet, self, output_size, out);
+    }
+    
+    // aten::adaptive_avg_pool1d.out(Tensor self, int[1] output_size, *, Tensor(a!) out) -> Tensor(a!)
+    inline at::Tensor & adaptive_avg_pool1d_outf(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::IntArrayRef output_size, at::Tensor & out) {
+        return at::_ops::adaptive_avg_pool1d_out::redispatch(dispatchKeySet, self, output_size, out);
     }
     
     // aten::_add_relu.Scalar_out(Tensor self, Scalar other, Scalar alpha=1, *, Tensor(a!) out) -> Tensor(a!)
@@ -23902,6 +23972,16 @@ namespace redispatch {
         return at::_ops::_foreach_lerp_Scalar_out::redispatch(dispatchKeySet, self, tensors1, weight, out);
     }
     
+    // aten::_foreach_lerp.ScalarList_out(Tensor[] self, Tensor[] tensors1, Scalar[] weight, *, Tensor(a!)[] out) -> ()
+    inline void _foreach_lerp_out(c10::DispatchKeySet dispatchKeySet, at::TensorList out, at::TensorList self, at::TensorList tensors1, at::ArrayRef<at::Scalar> weight) {
+        return at::_ops::_foreach_lerp_ScalarList_out::redispatch(dispatchKeySet, self, tensors1, weight, out);
+    }
+    
+    // aten::_foreach_lerp.ScalarList_out(Tensor[] self, Tensor[] tensors1, Scalar[] weight, *, Tensor(a!)[] out) -> ()
+    inline void _foreach_lerp_outf(c10::DispatchKeySet dispatchKeySet, at::TensorList self, at::TensorList tensors1, at::ArrayRef<at::Scalar> weight, at::TensorList out) {
+        return at::_ops::_foreach_lerp_ScalarList_out::redispatch(dispatchKeySet, self, tensors1, weight, out);
+    }
+    
     // aten::_foreach_lgamma.out(Tensor[] self, *, Tensor(a!)[] out) -> ()
     inline void _foreach_lgamma_out(c10::DispatchKeySet dispatchKeySet, at::TensorList out, at::TensorList self) {
         return at::_ops::_foreach_lgamma_out::redispatch(dispatchKeySet, self, out);
@@ -24030,6 +24110,16 @@ namespace redispatch {
     // aten::_foreach_round.out(Tensor[] self, *, Tensor(a!)[] out) -> ()
     inline void _foreach_round_outf(c10::DispatchKeySet dispatchKeySet, at::TensorList self, at::TensorList out) {
         return at::_ops::_foreach_round_out::redispatch(dispatchKeySet, self, out);
+    }
+    
+    // aten::_foreach_rsqrt.out(Tensor[] self, *, Tensor(a!)[] out) -> ()
+    inline void _foreach_rsqrt_out(c10::DispatchKeySet dispatchKeySet, at::TensorList out, at::TensorList self) {
+        return at::_ops::_foreach_rsqrt_out::redispatch(dispatchKeySet, self, out);
+    }
+    
+    // aten::_foreach_rsqrt.out(Tensor[] self, *, Tensor(a!)[] out) -> ()
+    inline void _foreach_rsqrt_outf(c10::DispatchKeySet dispatchKeySet, at::TensorList self, at::TensorList out) {
+        return at::_ops::_foreach_rsqrt_out::redispatch(dispatchKeySet, self, out);
     }
     
     // aten::_foreach_sigmoid.out(Tensor[] self, *, Tensor(a!)[] out) -> ()
@@ -24177,6 +24267,11 @@ namespace redispatch {
         return at::_ops::hardswish_backward_out::redispatch(dispatchKeySet, grad_output, self, out);
     }
     
+    // aten::rrelu_with_noise_functional(Tensor self, Tensor noise, Scalar lower=0.125, Scalar upper=0.3333333333333333, bool training=False, Generator? generator=None) -> (Tensor, Tensor noise_out)
+    inline ::std::tuple<at::Tensor,at::Tensor> rrelu_with_noise_functional(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, const at::Tensor & noise, const at::Scalar & lower=0.125, const at::Scalar & upper=0.3333333333333333, bool training=false, ::std::optional<at::Generator> generator=::std::nullopt) {
+        return at::_ops::rrelu_with_noise_functional::redispatch(dispatchKeySet, self, noise, lower, upper, training, generator);
+    }
+    
     // aten::rrelu_with_noise_backward.out(Tensor grad_output, Tensor self, Tensor noise, Scalar lower, Scalar upper, bool training, bool self_is_result, *, Tensor(a!) out) -> Tensor(a!)
     inline at::Tensor & rrelu_with_noise_backward_out(c10::DispatchKeySet dispatchKeySet, at::Tensor & out, const at::Tensor & grad_output, const at::Tensor & self, const at::Tensor & noise, const at::Scalar & lower, const at::Scalar & upper, bool training, bool self_is_result) {
         return at::_ops::rrelu_with_noise_backward_out::redispatch(dispatchKeySet, grad_output, self, noise, lower, upper, training, self_is_result, out);
@@ -24255,6 +24350,46 @@ namespace redispatch {
     // aten::_adaptive_avg_pool3d_backward.out(Tensor grad_output, Tensor self, *, Tensor(a!) out) -> Tensor(a!)
     inline at::Tensor & _adaptive_avg_pool3d_backward_outf(c10::DispatchKeySet dispatchKeySet, const at::Tensor & grad_output, const at::Tensor & self, at::Tensor & out) {
         return at::_ops::_adaptive_avg_pool3d_backward_out::redispatch(dispatchKeySet, grad_output, self, out);
+    }
+    
+    // aten::upsample_bilinear2d.vec_out(Tensor input, SymInt[]? output_size, bool align_corners, float[]? scale_factors, *, Tensor(a!) out) -> Tensor(a!)
+    inline at::Tensor & upsample_bilinear2d_out(c10::DispatchKeySet dispatchKeySet, at::Tensor & out, const at::Tensor & input, at::OptionalIntArrayRef output_size, bool align_corners, ::std::optional<at::ArrayRef<double>> scale_factors) {
+        return at::_ops::upsample_bilinear2d_vec_out::redispatch(dispatchKeySet, input, output_size.has_value() ? ::std::make_optional(c10::fromIntArrayRefSlow(*output_size)) : ::std::nullopt, align_corners, scale_factors, out);
+    }
+    
+    // aten::upsample_bilinear2d.vec_out(Tensor input, SymInt[]? output_size, bool align_corners, float[]? scale_factors, *, Tensor(a!) out) -> Tensor(a!)
+    inline at::Tensor & upsample_bilinear2d_outf(c10::DispatchKeySet dispatchKeySet, const at::Tensor & input, at::OptionalIntArrayRef output_size, bool align_corners, ::std::optional<at::ArrayRef<double>> scale_factors, at::Tensor & out) {
+        return at::_ops::upsample_bilinear2d_vec_out::redispatch(dispatchKeySet, input, output_size.has_value() ? ::std::make_optional(c10::fromIntArrayRefSlow(*output_size)) : ::std::nullopt, align_corners, scale_factors, out);
+    }
+    
+    // aten::upsample_bilinear2d.vec_out(Tensor input, SymInt[]? output_size, bool align_corners, float[]? scale_factors, *, Tensor(a!) out) -> Tensor(a!)
+    inline at::Tensor & upsample_bilinear2d_symint_out(c10::DispatchKeySet dispatchKeySet, at::Tensor & out, const at::Tensor & input, at::OptionalSymIntArrayRef output_size, bool align_corners, ::std::optional<at::ArrayRef<double>> scale_factors) {
+        return at::_ops::upsample_bilinear2d_vec_out::redispatch(dispatchKeySet, input, output_size, align_corners, scale_factors, out);
+    }
+    
+    // aten::upsample_bilinear2d.vec_out(Tensor input, SymInt[]? output_size, bool align_corners, float[]? scale_factors, *, Tensor(a!) out) -> Tensor(a!)
+    inline at::Tensor & upsample_bilinear2d_symint_outf(c10::DispatchKeySet dispatchKeySet, const at::Tensor & input, at::OptionalSymIntArrayRef output_size, bool align_corners, ::std::optional<at::ArrayRef<double>> scale_factors, at::Tensor & out) {
+        return at::_ops::upsample_bilinear2d_vec_out::redispatch(dispatchKeySet, input, output_size, align_corners, scale_factors, out);
+    }
+    
+    // aten::upsample_nearest2d.vec_out(Tensor input, SymInt[]? output_size, float[]? scale_factors, *, Tensor(a!) out) -> Tensor(a!)
+    inline at::Tensor & upsample_nearest2d_out(c10::DispatchKeySet dispatchKeySet, at::Tensor & out, const at::Tensor & input, at::OptionalIntArrayRef output_size, ::std::optional<at::ArrayRef<double>> scale_factors) {
+        return at::_ops::upsample_nearest2d_vec_out::redispatch(dispatchKeySet, input, output_size.has_value() ? ::std::make_optional(c10::fromIntArrayRefSlow(*output_size)) : ::std::nullopt, scale_factors, out);
+    }
+    
+    // aten::upsample_nearest2d.vec_out(Tensor input, SymInt[]? output_size, float[]? scale_factors, *, Tensor(a!) out) -> Tensor(a!)
+    inline at::Tensor & upsample_nearest2d_outf(c10::DispatchKeySet dispatchKeySet, const at::Tensor & input, at::OptionalIntArrayRef output_size, ::std::optional<at::ArrayRef<double>> scale_factors, at::Tensor & out) {
+        return at::_ops::upsample_nearest2d_vec_out::redispatch(dispatchKeySet, input, output_size.has_value() ? ::std::make_optional(c10::fromIntArrayRefSlow(*output_size)) : ::std::nullopt, scale_factors, out);
+    }
+    
+    // aten::upsample_nearest2d.vec_out(Tensor input, SymInt[]? output_size, float[]? scale_factors, *, Tensor(a!) out) -> Tensor(a!)
+    inline at::Tensor & upsample_nearest2d_symint_out(c10::DispatchKeySet dispatchKeySet, at::Tensor & out, const at::Tensor & input, at::OptionalSymIntArrayRef output_size, ::std::optional<at::ArrayRef<double>> scale_factors) {
+        return at::_ops::upsample_nearest2d_vec_out::redispatch(dispatchKeySet, input, output_size, scale_factors, out);
+    }
+    
+    // aten::upsample_nearest2d.vec_out(Tensor input, SymInt[]? output_size, float[]? scale_factors, *, Tensor(a!) out) -> Tensor(a!)
+    inline at::Tensor & upsample_nearest2d_symint_outf(c10::DispatchKeySet dispatchKeySet, const at::Tensor & input, at::OptionalSymIntArrayRef output_size, ::std::optional<at::ArrayRef<double>> scale_factors, at::Tensor & out) {
+        return at::_ops::upsample_nearest2d_vec_out::redispatch(dispatchKeySet, input, output_size, scale_factors, out);
     }
     
     // aten::_slow_conv2d_backward.output_mask_out(Tensor grad_output, Tensor self, Tensor weight, SymInt[2] kernel_size, SymInt[2] stride, SymInt[2] padding, bool[3] output_mask, *, Tensor(a!) out0, Tensor(b!) out1, Tensor(c!) out2) -> (Tensor(a!), Tensor(b!), Tensor(c!))

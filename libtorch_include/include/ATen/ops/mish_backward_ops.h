@@ -18,9 +18,9 @@ struct TORCH_API mish_backward {
   using schema = at::Tensor (const at::Tensor &, const at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::mish_backward")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "mish_backward(Tensor grad_output, Tensor self) -> Tensor")
+  static constexpr const char* name = "aten::mish_backward";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "mish_backward(Tensor grad_output, Tensor self) -> Tensor";
   static at::Tensor call(const at::Tensor & grad_output, const at::Tensor & self);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & grad_output, const at::Tensor & self);
 };

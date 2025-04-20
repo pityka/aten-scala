@@ -18,9 +18,9 @@ struct TORCH_API mkldnn_adaptive_avg_pool2d {
   using schema = at::Tensor (const at::Tensor &, at::IntArrayRef);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::mkldnn_adaptive_avg_pool2d")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "mkldnn_adaptive_avg_pool2d(Tensor self, int[2] output_size) -> Tensor")
+  static constexpr const char* name = "aten::mkldnn_adaptive_avg_pool2d";
+  static constexpr const char* overload_name = "";
+  static constexpr const char* schema_str = "mkldnn_adaptive_avg_pool2d(Tensor self, int[2] output_size) -> Tensor";
   static at::Tensor call(const at::Tensor & self, at::IntArrayRef output_size);
   static at::Tensor redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::IntArrayRef output_size);
 };
@@ -29,9 +29,9 @@ struct TORCH_API mkldnn_adaptive_avg_pool2d_out {
   using schema = at::Tensor & (const at::Tensor &, at::IntArrayRef, at::Tensor &);
   using ptr_schema = schema*;
   // See Note [static constexpr char* members for windows NVCC]
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(name, "aten::mkldnn_adaptive_avg_pool2d")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(overload_name, "out")
-  STATIC_CONSTEXPR_STR_INL_EXCEPT_WIN_CUDA(schema_str, "mkldnn_adaptive_avg_pool2d.out(Tensor self, int[2] output_size, *, Tensor(a!) out) -> Tensor(a!)")
+  static constexpr const char* name = "aten::mkldnn_adaptive_avg_pool2d";
+  static constexpr const char* overload_name = "out";
+  static constexpr const char* schema_str = "mkldnn_adaptive_avg_pool2d.out(Tensor self, int[2] output_size, *, Tensor(a!) out) -> Tensor(a!)";
   static at::Tensor & call(const at::Tensor & self, at::IntArrayRef output_size, at::Tensor & out);
   static at::Tensor & redispatch(c10::DispatchKeySet dispatchKeySet, const at::Tensor & self, at::IntArrayRef output_size, at::Tensor & out);
 };
